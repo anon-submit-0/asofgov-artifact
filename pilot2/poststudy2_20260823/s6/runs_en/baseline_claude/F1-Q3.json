@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q3",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 该问题引用的治理图版本(v1)及其校准路由/时间绑定规则属于元数据治理层，无法从中推导出明确的业务计算逻辑来\"back-calculate\"积分；直接从业务表计算即可得到结果，治理表中的规则不构成可执行的积分重算逻辑。",
+ "sql": "REFUSE",
+ "prompt_sha256": "6789ad98df75c36c959aa90f9b4dca9740ccc8fee3c50e0a42002d8fdaf48d1a",
+ "prompt_chars": 5658,
+ "empty_response": false
+}

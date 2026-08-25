@@ -1,0 +1,142 @@
+{
+ "schema": "asofgov/tab_main_results.v2-pilot2",
+ "source": "figures/fig_data_pilot2.json",
+ "n_questions": 60,
+ "rows": [
+  {
+   "arm": "baseline_claude",
+   "class": "plain",
+   "errors": 36,
+   "rate": 0.6,
+   "ci95": [
+    0.4406779661016949,
+    0.746031746031746
+   ],
+   "elim": null,
+   "answered": 50,
+   "refused": 9,
+   "correct_refusals": 4,
+   "over_refusals": 5
+  },
+  {
+   "arm": "baseline_qwen",
+   "class": "plain",
+   "errors": 43,
+   "rate": 0.7166666666666667,
+   "ci95": [
+    0.6101694915254238,
+    0.8333333333333334
+   ],
+   "elim": 0.1111111111111111,
+   "answered": 49,
+   "refused": 11,
+   "correct_refusals": 4,
+   "over_refusals": 7
+  },
+  {
+   "arm": "baseline_deepseek",
+   "class": "plain",
+   "errors": 44,
+   "rate": 0.7333333333333333,
+   "ci95": [
+    0.5666666666666667,
+    0.8852459016393442
+   ],
+   "elim": 0.08333333333333333,
+   "answered": 35,
+   "refused": 25,
+   "correct_refusals": 6,
+   "over_refusals": 19
+  },
+  {
+   "arm": "baseline_minimax",
+   "class": "plain",
+   "errors": 46,
+   "rate": 0.7666666666666667,
+   "ci95": [
+    0.6271186440677966,
+    0.8983050847457628
+   ],
+   "elim": 0.05555555555555555,
+   "answered": 58,
+   "refused": 2,
+   "correct_refusals": 2,
+   "over_refusals": 0
+  },
+  {
+   "arm": "trivial_claude",
+   "class": "prompt",
+   "errors": 32,
+   "rate": 0.5333333333333333,
+   "ci95": [
+    0.4067796610169492,
+    0.6451612903225806
+   ],
+   "elim": 0.2222222222222222,
+   "answered": 49,
+   "refused": 9,
+   "correct_refusals": 6,
+   "over_refusals": 3
+  },
+  {
+   "arm": "trivial_v2",
+   "class": "prompt",
+   "errors": 35,
+   "rate": 0.5833333333333334,
+   "ci95": [
+    0.4827586206896552,
+    0.6935483870967742
+   ],
+   "elim": 0.16666666666666666,
+   "answered": 56,
+   "refused": 4,
+   "correct_refusals": 3,
+   "over_refusals": 1
+  },
+  {
+   "arm": "trivial_v3",
+   "class": "prompt",
+   "errors": 40,
+   "rate": 0.6666666666666666,
+   "ci95": [
+    0.5272727272727272,
+    0.8032786885245902
+   ],
+   "elim": 0.05555555555555555,
+   "answered": 57,
+   "refused": 1,
+   "correct_refusals": 1,
+   "over_refusals": 0
+  },
+  {
+   "arm": "governance_informed",
+   "class": "gov.",
+   "errors": 28,
+   "rate": 0.4666666666666667,
+   "ci95": [
+    0.2857142857142857,
+    0.639344262295082
+   ],
+   "elim": 0.3611111111111111,
+   "answered": 54,
+   "refused": 6,
+   "correct_refusals": 5,
+   "over_refusals": 1
+  },
+  {
+   "arm": "mechanism",
+   "class": "ours",
+   "errors": 0,
+   "rate": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "elim": 1.0,
+   "answered": 45,
+   "refused": 15,
+   "correct_refusals": 15,
+   "over_refusals": 0
+  }
+ ]
+}

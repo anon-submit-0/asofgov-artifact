@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q2",
+ "system": "baseline_deepseek",
+ "kind": "value",
+ "value": 69.0,
+ "verdict": "wrong_value",
+ "raw": "SELECT COALESCE(SUM(CASE WHEN ps.position <= 10 THEN ps.points ELSE 0 END), 0) AS total_points\nFROM main.drivers d\nJOIN main.results r ON d.driverId = r.driverId\nJOIN main.races rc ON r.raceId = rc.raceId\nJOIN main.points_scheme ps ON r.positionOrder = ps.position\nWHERE d.driverRef = 'button'\n  AND rc.year = 2009\n  AND rc.date < '2009-07-01'\n  AND ps.authored = TRUE\n  AND ps.scheme_id IN (\n    SELECT scheme_id FROM main.points_scheme \n    WHERE authored = TRUE \n    AND '2011-03-01' >= '2011-01-01'  -- 假设 scheme_id 为当前生效的口径\n    LIMIT 1\n  )",
+ "sql": "SELECT COALESCE(SUM(CASE WHEN ps.position <= 10 THEN ps.points ELSE 0 END), 0) AS total_points\nFROM main.drivers d\nJOIN main.results r ON d.driverId = r.driverId\nJOIN main.races rc ON r.raceId = rc.raceId\nJOIN main.points_scheme ps ON r.positionOrder = ps.position\nWHERE d.driverRef = 'button'\n  AND rc.year = 2009\n  AND rc.date < '2009-07-01'\n  AND ps.authored = TRUE\n  AND ps.scheme_id IN (\n    SELECT scheme_id FROM main.points_scheme \n    WHERE authored = TRUE \n    AND '2011-03-01' >= '2011-01-01'  -- 假设 scheme_id 为当前生效的口径\n    LIMIT 1\n  )",
+ "prompt_sha256": "488f5cead7250fe30962722e123e6159f96bd95ed60ea96ee7a9f86cd52eef9d",
+ "prompt_chars": 5509,
+ "empty_response": false
+}

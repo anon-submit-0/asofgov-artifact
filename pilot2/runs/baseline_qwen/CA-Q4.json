@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q4",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 9270.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM \"schools\" WHERE \"OpenDate\" <= '2000-09-01' AND (\"ClosedDate\" > '2000-09-01' OR \"ClosedDate\" IS NULL);\n```",
+ "sql": "SELECT COUNT(*) FROM \"schools\" WHERE \"OpenDate\" <= '2000-09-01' AND (\"ClosedDate\" > '2000-09-01' OR \"ClosedDate\" IS NULL)",
+ "prompt_sha256": "2e241e1f7fec53d3bec31443dedd3502f47a7bb14d644fbe61440ed9fdca9a15",
+ "prompt_chars": 5185,
+ "empty_response": false
+}

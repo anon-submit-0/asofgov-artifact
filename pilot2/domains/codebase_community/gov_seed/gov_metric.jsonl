@@ -1,0 +1,16 @@
+{"den_node": "code.posts", "domain": "codebase_community", "graph_version": "v1", "kind": "ratio", "metric_id": "code.accepted_rate", "num_node": "code.posts"}
+{"den_node": null, "domain": "codebase_community", "graph_version": "v1", "kind": "atomic", "metric_id": "code.monthly_votes", "num_node": "code.votes"}
+{"den_node": null, "domain": "codebase_community", "entity_node": "code.users", "graph_version": "v1", "kind": "report", "metric_id": "code.user_accepted_report", "num_node": "code.posts", "report_axis": "entity"}
+{"den_node": null, "domain": "codebase_community", "entity_node": "code.users", "graph_version": "v1", "kind": "report", "metric_id": "code.daily_questions", "num_node": "code.posts", "report_axis": "time"}
+{"den_node": null, "domain": "codebase_community", "graph_version": "v1", "kind": "attribute", "metric_id": "code.user_location", "num_node": "code.users"}
+{"den_node": null, "domain": "codebase_community", "entity_node": "code.users", "graph_version": "v1", "kind": "roster", "metric_id": "code.top_answerer_roster", "num_node": "code.posts"}
+{"den_node": "code.posts", "domain": "codebase_community", "graph_version": "v1", "kind": "ratio", "metric_id": "code.answer_accept_share", "num_node": "code.posts"}
+{"den_node": null, "domain": "codebase_community", "graph_version": "v1", "kind": "atomic", "metric_id": "code.monthly_badges", "num_node": "code.badges"}
+{"den_node": "code.posts", "domain": "codebase_community", "graph_version": "v2", "kind": "ratio", "metric_id": "code.accepted_rate", "num_node": "code.posts"}
+{"den_node": null, "domain": "codebase_community", "graph_version": "v2", "kind": "atomic", "metric_id": "code.monthly_votes", "num_node": "code.votes"}
+{"den_node": null, "domain": "codebase_community", "entity_node": "code.users", "graph_version": "v2", "kind": "report", "metric_id": "code.user_accepted_report", "num_node": "code.posts", "report_axis": "entity"}
+{"den_node": null, "domain": "codebase_community", "entity_node": "code.users", "graph_version": "v2", "kind": "report", "metric_id": "code.daily_questions", "num_node": "code.posts", "report_axis": "time"}
+{"den_node": null, "domain": "codebase_community", "graph_version": "v2", "kind": "attribute", "metric_id": "code.user_location", "num_node": "code.users"}
+{"den_node": null, "domain": "codebase_community", "entity_node": "code.users", "graph_version": "v2", "kind": "roster", "metric_id": "code.top_answerer_roster", "num_node": "code.posts"}
+{"den_node": "code.posts", "domain": "codebase_community", "graph_version": "v2", "kind": "ratio", "metric_id": "code.answer_accept_share", "num_node": "code.posts"}
+{"den_node": null, "domain": "codebase_community", "graph_version": "v2", "kind": "atomic", "metric_id": "code.monthly_badges", "num_node": "code.badges"}

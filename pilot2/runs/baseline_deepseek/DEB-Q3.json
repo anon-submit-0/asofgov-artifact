@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q3",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 缺少时间旅行查询所需的有效时间字段或明确的as-of查询方法",
+ "sql": "REFUSE",
+ "prompt_sha256": "f60ea77530c17e881f8de7a85a6676ab2032f472b6cb4f9c57d4414ff2d6c6ea",
+ "prompt_chars": 3715,
+ "empty_response": false
+}

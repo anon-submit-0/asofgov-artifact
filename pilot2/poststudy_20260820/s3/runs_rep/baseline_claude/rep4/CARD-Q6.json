@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q6",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 无法找到\"保留卡收藏溢价率\"对应的指标定义或计算规则\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "dd66ed8b2cadb33f3903a6e6965fa32e4439c5220b62680db249a65090276196",
+ "prompt_chars": 5428,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q6",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 57266.0,
+ "verdict": "answered_should_refuse",
+ "raw": "SELECT DISTINCT p.ID\nFROM main.\"Patient\" p\nJOIN main.\"Laboratory\" l ON p.ID = l.ID\nWHERE l.Date >= '1997-01-01' AND l.Date <= '1997-12-31'\nORDER BY p.ID",
+ "sql": "SELECT DISTINCT p.ID\nFROM main.\"Patient\" p\nJOIN main.\"Laboratory\" l ON p.ID = l.ID\nWHERE l.Date >= '1997-01-01' AND l.Date <= '1997-12-31'\nORDER BY p.ID",
+ "prompt_sha256": "0f0ce2ef2d615ccc877f4a23c850c2b799d352929dd8dfb0af1e4d9ce99fde7d",
+ "prompt_chars": 4130,
+ "empty_response": false
+}

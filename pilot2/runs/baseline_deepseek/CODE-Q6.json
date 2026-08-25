@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q6",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 无法确定披露策略如何应用于用户位置查询，缺少策略与数据表的明确映射关系。",
+ "sql": "REFUSE",
+ "prompt_sha256": "b5ab76212dbf6819770094390ee7ed6eaa9db8d36ecbd37ba133c902e1918b74",
+ "prompt_chars": 4904,
+ "empty_response": false
+}

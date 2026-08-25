@@ -1,0 +1,16 @@
+{
+ "qid": "DEB-Q5",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": [
+  [
+   25.410000000000004
+  ]
+ ],
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT AVG(t.Price) AS avg_transaction_amount\nFROM main.\"transactions_1k\" t\nJOIN main.\"customers\" c ON t.CustomerID = c.CustomerID\nWHERE c.Currency = 'EUR'\n  AND c.Segment = 'LAM'\n  AND t.Date BETWEEN DATE '2012-08-23' AND DATE '2012-08-26'\n```",
+ "sql": "SELECT AVG(t.Price) AS avg_transaction_amount\nFROM main.\"transactions_1k\" t\nJOIN main.\"customers\" c ON t.CustomerID = c.CustomerID\nWHERE c.Currency = 'EUR'\n  AND c.Segment = 'LAM'\n  AND t.Date BETWEEN DATE '2012-08-23' AND DATE '2012-08-26'",
+ "prompt_sha256": "f65a4d9a0427182015e634b9ef0450bde2419a6b90f089f00b3bb971cd71d247",
+ "prompt_chars": 3728,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q2",
+ "system": "trivial_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 裁定强度（ruling intensity）未在 schema 中定义为标准度量，且 gov_metric / gov_measure_def 中无法确认与之对应的 metric_id 及其计算公式，无法正确回答。",
+ "sql": "REFUSE",
+ "prompt_sha256": "d6055878f8be2ff3f132e159ef6ba2594ad6528e25e3520657794ba2648f669a",
+ "prompt_chars": 5563,
+ "empty_response": false
+}

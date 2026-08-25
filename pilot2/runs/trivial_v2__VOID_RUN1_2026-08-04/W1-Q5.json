@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q5",
+ "system": "trivial_v2",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 分子（2026-05）与分母（2026-04）取自不同valid-time窗口，违反gov_temporal_binding要求分子分母必须同valid-time窗对齐的绑定规则，无法正确回答。",
+ "sql": "REFUSE",
+ "prompt_sha256": "52e5edf95f9f186cb8c87efd6d9ebe5d15a12737512fc95901279a52333dd7eb",
+ "prompt_chars": 3302,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q3",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 3208.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) AS total_votes FROM main.\"votes\" WHERE \"CreationDate\" >= '2010-12-01' AND \"CreationDate\" < '2011-01-01';\n```",
+ "sql": "SELECT COUNT(*) AS total_votes FROM main.\"votes\" WHERE \"CreationDate\" >= '2010-12-01' AND \"CreationDate\" < '2011-01-01'",
+ "prompt_sha256": "5fc7381f006d5a549e72aa83ff0987b9afa07c6211a1eae44bfd2efcca2dc676",
+ "prompt_chars": 28356,
+ "empty_response": false
+}

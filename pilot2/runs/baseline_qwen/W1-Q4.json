@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q4",
+ "system": "baseline_qwen",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 表 country_history 无声明时间字段，无法根据 2026-08-15 声明时点过滤记录",
+ "sql": "REFUSE",
+ "prompt_sha256": "2f9b2fdf599f49c2cd54dafb1a54c4eaf83f3a115fc9d208ad5fa0ce7efc5678",
+ "prompt_chars": 3077,
+ "empty_response": false
+}

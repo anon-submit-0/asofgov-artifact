@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q3",
+ "system": "baseline_minimax",
+ "kind": "value",
+ "value": 95.0,
+ "verdict": "wrong_value",
+ "raw": "SELECT SUM(r.points) AS total_points\nFROM main.\"results\" r\nJOIN main.\"races\" ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN main.\"drivers\" d ON r.\"driverId\" = d.\"driverId\"\nWHERE d.\"surname\" = 'Button'\nAND ra.\"year\" = 2009\nAND EXISTS (\n    SELECT 1 FROM main.\"gov_semantic_graph_version\" gv \n    WHERE gv.\"graph_version\" = 'v1'\n);",
+ "sql": "SELECT SUM(r.points) AS total_points\nFROM main.\"results\" r\nJOIN main.\"races\" ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN main.\"drivers\" d ON r.\"driverId\" = d.\"driverId\"\nWHERE d.\"surname\" = 'Button'\nAND ra.\"year\" = 2009\nAND EXISTS (\n    SELECT 1 FROM main.\"gov_semantic_graph_version\" gv \n    WHERE gv.\"graph_version\" = 'v1'\n)",
+ "prompt_sha256": "cd3b7792c7457c0291f9fd1723f98cf7ec83bdb72eee057cca87e6bf272d1200",
+ "prompt_chars": 5521,
+ "empty_response": false
+}

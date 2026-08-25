@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q2",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 3.513888888888889,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT CAST(COUNT(r.id) AS DOUBLE) / COUNT(DISTINCT c.uuid)\nFROM rulings r\nJOIN cards c ON r.uuid = c.uuid\nJOIN sets s ON c.\"setCode\" = s.code\nWHERE r.date >= '2016-11-01' AND r.date < '2016-12-01'\n  AND s.\"releaseDate\" <= '2017-03-01';\n```",
+ "sql": "SELECT CAST(COUNT(r.id) AS DOUBLE) / COUNT(DISTINCT c.uuid)\nFROM rulings r\nJOIN cards c ON r.uuid = c.uuid\nJOIN sets s ON c.\"setCode\" = s.code\nWHERE r.date >= '2016-11-01' AND r.date < '2016-12-01'\n  AND s.\"releaseDate\" <= '2017-03-01'",
+ "prompt_sha256": "cb70e5ddd0c803a97452369327980a135ac3aaf38a4418efc37f924e1bd18be3",
+ "prompt_chars": 24051,
+ "empty_response": false
+}

@@ -1,0 +1,41 @@
+-- thrombosis_prediction 域 pilot2 warehouse.duckdb schema（源: BIRD/Spider dev 公开数据集，抽取与 real/authored 行数见 provenance.json）
+-- schema: main = 业务事实/维表 + gov_* 治理登记表（十表 schema 法, DESIGN_SPEC §3.1）
+
+CREATE TABLE main."Examination"("ID" BIGINT, "Examination Date" DATE, "aCL IgG" DOUBLE, "aCL IgM" DOUBLE, "ANA" BIGINT, "ANA Pattern" VARCHAR, "aCL IgA" BIGINT, "Diagnosis" VARCHAR, "KCT" VARCHAR, "RVVT" VARCHAR, "LAC" VARCHAR, "Symptoms" VARCHAR, "Thrombosis" BIGINT);
+-- rowcount main."Examination" = 806
+
+CREATE TABLE main."Laboratory"("ID" BIGINT, "Date" DATE, "GOT" BIGINT, "GPT" BIGINT, "LDH" BIGINT, "ALP" BIGINT, "TP" DOUBLE, "ALB" DOUBLE, "UA" DOUBLE, "UN" BIGINT, "CRE" DOUBLE, "T-BIL" DOUBLE, "T-CHO" BIGINT, "TG" BIGINT, "CPK" BIGINT, "GLU" BIGINT, "WBC" DOUBLE, "RBC" DOUBLE, "HGB" DOUBLE, "HCT" DOUBLE, "PLT" BIGINT, "PT" DOUBLE, "APTT" BIGINT, "FG" DOUBLE, "PIC" BIGINT, "TAT" BIGINT, "TAT2" BIGINT, "U-PRO" VARCHAR, "IGG" BIGINT, "IGA" BIGINT, "IGM" BIGINT, "CRP" VARCHAR, "RA" VARCHAR, "RF" VARCHAR, "C3" BIGINT, "C4" BIGINT, "RNP" VARCHAR, "SM" VARCHAR, "SC170" VARCHAR, "SSA" VARCHAR, "SSB" VARCHAR, "CENTROMEA" VARCHAR, "DNA" VARCHAR, "DNA-II" BIGINT);
+-- rowcount main."Laboratory" = 13908
+
+CREATE TABLE main."Patient"("ID" BIGINT, "SEX" VARCHAR, "Birthday" DATE, "Description" DATE, "First Date" DATE, "Admission" VARCHAR, "Diagnosis" VARCHAR);
+-- rowcount main."Patient" = 1238
+
+CREATE TABLE main."gov_caliber_routing"("routing_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "hop_seq" VARCHAR, "src_node" VARCHAR, "dst_node" VARCHAR, "join_on" VARCHAR, "dst_caliber" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_caliber_routing" = 8
+
+CREATE TABLE main."gov_disclosure_policy"("policy_id" VARCHAR, "domain" VARCHAR, "kind" VARCHAR, "node_id" VARCHAR, "cols" VARCHAR, "mask_class" VARCHAR, "lattice_levels" VARCHAR, "k" VARCHAR, "time_floor_gran" VARCHAR, "carry" VARCHAR, "applies_to" VARCHAR, "graph_version" VARCHAR, "k_exempt_top" VARCHAR);
+-- rowcount main."gov_disclosure_policy" = 6
+
+CREATE TABLE main."gov_granularity_edge"("edge_id" VARCHAR, "domain" VARCHAR, "axis" VARCHAR, "from_level" VARCHAR, "to_level" VARCHAR, "node_id" VARCHAR, "group_cols" VARCHAR, "derived" VARCHAR, "band_col" VARCHAR, "band_bounds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_granularity_edge" = 6
+
+CREATE TABLE main."gov_measure_def"("measure_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "node_id" VARCHAR, "measure" VARCHAR, "preds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_measure_def" = 14
+
+CREATE TABLE main."gov_metric"("metric_id" VARCHAR, "domain" VARCHAR, "kind" VARCHAR, "num_node" VARCHAR, "den_node" VARCHAR, "graph_version" VARCHAR, "report_axis" VARCHAR, "entity_node" VARCHAR);
+-- rowcount main."gov_metric" = 12
+
+CREATE TABLE main."gov_metric_alias"("alias_id" VARCHAR, "alias_text" VARCHAR, "metric_id" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_metric_alias" = 12
+
+CREATE TABLE main."gov_semantic_graph_version"("graph_version" VARCHAR, "domain" VARCHAR, "committed_at" VARCHAR, "commit_seq" VARCHAR, "change_note" VARCHAR);
+-- rowcount main."gov_semantic_graph_version" = 2
+
+CREATE TABLE main."gov_semantic_node"("node_id" VARCHAR, "domain" VARCHAR, "physical_table" VARCHAR, "entity_key" VARCHAR, "scope_keys" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_semantic_node" = 6
+
+CREATE TABLE main."gov_temporal_binding"("binding_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "anchor_id" VARCHAR, "rule_id" VARCHAR, "window_gran" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_temporal_binding" = 12
+
+CREATE TABLE main."gov_valid_time_anchor"("anchor_id" VARCHAR, "node_id" VARCHAR, "anchor_type" VARCHAR, "effective_col" VARCHAR, "vf_col" VARCHAR, "vtc_col" VARCHAR, "granularity" VARCHAR, "coverage_mode" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_valid_time_anchor" = 4

@@ -1,0 +1,107 @@
+{
+ "sql": "SELECT (SELECT COUNT(*) FROM \"races\" t0 WHERE substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '2017-10-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '2017-11-27')",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "F1-Q6",
+   "domain": "formula_1",
+   "metric": "f1.races_count_range",
+   "metric_kind": "atomic",
+   "as_of": null
+  },
+  "graph_pin": {
+   "domain": "formula_1",
+   "graph_version": "v2",
+   "commit_id": "2010-02-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": "A-F1-RACE",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "range",
+     "lo": "2017-10-01",
+     "hi_excl": "2017-11-27"
+    },
+    "window_requested": {
+     "kind": "range",
+     "lo": "2017-10-01",
+     "hi_excl": "2018-04-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-F1-RCR",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": null,
+   "denominator_anchor": null,
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [],
+  "disclosure": {
+   "decision": "REWRITE",
+   "policy_ids": [],
+   "policy_table_present": false,
+   "ungoverned_disclosure": true,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-F1-RACE",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"races\" t WHERE t.\"date\" IS NOT NULL",
+    "observed": [
+     "1950-05-13",
+     "2017-11-26"
+    ]
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  },
+  "rewrite": {
+   "kept_slices": [
+    "(v2,B-F1-RCR)"
+   ],
+   "cut_trace": [
+    {
+     "period": 0,
+     "role": "atom",
+     "anchor_id": "A-F1-RACE",
+     "requested": {
+      "kind": "range",
+      "lo": "2017-10-01",
+      "hi_excl": "2018-04-01"
+     },
+     "bound": {
+      "kind": "range",
+      "lo": "2017-10-01",
+      "hi_excl": "2017-11-27"
+     },
+     "cut": "coverage-hull: [2017-10-01,2018-04-01) -> [2017-10-01,2017-11-27)"
+    }
+   ],
+   "ct": [],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ }
+}

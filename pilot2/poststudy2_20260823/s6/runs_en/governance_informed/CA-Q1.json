@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q1",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT SUM(\"Free Meal Count (K-12)\") / SUM(\"Enrollment (K-12)\") AS free_meal_rate\nFROM main.\"frpm\"\nWHERE \"County Name\" = 'Alameda'\n  AND \"Academic Year\" = '2014-15';\n```",
+ "sql": "SELECT SUM(\"Free Meal Count (K-12)\") / SUM(\"Enrollment (K-12)\") AS free_meal_rate\nFROM main.\"frpm\"\nWHERE \"County Name\" = 'Alameda'\n  AND \"Academic Year\" = '2014-15'",
+ "prompt_sha256": "fee93cec7522bc9bbd66becd5c47980a7bf44c2d7e86c2146686fc73214f4089",
+ "prompt_chars": 18072,
+ "empty_response": false
+}

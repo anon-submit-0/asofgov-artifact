@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 0.4564988943016154,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT SUM(\"Free Meal Count (Ages 5-17)\") / SUM(\"Enrollment (Ages 5-17)\") AS free_meal_rate\nFROM main.\"frpm\" f\nJOIN main.\"schools\" s ON f.\"CDSCode\" = s.\"CDSCode\"\nWHERE f.\"Academic Year\" = '2014-2015'\n  AND s.\"OpenDate\" <= DATE '2015-09-01'\n  AND (s.\"ClosedDate\" IS NULL OR s.\"ClosedDate\" >= DATE '2015-09-01')\n  AND s.\"Charter\" = 1;\n```",
+ "sql": "SELECT SUM(\"Free Meal Count (Ages 5-17)\") / SUM(\"Enrollment (Ages 5-17)\") AS free_meal_rate\nFROM main.\"frpm\" f\nJOIN main.\"schools\" s ON f.\"CDSCode\" = s.\"CDSCode\"\nWHERE f.\"Academic Year\" = '2014-2015'\n  AND s.\"OpenDate\" <= DATE '2015-09-01'\n  AND (s.\"ClosedDate\" IS NULL OR s.\"ClosedDate\" >= DATE '2015-09-01')\n  AND s.\"Charter\" = 1",
+ "prompt_sha256": "50776b64d19090d1486eb1a0deb4f993c93ae6a785770b5c806a98929bd37780",
+ "prompt_chars": 18035,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q3",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 681.0,
+ "verdict": "correct",
+ "raw": "Looking at this problem, I need to find the count of Player_Attributes records that would be visible as-of 2015-06-15, meaning records with a date within the month window of June 2015.\n\nLet me analyze the temporal binding rules from the governance tables to understand the correct approach. But given the question asks for \"当月球员属性快照条数\" (current month player attribute snapshot count) for the month window containing 2015-06-15, I need to find Player_Attributes records where the date falls within June 2015 (2015-06-01 to 2015-06-30).\n\nHowever, the question mentions \"声明时点\" (declaration time point) of 2016-07-01 and \"as-of 2015-06-15 所在月窗\". For snapshot-style data like Player_Attributes, the as-of semantics typically means: for each player, take the latest record whose date is <= the as-of date within the specified month window.\n\nBut re-reading: \"当月球员属性快照条数\" - this asks for the count of snapshot records in that month. The simplest interpretation is: count of Player_Attributes records where the date falls in June 2015 (the month containing 2015-06-15).\n\n```sql\nSELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) >= '2015-06-01' AND CAST(\"date\" AS DATE) < '2015-07-01';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) >= '2015-06-01' AND CAST(\"date\" AS DATE) < '2015-07-01'",
+ "prompt_sha256": "dd8c00778b03542cb5ae2c3a765119b8ff1fbf2e8378f1ef2736183804296203",
+ "prompt_chars": 7817,
+ "empty_response": false
+}

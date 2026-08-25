@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q7",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 0.0,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT ROUND(CAST(COUNT(DISTINCT r.uuid) AS DOUBLE) / NULLIF(COUNT(DISTINCT c.uuid), 0), 4) AS ruling_intensity\nFROM main.\"cards\" c\nLEFT JOIN main.\"rulings\" r\n  ON c.uuid = r.uuid\n  AND r.\"date\" >= '2017-02-01'\n  AND r.\"date\" < '2017-03-01'\nWHERE c.uuid IN (\n  SELECT uuid FROM main.\"cards\"\n  WHERE CAST(\"originalReleaseDate\" AS DATE) < '2017-03-01'\n);\n```",
+ "sql": "SELECT ROUND(CAST(COUNT(DISTINCT r.uuid) AS DOUBLE) / NULLIF(COUNT(DISTINCT c.uuid), 0), 4) AS ruling_intensity\nFROM main.\"cards\" c\nLEFT JOIN main.\"rulings\" r\n  ON c.uuid = r.uuid\n  AND r.\"date\" >= '2017-02-01'\n  AND r.\"date\" < '2017-03-01'\nWHERE c.uuid IN (\n  SELECT uuid FROM main.\"cards\"\n  WHERE CAST(\"originalReleaseDate\" AS DATE) < '2017-03-01'\n)",
+ "prompt_sha256": "ec9abb42a5e6e81e8bb484f43febae8868db13e1cf77ba9af5c8996a25907943",
+ "prompt_chars": 5673,
+ "empty_response": false
+}

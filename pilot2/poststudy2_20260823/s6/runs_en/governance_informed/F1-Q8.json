@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q8",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT SUM(ps.points) * 1.0 / COUNT(*) AS points_per_entry\nFROM results r\nJOIN races ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN constructors c ON r.\"constructorId\" = c.\"constructorId\"\nJOIN points_scheme ps ON r.\"positionOrder\" = ps.\"position\"\nWHERE c.\"constructorRef\" = 'brawn'\n  AND ra.\"year\" = 2010\n  AND ps.\"scheme_id\" = 'PS2010'\n  AND ra.\"date\" < '2010-07-01';\n```\n\nWait — let me reconsider. The question asks for team \"brawn\" in the 2010 season. The temporal binding for `f1.points_per_entry` has `window_gran = 'year'`, so the valid-time window is the full year 2010. The as-of date 2010-07-01 falls within year 2010, confirming the window. The declaration instant 2011-03-01 is after the graph version v2 committed_at (2010-02-01), so we use v2 (scheme PS2010).\n\nBut Brawn GP only existed in 2009 — they became Mercedes GP in 2010. Let me check if there's data for constructorRef='brawn' in 2010.\n\nGiven the temporal binding rule `same_valid_time_window` with `window_gran: year`, the window is the full 2010 season. The as-of 2010-07-01 simply identifies which year window to use (2010). The query should cover all of 2010:\n\n```sql\nSELECT SUM(ps.points) / COUNT(*) AS points_per_entry\nFROM results r\nJOIN races ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN constructors c ON r.\"constructorId\" = c.\"constructorId\"\nJOIN points_scheme ps ON r.\"positionOrder\" = ps.\"position\"\nWHERE c.\"constructorRef\" = 'brawn'\n  AND ra.\"year\" = 2010\n  AND ps.\"scheme_id\" = 'PS2010';\n```",
+ "sql": "SELECT SUM(ps.points) * 1.0 / COUNT(*) AS points_per_entry\nFROM results r\nJOIN races ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN constructors c ON r.\"constructorId\" = c.\"constructorId\"\nJOIN points_scheme ps ON r.\"positionOrder\" = ps.\"position\"\nWHERE c.\"constructorRef\" = 'brawn'\n  AND ra.\"year\" = 2010\n  AND ps.\"scheme_id\" = 'PS2010'\n  AND ra.\"date\" < '2010-07-01'",
+ "prompt_sha256": "44b019b0c10f8f3d8832fe9571d89837d0f13f800c18090046a487caf186e718",
+ "prompt_chars": 27235,
+ "empty_response": false
+}

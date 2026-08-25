@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q2",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 1.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT CAST(COUNT(DISTINCT r.uuid) AS DOUBLE) / COUNT(DISTINCT c.uuid) AS ruling_intensity\nFROM main.\"cards\" c\nJOIN main.\"rulings\" r ON c.uuid = r.uuid\nWHERE r.\"date\" >= '2016-11-01' AND r.\"date\" < '2016-12-01';\n```",
+ "sql": "SELECT CAST(COUNT(DISTINCT r.uuid) AS DOUBLE) / COUNT(DISTINCT c.uuid) AS ruling_intensity\nFROM main.\"cards\" c\nJOIN main.\"rulings\" r ON c.uuid = r.uuid\nWHERE r.\"date\" >= '2016-11-01' AND r.\"date\" < '2016-12-01'",
+ "prompt_sha256": "0e35778ce31968a818e46c0ddd0fa0d22ccab45dd201a2b1d452c7c44fc1df5d",
+ "prompt_chars": 5674,
+ "empty_response": false
+}

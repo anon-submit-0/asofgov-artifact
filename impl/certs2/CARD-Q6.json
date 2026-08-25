@@ -1,0 +1,98 @@
+{
+ "refusal": "missing-caliber",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "CARD-Q6",
+   "domain": "card_games",
+   "metric": "card.collector_premium",
+   "metric_kind": "ratio",
+   "as_of": "2017-02-15"
+  },
+  "graph_pin": {
+   "domain": "card_games",
+   "graph_version": "v1",
+   "commit_id": "2015-01-15",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "numerator",
+    "anchor_id": "A-CARD-SET",
+    "registered": true,
+    "coverage_mode": null,
+    "granule": "day",
+    "window": {
+     "kind": "month",
+     "lo": "2017-02-01",
+     "hi_excl": "2017-03-01"
+    }
+   },
+   {
+    "role": "denominator",
+    "anchor_id": "A-CARD-SET",
+    "registered": true,
+    "coverage_mode": null,
+    "granule": "day",
+    "window": {
+     "kind": "month",
+     "lo": "2017-02-01",
+     "hi_excl": "2017-03-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-CARD-CP-N|B-CARD-CP-D",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": "A-CARD-SET",
+   "denominator_anchor": "A-CARD-SET",
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [],
+  "disclosure": {
+   "decision": "REFUSE",
+   "policy_ids": [],
+   "policy_table_present": false,
+   "ungoverned_disclosure": true,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "ROUTE_LOOKUP",
+    "sql": "SELECT routing_id, dst_caliber FROM gov_caliber_routing WHERE routing_id = 'card.rt4' AND graph_version = 'v1'",
+    "observed": [
+     "card.rt4",
+     "none"
+    ]
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  },
+  "refusal": {
+   "reason": "missing-caliber",
+   "witness": {
+    "type": "routing-lookup",
+    "metric": "card.collector_premium",
+    "caliber_key": "card.rt4",
+    "dst_caliber": "none",
+    "assertion": "R_v 路由 dst_caliber='none'（reference-only，不可重算）→ MC(i)"
+   },
+   "ct": [
+    {
+     "slice": "(v1,*)",
+     "reason": "missing-caliber"
+    }
+   ],
+   "slices_pass": [],
+   "composition": "slice-major(≺_det slice 序取首失败 slice; slice 内守卫序 OOV→AM→MC)"
+  }
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q3",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 3208.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"votes\" WHERE strftime('%Y-%m', \"CreationDate\") = '2010-12'\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"votes\" WHERE strftime('%Y-%m', \"CreationDate\") = '2010-12'",
+ "prompt_sha256": "48020ff42bf038760554c3e8d7122a402e20fdeaac8f610337749b9a7c4fe3e6",
+ "prompt_chars": 5103,
+ "empty_response": false
+}

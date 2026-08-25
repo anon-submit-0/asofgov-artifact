@@ -1,0 +1,19 @@
+{
+ "qid": "TH-Q2",
+ "domain": "thrombosis_prediction",
+ "question_zh": "以 1996-06-01 为声明时点，1995 自然年（as-of 1995-06-30 所在年窗）的年度检查记录数是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 1996-06-01 as the declaration instant, what is the number of annual inspection records for the 1995 calendar year (as-of 1995-06-30 the containing year window)?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=744 completion=44]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:39:03"
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q5",
+ "system": "baseline_minimax",
+ "kind": "value",
+ "value": 1.0019368915945202,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n    SUM(CASE WHEN ch1.effective_month = '2026-05' THEN ch1.population ELSE 0 END) * 1.0 / \n    NULLIF(SUM(CASE WHEN ch1.effective_month = '2026-04' THEN ch1.population ELSE 0 END), 0) AS ratio\nFROM main.\"country\" c\nJOIN main.\"country_history\" ch1 ON c.\"Code\" = ch1.code\nWHERE c.\"Continent\" = 'Asia'\n  AND ch1.effective_month IN ('2026-04', '2026-05')\n  AND ch1.authored = TRUE\n```",
+ "sql": "SELECT \n    SUM(CASE WHEN ch1.effective_month = '2026-05' THEN ch1.population ELSE 0 END) * 1.0 / \n    NULLIF(SUM(CASE WHEN ch1.effective_month = '2026-04' THEN ch1.population ELSE 0 END), 0) AS ratio\nFROM main.\"country\" c\nJOIN main.\"country_history\" ch1 ON c.\"Code\" = ch1.code\nWHERE c.\"Continent\" = 'Asia'\n  AND ch1.effective_month IN ('2026-04', '2026-05')\n  AND ch1.authored = TRUE",
+ "prompt_sha256": "ba159d4b3f5e9fa48553cb2cde94f1dc33b3e188eca050d62e324f4eab595757",
+ "prompt_chars": 3076,
+ "empty_response": false
+}

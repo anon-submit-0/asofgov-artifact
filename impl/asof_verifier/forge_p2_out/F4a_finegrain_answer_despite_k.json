@@ -1,0 +1,130 @@
+{
+ "base_qid": "CA-Q5",
+ "expected_reject_by": "V5",
+ "envelope": {
+  "sql": "SELECT t0.\"CDSCode\" AS cell, SUM(t0.\"Free Meal Count (Ages 5-17)\") * 1.0 / SUM(t0.\"Enrollment (Ages 5-17)\") AS val FROM \"frpm\" t0 WHERE t0.\"County Name\" = 'Alameda' AND CAST(t0.\"Academic Year\" AS VARCHAR) = '2014-2015' GROUP BY 1 ORDER BY 1",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "CA-Q5",
+    "domain": "california_schools",
+    "metric": "ca.school_frpm_report",
+    "metric_kind": "report",
+    "as_of": "2015-04-15"
+   },
+   "graph_pin": {
+    "domain": "california_schools",
+    "graph_version": "v2",
+    "commit_id": "2015-07-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "atom",
+     "anchor_id": "A-CA-FRPM",
+     "registered": true,
+     "coverage_mode": "strict_member",
+     "granule": "academic_year_token",
+     "window": {
+      "kind": "academic-year",
+      "lo": "2014-07-01",
+      "hi_excl": "2015-07-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-CA-SFR",
+    "rule": "same_valid_time_window",
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [],
+   "disclosure": {
+    "decision": "ANSWER",
+    "policy_ids": [
+     "ca.pi1"
+    ],
+    "policy_table_present": true,
+    "ungoverned_disclosure": false,
+    "granularity": "school",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-CA-FRPM",
+     "coverage_mode": "strict_member",
+     "sql": "SELECT DISTINCT CAST(t.\"Academic Year\" AS VARCHAR) FROM \"frpm\" t WHERE t.\"Academic Year\" IS NOT NULL",
+     "observed": 1
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V5",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (1 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v2' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "1 α entr(ies) exist@v2 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "atomic metric: cited registry row 'B-CA-SFR' governs the metric; svw replay vacuous (no two legs)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (0 edge(s)) replayed against gov_caliber_routing@v2"
+   },
+   {
+    "check": "V5",
+    "status": "FAIL",
+    "detail": "k clause fails at the certified grain 'school': min cell 1 < k=10"
+   },
+   {
+    "check": "V6a",
+    "status": "PASS",
+    "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "registered-binding(atom leg)"
+  }
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q1",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 0.14350073666550275,
+ "verdict": "wrong_value",
+ "raw": "I need to understand the metric \"问题贷款率\" (problem loan rate) using the governance tables to find the correct definition.\n\nLet me analyze the governance tables to understand the metric definition, temporal bindings, and semantic nodes.\n\nBased on the schema and governance tables, I need to:\n\n1. Find the metric for \"问题贷款率\" from `gov_metric_alias` and `gov_metric`\n2. Understand the measure definitions from `gov_measure_def`\n3. Apply temporal bindings from `gov_temporal_binding` and `gov_valid_time_anchor`\n\nSince I can't query the governance tables interactively, I'll reason about \"问题贷款率\" (problem loan rate) based on the loan table:\n\n- The `loan` table has a `status` field - typically 'B' and 'D' are problem statuses (B = defaulted, D = in debt/delinquent), while 'A' = finished OK, 'C' = running OK\n- \"问题贷款率\" = problem loans / total loans (by count or amount)\n- The declaration time point is 1997-06-15, meaning we use data available as of that date\n- The year window is 1996 (as-of 1996-06-30), meaning loans issued in 1996 or loans active during 1996\n\nGiven the as-of semantics:\n- Declaration time 1997-06-15: only loans with `date <= '1997-06-15'` are visible\n- 1996 natural year window: loans issued in 1996 (date between '1996-01-01' and '1996-12-31')\n\nThe problem loan rate = count (or sum of amount) of problem loans / total loans for that period.\n\n```sql\nSELECT\n  SUM(CASE WHEN status IN ('B', 'D') THEN amount ELSE 0 END) * 1.0\n  / SUM(amount) AS problem_loan_rate\nFROM main.\"loan\"\nWHERE date BETWEEN '1996-01-01' AND '1996-12-31'\n  AND date <= '1997-06-15';\n```",
+ "sql": "SELECT\n  SUM(CASE WHEN status IN ('B', 'D') THEN amount ELSE 0 END) * 1.0\n  / SUM(amount) AS problem_loan_rate\nFROM main.\"loan\"\nWHERE date BETWEEN '1996-01-01' AND '1996-12-31'\n  AND date <= '1997-06-15'",
+ "prompt_sha256": "38bb8361815bdf634678c3a6c9bf2b1733fc9d6980b8cc2ce7780165d3bc13bf",
+ "prompt_chars": 4271,
+ "empty_response": false
+}

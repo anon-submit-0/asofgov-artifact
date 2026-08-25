@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q6",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 151237.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) AS 区间交易笔数\nFROM main.\"trans\"\nWHERE \"date\" >= '1998-07-01' AND \"date\" <= '1999-06-30'\n```",
+ "sql": "SELECT COUNT(*) AS 区间交易笔数\nFROM main.\"trans\"\nWHERE \"date\" >= '1998-07-01' AND \"date\" <= '1999-06-30'",
+ "prompt_sha256": "233430df23ef24569c4d7c15463cfb4c7c079e96e557edc25129bfbb547c0ba0",
+ "prompt_chars": 23508,
+ "empty_response": false
+}

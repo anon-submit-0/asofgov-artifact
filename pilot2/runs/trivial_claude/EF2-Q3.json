@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q3",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": 681.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) >= DATE '2015-06-01' AND CAST(\"date\" AS DATE) < DATE '2015-07-01';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) >= DATE '2015-06-01' AND CAST(\"date\" AS DATE) < DATE '2015-07-01'",
+ "prompt_sha256": "5ea850f5f840183dd8784da85f30e5b136c6b12f5c54f2f48236283d86bcece7",
+ "prompt_chars": 7745,
+ "empty_response": false
+}

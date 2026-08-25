@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q4",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 32.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) AS ruling_count\nFROM main.\"rulings\" r\nJOIN main.\"cards\" c ON r.\"uuid\" = c.\"uuid\"\nWHERE c.\"name\" = 'Kytheon, Hero of Akros // Gideon, Battle-Forged'\n  AND c.\"setCode\" = 'ORI'\n  AND r.\"date\" >= '2015-06-01'\n  AND r.\"date\" < '2015-07-01';\n```",
+ "sql": "SELECT COUNT(*) AS ruling_count\nFROM main.\"rulings\" r\nJOIN main.\"cards\" c ON r.\"uuid\" = c.\"uuid\"\nWHERE c.\"name\" = 'Kytheon, Hero of Akros // Gideon, Battle-Forged'\n  AND c.\"setCode\" = 'ORI'\n  AND r.\"date\" >= '2015-06-01'\n  AND r.\"date\" < '2015-07-01'",
+ "prompt_sha256": "3039de5b34b433d6ee3ede367e82bad2d7497582f5c486c15b27c4274fb9d2ff",
+ "prompt_chars": 5734,
+ "empty_response": false
+}

@@ -1,0 +1,41 @@
+{
+ "schema": "asofgov/s5_identity_check.v1",
+ "generated_at": "2026-08-23T21:40:55+08:00",
+ "generator": "pilot2/poststudy2_20260823/s5/s5_check_identity.py",
+ "substrate": "work/rowscale/scale_100/financial (byte copy of sandbox financial warehouse)",
+ "per_question": [
+  {
+   "qid": "FIN-Q1",
+   "identical_to_frozen": true
+  },
+  {
+   "qid": "FIN-Q2",
+   "identical_to_frozen": true
+  },
+  {
+   "qid": "FIN-Q3",
+   "identical_to_frozen": true
+  },
+  {
+   "qid": "FIN-Q4",
+   "identical_to_frozen": true
+  },
+  {
+   "qid": "FIN-Q5",
+   "identical_to_frozen": true
+  },
+  {
+   "qid": "FIN-Q6",
+   "identical_to_frozen": true
+  },
+  {
+   "qid": "FIN-Q7",
+   "identical_to_frozen": true
+  },
+  {
+   "qid": "FIN-Q8",
+   "identical_to_frozen": true
+  }
+ ],
+ "all_identical": true
+}

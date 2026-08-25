@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q4",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": -38.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT\n  (SELECT COALESCE(SUM(ps.points), 0)\n   FROM results r\n   JOIN races ra ON r.\"raceId\" = ra.\"raceId\"\n   JOIN drivers d ON r.\"driverId\" = d.\"driverId\"\n   JOIN points_scheme ps ON r.\"positionOrder\" = ps.\"position\" AND ps.\"scheme_id\" = 'PS2010'\n   WHERE d.\"driverRef\" = 'button' AND ra.\"year\" = 2010)\n  -\n  (SELECT COALESCE(SUM(ps.points), 0)\n   FROM results r\n   JOIN races ra ON r.\"raceId\" = ra.\"raceId\"\n   JOIN drivers d ON r.\"driverId\" = d.\"driverId\"\n   JOIN points_scheme ps ON r.\"positionOrder\" = ps.\"position\" AND ps.\"scheme_id\" = 'PS2010'\n   WHERE d.\"driverRef\" = 'button' AND ra.\"year\" = 2009)\nAS points_delta;\n```",
+ "sql": "SELECT\n  (SELECT COALESCE(SUM(ps.points), 0)\n   FROM results r\n   JOIN races ra ON r.\"raceId\" = ra.\"raceId\"\n   JOIN drivers d ON r.\"driverId\" = d.\"driverId\"\n   JOIN points_scheme ps ON r.\"positionOrder\" = ps.\"position\" AND ps.\"scheme_id\" = 'PS2010'\n   WHERE d.\"driverRef\" = 'button' AND ra.\"year\" = 2010)\n  -\n  (SELECT COALESCE(SUM(ps.points), 0)\n   FROM results r\n   JOIN races ra ON r.\"raceId\" = ra.\"raceId\"\n   JOIN drivers d ON r.\"driverId\" = d.\"driverId\"\n   JOIN points_scheme ps ON r.\"positionOrder\" = ps.\"position\" AND ps.\"scheme_id\" = 'PS2010'\n   WHERE d.\"driverRef\" = 'button' AND ra.\"year\" = 2009)\nAS points_delta",
+ "prompt_sha256": "02b314f7d0ae9df2bf2c41916764a71d3266a95d0eb64638b9f8c4d05641c0dc",
+ "prompt_chars": 27277,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q2",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": 28.6192,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT ROUND(\n    CAST(SUM(CASE WHEN p.\"AcceptedAnswerId\" IS NOT NULL THEN 1 ELSE 0 END) AS DOUBLE)\n    / COUNT(*) * 100, 4\n) AS acceptance_rate_pct\nFROM main.\"posts\" p\nWHERE p.\"PostTypeId\" = 1\n  AND p.\"CreaionDate\" >= '2013-12-01'\n  AND p.\"CreaionDate\" < '2014-01-01';\n```",
+ "sql": "SELECT ROUND(\n    CAST(SUM(CASE WHEN p.\"AcceptedAnswerId\" IS NOT NULL THEN 1 ELSE 0 END) AS DOUBLE)\n    / COUNT(*) * 100, 4\n) AS acceptance_rate_pct\nFROM main.\"posts\" p\nWHERE p.\"PostTypeId\" = 1\n  AND p.\"CreaionDate\" >= '2013-12-01'\n  AND p.\"CreaionDate\" < '2014-01-01'",
+ "prompt_sha256": "7fa0344c4be76c5dbcd7a806b45cb031e6b39b974fc79ffd2d6c19929ab1680f",
+ "prompt_chars": 5030,
+ "empty_response": false
+}

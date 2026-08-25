@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q1",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.02064896755162242,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \n    CAST(SUM(CASE WHEN \"GOT\" >= 60 THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) AS abnormal_rate\nFROM main.\"Laboratory\"\nWHERE YEAR(\"Date\") = 1997 \n    AND \"Date\" <= DATE '1997-06-30'\n    AND \"GOT\" IS NOT NULL\n```",
+ "sql": "SELECT \n    CAST(SUM(CASE WHEN \"GOT\" >= 60 THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) AS abnormal_rate\nFROM main.\"Laboratory\"\nWHERE YEAR(\"Date\") = 1997 \n    AND \"Date\" <= DATE '1997-06-30'\n    AND \"GOT\" IS NOT NULL",
+ "prompt_sha256": "672f28bf2676501f401d3e143f42f353ea0ee442dd780fd743eb229808153fae",
+ "prompt_chars": 4155,
+ "empty_response": false
+}

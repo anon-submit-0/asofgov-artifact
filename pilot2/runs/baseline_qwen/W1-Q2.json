@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q2",
+ "system": "baseline_qwen",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT SUM(ch.population)\nFROM (\n  SELECT ch.population,\n         ROW_NUMBER() OVER (PARTITION BY ch.code ORDER BY ch.effective_month DESC) AS rn\n  FROM main.\"country_history\" ch\n  JOIN main.\"country\" c ON ch.code = c.\"Code\"\n  WHERE ch.effective_month <= '2026-05'\n    AND c.\"Continent\" = 'Asia'\n) ranked\nWHERE rn = 1;\n```",
+ "sql": "SELECT SUM(ch.population)\nFROM (\n  SELECT ch.population,\n         ROW_NUMBER() OVER (PARTITION BY ch.code ORDER BY ch.effective_month DESC) AS rn\n  FROM main.\"country_history\" ch\n  JOIN main.\"country\" c ON ch.code = c.\"Code\"\n  WHERE ch.effective_month <= '2026-05'\n    AND c.\"Continent\" = 'Asia'\n) ranked\nWHERE rn = 1",
+ "prompt_sha256": "96813b11ebf1108952cbda13394f488eb36c5ef19f335d2a62ec5afedf211253",
+ "prompt_chars": 3081,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 给定schema中不存在\"轮替\"（rotation）相关的明确定义字段或治理规则，无法从legalities表的format/status或gov_*治理表中准确识别\"当前轮替口径\"与\"as-of 2021-03-10\"的时态逻辑。\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "7203e05966850628dce621d527b11a99de5f86d24265382f5aa8b4aaea74bcba",
+ "prompt_chars": 5446,
+ "empty_response": false
+}

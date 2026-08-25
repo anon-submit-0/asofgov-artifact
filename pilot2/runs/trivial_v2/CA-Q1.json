@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q1",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 0.3799,
+ "verdict": "correct",
+ "raw": "I need to analyze this step-by-step:\n\n1. First, check the governance tables to understand the metric definition, temporal bindings, and valid time anchors.\n2. The question asks about \"免费餐率\" (free meal rate) for Alameda county in the 2014-2015 academic year, as-of 2015-04-15, declared at 2015-05-01.\n\nLet me trace through the governance tables:\n\n- **Metric**: \"免费餐率\" would be a ratio metric (free meal count / enrollment) from the `frpm` table.\n- **Temporal binding**: Need to check if the as-of date falls within a valid window.\n- **Valid time anchor**: Need to check the anchor for the frpm node.\n\nGiven the small number of rows in governance tables (2-12 rows each), and that the actual data in `frpm` has \"Academic Year\" and county-level data, the core calculation is:\n\n- Free meal rate for Alameda county = SUM(Free Meal Count (K-12)) / SUM(Enrollment (K-12)) for County Name = 'Alameda' and Academic Year = '2014-2015'.\n\nThe governance tables define how to validate temporal alignment, but with only 2 graph versions and the data available, the computation should proceed if the temporal window covers 2015-04-15.\n\nSince I need to respect the governance framework but the actual computation derives from `frpm`, and the question specifically states the academic year and as-of date, I'll compute the free meal rate while checking governance validity. Given the complexity of not knowing exact governance table contents but knowing the schema, I'll compute the straightforward metric:\n\n```sql\nSELECT ROUND(SUM(\"Free Meal Count (K-12)\") / SUM(\"Enrollment (K-12)\"), 4) AS free_meal_rate\nFROM main.\"frpm\"\nWHERE \"County Name\" = 'Alameda'\n  AND \"Academic Year\" = '2014-2015'\n  AND \"Enrollment (K-12)\" > 0;\n```",
+ "sql": "SELECT ROUND(SUM(\"Free Meal Count (K-12)\") / SUM(\"Enrollment (K-12)\"), 4) AS free_meal_rate\nFROM main.\"frpm\"\nWHERE \"County Name\" = 'Alameda'\n  AND \"Academic Year\" = '2014-2015'\n  AND \"Enrollment (K-12)\" > 0",
+ "prompt_sha256": "54063ca6605e9a8eb593ebfb290c9faa426eeb3d53eaf953795f98b1aeadd87c",
+ "prompt_chars": 5440,
+ "empty_response": false
+}

@@ -1,0 +1,84 @@
+{
+ "sql": "SELECT (SELECT AVG(t0.\"Consumption\") FROM \"yearmonth\" t0 INNER JOIN \"customers\" t1 ON t0.\"CustomerID\" = t1.\"CustomerID\" WHERE t1.\"Currency\" = 'CZK' AND CAST(t0.\"Date\" AS VARCHAR) = '201308')",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "DEB-Q1",
+   "domain": "debit_card_specializing",
+   "metric": "deb.avg_consumption",
+   "metric_kind": "atomic",
+   "as_of": "2013-08-15"
+  },
+  "graph_pin": {
+   "domain": "debit_card_specializing",
+   "graph_version": "v2",
+   "commit_id": "2013-06-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": "A-DEB-YM",
+    "registered": true,
+    "coverage_mode": "strict_member",
+    "granule": "month_token_yyyymm",
+    "window": {
+     "kind": "month",
+     "lo": "2013-08-01",
+     "hi_excl": "2013-09-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-DEB-AC",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": null,
+   "denominator_anchor": null,
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [
+   {
+    "caliber_key": "deb.rt1",
+    "metric": "deb.avg_consumption",
+    "leg": "scope",
+    "hop_seq": "0",
+    "src_node": "deb.yearmonth",
+    "dst_node": "deb.customers",
+    "via_table": "customers",
+    "dst_caliber": "scoped",
+    "join_keys": [
+     [
+      "CustomerID",
+      "CustomerID"
+     ]
+    ]
+   }
+  ],
+  "disclosure": {
+   "decision": "ANSWER",
+   "policy_ids": [],
+   "policy_table_present": true,
+   "ungoverned_disclosure": false,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-DEB-YM",
+    "coverage_mode": "strict_member",
+    "sql": "SELECT DISTINCT CAST(t.\"Date\" AS VARCHAR) FROM \"yearmonth\" t WHERE t.\"Date\" IS NOT NULL",
+    "observed": 21
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  }
+ }
+}

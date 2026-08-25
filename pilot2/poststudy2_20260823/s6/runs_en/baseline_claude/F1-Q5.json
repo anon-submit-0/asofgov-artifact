@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q5",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: The schema contains no temporal/bitemporal validity columns (vf/vtc/effective_col) on the business tables (constructorResults, constructorStandings, results, etc.), so the \"as-of\" and \"declaration instant\" temporal filtering described in the question cannot be performed with the available data.",
+ "sql": "REFUSE",
+ "prompt_sha256": "feb9d07752cfeaec74f85af141b1fbac4e630988e64736a65cfadc48b8d334c2",
+ "prompt_chars": 5597,
+ "empty_response": false
+}

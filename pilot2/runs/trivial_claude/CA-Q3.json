@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q3",
+ "system": "trivial_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: gov_valid_time_anchor 和 gov_temporal_binding 中未包含与 schools 表相关的有效时间锚定义（无 effective_col/vf_col/vtc_col 映射到 schools 的日期列），无法依据锚表确定 as-of 2015-01-01 时点的有效学校数。",
+ "sql": "REFUSE",
+ "prompt_sha256": "1a28cbd945a180e4a148699de97dee845d46fa7823e2720b503e9f49321aa2a2",
+ "prompt_chars": 5300,
+ "empty_response": false
+}

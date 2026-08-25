@@ -1,0 +1,12 @@
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-APS", "graph_version": "v1", "leg": "atom", "metric_id": "w1.asia_population_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-WPS", "graph_version": "v1", "leg": "atom", "metric_id": "w1.world_population_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-PS-N", "graph_version": "v1", "leg": "num", "metric_id": "w1.population_share", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-PS-D", "graph_version": "v1", "leg": "den", "metric_id": "w1.population_share", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-HRR", "graph_version": "v1", "leg": "atom", "metric_id": "w1.history_rows_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-GS", "graph_version": "v1", "leg": "atom", "metric_id": "w1.gnp_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-APS", "graph_version": "v2", "leg": "atom", "metric_id": "w1.asia_population_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-WPS", "graph_version": "v2", "leg": "atom", "metric_id": "w1.world_population_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-PS-N", "graph_version": "v2", "leg": "num", "metric_id": "w1.population_share", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-PS-D", "graph_version": "v2", "leg": "den", "metric_id": "w1.population_share", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-HRR", "graph_version": "v2", "leg": "atom", "metric_id": "w1.history_rows_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-GS", "graph_version": "v2", "leg": "atom", "metric_id": "w1.gnp_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}

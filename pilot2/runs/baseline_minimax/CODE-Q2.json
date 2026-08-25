@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q2",
+ "system": "baseline_minimax",
+ "kind": "value",
+ "value": 0.28619246861924685,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \n    CAST(SUM(CASE WHEN \"AcceptedAnswerId\" IS NOT NULL THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) AS acceptance_rate\nFROM main.posts\nWHERE \"PostTypeId\" = 1\n  AND \"CreaionDate\" >= '2013-12-01'\n  AND \"CreaionDate\" < '2014-01-01'\n```",
+ "sql": "SELECT \n    CAST(SUM(CASE WHEN \"AcceptedAnswerId\" IS NOT NULL THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) AS acceptance_rate\nFROM main.posts\nWHERE \"PostTypeId\" = 1\n  AND \"CreaionDate\" >= '2013-12-01'\n  AND \"CreaionDate\" < '2014-01-01'",
+ "prompt_sha256": "c376874d096d6d012f58a7a93f242efeb7e1a8d4b4834c9ecc10038cb249c0ca",
+ "prompt_chars": 4915,
+ "empty_response": false
+}

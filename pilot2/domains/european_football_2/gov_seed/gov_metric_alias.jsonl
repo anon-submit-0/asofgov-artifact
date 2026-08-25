@@ -1,0 +1,14 @@
+{"alias_id": "ef2.al1", "alias_text": "快照日球员平均综合评分", "graph_version": "v1", "metric_id": "ef2.avg_overall_rating"}
+{"alias_id": "ef2.al2", "alias_text": "主场胜率", "graph_version": "v1", "metric_id": "ef2.win_rate"}
+{"alias_id": "ef2.al3", "alias_text": "当月球员属性快照条数", "graph_version": "v1", "metric_id": "ef2.pa_month_count"}
+{"alias_id": "ef2.al4", "alias_text": "区间比赛场数", "graph_version": "v1", "metric_id": "ef2.matches_range"}
+{"alias_id": "ef2.al5", "alias_text": "评分归一当日胜率", "graph_version": "v1", "metric_id": "ef2.rating_weighted_win_rate"}
+{"alias_id": "ef2.al6", "alias_text": "球队推进速度均值", "graph_version": "v1", "metric_id": "ef2.team_buildup_speed"}
+{"alias_id": "ef2.al7", "alias_text": "当月主队进球总数", "graph_version": "v1", "metric_id": "ef2.goal_sum_month"}
+{"alias_id": "ef2.al1", "alias_text": "快照日球员平均综合评分", "graph_version": "v2", "metric_id": "ef2.avg_overall_rating"}
+{"alias_id": "ef2.al2", "alias_text": "主场胜率", "graph_version": "v2", "metric_id": "ef2.win_rate"}
+{"alias_id": "ef2.al3", "alias_text": "当月球员属性快照条数", "graph_version": "v2", "metric_id": "ef2.pa_month_count"}
+{"alias_id": "ef2.al4", "alias_text": "区间比赛场数", "graph_version": "v2", "metric_id": "ef2.matches_range"}
+{"alias_id": "ef2.al5", "alias_text": "评分归一当日胜率", "graph_version": "v2", "metric_id": "ef2.rating_weighted_win_rate"}
+{"alias_id": "ef2.al6", "alias_text": "球队推进速度均值", "graph_version": "v2", "metric_id": "ef2.team_buildup_speed"}
+{"alias_id": "ef2.al7", "alias_text": "当月主队进球总数", "graph_version": "v2", "metric_id": "ef2.goal_sum_month"}

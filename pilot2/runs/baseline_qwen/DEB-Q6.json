@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q6",
+ "system": "baseline_qwen",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT AVG(\"Consumption\") FROM main.\"yearmonth\" WHERE \"Date\" = '2013-12'\n```",
+ "sql": "SELECT AVG(\"Consumption\") FROM main.\"yearmonth\" WHERE \"Date\" = '2013-12'",
+ "prompt_sha256": "0d90fc8cdce1b3d6039bca49bc4424f93c1bf4da58f4848b292865b27ac06cab",
+ "prompt_chars": 3702,
+ "empty_response": false
+}

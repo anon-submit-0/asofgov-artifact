@@ -1,0 +1,58 @@
+{
+ "domain": "codebase_community",
+ "built_at": "2026-08-04T03:27:19Z",
+ "extraction": "duckdb sqlite scanner ATTACH + CREATE TABLE AS (原值拷贝)",
+ "tables": {
+  "badges": {
+   "rows": 79851,
+   "authored": false
+  },
+  "comments": {
+   "rows": 174285,
+   "authored": false
+  },
+  "postHistory": {
+   "rows": 303155,
+   "authored": false
+  },
+  "postLinks": {
+   "rows": 11102,
+   "authored": false
+  },
+  "posts": {
+   "rows": 91966,
+   "authored": false
+  },
+  "tags": {
+   "rows": 1032,
+   "authored": false
+  },
+  "users": {
+   "rows": 40325,
+   "authored": false
+  },
+  "votes": {
+   "rows": 38930,
+   "authored": false
+  }
+ },
+ "authored_rules": null,
+ "source": {
+  "kind": "bird_dev_20240627",
+  "path": "/Users/loctek/bench_data/dev_20240627/dev_databases/codebase_community/codebase_community.sqlite",
+  "sha256": "92101be6d2a9f6adceea59d38f6d1c556087f9eea1432432a21268cb1348036d",
+  "license": "CC BY-SA 4.0 (bird-bench.github.io)"
+ },
+ "gov_seed_rows": {
+  "gov_semantic_graph_version": 2,
+  "gov_semantic_node": 16,
+  "gov_metric": 16,
+  "gov_measure_def": 20,
+  "gov_metric_alias": 16,
+  "gov_caliber_routing": 14,
+  "gov_valid_time_anchor": 6,
+  "gov_temporal_binding": 14,
+  "gov_granularity_edge": 6,
+  "gov_disclosure_policy": 8
+ }
+}

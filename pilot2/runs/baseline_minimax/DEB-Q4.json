@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q4",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT SUM(Consumption) FROM main.yearmonth WHERE Date LIKE '2012-01%'\n```",
+ "sql": "SELECT SUM(Consumption) FROM main.yearmonth WHERE Date LIKE '2012-01%'",
+ "prompt_sha256": "be4442ca80651a7c8265ba0d0f4cb821b9362c8cad5788d2eadb4b74d01d1bfa",
+ "prompt_chars": 3711,
+ "empty_response": false
+}

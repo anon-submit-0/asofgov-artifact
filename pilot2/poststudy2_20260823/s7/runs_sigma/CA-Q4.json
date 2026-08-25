@@ -1,0 +1,28 @@
+{
+ "qid": "CA-Q4",
+ "domain": "california_schools",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2000-09-01",
+  "declared_at": "2015-05-01",
+  "metric_alias": "时点在效学校数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2000-09-01\", \"declared_at\": \"2015-05-01\", \"metric_alias\": \"时点在效学校数\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "7f175766a018e6b1b4fdbbbb7bcac9fc17c3d26cc246b5c077a2b41e899f7e38",
+ "prompt_chars": 20797
+}

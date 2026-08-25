@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q2",
+ "system": "baseline_deepseek",
+ "kind": "value",
+ "value": 13.675213675213675,
+ "verdict": "wrong_value",
+ "raw": "SELECT \n    COUNT(DISTINCT CASE WHEN l.status NOT IN ('A', 'C') THEN l.loan_id END) * 100.0 / COUNT(DISTINCT l.loan_id) \nFROM main.loan l \nWHERE l.date BETWEEN '1996-01-01' AND '1996-12-31'",
+ "sql": "SELECT \n    COUNT(DISTINCT CASE WHEN l.status NOT IN ('A', 'C') THEN l.loan_id END) * 100.0 / COUNT(DISTINCT l.loan_id) \nFROM main.loan l \nWHERE l.date BETWEEN '1996-01-01' AND '1996-12-31'",
+ "prompt_sha256": "1d0762359887243597f90578cae4889c35490f780a4a48600380747238616cad",
+ "prompt_chars": 4084,
+ "empty_response": false
+}

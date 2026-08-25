@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q7",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 0.0,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"trans\" WHERE strftime('%Y-%m', date) = '1999-06'\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"trans\" WHERE strftime('%Y-%m', date) = '1999-06'",
+ "prompt_sha256": "60301ff0d7a7b144bc35de03550e3ad362d3b8366bbf8eab297fd5339ac09fce",
+ "prompt_chars": 4255,
+ "empty_response": false
+}

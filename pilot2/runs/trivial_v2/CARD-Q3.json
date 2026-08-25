@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 7669.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT COUNT(DISTINCT l.uuid)\nFROM legalities l\nJOIN cards c ON l.uuid = c.uuid\nWHERE l.format = 'standard'\n  AND l.status = 'Legal'\n```\n\nWait — let me re-examine this carefully given the temporal governance tables.\n\nLet me check the governance tables first.\n\n```sql\nSELECT * FROM gov_valid_time_anchor;\n```\n\n```sql\nSELECT * FROM gov_temporal_binding;\n```\n\n```sql\nSELECT * FROM gov_metric WHERE kind = 'count' OR metric_id LIKE '%standard%' OR metric_id LIKE '%rotat%';\n```\n\n```sql\nSELECT * FROM gov_metric;\n```\n\n```sql\nSELECT * FROM gov_metric_alias;\n```\n\n```sql\nSELECT * FROM gov_semantic_node;\n```\n\n```sql\nSELECT * FROM gov_measure_def;\n```\n\n```sql\nSELECT * FROM gov_granularity_edge;\n```\n\n```sql\nSELECT * FROM gov_caliber_routing;\n```\n\nI need to actually query these tables to understand the temporal bindings. Let me provide the answer based on the schema semantics:\n\nThe question asks for the count of Standard-legal cards as-of 2021-03-10 with declaration point 2021-03-15. \"轮替\" means Standard (rotation) format.\n\nSince I cannot execute queries interactively to inspect the gov tables, and the legalities table doesn't have temporal columns (no effective_date, valid_from, valid_to), the temporal governance metadata in the gov_* tables describes rules but the underlying business tables lack the temporal columns needed to apply as-of filtering. The legalities table is a point-in-time snapshot without versioning columns.\n\nGiven this, a straightforward interpretation:\n\n```sql\nSELECT COUNT(DISTINCT l.uuid) FROM legalities l WHERE l.format = 'standard' AND l.status = 'Legal'\n```\n\nBut the question specifically demands temporal alignment per the governance schema. Without temporal columns on the fact tables to anchor the as-of date, the temporal binding rules cannot be materially applied.\n\nREFUSE: legalities 表缺少有效时间列（effective_date/valid_from/valid_to），",
+ "sql": "SELECT COUNT(DISTINCT l.uuid)\nFROM legalities l\nJOIN cards c ON l.uuid = c.uuid\nWHERE l.format = 'standard'\n  AND l.status = 'Legal'",
+ "prompt_sha256": "262742864f0a6dc58eacc302e8ef4acfaf0e097be5bd7a66457869982dea4f6d",
+ "prompt_chars": 5672,
+ "empty_response": false
+}

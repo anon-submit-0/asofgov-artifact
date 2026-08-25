@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q4",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": "1934-02-13",
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \"Birthday\" FROM main.\"Patient\" WHERE \"ID\" = 2110;\n```",
+ "sql": "SELECT \"Birthday\" FROM main.\"Patient\" WHERE \"ID\" = 2110",
+ "prompt_sha256": "c4586efbc1a6234bcedb160090e9ee2b4e2d274e30ae92e6384828fc497f8774",
+ "prompt_chars": 4221,
+ "empty_response": false
+}

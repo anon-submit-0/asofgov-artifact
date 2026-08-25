@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q6",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT AVG(avg_consumption) as monthly_avg_customer_consumption\nFROM (\n    SELECT CustomerID, AVG(Consumption) as avg_consumption\n    FROM main.\"yearmonth\"\n    WHERE Date LIKE '201312%'\n    GROUP BY CustomerID\n) \n```",
+ "sql": "SELECT AVG(avg_consumption) as monthly_avg_customer_consumption\nFROM (\n    SELECT CustomerID, AVG(Consumption) as avg_consumption\n    FROM main.\"yearmonth\"\n    WHERE Date LIKE '201312%'\n    GROUP BY CustomerID\n)",
+ "prompt_sha256": "0d90fc8cdce1b3d6039bca49bc4424f93c1bf4da58f4848b292865b27ac06cab",
+ "prompt_chars": 3702,
+ "empty_response": false
+}

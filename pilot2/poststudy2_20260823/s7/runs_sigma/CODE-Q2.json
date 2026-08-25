@@ -1,0 +1,28 @@
+{
+ "qid": "CODE-Q2",
+ "domain": "codebase_community",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2013-12-15",
+  "declared_at": "2014-02-01",
+  "metric_alias": "提问采纳率",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2013-12-15\", \"declared_at\": \"2014-02-01\", \"metric_alias\": \"提问采纳率\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "3985a3366ab96b54f25e1325896825a26ecac508c2d52bd73ebfefe13f57a405",
+ "prompt_chars": 31129
+}

@@ -1,0 +1,28 @@
+{"domain": "formula_1", "entity_key": "resultId", "graph_version": "v1", "node_id": "f1.results", "physical_table": "results", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "raceId", "graph_version": "v1", "node_id": "f1.races", "physical_table": "races", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "driverId", "graph_version": "v1", "node_id": "f1.drivers", "physical_table": "drivers", "scope_keys": {"driver": "driverRef"}}
+{"domain": "formula_1", "entity_key": "constructorId", "graph_version": "v1", "node_id": "f1.constructors", "physical_table": "constructors", "scope_keys": {"constructor": "constructorRef"}}
+{"domain": "formula_1", "entity_key": null, "graph_version": "v1", "node_id": "f1.points_scheme", "physical_table": "points_scheme", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "driverStandingsId", "graph_version": "v1", "node_id": "f1.driverStandings", "physical_table": "driverStandings", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "constructorStandingsId", "graph_version": "v1", "node_id": "f1.constructorStandings", "physical_table": "constructorStandings", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": null, "graph_version": "v1", "node_id": "f1.lapTimes", "physical_table": "lapTimes", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": null, "graph_version": "v1", "node_id": "f1.pitStops", "physical_table": "pitStops", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "qualifyId", "graph_version": "v1", "node_id": "f1.qualifying", "physical_table": "qualifying", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "circuitId", "graph_version": "v1", "node_id": "f1.circuits", "physical_table": "circuits", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "year", "graph_version": "v1", "node_id": "f1.seasons", "physical_table": "seasons", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "statusId", "graph_version": "v1", "node_id": "f1.status", "physical_table": "status", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "constructorResultsId", "graph_version": "v1", "node_id": "f1.constructorResults", "physical_table": "constructorResults", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "resultId", "graph_version": "v2", "node_id": "f1.results", "physical_table": "results", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "raceId", "graph_version": "v2", "node_id": "f1.races", "physical_table": "races", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "driverId", "graph_version": "v2", "node_id": "f1.drivers", "physical_table": "drivers", "scope_keys": {"driver": "driverRef"}}
+{"domain": "formula_1", "entity_key": "constructorId", "graph_version": "v2", "node_id": "f1.constructors", "physical_table": "constructors", "scope_keys": {"constructor": "constructorRef"}}
+{"domain": "formula_1", "entity_key": null, "graph_version": "v2", "node_id": "f1.points_scheme", "physical_table": "points_scheme", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "driverStandingsId", "graph_version": "v2", "node_id": "f1.driverStandings", "physical_table": "driverStandings", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "constructorStandingsId", "graph_version": "v2", "node_id": "f1.constructorStandings", "physical_table": "constructorStandings", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": null, "graph_version": "v2", "node_id": "f1.lapTimes", "physical_table": "lapTimes", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": null, "graph_version": "v2", "node_id": "f1.pitStops", "physical_table": "pitStops", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "qualifyId", "graph_version": "v2", "node_id": "f1.qualifying", "physical_table": "qualifying", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "circuitId", "graph_version": "v2", "node_id": "f1.circuits", "physical_table": "circuits", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "year", "graph_version": "v2", "node_id": "f1.seasons", "physical_table": "seasons", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "statusId", "graph_version": "v2", "node_id": "f1.status", "physical_table": "status", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "constructorResultsId", "graph_version": "v2", "node_id": "f1.constructorResults", "physical_table": "constructorResults", "scope_keys": {}}

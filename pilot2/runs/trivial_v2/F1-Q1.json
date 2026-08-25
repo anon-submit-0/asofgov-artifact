@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q1",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 95.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT SUM(r.points) AS total_points\nFROM main.\"results\" r\nJOIN main.\"races\" ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN main.\"drivers\" d ON r.\"driverId\" = d.\"driverId\"\nWHERE d.\"driverRef\" = 'button'\n  AND ra.\"year\" = 2009;\n```",
+ "sql": "SELECT SUM(r.points) AS total_points\nFROM main.\"results\" r\nJOIN main.\"races\" ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN main.\"drivers\" d ON r.\"driverId\" = d.\"driverId\"\nWHERE d.\"driverRef\" = 'button'\n  AND ra.\"year\" = 2009",
+ "prompt_sha256": "7f6593affe566e26512f591a8e50be8e3c1bad346e461696c2c5247c534bd96a",
+ "prompt_chars": 5735,
+ "empty_response": false
+}

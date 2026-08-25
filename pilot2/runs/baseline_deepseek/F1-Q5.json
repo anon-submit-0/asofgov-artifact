@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q5",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: schema中缺少时间有效性字段，无法处理声明时点和as-of查询的时间语义",
+ "sql": "REFUSE",
+ "prompt_sha256": "78ffaf40309599c961b2814479b2e082182167f18c4ed4649b9d026dd81faa72",
+ "prompt_chars": 5499,
+ "empty_response": false
+}

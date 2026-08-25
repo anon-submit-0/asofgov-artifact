@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q3",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 3208.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) \nFROM main.votes \nWHERE DATE_TRUNC('month', CreationDate) = '2010-12-01'\n```",
+ "sql": "SELECT COUNT(*) \nFROM main.votes \nWHERE DATE_TRUNC('month', CreationDate) = '2010-12-01'",
+ "prompt_sha256": "1ecefbb16bdcd089d1c1f1110ee2cc32a20b4798c44b75be69b3ca9d30b44629",
+ "prompt_chars": 28274,
+ "empty_response": false
+}

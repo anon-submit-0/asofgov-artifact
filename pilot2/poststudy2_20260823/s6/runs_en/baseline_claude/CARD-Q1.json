@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q1",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: The question references temporal adjudication semantics (declaration instant, as-of windows) that have no corresponding data or defined metric in this schema. The gov_temporal_binding and related governance tables contain only metadata definitions, not adjudication event data that could be counted.",
+ "sql": "REFUSE",
+ "prompt_sha256": "dc0624b660a6e3dd7755616484214febd594330b4528cc28f306b3915b0d46b4",
+ "prompt_chars": 5534,
+ "empty_response": false
+}

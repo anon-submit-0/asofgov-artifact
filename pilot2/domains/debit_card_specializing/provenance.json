@@ -1,0 +1,46 @@
+{
+ "domain": "debit_card_specializing",
+ "built_at": "2026-08-04T03:27:22Z",
+ "extraction": "duckdb sqlite scanner ATTACH + CREATE TABLE AS (原值拷贝)",
+ "tables": {
+  "customers": {
+   "rows": 32461,
+   "authored": false
+  },
+  "gasstations": {
+   "rows": 5716,
+   "authored": false
+  },
+  "products": {
+   "rows": 591,
+   "authored": false
+  },
+  "transactions_1k": {
+   "rows": 1000,
+   "authored": false
+  },
+  "yearmonth": {
+   "rows": 383282,
+   "authored": false
+  }
+ },
+ "authored_rules": null,
+ "source": {
+  "kind": "bird_dev_20240627",
+  "path": "/Users/loctek/bench_data/dev_20240627/dev_databases/debit_card_specializing/debit_card_specializing.sqlite",
+  "sha256": "b3d149ad05746dbbe5116e229e17e18f09c39db43cf117d9ef3441753608b691",
+  "license": "CC BY-SA 4.0 (bird-bench.github.io)"
+ },
+ "gov_seed_rows": {
+  "gov_semantic_graph_version": 2,
+  "gov_semantic_node": 10,
+  "gov_metric": 10,
+  "gov_measure_def": 12,
+  "gov_metric_alias": 10,
+  "gov_caliber_routing": 12,
+  "gov_valid_time_anchor": 4,
+  "gov_temporal_binding": 12,
+  "gov_granularity_edge": 6,
+  "gov_disclosure_policy": 2
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q4",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 16.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) AS new_loan_count\nFROM main.\"loan\"\nWHERE date >= '1997-05-01' AND date < '1997-06-01'\n```",
+ "sql": "SELECT COUNT(*) AS new_loan_count\nFROM main.\"loan\"\nWHERE date >= '1997-05-01' AND date < '1997-06-01'",
+ "prompt_sha256": "32a0630d9ae0b62a4df68c89f125862026cb6e7e0bafd094088123628e12be39",
+ "prompt_chars": 4307,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q1",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 67.8623869801085,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT AVG(pa.overall_rating) FROM main.\"Player_Attributes\" pa WHERE CAST(pa.\"date\" AS DATE) <= '2015-09-21' AND pa.id IN (SELECT pa2.id FROM main.\"Player_Attributes\" pa2 INNER JOIN (SELECT player_api_id, MAX(CAST(\"date\" AS DATE)) AS max_date FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) <= '2015-09-21' GROUP BY player_api_id) latest ON pa2.player_api_id = latest.player_api_id AND CAST(pa2.\"date\" AS DATE) = latest.max_date);\n```",
+ "sql": "SELECT AVG(pa.overall_rating) FROM main.\"Player_Attributes\" pa WHERE CAST(pa.\"date\" AS DATE) <= '2015-09-21' AND pa.id IN (SELECT pa2.id FROM main.\"Player_Attributes\" pa2 INNER JOIN (SELECT player_api_id, MAX(CAST(\"date\" AS DATE)) AS max_date FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) <= '2015-09-21' GROUP BY player_api_id) latest ON pa2.player_api_id = latest.player_api_id AND CAST(pa2.\"date\" AS DATE) = latest.max_date)",
+ "prompt_sha256": "bccdf1115a2dc4d6630eb89d23e93854edfadd7e6841c7f42bbc0b6abc513bf0",
+ "prompt_chars": 7844,
+ "empty_response": false
+}

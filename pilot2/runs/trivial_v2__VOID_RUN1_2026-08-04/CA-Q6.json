@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 0.46585812424556755,
+ "verdict": "answered_should_refuse",
+ "raw": "I need to analyze this question carefully with the temporal governance framework.\n\n**Question:** As of 2015-09-01, using charter authorization date windowing, calculate the free meal rate for the 2014-2015 academic year.\n\nLet me trace through the governance tables:\n\n1. **gov_valid_time_anchor** - find anchors relevant to the metrics\n2. **gov_temporal_binding** - find temporal binding rules\n3. **gov_metric** - find the metric definition for free meal rate\n\nThe free meal rate would be: Free Meal Count / Enrollment.\n\nLooking at the data, the `frpm` table has \"Academic Year\", \"Free Meal Count (K-12)\", \"Enrollment (K-12)\", and \"Percent (%) Eligible Free (K-12)\".\n\nThe `schools` table has `OpenDate` which could serve as charter authorization date, and `Charter` flag.\n\nThe question asks to window by charter authorization date (`OpenDate` for charter schools) as of 2015-09-01. This means we need charter schools whose `OpenDate` falls within the valid time window as of 2015-09-01.\n\nSince the governance tables have very few rows (2-12 each) and without being able to query them directly, I'll construct a practical query that:\n\n1. Filters to Academic Year 2014-2015\n2. Joins frpm with schools on CDSCode\n3. Filters charter schools\n4. Uses OpenDate as the charter authorization date, filtering schools authorized on or before 2015-09-01\n5. Calculates aggregate free meal rate\n\n```sql\nSELECT\n  SUM(f.\"Free Meal Count (K-12)\") / SUM(f.\"Enrollment (K-12)\") AS free_meal_rate\nFROM main.\"frpm\" f\nJOIN main.\"schools\" s\n  ON f.\"CDSCode\" = s.\"CDSCode\"\nWHERE f.\"Academic Year\" = '2014-2015'\n  AND s.\"Charter\" = 1\n  AND s.\"OpenDate\" <= DATE '2015-09-01'\n  AND s.\"OpenDate\" IS NOT NULL;\n```",
+ "sql": "SELECT\n  SUM(f.\"Free Meal Count (K-12)\") / SUM(f.\"Enrollment (K-12)\") AS free_meal_rate\nFROM main.\"frpm\" f\nJOIN main.\"schools\" s\n  ON f.\"CDSCode\" = s.\"CDSCode\"\nWHERE f.\"Academic Year\" = '2014-2015'\n  AND s.\"Charter\" = 1\n  AND s.\"OpenDate\" <= DATE '2015-09-01'\n  AND s.\"OpenDate\" IS NOT NULL",
+ "prompt_sha256": "60b7518e0bc3549c83366f92908742cccf9e53686359c37bd3529deef2ba614d",
+ "prompt_chars": 5413,
+ "empty_response": false
+}

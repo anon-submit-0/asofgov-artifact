@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q5",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: The schema contains no \"adjudication records\" table or column, nor any data that can be mapped to this concept. The question cannot be answered with the given database.",
+ "sql": "REFUSE",
+ "prompt_sha256": "bf311042a8fe7bed1701b91fa461854d0b9aade523be0ca88b6ab85e6dc3d9c3",
+ "prompt_chars": 5517,
+ "empty_response": false
+}

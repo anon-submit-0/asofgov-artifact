@@ -1,0 +1,426 @@
+% =====================================================================
+%  AsOfGov -- PVLDB Vol. 20 (2027) research-track submission
+%  Assembled main file.  Body target: 12 pages EXCLUDING references.
+%
+%  TEMPLATE PROVENANCE:
+%  acmart.cls (v2.19, 2026/06/27), pvldb.sty (v1.0, 2026/07/06) and
+%  ACM-Reference-Format.bst in this directory are verbatim copies from the
+%  official template repository github.com/vldbproceedings/VLDB-Template
+%  (branch main, retrieved 2026-08-03).  They are vendored next to the
+%  source so the build does not silently fall back to whatever acmart
+%  version a local TeX Live or Overleaf project happens to ship.
+%  Do not edit acmart.cls or pvldb.sty.
+% =====================================================================
+\documentclass[sigconf, nonacm]{acmart}
+
+%%% do not modify the following VLDB block %%
+%%% VLDB block start %%%
+\usepackage{pvldb}% VLDB/PVLDB formatting overrides, see pvldb.sty for details.
+                      % Do not remove -- required for consistent proceedings
+                      % formatting across all VLDB submissions.
+%%% VLDB block end %%%
+
+% ---------------------------------------------------------------------
+% \artifacturl is the public artifact repository printed in the
+% Availability block; \extendedtrurl is the TR's path inside that
+% repository.
+% ---------------------------------------------------------------------
+\newcommand\artifacturl{https://github.com/anon-submit-0/asofgov-artifact}
+\newcommand\extendedtrurl{tr/asof-gov-tr.pdf}
+
+% ---- PVLDB issue/paper metadata --------------------------------------
+% DOI and page range are assigned during production; placeholders are the
+% expected value at submission time (official template README, step 2).
+\renewcommand\vldbdoi{XX.XX/XXX.XX}
+\renewcommand\vldbpages{XXX-XXX}
+\renewcommand\vldbavailabilityurl{\artifacturl}
+% pvldb.sty defaults \vldbtitle to \shorttitle, so without this line the
+% mandatory PVLDB Reference Format block cites the RUNNING HEAD instead of the
+% paper's title.  The optional argument of \title stays the running head (the
+% three-line full title would otherwise run as the head on every odd page);
+% this macro is what the reference block reads, and it must carry the full
+% title with no line break.  Zero page cost -- the block is fixed-height.
+\renewcommand\vldbtitle{AsOfGov: As-Of Correctness for Governed Queries with Typed Refusals and Certificates}
+
+\usepackage{amsmath}
+\let\Bbbk\relax      % acmart's math font package already defines \Bbbk
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{pifont}
+\usepackage{balance}
+
+% ---------------------------------------------------------------------
+%  LAST-PAGE COLUMN-BALANCING FIX (added 2026-08-07, when the route-A prose
+%  cuts and the route-C spacing block were combined).
+%
+%  SYMPTOM: `Overfull \vbox (1.11pt too high) ... while \output is active',
+%  emitted while shipping the final, references-only page.  Zero overfull
+%  \hbox, and nothing crosses the text block -- but it is still an overfull
+%  box, and this manuscript's build gate requires none.
+%
+%  IT IS NOT OUR \balance CALL.  acmart.cls defaults to `balance=true' and
+%  issues \balance itself from \AtEndDocument, so the call further down in
+%  this file is redundant and commenting it out changes nothing.  (Verified:
+%  identical 1.11176pt with that call removed.)
+%
+%  ROOT CAUSE.  Read off a \tracingoutput dump of the offending box --
+%  \vbox(186.54024+0.0)x241.14749: one PVLDB column wide, and 186.54pt is
+%  balance's own computed half-height \@tempdima, not \@colht -- plus a
+%  \typeout probe inside \@BAlancecol on the failing page, which reported
+%    tempdima=186.54024pt  ht(col1)=186.0pt  oldvsize=626.0pt  colht=1252.0pt
+%  balance.sty sizes its two balanced columns by HEIGHT ALONE.  It checks
+%  \ht3 against \@tempdima in its split loop, and ships each column as
+%    \vbox to \@tempdima{<column material>\vfil}.
+%  But that trailing \vfil makes the material's own DEPTH count as height:
+%  the last line's descender, which was the box's depth while it was being
+%  measured, sits above the \vfil in the box that is actually shipped.  So a
+%  column whose height fits by 0.54pt can still overrun its target by the
+%  ~1.1pt of depth nobody counted.  Height-only accounting is the bug; it is
+%  latent in balance.sty and surfaced here only because routes A and C moved
+%  the reference list to a break where the last line carries a descender.
+%
+%  FIX: reassemble both columns exactly as they will be shipped, then size
+%  the pair by max(ht+dp) rather than max(ht), and keep the result bounded by
+%  one real column (\oldvsize holds it, because \@BAdblcol has doubled
+%  \@colht by this point).  No warning is suppressed, \vfuzz is untouched,
+%  and the split point -- hence the CONTENT of both columns -- is unchanged;
+%  the balanced columns simply get the ~1pt they always needed, on a page
+%  with ~440pt of unused height.  Inert whenever the split lands cleanly, so
+%  this stays correct when the reference list changes length again.
+%  Verified: overfull 3 -> 0 with the body length,
+%  all three content gates and the float and claim counts unchanged.
+\newsavebox\rcbalcolone
+\newsavebox\rcbalcoltwo
+\makeatletter
+\renewcommand{\@BAlancecol}{\if@twocolumn
+  \setbox0=\vbox{\unvbox\@outputbox} \@tempdima=\ht0
+  \advance\@tempdima by \topskip \advance\@tempdima
+     by -\baselineskip \divide\@tempdima by 2
+     \splittopskip=\topskip
+  {\vbadness=\@M \loop \global\setbox3=\copy0
+   \global\setbox1=\vsplit3 to \@tempdima
+   \ifdim\ht3>\@tempdima \global\advance\@tempdima by 1pt \repeat}
+   % reassemble both columns exactly as they will be shipped, then measure
+   \setbox\rcbalcolone=\vbox{\unvbox1}%
+   \setbox\rcbalcoltwo=\vbox{\dimen2=\dp3\unvbox3\kern-\dimen2}%
+   % a \vfil follows the unboxed material, so each column's DEPTH turns into
+   % height in the box that is actually shipped -- count ht+dp, not ht
+   \@tempdimb=\dimexpr\ht\rcbalcolone+\dp\rcbalcolone\relax
+   \ifdim\@tempdimb>\@tempdima \@tempdima=\@tempdimb \fi
+   \@tempdimb=\dimexpr\ht\rcbalcoltwo+\dp\rcbalcoltwo\relax
+   \ifdim\@tempdimb>\@tempdima \@tempdima=\@tempdimb \fi
+   \ifdim\@tempdima>\oldvsize \@tempdima=\oldvsize \fi
+   \setbox\@leftcolumn=\vbox to \@tempdima{\unvbox\rcbalcolone\vfil}%
+   \setbox\@outputbox=\vbox to \@tempdima{\unvbox\rcbalcoltwo\vfil}%
+  \fi}
+\makeatother
+% ---------------------------------------------------------------------
+
+\graphicspath{{figures/}}
+
+% =====================================================================
+%  TYPOGRAPHIC SPACE RECOVERY  (route C, 2026-08-07).
+%
+%  WHY THIS BLOCK EXISTS.  Four revision rounds independently measured the
+%  body at 12.001 pages with zero slack, which blocked ~30 AE-confirmed
+%  SHOULD-level edits: there was nowhere to put a sentence.  This block
+%  recovers room WITHOUT touching a single word, number, red line, claim
+%  or float.  It changes only inter-element white space and the strength
+%  of character protrusion.  It does NOT touch the type area
+%  (\textwidth/\textheight/\columnsep), the body font size, \baselineskip,
+%  or any acmart.cls / pvldb.sty file -- those are the things PVLDB
+%  actually polices, and they are all untouched.
+%
+%  MEASUREMENT.  Gain is measured as the total NATURAL height of the body
+%  material, summed over the 24 body columns of an otherwise identical
+%  \raggedbottom twin build (tools cannot read it off the normal build:
+%  acmart is \flushbottom, so every column is stretched to exactly 626pt
+%  and a saving of a few tens of points hides inside the glue instead of
+%  moving the last line).  Baseline H = 14823.2pt; with this block
+%  H = 14542.9pt.  Recovered: 280.3pt = 0.2239 body page = ~25 body lines,
+%  and the REFERENCES heading moves off page 13 back onto page 12.
+%  Per-item gains, each measured alone against the same baseline, are
+%  given beside each item below.  Compile quality does not regress:
+%  0 errors, 0 overfull \hbox, 0 undefined references, and the count of
+%  underfull \hbox drops from 8 to 6 (worst line badness 7012 -> 7064).
+% ---------------------------------------------------------------------
+
+%  (1) CHARACTER PROTRUSION, +30%.  [-45.7pt, -4 lines]
+%  acmart already loads microtype with protrusion and expansion both on;
+%  this only raises the protrusion amounts.  Optical margin alignment is
+%  invisible to a reader -- no glyph changes shape or size, punctuation
+%  hangs a hair further into the margin -- and it is the one setting here
+%  that IMPROVES line quality: underfull \hbox 8 -> 6.  Swept
+%  1000/1100/1200/1300/1400/1500: 1300 is the smallest value that reaches
+%  the -4-line plateau, and 1500 buys one more line at worse badness.
+\microtypesetup{factor=1300}
+
+%  (2) FLOAT-TO-CAPTION GAP, 12pt -> 4pt, over the 7 floats.  [-49.0pt]
+%  acmart's 12pt was set for a one-column journal measure; at PVLDB's
+%  241pt column it reads as a hole between a figure and its own caption.
+\captionsetup{skip=4pt}
+
+%  (3) FLOAT-TO-TEXT GAPS, 15/12/12pt -> 9pt.  [-35.6pt]
+%  All seven floats are [t]; \textfloatsep is what each one costs where it
+%  meets the column text.  9pt still clears the caption's descenders.
+%  SHRINK RESERVE (added when routes A and C were combined, 2026-08-07):
+%  the `minus' components below are deliberately LARGER than route C's
+%  original 3pt.  Shrinkability costs zero natural height -- it does not
+%  give back one point of the recovered space -- but it is what \output
+%  needs to square a \flushbottom column.  With route C's tighter glue and
+%  route A's new page breaks, page 12 came out 1.145pt overfull for want of
+%  exactly this.  Do not reduce these `minus' values.
+\setlength\textfloatsep{9pt plus 4pt minus 5pt}
+\setlength\floatsep{9pt plus 4pt minus 5pt}
+\setlength\intextsep{9pt plus 4pt minus 5pt}
+
+%  (4) BOOKTABS RULE PADDING.  [-25.4pt]
+%  ~20 rules across the four tables, each carrying 0.4ex above and 0.65ex
+%  below.  The tables are already \scriptsize with \tabcolsep 2.0-2.6pt;
+%  this is the last unclaimed vertical space in them.  NOTE, measured:
+%  pushing \arraystretch below its current 0.93-0.97 buys exactly 0.0pt --
+%  the rows are already content-bound, not strut-bound -- so the row
+%  heights are deliberately left alone.
+\setlength\aboverulesep{0.15ex}
+\setlength\belowrulesep{0.25ex}
+\setlength\abovetopsep{0pt}
+\setlength\belowbottomsep{0pt}
+
+%  (5) RUN-IN-HEADING LEAD, 1.925pt -> 1pt, over the 38 \smallskip sites.
+%  [-31.0pt]  These are the `\smallskip\noindent\textbf{...}' paragraph
+%  leads that carry this paper's argument structure; the separation stays
+%  visible, it just stops being a third of a blank line.  \smallskipamount
+%  itself cannot be used here: amsart recomputes it from \baselineskip
+%  inside \normalsize, so a preamble \setlength is silently reverted
+%  (measured: 0.0pt).  acmart.cls, pvldb.sty and amsart.cls contain no
+%  internal use of \smallskip, so this reaches only the 38 author sites.
+%  (`minus 1pt' rather than route C's `minus 0.4pt': see the SHRINK RESERVE
+%  note above.  Natural height is still 1pt, so the -31.0pt gain is intact.)
+\renewcommand\smallskip{\vspace{1pt plus 0.6pt minus 1pt}}
+
+%  (6) THEOREM-ENVIRONMENT SURROUND, .5\baselineskip -> .25\baselineskip
+%  above and below.  [-71.6pt -- the largest single item]
+%  16 numbered claims plus 2 examples, each paying 5.5pt+5.5pt.  The
+%  environments keep acmart's small-caps head and italic body, so they
+%  remain unmistakable at 2.75pt.  Applied by appending to acmart's own
+%  style macros, which amsthm expands at environment-open time, so the
+%  \newtheorem declarations and the shared section counter are untouched.
+%  Note there are ZERO display equations in this paper (all math is
+%  inline), so \abovedisplayskip/\belowdisplayskip/\jot are worth 0pt and
+%  are deliberately not touched.
+\makeatletter
+%  (`\@minus.25\baselineskip' rather than route C's `.1': SHRINK RESERVE
+%  again.  The natural .25\baselineskip is unchanged, so -71.6pt is intact.)
+\newcommand\rcthmskip{\thm@preskip=.25\baselineskip\@plus.1\baselineskip\@minus.25\baselineskip
+  \thm@postskip=\thm@preskip}
+\AtBeginDocument{%
+  \apptocmd{\th@acmplain}{\rcthmskip}{}{\typeout{ROUTEC-FAIL acmplain}}%
+  \apptocmd{\th@acmdefinition}{\rcthmskip}{}{\typeout{ROUTEC-FAIL acmdefinition}}%
+}
+\makeatother
+
+%  MEASURED AND REJECTED, so the next pass does not re-litigate them:
+%   * \looseness escalation: all 88 existing \looseness=-1 sites were
+%     swept to -2 one at a time (88 builds).  Every one returned +0 lines:
+%     -1 already extracts the minimum feasible setting of every paragraph.
+%     The lever is spent.  (Harness sanity-checked: +1 moves the count.)
+%   * \pretolerance=-1, \hyphenpenalty=30, \tolerance=300, and microtype
+%     expansion stretch/shrink 20->30: 0.0 to -0.3pt each.  Same reason.
+%   * \widowpenalty/\clubpenalty 10000 -> 300: +8.0pt, i.e. WORSE, so the
+%     widow/orphan protection costs nothing here and stays at 10000.
+%   * \arraystretch below current values: 0.0pt (see item 4).
+%   * Section/subsection heading skips -25%: -26.5pt, but the patch
+%     collides with acmart's \ACM@NRadjust (4 errors, 2 overfull) and
+%     heading white space is a primary structural cue.  Declined.
+%   * Figure geometry: figA_partition is already at the floor on BOTH axes
+%     (5.4pt type, 6.95pt leading on 5.6pt body = 1.24x), so it cannot be
+%     scaled at all; fig1_asof_gap and fig3_failure_taxonomy render at
+%     5.95pt and 5.71pt minimum type, which caps pure scaling at 0.907x
+%     and 0.946x = 21pt and 6pt.  Re-generating fig1 at 2.90in instead of
+%     3.25in (-25pt) was built and inspected at 300dpi: the
+%     governance-blind row crowds the green band above it and the footer
+%     below it.  Declined -- 40-50pt is not worth a visible regression in
+%     the paper's problem figure.
+% =====================================================================
+
+% ---------------------------------------------------------------------
+%  Line breaking in the identifier-dense and formula-dense passages.
+%  Long \texttt{} governance identifiers and long inline math groups are
+%  unbreakable boxes; in a 240pt PVLDB column they overshoot the measure
+%  and can collide with the neighbouring column.  Two remedies are used,
+%  in this order of preference:
+%    (1) an explicit \allowbreak after each \_ inside a long identifier
+%        (house style, see sections/01-intro.tex) or at a top-level comma
+%        of a long inline tuple -- this is the real fix and is applied at
+%        every site that produced an overfull box;
+%    (2) \emergencystretch as a floor, so that any residual hard case
+%        stretches the interword space of its line instead of printing
+%        outside the column.  TeX only consults this on the third
+%        line-breaking pass, i.e. only for paragraphs that would OTHERWISE
+%        produce an overfull box, so paragraphs that already set cleanly
+%        are unaffected.  It is a safety net, not a substitute for (1):
+%        every site in the 2026-08-03 log was fixed by (1) first, which
+%        cut the overfull count from 16 to 6 on its own.
+%
+%  1.5em was chosen by sweeping 0/1/1.5/2/2.5/3/4em and taking the
+%  SMALLEST value that reaches zero overfull \hbox.  It is also the best
+%  of the zero-overfull settings on line quality (worst badness 1509,
+%  against 2512 at 2em and 2922 at 2.5-3em), and the body page count is
+%  identical at every setting.  Do not raise it without re-running that
+%  sweep -- at 4em a line hits badness 10000.
+% ---------------------------------------------------------------------
+\setlength\emergencystretch{1.5em}
+
+% acmart already provides theorem/lemma/proposition/corollary/definition/
+% example on a shared section-numbered counter; Sections 3-6 rely on that.
+
+\begin{document}
+
+% The optional short form is the running head; without it the full title runs
+% as the head on every odd page and any manual line break inside it propagates
+% into \vldbtitle -- so NEVER put \\ in either form.  RETITLED 2026-08-24 to
+% the venue-normed form (corpus study of 905 published PVLDB titles: the old
+% three-item enumeration subtitle occurs in ~0.2% of titles and was an
+% 88th/99th-percentile length outlier; "SystemName: noun-phrase descriptor"
+% is the modal pattern at 47%).  The abstract opens "We present
+% \textsc{AsOfGov}:", so the system name now leads the title too.  "Binding
+% compilation" is the one dropped token -- it is recovered one sentence into
+% the abstract.  The tie in "Typed~Refusals" is deliberate: without it the
+% two-line page-1 wrap breaks between "Typed" and "Refusals", splitting the
+% pair; with it the break falls after "with".
+\title[AsOfGov: As-Of Correctness for Governed Queries]{AsOfGov: As-Of
+Correctness for Governed Queries with Typed~Refusals and Certificates}
+
+% ---------------------------------------------------------------------
+% PVLDB is SINGLE-BLIND: names and affiliations are mandatory on page 1.
+% FINAL AUTHOR SET INSTALLED 2026-08-24 (from the author's final
+% confirmation, replacing the pre-2026-08-24 single-author placeholder):
+% Hongsheng Wang (first author; institutional email replaces the old
+% personal the previous personal address; two affiliations, ZJU CS first, Loctek second) and
+% Xiubo Liang (corresponding author, marked via \authornote per acmart
+% convention).  The PVLDB Reference Format block derives its author list
+% from \vldbauthors, which pvldb.sty defaults to acmart's \authors
+% accumulator, so both names flow into it with no further edit here.
+% \country is mandatory per affiliation (acmart \@ACM@checkaffil raises a
+% ClassError without it), so the Loctek affiliation carries its country.
+% ---------------------------------------------------------------------
+\author{Hongsheng Wang}
+\affiliation{%
+  \department{College of Computer Science and Technology}
+  \institution{Zhejiang University}
+  \city{Hangzhou}
+  \country{China}
+}
+\affiliation{%
+  \institution{Loctek Ergonomic Technology Corp.}
+  \country{China}
+}
+\email{wanghongsheng@zju.edu.cn}
+
+\author{Xiubo Liang}
+\authornote{Xiubo Liang is the corresponding author.}
+\affiliation{%
+  \department{School of Software Technology}
+  \institution{Zhejiang University}
+  \city{Hangzhou}
+  \country{China}
+}
+\email{xiubo@zju.edu.cn}
+
+\renewcommand{\shortauthors}{Wang and Liang}
+
+\begin{abstract}
+\looseness=-1 Enterprise analytics increasingly runs through a governed
+semantic layer driven by a language model, and the layer moves: calibers are
+re-scoped, valid-time anchors re-declared, graph versions advance. Yet
+answering a governed question ``as of $T$'' is still treated as a prompting
+problem. We show that, on the evidence of a single-statement,
+no-execution-feedback protocol, it is a compile-time \emph{binding} problem.
+We present \textsc{AsOfGov}: a bi-temporal governed query semantics whose
+typed refusals are values, prove that bindability plus three refusal classes
+decidably partition well-formed single-period queries, extend compilation
+under a disclosure policy to \textsc{Mlr-Compile} (a maximal legal rewrite or
+a complete structured refusal), and add point-in-time certificates checked by
+a verifier sharing no module with the compiler. On a fully public 60-question
+suite, four frontier model families err on 60.0--76.7\% of questions and
+three prompt variants on 53.3--66.7\%. Handed its database's entire
+governance layer verbatim, a pre-registered arm still errs on 46.7\%, and its
+refusal-side errors concentrate where only a data probe decides (6 of 7,
+against 1 of 5 on registry-decidable refusals): under this protocol,
+in-context governance eliminates only 0.361 of the reference backbone's
+errors, short of the frozen $40\%$ line; its frozen 80\% prediction interval
+[0.35, 0.75] straddles that $40\%$ line, and crediting every probe-decidable
+residual lifts elimination to at most $0.472$, every execution-error residual
+as well to at most $0.667$, past that line either way. The compiler resolves
+all 60 questions, a constructive upper bound; the verifier accepts 60 of 60
+certificates and rejects 34 of 34 forgeries. Verification costs a paired
+median $17.7\times$ the answering query it certifies and the certificate
+$10.2\times$ the query's bytes.
+\end{abstract}
+
+% ---------------------------------------------------------------------
+%  CCS concepts and keywords: DECLARED (so they reach the PDF metadata)
+%  but NOT PRINTED.  Evidence for not printing them, both checked
+%  2026-08-03:
+%    (i)  the official Vol.20 template's own main.tex declares neither
+%         \ccsdesc nor \keywords;
+%    (ii) a published PVLDB paper set from this lineage -- EvoSchema,
+%         PVLDB 18(10):3655-3668, vldb.org/pvldb/vol18/p3655-zhang.pdf --
+%         prints no "CCS CONCEPTS" and no "KEYWORDS" block on page 1.
+%  Printing them cost 0.12 page and put the body OVER the 12-page limit.
+%  To restore the printed blocks, delete the \settopmatter line below and
+%  reinstate \keywords -- but re-check the page budget first, the body
+%  currently ends exactly at the foot of page 12 with no slack.
+% ---------------------------------------------------------------------
+\settopmatter{printccs=false}
+\ccsdesc[500]{Information systems~Query languages}
+\ccsdesc[500]{Information systems~Data management systems}
+\ccsdesc[300]{Information systems~Temporal data}
+\ccsdesc[300]{Computing methodologies~Natural language processing}
+
+\maketitle
+
+%%% do not modify the following VLDB block %%
+%%% VLDB block start %%%
+\vldbtopmatter
+%%% VLDB block end %%%
+
+\input{sections/01-intro}
+% sections/02-overview.tex is RETIRED (renamed 02-overview.tex.RETIRED,
+% 2026-08-06): the governed-store paragraph and the
+% roadmap were folded into the end of Section 1, and the pipeline narration
+% became panel (b) and the mini-abstract caption of Figure 1 (the merged
+% problem+pipeline float emitted from 01-intro; scope pass AUD-c583a419).
+% PAGE-BUDGET PASS 2026-08-03: Figure 1 lost panel (b) to fund the cost figure
+% (see the comment at the float in sections/01-intro.tex).  The pipeline
+% narration therefore now lives ONLY in extended/appendix_proofs.tex and in the
+% retired 02-overview.tex; the body has no architecture figure.  This is a
+% deliberate, reversible trade, not an oversight.
+\input{sections/03-semantics}
+\input{sections/04-binding}
+\input{sections/05-rewrite}
+\input{sections/06-certificates}
+\input{sections/07-system}
+\input{sections/08-eval}
+\input{sections/09-related}
+\input{sections/10-conclusion}
+
+% =====================================================================
+%  MANDATORY BLOCKS (Vol.20).  The PVLDB Reference Format block, the
+%  CC BY-NC-ND 4.0 licence footnote and the PVLDB Artifact Availability
+%  block are all emitted by \vldbtopmatter above (pvldb.sty) -- they must
+%  not be reproduced by hand.  The generative-AI disclosure and the prose
+%  availability statement live in Section~\ref{sec:concl}; both count
+%  against the 12-page body limit.
+% =====================================================================
+
+\balance
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}
+
+\end{document}

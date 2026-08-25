@@ -1,0 +1,824 @@
+{
+ "study": "S2 governance-blind temporal-SQL arms (deterministic, zero LLM)",
+ "prereg": {
+  "path": "/Volumes/SSD 1/explore_opportunity_cc/pilot2/poststudy_20260820/PREREG_poststudy_20260820.md",
+  "sha256": "f2fb136ae3ecdbce29ed7b2632df4f0d3e0b2fde07889bb31c68dd4ac8aace24"
+ },
+ "run_at": "2026-08-20T14:51:18",
+ "sandbox_base": "/private/tmp/claude-502/-Volumes-SSD-1-vldb-asof/831806d7-8bc6-464b-9baf-a933f760e40d/scratchpad/poststudy-sandbox",
+ "import_disjointness": "IMPORT-DISJOINTNESS OK: 165 loaded modules scanned; none originate from impl/asof_compiler, impl/asof_verifier or impl/",
+ "frozen_scorer": {
+  "run_pilot_sha256": "fecda681ccce203fa08e1a8b28a8ff722093a50ce656c62e86d921b5949309ef",
+  "REL_TOL": 0.005,
+  "dispatch": "R2.fetch_and_score (frozen §4.2): rowset {CA-Q5,CODE-Q4,DEB-Q5,TH-Q3}, string {CODE-Q6,TH-Q4}, numeric otherwise"
+ },
+ "latest_versions": {
+  "california_schools": {
+   "graph_version": "v2",
+   "commit_seq": 2,
+   "committed_at": "2015-07-01"
+  },
+  "card_games": {
+   "graph_version": "v2",
+   "commit_seq": 2,
+   "committed_at": "2017-09-28"
+  },
+  "codebase_community": {
+   "graph_version": "v2",
+   "commit_seq": 2,
+   "committed_at": "2013-01-01"
+  },
+  "debit_card_specializing": {
+   "graph_version": "v2",
+   "commit_seq": 2,
+   "committed_at": "2013-06-01"
+  },
+  "european_football_2": {
+   "graph_version": "v2",
+   "commit_seq": 2,
+   "committed_at": "2014-08-01"
+  },
+  "financial": {
+   "graph_version": "v2",
+   "commit_seq": 2,
+   "committed_at": "1998-03-01"
+  },
+  "formula_1": {
+   "graph_version": "v2",
+   "commit_seq": 2,
+   "committed_at": "2010-02-01"
+  },
+  "thrombosis_prediction": {
+   "graph_version": "v2",
+   "commit_seq": 2,
+   "committed_at": "1998-01-01"
+  },
+  "world_1": {
+   "graph_version": "v2",
+   "commit_seq": 2,
+   "committed_at": "2026-07-01"
+  }
+ },
+ "exclusion_list_enforced": [
+  "expected_kind",
+  "gold_sql",
+  "gold_value",
+  "pinned_version",
+  "rewrite",
+  "refusal_*"
+ ],
+ "null_edge_rule": "raw SQL result emitted; bare NULL recorded as 'NULL'; no refusal declaration ever; both scoring readings computed (frozen-literal NULL-as-error AND NULL-as-implicit-refusal-credit)",
+ "arms": {
+  "TSQL-W": {
+   "answered_60_of_60_no_refusal_declaration": true,
+   "refusal_declarations": 0,
+   "bare_null_qids": [
+    "CARD-Q7",
+    "DEB-Q6",
+    "EF2-Q5",
+    "EF2-Q6",
+    "F1-Q8"
+   ],
+   "bare_null_on_refusal_gold_qids": [
+    "CARD-Q7",
+    "DEB-Q6",
+    "EF2-Q5",
+    "EF2-Q6",
+    "F1-Q8"
+   ],
+   "readings": {
+    "null_as_error": {
+     "error_count": 28,
+     "error_rate": 0.4666666666666667,
+     "error_qids": [
+      "CA-Q5",
+      "CA-Q6",
+      "CARD-Q6",
+      "CARD-Q7",
+      "CODE-Q1",
+      "CODE-Q4",
+      "CODE-Q5",
+      "CODE-Q6",
+      "CODE-Q7",
+      "DEB-Q5",
+      "DEB-Q6",
+      "DEB-Q7",
+      "EF2-Q5",
+      "EF2-Q6",
+      "F1-Q1",
+      "F1-Q3",
+      "F1-Q7",
+      "F1-Q8",
+      "FIN-Q1",
+      "FIN-Q7",
+      "FIN-Q8",
+      "TH-Q3",
+      "TH-Q4",
+      "TH-Q5",
+      "TH-Q6",
+      "W1-Q1",
+      "W1-Q3",
+      "W1-Q5"
+     ],
+     "by_form": {
+      "value": {
+       "n": 33,
+       "errors": 6
+      },
+      "rewrite": {
+       "n": 12,
+       "errors": 7
+      },
+      "refusal": {
+       "n": 15,
+       "errors": 15
+      }
+     },
+     "by_refusal_reason": {
+      "anchor-mismatch": {
+       "n": 5,
+       "errors": 5
+      },
+      "missing-caliber": {
+       "n": 3,
+       "errors": 3
+      },
+      "disclosure-blocked": {
+       "n": 3,
+       "errors": 3
+      },
+      "out-of-validity": {
+       "n": 4,
+       "errors": 4
+      }
+     },
+     "by_domain": {
+      "california_schools": {
+       "n": 6,
+       "errors": 2
+      },
+      "card_games": {
+       "n": 7,
+       "errors": 2
+      },
+      "codebase_community": {
+       "n": 7,
+       "errors": 5
+      },
+      "debit_card_specializing": {
+       "n": 7,
+       "errors": 3
+      },
+      "european_football_2": {
+       "n": 6,
+       "errors": 2
+      },
+      "financial": {
+       "n": 8,
+       "errors": 3
+      },
+      "formula_1": {
+       "n": 8,
+       "errors": 4
+      },
+      "thrombosis_prediction": {
+       "n": 6,
+       "errors": 4
+      },
+      "world_1": {
+       "n": 5,
+       "errors": 3
+      }
+     },
+     "taxonomy": {
+      "correct": 32,
+      "wrong_value": 12,
+      "answered_should_refuse": 15,
+      "execution_error": 1
+     }
+    },
+    "null_as_refusal_credit": {
+     "error_count": 23,
+     "error_rate": 0.38333333333333336,
+     "error_qids": [
+      "CA-Q5",
+      "CA-Q6",
+      "CARD-Q6",
+      "CODE-Q1",
+      "CODE-Q4",
+      "CODE-Q5",
+      "CODE-Q6",
+      "CODE-Q7",
+      "DEB-Q5",
+      "DEB-Q7",
+      "F1-Q1",
+      "F1-Q3",
+      "F1-Q7",
+      "FIN-Q1",
+      "FIN-Q7",
+      "FIN-Q8",
+      "TH-Q3",
+      "TH-Q4",
+      "TH-Q5",
+      "TH-Q6",
+      "W1-Q1",
+      "W1-Q3",
+      "W1-Q5"
+     ],
+     "by_form": {
+      "value": {
+       "n": 33,
+       "errors": 6
+      },
+      "rewrite": {
+       "n": 12,
+       "errors": 7
+      },
+      "refusal": {
+       "n": 15,
+       "errors": 10
+      }
+     },
+     "by_refusal_reason": {
+      "anchor-mismatch": {
+       "n": 5,
+       "errors": 4
+      },
+      "missing-caliber": {
+       "n": 3,
+       "errors": 1
+      },
+      "disclosure-blocked": {
+       "n": 3,
+       "errors": 3
+      },
+      "out-of-validity": {
+       "n": 4,
+       "errors": 2
+      }
+     },
+     "by_domain": {
+      "california_schools": {
+       "n": 6,
+       "errors": 2
+      },
+      "card_games": {
+       "n": 7,
+       "errors": 1
+      },
+      "codebase_community": {
+       "n": 7,
+       "errors": 5
+      },
+      "debit_card_specializing": {
+       "n": 7,
+       "errors": 2
+      },
+      "european_football_2": {
+       "n": 6,
+       "errors": 0
+      },
+      "financial": {
+       "n": 8,
+       "errors": 3
+      },
+      "formula_1": {
+       "n": 8,
+       "errors": 3
+      },
+      "thrombosis_prediction": {
+       "n": 6,
+       "errors": 4
+      },
+      "world_1": {
+       "n": 5,
+       "errors": 3
+      }
+     },
+     "taxonomy": {
+      "correct": 37,
+      "wrong_value": 12,
+      "answered_should_refuse": 10,
+      "execution_error": 1
+     }
+    }
+   }
+  },
+  "TSQL-H": {
+   "answered_60_of_60_no_refusal_declaration": true,
+   "refusal_declarations": 0,
+   "bare_null_qids": [],
+   "bare_null_on_refusal_gold_qids": [],
+   "readings": {
+    "null_as_error": {
+     "error_count": 54,
+     "error_rate": 0.9,
+     "error_qids": [
+      "CA-Q3",
+      "CA-Q4",
+      "CA-Q5",
+      "CA-Q6",
+      "CARD-Q1",
+      "CARD-Q2",
+      "CARD-Q5",
+      "CARD-Q6",
+      "CARD-Q7",
+      "CODE-Q1",
+      "CODE-Q2",
+      "CODE-Q3",
+      "CODE-Q4",
+      "CODE-Q5",
+      "CODE-Q6",
+      "CODE-Q7",
+      "DEB-Q1",
+      "DEB-Q2",
+      "DEB-Q3",
+      "DEB-Q5",
+      "DEB-Q6",
+      "DEB-Q7",
+      "EF2-Q1",
+      "EF2-Q3",
+      "EF2-Q4",
+      "EF2-Q5",
+      "EF2-Q6",
+      "F1-Q1",
+      "F1-Q2",
+      "F1-Q3",
+      "F1-Q4",
+      "F1-Q5",
+      "F1-Q6",
+      "F1-Q7",
+      "F1-Q8",
+      "FIN-Q1",
+      "FIN-Q2",
+      "FIN-Q3",
+      "FIN-Q4",
+      "FIN-Q5",
+      "FIN-Q6",
+      "FIN-Q7",
+      "FIN-Q8",
+      "TH-Q1",
+      "TH-Q2",
+      "TH-Q3",
+      "TH-Q4",
+      "TH-Q5",
+      "TH-Q6",
+      "W1-Q1",
+      "W1-Q2",
+      "W1-Q3",
+      "W1-Q4",
+      "W1-Q5"
+     ],
+     "by_form": {
+      "value": {
+       "n": 33,
+       "errors": 27
+      },
+      "rewrite": {
+       "n": 12,
+       "errors": 12
+      },
+      "refusal": {
+       "n": 15,
+       "errors": 15
+      }
+     },
+     "by_refusal_reason": {
+      "anchor-mismatch": {
+       "n": 5,
+       "errors": 5
+      },
+      "missing-caliber": {
+       "n": 3,
+       "errors": 3
+      },
+      "disclosure-blocked": {
+       "n": 3,
+       "errors": 3
+      },
+      "out-of-validity": {
+       "n": 4,
+       "errors": 4
+      }
+     },
+     "by_domain": {
+      "california_schools": {
+       "n": 6,
+       "errors": 4
+      },
+      "card_games": {
+       "n": 7,
+       "errors": 5
+      },
+      "codebase_community": {
+       "n": 7,
+       "errors": 7
+      },
+      "debit_card_specializing": {
+       "n": 7,
+       "errors": 6
+      },
+      "european_football_2": {
+       "n": 6,
+       "errors": 5
+      },
+      "financial": {
+       "n": 8,
+       "errors": 8
+      },
+      "formula_1": {
+       "n": 8,
+       "errors": 8
+      },
+      "thrombosis_prediction": {
+       "n": 6,
+       "errors": 6
+      },
+      "world_1": {
+       "n": 5,
+       "errors": 5
+      }
+     },
+     "taxonomy": {
+      "correct": 6,
+      "wrong_value": 38,
+      "answered_should_refuse": 15,
+      "execution_error": 1
+     }
+    },
+    "null_as_refusal_credit": {
+     "error_count": 54,
+     "error_rate": 0.9,
+     "error_qids": [
+      "CA-Q3",
+      "CA-Q4",
+      "CA-Q5",
+      "CA-Q6",
+      "CARD-Q1",
+      "CARD-Q2",
+      "CARD-Q5",
+      "CARD-Q6",
+      "CARD-Q7",
+      "CODE-Q1",
+      "CODE-Q2",
+      "CODE-Q3",
+      "CODE-Q4",
+      "CODE-Q5",
+      "CODE-Q6",
+      "CODE-Q7",
+      "DEB-Q1",
+      "DEB-Q2",
+      "DEB-Q3",
+      "DEB-Q5",
+      "DEB-Q6",
+      "DEB-Q7",
+      "EF2-Q1",
+      "EF2-Q3",
+      "EF2-Q4",
+      "EF2-Q5",
+      "EF2-Q6",
+      "F1-Q1",
+      "F1-Q2",
+      "F1-Q3",
+      "F1-Q4",
+      "F1-Q5",
+      "F1-Q6",
+      "F1-Q7",
+      "F1-Q8",
+      "FIN-Q1",
+      "FIN-Q2",
+      "FIN-Q3",
+      "FIN-Q4",
+      "FIN-Q5",
+      "FIN-Q6",
+      "FIN-Q7",
+      "FIN-Q8",
+      "TH-Q1",
+      "TH-Q2",
+      "TH-Q3",
+      "TH-Q4",
+      "TH-Q5",
+      "TH-Q6",
+      "W1-Q1",
+      "W1-Q2",
+      "W1-Q3",
+      "W1-Q4",
+      "W1-Q5"
+     ],
+     "by_form": {
+      "value": {
+       "n": 33,
+       "errors": 27
+      },
+      "rewrite": {
+       "n": 12,
+       "errors": 12
+      },
+      "refusal": {
+       "n": 15,
+       "errors": 15
+      }
+     },
+     "by_refusal_reason": {
+      "anchor-mismatch": {
+       "n": 5,
+       "errors": 5
+      },
+      "missing-caliber": {
+       "n": 3,
+       "errors": 3
+      },
+      "disclosure-blocked": {
+       "n": 3,
+       "errors": 3
+      },
+      "out-of-validity": {
+       "n": 4,
+       "errors": 4
+      }
+     },
+     "by_domain": {
+      "california_schools": {
+       "n": 6,
+       "errors": 4
+      },
+      "card_games": {
+       "n": 7,
+       "errors": 5
+      },
+      "codebase_community": {
+       "n": 7,
+       "errors": 7
+      },
+      "debit_card_specializing": {
+       "n": 7,
+       "errors": 6
+      },
+      "european_football_2": {
+       "n": 6,
+       "errors": 5
+      },
+      "financial": {
+       "n": 8,
+       "errors": 8
+      },
+      "formula_1": {
+       "n": 8,
+       "errors": 8
+      },
+      "thrombosis_prediction": {
+       "n": 6,
+       "errors": 6
+      },
+      "world_1": {
+       "n": 5,
+       "errors": 5
+      }
+     },
+     "taxonomy": {
+      "correct": 6,
+      "wrong_value": 38,
+      "answered_should_refuse": 15,
+      "execution_error": 1
+     }
+    }
+   }
+  }
+ },
+ "version_flip_pairs": [
+  {
+   "pair": [
+    "CA-Q1",
+    "CA-Q2"
+   ],
+   "sides": [
+    {
+     "qid": "CA-Q1",
+     "ver_in_effect": "v1",
+     "latest_used": "v2",
+     "off_version_side": true,
+     "gold": 0.37985585826806795,
+     "tsql_w_value": 0.37804549460887515,
+     "rel_diff": 0.004765922704067399,
+     "within_tol": true,
+     "tsql_w_verdict": "correct"
+    },
+    {
+     "qid": "CA-Q2",
+     "ver_in_effect": "v2",
+     "latest_used": "v2",
+     "off_version_side": false,
+     "gold": 0.37804549460887515,
+     "tsql_w_value": 0.37804549460887515,
+     "rel_diff": 0.0,
+     "within_tol": true,
+     "tsql_w_verdict": "correct"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "FIN-Q1",
+    "FIN-Q2"
+   ],
+   "sides": [
+    {
+     "qid": "FIN-Q1",
+     "ver_in_effect": "v1",
+     "latest_used": "v2",
+     "off_version_side": true,
+     "gold": 0.13675213675213677,
+     "tsql_w_value": 0.08547008547008547,
+     "rel_diff": 0.37500000000000006,
+     "within_tol": false,
+     "tsql_w_verdict": "wrong_value"
+    },
+    {
+     "qid": "FIN-Q2",
+     "ver_in_effect": "v2",
+     "latest_used": "v2",
+     "off_version_side": false,
+     "gold": 0.08547008547008547,
+     "tsql_w_value": 0.08547008547008547,
+     "rel_diff": 0.0,
+     "within_tol": true,
+     "tsql_w_verdict": "correct"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "F1-Q1",
+    "F1-Q2"
+   ],
+   "sides": [
+    {
+     "qid": "F1-Q1",
+     "ver_in_effect": "v1",
+     "latest_used": "v2",
+     "off_version_side": true,
+     "gold": 100.0,
+     "tsql_w_value": 252.0,
+     "rel_diff": 1.52,
+     "within_tol": false,
+     "tsql_w_verdict": "wrong_value"
+    },
+    {
+     "qid": "F1-Q2",
+     "ver_in_effect": "v2",
+     "latest_used": "v2",
+     "off_version_side": false,
+     "gold": 252.0,
+     "tsql_w_value": 252.0,
+     "rel_diff": 0.0,
+     "within_tol": true,
+     "tsql_w_verdict": "correct"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "W1-Q1",
+    "W1-Q2"
+   ],
+   "sides": [
+    {
+     "qid": "W1-Q1",
+     "ver_in_effect": "v1",
+     "latest_used": "v2",
+     "off_version_side": true,
+     "gold": 4068933086,
+     "tsql_w_value": 4313069067.0,
+     "rel_diff": 0.05999999897761897,
+     "within_tol": false,
+     "tsql_w_verdict": "wrong_value"
+    },
+    {
+     "qid": "W1-Q2",
+     "ver_in_effect": "v2",
+     "latest_used": "v2",
+     "off_version_side": false,
+     "gold": 4313069067,
+     "tsql_w_value": 4313069067.0,
+     "rel_diff": 0.0,
+     "within_tol": true,
+     "tsql_w_verdict": "correct"
+    }
+   ]
+  }
+ ],
+ "off_version_sides_errors_TSQL_W": [
+  "FIN-Q1",
+  "F1-Q1",
+  "W1-Q1"
+ ],
+ "window_crosscheck_mismatches": {},
+ "predictions": {
+  "null_as_error": {
+   "S2-P1": {
+    "met": true,
+    "detail": {
+     "refusal_declarations": {
+      "TSQL-W": 0,
+      "TSQL-H": 0
+     },
+     "refusal_correct_W": "0/15",
+     "refusal_correct_H": "0/15"
+    }
+   },
+   "S2-P2": {
+    "met": true,
+    "detail": {
+     "TSQL-W_error": 0.4666666666666667,
+     "TSQL-H_error": 0.9,
+     "band": [
+      0.35,
+      0.6
+     ]
+    }
+   },
+   "S2-P3": {
+    "met": true,
+    "detail": {
+     "off_version_side_errors": [
+      "FIN-Q1",
+      "F1-Q1",
+      "W1-Q1"
+     ],
+     "n_off_sides": 4,
+     "within_tolerance_credited": [
+      "CA-Q1"
+     ]
+    }
+   },
+   "S2-P4": {
+    "met": true,
+    "detail": {
+     "TSQL-W_value_errors": "6/33",
+     "plain_baseline_value_errors": {
+      "baseline_claude": 18,
+      "baseline_qwen": 23,
+      "baseline_deepseek": 27,
+      "baseline_minimax": 25
+     },
+     "best_plain_value_errors": "18/33"
+    }
+   }
+  },
+  "null_as_refusal_credit": {
+   "S2-P1": {
+    "met": false,
+    "detail": {
+     "refusal_declarations": {
+      "TSQL-W": 0,
+      "TSQL-H": 0
+     },
+     "refusal_correct_W": "5/15",
+     "refusal_correct_H": "0/15"
+    }
+   },
+   "S2-P2": {
+    "met": true,
+    "detail": {
+     "TSQL-W_error": 0.38333333333333336,
+     "TSQL-H_error": 0.9,
+     "band": [
+      0.35,
+      0.6
+     ]
+    }
+   },
+   "S2-P3": {
+    "met": true,
+    "detail": {
+     "off_version_side_errors": [
+      "FIN-Q1",
+      "F1-Q1",
+      "W1-Q1"
+     ],
+     "n_off_sides": 4,
+     "within_tolerance_credited": [
+      "CA-Q1"
+     ]
+    }
+   },
+   "S2-P4": {
+    "met": true,
+    "detail": {
+     "TSQL-W_value_errors": "6/33",
+     "plain_baseline_value_errors": {
+      "baseline_claude": 18,
+      "baseline_qwen": 23,
+      "baseline_deepseek": 27,
+      "baseline_minimax": 25
+     },
+     "best_plain_value_errors": "18/33"
+    }
+   }
+  }
+ },
+ "notes": [
+  "TSQL-W realizes every requested window in the anchor's native granule (day windows on token anchors become covering token ranges); DEB-Q7's week request therefore lands on month token 201303 and yields a number (answered_should_refuse under both readings). The alternative literal day-string comparison on the token column would yield NULL and flip DEB-Q7 to correct only under the null-credit reading.",
+  "CARD-Q6 (collector_premium): the legs' anchor node card.sets is not reachable from the latest-version route rows for those legs (the den route is dst_caliber='none' with no join); the guard-free arm aggregates unfiltered — verdict unaffected (refusal-gold, answers a number)."
+ ]
+}

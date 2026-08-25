@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: The question references \"rotation caliber\" and \"rotation-legal\" concepts that depend on governance metadata (gov_caliber_routing) which contains only 12 generic routing rows with no temporal rotation rules or card legality mappings that could determine which cards are \"rotation-legal\" as of a specific date.",
+ "sql": "REFUSE",
+ "prompt_sha256": "35bce9c4694e66832cb21c4951233ab5eeefdad290667db6fa80a0ae7f7d4517",
+ "prompt_chars": 5532,
+ "empty_response": false
+}

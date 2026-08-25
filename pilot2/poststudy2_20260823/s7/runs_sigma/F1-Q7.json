@@ -1,0 +1,28 @@
+{
+ "qid": "F1-Q7",
+ "domain": "formula_1",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "1949-05-15",
+  "declared_at": "2011-03-01",
+  "metric_alias": "当月大奖赛场数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"1949-05-15\", \"declared_at\": \"2011-03-01\", \"metric_alias\": \"当月大奖赛场数\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "67b69e24bc8e30707bb3c04bb5fc20297784dfa7c35c49c07a5eaa38c9c228a7",
+ "prompt_chars": 29978
+}

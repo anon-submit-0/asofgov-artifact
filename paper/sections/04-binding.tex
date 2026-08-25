@@ -1,0 +1,154 @@
+% =====================================================================
+%  Section 4 -- BINDING COMPILATION            (source: theory/C3 §5)
+%  Requires macros defined in 03-semantics.tex (\input that file first).
+%  Full proofs: extended/appendix_proofs.tex (\cite{asofgov-tr}).
+% =====================================================================
+
+\section{BINDING COMPILATION}
+\label{sec:binding}
+
+\noindent\looseness=-1\textbf{Standing assumptions} for this section and the next:
+\textbf{(A1)} each extension $\sem{o}_v\subseteq D$ is finite and enumerable
+with bounded per-fact predicate cost; \textbf{(A2)} valid-time assignments and
+window operations are computable and $\Gfam$ is a finite meet-semilattice with
+day as common refinement; \textbf{(A3)} $\Vset$ is a non-empty finite total
+order, the commit map is computable and strictly monotone, and the version axis
+is append-only; \textbf{(A4)} every rule in the library denotes a decidable
+predicate; \textbf{(A5)} each window derivation is a total function into
+$\Wdom\uplus\{\uparrow\}$, so ``$\omega_r(T)$ unresolvable'' is one evaluation
+and not a halting question; \textbf{(A6)} $\Tdom$ is discrete, effectively
+presented, with decidable order --- continuous time domains, where endpoint
+comparison is only semi-decidable, are out of scope.
+
+\label{sec:bind:partition}%
+\begin{theorem}[coverage partition, single period]
+\label{thm:partition}
+For every well-formed single-period query $q$ --- $\sigma$ syntactically well
+formed, $T\in\Tdom$, and $R(q)\subseteq\{\mathrm{num},\mathrm{den}\}$ or
+$R(q)=\{\mathrm{atom}\}$ --- under \emph{(A1)--(A6)} the four cases
+\textbf{(a)} $\Bindable$, \textbf{(b)} $\OOV$, \textbf{(c)}
+$\neg\OOV\wedge\AM$, \textbf{(d)} $\neg\OOV\wedge\neg\AM\wedge\MC$ are
+pairwise disjoint and jointly exhaustive, and
+$\sem{q}_{\Gseq,T}\in\Qdom\iff$(a), $=\bot_{\OOV}\iff$(b),
+$=\bot_{\AM}\iff$(c), $=\bot_{\MC}\iff$(d).
+\end{theorem}
+
+\noindent\looseness=-1 Proof in~\cite{asofgov-tr}: disjointness follows from the guard
+chain and obligations (b1)--(b4) of Definition~\ref{def:bindable};
+exhaustiveness uses Proposition~\ref{prop:decidable}, whose proof does not use
+this theorem, to make each guard two-valued on its domain, and the
+vacuity convention of Definition~\ref{def:oov} to keep a missing object out of
+the temporal door. Figure~\ref{fig:partition} walks one request into
+each of the four outcomes on a single store.
+% The four-case walk that used to be prose here is Figure~\ref{fig:partition},
+% which prints every mass; keep this pointer, not a second telling of it.
+
+% Emitted at exactly \columnwidth by figures/figA_partition.py -- include at
+% natural size; the 5.4 pt type floor is stated for that placement and does not
+% survive a down-scale.  Data: figures/fig_data_p2.json["partition"], recomputed
+% from the public card_games warehouse and cross-asserted against impl/certs2/.
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figA_partition.pdf}
+\Description{Four sibling requests on the same governed metric walked
+through the guard chain in its frozen order, one row per request: each row
+prints the request window, the outcome of every guard with the quantity
+that decided it, and the exit --- one bound answer and the three refusal
+classes --- so the four rows realise the four-way partition while only the
+window coordinates differ.}
+\caption{The partition on four sibling requests to the \texttt{card\_games}
+store: only the coordinates move, so each row leaves the chain in a different
+column. (b) and (d) are the $\OOV$/$\MC$(ii) boundary --- one metric, one
+empty same-month denominator, two classes --- because $\Cov$ is the hull of
+the \emph{anchor's} table: 2017-02 lies inside it, 2021-06 after it. (c)~is
+what a refusal buys: the $6400\%$ its cross-window binding would report
+against the $40.2\%$ the same-window rule delivers in (a). (a) and (d) are
+suite questions with verifier-accepted certificates; (b) and (c) are probes on
+the same store, and say so.}
+\label{fig:partition}
+\end{figure}
+
+\smallskip\noindent\textbf{Decidability, cost, multiple periods, and guard
+order.}\label{sec:bind:decidable}
+\nopagebreak
+
+\begin{proposition}[decidability and cost]
+\label{prop:decidable}
+\looseness=-1 Under \emph{(A1)--(A6)}, $\OOV$, and $\AM$ and $\MC$ on their guard domains,
+are decidable by constructive procedures at the following costs ($n=|\Vset|$,
+$|W|$ the window description length, $|\sem{o}|$ extension cardinality).
+\textbf{$\OOV$:} locate $\ver(T)$ by binary search over $t_1<\cdots<t_n$;
+evaluate $\omega_r(T)$ through its total presentation, sentinel included;
+compute coverage by the declared mode --- one scan taking $\min/\max$ for
+$\hull$, a sort-and-merge into an interval union for
+$\mathsf{strict\_member}$, zero-length rows skipped --- and intersect with the
+normal form of $W_r$; cost
+$O(\log n)+\sum_r O(|\sem{o_{a_r}}|\log|\sem{o_{a_r}}|+|W_r|)$.
+\textbf{$\AM$:} clause~(i) is an identifier comparison, (ii) a normal-form
+equality, (iii) a granule-boundary alignment test on each maximal interval of
+$W$, and (iv) a call into the declared check library --- constant for the
+trivial variant, one scan over both anchor objects for the
+symmetric-difference audit, windowed for the realisation variant; cost
+$O(|W|\log|W|)+O(|\sem{o_{a^*_\legn}}|+|\sem{o_{a^*_\legd}}|)$.
+\textbf{$\MC$:} mode~(i) is a key lookup in $M_v,R_v$, mode~(ii) one scan over
+$\sem{o^{\legd}_m}_v$ accumulating $f^{\legd}_m$; cost
+$O(|\sem{o^{\legd}_m}|)$.
+\end{proposition}
+
+\noindent\looseness=-1 Proof in~\cite{asofgov-tr}; (A5) is where it would break: from
+partial computability alone, deciding $\omega_r(T)=\uparrow$ is a halting
+question. Each procedure also emits, as a by-product, the failing
+clause or the probe with its asserted result --- the witness content
+\S\ref{sec:certificates} requires: decision procedure and witness
+generator are one object seen twice.
+
+\begin{example}[clause~(iv) with teeth]
+\label{ex:symdiff}
+\looseness=-1\texttt{EF2-Q6} asks the rating-weighted daily win rate of
+\texttt{european\_\allowbreak football\_2} as of 2013-12-01: the numerator
+leg binds to the match-day anchor under hull coverage, the denominator leg
+to the rating-snapshot anchor, a date-set anchor under
+$\mathsf{strict\_member}$ whose weekly marking dates surround the day
+(2013-11-29, 2013-12-06) without containing it. The discriminant is
+clause~(iv), the window-realisation audit this pair prescribes: on the
+single-day window the match anchor realises 33 rows, the snapshot anchor
+none, differing on exactly one date; the certificate carries 2013-12-01
+with both counts, recounted by the verifier from $D$. A check on the
+rule \emph{literal} alone would accept (\S\ref{sec:rewrite}): the same seed binds
+\texttt{win\_\allowbreak rate} under that literal with both legs on one
+anchor.
+\end{example}
+
+\begin{corollary}[per-period classification]
+\label{cor:multi}
+\looseness=-1 A delta or multi-period query expands by role $\times$ period into a finite
+family $\{q^{(j)}\}_j$ of single-period queries in the declared period order.
+Theorem~\ref{thm:partition} applies to each $q^{(j)}$, and the value of the
+whole query is lexicographic: if every $q^{(j)}$ falls in case~(a),
+$\sem{q}_{\Gseq,T}$ is the declared arithmetic combination of the per-period
+values; otherwise it is $\sem{q^{(j_0)}}_{\Gseq,T}$ for the first failing
+period $j_0$. Two side conditions make this well posed: guard predicates and
+$P_{\svw}$ are evaluated on the single-period restriction
+$\alpha_{q,v}|_{R(q^{(j)})}$, and the existential quantifier over roles inside
+$\OOV$ does not range across periods.
+\end{corollary}
+
+\looseness=-1 The second condition is forced by an instance: the delta over
+$[\,2017\text{-}02,$\linebreak[0] $2021\text{-}06\,]$ on
+Figure~\ref{fig:partition}'s store (b,\,d) has periods $\bot_{\MC}$ and
+$\OOV$; a cross-period quantifier would report $\bot_{\OOV}$, the
+lexicographic rule $\bot_{\MC}$.
+
+\smallskip\noindent\looseness=-1\textbf{Guard order is not cosmetic.}%
+\label{sec:bind:guardorder}
+The three raw conditions can hold at once; the chain resolves the class to the
+first. Example~\ref{ex:symdiff} is the suite's live
+collision: on the single-day window the snapshot leg's
+$\mathsf{strict\_member}$ coverage is empty, so a leg-at-a-time $\OOV$
+reading fires before the audit and returns $\bot_{\OOV}$ --- same
+witness replay, wrong reason class.
+Definition~\ref{def:oov}(1)'s pair-level clause rules that out --- the
+realisation is mixed --- and gold is
+$\bot_{\AM}$(iv). Adjudications of this kind, left unregistered, are what
+\S\ref{sec:eval-divergence} measures. We report no permutation ablation over
+the six guard orders.

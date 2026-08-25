@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q8",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 分子分母时间窗口不一致（分子取1997年5月、分母取1997年4月），违反 gov_temporal_binding 中 rule_id=\"same_valid_time_window\" 的绑定规则，要求罚息交易占比(fin.penalty_trans_rate)的 num 与 den 必须处于同一 valid-time 窗口（window_gran=year，即同年度内对齐；但此处分子分母分属不同月份且问题明确要求跨月取值，违反同窗对齐约束）。",
+ "sql": "REFUSE",
+ "prompt_sha256": "a0940e8737db31ab960510032c33d22f00bcc472d87ec20513fcbf51a957acd6",
+ "prompt_chars": 23627,
+ "empty_response": false
+}

@@ -1,0 +1,221 @@
+[
+ {
+  "qid": "CA-Q1",
+  "domain": "california_schools",
+  "question_zh": "以 2015-05-01 为声明时点，按当时默认口径，Alameda 县 2014-2015 学年（as-of 2015-04-15）的免费餐率是多少？",
+  "as_of": "2015-04-15",
+  "declared_at": "2015-05-01",
+  "metric_alias": "免费餐率",
+  "scope": {
+   "county": "Alameda"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "ca.free_meal_rate",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT (SELECT SUM(\"Free Meal Count (K-12)\") FROM frpm WHERE \"County Name\"='Alameda' AND \"Academic Year\"='2014-2015')*1.0/(SELECT SUM(\"Enrollment (K-12)\") FROM frpm WHERE \"County Name\"='Alameda' AND \"Academic Year\"='2014-2015')",
+  "gold_value": 0.37985585826806795,
+  "windows": {
+   "num": {
+    "kind": "academic_year_token",
+    "token": "2014-2015"
+   },
+   "den": {
+    "kind": "academic_year_token",
+    "token": "2014-2015"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "RC-8 flip 对前件：ver(T)=v1 默认口径 K-12（85,120/224,085=0.37985）；K-12/5-17 双口径实体粒度分离、全域几乎不分离（P-10）如实报告——其角色是路由选择而非量级差旗舰。"
+ },
+ {
+  "qid": "CA-Q2",
+  "domain": "california_schools",
+  "question_zh": "以 2015-09-01 为声明时点，按当时默认口径，Alameda 县 2014-2015 学年（as-of 2015-04-15）的免费餐率是多少？",
+  "as_of": "2015-04-15",
+  "declared_at": "2015-09-01",
+  "metric_alias": "免费餐率",
+  "scope": {
+   "county": "Alameda"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "ca.free_meal_rate",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT (SELECT SUM(\"Free Meal Count (Ages 5-17)\") FROM frpm WHERE \"County Name\"='Alameda' AND \"Academic Year\"='2014-2015')*1.0/(SELECT SUM(\"Enrollment (Ages 5-17)\") FROM frpm WHERE \"County Name\"='Alameda' AND \"Academic Year\"='2014-2015')",
+  "gold_value": 0.37804549460887515,
+  "windows": {
+   "num": {
+    "kind": "academic_year_token",
+    "token": "2014-2015"
+   },
+   "den": {
+    "kind": "academic_year_token",
+    "token": "2014-2015"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "RC-8 flip 对后件：ver(T)=v2 默认口径切换至 Ages 5-17（82,781/218,971=0.37805）。"
+ },
+ {
+  "qid": "CA-Q3",
+  "domain": "california_schools",
+  "question_zh": "以 2015-05-01 为声明时点，as-of 2015-01-01 时点在效学校数是多少？",
+  "as_of": "2015-01-01",
+  "declared_at": "2015-05-01",
+  "metric_alias": "时点在效学校数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "ca.schools_in_effect",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT COUNT(*) FROM schools WHERE OpenDate<='2015-01-01' AND (ClosedDate IS NULL OR ClosedDate>'2015-01-01')",
+  "gold_value": 10629,
+  "windows": {
+   "atom": {
+    "kind": "point_in_effect",
+    "day": "2015-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "真实 SCD-2 区间锚（OpenDate/ClosedDate，vf≤d<vtc 在效判定；P-12 = 10,629，NX-Q4 人口 126 公开镜像）。"
+ },
+ {
+  "qid": "CA-Q4",
+  "domain": "california_schools",
+  "question_zh": "以 2015-05-01 为声明时点，as-of 2000-09-01 时点在效学校数是多少？",
+  "as_of": "2000-09-01",
+  "declared_at": "2015-05-01",
+  "metric_alias": "时点在效学校数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "ca.schools_in_effect",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT COUNT(*) FROM schools WHERE OpenDate<='2000-09-01' AND (ClosedDate IS NULL OR ClosedDate>'2000-09-01')",
+  "gold_value": 9270,
+  "windows": {
+   "atom": {
+    "kind": "point_in_effect",
+    "day": "2000-09-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "SCD-2 区间锚历史时点第二值（9,270），区间在效性由 D 现算。"
+ },
+ {
+  "qid": "CA-Q5",
+  "domain": "california_schools",
+  "question_zh": "以 2015-09-01 为声明时点，给出 Alameda 县 2014-2015 学年各学校（校级）的校级免费餐率报表。",
+  "as_of": "2015-04-15",
+  "declared_at": "2015-09-01",
+  "metric_alias": "校级免费餐率报表",
+  "scope": {
+   "county": "Alameda"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": "school",
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "ca.school_frpm_report",
+  "expected_kind": "rewrite",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": {
+   "kind": "granularity_rollup",
+   "axis": "entity",
+   "requested_level": "school",
+   "effective_level": "county"
+  },
+  "gold_sql": "SELECT \"County Name\" AS cell, SUM(\"Free Meal Count (Ages 5-17)\")*1.0/SUM(\"Enrollment (Ages 5-17)\") AS val FROM frpm WHERE \"County Name\"='Alameda' AND \"Academic Year\"='2014-2015' GROUP BY 1 ORDER BY 1",
+  "gold_value": [
+   [
+    "Alameda",
+    0.37804549460887515
+   ]
+  ],
+  "windows": {
+   "atom": {
+    "kind": "academic_year_token",
+    "token": "2014-2015"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "粒度格 school→district→county + k=10：校级胞=1<10；Alameda 区级存在 1-2 校小胞（州特教等单校区）→ 继续上卷至县级（county 胞 98 校≥10）。v2 默认口径 5-17 与上卷叠加。"
+ },
+ {
+  "qid": "CA-Q6",
+  "domain": "california_schools",
+  "question_zh": "以 2015-09-01 为声明时点，按特许授权日期开窗统计 2014-2015 学年的免费餐率。",
+  "as_of": "2015-04-15",
+  "declared_at": "2015-09-01",
+  "metric_alias": "免费餐率",
+  "scope": {
+   "county": "Alameda"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": "charter_authorization_date",
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "ca.free_meal_rate",
+  "expected_kind": "refusal",
+  "refusal_reason": "anchor-mismatch",
+  "refusal_subtype": "am_i",
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": null,
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "AM(i) 未注册锚引用（定义3.7 约定）：治理图查无 charter_authorization_date 锚——题面点名改锚，登记锚仅 A-CA-SCD/A-CA-FRPM。"
+ }
+]

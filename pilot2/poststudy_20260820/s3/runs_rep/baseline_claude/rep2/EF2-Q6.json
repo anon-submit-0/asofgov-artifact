@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q6",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 问题涉及\"声明时点\"、\"as-of\"、\"归一当日胜率\"等时态语义和业务概念，但给定schema中Match表仅包含date、home_team_goal、away_team_goal等字段，无法直接映射\"声明时点\"、\"as-of窗口\"、\"评分归一\"等复杂时态查询逻辑，且缺少明确的评分-胜率关联规则定义\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "fc4cf70f608f578c3fb7f6e605dacc439edf52ac021668d1cce606d9b38c9ada",
+ "prompt_chars": 7615,
+ "empty_response": false
+}

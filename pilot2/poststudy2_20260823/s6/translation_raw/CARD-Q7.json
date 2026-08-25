@@ -1,0 +1,19 @@
+{
+ "qid": "CARD-Q7",
+ "domain": "card_games",
+ "question_zh": "以 2017-03-01 为声明时点，2017 年 2 月（as-of 2017-02-15 所在月窗）的裁定强度是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2017-03-01 as the declaration instant, what is the adjudication intensity for February 2017 (as-of 2017-02-15 the containing month window)?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5278 completion=54]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:36:45"
+}

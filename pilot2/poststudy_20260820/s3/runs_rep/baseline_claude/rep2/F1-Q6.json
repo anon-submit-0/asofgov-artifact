@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q6",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 6.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(DISTINCT raceId) \nFROM main.\"races\" \nWHERE date >= DATE '2017-10-01' \n  AND date <= DATE '2018-03-31'\n```",
+ "sql": "SELECT COUNT(DISTINCT raceId) \nFROM main.\"races\" \nWHERE date >= DATE '2017-10-01' \n  AND date <= DATE '2018-03-31'",
+ "prompt_sha256": "16b514680e70ac500bae52067c4b510a738fbbc8cf8310d06d7cb09eee021ad1",
+ "prompt_chars": 5483,
+ "empty_response": false
+}

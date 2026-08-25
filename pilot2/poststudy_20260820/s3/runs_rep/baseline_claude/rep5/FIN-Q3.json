@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q3",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 给定schema中不包含\"罚息\"相关字段或标识，无法识别哪些交易属于罚息交易\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "485f77d6527d89a016bada4195809c1f9f994b420a2ef6ffc53242e4ee5f692f",
+ "prompt_chars": 4086,
+ "empty_response": false
+}

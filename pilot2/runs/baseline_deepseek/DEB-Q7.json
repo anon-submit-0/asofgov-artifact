@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q7",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 查询涉及时间范围\"自 2013-03-04 起一周\"，但数据中只有transactions_1k.Date是日期类型且可能不包含该时间范围，yearmonth.Date是字符串格式，且无明确日期范围可匹配该查询的时间要求。",
+ "sql": "REFUSE",
+ "prompt_sha256": "3e9b2babe7cfb6750827b5525b3fd8a2dd42ae92187a3c178934a654890596dc",
+ "prompt_chars": 3696,
+ "empty_response": false
+}

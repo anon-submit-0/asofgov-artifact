@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q7",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 指标\"月均客户消费额\"绑定 yearmonth 表的月粒度令牌锚（month_token_yyyymm），要求 Date 列严格匹配 YYYYMM 格式；用户请求的时间窗口\"2013-03-04 起一周\"（2013-03-04 至 2013-03-10）跨越单个日历月内的部分天数，无法映射到完整月令牌，且 yearmonth 表的 coverage_mode=strict_member 不允许部分月查询\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "0627552ef887b04d49e344a5340221486a725df8a26d7fbaeebe5a10071a8e8e",
+ "prompt_chars": 19854,
+ "empty_response": false
+}

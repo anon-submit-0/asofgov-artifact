@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q6",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 问题中提到的\"评分归一当日胜率\"在给定schema中无法找到明确的对应指标或计算方法。schema中包含足球比赛数据和球员/球队属性，但没有定义具体的\"评分归一当日胜率\"指标。",
+ "sql": "REFUSE",
+ "prompt_sha256": "fc4cf70f608f578c3fb7f6e605dacc439edf52ac021668d1cce606d9b38c9ada",
+ "prompt_chars": 7615,
+ "empty_response": false
+}

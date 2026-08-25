@@ -1,0 +1,2 @@
+{"change_note": "初版治理：胜率口径平局计半胜", "commit_seq": 1, "committed_at": "2010-08-01", "domain": "european_football_2", "graph_version": "v1"}
+{"change_note": "胜率口径改制：平局不计胜（权重 0.5 归零）", "commit_seq": 2, "committed_at": "2014-08-01", "domain": "european_football_2", "graph_version": "v2"}

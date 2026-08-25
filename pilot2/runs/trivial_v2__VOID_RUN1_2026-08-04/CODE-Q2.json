@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q2",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 0.2803,
+ "verdict": "wrong_value",
+ "raw": "I need to analyze this step-by-step.\n\nFirst, let me understand the metric: \"提问采纳率\" (question acceptance rate) - this is the ratio of questions that have an accepted answer to total questions.\n\nLet me check the governance tables for this metric's definition and temporal bindings.\n\nLooking at the schema:\n- `gov_metric` defines metrics with numerator and denominator nodes\n- `gov_temporal_binding` defines temporal alignment rules\n- `gov_valid_time_anchor` defines time anchors\n- `gov_measure_def` defines measures\n\nThe question asks: as of declaration time 2014-02-01, what is the acceptance rate for December 2013 (month window containing 2013-12-15)?\n\nSince I can't inspect the actual governance table contents to determine the exact metric definition and temporal binding rules, but the question is clearly about a business metric (question acceptance rate), I should compute it from the posts table.\n\nThe month window for 2013-12-15 is December 2013: 2013-12-01 to 2013-12-31.\n\n- Numerator: questions (PostTypeId=1) created in Dec 2013 that have an AcceptedAnswerId (not null), where the accepted answer was posted by the declaration time (2014-02-01).\n- Denominator: questions (PostTypeId=1) created in Dec 2013.\n\nLet me write the SQL:\n\n```sql\nSELECT ROUND(\n    CAST(SUM(CASE WHEN p.\"AcceptedAnswerId\" IS NOT NULL AND EXISTS (\n        SELECT 1 FROM main.\"posts\" a WHERE a.\"Id\" = p.\"AcceptedAnswerId\" AND a.\"CreaionDate\" <= TIMESTAMP '2014-02-01'\n    ) THEN 1 ELSE 0 END) AS DOUBLE) \n    / COUNT(*), 4\n) AS acceptance_rate\nFROM main.\"posts\" p\nWHERE p.\"PostTypeId\" = 1\n  AND p.\"CreaionDate\" >= TIMESTAMP '2013-12-01'\n  AND p.\"CreaionDate\" < TIMESTAMP '2014-01-01';\n```\n\n```sql\nSELECT ROUND(",
+ "sql": "SELECT ROUND(\n    CAST(SUM(CASE WHEN p.\"AcceptedAnswerId\" IS NOT NULL AND EXISTS (\n        SELECT 1 FROM main.\"posts\" a WHERE a.\"Id\" = p.\"AcceptedAnswerId\" AND a.\"CreaionDate\" <= TIMESTAMP '2014-02-01'\n    ) THEN 1 ELSE 0 END) AS DOUBLE) \n    / COUNT(*), 4\n) AS acceptance_rate\nFROM main.\"posts\" p\nWHERE p.\"PostTypeId\" = 1\n  AND p.\"CreaionDate\" >= TIMESTAMP '2013-12-01'\n  AND p.\"CreaionDate\" < TIMESTAMP '2014-01-01'",
+ "prompt_sha256": "7842f2f558cc3da47a6fe3ef5f612e03578fb950ec62af7795a895917d0750ee",
+ "prompt_chars": 5141,
+ "empty_response": false
+}

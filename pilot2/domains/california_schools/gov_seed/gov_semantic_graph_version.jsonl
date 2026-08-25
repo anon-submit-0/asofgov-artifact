@@ -1,0 +1,2 @@
+{"change_note": "初版治理：免费餐率默认口径 K-12 注册数", "commit_seq": 1, "committed_at": "2014-09-01", "domain": "california_schools", "graph_version": "v1"}
+{"change_note": "默认口径切换：免费餐率改按 Ages 5-17 注册数", "commit_seq": 2, "committed_at": "2015-07-01", "domain": "california_schools", "graph_version": "v2"}

@@ -1,0 +1,134 @@
+
+## 治理元数据（本库 gov_* 登记表全量导出；与具体问题无关，同库所有问题看到的内容完全相同）
+-- 来源：financial/gov_seed/*.jsonl（DESIGN_SPEC §3.1 十表 schema 法）；版本轴见 gov_semantic_graph_version
+-- 每个块 = 一张登记表，一行一个 JSON 对象，行按文本字典序排列
+
+-- TABLE gov_semantic_graph_version  (rows=2)
+{"change_note": "初版治理：问题贷款口径含催收中与坏账两类", "commit_seq": 1, "committed_at": "1994-01-15", "domain": "financial", "graph_version": "v1"}
+{"change_note": "核销新政后问题贷款口径收窄为坏账单类", "commit_seq": 2, "committed_at": "1998-03-01", "domain": "financial", "graph_version": "v2"}
+
+-- TABLE gov_metric_alias  (rows=16)
+{"alias_id": "fin.al1", "alias_text": "问题贷款率", "graph_version": "v1", "metric_id": "fin.problem_loan_rate"}
+{"alias_id": "fin.al1", "alias_text": "问题贷款率", "graph_version": "v2", "metric_id": "fin.problem_loan_rate"}
+{"alias_id": "fin.al2", "alias_text": "罚息交易占比", "graph_version": "v1", "metric_id": "fin.penalty_trans_rate"}
+{"alias_id": "fin.al2", "alias_text": "罚息交易占比", "graph_version": "v2", "metric_id": "fin.penalty_trans_rate"}
+{"alias_id": "fin.al3", "alias_text": "当月新增放贷笔数", "graph_version": "v1", "metric_id": "fin.loan_count_month"}
+{"alias_id": "fin.al3", "alias_text": "当月新增放贷笔数", "graph_version": "v2", "metric_id": "fin.loan_count_month"}
+{"alias_id": "fin.al4", "alias_text": "当月交易笔数", "graph_version": "v1", "metric_id": "fin.trans_count_month"}
+{"alias_id": "fin.al4", "alias_text": "当月交易笔数", "graph_version": "v2", "metric_id": "fin.trans_count_month"}
+{"alias_id": "fin.al5", "alias_text": "区间交易笔数", "graph_version": "v1", "metric_id": "fin.trans_count_range"}
+{"alias_id": "fin.al5", "alias_text": "区间交易笔数", "graph_version": "v2", "metric_id": "fin.trans_count_range"}
+{"alias_id": "fin.al6", "alias_text": "问题贷款笔数", "graph_version": "v1", "metric_id": "fin.problem_loan_count"}
+{"alias_id": "fin.al6", "alias_text": "问题贷款笔数", "graph_version": "v2", "metric_id": "fin.problem_loan_count"}
+{"alias_id": "fin.al7", "alias_text": "分类交易罚息占比", "graph_version": "v1", "metric_id": "fin.penalty_rate_classified"}
+{"alias_id": "fin.al7", "alias_text": "分类交易罚息占比", "graph_version": "v2", "metric_id": "fin.penalty_rate_classified"}
+{"alias_id": "fin.al8", "alias_text": "平均贷款金额", "graph_version": "v1", "metric_id": "fin.avg_loan_amount"}
+{"alias_id": "fin.al8", "alias_text": "平均贷款金额", "graph_version": "v2", "metric_id": "fin.avg_loan_amount"}
+
+-- TABLE gov_metric  (rows=16)
+{"den_node": "fin.loan", "domain": "financial", "graph_version": "v1", "kind": "ratio", "metric_id": "fin.problem_loan_rate", "num_node": "fin.loan"}
+{"den_node": "fin.loan", "domain": "financial", "graph_version": "v2", "kind": "ratio", "metric_id": "fin.problem_loan_rate", "num_node": "fin.loan"}
+{"den_node": "fin.trans", "domain": "financial", "graph_version": "v1", "kind": "ratio", "metric_id": "fin.penalty_rate_classified", "num_node": "fin.trans"}
+{"den_node": "fin.trans", "domain": "financial", "graph_version": "v1", "kind": "ratio", "metric_id": "fin.penalty_trans_rate", "num_node": "fin.trans"}
+{"den_node": "fin.trans", "domain": "financial", "graph_version": "v2", "kind": "ratio", "metric_id": "fin.penalty_rate_classified", "num_node": "fin.trans"}
+{"den_node": "fin.trans", "domain": "financial", "graph_version": "v2", "kind": "ratio", "metric_id": "fin.penalty_trans_rate", "num_node": "fin.trans"}
+{"den_node": null, "domain": "financial", "graph_version": "v1", "kind": "atomic", "metric_id": "fin.avg_loan_amount", "num_node": "fin.loan"}
+{"den_node": null, "domain": "financial", "graph_version": "v1", "kind": "atomic", "metric_id": "fin.loan_count_month", "num_node": "fin.loan"}
+{"den_node": null, "domain": "financial", "graph_version": "v1", "kind": "atomic", "metric_id": "fin.problem_loan_count", "num_node": "fin.loan"}
+{"den_node": null, "domain": "financial", "graph_version": "v1", "kind": "atomic", "metric_id": "fin.trans_count_month", "num_node": "fin.trans"}
+{"den_node": null, "domain": "financial", "graph_version": "v1", "kind": "atomic", "metric_id": "fin.trans_count_range", "num_node": "fin.trans"}
+{"den_node": null, "domain": "financial", "graph_version": "v2", "kind": "atomic", "metric_id": "fin.avg_loan_amount", "num_node": "fin.loan"}
+{"den_node": null, "domain": "financial", "graph_version": "v2", "kind": "atomic", "metric_id": "fin.loan_count_month", "num_node": "fin.loan"}
+{"den_node": null, "domain": "financial", "graph_version": "v2", "kind": "atomic", "metric_id": "fin.problem_loan_count", "num_node": "fin.loan"}
+{"den_node": null, "domain": "financial", "graph_version": "v2", "kind": "atomic", "metric_id": "fin.trans_count_month", "num_node": "fin.trans"}
+{"den_node": null, "domain": "financial", "graph_version": "v2", "kind": "atomic", "metric_id": "fin.trans_count_range", "num_node": "fin.trans"}
+
+-- TABLE gov_measure_def  (rows=22)
+{"graph_version": "v1", "leg": "atom", "measure": "avg:amount", "measure_id": "fin.ala.atom", "metric_id": "fin.avg_loan_amount", "node_id": "fin.loan", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "fin.lcm.atom", "metric_id": "fin.loan_count_month", "node_id": "fin.loan", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "fin.plc.atom", "metric_id": "fin.problem_loan_count", "node_id": "fin.loan", "preds": [{"col": "status", "op": "in", "value": ["B", "D"]}]}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "fin.tcm.atom", "metric_id": "fin.trans_count_month", "node_id": "fin.trans", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "fin.tcr.atom", "metric_id": "fin.trans_count_range", "node_id": "fin.trans", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "fin.plr.den", "metric_id": "fin.problem_loan_rate", "node_id": "fin.loan", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "fin.prc.den", "metric_id": "fin.penalty_rate_classified", "node_id": "fin.trans", "preds": [{"col": "k_symbol", "op": "not_null", "value": null}]}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "fin.ptr.den", "metric_id": "fin.penalty_trans_rate", "node_id": "fin.trans", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "fin.plr.num", "metric_id": "fin.problem_loan_rate", "node_id": "fin.loan", "preds": [{"col": "status", "op": "in", "value": ["B", "D"]}]}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "fin.prc.num", "metric_id": "fin.penalty_rate_classified", "node_id": "fin.trans", "preds": [{"col": "k_symbol", "op": "=", "value": "SANKC. UROK"}]}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "fin.ptr.num", "metric_id": "fin.penalty_trans_rate", "node_id": "fin.trans", "preds": [{"col": "k_symbol", "op": "=", "value": "SANKC. UROK"}]}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:amount", "measure_id": "fin.ala.atom", "metric_id": "fin.avg_loan_amount", "node_id": "fin.loan", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "fin.lcm.atom", "metric_id": "fin.loan_count_month", "node_id": "fin.loan", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "fin.plc.atom", "metric_id": "fin.problem_loan_count", "node_id": "fin.loan", "preds": [{"col": "status", "op": "in", "value": ["B", "D"]}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "fin.tcm.atom", "metric_id": "fin.trans_count_month", "node_id": "fin.trans", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "fin.tcr.atom", "metric_id": "fin.trans_count_range", "node_id": "fin.trans", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "fin.plr.den", "metric_id": "fin.problem_loan_rate", "node_id": "fin.loan", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "fin.prc.den", "metric_id": "fin.penalty_rate_classified", "node_id": "fin.trans", "preds": [{"col": "k_symbol", "op": "not_null", "value": null}]}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "fin.ptr.den", "metric_id": "fin.penalty_trans_rate", "node_id": "fin.trans", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "fin.plr.num", "metric_id": "fin.problem_loan_rate", "node_id": "fin.loan", "preds": [{"col": "status", "op": "in", "value": ["D"]}]}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "fin.prc.num", "metric_id": "fin.penalty_rate_classified", "node_id": "fin.trans", "preds": [{"col": "k_symbol", "op": "=", "value": "SANKC. UROK"}]}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "fin.ptr.num", "metric_id": "fin.penalty_trans_rate", "node_id": "fin.trans", "preds": [{"col": "k_symbol", "op": "=", "value": "SANKC. UROK"}]}
+
+-- TABLE gov_caliber_routing  (rows=10)
+{"dst_caliber": "all", "dst_node": "fin.loan", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "fin.problem_loan_rate", "routing_id": "fin.rt4", "src_node": "fin.loan"}
+{"dst_caliber": "all", "dst_node": "fin.loan", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "fin.problem_loan_rate", "routing_id": "fin.rt3", "src_node": "fin.loan"}
+{"dst_caliber": "all", "dst_node": "fin.loan", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "fin.problem_loan_rate", "routing_id": "fin.rt4", "src_node": "fin.loan"}
+{"dst_caliber": "all", "dst_node": "fin.loan", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "fin.problem_loan_rate", "routing_id": "fin.rt3", "src_node": "fin.loan"}
+{"dst_caliber": "all", "dst_node": "fin.trans", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "fin.penalty_trans_rate", "routing_id": "fin.rt2", "src_node": "fin.trans"}
+{"dst_caliber": "all", "dst_node": "fin.trans", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "fin.penalty_trans_rate", "routing_id": "fin.rt1", "src_node": "fin.trans"}
+{"dst_caliber": "all", "dst_node": "fin.trans", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "fin.penalty_trans_rate", "routing_id": "fin.rt2", "src_node": "fin.trans"}
+{"dst_caliber": "all", "dst_node": "fin.trans", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "fin.penalty_trans_rate", "routing_id": "fin.rt1", "src_node": "fin.trans"}
+{"dst_caliber": "none", "dst_node": "fin.account", "graph_version": "v1", "hop_seq": 0, "join_on": [["account_id", "account_id"]], "leg": "den", "metric_id": "fin.penalty_rate_classified", "routing_id": "fin.rt9", "src_node": "fin.trans"}
+{"dst_caliber": "none", "dst_node": "fin.account", "graph_version": "v2", "hop_seq": 0, "join_on": [["account_id", "account_id"]], "leg": "den", "metric_id": "fin.penalty_rate_classified", "routing_id": "fin.rt9", "src_node": "fin.trans"}
+
+-- TABLE gov_valid_time_anchor  (rows=6)
+{"anchor_id": "A-FIN-ACC", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v1", "node_id": "fin.account", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-FIN-ACC", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v2", "node_id": "fin.account", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-FIN-LOAN", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v1", "node_id": "fin.loan", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-FIN-LOAN", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v2", "node_id": "fin.loan", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-FIN-TRANS", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v1", "node_id": "fin.trans", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-FIN-TRANS", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v2", "node_id": "fin.trans", "vf_col": null, "vtc_col": null}
+
+-- TABLE gov_temporal_binding  (rows=18)
+{"anchor_id": "A-FIN-LOAN", "binding_id": "B-FIN-ALA", "graph_version": "v1", "leg": "atom", "metric_id": "fin.avg_loan_amount", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-FIN-LOAN", "binding_id": "B-FIN-ALA", "graph_version": "v2", "leg": "atom", "metric_id": "fin.avg_loan_amount", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-FIN-LOAN", "binding_id": "B-FIN-LCM", "graph_version": "v1", "leg": "atom", "metric_id": "fin.loan_count_month", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-FIN-LOAN", "binding_id": "B-FIN-LCM", "graph_version": "v2", "leg": "atom", "metric_id": "fin.loan_count_month", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-FIN-LOAN", "binding_id": "B-FIN-PLC", "graph_version": "v1", "leg": "atom", "metric_id": "fin.problem_loan_count", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-FIN-LOAN", "binding_id": "B-FIN-PLC", "graph_version": "v2", "leg": "atom", "metric_id": "fin.problem_loan_count", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-FIN-LOAN", "binding_id": "B-FIN-PLR-D", "graph_version": "v1", "leg": "den", "metric_id": "fin.problem_loan_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-FIN-LOAN", "binding_id": "B-FIN-PLR-D", "graph_version": "v2", "leg": "den", "metric_id": "fin.problem_loan_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-FIN-LOAN", "binding_id": "B-FIN-PLR-N", "graph_version": "v1", "leg": "num", "metric_id": "fin.problem_loan_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-FIN-LOAN", "binding_id": "B-FIN-PLR-N", "graph_version": "v2", "leg": "num", "metric_id": "fin.problem_loan_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-FIN-TRANS", "binding_id": "B-FIN-PTR-D", "graph_version": "v1", "leg": "den", "metric_id": "fin.penalty_trans_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-FIN-TRANS", "binding_id": "B-FIN-PTR-D", "graph_version": "v2", "leg": "den", "metric_id": "fin.penalty_trans_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-FIN-TRANS", "binding_id": "B-FIN-PTR-N", "graph_version": "v1", "leg": "num", "metric_id": "fin.penalty_trans_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-FIN-TRANS", "binding_id": "B-FIN-PTR-N", "graph_version": "v2", "leg": "num", "metric_id": "fin.penalty_trans_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-FIN-TRANS", "binding_id": "B-FIN-TCM", "graph_version": "v1", "leg": "atom", "metric_id": "fin.trans_count_month", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-FIN-TRANS", "binding_id": "B-FIN-TCM", "graph_version": "v2", "leg": "atom", "metric_id": "fin.trans_count_month", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-FIN-TRANS", "binding_id": "B-FIN-TCR", "graph_version": "v1", "leg": "atom", "metric_id": "fin.trans_count_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-FIN-TRANS", "binding_id": "B-FIN-TCR", "graph_version": "v2", "leg": "atom", "metric_id": "fin.trans_count_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+
+-- TABLE gov_semantic_node  (rows=16)
+{"domain": "financial", "entity_key": "account_id", "graph_version": "v1", "node_id": "fin.account", "physical_table": "account", "scope_keys": {"district_id": "district_id"}}
+{"domain": "financial", "entity_key": "account_id", "graph_version": "v2", "node_id": "fin.account", "physical_table": "account", "scope_keys": {"district_id": "district_id"}}
+{"domain": "financial", "entity_key": "card_id", "graph_version": "v1", "node_id": "fin.card", "physical_table": "card", "scope_keys": {}}
+{"domain": "financial", "entity_key": "card_id", "graph_version": "v2", "node_id": "fin.card", "physical_table": "card", "scope_keys": {}}
+{"domain": "financial", "entity_key": "client_id", "graph_version": "v1", "node_id": "fin.client", "physical_table": "client", "scope_keys": {}}
+{"domain": "financial", "entity_key": "client_id", "graph_version": "v2", "node_id": "fin.client", "physical_table": "client", "scope_keys": {}}
+{"domain": "financial", "entity_key": "disp_id", "graph_version": "v1", "node_id": "fin.disp", "physical_table": "disp", "scope_keys": {}}
+{"domain": "financial", "entity_key": "disp_id", "graph_version": "v2", "node_id": "fin.disp", "physical_table": "disp", "scope_keys": {}}
+{"domain": "financial", "entity_key": "district_id", "graph_version": "v1", "node_id": "fin.district", "physical_table": "district", "scope_keys": {}}
+{"domain": "financial", "entity_key": "district_id", "graph_version": "v2", "node_id": "fin.district", "physical_table": "district", "scope_keys": {}}
+{"domain": "financial", "entity_key": "loan_id", "graph_version": "v1", "node_id": "fin.loan", "physical_table": "loan", "scope_keys": {}}
+{"domain": "financial", "entity_key": "loan_id", "graph_version": "v2", "node_id": "fin.loan", "physical_table": "loan", "scope_keys": {}}
+{"domain": "financial", "entity_key": "order_id", "graph_version": "v1", "node_id": "fin.order", "physical_table": "order", "scope_keys": {}}
+{"domain": "financial", "entity_key": "order_id", "graph_version": "v2", "node_id": "fin.order", "physical_table": "order", "scope_keys": {}}
+{"domain": "financial", "entity_key": "trans_id", "graph_version": "v1", "node_id": "fin.trans", "physical_table": "trans", "scope_keys": {}}
+{"domain": "financial", "entity_key": "trans_id", "graph_version": "v2", "node_id": "fin.trans", "physical_table": "trans", "scope_keys": {}}
+
+-- TABLE gov_granularity_edge  (rows=4)
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "financial", "edge_id": "fin.tg1", "from_level": "day", "graph_version": "v1", "group_cols": [], "node_id": null, "to_level": "month"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "financial", "edge_id": "fin.tg1", "from_level": "day", "graph_version": "v2", "group_cols": [], "node_id": null, "to_level": "month"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "financial", "edge_id": "fin.tg2", "from_level": "month", "graph_version": "v1", "group_cols": [], "node_id": null, "to_level": "year"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "financial", "edge_id": "fin.tg2", "from_level": "month", "graph_version": "v2", "group_cols": [], "node_id": null, "to_level": "year"}
+
+-- TABLE gov_disclosure_policy  (rows=0)

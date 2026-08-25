@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q7",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 时间锚类型不匹配——yearmonth 表锚为 month_token_yyyymm（严格成员模式），无法对齐\"自某日起一周\"的日期范围请求\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "0627552ef887b04d49e344a5340221486a725df8a26d7fbaeebe5a10071a8e8e",
+ "prompt_chars": 19854,
+ "empty_response": false
+}

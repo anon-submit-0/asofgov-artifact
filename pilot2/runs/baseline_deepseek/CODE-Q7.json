@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q7",
+ "system": "baseline_deepseek",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT u.DisplayName, u.Location, COUNT(*) as adoption_count\nFROM posts a\nJOIN posts q ON a.ParentId = q.Id\nJOIN users u ON a.OwnerUserId = u.Id\nWHERE a.PostTypeId = 2\n  AND q.PostTypeId = 1\n  AND q.AcceptedAnswerId = a.Id\n  AND EXTRACT(YEAR FROM q.CreaionDate) = 2013\n  AND EXTRACT(MONTH FROM q.CreaionDate) = 6\nGROUP BY a.OwnerUserId, u.DisplayName, u.Location\nORDER BY adoption_count DESC\nLIMIT 10\n```",
+ "sql": "SELECT u.DisplayName, u.Location, COUNT(*) as adoption_count\nFROM posts a\nJOIN posts q ON a.ParentId = q.Id\nJOIN users u ON a.OwnerUserId = u.Id\nWHERE a.PostTypeId = 2\n  AND q.PostTypeId = 1\n  AND q.AcceptedAnswerId = a.Id\n  AND EXTRACT(YEAR FROM q.CreaionDate) = 2013\n  AND EXTRACT(MONTH FROM q.CreaionDate) = 6\nGROUP BY a.OwnerUserId, u.DisplayName, u.Location\nORDER BY adoption_count DESC\nLIMIT 10",
+ "prompt_sha256": "38f05a8e2da060eaf6ed4186896aa46766f6ea471154d6b46dd21a79776b7319",
+ "prompt_chars": 4921,
+ "empty_response": false
+}

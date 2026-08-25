@@ -1,0 +1,106 @@
+
+## 治理元数据（本库 gov_* 登记表全量导出；与具体问题无关，同库所有问题看到的内容完全相同）
+-- 来源：thrombosis_prediction/gov_seed/*.jsonl（DESIGN_SPEC §3.1 十表 schema 法）；版本轴见 gov_semantic_graph_version
+-- 每个块 = 一张登记表，一行一个 JSON 对象，行按文本字典序排列
+
+-- TABLE gov_semantic_graph_version  (rows=2)
+{"change_note": "初版治理：出生日期掩码保留年月", "commit_seq": 1, "committed_at": "1995-01-01", "domain": "thrombosis_prediction", "graph_version": "v1"}
+{"change_note": "掩码升级：出生日期仅保留年份", "commit_seq": 2, "committed_at": "1998-01-01", "domain": "thrombosis_prediction", "graph_version": "v2"}
+
+-- TABLE gov_metric_alias  (rows=12)
+{"alias_id": "th.al1", "alias_text": "异常化验率", "graph_version": "v1", "metric_id": "th.abnormal_lab_rate"}
+{"alias_id": "th.al1", "alias_text": "异常化验率", "graph_version": "v2", "metric_id": "th.abnormal_lab_rate"}
+{"alias_id": "th.al2", "alias_text": "年度检查记录数", "graph_version": "v1", "metric_id": "th.exam_count"}
+{"alias_id": "th.al2", "alias_text": "年度检查记录数", "graph_version": "v2", "metric_id": "th.exam_count"}
+{"alias_id": "th.al3", "alias_text": "患者异常化验报表", "graph_version": "v1", "metric_id": "th.patient_abnormal_report"}
+{"alias_id": "th.al3", "alias_text": "患者异常化验报表", "graph_version": "v2", "metric_id": "th.patient_abnormal_report"}
+{"alias_id": "th.al4", "alias_text": "患者出生日期", "graph_version": "v1", "metric_id": "th.patient_birthday"}
+{"alias_id": "th.al4", "alias_text": "患者出生日期", "graph_version": "v2", "metric_id": "th.patient_birthday"}
+{"alias_id": "th.al5", "alias_text": "异常化验患者名录", "graph_version": "v1", "metric_id": "th.patient_roster"}
+{"alias_id": "th.al5", "alias_text": "异常化验患者名录", "graph_version": "v2", "metric_id": "th.patient_roster"}
+{"alias_id": "th.al6", "alias_text": "抗核抗体检出数", "graph_version": "v1", "metric_id": "th.ana_positive_count"}
+{"alias_id": "th.al6", "alias_text": "抗核抗体检出数", "graph_version": "v2", "metric_id": "th.ana_positive_count"}
+
+-- TABLE gov_metric  (rows=12)
+{"den_node": "th.laboratory", "domain": "thrombosis_prediction", "graph_version": "v1", "kind": "ratio", "metric_id": "th.abnormal_lab_rate", "num_node": "th.laboratory"}
+{"den_node": "th.laboratory", "domain": "thrombosis_prediction", "graph_version": "v2", "kind": "ratio", "metric_id": "th.abnormal_lab_rate", "num_node": "th.laboratory"}
+{"den_node": null, "domain": "thrombosis_prediction", "entity_node": "th.patient", "graph_version": "v1", "kind": "report", "metric_id": "th.patient_abnormal_report", "num_node": "th.laboratory", "report_axis": "entity"}
+{"den_node": null, "domain": "thrombosis_prediction", "entity_node": "th.patient", "graph_version": "v1", "kind": "roster", "metric_id": "th.patient_roster", "num_node": "th.laboratory"}
+{"den_node": null, "domain": "thrombosis_prediction", "entity_node": "th.patient", "graph_version": "v2", "kind": "report", "metric_id": "th.patient_abnormal_report", "num_node": "th.laboratory", "report_axis": "entity"}
+{"den_node": null, "domain": "thrombosis_prediction", "entity_node": "th.patient", "graph_version": "v2", "kind": "roster", "metric_id": "th.patient_roster", "num_node": "th.laboratory"}
+{"den_node": null, "domain": "thrombosis_prediction", "graph_version": "v1", "kind": "atomic", "metric_id": "th.ana_positive_count", "num_node": "th.examination"}
+{"den_node": null, "domain": "thrombosis_prediction", "graph_version": "v1", "kind": "atomic", "metric_id": "th.exam_count", "num_node": "th.examination"}
+{"den_node": null, "domain": "thrombosis_prediction", "graph_version": "v1", "kind": "attribute", "metric_id": "th.patient_birthday", "num_node": "th.patient"}
+{"den_node": null, "domain": "thrombosis_prediction", "graph_version": "v2", "kind": "atomic", "metric_id": "th.ana_positive_count", "num_node": "th.examination"}
+{"den_node": null, "domain": "thrombosis_prediction", "graph_version": "v2", "kind": "atomic", "metric_id": "th.exam_count", "num_node": "th.examination"}
+{"den_node": null, "domain": "thrombosis_prediction", "graph_version": "v2", "kind": "attribute", "metric_id": "th.patient_birthday", "num_node": "th.patient"}
+
+-- TABLE gov_measure_def  (rows=14)
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "th.apc.atom", "metric_id": "th.ana_positive_count", "node_id": "th.examination", "preds": [{"col": "ANA", "op": "not_null", "value": null}]}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "th.ec.atom", "metric_id": "th.exam_count", "node_id": "th.examination", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "th.par.atom", "metric_id": "th.patient_abnormal_report", "node_id": "th.laboratory", "preds": [{"col": "GOT", "op": ">=", "value": 60}]}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "th.pr.atom", "metric_id": "th.patient_roster", "node_id": "th.laboratory", "preds": [{"col": "GOT", "op": ">=", "value": 60}]}
+{"graph_version": "v1", "leg": "atom", "measure": "value:Birthday", "measure_id": "th.pb.atom", "metric_id": "th.patient_birthday", "node_id": "th.patient", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "th.alr.den", "metric_id": "th.abnormal_lab_rate", "node_id": "th.laboratory", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "th.alr.num", "metric_id": "th.abnormal_lab_rate", "node_id": "th.laboratory", "preds": [{"col": "GOT", "op": ">=", "value": 60}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "th.apc.atom", "metric_id": "th.ana_positive_count", "node_id": "th.examination", "preds": [{"col": "ANA", "op": "not_null", "value": null}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "th.ec.atom", "metric_id": "th.exam_count", "node_id": "th.examination", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "th.par.atom", "metric_id": "th.patient_abnormal_report", "node_id": "th.laboratory", "preds": [{"col": "GOT", "op": ">=", "value": 60}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "th.pr.atom", "metric_id": "th.patient_roster", "node_id": "th.laboratory", "preds": [{"col": "GOT", "op": ">=", "value": 60}]}
+{"graph_version": "v2", "leg": "atom", "measure": "value:Birthday", "measure_id": "th.pb.atom", "metric_id": "th.patient_birthday", "node_id": "th.patient", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "th.alr.den", "metric_id": "th.abnormal_lab_rate", "node_id": "th.laboratory", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "th.alr.num", "metric_id": "th.abnormal_lab_rate", "node_id": "th.laboratory", "preds": [{"col": "GOT", "op": ">=", "value": 60}]}
+
+-- TABLE gov_caliber_routing  (rows=8)
+{"dst_caliber": "all", "dst_node": "th.laboratory", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "th.abnormal_lab_rate", "routing_id": "th.rt2", "src_node": "th.laboratory"}
+{"dst_caliber": "all", "dst_node": "th.laboratory", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "th.abnormal_lab_rate", "routing_id": "th.rt1", "src_node": "th.laboratory"}
+{"dst_caliber": "all", "dst_node": "th.laboratory", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "th.abnormal_lab_rate", "routing_id": "th.rt2", "src_node": "th.laboratory"}
+{"dst_caliber": "all", "dst_node": "th.laboratory", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "th.abnormal_lab_rate", "routing_id": "th.rt1", "src_node": "th.laboratory"}
+{"dst_caliber": "scoped", "dst_node": "th.patient", "graph_version": "v1", "hop_seq": 0, "join_on": [["ID", "ID"]], "leg": "entity", "metric_id": "th.patient_abnormal_report", "routing_id": "th.rt3", "src_node": "th.laboratory"}
+{"dst_caliber": "scoped", "dst_node": "th.patient", "graph_version": "v1", "hop_seq": 0, "join_on": [["ID", "ID"]], "leg": "entity", "metric_id": "th.patient_roster", "routing_id": "th.rt4", "src_node": "th.laboratory"}
+{"dst_caliber": "scoped", "dst_node": "th.patient", "graph_version": "v2", "hop_seq": 0, "join_on": [["ID", "ID"]], "leg": "entity", "metric_id": "th.patient_abnormal_report", "routing_id": "th.rt3", "src_node": "th.laboratory"}
+{"dst_caliber": "scoped", "dst_node": "th.patient", "graph_version": "v2", "hop_seq": 0, "join_on": [["ID", "ID"]], "leg": "entity", "metric_id": "th.patient_roster", "routing_id": "th.rt4", "src_node": "th.laboratory"}
+
+-- TABLE gov_valid_time_anchor  (rows=4)
+{"anchor_id": "A-TH-EXAM", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "Examination Date", "granularity": "day", "graph_version": "v1", "node_id": "th.examination", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-TH-EXAM", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "Examination Date", "granularity": "day", "graph_version": "v2", "node_id": "th.examination", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-TH-LAB", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "Date", "granularity": "day", "graph_version": "v1", "node_id": "th.laboratory", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-TH-LAB", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "Date", "granularity": "day", "graph_version": "v2", "node_id": "th.laboratory", "vf_col": null, "vtc_col": null}
+
+-- TABLE gov_temporal_binding  (rows=12)
+{"anchor_id": "A-TH-EXAM", "binding_id": "B-TH-APC", "graph_version": "v1", "leg": "atom", "metric_id": "th.ana_positive_count", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-EXAM", "binding_id": "B-TH-APC", "graph_version": "v2", "leg": "atom", "metric_id": "th.ana_positive_count", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-EXAM", "binding_id": "B-TH-EC", "graph_version": "v1", "leg": "atom", "metric_id": "th.exam_count", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-EXAM", "binding_id": "B-TH-EC", "graph_version": "v2", "leg": "atom", "metric_id": "th.exam_count", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-ALR-D", "graph_version": "v1", "leg": "den", "metric_id": "th.abnormal_lab_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-ALR-D", "graph_version": "v2", "leg": "den", "metric_id": "th.abnormal_lab_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-ALR-N", "graph_version": "v1", "leg": "num", "metric_id": "th.abnormal_lab_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-ALR-N", "graph_version": "v2", "leg": "num", "metric_id": "th.abnormal_lab_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-PAR", "graph_version": "v1", "leg": "atom", "metric_id": "th.patient_abnormal_report", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-PAR", "graph_version": "v2", "leg": "atom", "metric_id": "th.patient_abnormal_report", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-PRO", "graph_version": "v1", "leg": "atom", "metric_id": "th.patient_roster", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-PRO", "graph_version": "v2", "leg": "atom", "metric_id": "th.patient_roster", "rule_id": "same_valid_time_window", "window_gran": "year"}
+
+-- TABLE gov_semantic_node  (rows=6)
+{"domain": "thrombosis_prediction", "entity_key": "ID", "graph_version": "v1", "node_id": "th.examination", "physical_table": "Examination", "scope_keys": {}}
+{"domain": "thrombosis_prediction", "entity_key": "ID", "graph_version": "v1", "node_id": "th.laboratory", "physical_table": "Laboratory", "scope_keys": {}}
+{"domain": "thrombosis_prediction", "entity_key": "ID", "graph_version": "v1", "node_id": "th.patient", "physical_table": "Patient", "scope_keys": {"patient_id": "ID"}}
+{"domain": "thrombosis_prediction", "entity_key": "ID", "graph_version": "v2", "node_id": "th.examination", "physical_table": "Examination", "scope_keys": {}}
+{"domain": "thrombosis_prediction", "entity_key": "ID", "graph_version": "v2", "node_id": "th.laboratory", "physical_table": "Laboratory", "scope_keys": {}}
+{"domain": "thrombosis_prediction", "entity_key": "ID", "graph_version": "v2", "node_id": "th.patient", "physical_table": "Patient", "scope_keys": {"patient_id": "ID"}}
+
+-- TABLE gov_granularity_edge  (rows=6)
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "thrombosis_prediction", "edge_id": "th.eg2", "from_level": "cohort", "graph_version": "v1", "group_cols": ["SEX"], "node_id": "th.patient", "to_level": "sex"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "thrombosis_prediction", "edge_id": "th.eg2", "from_level": "cohort", "graph_version": "v2", "group_cols": ["SEX"], "node_id": "th.patient", "to_level": "sex"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "thrombosis_prediction", "edge_id": "th.eg3", "from_level": "sex", "graph_version": "v1", "group_cols": [], "node_id": "th.patient", "to_level": "all"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "thrombosis_prediction", "edge_id": "th.eg3", "from_level": "sex", "graph_version": "v2", "group_cols": [], "node_id": "th.patient", "to_level": "all"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [{"col": "Birthday", "fn": "decade"}], "domain": "thrombosis_prediction", "edge_id": "th.eg1", "from_level": "patient", "graph_version": "v1", "group_cols": ["SEX"], "node_id": "th.patient", "to_level": "cohort"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [{"col": "Birthday", "fn": "decade"}], "domain": "thrombosis_prediction", "edge_id": "th.eg1", "from_level": "patient", "graph_version": "v2", "group_cols": ["SEX"], "node_id": "th.patient", "to_level": "cohort"}
+
+-- TABLE gov_disclosure_policy  (rows=6)
+{"applies_to": "th.patient", "carry": [], "cols": ["Birthday"], "domain": "thrombosis_prediction", "graph_version": "v1", "k": null, "kind": "mask", "lattice_levels": [], "mask_class": "year_month", "node_id": "th.patient", "policy_id": "th.pi1", "time_floor_gran": null}
+{"applies_to": "th.patient", "carry": [], "cols": ["Birthday"], "domain": "thrombosis_prediction", "graph_version": "v2", "k": null, "kind": "mask", "lattice_levels": [], "mask_class": "year_only", "node_id": "th.patient", "policy_id": "th.pi1", "time_floor_gran": null}
+{"applies_to": "th.patient", "carry": [], "cols": ["Diagnosis"], "domain": "thrombosis_prediction", "graph_version": "v1", "k": null, "kind": "mask", "lattice_levels": [], "mask_class": "category_first_token", "node_id": "th.patient", "policy_id": "th.pi3", "time_floor_gran": null}
+{"applies_to": "th.patient", "carry": [], "cols": ["Diagnosis"], "domain": "thrombosis_prediction", "graph_version": "v2", "k": null, "kind": "mask", "lattice_levels": [], "mask_class": "category_first_token", "node_id": "th.patient", "policy_id": "th.pi3", "time_floor_gran": null}
+{"applies_to": "th.patient", "carry": [], "cols": [], "domain": "thrombosis_prediction", "graph_version": "v1", "k": 10, "k_exempt_top": true, "kind": "k_threshold", "lattice_levels": ["patient", "cohort", "sex", "all"], "mask_class": null, "node_id": "th.patient", "policy_id": "th.pi2", "time_floor_gran": null}
+{"applies_to": "th.patient", "carry": [], "cols": [], "domain": "thrombosis_prediction", "graph_version": "v2", "k": 10, "k_exempt_top": true, "kind": "k_threshold", "lattice_levels": ["patient", "cohort", "sex", "all"], "mask_class": null, "node_id": "th.patient", "policy_id": "th.pi2", "time_floor_gran": null}

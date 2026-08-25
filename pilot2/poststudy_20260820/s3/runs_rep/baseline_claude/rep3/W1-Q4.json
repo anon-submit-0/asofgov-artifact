@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q4",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 717.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"country_history\" WHERE effective_month >= '2026-10' AND effective_month <= '2027-03'\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"country_history\" WHERE effective_month >= '2026-10' AND effective_month <= '2027-03'",
+ "prompt_sha256": "2f9b2fdf599f49c2cd54dafb1a54c4eaf83f3a115fc9d208ad5fa0ce7efc5678",
+ "prompt_chars": 3077,
+ "empty_response": false
+}

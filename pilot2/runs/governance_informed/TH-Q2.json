@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q2",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 207.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) AS exam_count\nFROM main.\"Examination\"\nWHERE \"Examination Date\" >= '1995-01-01'\n  AND \"Examination Date\" <= '1995-12-31'\n```",
+ "sql": "SELECT COUNT(*) AS exam_count\nFROM main.\"Examination\"\nWHERE \"Examination Date\" >= '1995-01-01'\n  AND \"Examination Date\" <= '1995-12-31'",
+ "prompt_sha256": "0c83c90dd377a598f1a6d5314fc4db0c3acfbc09c35f34f59f0492ab81723f7b",
+ "prompt_chars": 20406,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q1",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 问题涉及语义层时间绑定与声明时点，需使用 gov_* 治理表解析指标与有效时间，但未提供足够语义映射信息。",
+ "sql": "REFUSE",
+ "prompt_sha256": "38b378b013b821e4efc72e61fe07acbc3aa3715cff38728bd3bad2bf7e6483e6",
+ "prompt_chars": 3717,
+ "empty_response": false
+}

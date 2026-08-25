@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q5",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 7542.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"rulings\" WHERE \"date\" BETWEEN '2020-10-01' AND '2021-06-30';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"rulings\" WHERE \"date\" BETWEEN '2020-10-01' AND '2021-06-30'",
+ "prompt_sha256": "ef8e34e678805f5229208c0a1c5195d94ec3b3fd9f670748993ca5a2b32bc9cb",
+ "prompt_chars": 24038,
+ "empty_response": false
+}

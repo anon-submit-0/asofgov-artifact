@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q6",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 指标 ef2.rating_weighted_win_rate 的分母要求 player_attr 锚（date_set，必须 date='2013-12-01'），但该表未必有该日快照，且分子 match 锚需同日比赛数据；如两表该日均无数据则无法计算\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "7bd9aa8e7727c867abd95a2defd8cbe15a251fc767b4d96dd23db05868fea025",
+ "prompt_chars": 25279,
+ "empty_response": false
+}

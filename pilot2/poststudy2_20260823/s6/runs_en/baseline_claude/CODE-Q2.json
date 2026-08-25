@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q2",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: The question uses temporal/governance semantics (declaration instant, as-of, containing month window) that reference the gov_* metadata tables' temporal binding logic, but those governance tables define abstract routing/policy rules with no concrete temporal fact data linking them to the posts/votes business tables in a way that would produce a single executable numeric result.",
+ "sql": "REFUSE",
+ "prompt_sha256": "3bb1db9159a4e229e05c42d1b1f56ad7d67386549d0be3f6ab8375c6e39454d9",
+ "prompt_chars": 4998,
+ "empty_response": false
+}

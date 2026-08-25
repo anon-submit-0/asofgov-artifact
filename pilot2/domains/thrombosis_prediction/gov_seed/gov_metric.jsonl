@@ -1,0 +1,12 @@
+{"den_node": "th.laboratory", "domain": "thrombosis_prediction", "graph_version": "v1", "kind": "ratio", "metric_id": "th.abnormal_lab_rate", "num_node": "th.laboratory"}
+{"den_node": null, "domain": "thrombosis_prediction", "graph_version": "v1", "kind": "atomic", "metric_id": "th.exam_count", "num_node": "th.examination"}
+{"den_node": null, "domain": "thrombosis_prediction", "entity_node": "th.patient", "graph_version": "v1", "kind": "report", "metric_id": "th.patient_abnormal_report", "num_node": "th.laboratory", "report_axis": "entity"}
+{"den_node": null, "domain": "thrombosis_prediction", "graph_version": "v1", "kind": "attribute", "metric_id": "th.patient_birthday", "num_node": "th.patient"}
+{"den_node": null, "domain": "thrombosis_prediction", "entity_node": "th.patient", "graph_version": "v1", "kind": "roster", "metric_id": "th.patient_roster", "num_node": "th.laboratory"}
+{"den_node": null, "domain": "thrombosis_prediction", "graph_version": "v1", "kind": "atomic", "metric_id": "th.ana_positive_count", "num_node": "th.examination"}
+{"den_node": "th.laboratory", "domain": "thrombosis_prediction", "graph_version": "v2", "kind": "ratio", "metric_id": "th.abnormal_lab_rate", "num_node": "th.laboratory"}
+{"den_node": null, "domain": "thrombosis_prediction", "graph_version": "v2", "kind": "atomic", "metric_id": "th.exam_count", "num_node": "th.examination"}
+{"den_node": null, "domain": "thrombosis_prediction", "entity_node": "th.patient", "graph_version": "v2", "kind": "report", "metric_id": "th.patient_abnormal_report", "num_node": "th.laboratory", "report_axis": "entity"}
+{"den_node": null, "domain": "thrombosis_prediction", "graph_version": "v2", "kind": "attribute", "metric_id": "th.patient_birthday", "num_node": "th.patient"}
+{"den_node": null, "domain": "thrombosis_prediction", "entity_node": "th.patient", "graph_version": "v2", "kind": "roster", "metric_id": "th.patient_roster", "num_node": "th.laboratory"}
+{"den_node": null, "domain": "thrombosis_prediction", "graph_version": "v2", "kind": "atomic", "metric_id": "th.ana_positive_count", "num_node": "th.examination"}

@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q7",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 时间窗口跨度错误——\"自2013-03-04起一周\"落在同一个月内，但月均客户消费额指标(deb.avg_consumption)绑定yearmonth表且锚粒度为month_token，要求窗口必须是完整月份token集合，单周跨度无法对齐到合法的月粒度窗口\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "0627552ef887b04d49e344a5340221486a725df8a26d7fbaeebe5a10071a8e8e",
+ "prompt_chars": 19854,
+ "empty_response": false
+}

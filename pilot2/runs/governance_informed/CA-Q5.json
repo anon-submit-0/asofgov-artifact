@@ -1,0 +1,1489 @@
+{
+ "qid": "CA-Q5",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": [
+  [
+   "ACORN Woodland Elementary",
+   0.8581081081081081
+  ],
+  [
+   "ARISE High",
+   0.7950819672131147
+  ],
+  [
+   "ASCEND",
+   0.8175519630484989
+  ],
+  [
+   "Achieve Academy",
+   0.8571428571428571
+  ],
+  [
+   "Alameda Community Learning Center",
+   0.08823529411764706
+  ],
+  [
+   "Alameda County Community",
+   0.6561085972850679
+  ],
+  [
+   "Alameda County Juvenile Hall/Court",
+   0.4125
+  ],
+  [
+   "Alameda High",
+   0.18328358208955223
+  ],
+  [
+   "Alameda Science and Technology Institute",
+   0.2275449101796407
+  ],
+  [
+   "Albany High",
+   0.14015477214101463
+  ],
+  [
+   "Albany Middle",
+   0.16705069124423963
+  ],
+  [
+   "Alisal Elementary",
+   0.06885245901639345
+  ],
+  [
+   "Allendale Elementary",
+   0.7893333333333333
+  ],
+  [
+   "Alliance Academy",
+   0.9
+  ],
+  [
+   "Altamont Creek Elementary",
+   0.1222879684418146
+  ],
+  [
+   "Alternative Learning Academy at Conley-Caraballo High",
+   0.8571428571428571
+  ],
+  [
+   "Alternatives in Action",
+   0.7746478873239436
+  ],
+  [
+   "Alvarado Elementary",
+   0.4142212189616253
+  ],
+  [
+   "Alvarado Middle",
+   0.2686151704940849
+  ],
+  [
+   "Amador Valley High",
+   0.03764705882352941
+  ],
+  [
+   "Amelia Earhart Elementary",
+   0.06743421052631579
+  ],
+  [
+   "American High",
+   0.14860681114551083
+  ],
+  [
+   "American Indian Public Charter",
+   0.5969387755102041
+  ],
+  [
+   "American Indian Public Charter School II",
+   0.531810766721044
+  ],
+  [
+   "American Indian Public High",
+   0.5242718446601942
+  ],
+  [
+   "Andrew N. Christensen Middle",
+   0.1573373676248109
+  ],
+  [
+   "Anna Yates Elementary",
+   0.6646341463414634
+  ],
+  [
+   "Anthony W. Ochoa Middle",
+   0.62248322147651
+  ],
+  [
+   "Ardenwood Elementary",
+   0.056962025316455694
+  ],
+  [
+   "Arroyo High",
+   0.37435008665511266
+  ],
+  [
+   "Arroyo Seco Elementary",
+   0.2091917591125198
+  ],
+  [
+   "Aspire Berkley Maynard Academy",
+   0.6815742397137746
+  ],
+  [
+   "Aspire California College Preparatory Academy",
+   0.5565217391304348
+  ],
+  [
+   "Aspire College Academy",
+   0.864963503649635
+  ],
+  [
+   "Aspire ERES Academy",
+   0.867579908675799
+  ],
+  [
+   "Aspire Golden State College Preparatory Academy",
+   0.7445652173913043
+  ],
+  [
+   "Aspire Lionel Wilson College Preparatory Academy",
+   0.8571428571428571
+  ],
+  [
+   "Aspire Monarch Academy",
+   0.8661417322834646
+  ],
+  [
+   "Aspire Triumph Technology Academy",
+   0.8621908127208481
+  ],
+  [
+   "August Schilling Elementary",
+   0.6645299145299145
+  ],
+  [
+   "Bancroft Middle",
+   0.5341830822711472
+  ],
+  [
+   "Bay Area Technology",
+   0.8740157480314961
+  ],
+  [
+   "Bay Elementary",
+   0.40074906367041196
+  ],
+  [
+   "Bay Farm",
+   0.06118881118881119
+  ],
+  [
+   "Beach Elementary",
+   0.0055248618784530384
+  ],
+  [
+   "Bella Vista Elementary",
+   0.7246049661399548
+  ],
+  [
+   "Berkeley Arts Magnet at Whittier",
+   0.3125
+  ],
+  [
+   "Berkeley High",
+   0.24806201550387597
+  ],
+  [
+   "Berkeley Technology Academy",
+   0.7272727272727273
+  ],
+  [
+   "Bohannon Middle",
+   0.5356294536817102
+  ],
+  [
+   "Bowman Elementary",
+   0.6615384615384615
+  ],
+  [
+   "Brenkwitz High",
+   0.7404580152671756
+  ],
+  [
+   "Bret Harte Middle",
+   0.6824561403508772
+  ],
+  [
+   "Bridgepoint High (Continuation)",
+   0.6714285714285714
+  ],
+  [
+   "Bridges Academy",
+   0.7182044887780549
+  ],
+  [
+   "Brier Elementary",
+   0.3804195804195804
+  ],
+  [
+   "Brookfield Elementary",
+   0.7409470752089137
+  ],
+  [
+   "Brookvale Elementary",
+   0.07679180887372014
+  ],
+  [
+   "Burbank Elementary",
+   0.7204030226700252
+  ],
+  [
+   "Burckhalter Elementary",
+   0.7970479704797048
+  ],
+  [
+   "Cabrillo Elementary",
+   0.46113989637305697
+  ],
+  [
+   "California School for the Blind",
+   0.975
+  ],
+  [
+   "California School for the Deaf-Fremont",
+   0.9850746268656716
+  ],
+  [
+   "Canyon Middle",
+   0.16642857142857143
+  ],
+  [
+   "Carl B. Munck Elementary",
+   0.6596491228070176
+  ],
+  [
+   "Castlemont High",
+   0.8248945147679325
+  ],
+  [
+   "Castro Valley Elementary",
+   0.3010752688172043
+  ],
+  [
+   "Castro Valley High",
+   0.12632660047928793
+  ],
+  [
+   "Centerville Junior High",
+   0.2326783867631851
+  ],
+  [
+   "Cesar Chavez Middle",
+   0.533879781420765
+  ],
+  [
+   "Chabot Elementary",
+   0.125
+  ],
+  [
+   "Cherryland Elementary",
+   0.7610966057441253
+  ],
+  [
+   "Circle of Independent Learning",
+   0.09282700421940929
+  ],
+  [
+   "Civicorps Corpsmember Academy",
+   1.0
+  ],
+  [
+   "Claremont Middle",
+   0.5149425287356322
+  ],
+  [
+   "Cleveland Elementary",
+   0.457286432160804
+  ],
+  [
+   "Coliseum College Prep Academy",
+   0.8848614072494669
+  ],
+  [
+   "Colonial Acres Elementary",
+   0.7292899408284024
+  ],
+  [
+   "Community Day",
+   0.625
+  ],
+  [
+   "Community School for Creative Education",
+   0.5947368421052631
+  ],
+  [
+   "Community United Elementary",
+   0.8719806763285024
+  ],
+  [
+   "Conservatory of Vocal/Instrumental Arts",
+   0.4008438818565401
+  ],
+  [
+   "Core Learning Academy at Conley-Caraballo High",
+   0.3875
+  ],
+  [
+   "Cornell Elementary",
+   0.10175438596491228
+  ],
+  [
+   "Corvallis Elementary",
+   0.4934640522875817
+  ],
+  [
+   "Cox Academy",
+   0.8242320819112628
+  ],
+  [
+   "Cragmont Elementary",
+   0.3424036281179138
+  ],
+  [
+   "Creekside Middle",
+   0.11040609137055837
+  ],
+  [
+   "Crocker Highlands Elementary",
+   0.06018518518518518
+  ],
+  [
+   "Crossroads High (Alternative)",
+   0.43333333333333335
+  ],
+  [
+   "Dayton Elementary",
+   0.4407114624505929
+  ],
+  [
+   "Decoto School for Independent Study",
+   0.36607142857142855
+  ],
+  [
+   "Del Rey Elementary",
+   0.5049115913555993
+  ],
+  [
+   "Del Valle Continuation High",
+   0.5050505050505051
+  ],
+  [
+   "Delaine Eastin Elementary",
+   0.14602803738317757
+  ],
+  [
+   "Dewey Academy",
+   0.8045977011494253
+  ],
+  [
+   "District Office",
+   0.05555555555555555
+  ],
+  [
+   "Donald D. Lum Elementary",
+   0.24404761904761904
+  ],
+  [
+   "Donlon Elementary",
+   0.03350515463917526
+  ],
+  [
+   "Downtown Charter Academy",
+   0.7338709677419355
+  ],
+  [
+   "Dublin Elementary",
+   0.06377204884667571
+  ],
+  [
+   "Dublin High",
+   0.07584830339321358
+  ],
+  [
+   "E. L. Musick Elementary",
+   0.5789473684210527
+  ],
+  [
+   "E. M. Grimmer Elementary",
+   0.4827586206896552
+  ],
+  [
+   "East Avenue Elementary",
+   0.4960127591706539
+  ],
+  [
+   "East Avenue Middle",
+   0.27724358974358976
+  ],
+  [
+   "East Bay Arts High",
+   0.5226130653266332
+  ],
+  [
+   "East Bay Innovation Academy",
+   0.1111111111111111
+  ],
+  [
+   "East Oakland Leadership Academy",
+   0.8758620689655172
+  ],
+  [
+   "East Oakland Pride Elementary",
+   0.9197247706422018
+  ],
+  [
+   "Eden Gardens Elementary",
+   0.5420393559928444
+  ],
+  [
+   "Edendale Middle",
+   0.7327586206896551
+  ],
+  [
+   "Edison Elementary",
+   0.102880658436214
+  ],
+  [
+   "Edna Brewer Middle",
+   0.5501813784764208
+  ],
+  [
+   "Eldridge Elementary",
+   0.6640316205533597
+  ],
+  [
+   "Eleanor Murray Fallon",
+   0.03501628664495114
+  ],
+  [
+   "Elmhurst Community Prep",
+   0.8789473684210526
+  ],
+  [
+   "Emerson Elementary",
+   0.4587628865979381
+  ],
+  [
+   "Emery Secondary",
+   0.5891891891891892
+  ],
+  [
+   "Emma C. Smith Elementary",
+   0.10041265474552957
+  ],
+  [
+   "EnCompass Academy Elementary",
+   0.813953488372093
+  ],
+  [
+   "Encinal High",
+   0.34795613160518446
+  ],
+  [
+   "Encinal Junior Jets",
+   0.4497816593886463
+  ],
+  [
+   "Envision Academy for Arts & Technology",
+   0.48404255319148937
+  ],
+  [
+   "Epic Charter",
+   0.8475609756097561
+  ],
+  [
+   "Esperanza Elementary",
+   0.8558823529411764
+  ],
+  [
+   "FAME Public Charter",
+   0.516822429906542
+  ],
+  [
+   "Fairlands Elementary",
+   0.06307490144546649
+  ],
+  [
+   "Fairview Elementary",
+   0.6626506024096386
+  ],
+  [
+   "Faith Ringgold School of Arts and Science",
+   0.6344827586206897
+  ],
+  [
+   "Foothill High",
+   0.035491606714628296
+  ],
+  [
+   "Forest Park Elementary",
+   0.029182879377431907
+  ],
+  [
+   "Frank Otis Elementary",
+   0.12585034013605442
+  ],
+  [
+   "Franklin Elementary",
+   0.5753040224508886
+  ],
+  [
+   "Fred E. Weibel Elementary",
+   0.03532277710109622
+  ],
+  [
+   "Fred T. Korematsu Discovery Academy",
+   0.8649289099526066
+  ],
+  [
+   "Frederiksen Elementary",
+   0.13678618857901725
+  ],
+  [
+   "Fremont High",
+   0.7456021650879567
+  ],
+  [
+   "Frick Middle",
+   0.8962655601659751
+  ],
+  [
+   "Fruitvale Elementary",
+   0.7350649350649351
+  ],
+  [
+   "Futures Elementary",
+   0.9057750759878419
+  ],
+  [
+   "G. M. Walters Junior High",
+   0.31310344827586206
+  ],
+  [
+   "Garfield Elementary",
+   0.6628865979381443
+  ],
+  [
+   "Gateway to College at Laney College",
+   0.3
+  ],
+  [
+   "Glassbrook Elementary",
+   0.8609022556390977
+  ],
+  [
+   "Glenmoor Elementary",
+   0.2942073170731707
+  ],
+  [
+   "Glenview Elementary",
+   0.28043478260869564
+  ],
+  [
+   "Global Family",
+   0.941747572815534
+  ],
+  [
+   "Golden Oak Montessori of Hayward",
+   0.0861244019138756
+  ],
+  [
+   "Granada High",
+   0.14051282051282052
+  ],
+  [
+   "Grant Elementary",
+   0.5151515151515151
+  ],
+  [
+   "Grass Valley Elementary",
+   0.6884057971014492
+  ],
+  [
+   "Greenleaf Elementary",
+   0.8302521008403362
+  ],
+  [
+   "Guy Jr. Emanuele Elementary",
+   0.5078864353312302
+  ],
+  [
+   "H. A. Snow Elementary",
+   0.4876847290640394
+  ],
+  [
+   "Harder Elementary",
+   0.743421052631579
+  ],
+  [
+   "Harold William Kolb",
+   0.023893805309734513
+  ],
+  [
+   "Harvest Park Middle",
+   0.026518391787852865
+  ],
+  [
+   "Harvey Green Elementary",
+   0.21428571428571427
+  ],
+  [
+   "Havens Elementary",
+   0.011428571428571429
+  ],
+  [
+   "Hayward High",
+   0.64375
+  ],
+  [
+   "Henry Haight Elementary",
+   0.4791666666666667
+  ],
+  [
+   "Henry P. Mohr Elementary",
+   0.03869969040247678
+  ],
+  [
+   "Hesperian Elementary",
+   0.6896067415730337
+  ],
+  [
+   "Highland",
+   0.75
+  ],
+  [
+   "Hillcrest Elementary",
+   0.07242339832869081
+  ],
+  [
+   "Hillside Elementary",
+   0.816
+  ],
+  [
+   "Hillview Crest Elementary",
+   0.5754560530679934
+  ],
+  [
+   "Home and Hospital Program",
+   null
+  ],
+  [
+   "Hoover Elementary",
+   0.8963210702341137
+  ],
+  [
+   "Horace Mann Elementary",
+   0.7904509283819628
+  ],
+  [
+   "Howard Elementary",
+   0.8049792531120332
+  ],
+  [
+   "Impact Academy of Arts & Technology",
+   0.5343680709534369
+  ],
+  [
+   "Independent Elementary",
+   0.0707070707070707
+  ],
+  [
+   "Independent Study, Sojourner Truth",
+   0.7021276595744681
+  ],
+  [
+   "Infant and Preschool Program",
+   null
+  ],
+  [
+   "International Community",
+   0.8214285714285714
+  ],
+  [
+   "Irvington High",
+   0.09792418772563177
+  ],
+  [
+   "Island High (Continuation)",
+   0.48214285714285715
+  ],
+  [
+   "J. Haley Durham Elementary",
+   0.33194154488517746
+  ],
+  [
+   "Jackson Avenue Elementary",
+   0.3849129593810445
+  ],
+  [
+   "James A. Graham Elementary",
+   0.5981087470449172
+  ],
+  [
+   "James Dougherty Elementary",
+   0.017817371937639197
+  ],
+  [
+   "James L. Bunker Elementary",
+   0.2578268876611418
+  ],
+  [
+   "James Leitch Elementary",
+   0.026976744186046512
+  ],
+  [
+   "James Logan High",
+   0.31684210526315787
+  ],
+  [
+   "Jefferson Elementary",
+   0.4405737704918033
+  ],
+  [
+   "Jensen Ranch Elementary",
+   0.024390243902439025
+  ],
+  [
+   "Joaquin Miller Elementary",
+   0.15348837209302327
+  ],
+  [
+   "Joe Michell",
+   0.31956912028725315
+  ],
+  [
+   "John Blacow Elementary",
+   0.3905882352941176
+  ],
+  [
+   "John F. Kennedy Elementary",
+   0.22764227642276422
+  ],
+  [
+   "John F. Kennedy High",
+   0.2523364485981308
+  ],
+  [
+   "John G. Mattos Elementary",
+   0.1248
+  ],
+  [
+   "John Gomes Elementary",
+   0.02127659574468085
+  ],
+  [
+   "John Green Elementary",
+   0.018805309734513276
+  ],
+  [
+   "John M. Horner Junior High",
+   0.12330097087378641
+  ],
+  [
+   "John Muir Elementary",
+   0.43727598566308246
+  ],
+  [
+   "John Muir Middle",
+   0.5
+  ],
+  [
+   "Joseph Azevada Elementary",
+   0.16524701873935263
+  ],
+  [
+   "Joshua Chadbourne Elementary",
+   0.04201680672268908
+  ],
+  [
+   "Junction K-8",
+   0.5997706422018348
+  ],
+  [
+   "KIPP Bridge Charter",
+   0.6294117647058823
+  ],
+  [
+   "KIPP King Collegiate High",
+   0.4603174603174603
+  ],
+  [
+   "KIPP Summit Academy",
+   0.44717444717444715
+  ],
+  [
+   "Kaiser Elementary",
+   0.22580645161290322
+  ],
+  [
+   "Knowledge Enlightens You (KEY) Academy",
+   0.4517374517374517
+  ],
+  [
+   "LIFE Academy",
+   0.7874186550976139
+  ],
+  [
+   "LPS Oakland R & D Campus",
+   0.8709677419354839
+  ],
+  [
+   "La Escuelita Elementary",
+   0.7993827160493827
+  ],
+  [
+   "Lafayette Elementary",
+   0.8931623931623932
+  ],
+  [
+   "Laurel Elementary",
+   0.7039848197343453
+  ],
+  [
+   "Lazear Charter Academy",
+   0.7688787185354691
+  ],
+  [
+   "Leadership Public Schools - Hayward",
+   0.4715447154471545
+  ],
+  [
+   "Learning Without Limits",
+   0.8369829683698297
+  ],
+  [
+   "Leconte Elementary",
+   0.46607669616519176
+  ],
+  [
+   "Leo R. Croce Elementary",
+   0.2117039586919105
+  ],
+  [
+   "Lighthouse Community Charter",
+   0.7489711934156379
+  ],
+  [
+   "Lighthouse Community Charter High",
+   0.7261410788381742
+  ],
+  [
+   "Lincoln Elementary",
+   0.5715555555555556
+  ],
+  [
+   "Lincoln High (Continuation)",
+   0.6388888888888888
+  ],
+  [
+   "Lincoln Middle",
+   0.11666666666666667
+  ],
+  [
+   "Livermore High",
+   0.1937354988399072
+  ],
+  [
+   "Livermore Valley Charter",
+   0.0300820419325433
+  ],
+  [
+   "Longfellow Arts and Technology Middle",
+   0.4392156862745098
+  ],
+  [
+   "Longwood Elementary",
+   0.8071216617210683
+  ],
+  [
+   "Lorenzo Manor Elementary",
+   0.6570945945945946
+  ],
+  [
+   "Lorin A. Eden Elementary",
+   0.5070993914807302
+  ],
+  [
+   "Louis Milani Elementary",
+   0.5659340659340659
+  ],
+  [
+   "Lydiksen Elementary",
+   0.045180722891566265
+  ],
+  [
+   "MacGregor High (Continuation)",
+   0.42857142857142855
+  ],
+  [
+   "Madison Elementary",
+   0.25245098039215685
+  ],
+  [
+   "Madison Park Academy 6-12",
+   0.9178082191780822
+  ],
+  [
+   "Madison Park Academy TK-5",
+   0.8939393939393939
+  ],
+  [
+   "Malcolm X Elementary",
+   0.2604735883424408
+  ],
+  [
+   "Manzanita Community",
+   0.8489425981873112
+  ],
+  [
+   "Manzanita SEED",
+   0.6313131313131313
+  ],
+  [
+   "Marin Elementary",
+   0.10325047801147227
+  ],
+  [
+   "Markham Elementary",
+   0.864406779661017
+  ],
+  [
+   "Marshall Elementary",
+   0.24888888888888888
+  ],
+  [
+   "Martin Luther King Middle",
+   0.2988505747126437
+  ],
+  [
+   "Martin Luther King, Jr. Elementary",
+   0.8914473684210527
+  ],
+  [
+   "Martin Luther King, Jr. Middle",
+   0.6899879372738239
+  ],
+  [
+   "Marylin Avenue Elementary",
+   0.7775061124694377
+  ],
+  [
+   "Maya Lin",
+   0.3557692307692308
+  ],
+  [
+   "McClymonds High",
+   0.8237410071942446
+  ],
+  [
+   "McKinley Elementary",
+   0.5069306930693069
+  ],
+  [
+   "Melrose Leadership Academy",
+   0.6176470588235294
+  ],
+  [
+   "MetWest High",
+   0.6733333333333333
+  ],
+  [
+   "Millennium High Alternative",
+   0.043478260869565216
+  ],
+  [
+   "Mission San Jose Elementary",
+   0.016366612111292964
+  ],
+  [
+   "Mission San Jose High",
+   0.027514231499051234
+  ],
+  [
+   "Mission Valley Elementary",
+   0.05116279069767442
+  ],
+  [
+   "Monroe Elementary",
+   0.44871794871794873
+  ],
+  [
+   "Montclair Elementary",
+   0.1226252158894646
+  ],
+  [
+   "Montera Middle",
+   0.47038724373576307
+  ],
+  [
+   "Mountain House Elementary",
+   0.09090909090909091
+  ],
+  [
+   "Mt. Eden High",
+   0.5678685047720042
+  ],
+  [
+   "Murray Elementary",
+   0.11734693877551021
+  ],
+  [
+   "Nea Community Learning Center",
+   0.24468085106382978
+  ],
+  [
+   "New Highland Academy",
+   0.7323943661971831
+  ],
+  [
+   "Newark Junior High",
+   0.45364238410596025
+  ],
+  [
+   "Newark Memorial High",
+   0.3784084585420145
+  ],
+  [
+   "Niles Elementary",
+   0.066006600660066
+  ],
+  [
+   "North Oakland Community Charter",
+   0.17699115044247787
+  ],
+  [
+   "O. N. Hirsch Elementary",
+   0.19888475836431227
+  ],
+  [
+   "Oakland Charter Academy",
+   0.7960526315789473
+  ],
+  [
+   "Oakland Charter High",
+   0.6577380952380952
+  ],
+  [
+   "Oakland Community Day Middle",
+   1.0
+  ],
+  [
+   "Oakland High",
+   0.793440334961619
+  ],
+  [
+   "Oakland International High",
+   0.8776223776223776
+  ],
+  [
+   "Oakland Military Institute, College Preparatory Academy",
+   0.6481774960380349
+  ],
+  [
+   "Oakland School for the Arts",
+   0.08344733242134063
+  ],
+  [
+   "Oakland Technical High",
+   0.4632768361581921
+  ],
+  [
+   "Oakland Unity High",
+   0.6470588235294118
+  ],
+  [
+   "Ocean View Elementary",
+   0.3046757164404223
+  ],
+  [
+   "Oliveira Elementary",
+   0.14676258992805755
+  ],
+  [
+   "Oxford Elementary",
+   0.31125827814569534
+  ],
+  [
+   "Palma Ceia Elementary",
+   0.6373056994818653
+  ],
+  [
+   "Palomares Elementary",
+   0.07746478873239436
+  ],
+  [
+   "Park Elementary",
+   0.6316666666666667
+  ],
+  [
+   "Parker Elementary",
+   0.8977272727272727
+  ],
+  [
+   "Parkmont Elementary",
+   0.059684684684684686
+  ],
+  [
+   "Patterson Elementary",
+   0.1987075928917609
+  ],
+  [
+   "Peralta Elementary",
+   0.1762917933130699
+  ],
+  [
+   "Phoebe Apperson Hearst Elementary",
+   0.0450070323488045
+  ],
+  [
+   "Piedmont Avenue Elementary",
+   0.6639784946236559
+  ],
+  [
+   "Piedmont High",
+   0.006657789613848202
+  ],
+  [
+   "Piedmont Middle",
+   0.007751937984496124
+  ],
+  [
+   "Pioneer Elementary",
+   0.2787878787878788
+  ],
+  [
+   "Pleasanton Middle",
+   0.07790143084260731
+  ],
+  [
+   "Preparatory Literary Academy of Cultural Excellence",
+   0.8558558558558559
+  ],
+  [
+   "Proctor Elementary",
+   0.09774436090225563
+  ],
+  [
+   "REALM Charter High",
+   0.6171428571428571
+  ],
+  [
+   "REALM Charter Middle",
+   0.5870967741935483
+  ],
+  [
+   "ROOTS International Academy",
+   0.8766233766233766
+  ],
+  [
+   "Ralph J. Bunche High",
+   0.7741935483870968
+  ],
+  [
+   "Rancho Las Positas Elementary",
+   0.18470149253731344
+  ],
+  [
+   "Reach Academy",
+   0.7916666666666666
+  ],
+  [
+   "Redwood Continuation High",
+   0.26956521739130435
+  ],
+  [
+   "Redwood Heights Elementary",
+   0.2520107238605898
+  ],
+  [
+   "Rise Community",
+   0.8
+  ],
+  [
+   "Robertson High (Continuation)",
+   0.3532934131736527
+  ],
+  [
+   "Roosevelt Elementary",
+   0.21657250470809794
+  ],
+  [
+   "Roosevelt Middle",
+   0.8840304182509505
+  ],
+  [
+   "Rosa Parks Environmental Science Magnet",
+   0.28699551569506726
+  ],
+  [
+   "Roy A. Johnson High",
+   null
+  ],
+  [
+   "Royal Sunset (Continuation)",
+   0.5037593984962406
+  ],
+  [
+   "Ruby Bridges Elementary",
+   0.5476190476190477
+  ],
+  [
+   "Rudsdale Continuation",
+   0.7272727272727273
+  ],
+  [
+   "Ruus Elementary",
+   0.6913996627318718
+  ],
+  [
+   "San Leandro High",
+   0.4826762246117085
+  ],
+  [
+   "San Lorenzo High",
+   0.643928035982009
+  ],
+  [
+   "Sankofa Academy",
+   0.8333333333333334
+  ],
+  [
+   "Schafer Park Elementary",
+   0.7479564032697548
+  ],
+  [
+   "Searles Elementary",
+   0.5420827389443652
+  ],
+  [
+   "Sequoia Elementary",
+   0.4067796610169492
+  ],
+  [
+   "Silver Oak High Public Montessori Charter",
+   0.4642857142857143
+  ],
+  [
+   "Skyline High",
+   0.6883773161145423
+  ],
+  [
+   "Southgate Elementary",
+   0.4952978056426332
+  ],
+  [
+   "Stanton Elementary",
+   0.17225950782997762
+  ],
+  [
+   "Steven Millard Elementary",
+   0.18319327731092436
+  ],
+  [
+   "Stonebrae Elementary",
+   0.45188284518828453
+  ],
+  [
+   "Street Academy (Alternative)",
+   0.7326732673267327
+  ],
+  [
+   "Strobridge Elementary",
+   0.6946688206785138
+  ],
+  [
+   "Sunol Glen Elementary",
+   0.050724637681159424
+  ],
+  [
+   "Sunset Elementary",
+   0.04924242424242424
+  ],
+  [
+   "Tennyson High",
+   0.7193675889328063
+  ],
+  [
+   "The Academy of Alameda",
+   0.31496062992125984
+  ],
+  [
+   "Think College Now",
+   0.7906976744186046
+  ],
+  [
+   "Thomas S. Hart Middle",
+   0.03865979381443299
+  ],
+  [
+   "Thornhill Elementary",
+   0.13705583756345177
+  ],
+  [
+   "Thornton Junior High",
+   0.13321799307958476
+  ],
+  [
+   "Thousand Oaks Elementary",
+   0.35476718403547675
+  ],
+  [
+   "Tom Kitayama Elementary",
+   0.35405105438401774
+  ],
+  [
+   "Tom Maloney Elementary",
+   0.24352331606217617
+  ],
+  [
+   "Treeview Elementary",
+   0.6413043478260869
+  ],
+  [
+   "Tyrrell Elementary",
+   0.8140442132639792
+  ],
+  [
+   "United for Success Academy",
+   0.8535980148883374
+  ],
+  [
+   "Urban Montessori Charter",
+   0.2857142857142857
+  ],
+  [
+   "Urban Promise Academy",
+   0.8637770897832817
+  ],
+  [
+   "Vallejo Mill Elementary",
+   0.23649906890130354
+  ],
+  [
+   "Valley High (Continuation)",
+   0.24561403508771928
+  ],
+  [
+   "Valley View Elementary",
+   0.1761194029850746
+  ],
+  [
+   "Vannoy Elementary",
+   0.0963855421686747
+  ],
+  [
+   "Village High",
+   0.22340425531914893
+  ],
+  [
+   "Vincent Academy",
+   0.8661971830985915
+  ],
+  [
+   "Vineyard Alternative",
+   0.10714285714285714
+  ],
+  [
+   "Vintage Hills Elementary",
+   0.027419354838709678
+  ],
+  [
+   "Vista Alternative",
+   0.15217391304347827
+  ],
+  [
+   "Walnut Grove Elementary",
+   0.020718232044198894
+  ],
+  [
+   "Warm Springs Elementary",
+   0.024110218140068886
+  ],
+  [
+   "Warwick Elementary",
+   0.1531322505800464
+  ],
+  [
+   "Washington Elementary",
+   0.44391971664698937
+  ],
+  [
+   "Washington High",
+   0.17030812324929973
+  ],
+  [
+   "Washington Manor Middle",
+   0.3963344788087056
+  ],
+  [
+   "Wells Middle",
+   0.1332560834298957
+  ],
+  [
+   "West Oakland Middle",
+   0.8883928571428571
+  ],
+  [
+   "Westlake Middle",
+   0.7824427480916031
+  ],
+  [
+   "Wildwood Elementary",
+   null
+  ],
+  [
+   "Will C. Wood Middle",
+   0.42596810933940776
+  ],
+  [
+   "Willard Middle",
+   0.45811051693404636
+  ],
+  [
+   "William G. Paden Elementary",
+   0.38333333333333336
+  ],
+  [
+   "William Hopkins Junior High",
+   0.023232323232323233
+  ],
+  [
+   "William Mendenhall Middle",
+   0.08977035490605428
+  ],
+  [
+   "Wilson Elementary",
+   0.5159500693481276
+  ],
+  [
+   "Winton Middle",
+   0.780718336483932
+  ],
+  [
+   "Young Adult Program",
+   null
+  ],
+  [
+   "Yu Ming Charter",
+   0.054474708171206226
+  ]
+ ],
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \n    f.\"School Name\",\n    SUM(f.\"Free Meal Count (Ages 5-17)\") / NULLIF(SUM(f.\"Enrollment (Ages 5-17)\"), 0) AS free_meal_rate\nFROM main.\"frpm\" f\nWHERE f.\"County Name\" = 'Alameda'\n  AND f.\"Academic Year\" = '2014-2015'\nGROUP BY f.\"School Name\"\nORDER BY f.\"School Name\"\n```",
+ "sql": "SELECT \n    f.\"School Name\",\n    SUM(f.\"Free Meal Count (Ages 5-17)\") / NULLIF(SUM(f.\"Enrollment (Ages 5-17)\"), 0) AS free_meal_rate\nFROM main.\"frpm\" f\nWHERE f.\"County Name\" = 'Alameda'\n  AND f.\"Academic Year\" = '2014-2015'\nGROUP BY f.\"School Name\"\nORDER BY f.\"School Name\"",
+ "prompt_sha256": "0b4f932c9b9a71e8e87406d51cc322cc143485d246ad90228f364704b09caedc",
+ "prompt_chars": 17955,
+ "empty_response": false
+}

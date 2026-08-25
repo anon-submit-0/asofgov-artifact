@@ -1,0 +1,30 @@
+{
+ "qid": "F1-Q5",
+ "domain": "formula_1",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2009-07-01",
+  "declared_at": "2011-03-01",
+  "metric_alias": "赛季参赛记录条数",
+  "scope": {
+   "constructor": "brawn"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2009-07-01\", \"declared_at\": \"2011-03-01\", \"metric_alias\": \"赛季参赛记录条数\", \"scope\": {\"constructor\": \"brawn\"}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "dcc32675f10b049f46079afe233da5f000a90a6e527ffe198d39792cc9e28fa5",
+ "prompt_chars": 29997
+}

@@ -1,0 +1,651 @@
+{
+ "deterministic": true,
+ "elimination_restatement": {
+  "all_in_band": true,
+  "max_frac": 0.4166666666666667,
+  "min_frac": 0.3611111111111111,
+  "per_rep": {
+   "1": {
+    "eliminated_frac": 0.3611111111111111,
+    "eliminated_n": 13,
+    "of_reference_errors": 36,
+    "source": "frozen pilot2_arms_summary.json per_question_verdicts"
+   },
+   "2": {
+    "eliminated_frac": 0.4166666666666667,
+    "eliminated_n": 15,
+    "of_reference_errors": 36,
+    "source": "poststudy_20260820/s3/runs_rep/governance_informed/rep2/"
+   },
+   "3": {
+    "eliminated_frac": 0.4166666666666667,
+    "eliminated_n": 15,
+    "of_reference_errors": 36,
+    "source": "poststudy_20260820/s3/runs_rep/governance_informed/rep3/"
+   },
+   "4": {
+    "eliminated_frac": 0.4166666666666667,
+    "eliminated_n": 15,
+    "of_reference_errors": 36,
+    "source": "poststudy_20260820/s3/runs_rep/governance_informed/rep4/"
+   },
+   "5": {
+    "eliminated_frac": 0.3888888888888889,
+    "eliminated_n": 14,
+    "of_reference_errors": 36,
+    "source": "poststudy_20260820/s3/runs_rep/governance_informed/rep5/"
+   }
+  },
+  "prereg_band": [
+   0.3,
+   0.45
+  ],
+  "prereg_line": 0.4,
+  "range": [
+   0.3611111111111111,
+   0.4166666666666667
+  ],
+  "range_straddles_line": true,
+  "reasserted_equal_to_frozen_s3_summary": true,
+  "reference_error_set": "36 frozen baseline_claude rep1 errors (re-derived and asserted)"
+ },
+ "inputs": {
+  "cluster_mapping": "pilot2/domains/*/questions.json (9 databases)",
+  "s3_rep_caches": "pilot2/poststudy_20260820/s3/runs_rep/governance_informed/rep{2..5}",
+  "s3_summary_sha256": "053ffb62c3e6204214cbf83813e18750a350b20899a581b501279048ae1c02cb",
+  "verdict_matrix": "pilot2/pilot2_arms_summary.json per_question_verdicts (frozen rep1)",
+  "verdict_matrix_sha256": "2604bff0e7632c0e367a124ba5717d33cf858fba2e46417e35d8d740b29ef90e"
+ },
+ "llm_calls": 0,
+ "method": {
+  "bootstrap": {
+   "B": 2000,
+   "ci": "95% percentile, [sorted[49], sorted[1949]] of B=2000 (frozen convention)",
+   "resample": "9 cluster draws with replacement per iteration, questions pooled",
+   "rng": "random.Random(seed), fresh per arm (identical resample sequence across arms, as in frozen make_pilot2_summary.py)",
+   "seed": 20260823,
+   "unit": "database cluster (9 domains)"
+  },
+  "error_indicator": "verdict != 'correct' (frozen scorer verdicts, zero re-scoring)",
+  "paired_difference": "per-question err(baseline_claude) - err(arm)"
+ },
+ "n_predictions_missed": 2,
+ "paired_differences": {
+  "governance_informed": {
+   "ci95_percentile": [
+    -0.05,
+    0.3
+   ],
+   "ci_excludes_zero": false,
+   "direction": "baseline_claude minus governance_informed (positive = arm makes fewer errors)",
+   "discordant": {
+    "concordant": 42,
+    "ref_err_arm_ok": 13,
+    "ref_ok_arm_err": 5
+   },
+   "errors_arm": 28,
+   "errors_reference": 36,
+   "mean_paired_diff": 0.13333333333333333,
+   "n_questions": 60,
+   "note_sign_symmetry": "arm-minus-reference is the exact negation; whether the CI includes 0 is sign-invariant",
+   "per_cluster": {
+    "california_schools": {
+     "mean_diff": 0.5,
+     "n": 6,
+     "sum_diff": 3
+    },
+    "card_games": {
+     "mean_diff": -0.2857142857142857,
+     "n": 7,
+     "sum_diff": -2
+    },
+    "codebase_community": {
+     "mean_diff": 0.0,
+     "n": 7,
+     "sum_diff": 0
+    },
+    "debit_card_specializing": {
+     "mean_diff": 0.2857142857142857,
+     "n": 7,
+     "sum_diff": 2
+    },
+    "european_football_2": {
+     "mean_diff": -0.3333333333333333,
+     "n": 6,
+     "sum_diff": -2
+    },
+    "financial": {
+     "mean_diff": 0.375,
+     "n": 8,
+     "sum_diff": 3
+    },
+    "formula_1": {
+     "mean_diff": 0.125,
+     "n": 8,
+     "sum_diff": 1
+    },
+    "thrombosis_prediction": {
+     "mean_diff": 0.3333333333333333,
+     "n": 6,
+     "sum_diff": 2
+    },
+    "world_1": {
+     "mean_diff": 0.2,
+     "n": 5,
+     "sum_diff": 1
+    }
+   },
+   "per_question_diff": {
+    "CA-Q1": 0,
+    "CA-Q2": 1,
+    "CA-Q3": 1,
+    "CA-Q4": 1,
+    "CA-Q5": 0,
+    "CA-Q6": 0,
+    "CARD-Q1": 0,
+    "CARD-Q2": 0,
+    "CARD-Q3": 0,
+    "CARD-Q4": 0,
+    "CARD-Q5": 0,
+    "CARD-Q6": -1,
+    "CARD-Q7": -1,
+    "CODE-Q1": 0,
+    "CODE-Q2": 0,
+    "CODE-Q3": 0,
+    "CODE-Q4": 0,
+    "CODE-Q5": 0,
+    "CODE-Q6": 0,
+    "CODE-Q7": 0,
+    "DEB-Q1": 0,
+    "DEB-Q2": 0,
+    "DEB-Q3": 0,
+    "DEB-Q4": 0,
+    "DEB-Q5": 0,
+    "DEB-Q6": 1,
+    "DEB-Q7": 1,
+    "EF2-Q1": 0,
+    "EF2-Q2": 0,
+    "EF2-Q3": -1,
+    "EF2-Q4": 0,
+    "EF2-Q5": 0,
+    "EF2-Q6": -1,
+    "F1-Q1": 0,
+    "F1-Q2": 0,
+    "F1-Q3": 1,
+    "F1-Q4": 0,
+    "F1-Q5": 0,
+    "F1-Q6": 0,
+    "F1-Q7": 0,
+    "F1-Q8": 0,
+    "FIN-Q1": 0,
+    "FIN-Q2": 1,
+    "FIN-Q3": 1,
+    "FIN-Q4": 0,
+    "FIN-Q5": 0,
+    "FIN-Q6": 0,
+    "FIN-Q7": 0,
+    "FIN-Q8": 1,
+    "TH-Q1": 1,
+    "TH-Q2": 0,
+    "TH-Q3": 0,
+    "TH-Q4": 1,
+    "TH-Q5": 0,
+    "TH-Q6": 0,
+    "W1-Q1": 0,
+    "W1-Q2": 1,
+    "W1-Q3": 0,
+    "W1-Q4": -1,
+    "W1-Q5": 1
+   }
+  },
+  "trivial_claude": {
+   "ci95_percentile": [
+    -0.046153846153846156,
+    0.1774193548387097
+   ],
+   "ci_excludes_zero": false,
+   "direction": "baseline_claude minus trivial_claude (positive = arm makes fewer errors)",
+   "discordant": {
+    "concordant": 48,
+    "ref_err_arm_ok": 8,
+    "ref_ok_arm_err": 4
+   },
+   "errors_arm": 32,
+   "errors_reference": 36,
+   "mean_paired_diff": 0.06666666666666667,
+   "n_questions": 60,
+   "note_sign_symmetry": "arm-minus-reference is the exact negation; whether the CI includes 0 is sign-invariant",
+   "per_cluster": {
+    "california_schools": {
+     "mean_diff": 0.16666666666666666,
+     "n": 6,
+     "sum_diff": 1
+    },
+    "card_games": {
+     "mean_diff": -0.14285714285714285,
+     "n": 7,
+     "sum_diff": -1
+    },
+    "codebase_community": {
+     "mean_diff": 0.0,
+     "n": 7,
+     "sum_diff": 0
+    },
+    "debit_card_specializing": {
+     "mean_diff": 0.0,
+     "n": 7,
+     "sum_diff": 0
+    },
+    "european_football_2": {
+     "mean_diff": 0.16666666666666666,
+     "n": 6,
+     "sum_diff": 1
+    },
+    "financial": {
+     "mean_diff": -0.125,
+     "n": 8,
+     "sum_diff": -1
+    },
+    "formula_1": {
+     "mean_diff": 0.375,
+     "n": 8,
+     "sum_diff": 3
+    },
+    "thrombosis_prediction": {
+     "mean_diff": 0.16666666666666666,
+     "n": 6,
+     "sum_diff": 1
+    },
+    "world_1": {
+     "mean_diff": 0.0,
+     "n": 5,
+     "sum_diff": 0
+    }
+   },
+   "per_question_diff": {
+    "CA-Q1": 1,
+    "CA-Q2": 1,
+    "CA-Q3": 0,
+    "CA-Q4": 0,
+    "CA-Q5": 0,
+    "CA-Q6": -1,
+    "CARD-Q1": 0,
+    "CARD-Q2": 0,
+    "CARD-Q3": 0,
+    "CARD-Q4": 0,
+    "CARD-Q5": 0,
+    "CARD-Q6": 0,
+    "CARD-Q7": -1,
+    "CODE-Q1": 0,
+    "CODE-Q2": 0,
+    "CODE-Q3": 0,
+    "CODE-Q4": 0,
+    "CODE-Q5": 0,
+    "CODE-Q6": 0,
+    "CODE-Q7": 0,
+    "DEB-Q1": 0,
+    "DEB-Q2": 0,
+    "DEB-Q3": 0,
+    "DEB-Q4": 0,
+    "DEB-Q5": 0,
+    "DEB-Q6": 0,
+    "DEB-Q7": 0,
+    "EF2-Q1": 1,
+    "EF2-Q2": 0,
+    "EF2-Q3": 0,
+    "EF2-Q4": 0,
+    "EF2-Q5": 0,
+    "EF2-Q6": 0,
+    "F1-Q1": 0,
+    "F1-Q2": 0,
+    "F1-Q3": 0,
+    "F1-Q4": 0,
+    "F1-Q5": 1,
+    "F1-Q6": 0,
+    "F1-Q7": 1,
+    "F1-Q8": 1,
+    "FIN-Q1": -1,
+    "FIN-Q2": 0,
+    "FIN-Q3": 0,
+    "FIN-Q4": 0,
+    "FIN-Q5": -1,
+    "FIN-Q6": 0,
+    "FIN-Q7": 1,
+    "FIN-Q8": 0,
+    "TH-Q1": 0,
+    "TH-Q2": 0,
+    "TH-Q3": 0,
+    "TH-Q4": 0,
+    "TH-Q5": 0,
+    "TH-Q6": 1,
+    "W1-Q1": 0,
+    "W1-Q2": 0,
+    "W1-Q3": 0,
+    "W1-Q4": 0,
+    "W1-Q5": 0
+   }
+  },
+  "trivial_v2": {
+   "ci95_percentile": [
+    -0.1016949152542373,
+    0.11666666666666667
+   ],
+   "ci_excludes_zero": false,
+   "direction": "baseline_claude minus trivial_v2 (positive = arm makes fewer errors)",
+   "discordant": {
+    "concordant": 49,
+    "ref_err_arm_ok": 6,
+    "ref_ok_arm_err": 5
+   },
+   "errors_arm": 35,
+   "errors_reference": 36,
+   "mean_paired_diff": 0.016666666666666666,
+   "n_questions": 60,
+   "note_sign_symmetry": "arm-minus-reference is the exact negation; whether the CI includes 0 is sign-invariant",
+   "per_cluster": {
+    "california_schools": {
+     "mean_diff": 0.16666666666666666,
+     "n": 6,
+     "sum_diff": 1
+    },
+    "card_games": {
+     "mean_diff": -0.2857142857142857,
+     "n": 7,
+     "sum_diff": -2
+    },
+    "codebase_community": {
+     "mean_diff": 0.0,
+     "n": 7,
+     "sum_diff": 0
+    },
+    "debit_card_specializing": {
+     "mean_diff": 0.0,
+     "n": 7,
+     "sum_diff": 0
+    },
+    "european_football_2": {
+     "mean_diff": -0.16666666666666666,
+     "n": 6,
+     "sum_diff": -1
+    },
+    "financial": {
+     "mean_diff": 0.125,
+     "n": 8,
+     "sum_diff": 1
+    },
+    "formula_1": {
+     "mean_diff": 0.25,
+     "n": 8,
+     "sum_diff": 2
+    },
+    "thrombosis_prediction": {
+     "mean_diff": 0.0,
+     "n": 6,
+     "sum_diff": 0
+    },
+    "world_1": {
+     "mean_diff": 0.0,
+     "n": 5,
+     "sum_diff": 0
+    }
+   },
+   "per_question_diff": {
+    "CA-Q1": 1,
+    "CA-Q2": 0,
+    "CA-Q3": 1,
+    "CA-Q4": 0,
+    "CA-Q5": 0,
+    "CA-Q6": -1,
+    "CARD-Q1": 0,
+    "CARD-Q2": 0,
+    "CARD-Q3": 0,
+    "CARD-Q4": 0,
+    "CARD-Q5": 0,
+    "CARD-Q6": -1,
+    "CARD-Q7": -1,
+    "CODE-Q1": 0,
+    "CODE-Q2": 0,
+    "CODE-Q3": 0,
+    "CODE-Q4": 0,
+    "CODE-Q5": 0,
+    "CODE-Q6": 0,
+    "CODE-Q7": 0,
+    "DEB-Q1": 0,
+    "DEB-Q2": 0,
+    "DEB-Q3": 0,
+    "DEB-Q4": 0,
+    "DEB-Q5": 0,
+    "DEB-Q6": 0,
+    "DEB-Q7": 0,
+    "EF2-Q1": 0,
+    "EF2-Q2": 0,
+    "EF2-Q3": 0,
+    "EF2-Q4": 0,
+    "EF2-Q5": 0,
+    "EF2-Q6": -1,
+    "F1-Q1": 0,
+    "F1-Q2": 0,
+    "F1-Q3": 0,
+    "F1-Q4": 0,
+    "F1-Q5": 1,
+    "F1-Q6": 0,
+    "F1-Q7": 0,
+    "F1-Q8": 1,
+    "FIN-Q1": 0,
+    "FIN-Q2": 0,
+    "FIN-Q3": 0,
+    "FIN-Q4": 0,
+    "FIN-Q5": 0,
+    "FIN-Q6": 0,
+    "FIN-Q7": 0,
+    "FIN-Q8": 1,
+    "TH-Q1": 0,
+    "TH-Q2": 0,
+    "TH-Q3": 0,
+    "TH-Q4": 0,
+    "TH-Q5": 0,
+    "TH-Q6": 0,
+    "W1-Q1": 0,
+    "W1-Q2": 0,
+    "W1-Q3": 0,
+    "W1-Q4": -1,
+    "W1-Q5": 1
+   }
+  },
+  "trivial_v3": {
+   "ci95_percentile": [
+    -0.14285714285714285,
+    -0.015151515151515152
+   ],
+   "ci_excludes_zero": true,
+   "direction": "baseline_claude minus trivial_v3 (positive = arm makes fewer errors)",
+   "discordant": {
+    "concordant": 52,
+    "ref_err_arm_ok": 2,
+    "ref_ok_arm_err": 6
+   },
+   "errors_arm": 40,
+   "errors_reference": 36,
+   "mean_paired_diff": -0.06666666666666667,
+   "n_questions": 60,
+   "note_sign_symmetry": "arm-minus-reference is the exact negation; whether the CI includes 0 is sign-invariant",
+   "per_cluster": {
+    "california_schools": {
+     "mean_diff": -0.16666666666666666,
+     "n": 6,
+     "sum_diff": -1
+    },
+    "card_games": {
+     "mean_diff": -0.2857142857142857,
+     "n": 7,
+     "sum_diff": -2
+    },
+    "codebase_community": {
+     "mean_diff": 0.0,
+     "n": 7,
+     "sum_diff": 0
+    },
+    "debit_card_specializing": {
+     "mean_diff": 0.0,
+     "n": 7,
+     "sum_diff": 0
+    },
+    "european_football_2": {
+     "mean_diff": -0.16666666666666666,
+     "n": 6,
+     "sum_diff": -1
+    },
+    "financial": {
+     "mean_diff": 0.0,
+     "n": 8,
+     "sum_diff": 0
+    },
+    "formula_1": {
+     "mean_diff": 0.0,
+     "n": 8,
+     "sum_diff": 0
+    },
+    "thrombosis_prediction": {
+     "mean_diff": 0.0,
+     "n": 6,
+     "sum_diff": 0
+    },
+    "world_1": {
+     "mean_diff": 0.0,
+     "n": 5,
+     "sum_diff": 0
+    }
+   },
+   "per_question_diff": {
+    "CA-Q1": 0,
+    "CA-Q2": 0,
+    "CA-Q3": 0,
+    "CA-Q4": 0,
+    "CA-Q5": 0,
+    "CA-Q6": -1,
+    "CARD-Q1": 0,
+    "CARD-Q2": 0,
+    "CARD-Q3": 0,
+    "CARD-Q4": 0,
+    "CARD-Q5": 0,
+    "CARD-Q6": -1,
+    "CARD-Q7": -1,
+    "CODE-Q1": 0,
+    "CODE-Q2": 0,
+    "CODE-Q3": 0,
+    "CODE-Q4": 0,
+    "CODE-Q5": 0,
+    "CODE-Q6": 0,
+    "CODE-Q7": 0,
+    "DEB-Q1": 0,
+    "DEB-Q2": 0,
+    "DEB-Q3": 0,
+    "DEB-Q4": 0,
+    "DEB-Q5": 0,
+    "DEB-Q6": 0,
+    "DEB-Q7": 0,
+    "EF2-Q1": 1,
+    "EF2-Q2": -1,
+    "EF2-Q3": 0,
+    "EF2-Q4": 0,
+    "EF2-Q5": 0,
+    "EF2-Q6": -1,
+    "F1-Q1": 0,
+    "F1-Q2": 0,
+    "F1-Q3": 0,
+    "F1-Q4": 0,
+    "F1-Q5": 0,
+    "F1-Q6": 0,
+    "F1-Q7": 0,
+    "F1-Q8": 0,
+    "FIN-Q1": -1,
+    "FIN-Q2": 0,
+    "FIN-Q3": 0,
+    "FIN-Q4": 0,
+    "FIN-Q5": 0,
+    "FIN-Q6": 0,
+    "FIN-Q7": 0,
+    "FIN-Q8": 1,
+    "TH-Q1": 0,
+    "TH-Q2": 0,
+    "TH-Q3": 0,
+    "TH-Q4": 0,
+    "TH-Q5": 0,
+    "TH-Q6": 0,
+    "W1-Q1": 0,
+    "W1-Q2": 0,
+    "W1-Q3": 0,
+    "W1-Q4": 0,
+    "W1-Q5": 0
+   }
+  }
+ },
+ "predictions": {
+  "S4-P1": {
+   "met": false,
+   "observed": {
+    "ci95": [
+     -0.05,
+     0.3
+    ],
+    "mean": 0.13333333333333333
+   },
+   "statement": "the reference−governance paired-difference CI excludes 0",
+   "verdict": "MISS"
+  },
+  "S4-P2": {
+   "met": false,
+   "observed": {
+    "trivial_claude": {
+     "ci95_ref_minus_arm": [
+      -0.046153846153846156,
+      0.1774193548387097
+     ],
+     "includes_zero": true,
+     "mean_ref_minus_arm": 0.06666666666666667
+    },
+    "trivial_v2": {
+     "ci95_ref_minus_arm": [
+      -0.1016949152542373,
+      0.11666666666666667
+     ],
+     "includes_zero": true,
+     "mean_ref_minus_arm": 0.016666666666666666
+    },
+    "trivial_v3": {
+     "ci95_ref_minus_arm": [
+      -0.14285714285714285,
+      -0.015151515151515152
+     ],
+     "includes_zero": false,
+     "mean_ref_minus_arm": -0.06666666666666667
+    }
+   },
+   "statement": "every variant−reference paired-difference CI includes 0",
+   "verdict": "MISS"
+  },
+  "S4-P3": {
+   "met": true,
+   "observed": {
+    "all_in_band": true,
+    "max": 0.4166666666666667,
+    "min": 0.3611111111111111,
+    "per_rep_fracs": [
+     0.3611111111111111,
+     0.4166666666666667,
+     0.4166666666666667,
+     0.4166666666666667,
+     0.3888888888888889
+    ],
+    "range_straddles_line": true
+   },
+   "statement": "per-rep elim values all lie in [0.30, 0.45] and the min–max range straddles the pre-registered 0.40 line",
+   "verdict": "MET"
+  }
+ },
+ "prereg_sha256": "838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669",
+ "prereg_sha256_reasserted_from_disk": true,
+ "reference_arm": "baseline_claude",
+ "reference_errors": 36,
+ "study": "S4 — Paired-difference uncertainty (PREREG_poststudy2_20260823.md §S4)"
+}

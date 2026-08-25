@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q1",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 0.6638,
+ "verdict": "wrong_value",
+ "raw": "I need to analyze this step by step.\n\nFirst, let me understand the metric: \"提问采纳率\" (question acceptance rate) for December 2010, with declaration time 2011-02-01.\n\nLet me check the governance tables to find the relevant metric, anchors, and temporal bindings.\n\nThe \"提问采纳率\" would be: questions with accepted answers / total questions, for a given time window.\n\nLet me look at the governance metadata:\n\n1. Find the metric for acceptance rate in `gov_metric` and `gov_metric_alias`\n2. Check `gov_valid_time_anchor` for temporal anchors\n3. Check `gov_temporal_binding` for window alignment rules\n\nSince I can't query the gov tables interactively, I need to work with what's available. The question asks for December 2010 (as-of 2010-12-15's month window), meaning the window is 2010-12-01 to 2010-12-31.\n\nFor the business logic:\n- **Numerator**: Questions posted in Dec 2010 that have an accepted answer (AcceptedAnswerId IS NOT NULL)\n- **Denominator**: All questions posted in Dec 2010 (PostTypeId = 1)\n\nThe declaration time 2011-02-01 means we should only consider data that was available/valid as of that date. For posts, the creation date determines when they exist, and accepted answers could be set later - but by 2011-02-01, any acceptance that happened before then counts.\n\nGiven the schema, `posts` table has `CreaionDate` (note the typo) and `AcceptedAnswerId`. PostTypeId=1 means questions.\n\n```sql\nSELECT ROUND(\n    CAST(SUM(CASE WHEN \"AcceptedAnswerId\" IS NOT NULL THEN 1 ELSE 0 END) AS DOUBLE) \n    / COUNT(*), 4\n) AS acceptance_rate\nFROM main.\"posts\"\nWHERE \"PostTypeId\" = 1\n  AND \"CreaionDate\" >= '2010-12-01'\n  AND \"CreaionDate\" < '2011-01-01';\n```",
+ "sql": "SELECT ROUND(\n    CAST(SUM(CASE WHEN \"AcceptedAnswerId\" IS NOT NULL THEN 1 ELSE 0 END) AS DOUBLE) \n    / COUNT(*), 4\n) AS acceptance_rate\nFROM main.\"posts\"\nWHERE \"PostTypeId\" = 1\n  AND \"CreaionDate\" >= '2010-12-01'\n  AND \"CreaionDate\" < '2011-01-01'",
+ "prompt_sha256": "c4f8e614f45793a052cf5170ca0aa29f3446019e27e13c752d56e0044f2d092b",
+ "prompt_chars": 5141,
+ "empty_response": false
+}

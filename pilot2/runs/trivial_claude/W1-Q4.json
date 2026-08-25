@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q4",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": 717.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) AS record_count\nFROM main.\"country_history\"\nWHERE \"effective_month\" >= '2026-10' AND \"effective_month\" <= '2027-03'\n```",
+ "sql": "SELECT COUNT(*) AS record_count\nFROM main.\"country_history\"\nWHERE \"effective_month\" >= '2026-10' AND \"effective_month\" <= '2027-03'",
+ "prompt_sha256": "1d712e8244e168d50fc31992cb2fae187b0fc2012ed3383989d4375a34827519",
+ "prompt_chars": 3192,
+ "empty_response": false
+}

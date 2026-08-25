@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q4",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 声明时点 2026-08-15 早于查询区间起点 2026-10，无法在该时点获取未来时段数据\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "a513d5ab7af3a7af6fcd8a8c8335ec670c0e0feff54d55718fd914c4d1b5c690",
+ "prompt_chars": 16177,
+ "empty_response": false
+}

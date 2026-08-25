@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q6",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": "Durham, UK",
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT Location\nFROM main.\"users\"\nWHERE Id = 22047\n```",
+ "sql": "SELECT Location\nFROM main.\"users\"\nWHERE Id = 22047",
+ "prompt_sha256": "73ea363ed080437dd1f9a3f80897aa75320d2d9ead1eb6491c6205fd240e6ab9",
+ "prompt_chars": 28262,
+ "empty_response": false
+}

@@ -1,0 +1,28 @@
+{
+ "qid": "DEB-Q6",
+ "domain": "debit_card_specializing",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2013-12",
+  "declared_at": "2013-11-15",
+  "metric_alias": "月均客户消费额",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2013-12\", \"declared_at\": \"2013-11-15\", \"metric_alias\": \"月均客户消费额\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "30b6ed9b19e939c73bde741e12991780ca9bd38df81d2ad9a020b49888d30e44",
+ "prompt_chars": 22716
+}

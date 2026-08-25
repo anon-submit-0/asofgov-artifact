@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q4",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 717.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT SUM(CASE WHEN effective_month BETWEEN '2026-10' AND '2027-03' THEN 1 ELSE 0 END)\nFROM main.country_history\n```",
+ "sql": "SELECT SUM(CASE WHEN effective_month BETWEEN '2026-10' AND '2027-03' THEN 1 ELSE 0 END)\nFROM main.country_history",
+ "prompt_sha256": "a513d5ab7af3a7af6fcd8a8c8335ec670c0e0feff54d55718fd914c4d1b5c690",
+ "prompt_chars": 16177,
+ "empty_response": false
+}

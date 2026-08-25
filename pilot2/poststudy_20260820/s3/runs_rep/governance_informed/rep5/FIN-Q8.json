@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q8",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 分子分母必须在同一有效时间窗口内，不可取不同月份\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "c617ccb493c55fbcbda65917eba799ec2521d6039529c226bb6ec97e41d650f5",
+ "prompt_chars": 23511,
+ "empty_response": false
+}

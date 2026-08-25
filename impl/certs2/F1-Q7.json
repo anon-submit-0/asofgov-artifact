@@ -1,0 +1,99 @@
+{
+ "refusal": "out-of-validity",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "F1-Q7",
+   "domain": "formula_1",
+   "metric": "f1.races_count_month",
+   "metric_kind": "atomic",
+   "as_of": "1949-05-15"
+  },
+  "graph_pin": {
+   "domain": "formula_1",
+   "graph_version": "v2",
+   "commit_id": "2010-02-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": "A-F1-RACE",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "month",
+     "lo": "1949-05-01",
+     "hi_excl": "1949-06-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-F1-RCM",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": null,
+   "denominator_anchor": null,
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [],
+  "disclosure": {
+   "decision": "REFUSE",
+   "policy_ids": [],
+   "policy_table_present": false,
+   "ungoverned_disclosure": true,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-F1-RACE",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"races\" t WHERE t.\"date\" IS NOT NULL",
+    "observed": [
+     "1950-05-13",
+     "2017-11-26"
+    ]
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  },
+  "refusal": {
+   "reason": "out-of-validity",
+   "witness": {
+    "type": "window-outside-validity",
+    "anchor_id": "A-F1-RACE",
+    "role": "atom",
+    "coverage_mode": "hull",
+    "requested": {
+     "kind": "month",
+     "lo": "1949-05-01",
+     "hi_excl": "1949-06-01"
+    },
+    "validity": "[1950-05-13,2017-11-27)",
+    "validity_probe_sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"races\" t WHERE t.\"date\" IS NOT NULL",
+    "observed": [
+     "1950-05-13",
+     "2017-11-26"
+    ],
+    "assertion": "W ∩ Cov_v(a) = ∅（锚覆盖域真空）"
+   },
+   "ct": [
+    {
+     "slice": "(v2,B-F1-RCM)",
+     "reason": "out-of-validity"
+    }
+   ],
+   "slices_pass": [],
+   "composition": "slice-major(≺_det slice 序取首失败 slice; slice 内守卫序 OOV→AM→MC)"
+  }
+ }
+}

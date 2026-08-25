@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q2",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: The question references temporal/caliber governance concepts (declaration instant, default caliber, as-of semantics) that require runtime interpretation of the gov_* metadata tables as executable logic, which cannot be reliably resolved with a single static SQL query against this schema.",
+ "sql": "REFUSE",
+ "prompt_sha256": "7ee4ba927017864dd78c923d15d9cd076ea37d126c512bf27973c9b6f7f12a71",
+ "prompt_chars": 5316,
+ "empty_response": false
+}

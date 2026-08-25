@@ -1,0 +1,97 @@
+{
+ "qid": "TH-Q3",
+ "system": "baseline_deepseek",
+ "kind": "value",
+ "value": [
+  [
+   4632421,
+   "1997-01-28",
+   69,
+   4.7,
+   182
+  ],
+  [
+   4632421,
+   "1997-04-01",
+   87,
+   4.6,
+   201
+  ],
+  [
+   4632421,
+   "1997-06-24",
+   108,
+   4.6,
+   169
+  ],
+  [
+   4632421,
+   "1997-08-19",
+   69,
+   4.6,
+   138
+  ],
+  [
+   4632421,
+   "1997-10-14",
+   66,
+   4.4,
+   132
+  ],
+  [
+   5065022,
+   "1997-01-16",
+   84,
+   10.5,
+   186
+  ],
+  [
+   5065022,
+   "1997-02-13",
+   64,
+   12.0,
+   197
+  ],
+  [
+   5065022,
+   "1997-05-15",
+   67,
+   8.6,
+   189
+  ],
+  [
+   5065022,
+   "1997-06-12",
+   77,
+   8.4,
+   201
+  ],
+  [
+   5065022,
+   "1997-10-02",
+   83,
+   9.1,
+   179
+  ],
+  [
+   5065022,
+   "1997-11-06",
+   76,
+   12.3,
+   184
+  ],
+  [
+   5065022,
+   "1997-12-25",
+   65,
+   10.0,
+   169
+  ]
+ ],
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT p.ID AS Patient_ID, l.\"Date\", l.GOT, l.\"WBC\", l.\"PLT\"\nFROM main.\"Laboratory\" l\nJOIN main.\"Patient\" p ON l.ID = p.ID\nWHERE EXTRACT(YEAR FROM l.\"Date\") = 1997\n  AND l.GOT >= 60\nORDER BY p.ID, l.\"Date\"\n```",
+ "sql": "SELECT p.ID AS Patient_ID, l.\"Date\", l.GOT, l.\"WBC\", l.\"PLT\"\nFROM main.\"Laboratory\" l\nJOIN main.\"Patient\" p ON l.ID = p.ID\nWHERE EXTRACT(YEAR FROM l.\"Date\") = 1997\n  AND l.GOT >= 60\nORDER BY p.ID, l.\"Date\"",
+ "prompt_sha256": "bb67abc1b9808b7497bd62e703f47970b7ecee57f9e68c39b1e0983e8857bf48",
+ "prompt_chars": 4140,
+ "empty_response": false
+}

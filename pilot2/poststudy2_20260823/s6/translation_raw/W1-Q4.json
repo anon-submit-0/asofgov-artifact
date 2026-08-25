@@ -1,0 +1,19 @@
+{
+ "qid": "W1-Q4",
+ "domain": "world_1",
+ "question_zh": "以 2026-08-15 为声明时点，统计 2026-10 至 2027-03 各月的区间历史记录条数。",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2026-08-15 as the declaration instant, compute the number of interval history records for each month from 2026-10 to 2027-03.",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=734 completion=36]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:39:32"
+}

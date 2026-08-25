@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 该问题涉及MTG标准轮替(rotation)的时间窗口逻辑，需要知道哪些系列在特定日期属于标准赛制的轮替范围，但数据库schema中没有存储标准轮替规则或轮替周期的表，无法仅从现有数据正确计算截至特定日期的轮替合法卡牌总数。",
+ "sql": "REFUSE",
+ "prompt_sha256": "7203e05966850628dce621d527b11a99de5f86d24265382f5aa8b4aaea74bcba",
+ "prompt_chars": 5446,
+ "empty_response": false
+}

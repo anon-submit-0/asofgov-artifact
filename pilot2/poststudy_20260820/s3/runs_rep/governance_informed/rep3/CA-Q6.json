@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 问题要求按特许授权日期开窗统计免费餐率，但免费餐率指标(ca.free_meal_rate)的时间锚定在frpm表的Academic Year字段(学年token)，而特许授权日期属于schools表的时间维度，两者时间粒度和锚点不兼容，无法按特许授权日期对免费餐率进行开窗统计\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "0a1b7bc1de6e661353312db2e2d320739b4f5adbfecfb71f67d411d764e26020",
+ "prompt_chars": 17943,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q5",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": 0.6087343554547396,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT\n  CAST(asia_pop AS DOUBLE) / CAST(world_pop AS DOUBLE) AS asia_population_ratio\nFROM\n  (SELECT SUM(ch.population) AS asia_pop\n   FROM main.country_history ch\n   JOIN main.country c ON ch.code = c.\"Code\"\n   WHERE c.\"Continent\" = 'Asia'\n     AND ch.effective_month = '2026-05') num,\n  (SELECT SUM(ch.population) AS world_pop\n   FROM main.country_history ch\n   WHERE ch.effective_month = '2026-04') den;\n```",
+ "sql": "SELECT\n  CAST(asia_pop AS DOUBLE) / CAST(world_pop AS DOUBLE) AS asia_population_ratio\nFROM\n  (SELECT SUM(ch.population) AS asia_pop\n   FROM main.country_history ch\n   JOIN main.country c ON ch.code = c.\"Code\"\n   WHERE c.\"Continent\" = 'Asia'\n     AND ch.effective_month = '2026-05') num,\n  (SELECT SUM(ch.population) AS world_pop\n   FROM main.country_history ch\n   WHERE ch.effective_month = '2026-04') den",
+ "prompt_sha256": "17d8d1c0296dd23f9931c6492ff05bdde951516e5cf044da7bacef2ddb11ba07",
+ "prompt_chars": 3191,
+ "empty_response": false
+}

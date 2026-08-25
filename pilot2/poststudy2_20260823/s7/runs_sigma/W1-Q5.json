@@ -1,0 +1,31 @@
+{
+ "qid": "W1-Q5",
+ "domain": "world_1",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": null,
+  "declared_at": "2026-08-15",
+  "metric_alias": "亚洲人口占比",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": {
+   "num": "2026-05",
+   "den": "2026-04"
+  },
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": null, \"declared_at\": \"2026-08-15\", \"metric_alias\": \"亚洲人口占比\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": {\"num\": \"2026-05\", \"den\": \"2026-04\"}, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "cdb25694c1e215eb80ecc472738682fd02f813f1791a8085fde7171594f6ac98",
+ "prompt_chars": 19032
+}

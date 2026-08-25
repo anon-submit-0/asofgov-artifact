@@ -1,0 +1,46 @@
+% ---------------------------------------------------------------------
+%  Table: benchmark composition (9 public DBs).  GENERATED FILE, DO NOT EDIT.
+%  Regenerate:  python3 figures/extract_p2.py && python3 figures/make_tables_p2.py
+%  Source of record: pilot2/domains/*/provenance.json + gov_seed/*.jsonl +
+%  questions.json, re-tallied by figures/extract_p2.py and asserted against
+%  the acceptance-report totals (3,830,036 real rows; 847 seed rows; 18
+%  policy rows).  The generator fails rather than print stale content.
+% ---------------------------------------------------------------------
+\begin{table*}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{0.95}
+\caption{The public evidence base: nine BIRD/Spider-derived databases,
+$\Sigma$ 3,830,036 real rows copied verbatim from the public sources plus
+20,094 authored rows (every authored row is flagged \texttt{authored=true}
+and never counts toward scale claims).  Each DB carries two committed
+governance versions (18 total); 4 DBs register non-empty disclosure
+policies (18 policy rows) and the rest are honestly marked
+ungoverned-disclosure; the governance seed totals 847 registry rows
+under the non-degeneracy field discipline (no expressions, no coverage
+literals, no gold).  \emph{Q} = value$\cdot$rewrite$\cdot$refusal question
+budget (33/12/15 overall); \emph{anchors}: distinct registered valid-time
+anchors (each committed under both versions) and their coverage modes (convex
+hull vs.\ explicit date set); \emph{$D_v$}:
+disclosure-policy rows.  Hallmarks name the phenomena each DB was selected
+to carry.}
+\label{tab:benchmark}
+\begin{tabular}{@{}llrrlcccl@{}}
+\toprule
+database & src & real rows & auth. & largest table & Q & anchors & $D_v$ & hallmark phenomena\\
+\midrule
+financial & BIRD & 1,079,680 & 0 & trans (1,056,320) & 5$\cdot$1$\cdot$2 & 3 hull & -- & scale flagship; dual-path caliber; AM(ii)\\
+card\_games & BIRD & 803,445 & 0 & legalities (427,907) & 4$\cdot$1$\cdot$2 & 2 hull & -- & running example MC(ii); MC(i); hull trim\\
+codebase\_community & BIRD & 740,646 & 0 & postHistory (303,155) & 3$\cdot$3$\cdot$1 & 3 hull & 8 & disclosure flagship; DB; roll-ups; mask\\
+formula\_1 & BIRD & 514,287 & 18 & lapTimes (420,369) & 5$\cdot$1$\cdot$2 & 1 hull & -- & version flip; off-diag pin; multi-period\\
+debit\_card\_spec. & BIRD & 423,050 & 0 & yearmonth (383,282) & 4$\cdot$1$\cdot$2 & 2 hull+set & 2 & month date-set; AM(iii); $k$ flip (v2)\\
+european\_football\_2 & BIRD & 222,796 & 0 & Player\_Attributes (183,978) & 3$\cdot$1$\cdot$2 & 3 hull+set & -- & snapshot-day set; AM(iv) audit\\
+california\_schools & BIRD & 29,941 & 0 & schools (17,686) & 4$\cdot$1$\cdot$1 & 2 hull+set & 2 & SCD-2 anchor; AM(i); dual calibers\\
+thrombosis\_pred. & BIRD & 15,952 & 0 & Laboratory (13,908) & 2$\cdot$2$\cdot$2 & 2 hull & 6 & medical disclosure; DB$\times$2; mask (v2)\\
+world\_1 & Spider & 239 & 20,076 & country (239) & 3$\cdot$1$\cdot$1 & 1 hull & -- & authored history; AM(ii); rebase flip\\
+\midrule
+$\Sigma$ & & 3,830,036 & 20,094 & & 33$\cdot$12$\cdot$15 & & 18 & \\
+\bottomrule
+\end{tabular}
+\end{table*}

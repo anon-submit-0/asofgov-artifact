@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q2",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "Let me first explore the governance tables to understand the metric definitions and temporal bindings.\n<tool_code>\n<tool name=\"duckdb_query\">\n<param name=\"sql\">SELECT * FROM main.\"gov_metric\"</param>\n</tool>\n<tool name=\"duckdb_query\">\n<param name=\"sql\">SELECT * FROM main.\"gov_measure_def\"</param>\n</tool>\n<tool name=\"duckdb_query\">\n<param name=\"sql\">SELECT * FROM main.\"gov_metric_alias\"</param>\n</tool>\n</tool_code>",
+ "sql": "Let me first explore the governance tables to understand the metric definitions and temporal bindings.\n<tool_code>\n<tool name=\"duckdb_query\">\n<param name=\"sql\">SELECT * FROM main.\"gov_metric\"</param>\n</tool>\n<tool name=\"duckdb_query\">\n<param name=\"sql\">SELECT * FROM main.\"gov_measure_def\"</param>\n</tool>\n<tool name=\"duckdb_query\">\n<param name=\"sql\">SELECT * FROM main.\"gov_metric_alias\"</param>\n</tool>\n</tool_code>",
+ "prompt_sha256": "73829b166ac8e4c3e46f90456738ea70a0e88510356d73ef4ba57cbca9091703",
+ "prompt_chars": 5214,
+ "empty_response": false
+}

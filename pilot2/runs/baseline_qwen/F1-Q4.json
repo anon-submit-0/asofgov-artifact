@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q4",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 119.0,
+ "verdict": "wrong_value",
+ "raw": "SELECT \n  (SELECT COALESCE(SUM(points), 0) FROM results r JOIN races rc ON r.raceId = rc.raceId JOIN drivers d ON r.driverId = d.driverId WHERE d.forename = 'Jenson' AND d.surname = 'Button' AND rc.year = 2010) -\n  (SELECT COALESCE(SUM(points), 0) FROM results r JOIN races rc ON r.raceId = rc.raceId JOIN drivers d ON r.driverId = d.driverId WHERE d.forename = 'Jenson' AND d.surname = 'Button' AND rc.year = 2009) AS difference",
+ "sql": "SELECT \n  (SELECT COALESCE(SUM(points), 0) FROM results r JOIN races rc ON r.raceId = rc.raceId JOIN drivers d ON r.driverId = d.driverId WHERE d.forename = 'Jenson' AND d.surname = 'Button' AND rc.year = 2010) -\n  (SELECT COALESCE(SUM(points), 0) FROM results r JOIN races rc ON r.raceId = rc.raceId JOIN drivers d ON r.driverId = d.driverId WHERE d.forename = 'Jenson' AND d.surname = 'Button' AND rc.year = 2009) AS difference",
+ "prompt_sha256": "1e4f7a248938385a5ffcfdf02b00f07782aa558f451208da55a8c3546f2124b4",
+ "prompt_chars": 5508,
+ "empty_response": false
+}

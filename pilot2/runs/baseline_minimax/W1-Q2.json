@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q2",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT SUM(ch.population)\nFROM main.country_history ch\nJOIN main.country c ON ch.code = c.Code\nWHERE c.Continent = 'Asia'\n  AND ch.effective_month = '2026-05'\n  AND EXISTS (\n    SELECT 1 FROM main.gov_temporal_binding tb\n    JOIN main.gov_measure_def md ON tb.metric_id = md.metric_id AND tb.leg = md.leg\n    WHERE md.measure = 'population'\n      AND tb.graph_version = (\n        SELECT MAX(graph_version) \n        FROM main.gov_temporal_binding \n        WHERE '2026-08-15' >= effective_month\n      )\n  )\n```",
+ "sql": "SELECT SUM(ch.population)\nFROM main.country_history ch\nJOIN main.country c ON ch.code = c.Code\nWHERE c.Continent = 'Asia'\n  AND ch.effective_month = '2026-05'\n  AND EXISTS (\n    SELECT 1 FROM main.gov_temporal_binding tb\n    JOIN main.gov_measure_def md ON tb.metric_id = md.metric_id AND tb.leg = md.leg\n    WHERE md.measure = 'population'\n      AND tb.graph_version = (\n        SELECT MAX(graph_version) \n        FROM main.gov_temporal_binding \n        WHERE '2026-08-15' >= effective_month\n      )\n  )",
+ "prompt_sha256": "96813b11ebf1108952cbda13394f488eb36c5ef19f335d2a62ec5afedf211253",
+ "prompt_chars": 3081,
+ "empty_response": false
+}

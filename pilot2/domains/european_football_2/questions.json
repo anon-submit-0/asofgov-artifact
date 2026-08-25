@@ -1,0 +1,240 @@
+[
+ {
+  "qid": "EF2-Q1",
+  "domain": "european_football_2",
+  "question_zh": "以 2016-07-01 为声明时点，as-of 2015-09-21 快照日的快照日球员平均综合评分是多少？",
+  "as_of": "2015-09-21",
+  "declared_at": "2016-07-01",
+  "metric_alias": "快照日球员平均综合评分",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "ef2.avg_overall_rating",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT AVG(overall_rating) FROM Player_Attributes WHERE substr(CAST(date AS VARCHAR),1,10)='2015-09-21'",
+  "gold_value": 69.97529917152501,
+  "windows": {
+   "atom": {
+    "kind": "member_day",
+    "day": "2015-09-21"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "strict_member 快照日集锚（197 日，quality_voc 周锚公开镜像）成员日合法值题（6,522 行）。"
+ },
+ {
+  "qid": "EF2-Q2",
+  "domain": "european_football_2",
+  "question_zh": "以 2016-07-01 为声明时点，England Premier League 2015/2016 赛季（窗 2015-08-01 至 2016-05-25）的主场胜率是多少？",
+  "as_of": null,
+  "declared_at": "2016-07-01",
+  "metric_alias": "主场胜率",
+  "scope": {
+   "league": "England Premier League",
+   "season": "2015/2016"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "day_range",
+   "lo": "2015-08-01",
+   "hi_excl": "2016-05-26"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "ef2.win_rate",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT (SELECT COUNT(*) FROM Match m INNER JOIN League l ON m.league_id=l.id WHERE l.name='England Premier League' AND m.season='2015/2016' AND substr(CAST(m.date AS VARCHAR),1,10)>='2015-08-01' AND substr(CAST(m.date AS VARCHAR),1,10)<'2016-05-26' AND m.home_team_goal>m.away_team_goal)*1.0/(SELECT COUNT(*) FROM Match m INNER JOIN League l ON m.league_id=l.id WHERE l.name='England Premier League' AND m.season='2015/2016' AND substr(CAST(m.date AS VARCHAR),1,10)>='2015-08-01' AND substr(CAST(m.date AS VARCHAR),1,10)<'2016-05-26')",
+  "gold_value": 0.4131578947368421,
+  "windows": {
+   "num": {
+    "kind": "range",
+    "lo": "2015-08-01",
+    "hi_excl": "2016-05-26"
+   },
+   "den": {
+    "kind": "range",
+    "lo": "2015-08-01",
+    "hi_excl": "2016-05-26"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "跨版本语义变更：ver(T)=v2 平局权重 0.5→0（157/380=0.41316；v1 口径 (157+0.5×107)/380=0.55395 入 notes）。"
+ },
+ {
+  "qid": "EF2-Q3",
+  "domain": "european_football_2",
+  "question_zh": "以 2016-07-01 为声明时点，2015 年 6 月（as-of 2015-06-15 所在月窗）的当月球员属性快照条数是多少？",
+  "as_of": "2015-06-15",
+  "declared_at": "2016-07-01",
+  "metric_alias": "当月球员属性快照条数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "ef2.pa_month_count",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT COUNT(*) FROM Player_Attributes WHERE date>='2015-06-01' AND date<'2015-07-01'",
+  "gold_value": 681,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "2015-06-01",
+    "hi_excl": "2015-07-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "MC(ii) 素材对照面：2015-06 全联盟零比赛（P-13）而快照锚同月仍有事实（实测 681 条；规格叙述 2,184 为设计期近似，以实测为准）。"
+ },
+ {
+  "qid": "EF2-Q4",
+  "domain": "european_football_2",
+  "question_zh": "以 2016-07-01 为声明时点，统计 2016-03-01 至 2016-08-31 的区间比赛场数。",
+  "as_of": null,
+  "declared_at": "2016-07-01",
+  "metric_alias": "区间比赛场数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "day_range",
+   "lo": "2016-03-01",
+   "hi_excl": "2016-09-01"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "ef2.matches_range",
+  "expected_kind": "rewrite",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": {
+   "kind": "hull_trim",
+   "requested": {
+    "kind": "range",
+    "lo": "2016-03-01",
+    "hi_excl": "2016-09-01"
+   },
+   "effective": {
+    "kind": "range",
+    "lo": "2016-03-01",
+    "hi_excl": "2016-05-26"
+   }
+  },
+  "gold_sql": "SELECT COUNT(*) FROM Match WHERE substr(CAST(date AS VARCHAR),1,10)>='2016-03-01' AND substr(CAST(date AS VARCHAR),1,10)<'2016-05-26'",
+  "gold_value": 915,
+  "windows": {
+   "requested": {
+    "kind": "range",
+    "lo": "2016-03-01",
+    "hi_excl": "2016-09-01"
+   },
+   "effective": {
+    "kind": "range",
+    "lo": "2016-03-01",
+    "hi_excl": "2016-05-26"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "hull 裁剪 REWRITE：Match.date hull 右端 2016-05-25。"
+ },
+ {
+  "qid": "EF2-Q5",
+  "domain": "european_football_2",
+  "question_zh": "以 2014-02-01 为声明时点，as-of 2013-12-25 快照日的快照日球员平均综合评分是多少？",
+  "as_of": "2013-12-25",
+  "declared_at": "2014-02-01",
+  "metric_alias": "快照日球员平均综合评分",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "ef2.avg_overall_rating",
+  "expected_kind": "refusal",
+  "refusal_reason": "out-of-validity",
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": {
+   "atom": {
+    "kind": "member_day",
+    "day": "2013-12-25"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "OOV：strict_member 快照间隙——2013-12-25 ∉ 197 日集；成员性只能对 D 现算（ND-1：插入该日一行快照即翻转）。"
+ },
+ {
+  "qid": "EF2-Q6",
+  "domain": "european_football_2",
+  "question_zh": "以 2014-02-01 为声明时点，as-of 2013-12-01 单日窗的评分归一当日胜率是多少？",
+  "as_of": "2013-12-01",
+  "declared_at": "2014-02-01",
+  "metric_alias": "评分归一当日胜率",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "ef2.rating_weighted_win_rate",
+  "expected_kind": "refusal",
+  "refusal_reason": "anchor-mismatch",
+  "refusal_subtype": "am_iv",
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": {
+   "num": {
+    "kind": "day",
+    "day": "2013-12-01"
+   },
+   "den": {
+    "kind": "day",
+    "day": "2013-12-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "AM(iv) 锚对不相容审计：比赛日锚(hull)×快照日锚(strict_member) 对同一日窗的实现集对称差非空（当日 33 场比赛、零快照日）→ 审计失败见证；审计是 D 的函数（ND-1：向该日插入一行快照即通过审计翻转为 ANSWER）。"
+ }
+]

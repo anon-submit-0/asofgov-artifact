@@ -1,0 +1,652 @@
+{
+ "study": "S3 — repetition study (PREREG_poststudy_20260820.md §S3)",
+ "prereg_sha256": "f2fb136ae3ecdbce29ed7b2632df4f0d3e0b2fde07889bb31c68dd4ac8aace24",
+ "prereg_sha256_reasserted_from_disk": true,
+ "arms": [
+  "baseline_claude",
+  "governance_informed"
+ ],
+ "reps": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "rep1_source": "frozen main-study caches pilot2/runs/ (reused, not re-run)",
+ "n_questions": 60,
+ "model": "claude-opus-4-6 (frozen gateway channel; protocol byte-identical to the frozen runs, see rep_harness.py)",
+ "per_arm": {
+  "baseline_claude": {
+   "per_rep": {
+    "1": {
+     "n": 60,
+     "errors": 36,
+     "error_rate": 0.6,
+     "empty_responses": 1,
+     "verdict_counts": {
+      "correct": 24,
+      "wrong_value": 15,
+      "execution_error": 4,
+      "answered_should_refuse": 11,
+      "refused_should_answer": 5,
+      "no_sql": 1
+     },
+     "source": "frozen main-study run (pilot2/runs/, reused not re-run)"
+    },
+    "2": {
+     "n": 60,
+     "errors": 37,
+     "error_rate": 0.6166666666666667,
+     "empty_responses": 0,
+     "verdict_counts": {
+      "correct": 23,
+      "wrong_value": 18,
+      "execution_error": 2,
+      "answered_should_refuse": 11,
+      "refused_should_answer": 6
+     },
+     "source": "s3/runs_rep/baseline_claude/rep2/"
+    },
+    "3": {
+     "n": 60,
+     "errors": 35,
+     "error_rate": 0.5833333333333334,
+     "empty_responses": 0,
+     "verdict_counts": {
+      "correct": 25,
+      "wrong_value": 16,
+      "execution_error": 2,
+      "answered_should_refuse": 11,
+      "refused_should_answer": 6
+     },
+     "source": "s3/runs_rep/baseline_claude/rep3/"
+    },
+    "4": {
+     "n": 60,
+     "errors": 36,
+     "error_rate": 0.6,
+     "empty_responses": 0,
+     "verdict_counts": {
+      "correct": 24,
+      "wrong_value": 19,
+      "execution_error": 2,
+      "answered_should_refuse": 11,
+      "refused_should_answer": 4
+     },
+     "source": "s3/runs_rep/baseline_claude/rep4/"
+    },
+    "5": {
+     "n": 60,
+     "errors": 37,
+     "error_rate": 0.6166666666666667,
+     "empty_responses": 0,
+     "verdict_counts": {
+      "correct": 23,
+      "wrong_value": 17,
+      "execution_error": 3,
+      "answered_should_refuse": 11,
+      "refused_should_answer": 6
+     },
+     "source": "s3/runs_rep/baseline_claude/rep5/"
+    }
+   },
+   "rep1_vs_repk": {
+    "2": {
+     "correctness_agreement_n": 59,
+     "correctness_agreement_rate": 0.9833333333333333,
+     "verdict_agreement_n": 51,
+     "flipped_to_correct": [],
+     "flipped_to_wrong": [
+      "FIN-Q1"
+     ]
+    },
+    "3": {
+     "correctness_agreement_n": 57,
+     "correctness_agreement_rate": 0.95,
+     "verdict_agreement_n": 49,
+     "flipped_to_correct": [
+      "CA-Q4",
+      "F1-Q5"
+     ],
+     "flipped_to_wrong": [
+      "FIN-Q1"
+     ]
+    },
+    "4": {
+     "correctness_agreement_n": 58,
+     "correctness_agreement_rate": 0.9666666666666667,
+     "verdict_agreement_n": 50,
+     "flipped_to_correct": [
+      "CA-Q4"
+     ],
+     "flipped_to_wrong": [
+      "FIN-Q1"
+     ]
+    },
+    "5": {
+     "correctness_agreement_n": 57,
+     "correctness_agreement_rate": 0.95,
+     "verdict_agreement_n": 49,
+     "flipped_to_correct": [
+      "F1-Q5"
+     ],
+     "flipped_to_wrong": [
+      "FIN-Q1",
+      "W1-Q4"
+     ]
+    }
+   },
+   "pooled_flip": {
+    "definition": "question flips iff correctness is not constant across all 5 reps (rep1 + reps 2..5)",
+    "flip_qids": [
+     "CA-Q4",
+     "F1-Q5",
+     "FIN-Q1",
+     "W1-Q4"
+    ],
+    "n_flips": 4,
+    "flip_rate": 0.06666666666666667
+   },
+   "errors_across_reps": {
+    "per_rep_errors": [
+     36,
+     37,
+     35,
+     36,
+     37
+    ],
+    "min": 35,
+    "max": 37,
+    "mean": 36.2
+   }
+  },
+  "governance_informed": {
+   "per_rep": {
+    "1": {
+     "n": 60,
+     "errors": 28,
+     "error_rate": 0.4666666666666667,
+     "empty_responses": 0,
+     "verdict_counts": {
+      "correct": 32,
+      "wrong_value": 8,
+      "execution_error": 9,
+      "answered_should_refuse": 10,
+      "refused_should_answer": 1
+     },
+     "source": "frozen main-study run (pilot2/runs/, reused not re-run)"
+    },
+    "2": {
+     "n": 60,
+     "errors": 25,
+     "error_rate": 0.4166666666666667,
+     "empty_responses": 0,
+     "verdict_counts": {
+      "correct": 35,
+      "wrong_value": 9,
+      "execution_error": 4,
+      "answered_should_refuse": 11,
+      "refused_should_answer": 1
+     },
+     "source": "s3/runs_rep/governance_informed/rep2/"
+    },
+    "3": {
+     "n": 60,
+     "errors": 26,
+     "error_rate": 0.43333333333333335,
+     "empty_responses": 0,
+     "verdict_counts": {
+      "correct": 34,
+      "wrong_value": 10,
+      "execution_error": 3,
+      "answered_should_refuse": 11,
+      "refused_should_answer": 2
+     },
+     "source": "s3/runs_rep/governance_informed/rep3/"
+    },
+    "4": {
+     "n": 60,
+     "errors": 26,
+     "error_rate": 0.43333333333333335,
+     "empty_responses": 0,
+     "verdict_counts": {
+      "correct": 34,
+      "wrong_value": 9,
+      "execution_error": 3,
+      "answered_should_refuse": 11,
+      "refused_should_answer": 3
+     },
+     "source": "s3/runs_rep/governance_informed/rep4/"
+    },
+    "5": {
+     "n": 60,
+     "errors": 26,
+     "error_rate": 0.43333333333333335,
+     "empty_responses": 0,
+     "verdict_counts": {
+      "correct": 34,
+      "wrong_value": 9,
+      "execution_error": 4,
+      "answered_should_refuse": 10,
+      "refused_should_answer": 3
+     },
+     "source": "s3/runs_rep/governance_informed/rep5/"
+    }
+   },
+   "rep1_vs_repk": {
+    "2": {
+     "correctness_agreement_n": 53,
+     "correctness_agreement_rate": 0.8833333333333333,
+     "verdict_agreement_n": 49,
+     "flipped_to_correct": [
+      "CA-Q1",
+      "F1-Q1",
+      "F1-Q4",
+      "F1-Q5",
+      "W1-Q4"
+     ],
+     "flipped_to_wrong": [
+      "DEB-Q6",
+      "TH-Q4"
+     ]
+    },
+    "3": {
+     "correctness_agreement_n": 54,
+     "correctness_agreement_rate": 0.9,
+     "verdict_agreement_n": 48,
+     "flipped_to_correct": [
+      "CA-Q1",
+      "F1-Q1",
+      "F1-Q4",
+      "F1-Q5"
+     ],
+     "flipped_to_wrong": [
+      "DEB-Q6",
+      "TH-Q4"
+     ]
+    },
+    "4": {
+     "correctness_agreement_n": 54,
+     "correctness_agreement_rate": 0.9,
+     "verdict_agreement_n": 49,
+     "flipped_to_correct": [
+      "CA-Q1",
+      "F1-Q1",
+      "F1-Q4",
+      "F1-Q5"
+     ],
+     "flipped_to_wrong": [
+      "DEB-Q6",
+      "TH-Q4"
+     ]
+    },
+    "5": {
+     "correctness_agreement_n": 54,
+     "correctness_agreement_rate": 0.9,
+     "verdict_agreement_n": 50,
+     "flipped_to_correct": [
+      "CA-Q1",
+      "EF2-Q6",
+      "F1-Q1",
+      "F1-Q5"
+     ],
+     "flipped_to_wrong": [
+      "DEB-Q6",
+      "TH-Q4"
+     ]
+    }
+   },
+   "pooled_flip": {
+    "definition": "question flips iff correctness is not constant across all 5 reps (rep1 + reps 2..5)",
+    "flip_qids": [
+     "CA-Q1",
+     "DEB-Q6",
+     "EF2-Q6",
+     "F1-Q1",
+     "F1-Q4",
+     "F1-Q5",
+     "TH-Q4",
+     "W1-Q4"
+    ],
+    "n_flips": 8,
+    "flip_rate": 0.13333333333333333
+   },
+   "errors_across_reps": {
+    "per_rep_errors": [
+     28,
+     25,
+     26,
+     26,
+     26
+    ],
+    "min": 25,
+    "max": 28,
+    "mean": 26.2
+   }
+  }
+ },
+ "ordering_check": {
+  "per_rep": {
+   "1": {
+    "baseline_claude_errors": 36,
+    "governance_informed_errors": 28,
+    "margin_questions": 8,
+    "baseline_gt_governance": true
+   },
+   "2": {
+    "baseline_claude_errors": 37,
+    "governance_informed_errors": 25,
+    "margin_questions": 12,
+    "baseline_gt_governance": true
+   },
+   "3": {
+    "baseline_claude_errors": 35,
+    "governance_informed_errors": 26,
+    "margin_questions": 9,
+    "baseline_gt_governance": true
+   },
+   "4": {
+    "baseline_claude_errors": 36,
+    "governance_informed_errors": 26,
+    "margin_questions": 10,
+    "baseline_gt_governance": true
+   },
+   "5": {
+    "baseline_claude_errors": 37,
+    "governance_informed_errors": 26,
+    "margin_questions": 11,
+    "baseline_gt_governance": true
+   }
+  },
+  "all_reps_pass": true
+ },
+ "elimination_governance_informed": {
+  "reference": "frozen baseline_claude rep1 error set (pilot2_arms_summary.json reference_error_qids)",
+  "n_reference_errors": 36,
+  "per_rep": {
+   "1": {
+    "eliminated_n": 13,
+    "of_reference_errors": 36,
+    "eliminated_frac": 0.3611111111111111
+   },
+   "2": {
+    "eliminated_n": 15,
+    "of_reference_errors": 36,
+    "eliminated_frac": 0.4166666666666667
+   },
+   "3": {
+    "eliminated_n": 15,
+    "of_reference_errors": 36,
+    "eliminated_frac": 0.4166666666666667
+   },
+   "4": {
+    "eliminated_n": 15,
+    "of_reference_errors": 36,
+    "eliminated_frac": 0.4166666666666667
+   },
+   "5": {
+    "eliminated_n": 14,
+    "of_reference_errors": 36,
+    "eliminated_frac": 0.3888888888888889
+   }
+  },
+  "frozen_rep1_value_reasserted": true
+ },
+ "predictions": {
+  "S3-P1": {
+   "statement": "every baseline_claude rep error within 0.600 +/- 0.10",
+   "band_center_error_rate": 0.6,
+   "band_half_width": "0.10 (== 6/60 questions; adjudicated in integer questions, |errors - frozen| <= 6)",
+   "band_questions": [
+    30,
+    42
+   ],
+   "per_rep_errors": {
+    "1": 36,
+    "2": 37,
+    "3": 35,
+    "4": 36,
+    "5": 37
+   },
+   "per_rep_error_rates": {
+    "1": 0.6,
+    "2": 0.6166666666666667,
+    "3": 0.5833333333333334,
+    "4": 0.6,
+    "5": 0.6166666666666667
+   },
+   "violations": {},
+   "pass": true
+  },
+  "S3-P2": {
+   "statement": "every governance_informed rep error within 0.467 +/- 0.10",
+   "band_center_error_rate": 0.4666666666666667,
+   "band_half_width": "0.10 (== 6/60 questions; adjudicated in integer questions, |errors - frozen| <= 6)",
+   "band_questions": [
+    22,
+    34
+   ],
+   "per_rep_errors": {
+    "1": 28,
+    "2": 25,
+    "3": 26,
+    "4": 26,
+    "5": 26
+   },
+   "per_rep_error_rates": {
+    "1": 0.4666666666666667,
+    "2": 0.4166666666666667,
+    "3": 0.43333333333333335,
+    "4": 0.43333333333333335,
+    "5": 0.43333333333333335
+   },
+   "violations": {},
+   "pass": true
+  },
+  "S3-P3": {
+   "statement": "baseline_claude error > governance_informed error in every rep",
+   "per_rep": {
+    "1": {
+     "baseline_claude_errors": 36,
+     "governance_informed_errors": 28,
+     "margin_questions": 8,
+     "baseline_gt_governance": true
+    },
+    "2": {
+     "baseline_claude_errors": 37,
+     "governance_informed_errors": 25,
+     "margin_questions": 12,
+     "baseline_gt_governance": true
+    },
+    "3": {
+     "baseline_claude_errors": 35,
+     "governance_informed_errors": 26,
+     "margin_questions": 9,
+     "baseline_gt_governance": true
+    },
+    "4": {
+     "baseline_claude_errors": 36,
+     "governance_informed_errors": 26,
+     "margin_questions": 10,
+     "baseline_gt_governance": true
+    },
+    "5": {
+     "baseline_claude_errors": 37,
+     "governance_informed_errors": 26,
+     "margin_questions": 11,
+     "baseline_gt_governance": true
+    }
+   },
+   "pass": true
+  },
+  "S3-P4": {
+   "statement": "pooled per-question flip rate (per arm) < 0.15",
+   "threshold": "flip rate < 0.15 per arm (== n_flips < 9 of 60)",
+   "per_arm": {
+    "baseline_claude": {
+     "n_flips": 4,
+     "flip_rate": 0.06666666666666667
+    },
+    "governance_informed": {
+     "n_flips": 8,
+     "flip_rate": 0.13333333333333333
+    }
+   },
+   "pass": true
+  }
+ },
+ "n_predictions_missed": 0,
+ "call_log_stats": {
+  "n_total_paid_calls": 480,
+  "smoke_phase": {
+   "note": "2 calls (rep2/CARD-Q1, both arms), chronologically first",
+   "calls": [
+    {
+     "arm": "baseline_claude",
+     "ts": "2026-08-20T14:39:11+0800",
+     "latency_s": 41.156,
+     "attempts": 1,
+     "verdict": "correct"
+    },
+    {
+     "arm": "governance_informed",
+     "ts": "2026-08-20T14:42:15+0800",
+     "latency_s": 176.333,
+     "attempts": 3,
+     "verdict": "correct"
+    }
+   ]
+  },
+  "full_run_phase": {
+   "window": {
+    "first_ts": "2026-08-20T15:08:56+0800",
+    "last_ts": "2026-08-20T16:21:12+0800"
+   },
+   "per_arm": {
+    "baseline_claude": {
+     "n_calls": 239,
+     "latency_s": {
+      "min": 4.413,
+      "median": 6.622,
+      "mean": 6.987,
+      "p95": 9.609,
+      "max": 28.889
+     },
+     "attempts": {
+      "total": 239,
+      "max": 1,
+      "calls_with_retry": 0,
+      "histogram": {
+       "1": 239
+      }
+     },
+     "tokens": {
+      "prompt_total": 454636,
+      "completion_total": 20163
+     },
+     "empty_response_logged": 0
+    },
+    "governance_informed": {
+     "n_calls": 239,
+     "latency_s": {
+      "min": 4.835,
+      "median": 7.94,
+      "mean": 11.077,
+      "p95": 37.487,
+      "max": 52.1
+     },
+     "attempts": {
+      "total": 240,
+      "max": 2,
+      "calls_with_retry": 1,
+      "histogram": {
+       "1": 238,
+       "2": 1
+      }
+     },
+     "tokens": {
+      "prompt_total": 2223392,
+      "completion_total": 19859
+     },
+     "empty_response_logged": 0
+    }
+   },
+   "overall": {
+    "n_calls": 478,
+    "latency_s": {
+     "min": 4.413,
+     "median": 7.225,
+     "mean": 9.032,
+     "p95": 27.421,
+     "max": 52.1
+    },
+    "attempts": {
+     "total": 479,
+     "max": 2,
+     "calls_with_retry": 1,
+     "histogram": {
+      "1": 477,
+      "2": 1
+     }
+    },
+    "tokens": {
+     "prompt_total": 2678028,
+     "completion_total": 40022
+    },
+    "empty_response_logged": 0
+   }
+  }
+ },
+ "operational": {
+  "driver_completed": true,
+  "circuit_breaker": {
+   "rule": "driver stops if a finished governance rep has > 9/60 empty_response caches (threshold parsed from s3_driver.sh)",
+   "threshold_empties": 9,
+   "tripped": false,
+   "governance_empties_per_rep": {
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+   }
+  },
+  "empty_responses_new_reps_total": 0,
+  "empty_responses_frozen_rep1": {
+   "per_arm_qids": {
+    "baseline_claude": [
+     "CODE-Q6"
+    ],
+    "governance_informed": []
+   },
+   "note": "frozen main-study artifact, already disclosed in pilot2_arms_summary.json empty_responses; asserted equal to that frozen disclosure — not produced by this study"
+  },
+  "smoke_time_tuzi_slowness": {
+   "source": "S3_SMOKE.md (operational warning) + smoke-phase log",
+   "gov_smoke_latency_s": 176.333,
+   "gov_smoke_attempts": 3,
+   "gov_full_run_median_latency_s": 7.94
+  },
+  "prompt_byte_identity_checks": {
+   "rep_caches_vs_frozen_rep1_sha256_and_chars": 480,
+   "all_equal": true
+  }
+ },
+ "rep1_position": {
+  "baseline_claude": {
+   "rep1_errors": 36,
+   "new_rep_errors_min": 35,
+   "new_rep_errors_max": 37,
+   "rep1_is_strict_worst": false,
+   "rep1_is_strict_best": false
+  },
+  "governance_informed": {
+   "rep1_errors": 28,
+   "new_rep_errors_min": 25,
+   "new_rep_errors_max": 26,
+   "rep1_is_strict_worst": true,
+   "rep1_is_strict_best": false
+  }
+ },
+ "scorer": "frozen chain (R2.fetch_and_score at run time; verdicts read from caches here, rep1 verdicts asserted equal to frozen pilot2_arms_summary.json per_question_verdicts)"
+}

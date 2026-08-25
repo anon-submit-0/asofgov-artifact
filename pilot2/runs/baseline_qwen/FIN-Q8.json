@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q8",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": NaN,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n    SUM(CASE WHEN date >= '1997-05-01' AND date <= '1997-05-31' AND operation = '罚息' THEN amount ELSE 0 END) * 1.0 /\n    SUM(CASE WHEN date >= '1997-04-01' AND date <= '1997-04-30' AND operation = '罚息' THEN amount ELSE 0 END)\nFROM trans;\n```",
+ "sql": "SELECT \n    SUM(CASE WHEN date >= '1997-05-01' AND date <= '1997-05-31' AND operation = '罚息' THEN amount ELSE 0 END) * 1.0 /\n    SUM(CASE WHEN date >= '1997-04-01' AND date <= '1997-04-30' AND operation = '罚息' THEN amount ELSE 0 END)\nFROM trans",
+ "prompt_sha256": "ee0142b48f52aca5516f0fb860609ae1e7b37ffce00f515851f7004de13dc278",
+ "prompt_chars": 4074,
+ "empty_response": false
+}

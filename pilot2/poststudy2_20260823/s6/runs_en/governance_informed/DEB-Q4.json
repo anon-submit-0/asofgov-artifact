@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q4",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 44080288.83999992,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT SUM(\"Consumption\") FROM main.\"yearmonth\" WHERE \"Date\" = '201201'\n```",
+ "sql": "SELECT SUM(\"Consumption\") FROM main.\"yearmonth\" WHERE \"Date\" = '201201'",
+ "prompt_sha256": "81a8524ca55881431820e9b5bab6046fe7459f49c0a09188137a45a7ab8a4421",
+ "prompt_chars": 19960,
+ "empty_response": false
+}

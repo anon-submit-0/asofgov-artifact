@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q6",
+ "system": "baseline_deepseek",
+ "kind": "value",
+ "value": 151237.0,
+ "verdict": "correct",
+ "raw": "SELECT COUNT(*) FROM main.\"trans\" WHERE date >= DATE '1998-07-01' AND date <= DATE '1999-06-30'",
+ "sql": "SELECT COUNT(*) FROM main.\"trans\" WHERE date >= DATE '1998-07-01' AND date <= DATE '1999-06-30'",
+ "prompt_sha256": "87f972f32cd889912a8fa889a1d406f25728df1e2fb81cb9d5a38c3010b3e65d",
+ "prompt_chars": 4071,
+ "empty_response": false
+}

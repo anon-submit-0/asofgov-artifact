@@ -1,0 +1,21 @@
+{
+ "qid": "TH-Q3",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": [
+  [
+   4632421,
+   5
+  ],
+  [
+   5065022,
+   7
+  ]
+ ],
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT L.\"ID\", COUNT(*) AS abnormal_got_count\nFROM main.\"Laboratory\" L\nWHERE L.\"GOT\" >= 60\n  AND L.\"Date\" >= '1997-01-01'\n  AND L.\"Date\" <= '1997-12-31'\n  AND L.\"Date\" <= '1998-06-01'\nGROUP BY L.\"ID\"\nORDER BY L.\"ID\";\n```",
+ "sql": "SELECT L.\"ID\", COUNT(*) AS abnormal_got_count\nFROM main.\"Laboratory\" L\nWHERE L.\"GOT\" >= 60\n  AND L.\"Date\" >= '1997-01-01'\n  AND L.\"Date\" <= '1997-12-31'\n  AND L.\"Date\" <= '1998-06-01'\nGROUP BY L.\"ID\"\nORDER BY L.\"ID\"",
+ "prompt_sha256": "00c02aa69404abe9cfe5d02c9e8aa1dff52929271591f4fec090d89113cc3739",
+ "prompt_chars": 4327,
+ "empty_response": false
+}

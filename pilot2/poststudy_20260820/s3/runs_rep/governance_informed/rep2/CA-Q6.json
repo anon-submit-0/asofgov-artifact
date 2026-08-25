@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 特许授权日期（CharterNum/Charter相关字段）无法用于开窗统计免费餐率。免费餐率指标（ca.free_meal_rate）的时间绑定规则要求使用frpm表的Academic Year字段作为时间窗口（anchor_id=A-CA-FRPM, granularity=academic_year_token），不支持按学校特许授权相关日期字段进行开窗。\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "0a1b7bc1de6e661353312db2e2d320739b4f5adbfecfb71f67d411d764e26020",
+ "prompt_chars": 17943,
+ "empty_response": false
+}

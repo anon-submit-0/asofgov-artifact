@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q1",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 0.01901743264659271,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT CAST(SUM(CASE WHEN \"GOT\" >= 60 THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) FROM main.\"Laboratory\" WHERE \"Date\" >= '1997-01-01' AND \"Date\" <= '1997-12-31'\n```",
+ "sql": "SELECT CAST(SUM(CASE WHEN \"GOT\" >= 60 THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) FROM main.\"Laboratory\" WHERE \"Date\" >= '1997-01-01' AND \"Date\" <= '1997-12-31'",
+ "prompt_sha256": "90048bb3cab1483b97fff82d18008747a3e66bd4978c1307653ac7c91e0238c0",
+ "prompt_chars": 20513,
+ "empty_response": false
+}

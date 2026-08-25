@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q8",
+ "system": "trivial_v2",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 根据gov_temporal_binding表的绑定规则，指标的分子与分母必须在同一valid-time窗口内对齐，分子取1997年5月而分母取1997年4月属于不同时间窗口，违反了时间绑定一致性约束，无法正确计算。",
+ "sql": "REFUSE",
+ "prompt_sha256": "6c5d9888c6bd5454ccb5f87ccbac00ecc87a39dd4ed753e3d43f7cd7097f2500",
+ "prompt_chars": 4300,
+ "empty_response": false
+}

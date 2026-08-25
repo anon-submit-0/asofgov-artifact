@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q8",
+ "system": "baseline_deepseek",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n    (SELECT COUNT(*) FROM main.\"trans\" \n     WHERE EXTRACT(YEAR FROM \"date\") = 1997 AND EXTRACT(MONTH FROM \"date\") = 5 \n     AND \"k_symbol\" = 'PENALTY')::DOUBLE /\n    NULLIF((SELECT COUNT(*) FROM main.\"trans\" \n     WHERE EXTRACT(YEAR FROM \"date\") = 1997 AND EXTRACT(MONTH FROM \"date\") = 4 \n     AND \"k_symbol\" = 'PENALTY')::DOUBLE, 0) AS penalty_transaction_ratio\n```",
+ "sql": "SELECT \n    (SELECT COUNT(*) FROM main.\"trans\" \n     WHERE EXTRACT(YEAR FROM \"date\") = 1997 AND EXTRACT(MONTH FROM \"date\") = 5 \n     AND \"k_symbol\" = 'PENALTY')::DOUBLE /\n    NULLIF((SELECT COUNT(*) FROM main.\"trans\" \n     WHERE EXTRACT(YEAR FROM \"date\") = 1997 AND EXTRACT(MONTH FROM \"date\") = 4 \n     AND \"k_symbol\" = 'PENALTY')::DOUBLE, 0) AS penalty_transaction_ratio",
+ "prompt_sha256": "ee0142b48f52aca5516f0fb860609ae1e7b37ffce00f515851f7004de13dc278",
+ "prompt_chars": 4074,
+ "empty_response": false
+}

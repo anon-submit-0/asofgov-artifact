@@ -1,0 +1,4 @@
+{"anchor_id": "A-CA-SCD", "anchor_type": "scd_type2", "coverage_mode": "hull", "effective_col": null, "granularity": "day", "graph_version": "v1", "node_id": "ca.schools", "vf_col": "OpenDate", "vtc_col": "ClosedDate"}
+{"anchor_id": "A-CA-FRPM", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "Academic Year", "granularity": "academic_year_token", "graph_version": "v1", "node_id": "ca.frpm", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CA-SCD", "anchor_type": "scd_type2", "coverage_mode": "hull", "effective_col": null, "granularity": "day", "graph_version": "v2", "node_id": "ca.schools", "vf_col": "OpenDate", "vtc_col": "ClosedDate"}
+{"anchor_id": "A-CA-FRPM", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "Academic Year", "granularity": "academic_year_token", "graph_version": "v2", "node_id": "ca.frpm", "vf_col": null, "vtc_col": null}

@@ -1,0 +1,3097 @@
+{
+ "n": 60,
+ "agree": 60,
+ "mismatch": 0,
+ "mismatches": [],
+ "results": [
+  {
+   "qid": "FIN-Q1",
+   "domain": "financial",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 0.13675213675213677,
+   "gold_value": 0.13675213675213677,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "FIN-Q2",
+   "domain": "financial",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 0.08547008547008547,
+   "gold_value": 0.08547008547008547,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "FIN-Q3",
+   "domain": "financial",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 0.0014310376957128643,
+   "gold_value": 0.0014310376957128643,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "FIN-Q4",
+   "domain": "financial",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 16.0,
+   "gold_value": 16,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "FIN-Q5",
+   "domain": "financial",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 15885.0,
+   "gold_value": 15885,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "FIN-Q6",
+   "domain": "financial",
+   "gold_kind": "rewrite",
+   "b_kind": "rewrite",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 151237.0,
+   "gold_value": 151237,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "FIN-Q7",
+   "domain": "financial",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "out-of-validity",
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "FIN-Q8",
+   "domain": "financial",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": null,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "anchor-mismatch",
+   "b_subtype": "am_ii",
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CARD-Q1",
+   "domain": "card_games",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 2161.0,
+   "gold_value": 2161,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CARD-Q2",
+   "domain": "card_games",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 0.4020100502512563,
+   "gold_value": 0.4020100502512563,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CARD-Q3",
+   "domain": "card_games",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 2339.0,
+   "gold_value": 2339,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CARD-Q4",
+   "domain": "card_games",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 32.0,
+   "gold_value": 32,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CARD-Q5",
+   "domain": "card_games",
+   "gold_kind": "rewrite",
+   "b_kind": "rewrite",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 7542.0,
+   "gold_value": 7542,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CARD-Q6",
+   "domain": "card_games",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": null,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "missing-caliber",
+   "b_subtype": "mc_i",
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CARD-Q7",
+   "domain": "card_games",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "missing-caliber",
+   "b_subtype": "mc_ii",
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CODE-Q1",
+   "domain": "codebase_community",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 0.6808510638297872,
+   "gold_value": 0.6808510638297872,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CODE-Q2",
+   "domain": "codebase_community",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 0.30677966101694915,
+   "gold_value": 0.30677966101694915,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CODE-Q3",
+   "domain": "codebase_community",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 3208.0,
+   "gold_value": 3208,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CODE-Q4",
+   "domain": "codebase_community",
+   "gold_kind": "rewrite",
+   "b_kind": "rewrite",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": [
+    [
+     "[0,100)",
+     13.0
+    ],
+    [
+     "[100,1000)",
+     56.0
+    ],
+    [
+     "[1000,10000)",
+     127.0
+    ],
+    [
+     "[10000,inf)",
+     95.0
+    ]
+   ],
+   "gold_value": [
+    [
+     "[0,100)",
+     13.0
+    ],
+    [
+     "[100,1000)",
+     56.0
+    ],
+    [
+     "[1000,10000)",
+     127.0
+    ],
+    [
+     "[10000,inf)",
+     95.0
+    ]
+   ],
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CODE-Q5",
+   "domain": "codebase_community",
+   "gold_kind": "rewrite",
+   "b_kind": "rewrite",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 942.0,
+   "gold_value": 942,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CODE-Q6",
+   "domain": "codebase_community",
+   "gold_kind": "rewrite",
+   "b_kind": "rewrite",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": null,
+   "b_value": "UK",
+   "gold_value": "UK",
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CODE-Q7",
+   "domain": "codebase_community",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": null,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "disclosure-blocked",
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "F1-Q1",
+   "domain": "formula_1",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 100.0,
+   "gold_value": 100.0,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "F1-Q2",
+   "domain": "formula_1",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 252.0,
+   "gold_value": 252.0,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "F1-Q3",
+   "domain": "formula_1",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 100.0,
+   "gold_value": 100.0,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": true,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "F1-Q4",
+   "domain": "formula_1",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": -38.0,
+   "gold_value": -38.0,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "F1-Q5",
+   "domain": "formula_1",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 34.0,
+   "gold_value": 34,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "F1-Q6",
+   "domain": "formula_1",
+   "gold_kind": "rewrite",
+   "b_kind": "rewrite",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 6.0,
+   "gold_value": 6,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "F1-Q7",
+   "domain": "formula_1",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "out-of-validity",
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "F1-Q8",
+   "domain": "formula_1",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "missing-caliber",
+   "b_subtype": "mc_ii",
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "DEB-Q1",
+   "domain": "debit_card_specializing",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 15626.138213557568,
+   "gold_value": 15626.138213557568,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "DEB-Q2",
+   "domain": "debit_card_specializing",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 1166.1530437665776,
+   "gold_value": 1166.1530437665776,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "DEB-Q3",
+   "domain": "debit_card_specializing",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 121345577.66,
+   "gold_value": 121345577.66,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "DEB-Q4",
+   "domain": "debit_card_specializing",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 44080288.83999998,
+   "gold_value": 44080288.83999992,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "DEB-Q5",
+   "domain": "debit_card_specializing",
+   "gold_kind": "rewrite",
+   "b_kind": "rewrite",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": [
+    [
+     "all",
+     23.87878787878788
+    ]
+   ],
+   "gold_value": [
+    [
+     "all",
+     23.87878787878788
+    ]
+   ],
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "DEB-Q6",
+   "domain": "debit_card_specializing",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "out-of-validity",
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "DEB-Q7",
+   "domain": "debit_card_specializing",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": null,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "anchor-mismatch",
+   "b_subtype": "am_iii",
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "EF2-Q1",
+   "domain": "european_football_2",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 69.97529917152501,
+   "gold_value": 69.97529917152501,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "EF2-Q2",
+   "domain": "european_football_2",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 0.4131578947368421,
+   "gold_value": 0.4131578947368421,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "EF2-Q3",
+   "domain": "european_football_2",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 681.0,
+   "gold_value": 681,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "EF2-Q4",
+   "domain": "european_football_2",
+   "gold_kind": "rewrite",
+   "b_kind": "rewrite",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 915.0,
+   "gold_value": 915,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "EF2-Q5",
+   "domain": "european_football_2",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "out-of-validity",
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "EF2-Q6",
+   "domain": "european_football_2",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "anchor-mismatch",
+   "b_subtype": "am_iv",
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CA-Q1",
+   "domain": "california_schools",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 0.37985585826806795,
+   "gold_value": 0.37985585826806795,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CA-Q2",
+   "domain": "california_schools",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 0.37804549460887515,
+   "gold_value": 0.37804549460887515,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CA-Q3",
+   "domain": "california_schools",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 10629.0,
+   "gold_value": 10629,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CA-Q4",
+   "domain": "california_schools",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 9270.0,
+   "gold_value": 9270,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CA-Q5",
+   "domain": "california_schools",
+   "gold_kind": "rewrite",
+   "b_kind": "rewrite",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": [
+    [
+     "Alameda",
+     0.37804549460887515
+    ]
+   ],
+   "gold_value": [
+    [
+     "Alameda",
+     0.37804549460887515
+    ]
+   ],
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "CA-Q6",
+   "domain": "california_schools",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": null,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "anchor-mismatch",
+   "b_subtype": "am_i",
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "TH-Q1",
+   "domain": "thrombosis_prediction",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 0.01901743264659271,
+   "gold_value": 0.01901743264659271,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "TH-Q2",
+   "domain": "thrombosis_prediction",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 207.0,
+   "gold_value": 207,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "TH-Q3",
+   "domain": "thrombosis_prediction",
+   "gold_kind": "rewrite",
+   "b_kind": "rewrite",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": [
+    [
+     "all",
+     12.0
+    ]
+   ],
+   "gold_value": [
+    [
+     "all",
+     12.0
+    ]
+   ],
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "TH-Q4",
+   "domain": "thrombosis_prediction",
+   "gold_kind": "rewrite",
+   "b_kind": "rewrite",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": null,
+   "b_value": "1934",
+   "gold_value": "1934",
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "TH-Q5",
+   "domain": "thrombosis_prediction",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": null,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "disclosure-blocked",
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "TH-Q6",
+   "domain": "thrombosis_prediction",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": null,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "disclosure-blocked",
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "W1-Q1",
+   "domain": "world_1",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 4068933086.0,
+   "gold_value": 4068933086,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "W1-Q2",
+   "domain": "world_1",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 4313069067.0,
+   "gold_value": 4313069067,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "W1-Q3",
+   "domain": "world_1",
+   "gold_kind": "value",
+   "b_kind": "value",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 0.6075330810301713,
+   "gold_value": 0.6075330810301713,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "W1-Q4",
+   "domain": "world_1",
+   "gold_kind": "rewrite",
+   "b_kind": "rewrite",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": true,
+   "b_value": 717.0,
+   "gold_value": 717,
+   "b_reason": null,
+   "b_subtype": null,
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  },
+  {
+   "qid": "W1-Q5",
+   "domain": "world_1",
+   "gold_kind": "refusal",
+   "b_kind": "refusal",
+   "kind_ok": true,
+   "reason_ok": true,
+   "value_ok": true,
+   "rewrite_ok": true,
+   "windows_cmp": null,
+   "b_value": null,
+   "gold_value": null,
+   "b_reason": "anchor-mismatch",
+   "b_subtype": "am_ii",
+   "offdiag": false,
+   "error": null,
+   "ok": true
+  }
+ ],
+ "touched_by_domain": {
+  "financial": [
+   [
+    "gov_caliber_routing",
+    "fin.rt1",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "fin.rt2",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "fin.rt3",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "fin.rt3",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "fin.rt4",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "fin.rt4",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "fin.lcm.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "fin.plr.den",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "fin.plr.den",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "fin.plr.num",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "fin.plr.num",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "fin.ptr.den",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "fin.ptr.num",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "fin.tcm.atom",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "fin.tcm.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "fin.tcr.atom",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "fin.loan_count_month",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "fin.penalty_trans_rate",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "fin.problem_loan_rate",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "fin.problem_loan_rate",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "fin.trans_count_month",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "fin.trans_count_month",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "fin.trans_count_range",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "fin.al1",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "fin.al1",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "fin.al2",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "fin.al3",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "fin.al4",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "fin.al4",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "fin.al5",
+    "v2"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v1",
+    "v1"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v2",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "fin.loan",
+    "v1"
+   ],
+   [
+    "gov_semantic_node",
+    "fin.loan",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "fin.trans",
+    "v1"
+   ],
+   [
+    "gov_semantic_node",
+    "fin.trans",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-FIN-LCM",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-FIN-PLR-D",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-FIN-PLR-D",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-FIN-PLR-N",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-FIN-PLR-N",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-FIN-PTR-D",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-FIN-PTR-N",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-FIN-TCM",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-FIN-TCM",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-FIN-TCR",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-FIN-LOAN",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-FIN-LOAN",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-FIN-TRANS",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-FIN-TRANS",
+    "v2"
+   ]
+  ],
+  "card_games": [
+   [
+    "gov_caliber_routing",
+    "card.rt1",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "card.rt2",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "card.rt3",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "card.rt4",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "card.rt6",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "card.cp.den",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "card.cp.num",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "card.crc.atom",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "card.mr.atom",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "card.ri.den",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "card.ri.num",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "card.rr.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "card.scc.atom",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "card.card_rulings_count",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "card.collector_premium",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "card.monthly_rulings",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "card.ruling_intensity",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "card.rulings_range",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "card.standard_card_count",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "card.al1",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "card.al2",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "card.al3",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "card.al4",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "card.al5",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "card.al6",
+    "v1"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v1",
+    "v1"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v2",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "card.cards",
+    "v1"
+   ],
+   [
+    "gov_semantic_node",
+    "card.cards",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "card.rulings",
+    "v1"
+   ],
+   [
+    "gov_semantic_node",
+    "card.rulings",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CARD-CP-D",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CARD-CP-N",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CARD-CRC",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CARD-MR",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CARD-RI-D",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CARD-RI-N",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CARD-RR",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CARD-SCC",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-CARD-RUL",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-CARD-RUL",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-CARD-SET",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-CARD-SET",
+    "v2"
+   ]
+  ],
+  "codebase_community": [
+   [
+    "gov_caliber_routing",
+    "code.rt1",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "code.rt1",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "code.rt2",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "code.rt2",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "code.rt3",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "code.rt4",
+    "v2"
+   ],
+   [
+    "gov_disclosure_policy",
+    "code.pi1",
+    "v2"
+   ],
+   [
+    "gov_disclosure_policy",
+    "code.pi2",
+    "v2"
+   ],
+   [
+    "gov_disclosure_policy",
+    "code.pi4",
+    "v2"
+   ],
+   [
+    "gov_granularity_edge",
+    "code.eg1",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "code.ar.den",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "code.ar.den",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "code.ar.num",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "code.ar.num",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "code.dq.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "code.mv.atom",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "code.uar.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "code.ul.atom",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "code.accepted_rate",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "code.accepted_rate",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "code.daily_questions",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "code.monthly_votes",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "code.top_answerer_roster",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "code.user_accepted_report",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "code.user_location",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "code.al1",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "code.al1",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "code.al2",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "code.al3",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "code.al4",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "code.al5",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "code.al6",
+    "v2"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v1",
+    "v1"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v2",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "code.posts",
+    "v1"
+   ],
+   [
+    "gov_semantic_node",
+    "code.posts",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "code.users",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "code.votes",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CODE-AR-D",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CODE-AR-D",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CODE-AR-N",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CODE-AR-N",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CODE-DQ",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CODE-MV",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CODE-UAR",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-CODE-POST",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-CODE-POST",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-CODE-VOTE",
+    "v1"
+   ]
+  ],
+  "formula_1": [
+   [
+    "gov_caliber_routing",
+    "f1.rt1",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "f1.rt1",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "f1.rt2",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "f1.rt2",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "f1.rt3",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "f1.rt3",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "f1.rt4",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "f1.rt5",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "f1.rt6",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "f1.rt7",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "f1.rt8",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "f1.rt9",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "f1.dsp.atom",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "f1.dsp.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "f1.ec.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "f1.ppe.den",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "f1.ppe.num",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "f1.rcm.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "f1.rcr.atom",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "f1.driver_season_points",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "f1.driver_season_points",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "f1.entry_count",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "f1.points_per_entry",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "f1.races_count_month",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "f1.races_count_range",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "f1.season_points_delta",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "f1.al1",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "f1.al1",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "f1.al2",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "f1.al3",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "f1.al4",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "f1.al5",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "f1.al6",
+    "v2"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v1",
+    "v1"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v2",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "f1.races",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "f1.results",
+    "v1"
+   ],
+   [
+    "gov_semantic_node",
+    "f1.results",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-F1-DSP",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-F1-DSP",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-F1-EC",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-F1-PPE-D",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-F1-PPE-N",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-F1-RCM",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-F1-RCR",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-F1-RACE",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-F1-RACE",
+    "v2"
+   ]
+  ],
+  "debit_card_specializing": [
+   [
+    "gov_caliber_routing",
+    "deb.rt1",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "deb.rt2",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "deb.rt2",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "deb.rt3",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "deb.rt4",
+    "v2"
+   ],
+   [
+    "gov_disclosure_policy",
+    "deb.pi1",
+    "v2"
+   ],
+   [
+    "gov_granularity_edge",
+    "deb.eg1",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "deb.ac.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "deb.cs.atom",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "deb.cs.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "deb.sat.atom",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "deb.avg_consumption",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "deb.consumption_sum",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "deb.consumption_sum",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "deb.segment_avg_trans",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "deb.al1",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "deb.al2",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "deb.al2",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "deb.al3",
+    "v2"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v1",
+    "v1"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v2",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "deb.customers",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "deb.transactions_1k",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "deb.yearmonth",
+    "v1"
+   ],
+   [
+    "gov_semantic_node",
+    "deb.yearmonth",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-DEB-AC",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-DEB-CS",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-DEB-CS",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-DEB-SAT",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-DEB-T1K",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-DEB-YM",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-DEB-YM",
+    "v2"
+   ]
+  ],
+  "european_football_2": [
+   [
+    "gov_caliber_routing",
+    "ef2.rt1",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "ef2.rt2",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "ef2.rt3",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "ef2.aor.atom",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "ef2.aor.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "ef2.mr.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "ef2.pmc.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "ef2.rwwr.den",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "ef2.rwwr.num",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "ef2.wr.den",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "ef2.wr.num.win",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "ef2.avg_overall_rating",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "ef2.avg_overall_rating",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "ef2.matches_range",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "ef2.pa_month_count",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "ef2.rating_weighted_win_rate",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "ef2.win_rate",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "ef2.al1",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "ef2.al1",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "ef2.al2",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "ef2.al3",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "ef2.al4",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "ef2.al5",
+    "v1"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v1",
+    "v1"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v2",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "ef2.match",
+    "v1"
+   ],
+   [
+    "gov_semantic_node",
+    "ef2.match",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "ef2.player_attr",
+    "v1"
+   ],
+   [
+    "gov_semantic_node",
+    "ef2.player_attr",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-EF2-AOR",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-EF2-AOR",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-EF2-MR",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-EF2-PMC",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-EF2-RWWR-D",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-EF2-RWWR-N",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-EF2-WR-D",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-EF2-WR-N",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-EF2-MATCH",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-EF2-MATCH",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-EF2-PA",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-EF2-PA",
+    "v2"
+   ]
+  ],
+  "california_schools": [
+   [
+    "gov_caliber_routing",
+    "ca.rt1",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "ca.rt1",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "ca.rt2",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "ca.rt2",
+    "v2"
+   ],
+   [
+    "gov_disclosure_policy",
+    "ca.pi1",
+    "v2"
+   ],
+   [
+    "gov_granularity_edge",
+    "ca.eg1",
+    "v2"
+   ],
+   [
+    "gov_granularity_edge",
+    "ca.eg2",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "ca.fmr.den",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "ca.fmr.den",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "ca.fmr.num",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "ca.fmr.num",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "ca.sfr.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "ca.sie.atom",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "ca.free_meal_rate",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "ca.free_meal_rate",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "ca.school_frpm_report",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "ca.schools_in_effect",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "ca.al1",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "ca.al1",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "ca.al2",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "ca.al3",
+    "v2"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v1",
+    "v1"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v2",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "ca.frpm",
+    "v1"
+   ],
+   [
+    "gov_semantic_node",
+    "ca.frpm",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "ca.schools",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CA-FMR-D",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CA-FMR-D",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CA-FMR-N",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CA-FMR-N",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CA-SFR",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-CA-SIE",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-CA-FRPM",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-CA-FRPM",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-CA-SCD",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-CA-SCD",
+    "v2"
+   ]
+  ],
+  "thrombosis_prediction": [
+   [
+    "gov_caliber_routing",
+    "th.rt1",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "th.rt2",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "th.rt3",
+    "v2"
+   ],
+   [
+    "gov_disclosure_policy",
+    "th.pi1",
+    "v2"
+   ],
+   [
+    "gov_disclosure_policy",
+    "th.pi2",
+    "v2"
+   ],
+   [
+    "gov_disclosure_policy",
+    "th.pi3",
+    "v2"
+   ],
+   [
+    "gov_granularity_edge",
+    "th.eg1",
+    "v2"
+   ],
+   [
+    "gov_granularity_edge",
+    "th.eg2",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "th.alr.den",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "th.alr.num",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "th.ec.atom",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "th.par.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "th.pb.atom",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "th.abnormal_lab_rate",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "th.exam_count",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "th.patient_abnormal_report",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "th.patient_birthday",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "th.patient_roster",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "th.al1",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "th.al2",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "th.al3",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "th.al4",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "th.al5",
+    "v2"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v1",
+    "v1"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v2",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "th.examination",
+    "v1"
+   ],
+   [
+    "gov_semantic_node",
+    "th.laboratory",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "th.patient",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-TH-ALR-D",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-TH-ALR-N",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-TH-EC",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-TH-PAR",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-TH-EXAM",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-TH-LAB",
+    "v2"
+   ]
+  ],
+  "world_1": [
+   [
+    "gov_caliber_routing",
+    "w1.rt1",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "w1.rt1",
+    "v2"
+   ],
+   [
+    "gov_caliber_routing",
+    "w1.rt2",
+    "v1"
+   ],
+   [
+    "gov_caliber_routing",
+    "w1.rt3",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "w1.aps.atom",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "w1.aps.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "w1.hrr.atom",
+    "v2"
+   ],
+   [
+    "gov_measure_def",
+    "w1.ps.den",
+    "v1"
+   ],
+   [
+    "gov_measure_def",
+    "w1.ps.num",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "w1.asia_population_sum",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "w1.asia_population_sum",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "w1.history_rows_range",
+    "v2"
+   ],
+   [
+    "gov_metric",
+    "w1.population_share",
+    "v1"
+   ],
+   [
+    "gov_metric",
+    "w1.population_share",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "w1.al1",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "w1.al1",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "w1.al3",
+    "v1"
+   ],
+   [
+    "gov_metric_alias",
+    "w1.al3",
+    "v2"
+   ],
+   [
+    "gov_metric_alias",
+    "w1.al4",
+    "v2"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v1",
+    "v1"
+   ],
+   [
+    "gov_semantic_graph_version",
+    "v2",
+    "v2"
+   ],
+   [
+    "gov_semantic_node",
+    "w1.country_history",
+    "v1"
+   ],
+   [
+    "gov_semantic_node",
+    "w1.country_history",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-W1-APS",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-W1-APS",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-W1-HRR",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-W1-PS-D",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-W1-PS-D",
+    "v2"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-W1-PS-N",
+    "v1"
+   ],
+   [
+    "gov_temporal_binding",
+    "B-W1-PS-N",
+    "v2"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-W1-HIST",
+    "v1"
+   ],
+   [
+    "gov_valid_time_anchor",
+    "A-W1-HIST",
+    "v2"
+   ]
+  ]
+ },
+ "seed_totals": {
+  "financial": {
+   "gov_semantic_graph_version": 2,
+   "gov_semantic_node": 16,
+   "gov_metric": 16,
+   "gov_measure_def": 22,
+   "gov_metric_alias": 16,
+   "gov_caliber_routing": 10,
+   "gov_valid_time_anchor": 6,
+   "gov_temporal_binding": 18,
+   "gov_granularity_edge": 4,
+   "gov_disclosure_policy": 0
+  },
+  "card_games": {
+   "gov_semantic_graph_version": 2,
+   "gov_semantic_node": 12,
+   "gov_metric": 16,
+   "gov_measure_def": 22,
+   "gov_metric_alias": 16,
+   "gov_caliber_routing": 12,
+   "gov_valid_time_anchor": 4,
+   "gov_temporal_binding": 18,
+   "gov_granularity_edge": 2,
+   "gov_disclosure_policy": 0
+  },
+  "codebase_community": {
+   "gov_semantic_graph_version": 2,
+   "gov_semantic_node": 16,
+   "gov_metric": 16,
+   "gov_measure_def": 20,
+   "gov_metric_alias": 16,
+   "gov_caliber_routing": 14,
+   "gov_valid_time_anchor": 6,
+   "gov_temporal_binding": 14,
+   "gov_granularity_edge": 6,
+   "gov_disclosure_policy": 8
+  },
+  "formula_1": {
+   "gov_semantic_graph_version": 2,
+   "gov_semantic_node": 28,
+   "gov_metric": 16,
+   "gov_measure_def": 16,
+   "gov_metric_alias": 16,
+   "gov_caliber_routing": 20,
+   "gov_valid_time_anchor": 2,
+   "gov_temporal_binding": 16,
+   "gov_granularity_edge": 4,
+   "gov_disclosure_policy": 0
+  },
+  "debit_card_specializing": {
+   "gov_semantic_graph_version": 2,
+   "gov_semantic_node": 10,
+   "gov_metric": 10,
+   "gov_measure_def": 12,
+   "gov_metric_alias": 10,
+   "gov_caliber_routing": 12,
+   "gov_valid_time_anchor": 4,
+   "gov_temporal_binding": 12,
+   "gov_granularity_edge": 6,
+   "gov_disclosure_policy": 2
+  },
+  "european_football_2": {
+   "gov_semantic_graph_version": 2,
+   "gov_semantic_node": 14,
+   "gov_metric": 14,
+   "gov_measure_def": 19,
+   "gov_metric_alias": 14,
+   "gov_caliber_routing": 8,
+   "gov_valid_time_anchor": 6,
+   "gov_temporal_binding": 18,
+   "gov_granularity_edge": 2,
+   "gov_disclosure_policy": 0
+  },
+  "california_schools": {
+   "gov_semantic_graph_version": 2,
+   "gov_semantic_node": 6,
+   "gov_metric": 10,
+   "gov_measure_def": 12,
+   "gov_metric_alias": 10,
+   "gov_caliber_routing": 4,
+   "gov_valid_time_anchor": 4,
+   "gov_temporal_binding": 10,
+   "gov_granularity_edge": 6,
+   "gov_disclosure_policy": 2
+  },
+  "thrombosis_prediction": {
+   "gov_semantic_graph_version": 2,
+   "gov_semantic_node": 6,
+   "gov_metric": 12,
+   "gov_measure_def": 14,
+   "gov_metric_alias": 12,
+   "gov_caliber_routing": 8,
+   "gov_valid_time_anchor": 4,
+   "gov_temporal_binding": 12,
+   "gov_granularity_edge": 6,
+   "gov_disclosure_policy": 6
+  },
+  "world_1": {
+   "gov_semantic_graph_version": 2,
+   "gov_semantic_node": 4,
+   "gov_metric": 12,
+   "gov_measure_def": 14,
+   "gov_metric_alias": 12,
+   "gov_caliber_routing": 8,
+   "gov_valid_time_anchor": 2,
+   "gov_temporal_binding": 12,
+   "gov_granularity_edge": 4,
+   "gov_disclosure_policy": 0
+  }
+ }
+}

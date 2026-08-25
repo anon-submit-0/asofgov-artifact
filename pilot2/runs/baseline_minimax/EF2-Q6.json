@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q6",
+ "system": "baseline_minimax",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 数据中不存在预定义的\"评分归一当日胜率\"指标，且问题语义不明确（无对应评分归一化胜率的直接字段）",
+ "sql": "REFUSE",
+ "prompt_sha256": "fc4cf70f608f578c3fb7f6e605dacc439edf52ac021668d1cce606d9b38c9ada",
+ "prompt_chars": 7615,
+ "empty_response": false
+}

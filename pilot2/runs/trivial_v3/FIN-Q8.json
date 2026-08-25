@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q8",
+ "system": "trivial_v3",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 问题明确要求分子与分母取不同时间窗口（分子1997-05、分母1997-04），违反了示例中强调的\"分子分母同窗\"纪律，属于刻意构造的错误计算方式，无法给出正确可执行的SQL。",
+ "sql": "REFUSE",
+ "prompt_sha256": "48ad129cf18f78b02592d36e6ae437dfcc4baa50aa591bb1f61738171e121af0",
+ "prompt_chars": 4261,
+ "empty_response": false
+}

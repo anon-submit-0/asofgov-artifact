@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q1",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.519779208831647,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \"Percent (%) Eligible Free (K-12)\" \nFROM main.\"frpm\" \nWHERE \"County Name\" = 'Alameda' \n  AND \"Academic Year\" = '2014-2015'\nLIMIT 1\n```",
+ "sql": "SELECT \"Percent (%) Eligible Free (K-12)\" \nFROM main.\"frpm\" \nWHERE \"County Name\" = 'Alameda' \n  AND \"Academic Year\" = '2014-2015'\nLIMIT 1",
+ "prompt_sha256": "de0429a5d9bad60c914a5248633146573b8ec9f3a21c424afb588b6ab08c979a",
+ "prompt_chars": 5214,
+ "empty_response": false
+}

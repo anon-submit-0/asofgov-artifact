@@ -1,0 +1,19 @@
+{"graph_version": "v1", "leg": "atom", "measure": "avg:overall_rating", "measure_id": "ef2.aor.atom", "metric_id": "ef2.avg_overall_rating", "node_id": "ef2.player_attr", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "ef2.wr.num.win", "metric_id": "ef2.win_rate", "node_id": "ef2.match", "preds": [{"col": "home_team_goal", "op": ">col", "value": "away_team_goal"}], "weight": 1.0}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "ef2.wr.num.draw", "metric_id": "ef2.win_rate", "node_id": "ef2.match", "preds": [{"col": "home_team_goal", "op": "=col", "value": "away_team_goal"}], "weight": 0.5}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "ef2.wr.den", "metric_id": "ef2.win_rate", "node_id": "ef2.match", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "ef2.pmc.atom", "metric_id": "ef2.pa_month_count", "node_id": "ef2.player_attr", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "ef2.mr.atom", "metric_id": "ef2.matches_range", "node_id": "ef2.match", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "ef2.rwwr.num", "metric_id": "ef2.rating_weighted_win_rate", "node_id": "ef2.match", "preds": [{"col": "home_team_goal", "op": ">col", "value": "away_team_goal"}]}
+{"graph_version": "v1", "leg": "den", "measure": "avg:overall_rating", "measure_id": "ef2.rwwr.den", "metric_id": "ef2.rating_weighted_win_rate", "node_id": "ef2.player_attr", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "avg:buildUpPlaySpeed", "measure_id": "ef2.tbs.atom", "metric_id": "ef2.team_buildup_speed", "node_id": "ef2.team_attr", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "sum:home_team_goal", "measure_id": "ef2.gsm.atom", "metric_id": "ef2.goal_sum_month", "node_id": "ef2.match", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:overall_rating", "measure_id": "ef2.aor.atom", "metric_id": "ef2.avg_overall_rating", "node_id": "ef2.player_attr", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "ef2.wr.num.win", "metric_id": "ef2.win_rate", "node_id": "ef2.match", "preds": [{"col": "home_team_goal", "op": ">col", "value": "away_team_goal"}], "weight": 1.0}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "ef2.wr.den", "metric_id": "ef2.win_rate", "node_id": "ef2.match", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "ef2.pmc.atom", "metric_id": "ef2.pa_month_count", "node_id": "ef2.player_attr", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "ef2.mr.atom", "metric_id": "ef2.matches_range", "node_id": "ef2.match", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "ef2.rwwr.num", "metric_id": "ef2.rating_weighted_win_rate", "node_id": "ef2.match", "preds": [{"col": "home_team_goal", "op": ">col", "value": "away_team_goal"}]}
+{"graph_version": "v2", "leg": "den", "measure": "avg:overall_rating", "measure_id": "ef2.rwwr.den", "metric_id": "ef2.rating_weighted_win_rate", "node_id": "ef2.player_attr", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:buildUpPlaySpeed", "measure_id": "ef2.tbs.atom", "metric_id": "ef2.team_buildup_speed", "node_id": "ef2.team_attr", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:home_team_goal", "measure_id": "ef2.gsm.atom", "metric_id": "ef2.goal_sum_month", "node_id": "ef2.match", "preds": []}

@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q4",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 无法确定声明时点对查询的影响，缺少必要的时间绑定或度量定义信息",
+ "sql": "REFUSE",
+ "prompt_sha256": "2e241e1f7fec53d3bec31443dedd3502f47a7bb14d644fbe61440ed9fdca9a15",
+ "prompt_chars": 5185,
+ "empty_response": false
+}

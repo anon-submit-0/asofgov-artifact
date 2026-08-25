@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q1",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": 0.0199,
+ "verdict": "wrong_value",
+ "raw": "I need to analyze this step by step.\n\nThe question asks for the abnormal laboratory rate where GOT≥60, for the year 1997, with an as-of date of 1998-06-01.\n\nLet me first understand the governance tables to find the relevant metric and temporal bindings.\n\nThe question is about \"异常化验率\" (abnormal lab rate) with GOT≥60 caliber. This is a ratio metric: count of labs with GOT≥60 divided by total labs, within the 1997 natural year window.\n\nLet me trace through the governance tables, but given the small row counts and complexity, the core computation is straightforward:\n\n- Numerator: count of Laboratory records in 1997 where GOT >= 60\n- Denominator: count of Laboratory records in 1997 where GOT is not null\n\nThe \"as-of 1998-06-01\" and \"1997-06-30 所在年窗\" indicates we need data from the year 1997 (January 1 to December 31, 1997).\n\nLet me construct the query:\n\n```sql\nSELECT ROUND(\n  CAST(SUM(CASE WHEN GOT >= 60 THEN 1 ELSE 0 END) AS DOUBLE) \n  / COUNT(*), \n  4\n) AS abnormal_rate\nFROM main.\"Laboratory\"\nWHERE \"Date\" >= '1997-01-01' \n  AND \"Date\" <= '1997-12-31'\n  AND GOT IS NOT NULL;\n```",
+ "sql": "SELECT ROUND(\n  CAST(SUM(CASE WHEN GOT >= 60 THEN 1 ELSE 0 END) AS DOUBLE) \n  / COUNT(*), \n  4\n) AS abnormal_rate\nFROM main.\"Laboratory\"\nWHERE \"Date\" >= '1997-01-01' \n  AND \"Date\" <= '1997-12-31'\n  AND GOT IS NOT NULL",
+ "prompt_sha256": "77c37bb3a554e8f425bd41ee3765290e5770b0baede02b1dcff5ba0c4497389c",
+ "prompt_chars": 4270,
+ "empty_response": false
+}

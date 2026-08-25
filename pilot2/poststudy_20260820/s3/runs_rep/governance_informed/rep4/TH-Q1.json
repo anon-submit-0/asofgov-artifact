@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q1",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 0.01901743264659271,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT \n  CAST(COUNT(CASE WHEN GOT >= 60 THEN 1 END) AS DOUBLE) / COUNT(*) AS abnormal_lab_rate\nFROM main.\"Laboratory\"\nWHERE EXTRACT(YEAR FROM \"Date\") = 1997\n```",
+ "sql": "SELECT \n  CAST(COUNT(CASE WHEN GOT >= 60 THEN 1 END) AS DOUBLE) / COUNT(*) AS abnormal_lab_rate\nFROM main.\"Laboratory\"\nWHERE EXTRACT(YEAR FROM \"Date\") = 1997",
+ "prompt_sha256": "870a4fe5ca368ac8c61ef36451485043b58977b877e445c4982e5dd11f013aab",
+ "prompt_chars": 20415,
+ "empty_response": false
+}

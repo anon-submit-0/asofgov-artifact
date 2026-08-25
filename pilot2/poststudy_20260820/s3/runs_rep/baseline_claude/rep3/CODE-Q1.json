@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q1",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.6940298507462687,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \n    CAST(COUNT(DISTINCT CASE WHEN p.AcceptedAnswerId IS NOT NULL THEN p.Id END) AS DOUBLE) / \n    NULLIF(COUNT(DISTINCT p.Id), 0) AS adoption_rate\nFROM main.\"posts\" p\nWHERE p.PostTypeId = 1\n  AND p.CreaionDate >= DATE '2010-12-01'\n  AND p.CreaionDate < DATE '2011-01-01'\n  AND p.CreaionDate <= DATE '2010-12-15'\n```",
+ "sql": "SELECT \n    CAST(COUNT(DISTINCT CASE WHEN p.AcceptedAnswerId IS NOT NULL THEN p.Id END) AS DOUBLE) / \n    NULLIF(COUNT(DISTINCT p.Id), 0) AS adoption_rate\nFROM main.\"posts\" p\nWHERE p.PostTypeId = 1\n  AND p.CreaionDate >= DATE '2010-12-01'\n  AND p.CreaionDate < DATE '2011-01-01'\n  AND p.CreaionDate <= DATE '2010-12-15'",
+ "prompt_sha256": "7b722e83b3ad05ce437ffb81a8d6bb0117fe793c4ea83648e4431312cf4fe3e5",
+ "prompt_chars": 4915,
+ "empty_response": false
+}

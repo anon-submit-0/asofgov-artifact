@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q2",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 4068933086.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT SUM(ch.population)\nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE c.\"Continent\" = 'Asia'\n  AND ch.effective_month = '2026-05'\n```",
+ "sql": "SELECT SUM(ch.population)\nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE c.\"Continent\" = 'Asia'\n  AND ch.effective_month = '2026-05'",
+ "prompt_sha256": "edba302610fed13daa48e01560077d1f564669ed94f76ac7644c4eccbe0f8a88",
+ "prompt_chars": 3268,
+ "empty_response": false
+}

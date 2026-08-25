@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q7",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": NaN,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT CAST(COUNT(r.id) AS DOUBLE) / COUNT(DISTINCT c.uuid)\nFROM rulings r\nJOIN cards c ON r.uuid = c.uuid\nJOIN sets s ON c.\"setCode\" = s.code\nWHERE r.date >= '2017-02-01'\n  AND r.date < '2017-03-01'\n  AND s.\"releaseDate\" >= '2017-02-01'\n  AND s.\"releaseDate\" < '2017-03-01';\n```",
+ "sql": "SELECT CAST(COUNT(r.id) AS DOUBLE) / COUNT(DISTINCT c.uuid)\nFROM rulings r\nJOIN cards c ON r.uuid = c.uuid\nJOIN sets s ON c.\"setCode\" = s.code\nWHERE r.date >= '2017-02-01'\n  AND r.date < '2017-03-01'\n  AND s.\"releaseDate\" >= '2017-02-01'\n  AND s.\"releaseDate\" < '2017-03-01'",
+ "prompt_sha256": "c96c6b11183fb760ca46f94fba66bcb909109e4eec9bf4f89c8a14c59fc6202e",
+ "prompt_chars": 24051,
+ "empty_response": false
+}

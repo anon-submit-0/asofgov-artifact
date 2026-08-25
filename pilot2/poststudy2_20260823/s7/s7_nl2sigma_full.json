@@ -1,0 +1,3314 @@
+{
+ "prereg_sha256": "838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669",
+ "model": "claude-opus-4-6",
+ "n": 60,
+ "calls": 57,
+ "cached": 3,
+ "exact_full_sigma": 40,
+ "end_to_end_correct": 55,
+ "end_to_end_error": 5,
+ "metric_alias_match": 58,
+ "per_field_match": {
+  "as_of": 44,
+  "declared_at": 60,
+  "metric_alias": 58,
+  "scope": 59,
+  "pinned_version": 60,
+  "cross_window": 60,
+  "anchor_override": 59,
+  "window_request": 59,
+  "requested_granularity": 60,
+  "requested_time_gran": 59,
+  "presentation": 56,
+  "ctx_role": 60,
+  "periods": 60
+ },
+ "exact_sigma_and_wrong": [],
+ "ledger": [
+  {
+   "qid": "CA-Q1",
+   "domain": "california_schools",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2015-04-15",
+    "declared_at": "2015-05-01",
+    "metric_alias": "免费餐率",
+    "scope": {
+     "county": "Alameda"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CA-Q2",
+   "domain": "california_schools",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2015-04-15",
+    "declared_at": "2015-09-01",
+    "metric_alias": "免费餐率",
+    "scope": {
+     "county": "Alameda"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CA-Q3",
+   "domain": "california_schools",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2015-01-01",
+    "declared_at": "2015-05-01",
+    "metric_alias": "时点在效学校数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CA-Q4",
+   "domain": "california_schools",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2000-09-01",
+    "declared_at": "2015-05-01",
+    "metric_alias": "时点在效学校数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CA-Q5",
+   "domain": "california_schools",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "2015-09-01",
+    "metric_alias": "校级免费餐率报表",
+    "scope": {
+     "county": "Alameda"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": "school",
+    "requested_time_gran": null,
+    "presentation": "raw_rows",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "compile_error",
+    "error": "TypeError: 'NoneType' object is not subscriptable"
+   },
+   "score": {
+    "verdict": "error",
+    "why": "compile_error",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": false,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": null,
+      "gold": "2015-04-15"
+     },
+     "presentation": {
+      "got": "raw_rows",
+      "gold": "aggregate"
+     }
+    }
+   }
+  },
+  {
+   "qid": "CA-Q6",
+   "domain": "california_schools",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "2015-09-01",
+    "metric_alias": "免费餐率",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": "OpenDate",
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "compile_error",
+    "error": "TypeError: 'NoneType' object is not subscriptable"
+   },
+   "score": {
+    "verdict": "error",
+    "why": "compile_error",
+    "lenient_refusal_ok": false,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": false,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": false,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": null,
+      "gold": "2015-04-15"
+     },
+     "scope": {
+      "got": {},
+      "gold": {
+       "county": "Alameda"
+      }
+     },
+     "anchor_override": {
+      "got": "OpenDate",
+      "gold": "charter_authorization_date"
+     }
+    }
+   }
+  },
+  {
+   "qid": "CARD-Q1",
+   "domain": "card_games",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2017-02-15",
+    "declared_at": "2017-03-01",
+    "metric_alias": "当月裁定条数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CARD-Q2",
+   "domain": "card_games",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2016-11-15",
+    "declared_at": "2017-03-01",
+    "metric_alias": "裁定强度",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CARD-Q3",
+   "domain": "card_games",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2021-03-10",
+    "declared_at": "2021-03-15",
+    "metric_alias": "轮替合法卡牌总数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CARD-Q4",
+   "domain": "card_games",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2015-06-22",
+    "declared_at": "2015-09-01",
+    "metric_alias": "单卡当月裁定条数",
+    "scope": {
+     "card_name": "Kytheon, Hero of Akros // Gideon, Battle-Forged",
+     "set_code": "ORI"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CARD-Q5",
+   "domain": "card_games",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "2021-03-15",
+    "metric_alias": "区间裁定条数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": {
+     "kind": "day_range",
+     "lo": "2020-10-01",
+     "hi_excl": "2021-07-01"
+    },
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "rewrite",
+    "decision": "REWRITE",
+    "rewrite_kinds": [
+     "hull_trim"
+    ]
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CARD-Q6",
+   "domain": "card_games",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2017-02-01",
+    "declared_at": "2017-03-01",
+    "metric_alias": "保留卡收藏溢价率",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "missing-caliber",
+    "subtype": "mc_i"
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": "2017-02-01",
+      "gold": "2017-02-15"
+     }
+    }
+   }
+  },
+  {
+   "qid": "CARD-Q7",
+   "domain": "card_games",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2017-02-15",
+    "declared_at": "2017-03-01",
+    "metric_alias": "裁定强度",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "missing-caliber",
+    "subtype": "mc_ii"
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CODE-Q1",
+   "domain": "codebase_community",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2010-12-15",
+    "declared_at": "2011-02-01",
+    "metric_alias": "提问采纳率",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CODE-Q2",
+   "domain": "codebase_community",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2013-12-15",
+    "declared_at": "2014-02-01",
+    "metric_alias": "提问采纳率",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CODE-Q3",
+   "domain": "codebase_community",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2010-12-15",
+    "declared_at": "2011-02-01",
+    "metric_alias": "当月投票总数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CODE-Q4",
+   "domain": "codebase_community",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2013-06-15",
+    "declared_at": "2013-08-01",
+    "metric_alias": "用户采纳答案数报表",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": "user",
+    "requested_time_gran": null,
+    "presentation": "raw_rows",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "disclosure-blocked",
+    "subtype": ""
+   },
+   "score": {
+    "verdict": "error",
+    "why": "expected rewrite, got refusal disclosure-blocked",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": false,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "presentation": {
+      "got": "raw_rows",
+      "gold": "aggregate"
+     }
+    }
+   }
+  },
+  {
+   "qid": "CODE-Q5",
+   "domain": "codebase_community",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2013-06-15",
+    "declared_at": "2013-08-01",
+    "metric_alias": "新提问数报表",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": "day",
+    "presentation": "raw_rows",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "disclosure-blocked",
+    "subtype": ""
+   },
+   "score": {
+    "verdict": "error",
+    "why": "expected rewrite, got refusal disclosure-blocked",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": false,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "presentation": {
+      "got": "raw_rows",
+      "gold": "aggregate"
+     }
+    }
+   }
+  },
+  {
+   "qid": "CODE-Q6",
+   "domain": "codebase_community",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "2013-08-01",
+    "metric_alias": "用户所在地",
+    "scope": {
+     "user_id": 22047
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "value",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "rewrite",
+    "decision": "REWRITE",
+    "rewrite_kinds": [
+     "mask"
+    ]
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "CODE-Q7",
+   "domain": "codebase_community",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2013-06-15",
+    "declared_at": "2013-08-01",
+    "metric_alias": "用户采纳答案数报表",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": "user",
+    "requested_time_gran": null,
+    "presentation": "raw_rows",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "disclosure-blocked",
+    "subtype": ""
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": false,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "metric_alias": {
+      "got": "用户采纳答案数报表",
+      "gold": "答题者名录"
+     }
+    }
+   }
+  },
+  {
+   "qid": "DEB-Q1",
+   "domain": "debit_card_specializing",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2013-08-01",
+    "declared_at": "2013-09-15",
+    "metric_alias": "月均客户消费额",
+    "scope": {
+     "currency": "CZK"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": "2013-08-01",
+      "gold": "2013-08-15"
+     }
+    }
+   }
+  },
+  {
+   "qid": "DEB-Q2",
+   "domain": "debit_card_specializing",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2013-08-01",
+    "declared_at": "2013-09-15",
+    "metric_alias": "月均客户消费额",
+    "scope": {
+     "currency": "EUR"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": "2013-08-01",
+      "gold": "2013-08-15"
+     }
+    }
+   }
+  },
+  {
+   "qid": "DEB-Q3",
+   "domain": "debit_card_specializing",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2013-06-01",
+    "declared_at": "2013-09-15",
+    "metric_alias": "月消费总额",
+    "scope": {
+     "segment": "SME"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": "2013-06-01",
+      "gold": "2013-06-15"
+     }
+    }
+   }
+  },
+  {
+   "qid": "DEB-Q4",
+   "domain": "debit_card_specializing",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2012-01-01",
+    "declared_at": "2012-09-15",
+    "metric_alias": "月消费总额",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": "2012-01-01",
+      "gold": "2012-01-15"
+     }
+    }
+   }
+  },
+  {
+   "qid": "DEB-Q5",
+   "domain": "debit_card_specializing",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "2013-09-15",
+    "metric_alias": "细分平均单笔交易金额",
+    "scope": {
+     "currency": "EUR",
+     "segment": "LAM"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": {
+     "kind": "day_range",
+     "lo": "2012-08-23",
+     "hi_excl": "2012-08-27"
+    },
+    "requested_granularity": "Segment",
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "rewrite",
+    "decision": "REWRITE",
+    "rewrite_kinds": [
+     "granularity_rollup"
+    ]
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "DEB-Q6",
+   "domain": "debit_card_specializing",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2013-12",
+    "declared_at": "2013-11-15",
+    "metric_alias": "月均客户消费额",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "out-of-validity",
+    "subtype": ""
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": "2013-12",
+      "gold": "2013-12-15"
+     }
+    }
+   }
+  },
+  {
+   "qid": "DEB-Q7",
+   "domain": "debit_card_specializing",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "2013-09-15",
+    "metric_alias": "月均客户消费额",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": {
+     "kind": "week",
+     "lo": "2013-03-04"
+    },
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "anchor-mismatch",
+    "subtype": "am_iii"
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "EF2-Q1",
+   "domain": "european_football_2",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2015-09-21",
+    "declared_at": "2016-07-01",
+    "metric_alias": "快照日球员平均综合评分",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "EF2-Q2",
+   "domain": "european_football_2",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "2016-07-01",
+    "metric_alias": "主场胜率",
+    "scope": {
+     "league": "England Premier League",
+     "season": "2015/2016"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": {
+     "kind": "day_range",
+     "lo": "2015-08-01",
+     "hi_excl": "2016-05-26"
+    },
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "EF2-Q3",
+   "domain": "european_football_2",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2015-06-15",
+    "declared_at": "2016-07-01",
+    "metric_alias": "当月球员属性快照条数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "EF2-Q4",
+   "domain": "european_football_2",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "2016-07-01",
+    "metric_alias": "区间比赛场数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": {
+     "kind": "day_range",
+     "lo": "2016-03-01",
+     "hi_excl": "2016-09-01"
+    },
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "rewrite",
+    "decision": "REWRITE",
+    "rewrite_kinds": [
+     "hull_trim"
+    ]
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "EF2-Q5",
+   "domain": "european_football_2",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2013-12-25",
+    "declared_at": "2014-02-01",
+    "metric_alias": "快照日球员平均综合评分",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "out-of-validity",
+    "subtype": ""
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "EF2-Q6",
+   "domain": "european_football_2",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2013-12-01",
+    "declared_at": "2014-02-01",
+    "metric_alias": "评分归一当日胜率",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "anchor-mismatch",
+    "subtype": "am_iv"
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "FIN-Q1",
+   "domain": "financial",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "1996-06-30",
+    "declared_at": "1997-06-15",
+    "metric_alias": "问题贷款率",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "FIN-Q2",
+   "domain": "financial",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "1996-06-30",
+    "declared_at": "1998-09-15",
+    "metric_alias": "问题贷款率",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "FIN-Q3",
+   "domain": "financial",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "1997-06-30",
+    "declared_at": "1998-09-15",
+    "metric_alias": "罚息交易占比",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "FIN-Q4",
+   "domain": "financial",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "1997-05-15",
+    "declared_at": "1998-09-15",
+    "metric_alias": "当月新增放贷笔数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "FIN-Q5",
+   "domain": "financial",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "1996-06-15",
+    "declared_at": "1997-06-15",
+    "metric_alias": "当月交易笔数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "FIN-Q6",
+   "domain": "financial",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "1998-09-15",
+    "metric_alias": "区间交易笔数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": {
+     "kind": "day_range",
+     "lo": "1998-07-01",
+     "hi_excl": "1999-07-01"
+    },
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "rewrite",
+    "decision": "REWRITE",
+    "rewrite_kinds": [
+     "hull_trim"
+    ]
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "FIN-Q7",
+   "domain": "financial",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "1999-06-15",
+    "declared_at": "1998-12-15",
+    "metric_alias": "当月交易笔数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "out-of-validity",
+    "subtype": ""
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "FIN-Q8",
+   "domain": "financial",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "1998-09-15",
+    "metric_alias": "罚息交易占比",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": {
+     "num": "1997-05",
+     "den": "1997-04"
+    },
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "anchor-mismatch",
+    "subtype": "am_ii"
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": null,
+      "gold": "1997-05-15"
+     }
+    }
+   }
+  },
+  {
+   "qid": "F1-Q1",
+   "domain": "formula_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2009-07-01",
+    "declared_at": "2009-12-01",
+    "metric_alias": "赛季车手总积分",
+    "scope": {
+     "driver": "button"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "F1-Q2",
+   "domain": "formula_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2009-07-01",
+    "declared_at": "2011-03-01",
+    "metric_alias": "赛季车手总积分",
+    "scope": {
+     "driver": "button"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "F1-Q3",
+   "domain": "formula_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2009-07-01",
+    "declared_at": "2017-06-01",
+    "metric_alias": "赛季车手总积分",
+    "scope": {
+     "driver": "button"
+    },
+    "pinned_version": "v1",
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "F1-Q4",
+   "domain": "formula_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "2011-03-01",
+    "metric_alias": "两季车手积分差",
+    "scope": {
+     "driver": "button"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": [
+     "2009",
+     "2010"
+    ]
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "F1-Q5",
+   "domain": "formula_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2009-07-01",
+    "declared_at": "2011-03-01",
+    "metric_alias": "赛季参赛记录条数",
+    "scope": {
+     "constructor": "brawn"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "F1-Q6",
+   "domain": "formula_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "2017-12-15",
+    "metric_alias": "区间大奖赛场数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": {
+     "kind": "day_range",
+     "lo": "2017-10-01",
+     "hi_excl": "2018-04-01"
+    },
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "rewrite",
+    "decision": "REWRITE",
+    "rewrite_kinds": [
+     "hull_trim"
+    ]
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "F1-Q7",
+   "domain": "formula_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "1949-05-15",
+    "declared_at": "2011-03-01",
+    "metric_alias": "当月大奖赛场数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "out-of-validity",
+    "subtype": ""
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "F1-Q8",
+   "domain": "formula_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2010-07-01",
+    "declared_at": "2011-03-01",
+    "metric_alias": "车队场均积分",
+    "scope": {
+     "constructor": "brawn"
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "missing-caliber",
+    "subtype": "mc_ii"
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "TH-Q1",
+   "domain": "thrombosis_prediction",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "1997-06-30",
+    "declared_at": "1998-06-01",
+    "metric_alias": "异常化验率",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "TH-Q2",
+   "domain": "thrombosis_prediction",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "1995-06-30",
+    "declared_at": "1996-06-01",
+    "metric_alias": "年度检查记录数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "TH-Q3",
+   "domain": "thrombosis_prediction",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "1997-06-15",
+    "declared_at": "1998-06-01",
+    "metric_alias": "患者异常化验报表",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": {
+     "kind": "month_token_range",
+     "lo": "1997-01",
+     "hi": "1997-12"
+    },
+    "requested_granularity": "patient",
+    "requested_time_gran": null,
+    "presentation": "raw_rows",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "disclosure-blocked",
+    "subtype": ""
+   },
+   "score": {
+    "verdict": "error",
+    "why": "expected rewrite, got refusal disclosure-blocked",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": false,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": false,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": "1997-06-15",
+      "gold": "1997-06-30"
+     },
+     "window_request": {
+      "got": {
+       "hi": "1997-12",
+       "kind": "month_token_range",
+       "lo": "1997-01"
+      },
+      "gold": null
+     },
+     "presentation": {
+      "got": "raw_rows",
+      "gold": "aggregate"
+     }
+    }
+   }
+  },
+  {
+   "qid": "TH-Q4",
+   "domain": "thrombosis_prediction",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "1998-06-01",
+    "metric_alias": "患者出生日期",
+    "scope": {
+     "patient_id": 2110
+    },
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "value",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "rewrite",
+    "decision": "REWRITE",
+    "rewrite_kinds": [
+     "mask"
+    ]
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "TH-Q5",
+   "domain": "thrombosis_prediction",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "1997-01-01",
+    "declared_at": "1998-06-01",
+    "metric_alias": "患者异常化验报表",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": "patient",
+    "requested_time_gran": null,
+    "presentation": "raw_rows",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "disclosure-blocked",
+    "subtype": ""
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": false,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": "1997-01-01",
+      "gold": "1997-06-30"
+     },
+     "metric_alias": {
+      "got": "患者异常化验报表",
+      "gold": "异常化验患者名录"
+     }
+    }
+   }
+  },
+  {
+   "qid": "TH-Q6",
+   "domain": "thrombosis_prediction",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "1997-06-15",
+    "declared_at": "1998-06-01",
+    "metric_alias": "异常化验患者名录",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": "patient",
+    "requested_time_gran": null,
+    "presentation": "raw_rows",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "disclosure-blocked",
+    "subtype": ""
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": "1997-06-15",
+      "gold": "1997-06-30"
+     }
+    }
+   }
+  },
+  {
+   "qid": "W1-Q1",
+   "domain": "world_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2026-05-01",
+    "declared_at": "2026-06-15",
+    "metric_alias": "亚洲人口总和",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": "2026-05-01",
+      "gold": "2026-05-10"
+     }
+    }
+   }
+  },
+  {
+   "qid": "W1-Q2",
+   "domain": "world_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2026-05-01",
+    "declared_at": "2026-08-15",
+    "metric_alias": "亚洲人口总和",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": "2026-05-01",
+      "gold": "2026-05-10"
+     }
+    }
+   }
+  },
+  {
+   "qid": "W1-Q3",
+   "domain": "world_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2026-03-01",
+    "declared_at": "2026-06-15",
+    "metric_alias": "亚洲人口占比",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": "2026-03-01",
+      "gold": "2026-03-10"
+     }
+    }
+   }
+  },
+  {
+   "qid": "W1-Q4",
+   "domain": "world_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "2026-08-15",
+    "metric_alias": "区间历史记录条数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": {
+     "kind": "month_token_range",
+     "lo": "2026-10",
+     "hi": "2027-03"
+    },
+    "requested_granularity": null,
+    "requested_time_gran": "month",
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "rewrite",
+    "decision": "REWRITE",
+    "rewrite_kinds": [
+     "hull_trim"
+    ]
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": false,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "requested_time_gran": {
+      "got": "month",
+      "gold": null
+     }
+    }
+   }
+  },
+  {
+   "qid": "W1-Q5",
+   "domain": "world_1",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "2026-08-15",
+    "metric_alias": "亚洲人口占比",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": {
+     "num": "2026-05",
+     "den": "2026-04"
+    },
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "anchor-mismatch",
+    "subtype": "am_ii"
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": null,
+      "gold": "2026-05-10"
+     }
+    }
+   }
+  }
+ ]
+}

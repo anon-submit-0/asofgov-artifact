@@ -1,0 +1,196 @@
+{
+ "prereg_sha256": "838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669",
+ "model": "claude-opus-4-6",
+ "n": 3,
+ "calls": 3,
+ "cached": 0,
+ "exact_full_sigma": 2,
+ "end_to_end_correct": 3,
+ "end_to_end_error": 0,
+ "metric_alias_match": 3,
+ "per_field_match": {
+  "as_of": 2,
+  "declared_at": 3,
+  "metric_alias": 3,
+  "scope": 3,
+  "pinned_version": 3,
+  "cross_window": 3,
+  "anchor_override": 3,
+  "window_request": 3,
+  "requested_granularity": 3,
+  "requested_time_gran": 3,
+  "presentation": 3,
+  "ctx_role": 3,
+  "periods": 3
+ },
+ "exact_sigma_and_wrong": [],
+ "ledger": [
+  {
+   "qid": "CARD-Q1",
+   "domain": "card_games",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": "2017-02-15",
+    "declared_at": "2017-03-01",
+    "metric_alias": "当月裁定条数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "answer",
+    "decision": "ANSWER",
+    "rewrite_kinds": []
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "value"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "FIN-Q6",
+   "domain": "financial",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "1998-09-15",
+    "metric_alias": "区间交易笔数",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": null,
+    "anchor_override": null,
+    "window_request": {
+     "kind": "day_range",
+     "lo": "1998-07-01",
+     "hi_excl": "1999-07-01"
+    },
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "rewrite",
+    "decision": "REWRITE",
+    "rewrite_kinds": [
+     "hull_trim"
+    ]
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": false,
+    "expected_kind": "rewrite"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": true,
+    "field_match": {
+     "as_of": true,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {}
+   }
+  },
+  {
+   "qid": "FIN-Q8",
+   "domain": "financial",
+   "extraction_error": false,
+   "attempts": 1,
+   "sigma_extracted": {
+    "as_of": null,
+    "declared_at": "1998-09-15",
+    "metric_alias": "罚息交易占比",
+    "scope": {},
+    "pinned_version": null,
+    "cross_window": {
+     "num": "1997-05",
+     "den": "1997-04"
+    },
+    "anchor_override": null,
+    "window_request": null,
+    "requested_granularity": null,
+    "requested_time_gran": null,
+    "presentation": "aggregate",
+    "ctx_role": "external_analyst",
+    "periods": null
+   },
+   "outcome": {
+    "kind": "refusal",
+    "reason": "anchor-mismatch",
+    "subtype": "am_ii"
+   },
+   "score": {
+    "verdict": "correct",
+    "why": "",
+    "lenient_refusal_ok": true,
+    "expected_kind": "refusal"
+   },
+   "sigma_accuracy": {
+    "exact_full_sigma": false,
+    "field_match": {
+     "as_of": false,
+     "declared_at": true,
+     "metric_alias": true,
+     "scope": true,
+     "pinned_version": true,
+     "cross_window": true,
+     "anchor_override": true,
+     "window_request": true,
+     "requested_granularity": true,
+     "requested_time_gran": true,
+     "presentation": true,
+     "ctx_role": true,
+     "periods": true
+    },
+    "mismatches": {
+     "as_of": {
+      "got": null,
+      "gold": "1997-05-15"
+     }
+    }
+   }
+  }
+ ]
+}

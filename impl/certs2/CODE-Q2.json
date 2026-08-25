@@ -1,0 +1,127 @@
+{
+ "sql": "SELECT (SELECT COUNT(*) FROM \"posts\" t0 INNER JOIN \"posts\" t1 ON t0.\"Id\" = t1.\"AcceptedAnswerId\" WHERE t0.\"PostTypeId\" = 2 AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) >= '2013-12-01' AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) < '2014-01-01') * 1.0 / NULLIF((SELECT COUNT(*) FROM \"posts\" t0 WHERE t0.\"PostTypeId\" = 1 AND t0.\"CommunityOwnedDate\" IS NULL AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) >= '2013-12-01' AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) < '2014-01-01'), 0)",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "CODE-Q2",
+   "domain": "codebase_community",
+   "metric": "code.accepted_rate",
+   "metric_kind": "ratio",
+   "as_of": "2013-12-15"
+  },
+  "graph_pin": {
+   "domain": "codebase_community",
+   "graph_version": "v2",
+   "commit_id": "2013-01-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "numerator",
+    "anchor_id": "A-CODE-POST",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "month",
+     "lo": "2013-12-01",
+     "hi_excl": "2014-01-01"
+    }
+   },
+   {
+    "role": "denominator",
+    "anchor_id": "A-CODE-POST",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "month",
+     "lo": "2013-12-01",
+     "hi_excl": "2014-01-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-CODE-AR-N|B-CODE-AR-D",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": "A-CODE-POST",
+   "denominator_anchor": "A-CODE-POST",
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [
+   {
+    "caliber_key": "code.rt1",
+    "metric": "code.accepted_rate",
+    "leg": "num",
+    "hop_seq": "0",
+    "src_node": "code.posts",
+    "dst_node": "code.posts",
+    "via_table": "posts",
+    "dst_caliber": "scoped",
+    "join_keys": [
+     [
+      "Id",
+      "AcceptedAnswerId"
+     ]
+    ]
+   },
+   {
+    "caliber_key": "code.rt2",
+    "metric": "code.accepted_rate",
+    "leg": "den",
+    "hop_seq": "0",
+    "src_node": "code.posts",
+    "dst_node": "code.posts",
+    "via_table": "posts",
+    "dst_caliber": "all",
+    "join_keys": []
+   }
+  ],
+  "disclosure": {
+   "decision": "ANSWER",
+   "policy_ids": [],
+   "policy_table_present": true,
+   "ungoverned_disclosure": false,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-CODE-POST",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)) FROM \"posts\" t WHERE t.\"CreaionDate\" IS NOT NULL",
+    "observed": [
+     "2009-02-02",
+     "2014-09-14"
+    ]
+   },
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-CODE-POST",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)) FROM \"posts\" t WHERE t.\"CreaionDate\" IS NOT NULL",
+    "observed": [
+     "2009-02-02",
+     "2014-09-14"
+    ]
+   },
+   {
+    "kind": "DEN_POP",
+    "role": "denominator",
+    "period": 0,
+    "sql": "SELECT (SELECT COUNT(*) FROM \"posts\" t0 WHERE t0.\"PostTypeId\" = 1 AND t0.\"CommunityOwnedDate\" IS NULL AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) >= '2013-12-01' AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) < '2014-01-01')",
+    "observed": 1180.0
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  }
+ }
+}

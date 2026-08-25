@@ -1,0 +1,95 @@
+% =====================================================================
+% Section 10 -- CONCLUSION, LIMITATIONS, AVAILABILITY, AI DISCLOSURE
+% (target: ~0.5 page).  The three closing/mandatory blocks are merged into
+% one section; the generative-AI disclosure keeps its full wording.
+% Every limitation named here is also stated where the claim is made.
+% PILOT2 MIGRATION (2026-08-04): all numbers on the public 60-question
+% base; the version-axis "never exercised" caveat is retired (it is
+% exercised now) and replaced by the three genuinely unexercised defence
+% paths; the artifact inventory matches the released public base.
+% =====================================================================
+
+% Title shortened 2026-08-06 (page ceiling): the two-line heading cost a
+% wrapped line; limitations keep their bold paragraph labels below.
+\section{CONCLUSION AND AVAILABILITY}
+\label{sec:concl}
+
+\noindent\looseness=-1\textbf{Conclusion.} As-of correctness for governed analytical queries
+is a compile-time binding problem (compile-time relative to the model: the
+compiler decides by running probes against the store): we gave it a
+bi-temporal semantics whose refusals are values, a decidable four-way
+classification --- under disclosure, a maximal legal rewrite or a complete
+structured refusal --- and certificates an independent verifier re-derives
+from the governance tables and data. On a fully public base of 60 Chinese
+questions four frontier model families err on 60.0--76.7\%, no prompt variant (53.3--66.7\%)
+crosses the pre-registered elimination line, and the entire governance layer in
+context still leaves 46.7\%, its refusal-side residue on decisions that need a
+data probe: under this protocol --- one statement per question, no execution
+feedback --- in-context governance yields no substantial elimination. Three findings carry forward:
+binding is an \emph{execution-time} property no prompt content substituted
+for under this protocol --- the informed model executed
+a disclosure policy on file zero times in three; disagreement between the two implementations was as often
+\emph{registrational} as implementational --- checkability measures how
+much of a layer is really governed; and the
+disagreements surviving the specification move refusal \emph{classes} ---
+the price of making refusal a first-class value.
+
+\smallskip\noindent\looseness=-1\textbf{What we did not prove.} Answer soundness
+(Theorem~\ref{thm:certsound}(b)) rests on the still-open ``syntax
+implies semantics'' assumption (A-tmpl) over Definition~\ref{def:tmpl}'s
+class, Theorem~\ref{thm:sound}(a) on its \emph{(A-emit)} bridge; the
+checking relation verifies a rewrite legal and
+its cut trace consistent, \emph{not} maximal; continuous time,
+window bargaining, lag rules and the full maximal frontier are out of
+scope by~(A6). The version axis is now exercised (two committed versions per
+database, four flip pairs, one off-diagonal pin), but three defence paths
+have no gold instance (refusal before the first
+governance commit, an uncommitted version pin, the certificate side of an
+alias-missing $\MC$(i)), and one adjudication is unresolved: whether a
+delta-period window needing a hull trim rewrites or refuses.
+
+\smallskip\noindent\looseness=-1\textbf{What the numbers license} (\S\ref{sec:eval-threats}).
+The $0\%$ is a constructive upper bound over this suite --- nothing
+follows about unseen questions or free-form language --- and the $46.7\%$
+set against it bounds what in-context governance buys from a single
+statement; no execution-capable (agentic) arm was run --- the probe-oracle
+ceiling (\S\ref{sec:eval-gov}), execution-error residuals credited,
+bounds the recoverable share at $0.667$.
+
+\smallskip\noindent\looseness=-1\textbf{Artifact availability.} Everything needed to
+reproduce every number is at
+% (A1) The URL below expands \artifacturl, defined once in main.tex.  Do
+% not hard-code a literal URL here -- edit the macro.  The repository is
+% real; the stale "placeholder" footnote was dropped 2026-08-04 once the
+% locator was filled (the make-it-public click remains the author item).
+\url{\artifacturl}: compiler and
+independent verifier with the CI import-disjointness check; the nine
+warehouses with registries, per-row real/authored provenance and gold SQL;
+the 60 questions with gold values, refusal classes/subtypes, rewrite kinds
+and frozen scoring; the non-degeneracy gate reports; the arms
+pre-registration with predictions and both freeze manifests; the raw response cache for all $8\times60$ pairs \emph{and} the voided
+\texttt{trivial\_v2} first run; the 60 certificate envelopes, the forgery
+generator with its 11 bases and 34 forgeries, the cost measurements and the
+cluster-bootstrap script with its frozen seed; one driver re-runs the
+offline pipeline, the frozen cache reproducing every number without an
+API key. Not released: the enterprise development seeds --- their only
+exhibits are \S\ref{sec:intro}'s motivating rates and
+Table~\ref{tab:divergence}'s ledger, provenance-marked in place; no
+public-suite number depends on them.
+
+\smallskip\noindent\looseness=-1\textbf{Disclosure of generative AI use.} In accordance with
+the PVLDB and ACM publication policies on generative-AI tools, we disclose that
+large language models were used throughout the production of this work: in
+drafting and revising definitions, theorems and proof sketches; in
+implementing the compiler, verifier, forgery generators and figure pipeline;
+in building and running the evaluation harness; and in drafting and editing
+this manuscript. Large language models are also the
+object of study in \S\ref{sec:eval}, as evaluated systems. All definitions, theorems, proofs, experimental protocols, numbers and
+claims were reviewed and are vouched for by the authors, who take full
+responsibility for the entire content of this paper, including any errors.
+
+% Acknowledgements are a camera-ready item and are omitted here to stay inside
+% the 12-page body limit; restore the block below before the final version.
+% \begin{acks}
+% ...
+% \end{acks}

@@ -1,0 +1,19 @@
+{
+ "qid": "W1-Q1",
+ "domain": "world_1",
+ "question_zh": "以 2026-06-15 为声明时点，按当时生效人口口径，as-of 2026-05 月粒的亚洲人口总和是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2026-06-15 as the declaration instant, under the population caliber in effect at that time, what is the total population of Asia as-of 2026-05 at month granularity?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5281 completion=63]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:39:20"
+}

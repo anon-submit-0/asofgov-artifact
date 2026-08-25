@@ -1,0 +1,16 @@
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.posts", "physical_table": "posts", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.users", "physical_table": "users", "scope_keys": {"user_id": "Id"}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.votes", "physical_table": "votes", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.comments", "physical_table": "comments", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.badges", "physical_table": "badges", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.postHistory", "physical_table": "postHistory", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.postLinks", "physical_table": "postLinks", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.tags", "physical_table": "tags", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.posts", "physical_table": "posts", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.users", "physical_table": "users", "scope_keys": {"user_id": "Id"}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.votes", "physical_table": "votes", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.comments", "physical_table": "comments", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.badges", "physical_table": "badges", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.postHistory", "physical_table": "postHistory", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.postLinks", "physical_table": "postLinks", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.tags", "physical_table": "tags", "scope_keys": {}}

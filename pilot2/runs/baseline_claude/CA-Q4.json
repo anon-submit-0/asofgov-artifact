@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q4",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 给定schema中没有记录学校有效时间区间（valid-from / valid-to）的列，无法执行 as-of 时态查询。schools 表仅有 OpenDate 和 ClosedDate，不具备双时态（bi-temporal）声明时点（declared/transaction time）信息，因此无法回答\"以某声明时点 as-of 某时点\"的问题。",
+ "sql": "REFUSE",
+ "prompt_sha256": "2e241e1f7fec53d3bec31443dedd3502f47a7bb14d644fbe61440ed9fdca9a15",
+ "prompt_chars": 5185,
+ "empty_response": false
+}

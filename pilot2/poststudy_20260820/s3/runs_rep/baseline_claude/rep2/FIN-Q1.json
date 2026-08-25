@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q1",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: schema 缺少时态绑定与口径版本的完整元数据，无法确定 1997-06-15 声明时点对应的有效口径版本及 1996 年窗的问题贷款率定义\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "c8920f5ef856e56c686ffac6b9bff06546cf7a8e1d0a5ee8c15d3a1f2753a902",
+ "prompt_chars": 4084,
+ "empty_response": false
+}

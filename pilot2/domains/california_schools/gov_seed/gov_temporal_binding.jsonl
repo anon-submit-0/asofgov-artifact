@@ -1,0 +1,10 @@
+{"anchor_id": "A-CA-FRPM", "binding_id": "B-CA-FMR-N", "graph_version": "v1", "leg": "num", "metric_id": "ca.free_meal_rate", "rule_id": "same_valid_time_window", "window_gran": "academic_year_token"}
+{"anchor_id": "A-CA-FRPM", "binding_id": "B-CA-FMR-D", "graph_version": "v1", "leg": "den", "metric_id": "ca.free_meal_rate", "rule_id": "same_valid_time_window", "window_gran": "academic_year_token"}
+{"anchor_id": "A-CA-SCD", "binding_id": "B-CA-SIE", "graph_version": "v1", "leg": "atom", "metric_id": "ca.schools_in_effect", "rule_id": "point_in_effect", "window_gran": "day"}
+{"anchor_id": "A-CA-FRPM", "binding_id": "B-CA-SFR", "graph_version": "v1", "leg": "atom", "metric_id": "ca.school_frpm_report", "rule_id": "same_valid_time_window", "window_gran": "academic_year_token"}
+{"anchor_id": "A-CA-SCD", "binding_id": "B-CA-CSC", "graph_version": "v1", "leg": "atom", "metric_id": "ca.charter_school_count", "rule_id": "point_in_effect", "window_gran": "day"}
+{"anchor_id": "A-CA-FRPM", "binding_id": "B-CA-FMR-N", "graph_version": "v2", "leg": "num", "metric_id": "ca.free_meal_rate", "rule_id": "same_valid_time_window", "window_gran": "academic_year_token"}
+{"anchor_id": "A-CA-FRPM", "binding_id": "B-CA-FMR-D", "graph_version": "v2", "leg": "den", "metric_id": "ca.free_meal_rate", "rule_id": "same_valid_time_window", "window_gran": "academic_year_token"}
+{"anchor_id": "A-CA-SCD", "binding_id": "B-CA-SIE", "graph_version": "v2", "leg": "atom", "metric_id": "ca.schools_in_effect", "rule_id": "point_in_effect", "window_gran": "day"}
+{"anchor_id": "A-CA-FRPM", "binding_id": "B-CA-SFR", "graph_version": "v2", "leg": "atom", "metric_id": "ca.school_frpm_report", "rule_id": "same_valid_time_window", "window_gran": "academic_year_token"}
+{"anchor_id": "A-CA-SCD", "binding_id": "B-CA-CSC", "graph_version": "v2", "leg": "atom", "metric_id": "ca.charter_school_count", "rule_id": "point_in_effect", "window_gran": "day"}

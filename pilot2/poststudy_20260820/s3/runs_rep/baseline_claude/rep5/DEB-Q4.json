@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q4",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 44080288.83999992,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT SUM(Consumption) FROM main.\"yearmonth\" WHERE Date = '201201'\n```",
+ "sql": "SELECT SUM(Consumption) FROM main.\"yearmonth\" WHERE Date = '201201'",
+ "prompt_sha256": "be4442ca80651a7c8265ba0d0f4cb821b9362c8cad5788d2eadb4b74d01d1bfa",
+ "prompt_chars": 3711,
+ "empty_response": false
+}

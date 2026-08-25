@@ -1,0 +1,19 @@
+{
+ "qid": "EF2-Q2",
+ "domain": "european_football_2",
+ "question_zh": "以 2016-07-01 为声明时点，England Premier League 2015/2016 赛季（窗 2015-08-01 至 2016-05-25）的主场胜率是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2016-07-01 as the declaration instant, what is the home win rate for the England Premier League 2015/2016 season (window 2015-08-01 to 2016-05-25)?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=912 completion=57]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:37:44"
+}

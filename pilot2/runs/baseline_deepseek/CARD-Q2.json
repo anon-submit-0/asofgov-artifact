@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q2",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 数据schema中未定义\"裁定强度\"的明确计算方法或对应字段",
+ "sql": "REFUSE",
+ "prompt_sha256": "6b941bafc51c53c02df2891a0ddd68862bbb3a584affef22047014a9e38e7f7b",
+ "prompt_chars": 5448,
+ "empty_response": false
+}

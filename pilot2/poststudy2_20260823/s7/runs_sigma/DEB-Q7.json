@@ -1,0 +1,31 @@
+{
+ "qid": "DEB-Q7",
+ "domain": "debit_card_specializing",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": null,
+  "declared_at": "2013-09-15",
+  "metric_alias": "月均客户消费额",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "week",
+   "lo": "2013-03-04"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": null, \"declared_at\": \"2013-09-15\", \"metric_alias\": \"月均客户消费额\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": {\"kind\": \"week\", \"lo\": \"2013-03-04\"}, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "238e6d0d69471d36daec30039ab2601a2120a03d155a9abb8ea1e7ffc861a821",
+ "prompt_chars": 22710
+}

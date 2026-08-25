@@ -1,0 +1,107 @@
+{
+ "sql": "SELECT (SELECT COUNT(*) FROM \"rulings\" t0 WHERE substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '2020-10-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '2021-02-06')",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "CARD-Q5",
+   "domain": "card_games",
+   "metric": "card.rulings_range",
+   "metric_kind": "atomic",
+   "as_of": null
+  },
+  "graph_pin": {
+   "domain": "card_games",
+   "graph_version": "v2",
+   "commit_id": "2017-09-28",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": "A-CARD-RUL",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "range",
+     "lo": "2020-10-01",
+     "hi_excl": "2021-02-06"
+    },
+    "window_requested": {
+     "kind": "range",
+     "lo": "2020-10-01",
+     "hi_excl": "2021-07-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-CARD-RR",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": null,
+   "denominator_anchor": null,
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [],
+  "disclosure": {
+   "decision": "REWRITE",
+   "policy_ids": [],
+   "policy_table_present": false,
+   "ungoverned_disclosure": true,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-CARD-RUL",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"rulings\" t WHERE t.\"date\" IS NOT NULL",
+    "observed": [
+     "2004-10-04",
+     "2021-02-05"
+    ]
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  },
+  "rewrite": {
+   "kept_slices": [
+    "(v2,B-CARD-RR)"
+   ],
+   "cut_trace": [
+    {
+     "period": 0,
+     "role": "atom",
+     "anchor_id": "A-CARD-RUL",
+     "requested": {
+      "kind": "range",
+      "lo": "2020-10-01",
+      "hi_excl": "2021-07-01"
+     },
+     "bound": {
+      "kind": "range",
+      "lo": "2020-10-01",
+      "hi_excl": "2021-02-06"
+     },
+     "cut": "coverage-hull: [2020-10-01,2021-07-01) -> [2020-10-01,2021-02-06)"
+    }
+   ],
+   "ct": [],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ }
+}

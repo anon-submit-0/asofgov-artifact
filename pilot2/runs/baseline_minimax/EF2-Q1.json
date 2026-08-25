@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q1",
+ "system": "baseline_minimax",
+ "kind": "value",
+ "value": 66.9993670886076,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT AVG(pa.overall_rating) AS avg_overall_rating\nFROM main.\"Player_Attributes\" pa\nWHERE pa.date <= '2015-09-21'\nAND pa.date = (\n    SELECT MAX(pa2.date)\n    FROM main.\"Player_Attributes\" pa2\n    WHERE pa2.player_api_id = pa.player_api_id\n    AND pa2.date <= '2015-09-21'\n);\n```",
+ "sql": "SELECT AVG(pa.overall_rating) AS avg_overall_rating\nFROM main.\"Player_Attributes\" pa\nWHERE pa.date <= '2015-09-21'\nAND pa.date = (\n    SELECT MAX(pa2.date)\n    FROM main.\"Player_Attributes\" pa2\n    WHERE pa2.player_api_id = pa.player_api_id\n    AND pa2.date <= '2015-09-21'\n)",
+ "prompt_sha256": "b1f64cfb7f2a7b385e0f0c73b3a6ec1d6ae1b7e895e9859c6fc3e4fe4f35feae",
+ "prompt_chars": 7618,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q2",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 0.2862,
+ "verdict": "wrong_value",
+ "raw": "I need to analyze this step by step.\n\nFirst, let me understand the metric: \"提问采纳率\" (question acceptance rate) for December 2013, with as-of date 2013-12-15 and declaration time 2014-02-01.\n\nLet me check the governance tables to find the relevant metric, anchors, and temporal bindings.\n\nThe \"提问采纳率\" would be: number of questions with accepted answers / total number of questions, for December 2013.\n\nLet me check the governance metadata. I need to look at `gov_metric_alias` for \"提问采纳率\", then `gov_metric` for the metric definition, `gov_temporal_binding` for window rules, and `gov_valid_time_anchor` for time anchors.\n\nSince I can't query the gov tables directly to see their content, I'll work with what the schema tells me:\n\n- Questions are posts with `PostTypeId = 1`\n- A question has an accepted answer if `AcceptedAnswerId IS NOT NULL`\n- The date column in posts is `CreaionDate` (note the typo in schema)\n\nFor December 2013 (month window containing as-of 2013-12-15): questions created in December 2013.\n\nThe acceptance rate = questions with AcceptedAnswerId / total questions in that period.\n\nGiven the temporal binding rules require numerator and denominator windows to align, both should use the same December 2013 window.\n\nThe declaration time 2014-02-01 is after the observation window (Dec 2013), so data should be available.\n\n```sql\nSELECT ROUND(\n  CAST(SUM(CASE WHEN \"AcceptedAnswerId\" IS NOT NULL THEN 1 ELSE 0 END) AS DOUBLE) \n  / COUNT(*), 4\n) AS acceptance_rate\nFROM main.\"posts\"\nWHERE \"PostTypeId\" = 1\n  AND \"CreaionDate\" >= '2013-12-01'\n  AND \"CreaionDate\" < '2014-01-01';\n```",
+ "sql": "SELECT ROUND(\n  CAST(SUM(CASE WHEN \"AcceptedAnswerId\" IS NOT NULL THEN 1 ELSE 0 END) AS DOUBLE) \n  / COUNT(*), 4\n) AS acceptance_rate\nFROM main.\"posts\"\nWHERE \"PostTypeId\" = 1\n  AND \"CreaionDate\" >= '2013-12-01'\n  AND \"CreaionDate\" < '2014-01-01'",
+ "prompt_sha256": "7842f2f558cc3da47a6fe3ef5f612e03578fb950ec62af7795a895917d0750ee",
+ "prompt_chars": 5141,
+ "empty_response": false
+}

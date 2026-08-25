@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q4",
+ "system": "trivial_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: gov_valid_time_anchor 和 gov_temporal_binding 中未包含与 schools 表相关的有效时间锚定义，无法根据治理元数据确定 as-of 2000-09-01 时点的有效学校筛选规则。",
+ "sql": "REFUSE",
+ "prompt_sha256": "7d5369332c038e68885a78488efb194ea5749167720288a1adc051ff97456f45",
+ "prompt_chars": 5300,
+ "empty_response": false
+}

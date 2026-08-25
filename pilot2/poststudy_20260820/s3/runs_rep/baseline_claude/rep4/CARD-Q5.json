@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q5",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 7542.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"rulings\" WHERE date BETWEEN DATE '2020-10-01' AND DATE '2021-06-30'\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"rulings\" WHERE date BETWEEN DATE '2020-10-01' AND DATE '2021-06-30'",
+ "prompt_sha256": "01629e4df6121307d0c5ee7cebbafde21f3a709ae26f074e0339642e9d1f0723",
+ "prompt_chars": 5440,
+ "empty_response": false
+}

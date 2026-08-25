@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: schema 中未定义\"轮替口径\"、\"声明时点\"、\"as-of\"等时态逻辑所需的列或治理规则，无法执行时态查询\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "7203e05966850628dce621d527b11a99de5f86d24265382f5aa8b4aaea74bcba",
+ "prompt_chars": 5446,
+ "empty_response": false
+}

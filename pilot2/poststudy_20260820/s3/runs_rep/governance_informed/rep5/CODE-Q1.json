@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q1",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 0.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \n  CAST(COUNT(CASE WHEN num.AcceptedAnswerId IS NOT NULL THEN 1 END) AS DOUBLE) / \n  NULLIF(COUNT(den.Id), 0) AS accepted_rate\nFROM main.\"posts\" den\nLEFT JOIN main.\"posts\" num \n  ON den.\"AcceptedAnswerId\" = num.\"Id\"\n  AND num.\"PostTypeId\" = 2\n  AND DATE_TRUNC('month', num.\"CreaionDate\") = DATE '2010-12-01'\nWHERE den.\"PostTypeId\" = 1\n  AND DATE_TRUNC('month', den.\"CreaionDate\") = DATE '2010-12-01'\n  AND den.\"CommunityOwnedDate\" IS NULL\n```",
+ "sql": "SELECT \n  CAST(COUNT(CASE WHEN num.AcceptedAnswerId IS NOT NULL THEN 1 END) AS DOUBLE) / \n  NULLIF(COUNT(den.Id), 0) AS accepted_rate\nFROM main.\"posts\" den\nLEFT JOIN main.\"posts\" num \n  ON den.\"AcceptedAnswerId\" = num.\"Id\"\n  AND num.\"PostTypeId\" = 2\n  AND DATE_TRUNC('month', num.\"CreaionDate\") = DATE '2010-12-01'\nWHERE den.\"PostTypeId\" = 1\n  AND DATE_TRUNC('month', den.\"CreaionDate\") = DATE '2010-12-01'\n  AND den.\"CommunityOwnedDate\" IS NULL",
+ "prompt_sha256": "951ca91118c82e174985fc06622d6f10c97a82d8753ec2453b0e3f7a3d54d3ee",
+ "prompt_chars": 28273,
+ "empty_response": false
+}

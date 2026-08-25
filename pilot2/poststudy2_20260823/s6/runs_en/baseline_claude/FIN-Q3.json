@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q3",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: The question asks for a \"governance-routed caliber\" metric using gov_* tables, but the gov_caliber_routing and gov_measure_def definitions reference semantic graph constructs that cannot be reliably resolved into executable SQL without knowing the specific metric_id, routing hops, and caliber logic encoded in those rows—and the question's terminology (\"declaration instant\", \"penalty interest transaction proportion\", \"containing year window\") does not map unambiguously to the governance metadata or physical tables available.",
+ "sql": "REFUSE",
+ "prompt_sha256": "dc8ccfc9588544400576ded76b353be577b91f39320568810471f218e9acfae2",
+ "prompt_chars": 4210,
+ "empty_response": false
+}

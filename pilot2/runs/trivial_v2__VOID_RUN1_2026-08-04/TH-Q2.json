@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q2",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 207.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"Examination\" WHERE YEAR(\"Examination Date\") = 1995;\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"Examination\" WHERE YEAR(\"Examination Date\") = 1995",
+ "prompt_sha256": "a43716f3101ff450d6d9de4e88b2d529ce16fc927a641b5665c9fa1b5f39eb7b",
+ "prompt_chars": 4372,
+ "empty_response": false
+}

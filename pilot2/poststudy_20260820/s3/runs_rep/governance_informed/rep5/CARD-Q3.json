@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 声明时点2021-03-15与as-of时点2021-03-10均超出数据集releaseDate最大范围（2017年前后），无法查询2021年的轮替合法卡牌数据\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "6f8521e6cf5bdad150d3ce6b0da40eedb95595af6b7447302a2ad3c3524e659c",
+ "prompt_chars": 23967,
+ "empty_response": false
+}

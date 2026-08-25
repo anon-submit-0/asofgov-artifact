@@ -1,0 +1,41 @@
+-- california_schools 域 pilot2 warehouse.duckdb schema（源: BIRD/Spider dev 公开数据集，抽取与 real/authored 行数见 provenance.json）
+-- schema: main = 业务事实/维表 + gov_* 治理登记表（十表 schema 法, DESIGN_SPEC §3.1）
+
+CREATE TABLE main."frpm"("CDSCode" VARCHAR, "Academic Year" VARCHAR, "County Code" VARCHAR, "District Code" BIGINT, "School Code" VARCHAR, "County Name" VARCHAR, "District Name" VARCHAR, "School Name" VARCHAR, "District Type" VARCHAR, "School Type" VARCHAR, "Educational Option Type" VARCHAR, "NSLP Provision Status" VARCHAR, "Charter School (Y/N)" BIGINT, "Charter School Number" VARCHAR, "Charter Funding Type" VARCHAR, "IRC" BIGINT, "Low Grade" VARCHAR, "High Grade" VARCHAR, "Enrollment (K-12)" DOUBLE, "Free Meal Count (K-12)" DOUBLE, "Percent (%) Eligible Free (K-12)" DOUBLE, "FRPM Count (K-12)" DOUBLE, "Percent (%) Eligible FRPM (K-12)" DOUBLE, "Enrollment (Ages 5-17)" DOUBLE, "Free Meal Count (Ages 5-17)" DOUBLE, "Percent (%) Eligible Free (Ages 5-17)" DOUBLE, "FRPM Count (Ages 5-17)" DOUBLE, "Percent (%) Eligible FRPM (Ages 5-17)" DOUBLE, "2013-14 CALPADS Fall 1 Certification Status" BIGINT);
+-- rowcount main."frpm" = 9986
+
+CREATE TABLE main."gov_caliber_routing"("routing_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "hop_seq" VARCHAR, "src_node" VARCHAR, "dst_node" VARCHAR, "join_on" VARCHAR, "dst_caliber" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_caliber_routing" = 4
+
+CREATE TABLE main."gov_disclosure_policy"("policy_id" VARCHAR, "domain" VARCHAR, "kind" VARCHAR, "node_id" VARCHAR, "cols" VARCHAR, "mask_class" VARCHAR, "lattice_levels" VARCHAR, "k" VARCHAR, "time_floor_gran" VARCHAR, "carry" VARCHAR, "applies_to" VARCHAR, "k_exempt_top" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_disclosure_policy" = 2
+
+CREATE TABLE main."gov_granularity_edge"("edge_id" VARCHAR, "domain" VARCHAR, "axis" VARCHAR, "from_level" VARCHAR, "to_level" VARCHAR, "node_id" VARCHAR, "group_cols" VARCHAR, "derived" VARCHAR, "band_col" VARCHAR, "band_bounds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_granularity_edge" = 6
+
+CREATE TABLE main."gov_measure_def"("measure_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "node_id" VARCHAR, "measure" VARCHAR, "preds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_measure_def" = 12
+
+CREATE TABLE main."gov_metric"("metric_id" VARCHAR, "domain" VARCHAR, "kind" VARCHAR, "num_node" VARCHAR, "den_node" VARCHAR, "graph_version" VARCHAR, "report_axis" VARCHAR, "entity_node" VARCHAR, "base_metric_id" VARCHAR);
+-- rowcount main."gov_metric" = 10
+
+CREATE TABLE main."gov_metric_alias"("alias_id" VARCHAR, "alias_text" VARCHAR, "metric_id" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_metric_alias" = 10
+
+CREATE TABLE main."gov_semantic_graph_version"("graph_version" VARCHAR, "domain" VARCHAR, "committed_at" VARCHAR, "commit_seq" VARCHAR, "change_note" VARCHAR);
+-- rowcount main."gov_semantic_graph_version" = 2
+
+CREATE TABLE main."gov_semantic_node"("node_id" VARCHAR, "domain" VARCHAR, "physical_table" VARCHAR, "entity_key" VARCHAR, "scope_keys" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_semantic_node" = 6
+
+CREATE TABLE main."gov_temporal_binding"("binding_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "anchor_id" VARCHAR, "rule_id" VARCHAR, "window_gran" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_temporal_binding" = 10
+
+CREATE TABLE main."gov_valid_time_anchor"("anchor_id" VARCHAR, "node_id" VARCHAR, "anchor_type" VARCHAR, "effective_col" VARCHAR, "vf_col" VARCHAR, "vtc_col" VARCHAR, "granularity" VARCHAR, "coverage_mode" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_valid_time_anchor" = 4
+
+CREATE TABLE main."satscores"("cds" VARCHAR, "rtype" VARCHAR, "sname" VARCHAR, "dname" VARCHAR, "cname" VARCHAR, "enroll12" BIGINT, "NumTstTakr" BIGINT, "AvgScrRead" BIGINT, "AvgScrMath" BIGINT, "AvgScrWrite" BIGINT, "NumGE1500" BIGINT);
+-- rowcount main."satscores" = 2269
+
+CREATE TABLE main."schools"("CDSCode" VARCHAR, "NCESDist" VARCHAR, "NCESSchool" VARCHAR, "StatusType" VARCHAR, "County" VARCHAR, "District" VARCHAR, "School" VARCHAR, "Street" VARCHAR, "StreetAbr" VARCHAR, "City" VARCHAR, "Zip" VARCHAR, "State" VARCHAR, "MailStreet" VARCHAR, "MailStrAbr" VARCHAR, "MailCity" VARCHAR, "MailZip" VARCHAR, "MailState" VARCHAR, "Phone" VARCHAR, "Ext" VARCHAR, "Website" VARCHAR, "OpenDate" DATE, "ClosedDate" DATE, "Charter" BIGINT, "CharterNum" VARCHAR, "FundingType" VARCHAR, "DOC" VARCHAR, "DOCType" VARCHAR, "SOC" VARCHAR, "SOCType" VARCHAR, "EdOpsCode" VARCHAR, "EdOpsName" VARCHAR, "EILCode" VARCHAR, "EILName" VARCHAR, "GSoffered" VARCHAR, "GSserved" VARCHAR, "Virtual" VARCHAR, "Magnet" BIGINT, "Latitude" DOUBLE, "Longitude" DOUBLE, "AdmFName1" VARCHAR, "AdmLName1" VARCHAR, "AdmEmail1" VARCHAR, "AdmFName2" VARCHAR, "AdmLName2" VARCHAR, "AdmEmail2" VARCHAR, "AdmFName3" VARCHAR, "AdmLName3" VARCHAR, "AdmEmail3" VARCHAR, "LastUpdate" DATE);
+-- rowcount main."schools" = 17686

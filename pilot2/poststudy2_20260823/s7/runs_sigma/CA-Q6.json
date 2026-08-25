@@ -1,0 +1,28 @@
+{
+ "qid": "CA-Q6",
+ "domain": "california_schools",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": null,
+  "declared_at": "2015-09-01",
+  "metric_alias": "免费餐率",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": "OpenDate",
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": null, \"declared_at\": \"2015-09-01\", \"metric_alias\": \"免费餐率\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": \"OpenDate\", \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "ebe548da879cd52640229010e4616054b3c7e53db90d1ba19ac11432aca470c3",
+ "prompt_chars": 20799
+}

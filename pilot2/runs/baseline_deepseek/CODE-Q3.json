@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q3",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: votes表仅含CreationDate字段，无法支持\"声明时点\"2011-02-01的时间语义查询",
+ "sql": "REFUSE",
+ "prompt_sha256": "341ccdb2563ab36f6efbbb631cbd0a7c66d14a93c2e3ba118c7f51bcca4fda95",
+ "prompt_chars": 4916,
+ "empty_response": false
+}

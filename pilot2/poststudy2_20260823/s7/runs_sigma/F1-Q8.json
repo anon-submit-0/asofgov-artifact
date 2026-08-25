@@ -1,0 +1,30 @@
+{
+ "qid": "F1-Q8",
+ "domain": "formula_1",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2010-07-01",
+  "declared_at": "2011-03-01",
+  "metric_alias": "车队场均积分",
+  "scope": {
+   "constructor": "brawn"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2010-07-01\", \"declared_at\": \"2011-03-01\", \"metric_alias\": \"车队场均积分\", \"scope\": {\"constructor\": \"brawn\"}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "ac2fb7192d14baed92fca7e2c533e552a73fcd14c8275e5b3de0919a3be62d9e",
+ "prompt_chars": 29995
+}

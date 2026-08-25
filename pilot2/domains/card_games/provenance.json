@@ -1,0 +1,50 @@
+{
+ "domain": "card_games",
+ "built_at": "2026-08-04T03:27:17Z",
+ "extraction": "duckdb sqlite scanner ATTACH + CREATE TABLE AS (原值拷贝)",
+ "tables": {
+  "cards": {
+   "rows": 56822,
+   "authored": false
+  },
+  "foreign_data": {
+   "rows": 229186,
+   "authored": false
+  },
+  "legalities": {
+   "rows": 427907,
+   "authored": false
+  },
+  "rulings": {
+   "rows": 87769,
+   "authored": false
+  },
+  "set_translations": {
+   "rows": 1210,
+   "authored": false
+  },
+  "sets": {
+   "rows": 551,
+   "authored": false
+  }
+ },
+ "authored_rules": null,
+ "source": {
+  "kind": "bird_dev_20240627",
+  "path": "/Users/loctek/bench_data/dev_20240627/dev_databases/card_games/card_games.sqlite",
+  "sha256": "c98bdb57fe7474da798b407785544b9af0daaad5d61fd21e2a73309493bc1227",
+  "license": "CC BY-SA 4.0 (bird-bench.github.io)"
+ },
+ "gov_seed_rows": {
+  "gov_semantic_graph_version": 2,
+  "gov_semantic_node": 12,
+  "gov_metric": 16,
+  "gov_measure_def": 22,
+  "gov_metric_alias": 16,
+  "gov_caliber_routing": 12,
+  "gov_valid_time_anchor": 4,
+  "gov_temporal_binding": 18,
+  "gov_granularity_edge": 2,
+  "gov_disclosure_policy": 0
+ }
+}

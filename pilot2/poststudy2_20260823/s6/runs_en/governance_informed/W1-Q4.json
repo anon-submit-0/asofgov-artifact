@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q4",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT ch.effective_month, COUNT(*) AS history_rows\nFROM main.country_history ch\nWHERE ch.effective_month BETWEEN '2026-10' AND '2027-03'\nGROUP BY ch.effective_month\nORDER BY ch.effective_month;\n```",
+ "sql": "SELECT ch.effective_month, COUNT(*) AS history_rows\nFROM main.country_history ch\nWHERE ch.effective_month BETWEEN '2026-10' AND '2027-03'\nGROUP BY ch.effective_month\nORDER BY ch.effective_month",
+ "prompt_sha256": "e61694dfc6e68478df2a345a50f4e3ac8a47d7f4e7efd66351b33ee7e70c761c",
+ "prompt_chars": 16255,
+ "empty_response": false
+}

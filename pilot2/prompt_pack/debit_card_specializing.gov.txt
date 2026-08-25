@@ -1,0 +1,104 @@
+
+## 治理元数据（本库 gov_* 登记表全量导出；与具体问题无关，同库所有问题看到的内容完全相同）
+-- 来源：debit_card_specializing/gov_seed/*.jsonl（DESIGN_SPEC §3.1 十表 schema 法）；版本轴见 gov_semantic_graph_version
+-- 每个块 = 一张登记表，一行一个 JSON 对象，行按文本字典序排列
+
+-- TABLE gov_semantic_graph_version  (rows=2)
+{"change_note": "初版治理：客户级统计小胞阈值 k=10", "commit_seq": 1, "committed_at": "2012-06-01", "domain": "debit_card_specializing", "graph_version": "v1"}
+{"change_note": "披露收紧：客户级统计小胞阈值升至 k=20", "commit_seq": 2, "committed_at": "2013-06-01", "domain": "debit_card_specializing", "graph_version": "v2"}
+
+-- TABLE gov_metric_alias  (rows=10)
+{"alias_id": "deb.al1", "alias_text": "月均客户消费额", "graph_version": "v1", "metric_id": "deb.avg_consumption"}
+{"alias_id": "deb.al1", "alias_text": "月均客户消费额", "graph_version": "v2", "metric_id": "deb.avg_consumption"}
+{"alias_id": "deb.al2", "alias_text": "月消费总额", "graph_version": "v1", "metric_id": "deb.consumption_sum"}
+{"alias_id": "deb.al2", "alias_text": "月消费总额", "graph_version": "v2", "metric_id": "deb.consumption_sum"}
+{"alias_id": "deb.al3", "alias_text": "细分平均单笔交易金额", "graph_version": "v1", "metric_id": "deb.segment_avg_trans"}
+{"alias_id": "deb.al3", "alias_text": "细分平均单笔交易金额", "graph_version": "v2", "metric_id": "deb.segment_avg_trans"}
+{"alias_id": "deb.al4", "alias_text": "价格毛利率", "graph_version": "v1", "metric_id": "deb.price_margin"}
+{"alias_id": "deb.al4", "alias_text": "价格毛利率", "graph_version": "v2", "metric_id": "deb.price_margin"}
+{"alias_id": "deb.al5", "alias_text": "站点交易笔数", "graph_version": "v1", "metric_id": "deb.station_trans_count"}
+{"alias_id": "deb.al5", "alias_text": "站点交易笔数", "graph_version": "v2", "metric_id": "deb.station_trans_count"}
+
+-- TABLE gov_metric  (rows=10)
+{"den_node": "deb.products", "domain": "debit_card_specializing", "graph_version": "v1", "kind": "ratio", "metric_id": "deb.price_margin", "num_node": "deb.transactions_1k"}
+{"den_node": "deb.products", "domain": "debit_card_specializing", "graph_version": "v2", "kind": "ratio", "metric_id": "deb.price_margin", "num_node": "deb.transactions_1k"}
+{"den_node": null, "domain": "debit_card_specializing", "entity_node": "deb.customers", "graph_version": "v1", "kind": "report", "metric_id": "deb.segment_avg_trans", "num_node": "deb.transactions_1k", "report_axis": "entity"}
+{"den_node": null, "domain": "debit_card_specializing", "entity_node": "deb.customers", "graph_version": "v2", "kind": "report", "metric_id": "deb.segment_avg_trans", "num_node": "deb.transactions_1k", "report_axis": "entity"}
+{"den_node": null, "domain": "debit_card_specializing", "graph_version": "v1", "kind": "atomic", "metric_id": "deb.avg_consumption", "num_node": "deb.yearmonth"}
+{"den_node": null, "domain": "debit_card_specializing", "graph_version": "v1", "kind": "atomic", "metric_id": "deb.consumption_sum", "num_node": "deb.yearmonth"}
+{"den_node": null, "domain": "debit_card_specializing", "graph_version": "v1", "kind": "atomic", "metric_id": "deb.station_trans_count", "num_node": "deb.transactions_1k"}
+{"den_node": null, "domain": "debit_card_specializing", "graph_version": "v2", "kind": "atomic", "metric_id": "deb.avg_consumption", "num_node": "deb.yearmonth"}
+{"den_node": null, "domain": "debit_card_specializing", "graph_version": "v2", "kind": "atomic", "metric_id": "deb.consumption_sum", "num_node": "deb.yearmonth"}
+{"den_node": null, "domain": "debit_card_specializing", "graph_version": "v2", "kind": "atomic", "metric_id": "deb.station_trans_count", "num_node": "deb.transactions_1k"}
+
+-- TABLE gov_measure_def  (rows=12)
+{"graph_version": "v1", "leg": "atom", "measure": "avg:Amount", "measure_id": "deb.sat.atom", "metric_id": "deb.segment_avg_trans", "node_id": "deb.transactions_1k", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "avg:Consumption", "measure_id": "deb.ac.atom", "metric_id": "deb.avg_consumption", "node_id": "deb.yearmonth", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "deb.stc.atom", "metric_id": "deb.station_trans_count", "node_id": "deb.transactions_1k", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "sum:Consumption", "measure_id": "deb.cs.atom", "metric_id": "deb.consumption_sum", "node_id": "deb.yearmonth", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "deb.pm.den", "metric_id": "deb.price_margin", "node_id": "deb.products", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "avg:Price", "measure_id": "deb.pm.num", "metric_id": "deb.price_margin", "node_id": "deb.transactions_1k", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:Amount", "measure_id": "deb.sat.atom", "metric_id": "deb.segment_avg_trans", "node_id": "deb.transactions_1k", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:Consumption", "measure_id": "deb.ac.atom", "metric_id": "deb.avg_consumption", "node_id": "deb.yearmonth", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "deb.stc.atom", "metric_id": "deb.station_trans_count", "node_id": "deb.transactions_1k", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:Consumption", "measure_id": "deb.cs.atom", "metric_id": "deb.consumption_sum", "node_id": "deb.yearmonth", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "deb.pm.den", "metric_id": "deb.price_margin", "node_id": "deb.products", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "avg:Price", "measure_id": "deb.pm.num", "metric_id": "deb.price_margin", "node_id": "deb.transactions_1k", "preds": []}
+
+-- TABLE gov_caliber_routing  (rows=12)
+{"dst_caliber": "none", "dst_node": "deb.products", "graph_version": "v1", "hop_seq": 0, "join_on": [["ProductID", "ProductID"]], "leg": "den", "metric_id": "deb.price_margin", "routing_id": "deb.rt5", "src_node": "deb.transactions_1k"}
+{"dst_caliber": "none", "dst_node": "deb.products", "graph_version": "v2", "hop_seq": 0, "join_on": [["ProductID", "ProductID"]], "leg": "den", "metric_id": "deb.price_margin", "routing_id": "deb.rt5", "src_node": "deb.transactions_1k"}
+{"dst_caliber": "scoped", "dst_node": "deb.customers", "graph_version": "v1", "hop_seq": 0, "join_on": [["CustomerID", "CustomerID"]], "leg": "entity", "metric_id": "deb.segment_avg_trans", "routing_id": "deb.rt4", "src_node": "deb.transactions_1k"}
+{"dst_caliber": "scoped", "dst_node": "deb.customers", "graph_version": "v1", "hop_seq": 0, "join_on": [["CustomerID", "CustomerID"]], "leg": "scope", "metric_id": "deb.avg_consumption", "routing_id": "deb.rt1", "src_node": "deb.yearmonth"}
+{"dst_caliber": "scoped", "dst_node": "deb.customers", "graph_version": "v1", "hop_seq": 0, "join_on": [["CustomerID", "CustomerID"]], "leg": "scope", "metric_id": "deb.consumption_sum", "routing_id": "deb.rt2", "src_node": "deb.yearmonth"}
+{"dst_caliber": "scoped", "dst_node": "deb.customers", "graph_version": "v1", "hop_seq": 0, "join_on": [["CustomerID", "CustomerID"]], "leg": "scope", "metric_id": "deb.segment_avg_trans", "routing_id": "deb.rt3", "src_node": "deb.transactions_1k"}
+{"dst_caliber": "scoped", "dst_node": "deb.customers", "graph_version": "v2", "hop_seq": 0, "join_on": [["CustomerID", "CustomerID"]], "leg": "entity", "metric_id": "deb.segment_avg_trans", "routing_id": "deb.rt4", "src_node": "deb.transactions_1k"}
+{"dst_caliber": "scoped", "dst_node": "deb.customers", "graph_version": "v2", "hop_seq": 0, "join_on": [["CustomerID", "CustomerID"]], "leg": "scope", "metric_id": "deb.avg_consumption", "routing_id": "deb.rt1", "src_node": "deb.yearmonth"}
+{"dst_caliber": "scoped", "dst_node": "deb.customers", "graph_version": "v2", "hop_seq": 0, "join_on": [["CustomerID", "CustomerID"]], "leg": "scope", "metric_id": "deb.consumption_sum", "routing_id": "deb.rt2", "src_node": "deb.yearmonth"}
+{"dst_caliber": "scoped", "dst_node": "deb.customers", "graph_version": "v2", "hop_seq": 0, "join_on": [["CustomerID", "CustomerID"]], "leg": "scope", "metric_id": "deb.segment_avg_trans", "routing_id": "deb.rt3", "src_node": "deb.transactions_1k"}
+{"dst_caliber": "scoped", "dst_node": "deb.gasstations", "graph_version": "v1", "hop_seq": 0, "join_on": [["GasStationID", "GasStationID"]], "leg": "scope", "metric_id": "deb.station_trans_count", "routing_id": "deb.rt6", "src_node": "deb.transactions_1k"}
+{"dst_caliber": "scoped", "dst_node": "deb.gasstations", "graph_version": "v2", "hop_seq": 0, "join_on": [["GasStationID", "GasStationID"]], "leg": "scope", "metric_id": "deb.station_trans_count", "routing_id": "deb.rt6", "src_node": "deb.transactions_1k"}
+
+-- TABLE gov_valid_time_anchor  (rows=4)
+{"anchor_id": "A-DEB-T1K", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "Date", "granularity": "day", "graph_version": "v1", "node_id": "deb.transactions_1k", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-DEB-T1K", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "Date", "granularity": "day", "graph_version": "v2", "node_id": "deb.transactions_1k", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-DEB-YM", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "Date", "granularity": "month_token_yyyymm", "graph_version": "v1", "node_id": "deb.yearmonth", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-DEB-YM", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "Date", "granularity": "month_token_yyyymm", "graph_version": "v2", "node_id": "deb.yearmonth", "vf_col": null, "vtc_col": null}
+
+-- TABLE gov_temporal_binding  (rows=12)
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-PM-D", "graph_version": "v1", "leg": "den", "metric_id": "deb.price_margin", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-PM-D", "graph_version": "v2", "leg": "den", "metric_id": "deb.price_margin", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-PM-N", "graph_version": "v1", "leg": "num", "metric_id": "deb.price_margin", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-PM-N", "graph_version": "v2", "leg": "num", "metric_id": "deb.price_margin", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-SAT", "graph_version": "v1", "leg": "atom", "metric_id": "deb.segment_avg_trans", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-SAT", "graph_version": "v2", "leg": "atom", "metric_id": "deb.segment_avg_trans", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-STC", "graph_version": "v1", "leg": "atom", "metric_id": "deb.station_trans_count", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-STC", "graph_version": "v2", "leg": "atom", "metric_id": "deb.station_trans_count", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-DEB-YM", "binding_id": "B-DEB-AC", "graph_version": "v1", "leg": "atom", "metric_id": "deb.avg_consumption", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-DEB-YM", "binding_id": "B-DEB-AC", "graph_version": "v2", "leg": "atom", "metric_id": "deb.avg_consumption", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-DEB-YM", "binding_id": "B-DEB-CS", "graph_version": "v1", "leg": "atom", "metric_id": "deb.consumption_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-DEB-YM", "binding_id": "B-DEB-CS", "graph_version": "v2", "leg": "atom", "metric_id": "deb.consumption_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+
+-- TABLE gov_semantic_node  (rows=10)
+{"domain": "debit_card_specializing", "entity_key": "CustomerID", "graph_version": "v1", "node_id": "deb.customers", "physical_table": "customers", "scope_keys": {"currency": "Currency", "segment": "Segment"}}
+{"domain": "debit_card_specializing", "entity_key": "CustomerID", "graph_version": "v1", "node_id": "deb.yearmonth", "physical_table": "yearmonth", "scope_keys": {}}
+{"domain": "debit_card_specializing", "entity_key": "CustomerID", "graph_version": "v2", "node_id": "deb.customers", "physical_table": "customers", "scope_keys": {"currency": "Currency", "segment": "Segment"}}
+{"domain": "debit_card_specializing", "entity_key": "CustomerID", "graph_version": "v2", "node_id": "deb.yearmonth", "physical_table": "yearmonth", "scope_keys": {}}
+{"domain": "debit_card_specializing", "entity_key": "GasStationID", "graph_version": "v1", "node_id": "deb.gasstations", "physical_table": "gasstations", "scope_keys": {"country": "Country"}}
+{"domain": "debit_card_specializing", "entity_key": "GasStationID", "graph_version": "v2", "node_id": "deb.gasstations", "physical_table": "gasstations", "scope_keys": {"country": "Country"}}
+{"domain": "debit_card_specializing", "entity_key": "ProductID", "graph_version": "v1", "node_id": "deb.products", "physical_table": "products", "scope_keys": {}}
+{"domain": "debit_card_specializing", "entity_key": "ProductID", "graph_version": "v2", "node_id": "deb.products", "physical_table": "products", "scope_keys": {}}
+{"domain": "debit_card_specializing", "entity_key": "TransactionID", "graph_version": "v1", "node_id": "deb.transactions_1k", "physical_table": "transactions_1k", "scope_keys": {}}
+{"domain": "debit_card_specializing", "entity_key": "TransactionID", "graph_version": "v2", "node_id": "deb.transactions_1k", "physical_table": "transactions_1k", "scope_keys": {}}
+
+-- TABLE gov_granularity_edge  (rows=6)
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "debit_card_specializing", "edge_id": "deb.eg1", "from_level": "customer", "graph_version": "v1", "group_cols": ["Segment"], "node_id": "deb.customers", "to_level": "Segment"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "debit_card_specializing", "edge_id": "deb.eg1", "from_level": "customer", "graph_version": "v2", "group_cols": ["Segment"], "node_id": "deb.customers", "to_level": "Segment"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "debit_card_specializing", "edge_id": "deb.eg2", "from_level": "Segment", "graph_version": "v1", "group_cols": [], "node_id": "deb.customers", "to_level": "all"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "debit_card_specializing", "edge_id": "deb.eg2", "from_level": "Segment", "graph_version": "v2", "group_cols": [], "node_id": "deb.customers", "to_level": "all"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "debit_card_specializing", "edge_id": "deb.tg1", "from_level": "day", "graph_version": "v1", "group_cols": [], "node_id": null, "to_level": "month"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "debit_card_specializing", "edge_id": "deb.tg1", "from_level": "day", "graph_version": "v2", "group_cols": [], "node_id": null, "to_level": "month"}
+
+-- TABLE gov_disclosure_policy  (rows=2)
+{"applies_to": "deb.customers", "carry": [], "cols": [], "domain": "debit_card_specializing", "graph_version": "v1", "k": 10, "k_exempt_top": true, "kind": "k_threshold", "lattice_levels": ["customer", "Segment", "all"], "mask_class": null, "node_id": "deb.customers", "policy_id": "deb.pi1", "time_floor_gran": null}
+{"applies_to": "deb.customers", "carry": [], "cols": [], "domain": "debit_card_specializing", "graph_version": "v2", "k": 20, "k_exempt_top": true, "kind": "k_threshold", "lattice_levels": ["customer", "Segment", "all"], "mask_class": null, "node_id": "deb.customers", "policy_id": "deb.pi1", "time_floor_gran": null}

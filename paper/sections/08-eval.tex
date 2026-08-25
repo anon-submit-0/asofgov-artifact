@@ -1,0 +1,539 @@
+% =====================================================================
+% Section 8 -- EVALUATION   (evidence base: the PUBLIC 60-question suite;
+% single source of truth pilot2/pilot2_summary.json + pilot2/ARMS_REPORT.md
+% + pilot2/ACCEPTANCE_REPORT.md + impl/cost_p2.json.  The former enterprise
+% track (51 questions) is OUT of this section by author ruling: production
+% material appears only as motivation in S1, marked as such, and in the
+% D1-D15 ledger whose provenance note is in the Table caption.)
+% Skeleton: setup -> gap/prompting -> governance-informed arm -> compiler
+% -> certificates/forgeries -> divergence ledger -> cost/threats.
+% Every conditional rate carries the population it conditions on.
+%
+% RED LINES (do not remove in any compression pass; presence gated by
+% tools/check_redlines.py, values re-derived by tools/check_numbers.py):
+%   - coverage beside every rate; denominators 60/45/15 stated;
+%   - the 9-arm matrix with 9-cluster bootstrap CIs (B=2000);
+%   - the six-class taxonomy stacked to 60 (fig:taxonomy) and the
+%     errors-by-gold-form split (tab:main/tab:taxonomy);
+%   - the governance-informed arm: 46.7% (28/60), elim 0.361<0.40 =
+%     pre-registered case (iii), the depth split (probes 6/7, disclosure
+%     3/3, metadata-decidable 1/5 ERRORS -- absolute, not repairs: the
+%     arm truly repairs 3, was already right on CA-Q6 and BREAKS CARD-Q6),
+%     the three alternative explanations
+%     WITH exclusion evidence, protocol-scoped wording;
+%   - trivial_v2 run1 VOID + rerun, both runs disclosed;
+%   - prediction misses: 8/8 above point predictions, 7/8 above the 80%
+%     interval, AND the two PREREG S5.2 predictions the paragraph used to
+%     omit -- correct_refusals 9/15 [6-12] observed 5 (BELOW the interval)
+%     and over_refusals ~4/45 [1-9] observed 1 (at the floor);
+%   - the case-(iii) denominator is itself one measurement (36 against a
+%     frozen point of 25) and is explicitly NOT adjudicated on: the
+%     13/35=0.371 sensitivity leaves the case unchanged;
+%   - certificates: 60/60, strict 50/60 fail-closed with the 10 questions
+%     characterised, 34/34 forgeries on 11 genuine bases, the accepted
+%     partial-deletion boundary case;
+%   - disclosure gate first instances (3 DB + 5 rollups + 2 masks);
+%   - version axis: real-history flip 100.0 vs 252.0, off-diagonal pin,
+%     RC-7xRC-8 interaction (k 10->20 between versions);
+%   - cost: warm median 17.7x, span 2.5-44.4x, paired byte 10.2x, cold
+%     figures; no scan-amplification claim;
+%   - A'/B'/C' labelled as NEW pre-registered criteria (B' not re-run);
+%   - the D1-D15 ledger with its enterprise-integration provenance.
+% FLOAT SURGERY (2026-08-04): fig3_failure_taxonomy is REINSTATED from its
+% public-base remake (figures/fig3_failure_taxonomy.py over
+% figures/fig_data_pilot2.json, extract_p2.py): the six-class taxonomy half
+% moved out of the merged float into Figure~\ref{fig:taxonomy}; the float
+% keeps both labels tab:main/tab:taxonomy over the rate/CI/elim/share/ok
+% columns plus the errors-by-gold-form half, and check_numbers.py
+% cross-asserts the figure's data file against pilot2_summary.json cell by
+% cell, so no count can drift between the two.  figB_forgery_matrix /
+% figD_cost_ablation stay retired with the old base; E5 prose and the cost
+% paragraph carry their content.
+% =====================================================================
+\providecommand{\sysname}{\textsc{AsOfGov}}
+
+\section{EVALUATION}
+\label{sec:eval}
+
+\noindent\looseness=-1\textbf{Takeaway.}\ \emph{The as-of gap is large (E1), survives
+one-line prompting (E2) and survives the entire governance layer in context, its
+refusal-side errors landing where a decision needs a data probe rather than a
+registry line (E3). The compiler closes it as a constructive upper bound with disclosure
+and version axes exercised (E4); the independent checker accepts all 60
+certificates and rejects all 34 forgeries (E5); its first cross-check's
+ledger stays the most useful thing we measured (E6).}
+
+\subsection{Setup}
+\label{sec:eval-setup}
+
+\noindent\looseness=-1\textbf{Benchmark.} 60 questions over \emph{nine public databases}
+(eight BIRD~\cite{bird}, one Spider~\cite{spider}; Table~\ref{tab:suite}):
+3{,}830{,}036 real rows --- \texttt{financial.trans} alone holds
+1{,}056{,}320, zero synthetic --- plus 20{,}094 authored rows declared
+row-by-row (20{,}076 of them \texttt{world\_1}'s synthesised 84-month
+history). Questions and instruction blocks are authored in Chinese over the
+databases' English schemas. Over each database we register a governance layer as data: 847
+seed rows across ten registry tables, two committed graph versions
+per database, and 18 disclosure-policy instances in four domains, the other
+five declared ungoverned. Gold: 33 answers, 12 rewrites
+(5 roll-ups, 5 coverage trims, 2 masks) and 15 typed refusals covering all four
+classes and subtypes (Table~\ref{tab:suite}), independently re-derived before
+freezing.
+\emph{Non-degeneracy is designed and machine-checked}: registries carry no
+SQL fragments, snapshot pointers, coverage literals or verdict tokens (0
+hits over 90 seed files; ND-2); for eight refusal/rewrite questions a
+\emph{witness pair} (ND-1) materialises two warehouses --- byte-identical
+seeds,
+one edited data row --- that flip the gold label, so those labels are
+underdetermined by everything a no-execution system is given; 57.1\% of
+seed rows are distractors (ND-3); and a string-level audit keeps every gold
+SQL, window, refusal class, and every gold value of $\geq$8 characters out
+of every prompt (23 shorter gold literals fall under the audit's
+length guard --- 22 numeric plus the two-character string \texttt{UK} ---
+disclosed in the pre-registration).
+
+\smallskip\noindent\looseness=-1\textbf{Systems.} Nine arms (Table~\ref{tab:main}): four
+\emph{plain baselines}, frontier models of four families given the full
+schema (registry DDL and row counts, not rows), the question, and the
+right to refuse that gold exercises; three \emph{prompt variants} on
+the reference backbone (\texttt{claude-opus-4-6}) --- an as-of reminder, a
+registry-join instruction, a worked example ($115$, $226$ and $187$
+characters); a \emph{governance-informed}
+arm (\S\ref{sec:eval-gov}); and the binding compiler, whose row transcribes
+the frozen certificate acceptance of \S\ref{sec:eval-cert} --- zero model
+calls (criterion B$'$: compiler--gold agreement $60/60$, displayed, not
+re-run).
+
+\smallskip\noindent\looseness=-1\textbf{Protocol, scoring, statistics.} One statement
+per question, first response final: temperature unset (provider default),
+one sample per question, no execution feedback, no repair round,
+retry only on an empty completion (3 attempts, then scored as error),
+512-token output cap. Scoring was frozen with the suite: numeric answers
+within $0.5\%$ relative error of gold executed on the same warehouse, four
+report-shaped questions by row multiset, two by string; a refusal question
+is correct when the system refuses --- \emph{LLM arms owe no refusal
+class}, the compiler is charged with it. Errors are typed six ways
+(Figure~\ref{fig:taxonomy}); every rate below sits beside its
+answered/refused shares on the stated denominator (60 questions; 45
+value+rewrite; 15 refusals). Questions come in nine database clusters, so we
+report cluster bootstrap 95\% intervals ($B{=}2000$, frozen seed). Arms, prompt byte
+budgets, scoring dispatch, per-arm point predictions with 80\% intervals and
+the paper-rewrite rule for each outcome were pre-registered and hash-frozen
+before the first call; every raw response is cached. \emph{Deviations touching
+scored calls, in full:}
+\texttt{trivial\_v2}'s first run returned 4 empty responses, over the
+pre-registered $\geq$3 threshold; the \emph{whole arm} was voided and rerun
+once, both runs ship (run\,1: 27 correct/33 errors; run\,2, the scored one:
+25/35 --- same direction), and the pre-registration carries a dated
+post-hoc addendum, tamper evidence intact. A crashed
+\texttt{baseline\_claude} session --- the reference arm --- was
+resumed under the pre-registered resume clause (append-only cache, zero
+re-queries; the 21 questions already written are the frozen enumeration
+prefix, not a selected subset). Five other empty responses (\texttt{baseline\_claude}~1,
+\texttt{trivial\_claude}~2, \texttt{trivial\_v3}~2) count as errors for
+their arms; the governance-informed arm had none. Finally, the three
+non-Claude models ride a gateway a probe showed prepends ${\sim}4$k tokens of
+third-party system prompt; the four Claude-backbone arms share one channel,
+so every contrast we lean on is channel-matched, cross-family readings
+carrying this caveat.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.4pt}
+\renewcommand{\arraystretch}{0.95}
+\caption{The suite: real rows as shipped (authored rows declared
+separately), questions, the compiler's answer/rewrite/refusal split, and
+each cluster's gold refusal classes.}
+\label{tab:suite}
+\begin{tabular}{@{}lrrll@{}}
+\toprule
+Database (source) & rows & Qs & A/RW/RF & Refusal classes\\
+\midrule
+\texttt{financial} (B)        & 1{,}079{,}680 & 8 & 5/1/2 & $\OOV$, $\AM$(ii)\\
+\texttt{card\_games} (B)      &   803{,}445 & 7 & 4/1/2 & $\MC$(i), $\MC$(ii)\\
+\texttt{codebase\_comm.} (B)  &   740{,}646 & 7 & 3/3/1 & $\DBL$\\
+\texttt{formula\_1} (B)       &   514{,}287 & 8 & 5/1/2 & $\OOV$, $\MC$(ii)\\
+\texttt{debit\_card\_sp.} (B) &   423{,}050 & 7 & 4/1/2 & $\OOV$, $\AM$(iii)\\
+\texttt{european\_football} (B)& 222{,}796 & 6 & 3/1/2 & $\OOV$, $\AM$(iv)\\
+\texttt{california\_schools} (B)& 29{,}941 & 6 & 4/1/1 & $\AM$(i)\\
+\texttt{thrombosis\_pred.} (B)&    15{,}952 & 6 & 2/2/2 & $\DBL\times2$\\
+\texttt{world\_1} (S)         &       239 & 5 & 3/1/1 & $\AM$(ii)\\
+\midrule
+total ($\Sigma$ real rows)    & 3{,}830{,}036 & 60 & 33/12/15 &
+  $\OOV$4 $\AM$5 $\MC$3 $\DBL$3\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% tab:main keeps two labels: tab:taxonomy anchors the errors-by-gold-form
+% half retained here (the six-class taxonomy half lives in
+% Figure~\ref{fig:taxonomy} since the 2026-08-04 float surgery, its data
+% file cross-asserted against the same summary).  The 12 remaining columns
+% fit \columnwidth at tabcolsep 2pt, so the old full-width float is now a
+% column float --- that width change is what pays for the reinstated
+% figure.  Both checkers parse this layout positionally.
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.0pt}
+\renewcommand{\arraystretch}{0.97}
+\caption{Error over all 60 questions with cluster bootstrap 95\%
+intervals over nine databases ($B{=}2000$); answered/refused shares;
+correct refusals of 15; \textsf{elim}, the share of the reference
+backbone's 36 errors the arm answers correctly (pre-registered C$'$ line
+$0.40$); errors by gold form (v$/$33, rw$/$12, rf$/$15;
+split mandatory, \S\ref{sec:eval-threats}). The compiler's
+$0\%$ is a \emph{constructive upper bound} (\S\ref{sec:eval-mech}); its row
+is a deterministic acceptance transcript, not a sample, so it carries no
+interval. The pre-registered \textsf{gov.}\ arm (\S\ref{sec:eval-gov}) is the
+strongest comparator. \emph{Scoring is asymmetric in the baselines' favour}:
+\textsf{ok} credits an LLM any refusal, the compiler only when the refusal
+\emph{class} matches gold; rewrites scored by value, no declaration asked.}
+\label{tab:main}\label{tab:taxonomy}
+\begin{tabular}{@{}llrrlrrrrrrr@{}}
+\toprule
+& System & E/60 & Err. & 95\% CI & elim & Ans. & Ref. & ok$/$15 & v$/$33 & rw$/$12 & rf$/$15\\
+\midrule
+\multirow{4}{*}{\rotatebox{90}{\scriptsize plain}}
+& \texttt{claude-opus-4-6}  & 36 & 60.0\% & [44.1,\,74.6] & ---   & 0.83 & 0.15 & 4 & 18 & 7 & 11\\
+& \texttt{qwen3-coder-next} & 43 & 71.7\% & [61.0,\,83.3] & 0.111 & 0.82 & 0.18 & 4 & 23 & 9 & 11\\
+& \texttt{deepseek-3.2}     & 44 & 73.3\% & [56.7,\,88.5] & 0.083 & 0.58 & 0.42 & 6 & 27 & 8 &  9\\
+& \texttt{minimax-m2.5}     & 46 & 76.7\% & [62.7,\,89.8] & 0.056 & 0.97 & 0.03 & 2 & 25 & 8 & 13\\
+\midrule
+\multirow{3}{*}{\rotatebox{90}{\scriptsize prompt}}
+& v1 one-line reminder      & 32 & 53.3\% & [40.7,\,64.5] & 0.222 & 0.82 & 0.15 & 6 & 16 & 7 &  9\\
+& v2 registry-join hint     & 35 & 58.3\% & [48.3,\,69.4] & 0.167 & 0.93 & 0.07 & 3 & 15 & 8 & 12\\
+& v3 worked example         & 40 & 66.7\% & [52.7,\,80.3] & 0.056 & 0.95 & 0.02 & 1 & 19 & 7 & 14\\
+\midrule
+& full governance layer     & 28 & 46.7\% & [28.6,\,63.9] & 0.361 & 0.90 & 0.10 & 5 & 11 & 7 & 10\\
+\midrule
+& \textbf{binding compiler} & \textbf{0} & \textbf{0.0\%} & --- & 1.000 & 0.75 & 0.25 & 15 & 0 & 0 & 0\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Reinstated public-base float (2026-08-04 surgery): the six-class taxonomy
+% half of the old merged table, one bar per arm in tab:main's row order.
+% Regenerate: figures/fig3_failure_taxonomy.py over
+% figures/fig_data_pilot2.json (extract_p2.py); tools/check_numbers.py
+% asserts that data file equals pilot2_summary.json's taxonomy cell by
+% cell, so no printed count can drift from tab:main's E/60 column.
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig3_failure_taxonomy.pdf}
+\Description{Horizontal stacked bars, one per evaluated arm in the row
+order of the main results table, decomposing all 60 questions into six
+outcome segments --- answered where gold refuses, wrong value, execution
+error, over-refusal, no SQL, and correct --- with the count printed on
+every non-empty segment; each bar sums to the true denominator of 60.}
+\caption{Failure taxonomy in the row order of Table~\ref{tab:main}: each
+bar stacks to the true denominator of 60 and every non-empty segment
+prints its count, so each arm's error segments sum to its E/60. Wrong
+value includes a wrong window or version; \emph{no SQL} is neither an
+answer nor a refusal.}
+\label{fig:taxonomy}
+\end{figure}
+
+\subsection{E1--E2: The Gap, and That One-Line Prompting Does Not Close It}
+\label{sec:eval-gap}
+
+\looseness=-1 The four plain baselines err on 60.0\%, 71.7\%, 73.3\% and 76.7\% of the
+60 Chinese questions (Table~\ref{tab:main}): every family clears the pre-registered
+floor (criterion A$'$, $\min\geq0.30$; \cite{asofgov-tr} PREREG \S5) by
+$2\times$, and every cluster interval excludes zero while too
+wide to rank families. Figure~\ref{fig:taxonomy} shows a two-sided shape: on
+the refusal side the baselines answer through 11, 11, 9 and 13 of the
+15 refusals, refusing correctly on 4, 4, 6 and 2 --- no class
+demanded; over the eight LLM arms the refusal classes
+recover as $\OOV$ 4 of 32 chances, $\DBL$ 2 of 24, $\AM$ 15 of 40, $\MC$ 10
+of 24. On
+the value side the
+errors are wrong values and failed
+executions, not missing SQL (\texttt{deepseek-3.2} instead over-refuses 19
+of 45; \texttt{minimax-m2.5} fails to execute on 24),
+and they stack with resolution depth: \texttt{codebase\_community} --- the
+deepest chain (version-scoped aliases, a two-hop caliber route, carrying 8 of
+the 18 policy rows) --- is among the hardest
+clusters for every arm, the baselines erring on $6,6,7,7$ of 7.
+
+\smallskip\noindent\looseness=-1\textbf{Prompting does not close it.} The three variants
+score 53.3\%, 58.3\% and 66.7\% against the backbone's 60.0\%: the best
+removes 8 of the reference's 36 errors ($\mathrm{elim}=0.222$), the worst
+removes 2 while adding 6, and all three
+sit under the pre-registered C$'$ line for \emph{prompt} variants
+($\max=0.222<0.40$). The refusal side barely moves (correct refusals
+$4\to6,3,1$; answering through $11\to9,12,14$); the instruction-heavy variants
+add wrong values and executions where the backbone was right.
+
+\subsection{E3: The Governance-Informed Arm}
+\label{sec:eval-gov}
+
+\looseness=-1 If the failure were an information gap, the governance layer would close it. One pre-registered arm on the reference backbone prepends, to the
+variant-2 instruction, its database's \emph{entire} governance layer ---
+all ten registries, all rows, both committed versions, serialised
+deterministically and packaged per \emph{database} so no row can be selected
+using the question (16{,}176--28{,}279-character prompts; no truncation
+fired); packaging, rewrite rules and predictions were frozen before any call.
+It bounds what a governed metric layer's \emph{content}~\cite{semlayerbench}
+buys in context, not that line's deterministic resolution path.
+
+\smallskip\noindent\looseness=-1\textbf{Result.} The arm errs on $46.7\%$ ($28/60$), the
+best LLM arm. It eliminates 13 of the reference's 36 errors and introduces 5
+new ones (net $+8$); against \texttt{trivial\_v2}, which isolates the
+instruction, 11 fixed against 4 broken --- content, not instruction, carries
+the gain, instruction alone moving one question ($36\to35$), inside
+the ${\pm}4$ spread of our variants ($32$, $35$, $40$), against content's
+$35\to28$. The pre-registered three-case rule puts the arm in
+case \emph{(iii)}: $\mathrm{elim}_{\mathrm{gov}}=13/36=0.361<0.40$, \emph{no
+substantial elimination} (two short of the line; the variant-2 instruction it
+is anchored on is not the best-scoring of the three, $35$ errors against $32$,
+and that two-question margin sits inside the ${\pm}4$ spread just quoted; the
+pre-registration
+specified no interval for $\mathrm{elim}$, its frozen 80\% prediction interval
+$[0.35,0.75]$ straddling it; its denominator is a single measurement too, $36$
+against a frozen point of $25$, and does not itself enter the rule --- at
+$13/35=0.371$ without the reference arm's empty completion the case is
+unchanged) --- the claim frozen before the run:
+\textbf{under this protocol} (single turn, 512-token cap, database-level governance content plus
+instruction), in-context governance does not substantially eliminate the
+as-of gap; we do not extrapolate.
+
+\smallskip\noindent\looseness=-1\textbf{Where the residue sits is the finding.}
+\emph{(a)}~On the seven refusal questions whose gold label is
+\emph{provably} not registry-derivable --- \S\ref{sec:eval-setup}'s witness
+pairs materialise both labels under identical content, so only a data probe
+decides ($\OOV$ emptiness, $\MC$(ii) denominator mass, $\AM$(iv) realisation
+difference) --- the arm errs on \textbf{6 of 7}, every one by answering.
+\emph{(b)}~Where a registry line \emph{can} decide it errs on only \textbf{1 of
+5} --- though
+the two sets are not length-matched (means $24.6$k vs $20.3$k characters), so
+this contrast inherits the dilution/depth entanglement below.
+\emph{(c)}~On the three \texttt{DISCLOSURE-BLOCKED} questions it holds the
+policy rows that block the answer --- and answers all three: \textbf{a
+policy on file is not a policy enforced}. \emph{(d)}~On the eight
+version-flip answers (\S\ref{sec:eval-mech}) it errs on 3 --- two by
+resolving the wrong version--window pair, one a failed execution.
+\emph{(e)}~The cluster gradient repeats it:
+\texttt{codebase\_community} stays at 6/7 errors while shallow-chain clusters
+nearly repair (\texttt{financial} $4\to1$ of 8, \texttt{debit} $3\to1$,
+\texttt{world\_1} $2\to1$), while \texttt{card\_games} and
+\texttt{european\_football\_2} each regress $2\to4$ --- the third- and
+fourth-longest packages. Correct refusals move $4\to5$ of 15, over-refusal
+is 1 of 45 --- \texttt{trivial\_v2}'s level, down from the plain backbone's
+5 --- and on three refusal questions the plain backbone was right where the
+informed arm is wrong. \emph{(f)}~The probe ceiling is measured:
+crediting the arm with all six probe-decidable residuals --- four sit
+among the reference's 36 errors, two its own regressions --- leaves
+$22/60$, elimination at most $17/36=0.472$, past the $0.40$ line; an
+execution loop recovers failed executions by construction, so
+further crediting all nine execution-error residuals (disjoint from
+the six; seven among the 36, two regressions) leaves $13/60$, at most
+$24/36=0.667$: the verdict is a fact about probe-less, feedback-less
+passes, and the four policy/registry
+residuals are not probe-decidable at all.
+The content buys what a registry can state and almost nothing a probe must
+decide.
+
+\smallskip\noindent\looseness=-1\textbf{Three alternative explanations, checked.}
+\emph{Context dilution}: package length is constant within a database
+(spread ${\leq}80$ characters) and monotone in chain depth, so this design
+cannot separate dilution from depth --- the question-level point-biserial is
+$r=0.400$, but at the cluster unit it is $r=0.774$ ($t=3.24$,
+$\mathrm{df}=7$), and \texttt{codebase} (28.3k) errs 6/7 against
+\texttt{financial} (23.5k) at 1/8: we do not claim dilution excluded. \emph{Transport faults}: the arm had zero empty responses
+--- excluded. \emph{Imperative compliance} (obeying a cross-window
+imperative instead of judging it): both $\AM$(ii) imperatives are correctly
+refused --- excluded as the driver.
+
+\smallskip\noindent\looseness=-1\textbf{Non-degeneracy, adversarially confirmed
+(ND-4).} This arm is the designed attack on our own benchmark: on the
+retired public track, whose registries carried expressions and coverage
+literals, the same protocol scored $0/20$ --- a lookup, not a finding. Handed strictly more content, it errs on 46.7\% and errs
+\emph{where} the design predicts.
+
+\smallskip\noindent\looseness=-1\textbf{Prediction accounting, in full.} The frozen
+predictions were optimistic: all 8 observed error counts
+exceed their point predictions and 7 of 8 exceed the 80\% interval's upper
+end (this arm most sharply: predicted 14 [8--22], observed 28). Direction and
+arm ordering are unaffected; the probe prediction ($\geq$3 of 7) lands at
+the interval's top with 6, correct refusals miss \emph{below} their interval
+($9/15$ [6--12] predicted, 5 observed) and over-refusals sit at its floor
+(${\sim}4/45$ [1--9], 1), and the elimination miss (predicted 0.55, observed
+0.361) moved the arm from predicted case (i) to declared (iii).
+
+\subsection{E4: The Certified Compiler}
+\label{sec:eval-mech}
+
+\looseness=-1 The compiler decides all 60 in agreement with the frozen gold --- values,
+refusal classes \emph{and subtypes}, rewrite kinds --- emitting 33
+answers, 12 rewrites and 15 refusals (Table~\ref{tab:suite}); the refusals
+coincide with the 15 the specification declares unanswerable --- 12 by the
+binding semantics of \S\ref{sec:semantics}, 3 by the disclosure layer of
+\S\ref{sec:rewrite} --- so the refused
+share 0.25 is not caution, and re-emission is byte-stable. The
+$0\%$ is a \emph{constructive upper bound}: the registered binding rules are
+implementable and cover these 60 questions --- not that a learned system
+generalises. The compiler consumes the structured intent $\sigma$ of
+Definition~\ref{def:query}; the LLM arms read the same declarations from the
+question's natural language (parsing language into $\sigma$ is out of
+scope).
+
+\smallskip\noindent\looseness=-1\textbf{The disclosure layer, exercised.} This suite makes \S\ref{sec:rewrite} earn its place on gold: three
+\texttt{DISCLOSURE-BLOCKED} refusals (a contributor roster, two patient-level
+listings) where the masked, $k$-gated ladder has no legal point; five
+granularity roll-ups, one a three-level climb failing below the top
+exemption, one whose $k$ moves $10\to20$ \emph{between versions} (the same
+question answers under $v1$, rewrites under $v2$); and two mask degradations
+whose transform compiles into the emitted SQL --- each closed by the
+independent verifier (\S\ref{sec:eval-cert}), not by our own replay. Ablating the rewrite stage
+is arithmetic rather than a run: refusing wherever the request is not
+directly bindable turns the 12 rewrites into refusals, the refused share
+$0.25\to0.45$, the error rate $0\%\to12/60=20.0\%$, every gold refusal
+class unchanged --- the binding layer, not the search, carries the classes.
+
+\smallskip\noindent\looseness=-1\textbf{The version axis, exercised.} Four question
+pairs pin one question at two declared times so the answer \emph{flips}
+with the in-effect version; the sharpest is real history ---
+Formula~1's 2009 vs.\ 2010 points schemes value the same 2009 season at
+$100.0$ vs.\ $252.0$ --- alongside a problem-loan caliber change
+($0.1368\to0.0855$), a default-caliber switch and a population re-basing.
+One further question reads \emph{off-diagonal}, pinning $v1$ under
+$\ver(T)=v2$: legal exactly because the certificate carries the explicit
+commitment marker, whose deletion is one of the forgeries below.
+
+\subsection{E5: Certificates and Forgeries}
+\label{sec:eval-cert}
+
+\looseness=-1 The independent verifier accepts $60/60$ certificates; the
+discriminating experiment is forgery: 34 forged
+certificates over \emph{11 unmodified compiler certificates as bases} (all
+11 accept). Coverage is
+family-level --- at least one landing per check face. The verifier rejects
+$34/34$, each on the check its construction pre-registered: 6 value/window
+lies (a whole-year window shift with coherently moved probes; an
+empty-denominator refusal flipped to an answer over a lied count, caught by
+\emph{re-executing} the probe; the off-diagonal marker deleted; a version
+swap); 5 \emph{field deletions} --- $\nu,\alpha,\rho,\delta$, refusal
+witness --- confirming each field is consumed by a non-vacuous check, the
+converse half of Proposition~\ref{prop:nonredundant}; 9 semantic lies (a
+dangling version pin, $\AM$(iv) realisation-audit tampers, an
+out-of-closure read, a self-granted anchor override, among others); and 10
+disclosure forgeries, new with the exercised layer: answering at the banned
+grain with roll-up traces stripped, over-coarsening past the minimal legal
+level (both directions), a support-minimum transcript with SQL replaced by
+\texttt{SELECT 999}, the policy set emptied or cited off the registry, masks
+dropped or version-downgraded; and 4 refusal-class substitutions --- $\AM$(iv)
+re-issued as $\OOV$ on one genuinely vacuous leg, and a self-granted
+clause-(iv) replay variant. \emph{One boundary case is accepted and we say
+so}: deleting \emph{part} of a refusal's blocking-policy list (leaving it
+non-empty and registered) passes --- beyond non-emptiness that list is not
+load-bearing, decision and class pinned by checks re-deriving the policy
+set; the hardening is a set-equality audit.
+
+\smallskip\noindent\looseness=-1\textbf{Independence, measured.} Both sides
+read the same structured question, so a window read off it would restate what
+the certificate committed to; each role window is therefore re-derived from
+the registered as-of conventions over $(G_v,D)$: the verifier derives 50 of
+60 windows itself and, under a strict switch refusing every presented
+window, accepts exactly those $50/60$ --- the 10 rejections are the
+8 questions whose window arrives as an explicit range request plus the
+2 cross-window imperatives, where the presented coordinates \emph{are} the
+declared input and the verifier fails closed; the mutation battery rejects
+a one-day shift of a certified window.
+
+\input{tables/tab_divergence}
+
+\subsection{E6: What Independence Bought}
+\label{sec:eval-divergence}
+
+\looseness=-1 The first cross-check of the two implementations --- recorded during their
+integration on the production track that motivated this work
+(Table~\ref{tab:divergence}) ---
+\emph{rejected 25 of the 51 certificates then in force}, resolving into 15
+distinct root causes: 5 implementation defects (3 compiler-side, 2
+verifier-side), 5 registration gaps, 5 specification-reading divergences. Not
+one would have been caught by checking values against gold --- the three
+compiler-side defects each returned the right answer under a
+non-re-derivable certificate claim. Two lessons shaped the public base. In
+every registration gap the load-bearing content lived in a free-text note or
+compiler source:
+\emph{certificate checkability is a measurable proxy for governance
+registration completeness}, and \S\ref{sec:eval-setup}'s seed
+discipline is that lesson enforced. Three of the five specification
+divergences sit on when a guard's subject is undefined, each moving a
+refusal \emph{class}; this suite's frozen guard-order adjudications
+descend from those rows.
+
+\subsection{Cost, and Threats to Validity}
+\label{sec:eval-cost}
+\label{sec:eval-threats}
+
+\noindent\looseness=-1\textbf{What certification costs.} Counting work only (warm
+process, connections held; all timings on a 10-core arm64 macOS 15
+machine; Python 3.9.6, DuckDB 1.4.4), verifying a decision costs a median
+$17.7\times$ the answering query it certifies --- $17.0$\,ms against
+$1.31$\,ms, per-question paired ratios over the 45 questions that emit SQL
+(the marginal medians' own quotient is $12.9\times$), spanning $2.5\times$ to
+$44.4\times$ (p90 $36.1\times$); none is cheaper to verify than to answer, and
+the certificate is a paired median $10.2\times$ the query's bytes
+(pretty-printed; $8.4\times$ minified), the tail
+being coverage replay on the largest governed tables ($0.18$\,s warm). The 60
+per-certificate cold
+medians (median of 5 processes per certificate) sum to $7.60$\,s ---
+median 116\,ms, p90 144\,ms, max 288\,ms, 53\,ms of it process floor; as whole
+cold processes the paired median falls to $1.8\times$, the fixed per-process
+cost dominating. \S\ref{sec:rewrite}'s probe bound (\cite{asofgov-tr}) covers the
+in-window probe term; the full-scan class it exempts has \emph{no} instance
+here ($\AM$(iv) audits are window-bounded), so we exhibit no
+scan-amplification regime and report no scalability sweep.
+
+\smallskip\noindent\looseness=-1\textbf{Threats.} \emph{Sixty questions is the unit
+count, not the evidence mass}: each unit is a governed instance carrying
+executed gold, a verifier-accepted certificate and an eight-arm response
+grid; leave-one-cluster-out moves no ordering:
+every fold keeps each plain baseline's error ${\geq}0.40$, governance below
+all four, the compiler at
+$0$~\cite{asofgov-tr}. \emph{One sample per question is the protocol}: five
+reps of both headline arms (rep\,1 the frozen run) hold the ordering in all
+five, flips ${\leq}13.3\%$ per
+arm~\cite{asofgov-tr}. \emph{Nor does governance-blind temporal-SQL close
+it}: post-registered hand-built arms err $28/60$ same-window --- level
+with the governance-informed arm; $23/60$ crediting five bare
+\texttt{NULL}s as refusals --- $54/60$ all-history, values $6/33$ under
+both readings~\cite{asofgov-tr}. \emph{Authored governance over real
+data}: the fact rows are shipped public data save \texttt{world\_1}'s
+authored history, but the layer over them is ours; the mitigations are
+structural (non-degeneracy gates, witness pairs, distractor density, leak
+audit) and total transparency, not independence of authorship.
+\emph{Scoring concessions run toward the baselines}: LLM refusals need no
+class, rewrites no declaration, a multiset amnesty admits shape-degenerate
+answers, and on the five hull-trim questions a window-blind aggregate equals
+gold by construction --- the form split in Table~\ref{tab:taxonomy} keeps the
+headline from hiding there (value errors 11/33
+even with those freebies); and on one of the four version-flip pairs
+(\texttt{california\_schools}) the two gold values differ by $0.48\%$, inside
+the $0.5\%$ scoring tolerance, so that pair credits a version-blind answer.
+Running the other way, the compiler is handed the $\sigma$ the LLM arms must
+recover from text (\S\ref{sec:eval-mech}); a post-registered arm that
+extracts $\sigma$ from the question text and hands it to the compiler errs
+$5/60$~\cite{asofgov-tr} --- recovering $\sigma$ is not where the difficulty
+lives.
+\emph{One backbone} carries the variant and governance arms --- conclusions
+about \texttt{claude-opus-4-6}; cross-family columns carry
+\S\ref{sec:eval-setup}'s gateway caveat. \emph{The protocol is
+cross-lingual} (\S\ref{sec:eval-setup}): the three Chinese-native families
+still err more than the backbone ($71.7/73.3/76.7$ against $60.0$ ---
+gateway-confounded columns, intervals too wide to rank families); a
+post-registered English run of both headline arms moves each arm one
+question ($35/60$, $29/60$ against $36/60$, $28/60$), ordering and
+probe-side concentration intact~\cite{asofgov-tr}: language does not drive
+the gap. \emph{The
+governance-informed comparator is bounded in our favour}
+(\S\ref{sec:eval-gov}): full-layer packaging is an upper bound on what
+in-context governance buys, not a tuned opponent's floor; \emph{prediction misses are published} (\S\ref{sec:eval-gov}).
+\emph{What no arm has} is
+\emph{execution feedback}: every system answers from one statement --- one
+pass cannot run the probes that decide the hard classes --- and \emph{prompt
+technique is one line deep} --- no decomposition, self-consistency, in-domain
+few-shot or multi-turn arm.

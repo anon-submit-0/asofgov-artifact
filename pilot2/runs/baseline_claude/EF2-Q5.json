@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q5",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 66.5509631907389,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT AVG(pa.overall_rating)\nFROM main.\"Player_Attributes\" pa\nWHERE CAST(pa.date AS DATE) <= '2013-12-25'\n  AND pa.id IN (\n    SELECT pa2.id\n    FROM main.\"Player_Attributes\" pa2\n    WHERE CAST(pa2.date AS DATE) <= '2013-12-25'\n      AND pa2.player_api_id = pa.player_api_id\n    ORDER BY CAST(pa2.date AS DATE) DESC\n    LIMIT 1\n  );\n```\n\nWait, let me reconsider. The question asks for a bi-temporal query: declaration time (transaction time) 2014-02-01 and snapshot (valid time) as-of 2013-12-25. Looking at the gov tables for temporal binding info, but the Player_Attributes table only has a single `date` column. Let me provide a cleaner query that gets the latest attribute per player as-of 2013-12-25:\n\n```sql\nSELECT AVG(overall_rating)\nFROM (\n  SELECT pa.player_api_id, pa.overall_rating,\n         ROW_NUMBER() OVER (PARTITION BY pa.player_api_id ORDER BY CAST(pa.date AS DATE) DESC) AS rn\n  FROM main.\"Player_Attributes\" pa\n  WHERE CAST(pa.date AS DATE) <= '2013-12-25'\n) t\nWHERE rn = 1;\n```",
+ "sql": "SELECT AVG(pa.overall_rating)\nFROM main.\"Player_Attributes\" pa\nWHERE CAST(pa.date AS DATE) <= '2013-12-25'\n  AND pa.id IN (\n    SELECT pa2.id\n    FROM main.\"Player_Attributes\" pa2\n    WHERE CAST(pa2.date AS DATE) <= '2013-12-25'\n      AND pa2.player_api_id = pa.player_api_id\n    ORDER BY CAST(pa2.date AS DATE) DESC\n    LIMIT 1\n  )",
+ "prompt_sha256": "78a2b2e1a2bdf2431effa8dbb716a1c5ea7f453bd84da7605c299850744383cd",
+ "prompt_chars": 7618,
+ "empty_response": false
+}

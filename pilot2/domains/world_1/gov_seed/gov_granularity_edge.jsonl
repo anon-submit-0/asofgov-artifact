@@ -1,0 +1,4 @@
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "world_1", "edge_id": "w1.eg1", "from_level": "country", "graph_version": "v1", "group_cols": ["Continent"], "node_id": "w1.country", "to_level": "continent"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "world_1", "edge_id": "w1.eg2", "from_level": "continent", "graph_version": "v1", "group_cols": [], "node_id": "w1.country", "to_level": "all"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "world_1", "edge_id": "w1.eg1", "from_level": "country", "graph_version": "v2", "group_cols": ["Continent"], "node_id": "w1.country", "to_level": "continent"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "world_1", "edge_id": "w1.eg2", "from_level": "continent", "graph_version": "v2", "group_cols": [], "node_id": "w1.country", "to_level": "all"}

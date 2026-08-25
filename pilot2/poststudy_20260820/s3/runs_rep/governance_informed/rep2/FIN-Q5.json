@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q5",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 15885.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) \nFROM main.\"trans\" \nWHERE date >= DATE '1996-06-01' \n  AND date < DATE '1996-07-01'\n```",
+ "sql": "SELECT COUNT(*) \nFROM main.\"trans\" \nWHERE date >= DATE '1996-06-01' \n  AND date < DATE '1996-07-01'",
+ "prompt_sha256": "0f676c163e81ee73cebbad7bad709c1b4e98f7c9421d7b026b5bc268bb83ba22",
+ "prompt_chars": 23516,
+ "empty_response": false
+}

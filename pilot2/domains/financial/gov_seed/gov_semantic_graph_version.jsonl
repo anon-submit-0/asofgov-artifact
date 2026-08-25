@@ -1,0 +1,2 @@
+{"change_note": "初版治理：问题贷款口径含催收中与坏账两类", "commit_seq": 1, "committed_at": "1994-01-15", "domain": "financial", "graph_version": "v1"}
+{"change_note": "核销新政后问题贷款口径收窄为坏账单类", "commit_seq": 2, "committed_at": "1998-03-01", "domain": "financial", "graph_version": "v2"}

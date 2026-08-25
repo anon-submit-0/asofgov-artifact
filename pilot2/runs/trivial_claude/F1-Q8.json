@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q8",
+ "system": "trivial_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: Brawn GP（constructorRef='brawn'）仅存在于 2009 赛季，2010 年已更名为 Mercedes，数据库中无其 2010 赛季参赛记录，无法计算场均积分。",
+ "sql": "REFUSE",
+ "prompt_sha256": "9790c32f969472cd76a61559889e23456a83c5fd03d723a1d13729214abd6061",
+ "prompt_chars": 5612,
+ "empty_response": false
+}

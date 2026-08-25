@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q8",
+ "system": "trivial_v2",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 车队 brawn（Brawn GP）仅存续于 2009 赛季，2010 赛季无任何参赛记录，同窗数据不存在。",
+ "sql": "REFUSE",
+ "prompt_sha256": "aa1e6ada5e3b5af6278813a4eeaa1b44a36324b1a438d0e4300d7cf79ce5bcf0",
+ "prompt_chars": 5723,
+ "empty_response": false
+}

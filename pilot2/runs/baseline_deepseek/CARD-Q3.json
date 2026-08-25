@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "baseline_deepseek",
+ "kind": "value",
+ "value": 0.0,
+ "verdict": "wrong_value",
+ "raw": "SELECT COUNT(*) FROM main.\"legalities\" l \nJOIN main.\"cards\" c ON l.uuid = c.uuid \nWHERE l.format = 'standard' AND l.status = 'legal' \nAND c.\"originalReleaseDate\" <= '2021-03-10';",
+ "sql": "SELECT COUNT(*) FROM main.\"legalities\" l \nJOIN main.\"cards\" c ON l.uuid = c.uuid \nWHERE l.format = 'standard' AND l.status = 'legal' \nAND c.\"originalReleaseDate\" <= '2021-03-10'",
+ "prompt_sha256": "7203e05966850628dce621d527b11a99de5f86d24265382f5aa8b4aaea74bcba",
+ "prompt_chars": 5446,
+ "empty_response": false
+}

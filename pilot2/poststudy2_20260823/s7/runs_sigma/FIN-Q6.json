@@ -1,0 +1,32 @@
+{
+ "qid": "FIN-Q6",
+ "domain": "financial",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": null,
+  "declared_at": "1998-09-15",
+  "metric_alias": "区间交易笔数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "day_range",
+   "lo": "1998-07-01",
+   "hi_excl": "1999-07-01"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": null, \"declared_at\": \"1998-09-15\", \"metric_alias\": \"区间交易笔数\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": {\"kind\": \"day_range\", \"lo\": \"1998-07-01\", \"hi_excl\": \"1999-07-01\"}, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "a314f8f4eb1ad63505102cab3dd0ecea5a5287833d7dbd1f19b331c7449bf571",
+ "prompt_chars": 26364
+}

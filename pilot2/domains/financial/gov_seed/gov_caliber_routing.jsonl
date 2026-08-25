@@ -1,0 +1,10 @@
+{"dst_caliber": "all", "dst_node": "fin.trans", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "fin.penalty_trans_rate", "routing_id": "fin.rt1", "src_node": "fin.trans"}
+{"dst_caliber": "all", "dst_node": "fin.trans", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "fin.penalty_trans_rate", "routing_id": "fin.rt2", "src_node": "fin.trans"}
+{"dst_caliber": "all", "dst_node": "fin.loan", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "fin.problem_loan_rate", "routing_id": "fin.rt3", "src_node": "fin.loan"}
+{"dst_caliber": "all", "dst_node": "fin.loan", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "fin.problem_loan_rate", "routing_id": "fin.rt4", "src_node": "fin.loan"}
+{"dst_caliber": "none", "dst_node": "fin.account", "graph_version": "v1", "hop_seq": 0, "join_on": [["account_id", "account_id"]], "leg": "den", "metric_id": "fin.penalty_rate_classified", "routing_id": "fin.rt9", "src_node": "fin.trans"}
+{"dst_caliber": "all", "dst_node": "fin.trans", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "fin.penalty_trans_rate", "routing_id": "fin.rt1", "src_node": "fin.trans"}
+{"dst_caliber": "all", "dst_node": "fin.trans", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "fin.penalty_trans_rate", "routing_id": "fin.rt2", "src_node": "fin.trans"}
+{"dst_caliber": "all", "dst_node": "fin.loan", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "fin.problem_loan_rate", "routing_id": "fin.rt3", "src_node": "fin.loan"}
+{"dst_caliber": "all", "dst_node": "fin.loan", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "fin.problem_loan_rate", "routing_id": "fin.rt4", "src_node": "fin.loan"}
+{"dst_caliber": "none", "dst_node": "fin.account", "graph_version": "v2", "hop_seq": 0, "join_on": [["account_id", "account_id"]], "leg": "den", "metric_id": "fin.penalty_rate_classified", "routing_id": "fin.rt9", "src_node": "fin.trans"}

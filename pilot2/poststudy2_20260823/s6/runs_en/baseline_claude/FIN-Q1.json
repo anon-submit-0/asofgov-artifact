@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q1",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.1368,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT ROUND(CAST(SUM(CASE WHEN status IN ('B','D') THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*), 4) AS problem_loan_rate\nFROM main.\"loan\"\nWHERE date >= '1996-01-01' AND date <= '1996-12-31';\n```",
+ "sql": "SELECT ROUND(CAST(SUM(CASE WHEN status IN ('B','D') THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*), 4) AS problem_loan_rate\nFROM main.\"loan\"\nWHERE date >= '1996-01-01' AND date <= '1996-12-31'",
+ "prompt_sha256": "24a023e2cfe4927ed4f34869131be94d417c6c614c2a44a1bc28abc6ad10c523",
+ "prompt_chars": 4208,
+ "empty_response": false
+}

@@ -1,0 +1,16 @@
+{"den_node": "fin.loan", "domain": "financial", "graph_version": "v1", "kind": "ratio", "metric_id": "fin.problem_loan_rate", "num_node": "fin.loan"}
+{"den_node": "fin.trans", "domain": "financial", "graph_version": "v1", "kind": "ratio", "metric_id": "fin.penalty_trans_rate", "num_node": "fin.trans"}
+{"den_node": null, "domain": "financial", "graph_version": "v1", "kind": "atomic", "metric_id": "fin.loan_count_month", "num_node": "fin.loan"}
+{"den_node": null, "domain": "financial", "graph_version": "v1", "kind": "atomic", "metric_id": "fin.trans_count_month", "num_node": "fin.trans"}
+{"den_node": null, "domain": "financial", "graph_version": "v1", "kind": "atomic", "metric_id": "fin.trans_count_range", "num_node": "fin.trans"}
+{"den_node": "fin.trans", "domain": "financial", "graph_version": "v1", "kind": "ratio", "metric_id": "fin.penalty_rate_classified", "num_node": "fin.trans"}
+{"den_node": null, "domain": "financial", "graph_version": "v1", "kind": "atomic", "metric_id": "fin.problem_loan_count", "num_node": "fin.loan"}
+{"den_node": null, "domain": "financial", "graph_version": "v1", "kind": "atomic", "metric_id": "fin.avg_loan_amount", "num_node": "fin.loan"}
+{"den_node": "fin.loan", "domain": "financial", "graph_version": "v2", "kind": "ratio", "metric_id": "fin.problem_loan_rate", "num_node": "fin.loan"}
+{"den_node": "fin.trans", "domain": "financial", "graph_version": "v2", "kind": "ratio", "metric_id": "fin.penalty_trans_rate", "num_node": "fin.trans"}
+{"den_node": null, "domain": "financial", "graph_version": "v2", "kind": "atomic", "metric_id": "fin.loan_count_month", "num_node": "fin.loan"}
+{"den_node": null, "domain": "financial", "graph_version": "v2", "kind": "atomic", "metric_id": "fin.trans_count_month", "num_node": "fin.trans"}
+{"den_node": null, "domain": "financial", "graph_version": "v2", "kind": "atomic", "metric_id": "fin.trans_count_range", "num_node": "fin.trans"}
+{"den_node": "fin.trans", "domain": "financial", "graph_version": "v2", "kind": "ratio", "metric_id": "fin.penalty_rate_classified", "num_node": "fin.trans"}
+{"den_node": null, "domain": "financial", "graph_version": "v2", "kind": "atomic", "metric_id": "fin.problem_loan_count", "num_node": "fin.loan"}
+{"den_node": null, "domain": "financial", "graph_version": "v2", "kind": "atomic", "metric_id": "fin.avg_loan_amount", "num_node": "fin.loan"}

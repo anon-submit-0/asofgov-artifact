@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q6",
+ "system": "trivial_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 数据库中不包含患者姓名字段（Patient表仅有ID、SEX、Birthday等），无法给出\"患者名单\"。",
+ "sql": "REFUSE",
+ "prompt_sha256": "99745a1c2485ebc39c0c7f31a727fb0d0a4eacf0f28e160c3ba54fee3044f88a",
+ "prompt_chars": 4245,
+ "empty_response": false
+}

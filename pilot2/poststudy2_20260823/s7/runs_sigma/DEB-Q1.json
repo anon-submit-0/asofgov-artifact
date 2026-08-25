@@ -1,0 +1,30 @@
+{
+ "qid": "DEB-Q1",
+ "domain": "debit_card_specializing",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2013-08-01",
+  "declared_at": "2013-09-15",
+  "metric_alias": "月均客户消费额",
+  "scope": {
+   "currency": "CZK"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2013-08-01\", \"declared_at\": \"2013-09-15\", \"metric_alias\": \"月均客户消费额\", \"scope\": {\"currency\": \"CZK\"}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "35e270ed484c0645833f14ddee3c098e0bf458a038351a4607c8a147c5401ef6",
+ "prompt_chars": 22731
+}

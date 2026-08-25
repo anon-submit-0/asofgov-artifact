@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q2",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 4068933086.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT SUM(ch.population) \nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE c.\"Continent\" = 'Asia' \n  AND ch.effective_month <= '2026-08'\n  AND ch.effective_month = (\n    SELECT MAX(ch2.effective_month)\n    FROM main.\"country_history\" ch2\n    WHERE ch2.code = ch.code \n      AND ch2.effective_month <= '2026-08'\n      AND ch2.effective_month <= '2026-05'\n  )\n```",
+ "sql": "SELECT SUM(ch.population) \nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE c.\"Continent\" = 'Asia' \n  AND ch.effective_month <= '2026-08'\n  AND ch.effective_month = (\n    SELECT MAX(ch2.effective_month)\n    FROM main.\"country_history\" ch2\n    WHERE ch2.code = ch.code \n      AND ch2.effective_month <= '2026-08'\n      AND ch2.effective_month <= '2026-05'\n  )",
+ "prompt_sha256": "96813b11ebf1108952cbda13394f488eb36c5ef19f335d2a62ec5afedf211253",
+ "prompt_chars": 3081,
+ "empty_response": false
+}

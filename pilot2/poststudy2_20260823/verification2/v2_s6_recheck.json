@@ -1,0 +1,199 @@
+{
+ "claimed_predictions": {
+  "S6-P1": null,
+  "S6-P2": null,
+  "S6-P3": null,
+  "S6-P4": null
+ },
+ "independent_predictions": {
+  "S6-P1": "MET",
+  "S6-P2": "MET",
+  "S6-P3": "MET",
+  "S6-P4": "MET"
+ },
+ "probe7": {
+  "gov_en_errors": 5,
+  "qids": [
+   "FIN-Q7",
+   "F1-Q7",
+   "DEB-Q6",
+   "EF2-Q5",
+   "CARD-Q7",
+   "F1-Q8",
+   "EF2-Q6"
+  ]
+ },
+ "recount": {
+  "errors": {
+   "baseline_claude": 35,
+   "governance_informed": 29
+  },
+  "taxonomy": {
+   "baseline_claude": {
+    "answered_should_refuse": 5,
+    "correct": 25,
+    "execution_error": 2,
+    "refused_should_answer": 14,
+    "wrong_value": 14
+   },
+   "governance_informed": {
+    "answered_should_refuse": 11,
+    "correct": 31,
+    "execution_error": 6,
+    "wrong_value": 12
+   }
+  }
+ },
+ "rescore6": {
+  "baseline_claude/DEB-Q1": {
+   "cached_verdict": "correct",
+   "expected_kind": "value",
+   "match": true,
+   "raw_head": "```sql\nSELECT AVG(\"Consumption\") FROM main.\"yearmonth\" WHERE \"CustomerID\" IN (SELECT \"CustomerID\" FROM main.\"customers\" WHERE \"Currency\" = 'CZK') AND \"Date\" = '201308'\n```",
+   "rescored_verdict": "correct",
+   "sql_reextract_matches": true,
+   "value_matches": true
+  },
+  "baseline_claude/EF2-Q3": {
+   "cached_verdict": "correct",
+   "expected_kind": "value",
+   "match": true,
+   "raw_head": "```sql\nSELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE \"date\" >= '2015-06-01' AND \"date\" < '2015-07-01'\n```",
+   "rescored_verdict": "correct",
+   "sql_reextract_matches": true,
+   "value_matches": true
+  },
+  "baseline_claude/FIN-Q2": {
+   "cached_verdict": "wrong_value",
+   "expected_kind": "value",
+   "match": true,
+   "raw_head": "```sql\nSELECT ROUND(CAST(SUM(CASE WHEN status IN ('B', 'D') THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*), 4) AS problem_loan_rate\nFROM main.\"loan\"\nWHERE date >= '1996-01-01' AND date <= '1996-12-31';\n```",
+   "rescored_verdict": "wrong_value",
+   "sql_reextract_matches": true,
+   "value_matches": true
+  },
+  "governance_informed/CA-Q3": {
+   "cached_verdict": "correct",
+   "expected_kind": "value",
+   "match": true,
+   "raw_head": "```sql\nSELECT COUNT(*) FROM main.schools WHERE \"OpenDate\" <= '2015-01-01' AND (\"ClosedDate\" IS NULL OR \"ClosedDate\" >= '2015-01-01');\n```",
+   "rescored_verdict": "correct",
+   "sql_reextract_matches": true,
+   "value_matches": true
+  },
+  "governance_informed/CARD-Q1": {
+   "cached_verdict": "correct",
+   "expected_kind": "value",
+   "match": true,
+   "raw_head": "```sql\nSELECT COUNT(*) AS monthly_rulings_feb_2017\nFROM rulings\nWHERE date >= '2017-02-01' AND date < '2017-03-01';\n```",
+   "rescored_verdict": "correct",
+   "sql_reextract_matches": true,
+   "value_matches": true
+  },
+  "governance_informed/DEB-Q6": {
+   "cached_verdict": "answered_should_refuse",
+   "expected_kind": "refusal",
+   "match": true,
+   "raw_head": "```sql\nSELECT AVG(\"Consumption\") AS avg_consumption\nFROM main.\"yearmonth\"\nWHERE \"Date\" = '201312';\n```",
+   "rescored_verdict": "answered_should_refuse",
+   "sql_reextract_matches": true,
+   "value_matches": true
+  }
+ },
+ "rescore_all_match": true,
+ "translation_reaudit": {
+  "all_pass": false,
+  "detail": {
+   "CA-Q4": {
+    "all_pass": true,
+    "checks": {
+     "as_of_present": true,
+     "declared_at_present": true,
+     "no_gold_leak": true
+    },
+    "en": "With 2015-05-01 as the declaration instant, what is the number of schools in effect as-of 2000-09-01?",
+    "zh": "以 2015-05-01 为声明时点，as-of 2000-09-01 时点在效学校数是多少？"
+   },
+   "CARD-Q3": {
+    "all_pass": true,
+    "checks": {
+     "as_of_present": true,
+     "declared_at_present": true,
+     "no_gold_leak": true
+    },
+    "en": "With 2021-03-15 as the declaration instant, under the current rotation caliber, what is the total number of rotation-legal cards as-of 2021-03-10?",
+    "zh": "以 2021-03-15 为声明时点，按当前轮替口径，截至 as-of 2021-03-10 的轮替合法卡牌总数是多少？"
+   },
+   "CODE-Q6": {
+    "all_pass": true,
+    "checks": {
+     "declared_at_present": true,
+     "no_gold_leak": true
+    },
+    "en": "With 2013-08-01 as the declaration instant, what is the location of user Id=22047 (presented under the current disclosure policy)?",
+    "zh": "以 2013-08-01 为声明时点，用户 Id=22047 的用户所在地是什么（按现行披露策略呈现）？"
+   },
+   "EF2-Q5": {
+    "all_pass": true,
+    "checks": {
+     "as_of_present": true,
+     "declared_at_present": true,
+     "no_gold_leak": true
+    },
+    "en": "With 2014-02-01 as the declaration instant, what is the average composite rating of players on the snapshot date as-of 2013-12-25?",
+    "zh": "以 2014-02-01 为声明时点，as-of 2013-12-25 快照日的快照日球员平均综合评分是多少？"
+   },
+   "F1-Q8": {
+    "all_pass": true,
+    "checks": {
+     "as_of_present": true,
+     "declared_at_present": true,
+     "no_gold_leak": true,
+     "scope_constructor_present": true
+    },
+    "en": "With 2011-03-01 as the declaration instant, what is the team average points per race for team brawn in the 2010 season (as-of 2010-07-01 the containing year window)?",
+    "zh": "以 2011-03-01 为声明时点，车队 brawn 2010 赛季（as-of 2010-07-01 所在年窗）的车队场均积分是多少？"
+   },
+   "FIN-Q8": {
+    "all_pass": false,
+    "checks": {
+     "as_of_present": false,
+     "declared_at_present": true,
+     "no_gold_leak": true
+    },
+    "en": "Calculate the penalty interest transaction proportion, but with the numerator taken from May 1997 and the denominator taken from April 1997 (declaration instant 1998-09-15).",
+    "zh": "计算罚息交易占比，但分子取 1997 年 5 月、分母取 1997 年 4 月（声明时点 1998-09-15）。"
+   },
+   "TH-Q1": {
+    "all_pass": true,
+    "checks": {
+     "as_of_present": true,
+     "declared_at_present": true,
+     "no_gold_leak": true
+    },
+    "en": "With 1998-06-01 as the declaration instant, what is the abnormal lab test rate (GOT≥60 caliber) for the 1997 calendar year (as-of 1997-06-30 the containing year window)?",
+    "zh": "以 1998-06-01 为声明时点，1997 自然年（as-of 1997-06-30 所在年窗）的异常化验率（GOT≥60 口径）是多少？"
+   },
+   "W1-Q2": {
+    "all_pass": false,
+    "checks": {
+     "as_of_present": false,
+     "declared_at_present": true,
+     "no_gold_leak": true
+    },
+    "en": "With 2026-08-15 as the declaration instant, under the population caliber in effect at that time, what is the total population of Asia as-of 2026-05 at month granularity?",
+    "zh": "以 2026-08-15 为声明时点，按当时生效人口口径，as-of 2026-05 月粒的亚洲人口总和是多少？"
+   }
+  },
+  "sample": [
+   "CA-Q4",
+   "CARD-Q3",
+   "CODE-Q6",
+   "EF2-Q5",
+   "F1-Q8",
+   "FIN-Q8",
+   "TH-Q1",
+   "W1-Q2"
+  ]
+ }
+}

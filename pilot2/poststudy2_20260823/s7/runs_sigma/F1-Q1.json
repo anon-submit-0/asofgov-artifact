@@ -1,0 +1,30 @@
+{
+ "qid": "F1-Q1",
+ "domain": "formula_1",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2009-07-01",
+  "declared_at": "2009-12-01",
+  "metric_alias": "赛季车手总积分",
+  "scope": {
+   "driver": "button"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2009-07-01\", \"declared_at\": \"2009-12-01\", \"metric_alias\": \"赛季车手总积分\", \"scope\": {\"driver\": \"button\"}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "8df6ebb079c7e1c5d9b85e9249532de4ffda0dc4b71e3ed268bf685ae5581e5b",
+ "prompt_chars": 30007
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q4",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 114.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT\n  SUM(CASE WHEN r.\"year\" = 2010 THEN COALESCE(ps.points, 0) ELSE 0 END)\n  - SUM(CASE WHEN r.\"year\" = 2009 THEN COALESCE(ps.points, 0) ELSE 0 END) AS season_points_delta\nFROM results res\nJOIN races r ON res.\"raceId\" = r.\"raceId\"\nJOIN drivers d ON res.\"driverId\" = d.\"driverId\"\nLEFT JOIN points_scheme ps ON res.\"positionOrder\" = ps.\"position\" AND ps.\"scheme_id\" = CASE WHEN r.\"year\" >= 2010 THEN 'PS2010' ELSE 'PS2009' END\nWHERE d.\"driverRef\" = 'button'\n  AND r.\"year\" IN (2009, 2010);\n```",
+ "sql": "SELECT\n  SUM(CASE WHEN r.\"year\" = 2010 THEN COALESCE(ps.points, 0) ELSE 0 END)\n  - SUM(CASE WHEN r.\"year\" = 2009 THEN COALESCE(ps.points, 0) ELSE 0 END) AS season_points_delta\nFROM results res\nJOIN races r ON res.\"raceId\" = r.\"raceId\"\nJOIN drivers d ON res.\"driverId\" = d.\"driverId\"\nLEFT JOIN points_scheme ps ON res.\"positionOrder\" = ps.\"position\" AND ps.\"scheme_id\" = CASE WHEN r.\"year\" >= 2010 THEN 'PS2010' ELSE 'PS2009' END\nWHERE d.\"driverRef\" = 'button'\n  AND r.\"year\" IN (2009, 2010)",
+ "prompt_sha256": "cb2683d3e33cd223e21336d7c930803f8a9d0f06394a7738996eaa19c0b3c6de",
+ "prompt_chars": 27150,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q6",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT AVG(\"Consumption\") AS avg_consumption\nFROM main.\"yearmonth\"\nWHERE \"Date\" = '201312';\n```",
+ "sql": "SELECT AVG(\"Consumption\") AS avg_consumption\nFROM main.\"yearmonth\"\nWHERE \"Date\" = '201312'",
+ "prompt_sha256": "4a183f4d044ceee1fe0e8195d45d04d68b327e66fa79e0cc1939ee2cdd4e58f1",
+ "prompt_chars": 19956,
+ "empty_response": false
+}

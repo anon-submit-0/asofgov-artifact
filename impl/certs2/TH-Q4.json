@@ -1,0 +1,91 @@
+{
+ "sql": "SELECT substr(CAST(t0.\"Birthday\" AS VARCHAR),1,4) FROM \"Patient\" t0 WHERE t0.\"ID\" = 2110",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "TH-Q4",
+   "domain": "thrombosis_prediction",
+   "metric": "th.patient_birthday",
+   "metric_kind": "attribute",
+   "as_of": null
+  },
+  "graph_pin": {
+   "domain": "thrombosis_prediction",
+   "graph_version": "v2",
+   "commit_id": "1998-01-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": null,
+    "registered": false,
+    "coverage_mode": null,
+    "granule": "atemporal",
+    "window": {
+     "kind": "atemporal"
+    },
+    "explicit_empty_assignment": true,
+    "empty_assignment": true,
+    "metric": "th.patient_birthday"
+   }
+  ],
+  "binding": null,
+  "routing": [],
+  "disclosure": {
+   "decision": "REWRITE",
+   "policy_ids": [
+    "th.pi1"
+   ],
+   "policy_table_present": true,
+   "ungoverned_disclosure": false,
+   "granularity": "value",
+   "mask_closure": [
+    {
+     "attributes": [
+      "Birthday"
+     ],
+     "mask": "year_only",
+     "policy_id": "th.pi1"
+    }
+   ]
+  },
+  "probes": [],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  },
+  "notes": [
+   "attribute 度量非时态：α 记显式空指派（I2'(a)），无锚窗可评"
+  ],
+  "rewrite": {
+   "kept_slices": [
+    "(v2,th.patient_birthday)"
+   ],
+   "cut_trace": [
+    {
+     "kind": "mask_presentation",
+     "attributes": [
+      "Birthday"
+     ],
+     "mask": "year_only",
+     "policy_id": "th.pi1"
+    }
+   ],
+   "ct": [],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ }
+}

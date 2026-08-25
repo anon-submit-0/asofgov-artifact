@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q3",
+ "system": "baseline_qwen",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT SUM(ym.Consumption) FROM main.\"yearmonth\" ym JOIN main.\"customers\" c ON ym.\"CustomerID\" = c.\"CustomerID\" WHERE c.\"Segment\" = 'SME' AND ym.\"Date\" = '2013-06';\n```",
+ "sql": "SELECT SUM(ym.Consumption) FROM main.\"yearmonth\" ym JOIN main.\"customers\" c ON ym.\"CustomerID\" = c.\"CustomerID\" WHERE c.\"Segment\" = 'SME' AND ym.\"Date\" = '2013-06'",
+ "prompt_sha256": "f60ea77530c17e881f8de7a85a6676ab2032f472b6cb4f9c57d4414ff2d6c6ea",
+ "prompt_chars": 3715,
+ "empty_response": false
+}

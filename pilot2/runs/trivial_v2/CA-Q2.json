@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q2",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 0.5197792088316467,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \n    CAST(\"Free Meal Count (K-12)\" AS DOUBLE) / NULLIF(CAST(\"Enrollment (K-12)\" AS DOUBLE), 0) AS free_meal_rate\nFROM main.\"frpm\"\nWHERE \"County Name\" = 'Alameda'\n    AND \"Academic Year\" = '2014-2015'\nLIMIT 1\n```",
+ "sql": "SELECT \n    CAST(\"Free Meal Count (K-12)\" AS DOUBLE) / NULLIF(CAST(\"Enrollment (K-12)\" AS DOUBLE), 0) AS free_meal_rate\nFROM main.\"frpm\"\nWHERE \"County Name\" = 'Alameda'\n    AND \"Academic Year\" = '2014-2015'\nLIMIT 1",
+ "prompt_sha256": "a0ae7ac0ef7e8b12958068b65475705364046e7d7dbe8338873e4c07ede51350",
+ "prompt_chars": 5440,
+ "empty_response": false
+}

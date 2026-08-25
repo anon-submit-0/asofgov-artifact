@@ -1,0 +1,116 @@
+{
+ "sql": "SELECT (SELECT COUNT(*) FROM \"Match\" t0 INNER JOIN \"League\" t1 ON t0.\"league_id\" = t1.\"id\" WHERE t0.\"home_team_goal\" > t0.\"away_team_goal\" AND t1.\"name\" = 'England Premier League' AND t0.\"season\" = '2015/2016' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '2015-08-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '2016-05-26') * 1.0 / NULLIF((SELECT COUNT(*) FROM \"Match\" t0 INNER JOIN \"League\" t1 ON t0.\"league_id\" = t1.\"id\" WHERE t1.\"name\" = 'England Premier League' AND t0.\"season\" = '2015/2016' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '2015-08-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '2016-05-26'), 0)",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "EF2-Q2",
+   "domain": "european_football_2",
+   "metric": "ef2.win_rate",
+   "metric_kind": "ratio",
+   "as_of": null
+  },
+  "graph_pin": {
+   "domain": "european_football_2",
+   "graph_version": "v2",
+   "commit_id": "2014-08-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "numerator",
+    "anchor_id": "A-EF2-MATCH",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "range",
+     "lo": "2015-08-01",
+     "hi_excl": "2016-05-26"
+    }
+   },
+   {
+    "role": "denominator",
+    "anchor_id": "A-EF2-MATCH",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "range",
+     "lo": "2015-08-01",
+     "hi_excl": "2016-05-26"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-EF2-WR-N|B-EF2-WR-D",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": "A-EF2-MATCH",
+   "denominator_anchor": "A-EF2-MATCH",
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [
+   {
+    "caliber_key": "ef2.rt1",
+    "metric": "ef2.win_rate",
+    "leg": "scope",
+    "hop_seq": "0",
+    "src_node": "ef2.match",
+    "dst_node": "ef2.league",
+    "via_table": "League",
+    "dst_caliber": "scoped",
+    "join_keys": [
+     [
+      "league_id",
+      "id"
+     ]
+    ]
+   }
+  ],
+  "disclosure": {
+   "decision": "ANSWER",
+   "policy_ids": [],
+   "policy_table_present": false,
+   "ungoverned_disclosure": true,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-EF2-MATCH",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"Match\" t WHERE t.\"date\" IS NOT NULL",
+    "observed": [
+     "2008-07-18",
+     "2016-05-25"
+    ]
+   },
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-EF2-MATCH",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"Match\" t WHERE t.\"date\" IS NOT NULL",
+    "observed": [
+     "2008-07-18",
+     "2016-05-25"
+    ]
+   },
+   {
+    "kind": "DEN_POP",
+    "role": "denominator",
+    "period": 0,
+    "sql": "SELECT (SELECT COUNT(*) FROM \"Match\" t0 INNER JOIN \"League\" t1 ON t0.\"league_id\" = t1.\"id\" WHERE t1.\"name\" = 'England Premier League' AND t0.\"season\" = '2015/2016' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '2015-08-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '2016-05-26')",
+    "observed": 380.0
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  }
+ }
+}

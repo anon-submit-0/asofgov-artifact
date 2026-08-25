@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q5",
+ "system": "baseline_deepseek",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "SELECT DATE(CreaionDate) AS day, COUNT(*) AS new_questions FROM main.\"posts\" WHERE PostTypeId = 1 AND CreaionDate >= '2013-06-01' AND CreaionDate < '2013-07-01' GROUP BY DATE(CreaionDate) ORDER BY day",
+ "sql": "SELECT DATE(CreaionDate) AS day, COUNT(*) AS new_questions FROM main.\"posts\" WHERE PostTypeId = 1 AND CreaionDate >= '2013-06-01' AND CreaionDate < '2013-07-01' GROUP BY DATE(CreaionDate) ORDER BY day",
+ "prompt_sha256": "7c2556df677e937022a64af53848bc266f7d13937e91aec08179459a54cbdbb2",
+ "prompt_chars": 4898,
+ "empty_response": false
+}

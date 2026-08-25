@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": 7669.0,
+ "verdict": "wrong_value",
+ "raw": "I need to find the total number of cards that are legal in \"Standard\" (轮替) format as of 2021-03-10.\n\nLet me analyze the governance tables to understand temporal bindings, but given the complexity and the actual data available, the core question is: count cards that are legal in Standard format.\n\nLet me look at the temporal binding and valid time anchor tables to understand how to apply the as-of date.\n\nThe `legalities` table has format/status/uuid. \"轮替\" means \"Standard\" (rotation format). I need to count cards where format = 'standard' and status = 'Legal'.\n\nFor the temporal aspect, I need to check `gov_valid_time_anchor` and `gov_temporal_binding` to see if there's a time-based filter. The `sets` table has `releaseDate` which could serve as the effective time column. Cards from sets released on or before 2021-03-10 would be the relevant ones.\n\nLooking at the schema:\n- `gov_valid_time_anchor` has columns: anchor_id, node_id, anchor_type, effective_col, vf_col, vtc_col, granularity, coverage_mode\n- `gov_temporal_binding` has: binding_id, metric_id, leg, anchor_id, rule_id, window_gran\n\nThe as-of date 2021-03-10 likely filters sets by releaseDate <= '2021-03-10', and \"轮替\" (Standard) legality means format = 'standard' and status = 'Legal'.\n\nGiven the declared as-of 2021-03-15 and the actual as-of 2021-03-10, I should count distinct cards that are legal in standard format from sets released on or before 2021-03-10.\n\n```sql\nSELECT COUNT(DISTINCT c.uuid)\nFROM main.cards c\nJOIN main.legalities l ON c.uuid = l.uuid\nJOIN main.sets s ON c.setCode = s.code\nWHERE l.format = 'standard'\n  AND l.status = 'Legal'\n  AND s.releaseDate <= DATE '2021-03-10';\n```",
+ "sql": "SELECT COUNT(DISTINCT c.uuid)\nFROM main.cards c\nJOIN main.legalities l ON c.uuid = l.uuid\nJOIN main.sets s ON c.setCode = s.code\nWHERE l.format = 'standard'\n  AND l.status = 'Legal'\n  AND s.releaseDate <= DATE '2021-03-10'",
+ "prompt_sha256": "601f634344195e35a9d802c71f410e26432d44653a3d40cb8292b0ba7e0104ba",
+ "prompt_chars": 5561,
+ "empty_response": false
+}

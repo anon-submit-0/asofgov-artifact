@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q8",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.01911863110601281,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n  CAST(COUNT(CASE WHEN YEAR(date) = 1997 AND MONTH(date) = 5 AND k_symbol = 'POJISTNE' THEN 1 END) AS DOUBLE) / \n  NULLIF(COUNT(CASE WHEN YEAR(date) = 1997 AND MONTH(date) = 4 THEN 1 END), 0)\nFROM main.\"trans\"\n```",
+ "sql": "SELECT \n  CAST(COUNT(CASE WHEN YEAR(date) = 1997 AND MONTH(date) = 5 AND k_symbol = 'POJISTNE' THEN 1 END) AS DOUBLE) / \n  NULLIF(COUNT(CASE WHEN YEAR(date) = 1997 AND MONTH(date) = 4 THEN 1 END), 0)\nFROM main.\"trans\"",
+ "prompt_sha256": "ee0142b48f52aca5516f0fb860609ae1e7b37ffce00f515851f7004de13dc278",
+ "prompt_chars": 4074,
+ "empty_response": false
+}

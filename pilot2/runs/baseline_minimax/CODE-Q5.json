@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q5",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT \n    DATE(CreaionDate) AS post_date,\n    COUNT(*) AS daily_new_questions\nFROM main.\"posts\"\nWHERE PostTypeId = 1\n  AND CreaionDate >= '2013-06-01' \n  AND CreaionDate < '2013-07-01'\nGROUP BY DATE(CreaionDate)\nORDER BY post_date;\n```",
+ "sql": "SELECT \n    DATE(CreaionDate) AS post_date,\n    COUNT(*) AS daily_new_questions\nFROM main.\"posts\"\nWHERE PostTypeId = 1\n  AND CreaionDate >= '2013-06-01' \n  AND CreaionDate < '2013-07-01'\nGROUP BY DATE(CreaionDate)\nORDER BY post_date",
+ "prompt_sha256": "7c2556df677e937022a64af53848bc266f7d13937e91aec08179459a54cbdbb2",
+ "prompt_chars": 4898,
+ "empty_response": false
+}

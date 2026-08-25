@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "trivial_claude",
+ "kind": "no_sql",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "",
+ "sql": null,
+ "prompt_sha256": "99bf4e5f6ef25333dd25933712711a802a27fa588f3af594cd3ed2a4443f9987",
+ "prompt_chars": 5302,
+ "empty_response": true
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q6",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 问题中的\"评分归一当日胜率\"语义不明确，且未指明具体的评分字段、归一化方法、以及如何定义\"胜率\"（是球队胜率、球员胜率还是其他维度）。给定schema无法唯一确定查询逻辑。\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "fc4cf70f608f578c3fb7f6e605dacc439edf52ac021668d1cce606d9b38c9ada",
+ "prompt_chars": 7615,
+ "empty_response": false
+}

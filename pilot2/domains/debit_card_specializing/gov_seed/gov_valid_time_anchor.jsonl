@@ -1,0 +1,4 @@
+{"anchor_id": "A-DEB-YM", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "Date", "granularity": "month_token_yyyymm", "graph_version": "v1", "node_id": "deb.yearmonth", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-DEB-T1K", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "Date", "granularity": "day", "graph_version": "v1", "node_id": "deb.transactions_1k", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-DEB-YM", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "Date", "granularity": "month_token_yyyymm", "graph_version": "v2", "node_id": "deb.yearmonth", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-DEB-T1K", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "Date", "granularity": "day", "graph_version": "v2", "node_id": "deb.transactions_1k", "vf_col": null, "vtc_col": null}

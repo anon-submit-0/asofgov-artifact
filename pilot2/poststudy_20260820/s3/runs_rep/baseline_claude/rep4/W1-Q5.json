@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q5",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 1.0019368915945202,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n  CAST(may.pop AS DOUBLE) / NULLIF(apr.pop, 0) AS ratio\nFROM \n  (SELECT SUM(population) AS pop \n   FROM main.country_history \n   WHERE effective_month = '2026-05' \n     AND code IN (SELECT \"Code\" FROM main.country WHERE \"Continent\" = 'Asia')) may,\n  (SELECT SUM(population) AS pop \n   FROM main.country_history \n   WHERE effective_month = '2026-04' \n     AND code IN (SELECT \"Code\" FROM main.country WHERE \"Continent\" = 'Asia')) apr;\n```",
+ "sql": "SELECT \n  CAST(may.pop AS DOUBLE) / NULLIF(apr.pop, 0) AS ratio\nFROM \n  (SELECT SUM(population) AS pop \n   FROM main.country_history \n   WHERE effective_month = '2026-05' \n     AND code IN (SELECT \"Code\" FROM main.country WHERE \"Continent\" = 'Asia')) may,\n  (SELECT SUM(population) AS pop \n   FROM main.country_history \n   WHERE effective_month = '2026-04' \n     AND code IN (SELECT \"Code\" FROM main.country WHERE \"Continent\" = 'Asia')) apr",
+ "prompt_sha256": "ba159d4b3f5e9fa48553cb2cde94f1dc33b3e188eca050d62e324f4eab595757",
+ "prompt_chars": 3076,
+ "empty_response": false
+}

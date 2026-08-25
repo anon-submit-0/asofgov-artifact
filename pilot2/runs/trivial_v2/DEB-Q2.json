@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q2",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 1166.15,
+ "verdict": "correct",
+ "raw": "I need to answer: as of 2013-09-15, what is the average monthly consumption per customer for EUR-currency customers in August 2013 (2013-08 granularity)?\n\nLet me first check the governance tables to understand temporal bindings and anchors.\n\nLooking at the schema:\n- `customers` has `CustomerID`, `Segment`, `Currency`\n- `yearmonth` has `CustomerID`, `Date` (VARCHAR), `Consumption`\n\nThe question asks for EUR customers' average consumption in 2013-08.\n\nLet me check the temporal governance tables. The `gov_valid_time_anchor` and `gov_temporal_binding` tables define how to handle valid-time windows. I need to verify that the data for 2013-08 is valid as of the declaration time 2013-09-15.\n\nSince the `yearmonth.Date` is VARCHAR (likely format 'YYYYMM'), and granularity is monthly, data for 2013-08 (i.e., '201308') would be valid and observable by 2013-09-15.\n\nThe metric is: average consumption per customer for EUR customers in 2013-08.\n\n```sql\nSELECT ROUND(AVG(ym.Consumption), 2) AS avg_consumption\nFROM main.yearmonth ym\nJOIN main.customers c ON ym.CustomerID = c.CustomerID\nWHERE c.Currency = 'EUR'\n  AND ym.Date = '201308';\n```",
+ "sql": "SELECT ROUND(AVG(ym.Consumption), 2) AS avg_consumption\nFROM main.yearmonth ym\nJOIN main.customers c ON ym.CustomerID = c.CustomerID\nWHERE c.Currency = 'EUR'\n  AND ym.Date = '201308'",
+ "prompt_sha256": "782de3532a5dc01c6df63d8d2fc3c7a02110c51b77cff8ba40196d3888583028",
+ "prompt_chars": 3943,
+ "empty_response": false
+}

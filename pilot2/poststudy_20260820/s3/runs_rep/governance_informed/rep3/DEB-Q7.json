@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q7",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 指标\"月均客户消费额\"锚定 yearmonth 表的 Date 列（月粒度 token），但问题要求的时间范围\"2013-03-04 起一周\"跨越日粒度且无法对应到单一月份 token，治理元数据中该指标的 window_gran 为 month_token 要求严格成员匹配，无法执行\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "0627552ef887b04d49e344a5340221486a725df8a26d7fbaeebe5a10071a8e8e",
+ "prompt_chars": 19854,
+ "empty_response": false
+}

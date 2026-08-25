@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q6",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 6.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"races\" WHERE \"date\" BETWEEN '2017-10-01' AND '2018-03-31';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"races\" WHERE \"date\" BETWEEN '2017-10-01' AND '2018-03-31'",
+ "prompt_sha256": "8fd392e49dd6a93bbedada5f3c302cee4be3ada5050586296e7f7a928d5289a6",
+ "prompt_chars": 5709,
+ "empty_response": false
+}

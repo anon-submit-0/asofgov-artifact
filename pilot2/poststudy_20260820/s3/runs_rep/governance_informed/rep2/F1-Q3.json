@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q3",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 100.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT SUM(ps.points)\nFROM main.results r\nJOIN main.races ra ON r.raceId = ra.raceId\nJOIN main.drivers d ON r.driverId = d.driverId\nJOIN main.points_scheme ps ON r.positionOrder = ps.position AND ps.scheme_id = 'PS2009'\nWHERE d.driverRef = 'button'\n  AND ra.year = 2009\n```",
+ "sql": "SELECT SUM(ps.points)\nFROM main.results r\nJOIN main.races ra ON r.raceId = ra.raceId\nJOIN main.drivers d ON r.driverId = d.driverId\nJOIN main.points_scheme ps ON r.positionOrder = ps.position AND ps.scheme_id = 'PS2009'\nWHERE d.driverRef = 'button'\n  AND ra.year = 2009",
+ "prompt_sha256": "b1cc6f0627e2ff76741f70237d96e93323ba30ae547c9eeec876fd6ef9c853c0",
+ "prompt_chars": 27163,
+ "empty_response": false
+}

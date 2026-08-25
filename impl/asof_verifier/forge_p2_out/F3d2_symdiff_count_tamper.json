@@ -1,0 +1,197 @@
+{
+ "base_qid": "EF2-Q6",
+ "expected_reject_by": "V6b",
+ "envelope": {
+  "refusal": "anchor-mismatch",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "EF2-Q6",
+    "domain": "european_football_2",
+    "metric": "ef2.rating_weighted_win_rate",
+    "metric_kind": "ratio",
+    "as_of": "2013-12-01"
+   },
+   "graph_pin": {
+    "domain": "european_football_2",
+    "graph_version": "v1",
+    "commit_id": "2010-08-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "numerator",
+     "anchor_id": "A-EF2-MATCH",
+     "registered": true,
+     "coverage_mode": null,
+     "granule": "day",
+     "window": {
+      "kind": "point",
+      "lo": "2013-12-01",
+      "hi_excl": "2013-12-02"
+     }
+    },
+    {
+     "role": "denominator",
+     "anchor_id": "A-EF2-PA",
+     "registered": true,
+     "coverage_mode": null,
+     "granule": "day",
+     "window": {
+      "kind": "point",
+      "lo": "2013-12-01",
+      "hi_excl": "2013-12-02"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-EF2-RWWR-N|B-EF2-RWWR-D",
+    "rule": "same_valid_time_window",
+    "numerator_anchor": "A-EF2-MATCH",
+    "denominator_anchor": "A-EF2-PA",
+    "adm_check_mode": "window_realization_symdiff"
+   },
+   "routing": [
+    {
+     "caliber_key": "ef2.rt2",
+     "metric": "ef2.rating_weighted_win_rate",
+     "leg": "num",
+     "hop_seq": "0",
+     "src_node": "ef2.match",
+     "dst_node": "ef2.match",
+     "via_table": "Match",
+     "dst_caliber": "all",
+     "join_keys": []
+    },
+    {
+     "caliber_key": "ef2.rt3",
+     "metric": "ef2.rating_weighted_win_rate",
+     "leg": "den",
+     "hop_seq": "0",
+     "src_node": "ef2.player_attr",
+     "dst_node": "ef2.player_attr",
+     "via_table": "Player_Attributes",
+     "dst_caliber": "all",
+     "join_keys": []
+    }
+   ],
+   "disclosure": {
+    "decision": "REFUSE",
+    "policy_ids": [],
+    "policy_table_present": false,
+    "ungoverned_disclosure": true,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "ADM_WINDOW_REALIZATION",
+     "anchors": [
+      "A-EF2-MATCH",
+      "A-EF2-PA"
+     ],
+     "observed": 1
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   },
+   "refusal": {
+    "reason": "anchor-mismatch",
+    "witness": {
+     "type": "validity-set-symdiff",
+     "clause": "(iv)",
+     "adm_check_mode": "window_realization_symdiff",
+     "num_anchor": "A-EF2-MATCH",
+     "den_anchor": "A-EF2-PA",
+     "symdiff_count": 3,
+     "discriminant_date": "2013-12-01",
+     "num_window": {
+      "kind": "point",
+      "lo": "2013-12-01",
+      "hi_excl": "2013-12-02"
+     },
+     "den_window": {
+      "kind": "point",
+      "lo": "2013-12-01",
+      "hi_excl": "2013-12-02"
+     },
+     "assertion": "锚对实现集对称差非空（same_valid_time_window 双锚窗实现不一致，条款 (iv) 审计失败）"
+    },
+    "ct": [
+     {
+      "slice": "(v1,B-EF2-RWWR-N|B-EF2-RWWR-D)",
+      "reason": "anchor-mismatch"
+     }
+    ],
+    "slices_pass": [],
+    "composition": "slice-major(≺_det slice 序取首失败 slice; slice 内守卫序 OOV→AM→MC)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6b",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (2 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v1' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "2 α entr(ies) exist@v1 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "rule replay fails at clause (iv), consistent with witness (clause (iv): window-realization symdiff |Δ|=1 (num 1 day(s), den 0 day(s)))"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (2 edge(s)) replayed against gov_caliber_routing@v1"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "ungoverned-disclosure domain: Π=∅, dec=REFUSE, annotation present"
+   },
+   {
+    "check": "V6a",
+    "status": "SKIP",
+    "detail": "V6a applies to answer certificates only"
+   },
+   {
+    "check": "V6b",
+    "status": "FAIL",
+    "detail": "symdiff_count 3 ≠ replayed |△| = 1"
+   },
+   {
+    "check": "V6c",
+    "status": "SKIP",
+    "detail": "V6c applies to answer certificates only"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "beta_v(binding row prescribes legs)"
+  }
+ }
+}

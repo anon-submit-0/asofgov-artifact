@@ -1,0 +1,12 @@
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-ALR-N", "graph_version": "v1", "leg": "num", "metric_id": "th.abnormal_lab_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-ALR-D", "graph_version": "v1", "leg": "den", "metric_id": "th.abnormal_lab_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-EXAM", "binding_id": "B-TH-EC", "graph_version": "v1", "leg": "atom", "metric_id": "th.exam_count", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-PAR", "graph_version": "v1", "leg": "atom", "metric_id": "th.patient_abnormal_report", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-PRO", "graph_version": "v1", "leg": "atom", "metric_id": "th.patient_roster", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-EXAM", "binding_id": "B-TH-APC", "graph_version": "v1", "leg": "atom", "metric_id": "th.ana_positive_count", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-ALR-N", "graph_version": "v2", "leg": "num", "metric_id": "th.abnormal_lab_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-ALR-D", "graph_version": "v2", "leg": "den", "metric_id": "th.abnormal_lab_rate", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-EXAM", "binding_id": "B-TH-EC", "graph_version": "v2", "leg": "atom", "metric_id": "th.exam_count", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-PAR", "graph_version": "v2", "leg": "atom", "metric_id": "th.patient_abnormal_report", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-LAB", "binding_id": "B-TH-PRO", "graph_version": "v2", "leg": "atom", "metric_id": "th.patient_roster", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-TH-EXAM", "binding_id": "B-TH-APC", "graph_version": "v2", "leg": "atom", "metric_id": "th.ana_positive_count", "rule_id": "same_valid_time_window", "window_gran": "year"}

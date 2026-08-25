@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q5",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 15885.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) \nFROM main.\"trans\" \nWHERE date >= DATE '1996-06-01' \n  AND date < DATE '1996-07-01'\n```",
+ "sql": "SELECT COUNT(*) \nFROM main.\"trans\" \nWHERE date >= DATE '1996-06-01' \n  AND date < DATE '1996-07-01'",
+ "prompt_sha256": "3ab3574d4a8b8b1439fad7338aeb3781a61f1f88d99f333549cc92dc1f572d2f",
+ "prompt_chars": 4079,
+ "empty_response": false
+}

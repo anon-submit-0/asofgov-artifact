@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q7",
+ "system": "baseline_claude",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT AVG(Consumption) \nFROM main.\"yearmonth\" \nWHERE Date >= '2013-03-04' \n  AND Date < DATE '2013-03-04' + INTERVAL '7 days'\n```",
+ "sql": "SELECT AVG(Consumption) \nFROM main.\"yearmonth\" \nWHERE Date >= '2013-03-04' \n  AND Date < DATE '2013-03-04' + INTERVAL '7 days'",
+ "prompt_sha256": "3e9b2babe7cfb6750827b5525b3fd8a2dd42ae92187a3c178934a654890596dc",
+ "prompt_chars": 3696,
+ "empty_response": false
+}

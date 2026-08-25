@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q5",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT AVG(overall_rating) FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) = '2013-12-25'\n```",
+ "sql": "SELECT AVG(overall_rating) FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) = '2013-12-25'",
+ "prompt_sha256": "ec7dab0d214a712018126dd043679f809560b82b6acf99e02da6d311f6640634",
+ "prompt_chars": 25357,
+ "empty_response": false
+}

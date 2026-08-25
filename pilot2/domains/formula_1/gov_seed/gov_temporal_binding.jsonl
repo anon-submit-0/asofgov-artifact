@@ -1,0 +1,16 @@
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-DSP", "graph_version": "v1", "leg": "atom", "metric_id": "f1.driver_season_points", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-PPE-N", "graph_version": "v1", "leg": "num", "metric_id": "f1.points_per_entry", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-PPE-D", "graph_version": "v1", "leg": "den", "metric_id": "f1.points_per_entry", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-EC", "graph_version": "v1", "leg": "atom", "metric_id": "f1.entry_count", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-RCM", "graph_version": "v1", "leg": "atom", "metric_id": "f1.races_count_month", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-RCR", "graph_version": "v1", "leg": "atom", "metric_id": "f1.races_count_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-SPD", "graph_version": "v1", "leg": "atom", "metric_id": "f1.season_points_delta", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-OSP", "graph_version": "v1", "leg": "atom", "metric_id": "f1.official_standing_points", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-DSP", "graph_version": "v2", "leg": "atom", "metric_id": "f1.driver_season_points", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-PPE-N", "graph_version": "v2", "leg": "num", "metric_id": "f1.points_per_entry", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-PPE-D", "graph_version": "v2", "leg": "den", "metric_id": "f1.points_per_entry", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-EC", "graph_version": "v2", "leg": "atom", "metric_id": "f1.entry_count", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-RCM", "graph_version": "v2", "leg": "atom", "metric_id": "f1.races_count_month", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-RCR", "graph_version": "v2", "leg": "atom", "metric_id": "f1.races_count_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-SPD", "graph_version": "v2", "leg": "atom", "metric_id": "f1.season_points_delta", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-OSP", "graph_version": "v2", "leg": "atom", "metric_id": "f1.official_standing_points", "rule_id": "same_valid_time_window", "window_gran": "year"}

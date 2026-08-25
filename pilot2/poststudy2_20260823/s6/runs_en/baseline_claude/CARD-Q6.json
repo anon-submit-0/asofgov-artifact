@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q6",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: The question asks about a \"reserved card collector premium rate\" for a specific time period, which is not a metric that can be derived from the available schema. The data contains card attributes (isReserved) but no pricing, sales, or premium rate information.",
+ "sql": "REFUSE",
+ "prompt_sha256": "f3b0ef77eea0ab10294fe6462f191c261e195510b24fd78eb7777b4a72887dbf",
+ "prompt_chars": 5497,
+ "empty_response": false
+}

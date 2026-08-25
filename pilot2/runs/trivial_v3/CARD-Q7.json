@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q7",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 4.956422018348624,
+ "verdict": "answered_should_refuse",
+ "raw": "I need to understand the metric \"裁定强度\" (ruling intensity). Let me examine the governance tables to find the metric definition.\n\nBased on the governance tables, I need to find a metric related to rulings. The metric would likely be defined in `gov_metric` and `gov_metric_alias` tables, with measures in `gov_measure_def` and temporal bindings in `gov_temporal_binding`.\n\nSince I cannot query the governance tables interactively, I'll reason about \"裁定强度\" (ruling intensity). This likely means the number of rulings per card (or similar ratio) within a time window.\n\nGiven the as-of date of 2017-02-15 (February 2017 window) with a declaration point of 2017-03-01:\n\n- The month window is February 2017: 2017-02-01 to 2017-02-28\n- Rulings have a `date` column\n- \"强度\" (intensity) likely means count of rulings per card, or simply count of rulings in that period\n\nLooking at the data: `rulings` has `date` and `uuid`, `cards` has `uuid`. The most natural interpretation of \"裁定强度\" is rulings count per card (that received rulings) in the period, or total rulings / total cards with rulings.\n\nBased on the governance schema pattern and the as-of discipline (both numerator and denominator from the same window):\n\n```sql\nSELECT CAST(COUNT(r.id) AS DOUBLE) / NULLIF(COUNT(DISTINCT r.uuid), 0)\nFROM main.rulings r\nWHERE r.date >= '2017-02-01'\n  AND r.date < '2017-03-01'\n```",
+ "sql": "SELECT CAST(COUNT(r.id) AS DOUBLE) / NULLIF(COUNT(DISTINCT r.uuid), 0)\nFROM main.rulings r\nWHERE r.date >= '2017-02-01'\n  AND r.date < '2017-03-01'",
+ "prompt_sha256": "782ec8cf56587b59ebee0eccf601f95847351c43a780676ac3fb8fde5bf217f6",
+ "prompt_chars": 5634,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "baseline_deepseek",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "SELECT \n    s.\"OpenDate\" as charter_auth_date,\n    AVG(f.\"Percent (%) Eligible Free (K-12)\") as avg_free_meal_rate_2014_2015\nFROM main.\"schools\" s\nJOIN main.\"frpm\" f ON s.\"CDSCode\" = f.\"CDSCode\"\nWHERE s.\"Charter\" = 1\n  AND f.\"Academic Year\" = '2014-2015'\n  AND s.\"OpenDate\" <= '2015-09-01'\nGROUP BY s.\"OpenDate\"\nORDER BY s.\"OpenDate\"",
+ "sql": "SELECT \n    s.\"OpenDate\" as charter_auth_date,\n    AVG(f.\"Percent (%) Eligible Free (K-12)\") as avg_free_meal_rate_2014_2015\nFROM main.\"schools\" s\nJOIN main.\"frpm\" f ON s.\"CDSCode\" = f.\"CDSCode\"\nWHERE s.\"Charter\" = 1\n  AND f.\"Academic Year\" = '2014-2015'\n  AND s.\"OpenDate\" <= '2015-09-01'\nGROUP BY s.\"OpenDate\"\nORDER BY s.\"OpenDate\"",
+ "prompt_sha256": "183f6a5052cd029940ed4c8cbfc2b1fe85d9e857e530926e00b27d5fbc354483",
+ "prompt_chars": 5187,
+ "empty_response": false
+}

@@ -1,0 +1,16 @@
+{"alias_id": "card.al1", "alias_text": "裁定强度", "graph_version": "v1", "metric_id": "card.ruling_intensity"}
+{"alias_id": "card.al2", "alias_text": "当月裁定条数", "graph_version": "v1", "metric_id": "card.monthly_rulings"}
+{"alias_id": "card.al3", "alias_text": "轮替合法卡牌总数", "graph_version": "v1", "metric_id": "card.standard_card_count"}
+{"alias_id": "card.al4", "alias_text": "单卡当月裁定条数", "graph_version": "v1", "metric_id": "card.card_rulings_count"}
+{"alias_id": "card.al5", "alias_text": "区间裁定条数", "graph_version": "v1", "metric_id": "card.rulings_range"}
+{"alias_id": "card.al6", "alias_text": "保留卡收藏溢价率", "graph_version": "v1", "metric_id": "card.collector_premium"}
+{"alias_id": "card.al7", "alias_text": "当月新发行套牌数", "graph_version": "v1", "metric_id": "card.monthly_sets"}
+{"alias_id": "card.al8", "alias_text": "外文覆盖率", "graph_version": "v1", "metric_id": "card.foreign_coverage"}
+{"alias_id": "card.al1", "alias_text": "裁定强度", "graph_version": "v2", "metric_id": "card.ruling_intensity"}
+{"alias_id": "card.al2", "alias_text": "当月裁定条数", "graph_version": "v2", "metric_id": "card.monthly_rulings"}
+{"alias_id": "card.al3", "alias_text": "轮替合法卡牌总数", "graph_version": "v2", "metric_id": "card.standard_card_count"}
+{"alias_id": "card.al4", "alias_text": "单卡当月裁定条数", "graph_version": "v2", "metric_id": "card.card_rulings_count"}
+{"alias_id": "card.al5", "alias_text": "区间裁定条数", "graph_version": "v2", "metric_id": "card.rulings_range"}
+{"alias_id": "card.al6", "alias_text": "保留卡收藏溢价率", "graph_version": "v2", "metric_id": "card.collector_premium"}
+{"alias_id": "card.al7", "alias_text": "当月新发行套牌数", "graph_version": "v2", "metric_id": "card.monthly_sets"}
+{"alias_id": "card.al8", "alias_text": "外文覆盖率", "graph_version": "v2", "metric_id": "card.foreign_coverage"}

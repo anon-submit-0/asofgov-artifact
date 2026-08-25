@@ -1,0 +1,28 @@
+{
+ "qid": "TH-Q2",
+ "domain": "thrombosis_prediction",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "1995-06-30",
+  "declared_at": "1996-06-01",
+  "metric_alias": "年度检查记录数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"1995-06-30\", \"declared_at\": \"1996-06-01\", \"metric_alias\": \"年度检查记录数\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "63ca0942070bdcd2902c56144292bae37a1de67f442a68e0378d6b7252e1ef04",
+ "prompt_chars": 23262
+}

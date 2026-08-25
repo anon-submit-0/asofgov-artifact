@@ -1,0 +1,10 @@
+{"alias_id": "ca.al1", "alias_text": "免费餐率", "graph_version": "v1", "metric_id": "ca.free_meal_rate"}
+{"alias_id": "ca.al2", "alias_text": "时点在效学校数", "graph_version": "v1", "metric_id": "ca.schools_in_effect"}
+{"alias_id": "ca.al3", "alias_text": "校级免费餐率报表", "graph_version": "v1", "metric_id": "ca.school_frpm_report"}
+{"alias_id": "ca.al4", "alias_text": "平均数学成绩", "graph_version": "v1", "metric_id": "ca.avg_sat_math"}
+{"alias_id": "ca.al5", "alias_text": "特许学校数", "graph_version": "v1", "metric_id": "ca.charter_school_count"}
+{"alias_id": "ca.al1", "alias_text": "免费餐率", "graph_version": "v2", "metric_id": "ca.free_meal_rate"}
+{"alias_id": "ca.al2", "alias_text": "时点在效学校数", "graph_version": "v2", "metric_id": "ca.schools_in_effect"}
+{"alias_id": "ca.al3", "alias_text": "校级免费餐率报表", "graph_version": "v2", "metric_id": "ca.school_frpm_report"}
+{"alias_id": "ca.al4", "alias_text": "平均数学成绩", "graph_version": "v2", "metric_id": "ca.avg_sat_math"}
+{"alias_id": "ca.al5", "alias_text": "特许学校数", "graph_version": "v2", "metric_id": "ca.charter_school_count"}

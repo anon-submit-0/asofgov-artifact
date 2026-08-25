@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q7",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: The question references temporal governance concepts (declaration instant, adjudication intensity, as-of semantics, containing month window) that are not defined as computable measures in the schema's governance tables, and the data lacks any adjudication-related fact table or metric definition that would allow this to be answered.",
+ "sql": "REFUSE",
+ "prompt_sha256": "228c73b0d219e8ea99bd32af7e5aef11e9cf6e4fad1d591ce41995216dbf13ed",
+ "prompt_chars": 5530,
+ "empty_response": false
+}

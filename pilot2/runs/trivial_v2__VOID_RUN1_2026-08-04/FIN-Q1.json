@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q1",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 0.1368,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT\n  ROUND(\n    SUM(CASE WHEN l.status IN ('B','D') THEN 1 ELSE 0 END) * 1.0\n    / COUNT(*),\n    4\n  ) AS problem_loan_rate\nFROM main.\"loan\" l\nWHERE l.date <= '1996-12-31'\n  AND l.date >= '1996-01-01';\n```",
+ "sql": "SELECT\n  ROUND(\n    SUM(CASE WHEN l.status IN ('B','D') THEN 1 ELSE 0 END) * 1.0\n    / COUNT(*),\n    4\n  ) AS problem_loan_rate\nFROM main.\"loan\" l\nWHERE l.date <= '1996-12-31'\n  AND l.date >= '1996-01-01'",
+ "prompt_sha256": "9a1e83a400b6c86d3f5adcc9f68cb3a3a27cb20514e9419937c9a43efcf23c5d",
+ "prompt_chars": 4310,
+ "empty_response": false
+}

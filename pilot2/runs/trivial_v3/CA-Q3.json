@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q3",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 10374.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"schools\" WHERE \"OpenDate\" <= '2015-01-01' AND (\"ClosedDate\" IS NULL OR \"ClosedDate\" > '2015-01-01') AND \"StatusType\" = 'Active'\n```\n\nWait, let me reconsider. The question asks for schools that are \"在效\" (active/in-effect) as-of 2015-01-01, with a declaration time of 2015-05-01. The `LastUpdate` field could serve as the declaration/knowledge time, but the as-of condition should be based on `OpenDate` and `ClosedDate`. The `StatusType` filter may be redundant or even contradictory with the temporal filter. Let me provide a cleaner answer:\n\n```sql\nSELECT COUNT(*) FROM main.\"schools\" WHERE \"OpenDate\" <= '2015-01-01' AND (\"ClosedDate\" IS NULL OR \"ClosedDate\" > '2015-01-01') AND \"LastUpdate\" <= '2015-05-01'\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"schools\" WHERE \"OpenDate\" <= '2015-01-01' AND (\"ClosedDate\" IS NULL OR \"ClosedDate\" > '2015-01-01') AND \"StatusType\" = 'Active'",
+ "prompt_sha256": "6a5ad466d1b1c907cd52f14798e982a664358b065eff15f433f83d14268d2852",
+ "prompt_chars": 5372,
+ "empty_response": false
+}

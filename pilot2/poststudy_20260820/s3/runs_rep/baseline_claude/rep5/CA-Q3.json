@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q3",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: schema 中不存在支持 as-of 时态查询所需的有效时间列（如生效日期、失效日期或版本时间戳）\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "21951fdba62052e0beeb0c012c5918e32e8a3cfe729b57597a759ad2182c4635",
+ "prompt_chars": 5185,
+ "empty_response": false
+}

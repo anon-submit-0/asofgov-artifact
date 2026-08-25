@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q1",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 95.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT SUM(r.points)\nFROM main.\"drivers\" d\nJOIN main.\"results\" r ON d.\"driverId\" = r.\"driverId\"\nJOIN main.\"races\" ra ON r.\"raceId\" = ra.\"raceId\"\nWHERE LOWER(d.\"surname\") = 'button'\n  AND ra.\"year\" = 2009\n  AND r.\"points\" IS NOT NULL;\n```",
+ "sql": "SELECT SUM(r.points)\nFROM main.\"drivers\" d\nJOIN main.\"results\" r ON d.\"driverId\" = r.\"driverId\"\nJOIN main.\"races\" ra ON r.\"raceId\" = ra.\"raceId\"\nWHERE LOWER(d.\"surname\") = 'button'\n  AND ra.\"year\" = 2009\n  AND r.\"points\" IS NOT NULL",
+ "prompt_sha256": "9961579af83525c6c402efc3062ae2dc29d879264aad30e70147f941e2b7567a",
+ "prompt_chars": 5509,
+ "empty_response": false
+}

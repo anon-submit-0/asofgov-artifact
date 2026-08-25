@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q1",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.1368,
+ "verdict": "correct",
+ "raw": "I need to analyze the governance tables to understand the metric definitions, temporal bindings, and caliber routing for \"问题贷款率\" (problem loan rate).\n\nLet me trace through the governance tables:\n\n1. **gov_metric_alias** - find the metric for \"问题贷款率\"\n2. **gov_metric** - get numerator/denominator nodes\n3. **gov_measure_def** - get measure definitions with predicates\n4. **gov_temporal_binding** - get temporal binding rules\n5. **gov_valid_time_anchor** - get time anchor details\n6. **gov_caliber_routing** - get caliber definitions\n\nSince I can't query the database interactively, I need to construct a SQL that computes the problem loan rate based on reasonable assumptions from the schema:\n\n- \"问题贷款率\" = problem loans / total loans\n- Problem loans likely have status 'D' (default) or 'B' (finished with problems, not paid)\n- The loan table has `status` column with values like 'A' (finished OK), 'B' (finished not OK), 'C' (running OK), 'D' (running not OK)\n- \"as-of 1996-06-30\" means we look at loans in the year 1996\n- \"声明时点 1997-06-15\" means we use the caliber/version effective at that declaration time\n\nGiven the temporal semantics: loans active during 1996 natural year (1996-01-01 to 1996-12-31), with the declaration point of 1997-06-15 meaning we consider loan statuses known by that date.\n\n```sql\nSELECT ROUND(\n    SUM(CASE WHEN l.status IN ('B', 'D') THEN 1 ELSE 0 END) * 1.0 \n    / COUNT(*), 4\n) AS problem_loan_rate\nFROM main.\"loan\" l\nWHERE l.date <= DATE '1997-06-15'\n  AND l.date >= DATE '1996-01-01'\n  AND l.date <= DATE '1996-12-31';\n```",
+ "sql": "SELECT ROUND(\n    SUM(CASE WHEN l.status IN ('B', 'D') THEN 1 ELSE 0 END) * 1.0 \n    / COUNT(*), 4\n) AS problem_loan_rate\nFROM main.\"loan\" l\nWHERE l.date <= DATE '1997-06-15'\n  AND l.date >= DATE '1996-01-01'\n  AND l.date <= DATE '1996-12-31'",
+ "prompt_sha256": "c8920f5ef856e56c686ffac6b9bff06546cf7a8e1d0a5ee8c15d3a1f2753a902",
+ "prompt_chars": 4084,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q5",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 34.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) AS season_race_count\nFROM main.results r\nJOIN main.races ra ON r.raceId = ra.raceId\nJOIN main.constructors c ON r.constructorId = c.constructorId\nWHERE c.constructorRef = 'brawn'\n  AND ra.year = 2009\n  AND ra.date <= '2009-12-31'\n```",
+ "sql": "SELECT COUNT(*) AS season_race_count\nFROM main.results r\nJOIN main.races ra ON r.raceId = ra.raceId\nJOIN main.constructors c ON r.constructorId = c.constructorId\nWHERE c.constructorRef = 'brawn'\n  AND ra.year = 2009\n  AND ra.date <= '2009-12-31'",
+ "prompt_sha256": "78ffaf40309599c961b2814479b2e082182167f18c4ed4649b9d026dd81faa72",
+ "prompt_chars": 5499,
+ "empty_response": false
+}

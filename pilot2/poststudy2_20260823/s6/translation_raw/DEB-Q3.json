@@ -1,0 +1,19 @@
+{
+ "qid": "DEB-Q3",
+ "domain": "debit_card_specializing",
+ "question_zh": "以 2013-09-15 为声明时点，2013 年 6 月（as-of 2013-06 月粒）SME 细分客户的月消费总额是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2013-09-15 as the declaration instant, what is the total monthly consumption of SME segment customers for June 2013 (as-of 2013-06 at month granularity)?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=902 completion=59]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:37:22"
+}

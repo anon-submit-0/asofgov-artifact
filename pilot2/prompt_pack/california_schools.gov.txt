@@ -1,0 +1,90 @@
+
+## 治理元数据（本库 gov_* 登记表全量导出；与具体问题无关，同库所有问题看到的内容完全相同）
+-- 来源：california_schools/gov_seed/*.jsonl（DESIGN_SPEC §3.1 十表 schema 法）；版本轴见 gov_semantic_graph_version
+-- 每个块 = 一张登记表，一行一个 JSON 对象，行按文本字典序排列
+
+-- TABLE gov_semantic_graph_version  (rows=2)
+{"change_note": "初版治理：免费餐率默认口径 K-12 注册数", "commit_seq": 1, "committed_at": "2014-09-01", "domain": "california_schools", "graph_version": "v1"}
+{"change_note": "默认口径切换：免费餐率改按 Ages 5-17 注册数", "commit_seq": 2, "committed_at": "2015-07-01", "domain": "california_schools", "graph_version": "v2"}
+
+-- TABLE gov_metric_alias  (rows=10)
+{"alias_id": "ca.al1", "alias_text": "免费餐率", "graph_version": "v1", "metric_id": "ca.free_meal_rate"}
+{"alias_id": "ca.al1", "alias_text": "免费餐率", "graph_version": "v2", "metric_id": "ca.free_meal_rate"}
+{"alias_id": "ca.al2", "alias_text": "时点在效学校数", "graph_version": "v1", "metric_id": "ca.schools_in_effect"}
+{"alias_id": "ca.al2", "alias_text": "时点在效学校数", "graph_version": "v2", "metric_id": "ca.schools_in_effect"}
+{"alias_id": "ca.al3", "alias_text": "校级免费餐率报表", "graph_version": "v1", "metric_id": "ca.school_frpm_report"}
+{"alias_id": "ca.al3", "alias_text": "校级免费餐率报表", "graph_version": "v2", "metric_id": "ca.school_frpm_report"}
+{"alias_id": "ca.al4", "alias_text": "平均数学成绩", "graph_version": "v1", "metric_id": "ca.avg_sat_math"}
+{"alias_id": "ca.al4", "alias_text": "平均数学成绩", "graph_version": "v2", "metric_id": "ca.avg_sat_math"}
+{"alias_id": "ca.al5", "alias_text": "特许学校数", "graph_version": "v1", "metric_id": "ca.charter_school_count"}
+{"alias_id": "ca.al5", "alias_text": "特许学校数", "graph_version": "v2", "metric_id": "ca.charter_school_count"}
+
+-- TABLE gov_metric  (rows=10)
+{"base_metric_id": "ca.free_meal_rate", "den_node": null, "domain": "california_schools", "entity_node": "ca.frpm", "graph_version": "v1", "kind": "report", "metric_id": "ca.school_frpm_report", "num_node": "ca.frpm", "report_axis": "entity"}
+{"base_metric_id": "ca.free_meal_rate", "den_node": null, "domain": "california_schools", "entity_node": "ca.frpm", "graph_version": "v2", "kind": "report", "metric_id": "ca.school_frpm_report", "num_node": "ca.frpm", "report_axis": "entity"}
+{"den_node": "ca.frpm", "domain": "california_schools", "graph_version": "v1", "kind": "ratio", "metric_id": "ca.free_meal_rate", "num_node": "ca.frpm"}
+{"den_node": "ca.frpm", "domain": "california_schools", "graph_version": "v2", "kind": "ratio", "metric_id": "ca.free_meal_rate", "num_node": "ca.frpm"}
+{"den_node": null, "domain": "california_schools", "graph_version": "v1", "kind": "atomic", "metric_id": "ca.avg_sat_math", "num_node": "ca.satscores"}
+{"den_node": null, "domain": "california_schools", "graph_version": "v1", "kind": "atomic", "metric_id": "ca.charter_school_count", "num_node": "ca.schools"}
+{"den_node": null, "domain": "california_schools", "graph_version": "v1", "kind": "atomic", "metric_id": "ca.schools_in_effect", "num_node": "ca.schools"}
+{"den_node": null, "domain": "california_schools", "graph_version": "v2", "kind": "atomic", "metric_id": "ca.avg_sat_math", "num_node": "ca.satscores"}
+{"den_node": null, "domain": "california_schools", "graph_version": "v2", "kind": "atomic", "metric_id": "ca.charter_school_count", "num_node": "ca.schools"}
+{"den_node": null, "domain": "california_schools", "graph_version": "v2", "kind": "atomic", "metric_id": "ca.schools_in_effect", "num_node": "ca.schools"}
+
+-- TABLE gov_measure_def  (rows=12)
+{"graph_version": "v1", "leg": "atom", "measure": "avg:AvgScrMath", "measure_id": "ca.asm.atom", "metric_id": "ca.avg_sat_math", "node_id": "ca.satscores", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "ca.csc.atom", "metric_id": "ca.charter_school_count", "node_id": "ca.schools", "preds": [{"col": "Charter", "op": "=", "value": 1}]}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "ca.sie.atom", "metric_id": "ca.schools_in_effect", "node_id": "ca.schools", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "ratio_of_base", "measure_id": "ca.sfr.atom", "metric_id": "ca.school_frpm_report", "node_id": "ca.frpm", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "sum:Enrollment (K-12)", "measure_id": "ca.fmr.den", "metric_id": "ca.free_meal_rate", "node_id": "ca.frpm", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "sum:Free Meal Count (K-12)", "measure_id": "ca.fmr.num", "metric_id": "ca.free_meal_rate", "node_id": "ca.frpm", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:AvgScrMath", "measure_id": "ca.asm.atom", "metric_id": "ca.avg_sat_math", "node_id": "ca.satscores", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "ca.csc.atom", "metric_id": "ca.charter_school_count", "node_id": "ca.schools", "preds": [{"col": "Charter", "op": "=", "value": 1}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "ca.sie.atom", "metric_id": "ca.schools_in_effect", "node_id": "ca.schools", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "ratio_of_base", "measure_id": "ca.sfr.atom", "metric_id": "ca.school_frpm_report", "node_id": "ca.frpm", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "sum:Enrollment (Ages 5-17)", "measure_id": "ca.fmr.den", "metric_id": "ca.free_meal_rate", "node_id": "ca.frpm", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "sum:Free Meal Count (Ages 5-17)", "measure_id": "ca.fmr.num", "metric_id": "ca.free_meal_rate", "node_id": "ca.frpm", "preds": []}
+
+-- TABLE gov_caliber_routing  (rows=4)
+{"dst_caliber": "all", "dst_node": "ca.frpm", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "ca.free_meal_rate", "routing_id": "ca.rt2", "src_node": "ca.frpm"}
+{"dst_caliber": "all", "dst_node": "ca.frpm", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "ca.free_meal_rate", "routing_id": "ca.rt1", "src_node": "ca.frpm"}
+{"dst_caliber": "all", "dst_node": "ca.frpm", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "ca.free_meal_rate", "routing_id": "ca.rt2", "src_node": "ca.frpm"}
+{"dst_caliber": "all", "dst_node": "ca.frpm", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "ca.free_meal_rate", "routing_id": "ca.rt1", "src_node": "ca.frpm"}
+
+-- TABLE gov_valid_time_anchor  (rows=4)
+{"anchor_id": "A-CA-FRPM", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "Academic Year", "granularity": "academic_year_token", "graph_version": "v1", "node_id": "ca.frpm", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CA-FRPM", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "Academic Year", "granularity": "academic_year_token", "graph_version": "v2", "node_id": "ca.frpm", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CA-SCD", "anchor_type": "scd_type2", "coverage_mode": "hull", "effective_col": null, "granularity": "day", "graph_version": "v1", "node_id": "ca.schools", "vf_col": "OpenDate", "vtc_col": "ClosedDate"}
+{"anchor_id": "A-CA-SCD", "anchor_type": "scd_type2", "coverage_mode": "hull", "effective_col": null, "granularity": "day", "graph_version": "v2", "node_id": "ca.schools", "vf_col": "OpenDate", "vtc_col": "ClosedDate"}
+
+-- TABLE gov_temporal_binding  (rows=10)
+{"anchor_id": "A-CA-FRPM", "binding_id": "B-CA-FMR-D", "graph_version": "v1", "leg": "den", "metric_id": "ca.free_meal_rate", "rule_id": "same_valid_time_window", "window_gran": "academic_year_token"}
+{"anchor_id": "A-CA-FRPM", "binding_id": "B-CA-FMR-D", "graph_version": "v2", "leg": "den", "metric_id": "ca.free_meal_rate", "rule_id": "same_valid_time_window", "window_gran": "academic_year_token"}
+{"anchor_id": "A-CA-FRPM", "binding_id": "B-CA-FMR-N", "graph_version": "v1", "leg": "num", "metric_id": "ca.free_meal_rate", "rule_id": "same_valid_time_window", "window_gran": "academic_year_token"}
+{"anchor_id": "A-CA-FRPM", "binding_id": "B-CA-FMR-N", "graph_version": "v2", "leg": "num", "metric_id": "ca.free_meal_rate", "rule_id": "same_valid_time_window", "window_gran": "academic_year_token"}
+{"anchor_id": "A-CA-FRPM", "binding_id": "B-CA-SFR", "graph_version": "v1", "leg": "atom", "metric_id": "ca.school_frpm_report", "rule_id": "same_valid_time_window", "window_gran": "academic_year_token"}
+{"anchor_id": "A-CA-FRPM", "binding_id": "B-CA-SFR", "graph_version": "v2", "leg": "atom", "metric_id": "ca.school_frpm_report", "rule_id": "same_valid_time_window", "window_gran": "academic_year_token"}
+{"anchor_id": "A-CA-SCD", "binding_id": "B-CA-CSC", "graph_version": "v1", "leg": "atom", "metric_id": "ca.charter_school_count", "rule_id": "point_in_effect", "window_gran": "day"}
+{"anchor_id": "A-CA-SCD", "binding_id": "B-CA-CSC", "graph_version": "v2", "leg": "atom", "metric_id": "ca.charter_school_count", "rule_id": "point_in_effect", "window_gran": "day"}
+{"anchor_id": "A-CA-SCD", "binding_id": "B-CA-SIE", "graph_version": "v1", "leg": "atom", "metric_id": "ca.schools_in_effect", "rule_id": "point_in_effect", "window_gran": "day"}
+{"anchor_id": "A-CA-SCD", "binding_id": "B-CA-SIE", "graph_version": "v2", "leg": "atom", "metric_id": "ca.schools_in_effect", "rule_id": "point_in_effect", "window_gran": "day"}
+
+-- TABLE gov_semantic_node  (rows=6)
+{"domain": "california_schools", "entity_key": "CDSCode", "graph_version": "v1", "node_id": "ca.frpm", "physical_table": "frpm", "scope_keys": {"county": "County Name", "district": "District Name"}}
+{"domain": "california_schools", "entity_key": "CDSCode", "graph_version": "v1", "node_id": "ca.schools", "physical_table": "schools", "scope_keys": {"county": "County"}}
+{"domain": "california_schools", "entity_key": "CDSCode", "graph_version": "v2", "node_id": "ca.frpm", "physical_table": "frpm", "scope_keys": {"county": "County Name", "district": "District Name"}}
+{"domain": "california_schools", "entity_key": "CDSCode", "graph_version": "v2", "node_id": "ca.schools", "physical_table": "schools", "scope_keys": {"county": "County"}}
+{"domain": "california_schools", "entity_key": "cds", "graph_version": "v1", "node_id": "ca.satscores", "physical_table": "satscores", "scope_keys": {}}
+{"domain": "california_schools", "entity_key": "cds", "graph_version": "v2", "node_id": "ca.satscores", "physical_table": "satscores", "scope_keys": {}}
+
+-- TABLE gov_granularity_edge  (rows=6)
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "california_schools", "edge_id": "ca.eg1", "from_level": "school", "graph_version": "v1", "group_cols": ["District Name"], "node_id": "ca.frpm", "to_level": "district"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "california_schools", "edge_id": "ca.eg1", "from_level": "school", "graph_version": "v2", "group_cols": ["District Name"], "node_id": "ca.frpm", "to_level": "district"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "california_schools", "edge_id": "ca.eg2", "from_level": "district", "graph_version": "v1", "group_cols": ["County Name"], "node_id": "ca.frpm", "to_level": "county"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "california_schools", "edge_id": "ca.eg2", "from_level": "district", "graph_version": "v2", "group_cols": ["County Name"], "node_id": "ca.frpm", "to_level": "county"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "california_schools", "edge_id": "ca.eg3", "from_level": "county", "graph_version": "v1", "group_cols": [], "node_id": "ca.frpm", "to_level": "all"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "california_schools", "edge_id": "ca.eg3", "from_level": "county", "graph_version": "v2", "group_cols": [], "node_id": "ca.frpm", "to_level": "all"}
+
+-- TABLE gov_disclosure_policy  (rows=2)
+{"applies_to": "ca.frpm", "carry": [], "cols": [], "domain": "california_schools", "graph_version": "v1", "k": 10, "k_exempt_top": true, "kind": "k_threshold", "lattice_levels": ["school", "district", "county", "all"], "mask_class": null, "node_id": "ca.frpm", "policy_id": "ca.pi1", "time_floor_gran": null}
+{"applies_to": "ca.frpm", "carry": [], "cols": [], "domain": "california_schools", "graph_version": "v2", "k": 10, "k_exempt_top": true, "kind": "k_threshold", "lattice_levels": ["school", "district", "county", "all"], "mask_class": null, "node_id": "ca.frpm", "policy_id": "ca.pi1", "time_floor_gran": null}

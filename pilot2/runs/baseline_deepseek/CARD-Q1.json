@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q1",
+ "system": "baseline_deepseek",
+ "kind": "value",
+ "value": 2161.0,
+ "verdict": "correct",
+ "raw": "SELECT COUNT(*) FROM main.\"rulings\" WHERE date >= '2017-02-01' AND date < '2017-03-01';",
+ "sql": "SELECT COUNT(*) FROM main.\"rulings\" WHERE date >= '2017-02-01' AND date < '2017-03-01'",
+ "prompt_sha256": "17e632332cc434f1027bd479cd8fa311d8b4b7f0a15915ec65d4706bce6a2b38",
+ "prompt_chars": 5449,
+ "empty_response": false
+}

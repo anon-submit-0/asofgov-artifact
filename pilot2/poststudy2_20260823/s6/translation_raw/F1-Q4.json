@@ -1,0 +1,19 @@
+{
+ "qid": "F1-Q4",
+ "domain": "formula_1",
+ "question_zh": "以 2011-03-01 为声明时点，按当时生效积分口径，车手 button 2010 赛季与 2009 赛季的两季车手积分差（2010 − 2009）是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2011-03-01 as the declaration instant, under the points caliber in effect at that time, what is the two-season driver points difference (2010 − 2009) between driver button's 2010 season and 2009 season?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5307 completion=78]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:38:43"
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q2",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 207.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"Examination\" WHERE \"Examination Date\" >= '1995-01-01' AND \"Examination Date\" <= '1995-12-31';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"Examination\" WHERE \"Examination Date\" >= '1995-01-01' AND \"Examination Date\" <= '1995-12-31'",
+ "prompt_sha256": "b0d22afc4b849a90aae56f5760d977a1a1ff151edcbcb42fde8be4eb4a9ea7d7",
+ "prompt_chars": 4333,
+ "empty_response": false
+}

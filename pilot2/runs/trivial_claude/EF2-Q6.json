@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q6",
+ "system": "trivial_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 问题中涉及的\"评分归一当日胜率\"概念无法从给定schema中明确定义——数据库中没有关于\"胜率\"与\"评分归一\"的清晰语义定义，且gov治理表中的元数据不足以确定该指标的具体计算逻辑。",
+ "sql": "REFUSE",
+ "prompt_sha256": "50638a0f812702007f09c2ad68322cd1b3cbe38646ffeafa2bf5ecd2e129119a",
+ "prompt_chars": 7730,
+ "empty_response": false
+}

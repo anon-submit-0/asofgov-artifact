@@ -1,0 +1,74 @@
+-- formula_1 域 pilot2 warehouse.duckdb schema（源: BIRD/Spider dev 公开数据集，抽取与 real/authored 行数见 provenance.json）
+-- schema: main = 业务事实/维表 + gov_* 治理登记表（十表 schema 法, DESIGN_SPEC §3.1）
+
+CREATE TABLE main."circuits"("circuitId" BIGINT, "circuitRef" VARCHAR, "name" VARCHAR, "location" VARCHAR, "country" VARCHAR, "lat" DOUBLE, "lng" DOUBLE, "alt" BIGINT, "url" VARCHAR);
+-- rowcount main."circuits" = 72
+
+CREATE TABLE main."constructorResults"("constructorResultsId" BIGINT, "raceId" BIGINT, "constructorId" BIGINT, "points" DOUBLE, "status" VARCHAR);
+-- rowcount main."constructorResults" = 11082
+
+CREATE TABLE main."constructorStandings"("constructorStandingsId" BIGINT, "raceId" BIGINT, "constructorId" BIGINT, "points" DOUBLE, "position" BIGINT, "positionText" VARCHAR, "wins" BIGINT);
+-- rowcount main."constructorStandings" = 11836
+
+CREATE TABLE main."constructors"("constructorId" BIGINT, "constructorRef" VARCHAR, "name" VARCHAR, "nationality" VARCHAR, "url" VARCHAR);
+-- rowcount main."constructors" = 208
+
+CREATE TABLE main."driverStandings"("driverStandingsId" BIGINT, "raceId" BIGINT, "driverId" BIGINT, "points" DOUBLE, "position" BIGINT, "positionText" VARCHAR, "wins" BIGINT);
+-- rowcount main."driverStandings" = 31578
+
+CREATE TABLE main."drivers"("driverId" BIGINT, "driverRef" VARCHAR, "number" BIGINT, "code" VARCHAR, "forename" VARCHAR, "surname" VARCHAR, "dob" DATE, "nationality" VARCHAR, "url" VARCHAR);
+-- rowcount main."drivers" = 840
+
+CREATE TABLE main."gov_caliber_routing"("routing_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "hop_seq" VARCHAR, "src_node" VARCHAR, "dst_node" VARCHAR, "join_on" VARCHAR, "dst_caliber" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_caliber_routing" = 20
+
+CREATE TABLE main."gov_disclosure_policy"("placeholder" VARCHAR);
+-- rowcount main."gov_disclosure_policy" = 0
+
+CREATE TABLE main."gov_granularity_edge"("edge_id" VARCHAR, "domain" VARCHAR, "axis" VARCHAR, "from_level" VARCHAR, "to_level" VARCHAR, "node_id" VARCHAR, "group_cols" VARCHAR, "derived" VARCHAR, "band_col" VARCHAR, "band_bounds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_granularity_edge" = 4
+
+CREATE TABLE main."gov_measure_def"("measure_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "node_id" VARCHAR, "measure" VARCHAR, "preds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_measure_def" = 16
+
+CREATE TABLE main."gov_metric"("metric_id" VARCHAR, "domain" VARCHAR, "kind" VARCHAR, "num_node" VARCHAR, "den_node" VARCHAR, "graph_version" VARCHAR, "base_metric_id" VARCHAR);
+-- rowcount main."gov_metric" = 16
+
+CREATE TABLE main."gov_metric_alias"("alias_id" VARCHAR, "alias_text" VARCHAR, "metric_id" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_metric_alias" = 16
+
+CREATE TABLE main."gov_semantic_graph_version"("graph_version" VARCHAR, "domain" VARCHAR, "committed_at" VARCHAR, "commit_seq" VARCHAR, "change_note" VARCHAR);
+-- rowcount main."gov_semantic_graph_version" = 2
+
+CREATE TABLE main."gov_semantic_node"("node_id" VARCHAR, "domain" VARCHAR, "physical_table" VARCHAR, "entity_key" VARCHAR, "scope_keys" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_semantic_node" = 28
+
+CREATE TABLE main."gov_temporal_binding"("binding_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "anchor_id" VARCHAR, "rule_id" VARCHAR, "window_gran" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_temporal_binding" = 16
+
+CREATE TABLE main."gov_valid_time_anchor"("anchor_id" VARCHAR, "node_id" VARCHAR, "anchor_type" VARCHAR, "effective_col" VARCHAR, "vf_col" VARCHAR, "vtc_col" VARCHAR, "granularity" VARCHAR, "coverage_mode" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_valid_time_anchor" = 2
+
+CREATE TABLE main."lapTimes"("raceId" BIGINT, "driverId" BIGINT, "lap" BIGINT, "position" BIGINT, "time" VARCHAR, "milliseconds" BIGINT);
+-- rowcount main."lapTimes" = 420369
+
+CREATE TABLE main."pitStops"("raceId" BIGINT, "driverId" BIGINT, "stop" BIGINT, "lap" BIGINT, "time" VARCHAR, "duration" VARCHAR, "milliseconds" BIGINT);
+-- rowcount main."pitStops" = 6070
+
+CREATE TABLE main."points_scheme"("scheme_id" VARCHAR, "position" INTEGER, "points" DOUBLE, "authored" BOOLEAN);
+-- rowcount main."points_scheme" = 18
+
+CREATE TABLE main."qualifying"("qualifyId" BIGINT, "raceId" BIGINT, "driverId" BIGINT, "constructorId" BIGINT, "number" BIGINT, "position" BIGINT, "q1" VARCHAR, "q2" VARCHAR, "q3" VARCHAR);
+-- rowcount main."qualifying" = 7397
+
+CREATE TABLE main."races"("raceId" BIGINT, "year" BIGINT, "round" BIGINT, "circuitId" BIGINT, "name" VARCHAR, "date" DATE, "time" VARCHAR, "url" VARCHAR);
+-- rowcount main."races" = 976
+
+CREATE TABLE main."results"("resultId" BIGINT, "raceId" BIGINT, "driverId" BIGINT, "constructorId" BIGINT, "number" BIGINT, "grid" BIGINT, "position" BIGINT, "positionText" VARCHAR, "positionOrder" BIGINT, "points" DOUBLE, "laps" BIGINT, "time" VARCHAR, "milliseconds" BIGINT, "fastestLap" BIGINT, "rank" BIGINT, "fastestLapTime" VARCHAR, "fastestLapSpeed" VARCHAR, "statusId" BIGINT);
+-- rowcount main."results" = 23657
+
+CREATE TABLE main."seasons"("year" BIGINT, "url" VARCHAR);
+-- rowcount main."seasons" = 68
+
+CREATE TABLE main."status"("statusId" BIGINT, "status" VARCHAR);
+-- rowcount main."status" = 134

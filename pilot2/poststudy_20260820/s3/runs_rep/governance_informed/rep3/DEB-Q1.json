@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q1",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 15626.138213557568,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT AVG(y.Consumption)\nFROM main.\"yearmonth\" y\nJOIN main.\"customers\" c ON y.CustomerID = c.CustomerID\nWHERE y.Date = '201308'\n  AND c.Currency = 'CZK'\n```",
+ "sql": "SELECT AVG(y.Consumption)\nFROM main.\"yearmonth\" y\nJOIN main.\"customers\" c ON y.CustomerID = c.CustomerID\nWHERE y.Date = '201308'\n  AND c.Currency = 'CZK'",
+ "prompt_sha256": "86408acd97f9ecd6e1a1d20da6d62154b8ee410968485f3d81e57b31448b5255",
+ "prompt_chars": 19875,
+ "empty_response": false
+}

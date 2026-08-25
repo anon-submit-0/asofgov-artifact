@@ -1,0 +1,122 @@
+{
+ "sql": "SELECT (SELECT COUNT(*) FROM \"trans\" t0 WHERE t0.\"k_symbol\" = 'SANKC. UROK' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '1997-01-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '1998-01-01') * 1.0 / NULLIF((SELECT COUNT(*) FROM \"trans\" t0 WHERE substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '1997-01-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '1998-01-01'), 0)",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "FIN-Q3",
+   "domain": "financial",
+   "metric": "fin.penalty_trans_rate",
+   "metric_kind": "ratio",
+   "as_of": "1997-06-30"
+  },
+  "graph_pin": {
+   "domain": "financial",
+   "graph_version": "v2",
+   "commit_id": "1998-03-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "numerator",
+    "anchor_id": "A-FIN-TRANS",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "year",
+     "lo": "1997-01-01",
+     "hi_excl": "1998-01-01"
+    }
+   },
+   {
+    "role": "denominator",
+    "anchor_id": "A-FIN-TRANS",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "year",
+     "lo": "1997-01-01",
+     "hi_excl": "1998-01-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-FIN-PTR-N|B-FIN-PTR-D",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": "A-FIN-TRANS",
+   "denominator_anchor": "A-FIN-TRANS",
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [
+   {
+    "caliber_key": "fin.rt1",
+    "metric": "fin.penalty_trans_rate",
+    "leg": "num",
+    "hop_seq": "0",
+    "src_node": "fin.trans",
+    "dst_node": "fin.trans",
+    "via_table": "trans",
+    "dst_caliber": "all",
+    "join_keys": []
+   },
+   {
+    "caliber_key": "fin.rt2",
+    "metric": "fin.penalty_trans_rate",
+    "leg": "den",
+    "hop_seq": "0",
+    "src_node": "fin.trans",
+    "dst_node": "fin.trans",
+    "via_table": "trans",
+    "dst_caliber": "all",
+    "join_keys": []
+   }
+  ],
+  "disclosure": {
+   "decision": "ANSWER",
+   "policy_ids": [],
+   "policy_table_present": false,
+   "ungoverned_disclosure": true,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-FIN-TRANS",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"trans\" t WHERE t.\"date\" IS NOT NULL",
+    "observed": [
+     "1993-01-01",
+     "1998-12-31"
+    ]
+   },
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-FIN-TRANS",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"trans\" t WHERE t.\"date\" IS NOT NULL",
+    "observed": [
+     "1993-01-01",
+     "1998-12-31"
+    ]
+   },
+   {
+    "kind": "DEN_POP",
+    "role": "denominator",
+    "period": 0,
+    "sql": "SELECT (SELECT COUNT(*) FROM \"trans\" t0 WHERE substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '1997-01-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '1998-01-01')",
+    "observed": 284409.0
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  }
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q6",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: The gov_disclosure_policy table contains masking/privacy policies but there is no executable logic in the schema to apply disclosure masking to user attributes at a given declaration instant. The question requires interpreting policy rules (mask_class, lattice_levels, time_floor_gran) programmatically, which cannot be reliably expressed as a single SQL query without knowing the exact masking semantics.",
+ "sql": "REFUSE",
+ "prompt_sha256": "9251f2a89a5d233c9e010d8a931470ffff0676f9a36edcf69780ab693b374cc4",
+ "prompt_chars": 4982,
+ "empty_response": false
+}

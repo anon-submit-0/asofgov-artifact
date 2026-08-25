@@ -1,0 +1,14 @@
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.player_attr", "physical_table": "Player_Attributes", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.match", "physical_table": "Match", "scope_keys": {"season": "season"}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.league", "physical_table": "League", "scope_keys": {"league": "name"}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.player", "physical_table": "Player", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.team", "physical_table": "Team", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.team_attr", "physical_table": "Team_Attributes", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.country", "physical_table": "Country", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.player_attr", "physical_table": "Player_Attributes", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.match", "physical_table": "Match", "scope_keys": {"season": "season"}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.league", "physical_table": "League", "scope_keys": {"league": "name"}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.player", "physical_table": "Player", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.team", "physical_table": "Team", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.team_attr", "physical_table": "Team_Attributes", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.country", "physical_table": "Country", "scope_keys": {}}

@@ -1,0 +1,19 @@
+{
+ "qid": "EF2-Q6",
+ "domain": "european_football_2",
+ "question_zh": "以 2014-02-01 为声明时点，as-of 2013-12-01 单日窗的评分归一当日胜率是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2014-02-01 as the declaration instant, what is the score-normalized same-day win rate for the as-of 2013-12-01 single-day window?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5270 completion=50]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:37:57"
+}

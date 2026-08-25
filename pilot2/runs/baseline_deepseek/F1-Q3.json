@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q3",
+ "system": "baseline_deepseek",
+ "kind": "value",
+ "value": 64.0,
+ "verdict": "wrong_value",
+ "raw": "SELECT SUM(r.points) \nFROM main.results r\nJOIN main.drivers d ON r.driverId = d.driverId\nJOIN main.races ra ON r.raceId = ra.raceId\nWHERE d.driverRef = 'button' \n  AND ra.year = 2009\n  AND ra.date <= DATE '2009-07-01'",
+ "sql": "SELECT SUM(r.points) \nFROM main.results r\nJOIN main.drivers d ON r.driverId = d.driverId\nJOIN main.races ra ON r.raceId = ra.raceId\nWHERE d.driverRef = 'button' \n  AND ra.year = 2009\n  AND ra.date <= DATE '2009-07-01'",
+ "prompt_sha256": "cd3b7792c7457c0291f9fd1723f98cf7ec83bdb72eee057cca87e6bf272d1200",
+ "prompt_chars": 5521,
+ "empty_response": false
+}

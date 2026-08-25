@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q2",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 3.573529411764706,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \n  CAST(COUNT(DISTINCT r.id) AS DOUBLE) / NULLIF(COUNT(DISTINCT c.uuid), 0) AS ruling_intensity\nFROM main.rulings r\nJOIN main.cards c ON r.uuid = c.uuid\nJOIN main.sets s ON c.setCode = s.code\nWHERE DATE_TRUNC('month', r.date) = '2016-11-01'\n  AND DATE_TRUNC('month', s.releaseDate) = '2016-11-01'\n```",
+ "sql": "SELECT \n  CAST(COUNT(DISTINCT r.id) AS DOUBLE) / NULLIF(COUNT(DISTINCT c.uuid), 0) AS ruling_intensity\nFROM main.rulings r\nJOIN main.cards c ON r.uuid = c.uuid\nJOIN main.sets s ON c.setCode = s.code\nWHERE DATE_TRUNC('month', r.date) = '2016-11-01'\n  AND DATE_TRUNC('month', s.releaseDate) = '2016-11-01'",
+ "prompt_sha256": "e62b7ea5944e7e0f0dc1bcc5b9f04374f821f95381bd5afd69e6471b48153ad3",
+ "prompt_chars": 23969,
+ "empty_response": false
+}

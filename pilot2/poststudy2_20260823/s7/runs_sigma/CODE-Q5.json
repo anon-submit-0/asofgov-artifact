@@ -1,0 +1,28 @@
+{
+ "qid": "CODE-Q5",
+ "domain": "codebase_community",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2013-06-15",
+  "declared_at": "2013-08-01",
+  "metric_alias": "新提问数报表",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": "day",
+  "presentation": "raw_rows",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2013-06-15\", \"declared_at\": \"2013-08-01\", \"metric_alias\": \"新提问数报表\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": \"day\", \"presentation\": \"raw_rows\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "91b9551de44f256bbdf3b7025610a006a488cfd94f3e49ee28341fb11c8fa616",
+ "prompt_chars": 31112
+}

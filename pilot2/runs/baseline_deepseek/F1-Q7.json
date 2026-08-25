@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q7",
+ "system": "baseline_deepseek",
+ "kind": "value",
+ "value": 0.0,
+ "verdict": "answered_should_refuse",
+ "raw": "SELECT COUNT(*) FROM main.races WHERE EXTRACT(YEAR FROM date) = 1949 AND EXTRACT(MONTH FROM date) = 5;",
+ "sql": "SELECT COUNT(*) FROM main.races WHERE EXTRACT(YEAR FROM date) = 1949 AND EXTRACT(MONTH FROM date) = 5",
+ "prompt_sha256": "3bb992bcbb526d053e625008a0fdd10fe3f320c80e54da19ea0283a4c1479a76",
+ "prompt_chars": 5480,
+ "empty_response": false
+}

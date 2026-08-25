@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q1",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 2161.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) \nFROM main.\"rulings\" \nWHERE DATE_TRUNC('month', date) = '2017-02-01'::DATE \n  AND date <= '2017-02-28'::DATE\n```",
+ "sql": "SELECT COUNT(*) \nFROM main.\"rulings\" \nWHERE DATE_TRUNC('month', date) = '2017-02-01'::DATE \n  AND date <= '2017-02-28'::DATE",
+ "prompt_sha256": "7c5046e0538704405fb9e8ab2fc62e9aae27ef2ca1077e8e4ad2f566a04b4bfc",
+ "prompt_chars": 23970,
+ "empty_response": false
+}

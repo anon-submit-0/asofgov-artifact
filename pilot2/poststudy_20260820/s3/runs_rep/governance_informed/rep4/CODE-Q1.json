@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q1",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 0.6297872340425532,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \n  CAST(COUNT(CASE WHEN num.Id IS NOT NULL THEN 1 END) AS DOUBLE) / NULLIF(COUNT(den.Id), 0) AS accepted_rate\nFROM (\n  SELECT Id, AcceptedAnswerId\n  FROM main.posts\n  WHERE PostTypeId = 1\n    AND DATE_TRUNC('month', CreaionDate) = '2010-12-01'\n) den\nLEFT JOIN (\n  SELECT Id\n  FROM main.posts\n  WHERE PostTypeId = 2\n    AND DATE_TRUNC('month', CreaionDate) = '2010-12-01'\n) num ON den.AcceptedAnswerId = num.Id\n```",
+ "sql": "SELECT \n  CAST(COUNT(CASE WHEN num.Id IS NOT NULL THEN 1 END) AS DOUBLE) / NULLIF(COUNT(den.Id), 0) AS accepted_rate\nFROM (\n  SELECT Id, AcceptedAnswerId\n  FROM main.posts\n  WHERE PostTypeId = 1\n    AND DATE_TRUNC('month', CreaionDate) = '2010-12-01'\n) den\nLEFT JOIN (\n  SELECT Id\n  FROM main.posts\n  WHERE PostTypeId = 2\n    AND DATE_TRUNC('month', CreaionDate) = '2010-12-01'\n) num ON den.AcceptedAnswerId = num.Id",
+ "prompt_sha256": "951ca91118c82e174985fc06622d6f10c97a82d8753ec2453b0e3f7a3d54d3ee",
+ "prompt_chars": 28273,
+ "empty_response": false
+}

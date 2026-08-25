@@ -1,0 +1,19 @@
+{
+ "qid": "CA-Q5",
+ "domain": "california_schools",
+ "question_zh": "以 2015-09-01 为声明时点，给出 Alameda 县 2014-2015 学年各学校（校级）的校级免费餐率报表。",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2015-09-01 as the declaration instant, provide the school-level free meal rate report for each school (school level) in Alameda County for the 2014-2015 school year.",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5281 completion=63]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:36:17"
+}

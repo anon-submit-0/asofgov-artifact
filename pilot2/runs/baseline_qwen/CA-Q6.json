@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "baseline_qwen",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 缺乏特许授权日期字段。schools 表仅有 \"OpenDate\"（学校开业日期），但无法确定这是否等同于特许授权日期，且 schema 中无专门的 Charter Grant Date 字段；同时 \"Academic Year\" 值格式未知（可能为 \"2014-15\" 或其他），无法确认匹配方式。",
+ "sql": "REFUSE",
+ "prompt_sha256": "183f6a5052cd029940ed4c8cbfc2b1fe85d9e857e530926e00b27d5fbc354483",
+ "prompt_chars": 5187,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q4",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 16.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"loan\" WHERE date >= '1997-05-01' AND date <= '1997-05-31' AND date <= '1998-09-15';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"loan\" WHERE date >= '1997-05-01' AND date <= '1997-05-31' AND date <= '1998-09-15'",
+ "prompt_sha256": "710fe112011ade1320fa0c99cb6f5fe709fdd8a99e4990fd3d203295d86da71b",
+ "prompt_chars": 4173,
+ "empty_response": false
+}

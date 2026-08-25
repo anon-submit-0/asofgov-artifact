@@ -1,0 +1,16 @@
+{"graph_version": "v1", "leg": "atom", "measure": "sum:points_scheme.points", "measure_id": "f1.dsp.atom", "metric_id": "f1.driver_season_points", "node_id": "f1.results", "preds": [{"col": "scheme_id", "node": "f1.points_scheme", "op": "=", "value": "PS2009"}]}
+{"graph_version": "v1", "leg": "num", "measure": "sum:points_scheme.points", "measure_id": "f1.ppe.num", "metric_id": "f1.points_per_entry", "node_id": "f1.results", "preds": [{"col": "scheme_id", "node": "f1.points_scheme", "op": "=", "value": "PS2009"}]}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "f1.ppe.den", "metric_id": "f1.points_per_entry", "node_id": "f1.results", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "f1.ec.atom", "metric_id": "f1.entry_count", "node_id": "f1.results", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "f1.rcm.atom", "metric_id": "f1.races_count_month", "node_id": "f1.races", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "f1.rcr.atom", "metric_id": "f1.races_count_range", "node_id": "f1.races", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "sum:points", "measure_id": "f1.osp.atom", "metric_id": "f1.official_standing_points", "node_id": "f1.driverStandings", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "avg:milliseconds", "measure_id": "f1.alm.atom", "metric_id": "f1.avg_lap_ms", "node_id": "f1.lapTimes", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:points_scheme.points", "measure_id": "f1.dsp.atom", "metric_id": "f1.driver_season_points", "node_id": "f1.results", "preds": [{"col": "scheme_id", "node": "f1.points_scheme", "op": "=", "value": "PS2010"}]}
+{"graph_version": "v2", "leg": "num", "measure": "sum:points_scheme.points", "measure_id": "f1.ppe.num", "metric_id": "f1.points_per_entry", "node_id": "f1.results", "preds": [{"col": "scheme_id", "node": "f1.points_scheme", "op": "=", "value": "PS2010"}]}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "f1.ppe.den", "metric_id": "f1.points_per_entry", "node_id": "f1.results", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "f1.ec.atom", "metric_id": "f1.entry_count", "node_id": "f1.results", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "f1.rcm.atom", "metric_id": "f1.races_count_month", "node_id": "f1.races", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "f1.rcr.atom", "metric_id": "f1.races_count_range", "node_id": "f1.races", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:points", "measure_id": "f1.osp.atom", "metric_id": "f1.official_standing_points", "node_id": "f1.driverStandings", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:milliseconds", "measure_id": "f1.alm.atom", "metric_id": "f1.avg_lap_ms", "node_id": "f1.lapTimes", "preds": []}

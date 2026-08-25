@@ -1,0 +1,38 @@
+{
+ "domain": "california_schools",
+ "built_at": "2026-08-04T03:27:25Z",
+ "extraction": "duckdb sqlite scanner ATTACH + CREATE TABLE AS (原值拷贝)",
+ "tables": {
+  "frpm": {
+   "rows": 9986,
+   "authored": false
+  },
+  "satscores": {
+   "rows": 2269,
+   "authored": false
+  },
+  "schools": {
+   "rows": 17686,
+   "authored": false
+  }
+ },
+ "authored_rules": null,
+ "source": {
+  "kind": "bird_dev_20240627",
+  "path": "/Users/loctek/bench_data/dev_20240627/dev_databases/california_schools/california_schools.sqlite",
+  "sha256": "986817d793479801ed55133e55aa27e335422c0cd3866b54a3d6317b7c5f09c1",
+  "license": "CC BY-SA 4.0 (bird-bench.github.io)"
+ },
+ "gov_seed_rows": {
+  "gov_semantic_graph_version": 2,
+  "gov_semantic_node": 6,
+  "gov_metric": 10,
+  "gov_measure_def": 12,
+  "gov_metric_alias": 10,
+  "gov_caliber_routing": 4,
+  "gov_valid_time_anchor": 4,
+  "gov_temporal_binding": 10,
+  "gov_granularity_edge": 6,
+  "gov_disclosure_policy": 2
+ }
+}

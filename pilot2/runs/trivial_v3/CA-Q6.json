@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 0.46585812424556755,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT SUM(f.\"Free Meal Count (K-12)\") / SUM(f.\"Enrollment (K-12)\")\nFROM main.frpm f\nJOIN main.schools s ON f.\"CDSCode\" = s.\"CDSCode\"\nWHERE f.\"Academic Year\" = '2014-2015'\n  AND s.\"Charter\" = 1\n  AND s.\"OpenDate\" <= DATE '2015-09-01';\n```",
+ "sql": "SELECT SUM(f.\"Free Meal Count (K-12)\") / SUM(f.\"Enrollment (K-12)\")\nFROM main.frpm f\nJOIN main.schools s ON f.\"CDSCode\" = s.\"CDSCode\"\nWHERE f.\"Academic Year\" = '2014-2015'\n  AND s.\"Charter\" = 1\n  AND s.\"OpenDate\" <= DATE '2015-09-01'",
+ "prompt_sha256": "2907b568fbc12ea07b9730af9dcb2c677358346c33ffe61977846034e07ed832",
+ "prompt_chars": 5374,
+ "empty_response": false
+}

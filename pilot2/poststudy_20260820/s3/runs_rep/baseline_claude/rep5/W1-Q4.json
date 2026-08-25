@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q4",
+ "system": "baseline_claude",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT effective_month, COUNT(*) AS record_count\nFROM main.\"country_history\"\nWHERE effective_month BETWEEN '2026-10' AND '2027-03'\nGROUP BY effective_month\nORDER BY effective_month\n```",
+ "sql": "SELECT effective_month, COUNT(*) AS record_count\nFROM main.\"country_history\"\nWHERE effective_month BETWEEN '2026-10' AND '2027-03'\nGROUP BY effective_month\nORDER BY effective_month",
+ "prompt_sha256": "2f9b2fdf599f49c2cd54dafb1a54c4eaf83f3a115fc9d208ad5fa0ce7efc5678",
+ "prompt_chars": 3077,
+ "empty_response": false
+}

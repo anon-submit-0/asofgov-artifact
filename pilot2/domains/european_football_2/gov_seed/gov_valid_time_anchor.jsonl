@@ -1,0 +1,6 @@
+{"anchor_id": "A-EF2-PA", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "date", "granularity": "day", "graph_version": "v1", "node_id": "ef2.player_attr", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-EF2-MATCH", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v1", "node_id": "ef2.match", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-EF2-TA", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "date", "granularity": "day", "graph_version": "v1", "node_id": "ef2.team_attr", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-EF2-PA", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "date", "granularity": "day", "graph_version": "v2", "node_id": "ef2.player_attr", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-EF2-MATCH", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v2", "node_id": "ef2.match", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-EF2-TA", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "date", "granularity": "day", "graph_version": "v2", "node_id": "ef2.team_attr", "vf_col": null, "vtc_col": null}

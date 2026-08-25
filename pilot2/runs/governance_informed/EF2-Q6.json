@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q6",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n    CAST(COUNT(CASE WHEN m.home_team_goal > m.away_team_goal THEN 1 END) AS DOUBLE) / \n    NULLIF(AVG(pa.overall_rating), 0) AS rating_weighted_win_rate\nFROM main.\"Match\" m\nCROSS JOIN main.\"Player_Attributes\" pa\nWHERE m.date = '2013-12-01'\n  AND pa.date = '2013-12-01'\n```",
+ "sql": "SELECT \n    CAST(COUNT(CASE WHEN m.home_team_goal > m.away_team_goal THEN 1 END) AS DOUBLE) / \n    NULLIF(AVG(pa.overall_rating), 0) AS rating_weighted_win_rate\nFROM main.\"Match\" m\nCROSS JOIN main.\"Player_Attributes\" pa\nWHERE m.date = '2013-12-01'\n  AND pa.date = '2013-12-01'",
+ "prompt_sha256": "7bd9aa8e7727c867abd95a2defd8cbe15a251fc767b4d96dd23db05868fea025",
+ "prompt_chars": 25279,
+ "empty_response": false
+}

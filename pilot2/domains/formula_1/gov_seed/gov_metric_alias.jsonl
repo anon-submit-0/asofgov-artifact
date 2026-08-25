@@ -1,0 +1,16 @@
+{"alias_id": "f1.al1", "alias_text": "赛季车手总积分", "graph_version": "v1", "metric_id": "f1.driver_season_points"}
+{"alias_id": "f1.al2", "alias_text": "车队场均积分", "graph_version": "v1", "metric_id": "f1.points_per_entry"}
+{"alias_id": "f1.al3", "alias_text": "赛季参赛记录条数", "graph_version": "v1", "metric_id": "f1.entry_count"}
+{"alias_id": "f1.al4", "alias_text": "当月大奖赛场数", "graph_version": "v1", "metric_id": "f1.races_count_month"}
+{"alias_id": "f1.al5", "alias_text": "区间大奖赛场数", "graph_version": "v1", "metric_id": "f1.races_count_range"}
+{"alias_id": "f1.al6", "alias_text": "两季车手积分差", "graph_version": "v1", "metric_id": "f1.season_points_delta"}
+{"alias_id": "f1.al7", "alias_text": "官方积分榜总分", "graph_version": "v1", "metric_id": "f1.official_standing_points"}
+{"alias_id": "f1.al8", "alias_text": "平均圈速毫秒", "graph_version": "v1", "metric_id": "f1.avg_lap_ms"}
+{"alias_id": "f1.al1", "alias_text": "赛季车手总积分", "graph_version": "v2", "metric_id": "f1.driver_season_points"}
+{"alias_id": "f1.al2", "alias_text": "车队场均积分", "graph_version": "v2", "metric_id": "f1.points_per_entry"}
+{"alias_id": "f1.al3", "alias_text": "赛季参赛记录条数", "graph_version": "v2", "metric_id": "f1.entry_count"}
+{"alias_id": "f1.al4", "alias_text": "当月大奖赛场数", "graph_version": "v2", "metric_id": "f1.races_count_month"}
+{"alias_id": "f1.al5", "alias_text": "区间大奖赛场数", "graph_version": "v2", "metric_id": "f1.races_count_range"}
+{"alias_id": "f1.al6", "alias_text": "两季车手积分差", "graph_version": "v2", "metric_id": "f1.season_points_delta"}
+{"alias_id": "f1.al7", "alias_text": "官方积分榜总分", "graph_version": "v2", "metric_id": "f1.official_standing_points"}
+{"alias_id": "f1.al8", "alias_text": "平均圈速毫秒", "graph_version": "v2", "metric_id": "f1.avg_lap_ms"}

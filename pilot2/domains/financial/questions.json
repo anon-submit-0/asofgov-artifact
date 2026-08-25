@@ -1,0 +1,318 @@
+[
+ {
+  "qid": "FIN-Q1",
+  "domain": "financial",
+  "question_zh": "以 1997-06-15 为声明时点，按当时生效口径计算 1996 自然年（as-of 1996-06-30 所在年窗）的问题贷款率。",
+  "as_of": "1996-06-30",
+  "declared_at": "1997-06-15",
+  "metric_alias": "问题贷款率",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "fin.problem_loan_rate",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT (SELECT COUNT(*) FROM loan WHERE status IN ('B','D') AND date>='1996-01-01' AND date<'1997-01-01')*1.0/(SELECT COUNT(*) FROM loan WHERE date>='1996-01-01' AND date<'1997-01-01')",
+  "gold_value": 0.13675213675213677,
+  "windows": {
+   "num": {
+    "kind": "range",
+    "lo": "1996-01-01",
+    "hi_excl": "1997-01-01"
+   },
+   "den": {
+    "kind": "range",
+    "lo": "1996-01-01",
+    "hi_excl": "1997-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "RC-8 flip 对前件：ver(T)=v1，问题贷款 status∈{B,D}（16/117）。与 FIN-Q2 同题双 T 异值。"
+ },
+ {
+  "qid": "FIN-Q2",
+  "domain": "financial",
+  "question_zh": "以 1998-09-15 为声明时点，按当时生效口径计算 1996 自然年（as-of 1996-06-30 所在年窗）的问题贷款率。",
+  "as_of": "1996-06-30",
+  "declared_at": "1998-09-15",
+  "metric_alias": "问题贷款率",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "fin.problem_loan_rate",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT (SELECT COUNT(*) FROM loan WHERE status IN ('D') AND date>='1996-01-01' AND date<'1997-01-01')*1.0/(SELECT COUNT(*) FROM loan WHERE date>='1996-01-01' AND date<'1997-01-01')",
+  "gold_value": 0.08547008547008547,
+  "windows": {
+   "num": {
+    "kind": "range",
+    "lo": "1996-01-01",
+    "hi_excl": "1997-01-01"
+   },
+   "den": {
+    "kind": "range",
+    "lo": "1996-01-01",
+    "hi_excl": "1997-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "RC-8 flip 对后件：ver(T)=v2（1998-03-01 核销新政），status∈{D}（10/117）。"
+ },
+ {
+  "qid": "FIN-Q3",
+  "domain": "financial",
+  "question_zh": "以 1998-09-15 为声明时点，1997 自然年（as-of 1997-06-30 所在年窗）的罚息交易占比是多少（治理路由口径）？",
+  "as_of": "1997-06-30",
+  "declared_at": "1998-09-15",
+  "metric_alias": "罚息交易占比",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "fin.penalty_trans_rate",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT (SELECT COUNT(*) FROM trans WHERE k_symbol='SANKC. UROK' AND date>='1997-01-01' AND date<'1998-01-01')*1.0/(SELECT COUNT(*) FROM trans WHERE date>='1997-01-01' AND date<'1998-01-01')",
+  "gold_value": 0.0014310376957128643,
+  "windows": {
+   "num": {
+    "kind": "range",
+    "lo": "1997-01-01",
+    "hi_excl": "1998-01-01"
+   },
+   "den": {
+    "kind": "range",
+    "lo": "1997-01-01",
+    "hi_excl": "1998-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "双路径口径公开复刻（P-3）：caliber-aware 0.14310%；blind（分母=受罚账户自指交易集）2.17426%，15.19×——模式复刻 rma 16.2 vs 3.8。"
+ },
+ {
+  "qid": "FIN-Q4",
+  "domain": "financial",
+  "question_zh": "以 1998-09-15 为声明时点，1997 年 5 月（as-of 1997-05-15 所在月窗）当月新增放贷笔数是多少？",
+  "as_of": "1997-05-15",
+  "declared_at": "1998-09-15",
+  "metric_alias": "当月新增放贷笔数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "fin.loan_count_month",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT COUNT(*) FROM loan WHERE date>='1997-05-01' AND date<'1997-06-01'",
+  "gold_value": 16,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "1997-05-01",
+    "hi_excl": "1997-06-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "P-14 前半：1997-05 全行 16 笔放贷；64/77 区当月零放贷为 MC(ii) 种子素材（不出题）。"
+ },
+ {
+  "qid": "FIN-Q5",
+  "domain": "financial",
+  "question_zh": "以 1997-06-15 为声明时点，1996 年 6 月（as-of 1996-06-15 所在月窗）当月交易笔数是多少？",
+  "as_of": "1996-06-15",
+  "declared_at": "1997-06-15",
+  "metric_alias": "当月交易笔数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "fin.trans_count_month",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT COUNT(*) FROM trans WHERE date>='1996-06-01' AND date<'1996-07-01'",
+  "gold_value": 15885,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "1996-06-01",
+    "hi_excl": "1996-07-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "常规原子值题（v1 治下）。"
+ },
+ {
+  "qid": "FIN-Q6",
+  "domain": "financial",
+  "question_zh": "以 1998-09-15 为声明时点，统计 1998-07-01 至 1999-06-30 的区间交易笔数。",
+  "as_of": null,
+  "declared_at": "1998-09-15",
+  "metric_alias": "区间交易笔数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "day_range",
+   "lo": "1998-07-01",
+   "hi_excl": "1999-07-01"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "fin.trans_count_range",
+  "expected_kind": "rewrite",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": {
+   "kind": "hull_trim",
+   "requested": {
+    "kind": "range",
+    "lo": "1998-07-01",
+    "hi_excl": "1999-07-01"
+   },
+   "effective": {
+    "kind": "range",
+    "lo": "1998-07-01",
+    "hi_excl": "1999-01-01"
+   }
+  },
+  "gold_sql": "SELECT COUNT(*) FROM trans WHERE date>='1998-07-01' AND date<'1999-01-01'",
+  "gold_value": 151237,
+  "windows": {
+   "requested": {
+    "kind": "range",
+    "lo": "1998-07-01",
+    "hi_excl": "1999-07-01"
+   },
+   "effective": {
+    "kind": "range",
+    "lo": "1998-07-01",
+    "hi_excl": "1999-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "hull 裁剪 REWRITE（定义4.8(ii)豁免）：trans.date hull 右端 1998-12-31，请求窗右段无覆盖，裁剪端点入证书。"
+ },
+ {
+  "qid": "FIN-Q7",
+  "domain": "financial",
+  "question_zh": "以 1998-12-15 为声明时点，查询 as-of 1999-06-15 所在月窗的当月交易笔数。",
+  "as_of": "1999-06-15",
+  "declared_at": "1998-12-15",
+  "metric_alias": "当月交易笔数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "fin.trans_count_month",
+  "expected_kind": "refusal",
+  "refusal_reason": "out-of-validity",
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "1999-06-01",
+    "hi_excl": "1999-07-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "OOV：1999-06 月窗与 trans.date hull（…→1998-12-31）交集为空；覆盖域不物化，判空只能对 D 现算（ND-1 见证对：插入一行 1999-06 交易即翻转）。"
+ },
+ {
+  "qid": "FIN-Q8",
+  "domain": "financial",
+  "question_zh": "计算罚息交易占比，但分子取 1997 年 5 月、分母取 1997 年 4 月（声明时点 1998-09-15）。",
+  "as_of": "1997-05-15",
+  "declared_at": "1998-09-15",
+  "metric_alias": "罚息交易占比",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": {
+   "num": "1997-05",
+   "den": "1997-04"
+  },
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "fin.penalty_trans_rate",
+  "expected_kind": "refusal",
+  "refusal_reason": "anchor-mismatch",
+  "refusal_subtype": "am_ii",
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": {
+   "num": {
+    "kind": "range",
+    "lo": "1997-05-01",
+    "hi_excl": "1997-06-01"
+   },
+   "den": {
+    "kind": "range",
+    "lo": "1997-04-01",
+    "hi_excl": "1997-05-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "AM(ii) 跨窗祈使（rma_q6 直系镜像）：违背 same_valid_time_window 绑定规则。"
+ }
+]

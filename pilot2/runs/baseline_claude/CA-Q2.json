@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q2",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 该问题要求基于治理元数据表（gov_*）中的声明时点、默认口径、as-of时间等双时态语义图逻辑来计算指标，但治理表中的配置数据（仅2-12行）未提供足够的可解析规则将这些时态/口径条件映射到具体的物理表查询逻辑，无法可靠地生成正确SQL。",
+ "sql": "REFUSE",
+ "prompt_sha256": "73829b166ac8e4c3e46f90456738ea70a0e88510356d73ef4ba57cbca9091703",
+ "prompt_chars": 5214,
+ "empty_response": false
+}

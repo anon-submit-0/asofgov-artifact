@@ -1,0 +1,12 @@
+{"alias_id": "th.al1", "alias_text": "异常化验率", "graph_version": "v1", "metric_id": "th.abnormal_lab_rate"}
+{"alias_id": "th.al2", "alias_text": "年度检查记录数", "graph_version": "v1", "metric_id": "th.exam_count"}
+{"alias_id": "th.al3", "alias_text": "患者异常化验报表", "graph_version": "v1", "metric_id": "th.patient_abnormal_report"}
+{"alias_id": "th.al4", "alias_text": "患者出生日期", "graph_version": "v1", "metric_id": "th.patient_birthday"}
+{"alias_id": "th.al5", "alias_text": "异常化验患者名录", "graph_version": "v1", "metric_id": "th.patient_roster"}
+{"alias_id": "th.al6", "alias_text": "抗核抗体检出数", "graph_version": "v1", "metric_id": "th.ana_positive_count"}
+{"alias_id": "th.al1", "alias_text": "异常化验率", "graph_version": "v2", "metric_id": "th.abnormal_lab_rate"}
+{"alias_id": "th.al2", "alias_text": "年度检查记录数", "graph_version": "v2", "metric_id": "th.exam_count"}
+{"alias_id": "th.al3", "alias_text": "患者异常化验报表", "graph_version": "v2", "metric_id": "th.patient_abnormal_report"}
+{"alias_id": "th.al4", "alias_text": "患者出生日期", "graph_version": "v2", "metric_id": "th.patient_birthday"}
+{"alias_id": "th.al5", "alias_text": "异常化验患者名录", "graph_version": "v2", "metric_id": "th.patient_roster"}
+{"alias_id": "th.al6", "alias_text": "抗核抗体检出数", "graph_version": "v2", "metric_id": "th.ana_positive_count"}

@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q1",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 15626.138213557568,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT SUM(ym.\"Consumption\") / COUNT(DISTINCT ym.\"CustomerID\")\nFROM main.\"yearmonth\" ym\nJOIN main.\"customers\" c ON ym.\"CustomerID\" = c.\"CustomerID\"\nWHERE c.\"Currency\" = 'CZK'\n  AND ym.\"Date\" = '201308'\n```",
+ "sql": "SELECT SUM(ym.\"Consumption\") / COUNT(DISTINCT ym.\"CustomerID\")\nFROM main.\"yearmonth\" ym\nJOIN main.\"customers\" c ON ym.\"CustomerID\" = c.\"CustomerID\"\nWHERE c.\"Currency\" = 'CZK'\n  AND ym.\"Date\" = '201308'",
+ "prompt_sha256": "c993d84f4fd64e3dc53941782e770f0b112f3c64739e138ec29d6164132d2913",
+ "prompt_chars": 3904,
+ "empty_response": false
+}

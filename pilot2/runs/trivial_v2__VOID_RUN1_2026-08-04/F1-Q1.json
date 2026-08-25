@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q1",
+ "system": "trivial_v2",
+ "kind": "no_sql",
+ "value": null,
+ "verdict": "no_sql",
+ "raw": "",
+ "sql": null,
+ "prompt_sha256": "7f6593affe566e26512f591a8e50be8e3c1bad346e461696c2c5247c534bd96a",
+ "prompt_chars": 5735,
+ "empty_response": true
+}

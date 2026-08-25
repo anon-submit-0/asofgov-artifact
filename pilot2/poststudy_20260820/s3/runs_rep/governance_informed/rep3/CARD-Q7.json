@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q7",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n  CAST(COUNT(DISTINCT r.id) AS DOUBLE) / NULLIF(COUNT(DISTINCT c.uuid), 0) AS ruling_intensity\nFROM main.rulings r\nJOIN main.cards c ON r.uuid = c.uuid\nJOIN main.sets s ON c.setCode = s.code\nWHERE r.date >= '2017-02-01' \n  AND r.date < '2017-03-01'\n  AND s.releaseDate >= '2017-02-01'\n  AND s.releaseDate < '2017-03-01'\n```",
+ "sql": "SELECT \n  CAST(COUNT(DISTINCT r.id) AS DOUBLE) / NULLIF(COUNT(DISTINCT c.uuid), 0) AS ruling_intensity\nFROM main.rulings r\nJOIN main.cards c ON r.uuid = c.uuid\nJOIN main.sets s ON c.setCode = s.code\nWHERE r.date >= '2017-02-01' \n  AND r.date < '2017-03-01'\n  AND s.releaseDate >= '2017-02-01'\n  AND s.releaseDate < '2017-03-01'",
+ "prompt_sha256": "7045c98f804d293b930021798dfd8a3f76b48a7f840d45632082f762b96a6582",
+ "prompt_chars": 23968,
+ "empty_response": false
+}

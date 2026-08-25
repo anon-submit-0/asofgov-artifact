@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q1",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 给定数据中没有语义图版本的时间有效性列（effective_col/vf_col/vtc_col 均为元数据字符串而非可过滤的时间戳），也没有 frpm 表中的时间版本或 as-of 时间过滤机制，无法按\"声明时点\"和\"as-of\"语义正确计算该指标。",
+ "sql": "REFUSE",
+ "prompt_sha256": "de0429a5d9bad60c914a5248633146573b8ec9f3a21c424afb588b6ab08c979a",
+ "prompt_chars": 5214,
+ "empty_response": false
+}

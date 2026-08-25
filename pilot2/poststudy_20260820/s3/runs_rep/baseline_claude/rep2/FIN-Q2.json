@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q2",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.2558139534883721,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \n    CAST(COUNT(CASE WHEN l.status IN ('B', 'D') THEN 1 END) AS DOUBLE) / NULLIF(COUNT(*), 0) AS problem_loan_rate\nFROM main.\"loan\" l\nWHERE EXTRACT(YEAR FROM l.date) = 1996\n    AND l.date <= DATE '1996-06-30'\n```",
+ "sql": "SELECT \n    CAST(COUNT(CASE WHEN l.status IN ('B', 'D') THEN 1 END) AS DOUBLE) / NULLIF(COUNT(*), 0) AS problem_loan_rate\nFROM main.\"loan\" l\nWHERE EXTRACT(YEAR FROM l.date) = 1996\n    AND l.date <= DATE '1996-06-30'",
+ "prompt_sha256": "1d0762359887243597f90578cae4889c35490f780a4a48600380747238616cad",
+ "prompt_chars": 4084,
+ "empty_response": false
+}

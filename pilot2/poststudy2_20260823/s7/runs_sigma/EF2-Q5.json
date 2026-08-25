@@ -1,0 +1,28 @@
+{
+ "qid": "EF2-Q5",
+ "domain": "european_football_2",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2013-12-25",
+  "declared_at": "2014-02-01",
+  "metric_alias": "快照日球员平均综合评分",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2013-12-25\", \"declared_at\": \"2014-02-01\", \"metric_alias\": \"快照日球员平均综合评分\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "4d3aedcadd1ec904dd80c264ceb4d68f1d5740fb8035057f5675b1af3a5331b2",
+ "prompt_chars": 28138
+}

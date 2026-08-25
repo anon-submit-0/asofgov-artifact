@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q4",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 915.0,
+ "verdict": "correct",
+ "raw": "SELECT COUNT(*) FROM main.\"Match\" WHERE \"date\" BETWEEN '2016-03-01' AND '2016-08-31';",
+ "sql": "SELECT COUNT(*) FROM main.\"Match\" WHERE \"date\" BETWEEN '2016-03-01' AND '2016-08-31'",
+ "prompt_sha256": "808df2d34243a375ca2e1340140cf389ea9e95329409f4148cd65659fb82ca6b",
+ "prompt_chars": 7617,
+ "empty_response": false
+}

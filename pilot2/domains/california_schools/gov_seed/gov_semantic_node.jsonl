@@ -1,0 +1,6 @@
+{"domain": "california_schools", "entity_key": "CDSCode", "graph_version": "v1", "node_id": "ca.schools", "physical_table": "schools", "scope_keys": {"county": "County"}}
+{"domain": "california_schools", "entity_key": "CDSCode", "graph_version": "v1", "node_id": "ca.frpm", "physical_table": "frpm", "scope_keys": {"county": "County Name", "district": "District Name"}}
+{"domain": "california_schools", "entity_key": "cds", "graph_version": "v1", "node_id": "ca.satscores", "physical_table": "satscores", "scope_keys": {}}
+{"domain": "california_schools", "entity_key": "CDSCode", "graph_version": "v2", "node_id": "ca.schools", "physical_table": "schools", "scope_keys": {"county": "County"}}
+{"domain": "california_schools", "entity_key": "CDSCode", "graph_version": "v2", "node_id": "ca.frpm", "physical_table": "frpm", "scope_keys": {"county": "County Name", "district": "District Name"}}
+{"domain": "california_schools", "entity_key": "cds", "graph_version": "v2", "node_id": "ca.satscores", "physical_table": "satscores", "scope_keys": {}}

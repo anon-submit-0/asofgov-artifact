@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q4",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: country_history表中的effective_month数据范围无法确定是否包含2026-10至2027-03的记录，且\"declaration instant\"概念依赖gov_temporal_binding/gov_valid_time_anchor的时态规则，这些治理表的元数据不足以明确定义该计算逻辑。",
+ "sql": "REFUSE",
+ "prompt_sha256": "a1bf0980b63b4508e193b06687454ad1c2fd30dbe68c08e332509d19208c8811",
+ "prompt_chars": 3155,
+ "empty_response": false
+}

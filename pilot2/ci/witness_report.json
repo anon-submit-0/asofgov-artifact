@@ -1,0 +1,154 @@
+{
+ "witnesses": [
+  {
+   "qid": "FIN-Q7",
+   "note": "OOV: 向 1999-06 插入一笔交易 → hull 右移，月窗部分覆盖",
+   "label_D1": [
+    "refusal",
+    "out-of-validity",
+    null,
+    null
+   ],
+   "label_D2": [
+    "rewrite",
+    null,
+    null,
+    "hull_trim"
+   ],
+   "value_D2": 1.0,
+   "flip": true
+  },
+  {
+   "qid": "F1-Q7",
+   "note": "OOV: 向 1949-05 插入一场赛事 → hull 左移",
+   "label_D1": [
+    "refusal",
+    "out-of-validity",
+    null,
+    null
+   ],
+   "label_D2": [
+    "rewrite",
+    null,
+    null,
+    "hull_trim"
+   ],
+   "value_D2": 1.0,
+   "flip": true
+  },
+  {
+   "qid": "DEB-Q6",
+   "note": "OOV(strict_member): 月集补入 201312",
+   "label_D1": [
+    "refusal",
+    "out-of-validity",
+    null,
+    null
+   ],
+   "label_D2": [
+    "value",
+    null,
+    null,
+    null
+   ],
+   "value_D2": null,
+   "flip": true
+  },
+  {
+   "qid": "EF2-Q5",
+   "note": "OOV(strict_member): 快照日集补入 2013-12-25",
+   "label_D1": [
+    "refusal",
+    "out-of-validity",
+    null,
+    null
+   ],
+   "label_D2": [
+    "value",
+    null,
+    null,
+    null
+   ],
+   "value_D2": 70.0,
+   "flip": true
+  },
+  {
+   "qid": "CARD-Q7",
+   "note": "MC(ii): 向 2017-02 插入一套牌+一印刷 → 分母质量翻正",
+   "label_D1": [
+    "refusal",
+    "missing-caliber",
+    "mc_ii",
+    null
+   ],
+   "label_D2": [
+    "value",
+    null,
+    null,
+    null
+   ],
+   "value_D2": 2161.0,
+   "flip": true
+  },
+  {
+   "qid": "F1-Q8",
+   "note": "MC(ii): 向 2010 赛季插入一条 brawn 参赛记录 → 分母翻正",
+   "label_D1": [
+    "refusal",
+    "missing-caliber",
+    "mc_ii",
+    null
+   ],
+   "label_D2": [
+    "value",
+    null,
+    null,
+    null
+   ],
+   "value_D2": 25.0,
+   "flip": true
+  },
+  {
+   "qid": "EF2-Q6",
+   "note": "AM(iv): 向 2013-12-01 插入一行快照 → 锚对实现集一致，审计通过",
+   "label_D1": [
+    "refusal",
+    "anchor-mismatch",
+    "am_iv",
+    null
+   ],
+   "label_D2": [
+    "value",
+    null,
+    null,
+    null
+   ],
+   "value_D2": 0.25333333333333335,
+   "flip": true
+  },
+  {
+   "qid": "DEB-Q5",
+   "note": "REWRITE(小胞): LAM×EUR 胞 16→20 = k(v2) → 上卷判定翻回 Segment 级 ANSWER",
+   "label_D1": [
+    "rewrite",
+    null,
+    null,
+    "granularity_rollup"
+   ],
+   "label_D2": [
+    "value",
+    null,
+    null,
+    null
+   ],
+   "value_D2": [
+    [
+     "LAM",
+     26.545454545454547
+    ]
+   ],
+   "flip": true
+  }
+ ],
+ "pass": true
+}

@@ -1,0 +1,93 @@
+  P0 OK prereg sha256 == 838a214fc5a09902…
+  P1 OK channel first-hit claude-opus-4-6 -> tuzi
+  P2 OK 60 题三键裁剪；σ 示例题不属于 60 题
+  P3 OK 60×8 泄漏比对（过短跳过 31）
+  CA-Q1      outcome=answer        verdict=correct exact_sigma=True
+  CA-Q2      outcome=answer        verdict=correct exact_sigma=True
+  CA-Q3      outcome=answer        verdict=correct exact_sigma=True
+  CA-Q4      outcome=answer        verdict=correct exact_sigma=True
+  CA-Q5      outcome=compile_error verdict=error   exact_sigma=False  why=compile_error
+  CA-Q6      outcome=compile_error verdict=error   exact_sigma=False  why=compile_error
+  CARD-Q1    outcome=answer        verdict=correct exact_sigma=True
+  CARD-Q2    outcome=answer        verdict=correct exact_sigma=True
+  CARD-Q3    outcome=answer        verdict=correct exact_sigma=True
+  CARD-Q4    outcome=answer        verdict=correct exact_sigma=True
+  CARD-Q5    outcome=rewrite       verdict=correct exact_sigma=True
+  CARD-Q6    outcome=refusal       verdict=correct exact_sigma=False
+  CARD-Q7    outcome=refusal       verdict=correct exact_sigma=True
+  CODE-Q1    outcome=answer        verdict=correct exact_sigma=True
+  CODE-Q2    outcome=answer        verdict=correct exact_sigma=True
+  CODE-Q3    outcome=answer        verdict=correct exact_sigma=True
+  CODE-Q4    outcome=refusal       verdict=error   exact_sigma=False  why=expected rewrite, got refusal disclosure-blocked
+  CODE-Q5    outcome=refusal       verdict=error   exact_sigma=False  why=expected rewrite, got refusal disclosure-blocked
+  CODE-Q6    outcome=rewrite       verdict=correct exact_sigma=True
+  CODE-Q7    outcome=refusal       verdict=correct exact_sigma=False
+  DEB-Q1     outcome=answer        verdict=correct exact_sigma=False
+  DEB-Q2     outcome=answer        verdict=correct exact_sigma=False
+  DEB-Q3     outcome=answer        verdict=correct exact_sigma=False
+  DEB-Q4     outcome=answer        verdict=correct exact_sigma=False
+  DEB-Q5     outcome=rewrite       verdict=correct exact_sigma=True
+  DEB-Q6     outcome=refusal       verdict=correct exact_sigma=False
+  DEB-Q7     outcome=refusal       verdict=correct exact_sigma=True
+  EF2-Q1     outcome=answer        verdict=correct exact_sigma=True
+  EF2-Q2     outcome=answer        verdict=correct exact_sigma=True
+  EF2-Q3     outcome=answer        verdict=correct exact_sigma=True
+  EF2-Q4     outcome=rewrite       verdict=correct exact_sigma=True
+  EF2-Q5     outcome=refusal       verdict=correct exact_sigma=True
+  EF2-Q6     outcome=refusal       verdict=correct exact_sigma=True
+  FIN-Q1     outcome=answer        verdict=correct exact_sigma=True
+  FIN-Q2     outcome=answer        verdict=correct exact_sigma=True
+  FIN-Q3     outcome=answer        verdict=correct exact_sigma=True
+  FIN-Q4     outcome=answer        verdict=correct exact_sigma=True
+  FIN-Q5     outcome=answer        verdict=correct exact_sigma=True
+  FIN-Q6     outcome=rewrite       verdict=correct exact_sigma=True
+  FIN-Q7     outcome=refusal       verdict=correct exact_sigma=True
+  FIN-Q8     outcome=refusal       verdict=correct exact_sigma=False
+  F1-Q1      outcome=answer        verdict=correct exact_sigma=True
+  F1-Q2      outcome=answer        verdict=correct exact_sigma=True
+  F1-Q3      outcome=answer        verdict=correct exact_sigma=True
+  F1-Q4      outcome=answer        verdict=correct exact_sigma=True
+  F1-Q5      outcome=answer        verdict=correct exact_sigma=True
+  F1-Q6      outcome=rewrite       verdict=correct exact_sigma=True
+  F1-Q7      outcome=refusal       verdict=correct exact_sigma=True
+  F1-Q8      outcome=refusal       verdict=correct exact_sigma=True
+  TH-Q1      outcome=answer        verdict=correct exact_sigma=True
+  TH-Q2      outcome=answer        verdict=correct exact_sigma=True
+  TH-Q3      outcome=refusal       verdict=error   exact_sigma=False  why=expected rewrite, got refusal disclosure-blocked
+  TH-Q4      outcome=rewrite       verdict=correct exact_sigma=True
+  TH-Q5      outcome=refusal       verdict=correct exact_sigma=False
+  TH-Q6      outcome=refusal       verdict=correct exact_sigma=False
+  W1-Q1      outcome=answer        verdict=correct exact_sigma=False
+  W1-Q2      outcome=answer        verdict=correct exact_sigma=False
+  W1-Q3      outcome=answer        verdict=correct exact_sigma=False
+  W1-Q4      outcome=rewrite       verdict=correct exact_sigma=False
+  W1-Q5      outcome=refusal       verdict=correct exact_sigma=False
+
+wrote /Volumes/SSD 1/explore_opportunity_cc/pilot2/poststudy2_20260823/s7/s7_nl2sigma_full.json
+{
+ "prereg_sha256": "838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669",
+ "model": "claude-opus-4-6",
+ "n": 60,
+ "calls": 57,
+ "cached": 3,
+ "exact_full_sigma": 40,
+ "end_to_end_correct": 55,
+ "end_to_end_error": 5,
+ "metric_alias_match": 58,
+ "per_field_match": {
+  "as_of": 44,
+  "declared_at": 60,
+  "metric_alias": 58,
+  "scope": 59,
+  "pinned_version": 60,
+  "cross_window": 60,
+  "anchor_override": 59,
+  "window_request": 59,
+  "requested_granularity": 60,
+  "requested_time_gran": 59,
+  "presentation": 56,
+  "ctx_role": 60,
+  "periods": 60
+ },
+ "exact_sigma_and_wrong": []
+}

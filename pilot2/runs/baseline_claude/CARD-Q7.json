@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q7",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 该问题涉及\"裁定强度\"这一语义指标，需要依赖 gov_* 治理表中的指标定义（gov_metric、gov_measure_def、gov_temporal_binding 等）来解析其具体计算逻辑，但当前治理表中没有与\"裁定强度\"匹配的指标定义（gov_metric_alias 中无对应 alias_text），因此无法正确回答。",
+ "sql": "REFUSE",
+ "prompt_sha256": "f9c570acf0a6e0e8935c91d750a09d075c8c6cf2a39ed99698def5f5fce56ec7",
+ "prompt_chars": 5447,
+ "empty_response": false
+}

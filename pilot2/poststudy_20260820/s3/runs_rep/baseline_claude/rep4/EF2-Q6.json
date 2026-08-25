@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q6",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 问题涉及\"评分归一当日胜率\"等未在 schema 中定义的业务概念，且\"声明时点\"与\"as-of\"的时态语义在现有表结构下无法映射到具体查询逻辑\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "fc4cf70f608f578c3fb7f6e605dacc439edf52ac021668d1cce606d9b38c9ada",
+ "prompt_chars": 7615,
+ "empty_response": false
+}

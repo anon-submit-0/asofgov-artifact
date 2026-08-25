@@ -1,0 +1,115 @@
+{
+ "sql": "SELECT t0.\"County Name\" AS cell, SUM(t0.\"Free Meal Count (Ages 5-17)\") * 1.0 / SUM(t0.\"Enrollment (Ages 5-17)\") AS val FROM \"frpm\" t0 WHERE t0.\"County Name\" = 'Alameda' AND CAST(t0.\"Academic Year\" AS VARCHAR) = '2014-2015' GROUP BY 1 ORDER BY 1",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "CA-Q5",
+   "domain": "california_schools",
+   "metric": "ca.school_frpm_report",
+   "metric_kind": "report",
+   "as_of": "2015-04-15"
+  },
+  "graph_pin": {
+   "domain": "california_schools",
+   "graph_version": "v2",
+   "commit_id": "2015-07-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": "A-CA-FRPM",
+    "registered": true,
+    "coverage_mode": "strict_member",
+    "granule": "academic_year_token",
+    "window": {
+     "kind": "academic-year",
+     "lo": "2014-07-01",
+     "hi_excl": "2015-07-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-CA-SFR",
+   "rule": "same_valid_time_window",
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [],
+  "disclosure": {
+   "decision": "REWRITE",
+   "policy_ids": [
+    "ca.pi1"
+   ],
+   "policy_table_present": true,
+   "ungoverned_disclosure": false,
+   "granularity": "county",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-CA-FRPM",
+    "coverage_mode": "strict_member",
+    "sql": "SELECT DISTINCT CAST(t.\"Academic Year\" AS VARCHAR) FROM \"frpm\" t WHERE t.\"Academic Year\" IS NOT NULL",
+    "observed": 1
+   },
+   {
+    "kind": "SUPPMIN",
+    "policy_id": "ca.pi1",
+    "level": "school",
+    "sql": "SELECT MIN(n) FROM (SELECT t0.\"CDSCode\" AS cell, COUNT(DISTINCT t0.\"CDSCode\") AS n FROM \"frpm\" t0 WHERE t0.\"County Name\" = 'Alameda' AND CAST(t0.\"Academic Year\" AS VARCHAR) = '2014-2015' GROUP BY 1 ORDER BY 1)",
+    "observed": 1,
+    "threshold": "10"
+   },
+   {
+    "kind": "SUPPMIN",
+    "policy_id": "ca.pi1",
+    "level": "district",
+    "sql": "SELECT MIN(n) FROM (SELECT t0.\"District Name\" AS cell, COUNT(DISTINCT t0.\"CDSCode\") AS n FROM \"frpm\" t0 WHERE t0.\"County Name\" = 'Alameda' AND CAST(t0.\"Academic Year\" AS VARCHAR) = '2014-2015' GROUP BY 1 ORDER BY 1)",
+    "observed": 1,
+    "threshold": "10"
+   },
+   {
+    "kind": "SUPPMIN",
+    "policy_id": "ca.pi1",
+    "level": "county",
+    "sql": "SELECT MIN(n) FROM (SELECT t0.\"County Name\" AS cell, COUNT(DISTINCT t0.\"CDSCode\") AS n FROM \"frpm\" t0 WHERE t0.\"County Name\" = 'Alameda' AND CAST(t0.\"Academic Year\" AS VARCHAR) = '2014-2015' GROUP BY 1 ORDER BY 1)",
+    "observed": 379,
+    "threshold": "10"
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  },
+  "rewrite": {
+   "kept_slices": [
+    "(v2,B-CA-SFR)"
+   ],
+   "cut_trace": [
+    {
+     "kind": "granularity_rollup",
+     "requested_level": "school",
+     "effective_level": "county",
+     "policy_ids": [
+      "ca.pi1"
+     ]
+    }
+   ],
+   "ct": [],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q1",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "None",
+ "sql": "None",
+ "prompt_sha256": "9961579af83525c6c402efc3062ae2dc29d879264aad30e70147f941e2b7567a",
+ "prompt_chars": 5509,
+ "empty_response": false
+}

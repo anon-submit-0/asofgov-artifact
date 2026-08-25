@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 给定 schema 不包含任何\"轮替\"(rotation)、\"声明时点\"(statement date)、\"as-of日期\"或时态版本的元数据列，legalities 表仅有 format/status/uuid 但无时间维度，无法回答带时点约束的轮替合法性统计问题。\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "7203e05966850628dce621d527b11a99de5f86d24265382f5aa8b4aaea74bcba",
+ "prompt_chars": 5446,
+ "empty_response": false
+}

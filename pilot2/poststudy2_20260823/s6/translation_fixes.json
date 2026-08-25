@@ -1,0 +1,43 @@
+{
+  "_comment": "S6 Stage A auditor fixes over translation_raw/. Each entry replaces question_en_raw in full; reasons cite the prereg checklist item (PREREG_poststudy2_20260823.md sha 838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669: as-of / declared-at / window phrase / metric-alias meaning / version-pin preserved; nothing added). No gold value, gold SQL, window endpoint, or refusal class enters any fixed text.",
+  "CA-Q6": {
+    "question_en": "With 2015-09-01 as the declaration instant, compute the free meal rate for the 2014-2015 school year, windowed by charter authorization date.",
+    "reason": "metric/window-anchor meaning: ZH 特许授权日期 names the charter authorization date anchor (california_schools charter semantics); raw had 'franchise authorization date', which loses the anchor identity the question deliberately references.",
+    "trigger": "automated: per-qid required phrase 'charter authorization date'"
+  },
+  "CARD-Q6": {
+    "question_en": "With 2017-03-01 as the declaration instant, what is the reserved card collector premium rate for February 2017?",
+    "reason": "metric-alias meaning: ZH 保留卡收藏溢价率 refers to reserved cards (MTG Reserved List) and a collector premium; raw 'retained card collection premium rate' obscures the alias meaning.",
+    "trigger": "automated: alias keyword check for 保留卡收藏溢价率"
+  },
+  "CODE-Q4": {
+    "question_en": "With 2013-08-01 as the declaration instant, provide the June 2013 accepted answer count report for each user (user level).",
+    "reason": "metric-alias meaning + intra-domain consistency: 采纳 is rendered 'accepted/acceptance' everywhere else in this domain (CODE-Q1/Q2 'question acceptance rate', CODE-Q7 'accepted answers'); raw had 'adopted answer count report'.",
+    "trigger": "automated: alias keyword check for 用户采纳答案数报表"
+  },
+  "EF2-Q5": {
+    "question_en": "With 2014-02-01 as the declaration instant, what is the average composite rating of players on the snapshot date as-of 2013-12-25?",
+    "reason": "nothing-added discipline: raw duplicated the phrase 'snapshot date' ('...on the snapshot date as-of 2013-12-25 snapshot date?'); duplicate removed, aligning with EF2-Q1's rendering of the same alias.",
+    "trigger": "manual: auditor read-through (duplication artifact)"
+  },
+  "EF2-Q6": {
+    "question_en": "With 2014-02-01 as the declaration instant, what is the rating-normalized same-day win rate for the as-of 2013-12-01 single-day window?",
+    "reason": "metric-alias meaning: 评分 in this domain is the player rating (综合评分 -> composite rating in EF2-Q1/Q5); raw 'score-normalized' mistakes rating for match score.",
+    "trigger": "automated: alias keyword check for 评分归一当日胜率"
+  },
+  "FIN-Q5": {
+    "question_en": "With 1997-06-15 as the declaration instant, what is the monthly transaction count for June 1996 (as-of 1996-06-15 the containing month window)?",
+    "reason": "metric-alias consistency: FIN-Q5 and FIN-Q7 share the identical ZH alias 当月交易笔数; raw rendered FIN-Q5 as 'the number of transactions' but FIN-Q7 as 'the monthly transaction count'; harmonized to one alias string.",
+    "trigger": "automated: alias consistency check for 当月交易笔数"
+  },
+  "FIN-Q8": {
+    "question_en": "Calculate the penalty interest transaction proportion, but with the numerator taken from May 1997 and the denominator taken from April 1997 (declaration instant 1998-09-15).",
+    "reason": "metric-alias consistency: FIN-Q3 and FIN-Q8 share the identical ZH alias 罚息交易占比; raw rendered Q3 'proportion' but Q8 'share'; harmonized to 'proportion'.",
+    "trigger": "automated: alias consistency check for 罚息交易占比"
+  },
+  "TH-Q2": {
+    "question_en": "With 1996-06-01 as the declaration instant, what is the number of annual examination records for the 1995 calendar year (as-of 1995-06-30 the containing year window)?",
+    "reason": "metric-alias meaning: 检查 in this medical domain means patient examinations; raw 'annual inspection records' suggests facility inspection.",
+    "trigger": "automated: alias keyword check for 年度检查记录数"
+  }
+}

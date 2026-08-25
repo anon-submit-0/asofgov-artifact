@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q7",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT u.DisplayName, u.Location\nFROM main.\"users\" u\nWHERE u.\"Id\" IN (\n    SELECT a.OwnerUserId\n    FROM main.\"posts\" q\n    JOIN main.\"posts\" a ON a.\"Id\" = q.\"AcceptedAnswerId\"\n    WHERE q.\"PostTypeId\" = 1\n    AND a.\"PostTypeId\" = 2\n    AND a.\"CreaionDate\" >= '2013-06-01'\n    AND a.\"CreaionDate\" < '2013-07-01'\n    GROUP BY a.OwnerUserId\n    ORDER BY COUNT(*) DESC\n    LIMIT 10\n)\n```",
+ "sql": "SELECT u.DisplayName, u.Location\nFROM main.\"users\" u\nWHERE u.\"Id\" IN (\n    SELECT a.OwnerUserId\n    FROM main.\"posts\" q\n    JOIN main.\"posts\" a ON a.\"Id\" = q.\"AcceptedAnswerId\"\n    WHERE q.\"PostTypeId\" = 1\n    AND a.\"PostTypeId\" = 2\n    AND a.\"CreaionDate\" >= '2013-06-01'\n    AND a.\"CreaionDate\" < '2013-07-01'\n    GROUP BY a.OwnerUserId\n    ORDER BY COUNT(*) DESC\n    LIMIT 10\n)",
+ "prompt_sha256": "38f05a8e2da060eaf6ed4186896aa46766f6ea471154d6b46dd21a79776b7319",
+ "prompt_chars": 4921,
+ "empty_response": false
+}

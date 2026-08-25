@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q3",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT COUNT(*) \nFROM main.\"Player_Attributes\" \nWHERE strftime('%Y-%m', date) = '2015-06'\n```",
+ "sql": "SELECT COUNT(*) \nFROM main.\"Player_Attributes\" \nWHERE strftime('%Y-%m', date) = '2015-06'",
+ "prompt_sha256": "fed24cc753f9cc11d5703195c79e51d1814e9b5daef47500114073c5d1ea30b5",
+ "prompt_chars": 25294,
+ "empty_response": false
+}

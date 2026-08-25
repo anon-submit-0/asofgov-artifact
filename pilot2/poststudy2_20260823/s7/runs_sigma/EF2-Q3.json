@@ -1,0 +1,28 @@
+{
+ "qid": "EF2-Q3",
+ "domain": "european_football_2",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2015-06-15",
+  "declared_at": "2016-07-01",
+  "metric_alias": "当月球员属性快照条数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2015-06-15\", \"declared_at\": \"2016-07-01\", \"metric_alias\": \"当月球员属性快照条数\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "a7b758db76b8a46e3d2740bd7872590071af57ca9c06f485b81e28065c24adcb",
+ "prompt_chars": 28150
+}

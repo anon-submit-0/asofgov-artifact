@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q3",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 681.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) >= DATE '2015-06-01' AND CAST(\"date\" AS DATE) < DATE '2015-07-01';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) >= DATE '2015-06-01' AND CAST(\"date\" AS DATE) < DATE '2015-07-01'",
+ "prompt_sha256": "729e873a77d6c758d278dc34d2add36421fca4e7d144714eaae050de353bc0ad",
+ "prompt_chars": 25393,
+ "empty_response": false
+}

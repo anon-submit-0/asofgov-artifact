@@ -1,0 +1,30 @@
+{
+ "qid": "CA-Q1",
+ "domain": "california_schools",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2015-04-15",
+  "declared_at": "2015-05-01",
+  "metric_alias": "免费餐率",
+  "scope": {
+   "county": "Alameda"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2015-04-15\", \"declared_at\": \"2015-05-01\", \"metric_alias\": \"免费餐率\", \"scope\": {\"county\": \"Alameda\"}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "dcd5c8be1d9aa69cb39e38c8ecbb93693b85bf493db584dddb937cdfdfe7068f",
+ "prompt_chars": 20826
+}

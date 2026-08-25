@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 2021年时点不在数据集治理版本覆盖范围内（v1=2015-01-15，v2=2017-09-28），无法确定对应的轮替口径\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "6f8521e6cf5bdad150d3ce6b0da40eedb95595af6b7447302a2ad3c3524e659c",
+ "prompt_chars": 23967,
+ "empty_response": false
+}

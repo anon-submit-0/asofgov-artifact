@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q4",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 9270.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.schools WHERE OpenDate <= '2000-09-01' AND (ClosedDate IS NULL OR ClosedDate >= '2000-09-01');\n```",
+ "sql": "SELECT COUNT(*) FROM main.schools WHERE OpenDate <= '2000-09-01' AND (ClosedDate IS NULL OR ClosedDate >= '2000-09-01')",
+ "prompt_sha256": "c36ed7b654c0fcf87d5be34478182e82343502e247140a1c451a670834e5627b",
+ "prompt_chars": 17941,
+ "empty_response": false
+}

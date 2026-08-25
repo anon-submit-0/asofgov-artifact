@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q7",
+ "system": "trivial_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: gov_valid_time_anchor 和 gov_temporal_binding 表中没有与 races 表关联的有效时间锚定义，无法按要求的 as-of 语义正确回答该问题。",
+ "sql": "REFUSE",
+ "prompt_sha256": "7d7455faa24f867a8a338a95bfb30726017928bf6f710ec57df3a71d214284c9",
+ "prompt_chars": 5595,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q7",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 缺少\"裁定强度\"指标的具体定义、计算逻辑和时间绑定规则信息",
+ "sql": "REFUSE",
+ "prompt_sha256": "f9c570acf0a6e0e8935c91d750a09d075c8c6cf2a39ed99698def5f5fce56ec7",
+ "prompt_chars": 5447,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q3",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT \n    p.ID,\n    COUNT(*) as abnormal_lab_count\nFROM main.\"Patient\" p\nJOIN main.\"Laboratory\" l ON p.ID = l.ID\nWHERE EXTRACT(YEAR FROM l.\"Date\") = 1997\n    AND l.GOT >= 60\nGROUP BY p.ID\nHAVING COUNT(*) >= 10\n```",
+ "sql": "SELECT \n    p.ID,\n    COUNT(*) as abnormal_lab_count\nFROM main.\"Patient\" p\nJOIN main.\"Laboratory\" l ON p.ID = l.ID\nWHERE EXTRACT(YEAR FROM l.\"Date\") = 1997\n    AND l.GOT >= 60\nGROUP BY p.ID\nHAVING COUNT(*) >= 10",
+ "prompt_sha256": "3e70287ffefb90f4c65b8bf0ac3d077103b46fbb8b26097f4e4ee26a0ae1709f",
+ "prompt_chars": 20400,
+ "empty_response": false
+}

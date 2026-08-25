@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q5",
+ "system": "baseline_claude",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT AVG(overall_rating) \nFROM main.\"Player_Attributes\" \nWHERE date = '2013-12-25'\n```",
+ "sql": "SELECT AVG(overall_rating) \nFROM main.\"Player_Attributes\" \nWHERE date = '2013-12-25'",
+ "prompt_sha256": "78a2b2e1a2bdf2431effa8dbb716a1c5ea7f453bd84da7605c299850744383cd",
+ "prompt_chars": 7618,
+ "empty_response": false
+}

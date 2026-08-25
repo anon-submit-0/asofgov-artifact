@@ -1,0 +1,28 @@
+{
+ "qid": "TH-Q6",
+ "domain": "thrombosis_prediction",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "1997-06-15",
+  "declared_at": "1998-06-01",
+  "metric_alias": "异常化验患者名录",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": "patient",
+  "requested_time_gran": null,
+  "presentation": "raw_rows",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"1997-06-15\", \"declared_at\": \"1998-06-01\", \"metric_alias\": \"异常化验患者名录\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": \"patient\", \"requested_time_gran\": null, \"presentation\": \"raw_rows\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "1e9b6d48c8951b0fa0ec19392a0d480857e436013f7745196709df5ecf394e03",
+ "prompt_chars": 23246
+}

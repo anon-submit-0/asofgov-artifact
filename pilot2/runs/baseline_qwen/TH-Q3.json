@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q3",
+ "system": "baseline_qwen",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 问题要求输出\"患者异常化验报表（GOT≥60）\"，但未明确说明报表的具体格式和需要返回的字段（如患者标识、异常次数、具体化验日期等），且\"以 1998-06-01 为声明时点\"的约束条件在纯 SQL 查询中难以体现其业务含义，可能导致结果不符合预期。",
+ "sql": "REFUSE",
+ "prompt_sha256": "bb67abc1b9808b7497bd62e703f47970b7ecee57f9e68c39b1e0983e8857bf48",
+ "prompt_chars": 4140,
+ "empty_response": false
+}

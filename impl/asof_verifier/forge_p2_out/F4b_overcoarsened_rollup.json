@@ -1,0 +1,206 @@
+{
+ "base_qid": "CODE-Q4",
+ "expected_reject_by": "V5",
+ "envelope": {
+  "sql": "SELECT CASE WHEN t2.\"Reputation\" >= 10000 THEN '[10000,inf)' WHEN t2.\"Reputation\" >= 1000 THEN '[1000,10000)' WHEN t2.\"Reputation\" >= 100 THEN '[100,1000)' ELSE '[0,100)' END AS cell, COUNT(*) AS val FROM \"posts\" t0 INNER JOIN \"posts\" t1 ON t0.\"Id\" = t1.\"AcceptedAnswerId\" INNER JOIN \"users\" t2 ON t0.\"OwnerUserId\" = t2.\"Id\" WHERE t0.\"PostTypeId\" = 2 AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) >= '2013-06-01' AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) < '2013-07-01' GROUP BY 1 ORDER BY 1",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "CODE-Q4",
+    "domain": "codebase_community",
+    "metric": "code.user_accepted_report",
+    "metric_kind": "report",
+    "as_of": "2013-06-15"
+   },
+   "graph_pin": {
+    "domain": "codebase_community",
+    "graph_version": "v2",
+    "commit_id": "2013-01-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "atom",
+     "anchor_id": "A-CODE-POST",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "month",
+      "lo": "2013-06-01",
+      "hi_excl": "2013-07-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-CODE-UAR",
+    "rule": "same_valid_time_window",
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [
+    {
+     "caliber_key": "code.rt3",
+     "metric": "code.user_accepted_report",
+     "leg": "atom",
+     "hop_seq": "0",
+     "src_node": "code.posts",
+     "dst_node": "code.posts",
+     "via_table": "posts",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "Id",
+       "AcceptedAnswerId"
+      ]
+     ]
+    },
+    {
+     "caliber_key": "code.rt4",
+     "metric": "code.user_accepted_report",
+     "leg": "entity",
+     "hop_seq": "0",
+     "src_node": "code.posts",
+     "dst_node": "code.users",
+     "via_table": "users",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "OwnerUserId",
+       "Id"
+      ]
+     ]
+    }
+   ],
+   "disclosure": {
+    "decision": "REWRITE",
+    "policy_ids": [
+     "code.pi2"
+    ],
+    "policy_table_present": true,
+    "ungoverned_disclosure": false,
+    "granularity": "all",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-CODE-POST",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)) FROM \"posts\" t WHERE t.\"CreaionDate\" IS NOT NULL",
+     "observed": [
+      "2009-02-02",
+      "2014-09-14"
+     ]
+    },
+    {
+     "kind": "SUPPMIN",
+     "policy_id": "code.pi2",
+     "level": "user",
+     "sql": "SELECT MIN(n) FROM (SELECT t2.\"Id\" AS cell, COUNT(DISTINCT t2.\"Id\") AS n FROM \"posts\" t0 INNER JOIN \"posts\" t1 ON t0.\"Id\" = t1.\"AcceptedAnswerId\" INNER JOIN \"users\" t2 ON t0.\"OwnerUserId\" = t2.\"Id\" WHERE t0.\"PostTypeId\" = 2 AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) >= '2013-06-01' AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) < '2013-07-01' GROUP BY 1 ORDER BY 1)",
+     "observed": 1,
+     "threshold": "5"
+    },
+    {
+     "kind": "SUPPMIN",
+     "policy_id": "code.pi2",
+     "level": "reputation_band",
+     "sql": "SELECT MIN(n) FROM (SELECT CASE WHEN t2.\"Reputation\" >= 10000 THEN '[10000,inf)' WHEN t2.\"Reputation\" >= 1000 THEN '[1000,10000)' WHEN t2.\"Reputation\" >= 100 THEN '[100,1000)' ELSE '[0,100)' END AS cell, COUNT(DISTINCT t2.\"Id\") AS n FROM \"posts\" t0 INNER JOIN \"posts\" t1 ON t0.\"Id\" = t1.\"AcceptedAnswerId\" INNER JOIN \"users\" t2 ON t0.\"OwnerUserId\" = t2.\"Id\" WHERE t0.\"PostTypeId\" = 2 AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) >= '2013-06-01' AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) < '2013-07-01' GROUP BY 1 ORDER BY 1)",
+     "observed": 13,
+     "threshold": "5"
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   },
+   "rewrite": {
+    "kept_slices": [
+     "(v2,B-CODE-UAR)"
+    ],
+    "cut_trace": [
+     {
+      "kind": "granularity_rollup",
+      "requested_level": "user",
+      "effective_level": "all",
+      "policy_ids": [
+       "code.pi2"
+      ]
+     }
+    ],
+    "ct": [],
+    "det_order": {
+     "keys": [
+      "version_desc",
+      "binding_registration(binding_id)",
+      "ell_gamma"
+     ],
+     "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+    }
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V5",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (1 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v2' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "1 α entr(ies) exist@v2 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "atomic metric: cited registry row 'B-CODE-UAR' governs the metric; svw replay vacuous (no two legs)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (2 edge(s)) replayed against gov_caliber_routing@v2"
+   },
+   {
+    "check": "V5",
+    "status": "FAIL",
+    "detail": "grain minimality violated: finer level 'reputation_band' is already legal (min cell 13 ≥ k=5) yet the certificate coarsened to 'all'"
+   },
+   {
+    "check": "V6a",
+    "status": "PASS",
+    "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "registered-binding(atom leg)"
+  }
+ }
+}

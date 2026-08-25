@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q7",
+ "system": "baseline_qwen",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 表 races 中没有有效时间列（如 effective_start/end, valid_time 等），无法实现 as-of 语义的时间旅行查询；仅根据 date 字段筛选 1949-05 月数据不符合题意要求的 as-of 时点语义",
+ "sql": "REFUSE",
+ "prompt_sha256": "3bb992bcbb526d053e625008a0fdd10fe3f320c80e54da19ea0283a4c1479a76",
+ "prompt_chars": 5480,
+ "empty_response": false
+}

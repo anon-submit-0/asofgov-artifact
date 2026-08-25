@@ -1,0 +1,4 @@
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "financial", "edge_id": "fin.tg1", "from_level": "day", "graph_version": "v1", "group_cols": [], "node_id": null, "to_level": "month"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "financial", "edge_id": "fin.tg2", "from_level": "month", "graph_version": "v1", "group_cols": [], "node_id": null, "to_level": "year"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "financial", "edge_id": "fin.tg1", "from_level": "day", "graph_version": "v2", "group_cols": [], "node_id": null, "to_level": "month"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "financial", "edge_id": "fin.tg2", "from_level": "month", "graph_version": "v2", "group_cols": [], "node_id": null, "to_level": "year"}

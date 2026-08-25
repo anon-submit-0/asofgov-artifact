@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q3",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 0.0014310376957128643,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT \n  CAST(COUNT(CASE WHEN t.k_symbol = 'SANKC. UROK' THEN 1 END) AS DOUBLE) / COUNT(*) AS penalty_trans_rate\nFROM main.trans t\nWHERE EXTRACT(YEAR FROM t.date) = 1997\n```",
+ "sql": "SELECT \n  CAST(COUNT(CASE WHEN t.k_symbol = 'SANKC. UROK' THEN 1 END) AS DOUBLE) / COUNT(*) AS penalty_trans_rate\nFROM main.trans t\nWHERE EXTRACT(YEAR FROM t.date) = 1997",
+ "prompt_sha256": "1ea45ba5d6d7cd4b40d0b0d2aa9a613ae02d0d00bf29d9d7f65b7b94c558d011",
+ "prompt_chars": 23523,
+ "empty_response": false
+}

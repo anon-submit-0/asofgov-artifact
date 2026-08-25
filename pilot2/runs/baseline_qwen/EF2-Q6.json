@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q6",
+ "system": "baseline_qwen",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 问题中\"评分归一当日胜率\"缺少明确业务定义：未说明是球员还是球队评分、归一化方法（min-max/z-score等）、胜率分母基准；Match表仅有进球数无法直接计算胜率，需明确胜负判定规则；时间窗口描述模糊（\"单日窗\"具体指什么时间范围不清晰）。",
+ "sql": "REFUSE",
+ "prompt_sha256": "fc4cf70f608f578c3fb7f6e605dacc439edf52ac021668d1cce606d9b38c9ada",
+ "prompt_chars": 7615,
+ "empty_response": false
+}

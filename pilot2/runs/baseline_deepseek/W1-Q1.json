@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q1",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 缺少治理表与事实表的关联信息，无法确定2026-06-15时点生效的人口口径具体对应哪个字段或计算逻辑",
+ "sql": "REFUSE",
+ "prompt_sha256": "8cab1d24630fe2af87767316a1c200098e0a3483ba368451a99780a69fd9f645",
+ "prompt_chars": 3081,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q8",
+ "system": "trivial_v3",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT SUM(cr.\"points\") / COUNT(DISTINCT cr.\"raceId\")\nFROM main.\"constructorResults\" cr\nJOIN main.\"races\" r ON cr.\"raceId\" = r.\"raceId\"\nJOIN main.\"constructors\" c ON cr.\"constructorId\" = c.\"constructorId\"\nWHERE c.\"constructorRef\" = 'brawn'\n  AND r.\"year\" = 2010\n  AND r.\"date\" <= '2011-03-01';\n```",
+ "sql": "SELECT SUM(cr.\"points\") / COUNT(DISTINCT cr.\"raceId\")\nFROM main.\"constructorResults\" cr\nJOIN main.\"races\" r ON cr.\"raceId\" = r.\"raceId\"\nJOIN main.\"constructors\" c ON cr.\"constructorId\" = c.\"constructorId\"\nWHERE c.\"constructorRef\" = 'brawn'\n  AND r.\"year\" = 2010\n  AND r.\"date\" <= '2011-03-01'",
+ "prompt_sha256": "ccee137a186b2489f5c1a45f893ccf41bf937bae1f6f471f55f0c7f0e55f0c36",
+ "prompt_chars": 5684,
+ "empty_response": false
+}

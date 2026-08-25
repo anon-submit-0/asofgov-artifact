@@ -1,0 +1,32 @@
+{
+ "qid": "F1-Q6",
+ "domain": "formula_1",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": null,
+  "declared_at": "2017-12-15",
+  "metric_alias": "区间大奖赛场数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "day_range",
+   "lo": "2017-10-01",
+   "hi_excl": "2018-04-01"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": null, \"declared_at\": \"2017-12-15\", \"metric_alias\": \"区间大奖赛场数\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": {\"kind\": \"day_range\", \"lo\": \"2017-10-01\", \"hi_excl\": \"2018-04-01\"}, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "1c39cf9a3af56eb813dc3a1b7465dc6301096d3560933fc9e238d4c299d8e4db",
+ "prompt_chars": 29981
+}

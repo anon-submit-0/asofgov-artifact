@@ -1,0 +1,19 @@
+{
+ "qid": "CA-Q2",
+ "domain": "california_schools",
+ "question_zh": "以 2015-09-01 为声明时点，按当时默认口径，Alameda 县 2014-2015 学年（as-of 2015-04-15）的免费餐率是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2015-09-01 as the declaration instant, under the default caliber at that time, what is the free meal rate for Alameda County in the 2014-2015 school year (as-of 2015-04-15)?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5299 completion=66]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:36:06"
+}

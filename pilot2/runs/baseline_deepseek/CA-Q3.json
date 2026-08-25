@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q3",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 时间点问题无法在给定数据中回答，没有包含学校时间有效性列的表格",
+ "sql": "REFUSE",
+ "prompt_sha256": "21951fdba62052e0beeb0c012c5918e32e8a3cfe729b57597a759ad2182c4635",
+ "prompt_chars": 5185,
+ "empty_response": false
+}

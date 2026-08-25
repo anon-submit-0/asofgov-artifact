@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 问题指定 as-of 2021-03-10，但 gov_semantic_graph_version 显示最新治理版本 v2 仅生效至 2017-09-28，该日期之后无治理元数据覆盖 2021 年轮替口径\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "6f8521e6cf5bdad150d3ce6b0da40eedb95595af6b7447302a2ad3c3524e659c",
+ "prompt_chars": 23967,
+ "empty_response": false
+}

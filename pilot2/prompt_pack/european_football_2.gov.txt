@@ -1,0 +1,121 @@
+
+## 治理元数据（本库 gov_* 登记表全量导出；与具体问题无关，同库所有问题看到的内容完全相同）
+-- 来源：european_football_2/gov_seed/*.jsonl（DESIGN_SPEC §3.1 十表 schema 法）；版本轴见 gov_semantic_graph_version
+-- 每个块 = 一张登记表，一行一个 JSON 对象，行按文本字典序排列
+
+-- TABLE gov_semantic_graph_version  (rows=2)
+{"change_note": "初版治理：胜率口径平局计半胜", "commit_seq": 1, "committed_at": "2010-08-01", "domain": "european_football_2", "graph_version": "v1"}
+{"change_note": "胜率口径改制：平局不计胜（权重 0.5 归零）", "commit_seq": 2, "committed_at": "2014-08-01", "domain": "european_football_2", "graph_version": "v2"}
+
+-- TABLE gov_metric_alias  (rows=14)
+{"alias_id": "ef2.al1", "alias_text": "快照日球员平均综合评分", "graph_version": "v1", "metric_id": "ef2.avg_overall_rating"}
+{"alias_id": "ef2.al1", "alias_text": "快照日球员平均综合评分", "graph_version": "v2", "metric_id": "ef2.avg_overall_rating"}
+{"alias_id": "ef2.al2", "alias_text": "主场胜率", "graph_version": "v1", "metric_id": "ef2.win_rate"}
+{"alias_id": "ef2.al2", "alias_text": "主场胜率", "graph_version": "v2", "metric_id": "ef2.win_rate"}
+{"alias_id": "ef2.al3", "alias_text": "当月球员属性快照条数", "graph_version": "v1", "metric_id": "ef2.pa_month_count"}
+{"alias_id": "ef2.al3", "alias_text": "当月球员属性快照条数", "graph_version": "v2", "metric_id": "ef2.pa_month_count"}
+{"alias_id": "ef2.al4", "alias_text": "区间比赛场数", "graph_version": "v1", "metric_id": "ef2.matches_range"}
+{"alias_id": "ef2.al4", "alias_text": "区间比赛场数", "graph_version": "v2", "metric_id": "ef2.matches_range"}
+{"alias_id": "ef2.al5", "alias_text": "评分归一当日胜率", "graph_version": "v1", "metric_id": "ef2.rating_weighted_win_rate"}
+{"alias_id": "ef2.al5", "alias_text": "评分归一当日胜率", "graph_version": "v2", "metric_id": "ef2.rating_weighted_win_rate"}
+{"alias_id": "ef2.al6", "alias_text": "球队推进速度均值", "graph_version": "v1", "metric_id": "ef2.team_buildup_speed"}
+{"alias_id": "ef2.al6", "alias_text": "球队推进速度均值", "graph_version": "v2", "metric_id": "ef2.team_buildup_speed"}
+{"alias_id": "ef2.al7", "alias_text": "当月主队进球总数", "graph_version": "v1", "metric_id": "ef2.goal_sum_month"}
+{"alias_id": "ef2.al7", "alias_text": "当月主队进球总数", "graph_version": "v2", "metric_id": "ef2.goal_sum_month"}
+
+-- TABLE gov_metric  (rows=14)
+{"den_node": "ef2.match", "domain": "european_football_2", "graph_version": "v1", "kind": "ratio", "metric_id": "ef2.win_rate", "num_node": "ef2.match"}
+{"den_node": "ef2.match", "domain": "european_football_2", "graph_version": "v2", "kind": "ratio", "metric_id": "ef2.win_rate", "num_node": "ef2.match"}
+{"den_node": "ef2.player_attr", "domain": "european_football_2", "graph_version": "v1", "kind": "ratio", "metric_id": "ef2.rating_weighted_win_rate", "num_node": "ef2.match"}
+{"den_node": "ef2.player_attr", "domain": "european_football_2", "graph_version": "v2", "kind": "ratio", "metric_id": "ef2.rating_weighted_win_rate", "num_node": "ef2.match"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v1", "kind": "atomic", "metric_id": "ef2.avg_overall_rating", "num_node": "ef2.player_attr"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v1", "kind": "atomic", "metric_id": "ef2.goal_sum_month", "num_node": "ef2.match"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v1", "kind": "atomic", "metric_id": "ef2.matches_range", "num_node": "ef2.match"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v1", "kind": "atomic", "metric_id": "ef2.pa_month_count", "num_node": "ef2.player_attr"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v1", "kind": "atomic", "metric_id": "ef2.team_buildup_speed", "num_node": "ef2.team_attr"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v2", "kind": "atomic", "metric_id": "ef2.avg_overall_rating", "num_node": "ef2.player_attr"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v2", "kind": "atomic", "metric_id": "ef2.goal_sum_month", "num_node": "ef2.match"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v2", "kind": "atomic", "metric_id": "ef2.matches_range", "num_node": "ef2.match"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v2", "kind": "atomic", "metric_id": "ef2.pa_month_count", "num_node": "ef2.player_attr"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v2", "kind": "atomic", "metric_id": "ef2.team_buildup_speed", "num_node": "ef2.team_attr"}
+
+-- TABLE gov_measure_def  (rows=19)
+{"graph_version": "v1", "leg": "atom", "measure": "avg:buildUpPlaySpeed", "measure_id": "ef2.tbs.atom", "metric_id": "ef2.team_buildup_speed", "node_id": "ef2.team_attr", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "avg:overall_rating", "measure_id": "ef2.aor.atom", "metric_id": "ef2.avg_overall_rating", "node_id": "ef2.player_attr", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "ef2.mr.atom", "metric_id": "ef2.matches_range", "node_id": "ef2.match", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "ef2.pmc.atom", "metric_id": "ef2.pa_month_count", "node_id": "ef2.player_attr", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "sum:home_team_goal", "measure_id": "ef2.gsm.atom", "metric_id": "ef2.goal_sum_month", "node_id": "ef2.match", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "avg:overall_rating", "measure_id": "ef2.rwwr.den", "metric_id": "ef2.rating_weighted_win_rate", "node_id": "ef2.player_attr", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "ef2.wr.den", "metric_id": "ef2.win_rate", "node_id": "ef2.match", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "ef2.rwwr.num", "metric_id": "ef2.rating_weighted_win_rate", "node_id": "ef2.match", "preds": [{"col": "home_team_goal", "op": ">col", "value": "away_team_goal"}]}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "ef2.wr.num.draw", "metric_id": "ef2.win_rate", "node_id": "ef2.match", "preds": [{"col": "home_team_goal", "op": "=col", "value": "away_team_goal"}], "weight": 0.5}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "ef2.wr.num.win", "metric_id": "ef2.win_rate", "node_id": "ef2.match", "preds": [{"col": "home_team_goal", "op": ">col", "value": "away_team_goal"}], "weight": 1.0}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:buildUpPlaySpeed", "measure_id": "ef2.tbs.atom", "metric_id": "ef2.team_buildup_speed", "node_id": "ef2.team_attr", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:overall_rating", "measure_id": "ef2.aor.atom", "metric_id": "ef2.avg_overall_rating", "node_id": "ef2.player_attr", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "ef2.mr.atom", "metric_id": "ef2.matches_range", "node_id": "ef2.match", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "ef2.pmc.atom", "metric_id": "ef2.pa_month_count", "node_id": "ef2.player_attr", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:home_team_goal", "measure_id": "ef2.gsm.atom", "metric_id": "ef2.goal_sum_month", "node_id": "ef2.match", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "avg:overall_rating", "measure_id": "ef2.rwwr.den", "metric_id": "ef2.rating_weighted_win_rate", "node_id": "ef2.player_attr", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "ef2.wr.den", "metric_id": "ef2.win_rate", "node_id": "ef2.match", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "ef2.rwwr.num", "metric_id": "ef2.rating_weighted_win_rate", "node_id": "ef2.match", "preds": [{"col": "home_team_goal", "op": ">col", "value": "away_team_goal"}]}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "ef2.wr.num.win", "metric_id": "ef2.win_rate", "node_id": "ef2.match", "preds": [{"col": "home_team_goal", "op": ">col", "value": "away_team_goal"}], "weight": 1.0}
+
+-- TABLE gov_caliber_routing  (rows=8)
+{"dst_caliber": "all", "dst_node": "ef2.match", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "ef2.rating_weighted_win_rate", "routing_id": "ef2.rt2", "src_node": "ef2.match"}
+{"dst_caliber": "all", "dst_node": "ef2.match", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "ef2.rating_weighted_win_rate", "routing_id": "ef2.rt2", "src_node": "ef2.match"}
+{"dst_caliber": "all", "dst_node": "ef2.player_attr", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "ef2.rating_weighted_win_rate", "routing_id": "ef2.rt3", "src_node": "ef2.player_attr"}
+{"dst_caliber": "all", "dst_node": "ef2.player_attr", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "ef2.rating_weighted_win_rate", "routing_id": "ef2.rt3", "src_node": "ef2.player_attr"}
+{"dst_caliber": "scoped", "dst_node": "ef2.league", "graph_version": "v1", "hop_seq": 0, "join_on": [["league_id", "id"]], "leg": "scope", "metric_id": "ef2.goal_sum_month", "routing_id": "ef2.rt4", "src_node": "ef2.match"}
+{"dst_caliber": "scoped", "dst_node": "ef2.league", "graph_version": "v1", "hop_seq": 0, "join_on": [["league_id", "id"]], "leg": "scope", "metric_id": "ef2.win_rate", "routing_id": "ef2.rt1", "src_node": "ef2.match"}
+{"dst_caliber": "scoped", "dst_node": "ef2.league", "graph_version": "v2", "hop_seq": 0, "join_on": [["league_id", "id"]], "leg": "scope", "metric_id": "ef2.goal_sum_month", "routing_id": "ef2.rt4", "src_node": "ef2.match"}
+{"dst_caliber": "scoped", "dst_node": "ef2.league", "graph_version": "v2", "hop_seq": 0, "join_on": [["league_id", "id"]], "leg": "scope", "metric_id": "ef2.win_rate", "routing_id": "ef2.rt1", "src_node": "ef2.match"}
+
+-- TABLE gov_valid_time_anchor  (rows=6)
+{"anchor_id": "A-EF2-MATCH", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v1", "node_id": "ef2.match", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-EF2-MATCH", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v2", "node_id": "ef2.match", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-EF2-PA", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "date", "granularity": "day", "graph_version": "v1", "node_id": "ef2.player_attr", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-EF2-PA", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "date", "granularity": "day", "graph_version": "v2", "node_id": "ef2.player_attr", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-EF2-TA", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "date", "granularity": "day", "graph_version": "v1", "node_id": "ef2.team_attr", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-EF2-TA", "anchor_type": "date_set", "coverage_mode": "strict_member", "effective_col": "date", "granularity": "day", "graph_version": "v2", "node_id": "ef2.team_attr", "vf_col": null, "vtc_col": null}
+
+-- TABLE gov_temporal_binding  (rows=18)
+{"anchor_id": "A-EF2-MATCH", "binding_id": "B-EF2-GSM", "graph_version": "v1", "leg": "atom", "metric_id": "ef2.goal_sum_month", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-EF2-MATCH", "binding_id": "B-EF2-GSM", "graph_version": "v2", "leg": "atom", "metric_id": "ef2.goal_sum_month", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-EF2-MATCH", "binding_id": "B-EF2-MR", "graph_version": "v1", "leg": "atom", "metric_id": "ef2.matches_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-EF2-MATCH", "binding_id": "B-EF2-MR", "graph_version": "v2", "leg": "atom", "metric_id": "ef2.matches_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-EF2-MATCH", "binding_id": "B-EF2-RWWR-N", "graph_version": "v1", "leg": "num", "metric_id": "ef2.rating_weighted_win_rate", "rule_id": "same_valid_time_window", "window_gran": "day"}
+{"anchor_id": "A-EF2-MATCH", "binding_id": "B-EF2-RWWR-N", "graph_version": "v2", "leg": "num", "metric_id": "ef2.rating_weighted_win_rate", "rule_id": "same_valid_time_window", "window_gran": "day"}
+{"anchor_id": "A-EF2-MATCH", "binding_id": "B-EF2-WR-D", "graph_version": "v1", "leg": "den", "metric_id": "ef2.win_rate", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-EF2-MATCH", "binding_id": "B-EF2-WR-D", "graph_version": "v2", "leg": "den", "metric_id": "ef2.win_rate", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-EF2-MATCH", "binding_id": "B-EF2-WR-N", "graph_version": "v1", "leg": "num", "metric_id": "ef2.win_rate", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-EF2-MATCH", "binding_id": "B-EF2-WR-N", "graph_version": "v2", "leg": "num", "metric_id": "ef2.win_rate", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-EF2-PA", "binding_id": "B-EF2-AOR", "graph_version": "v1", "leg": "atom", "metric_id": "ef2.avg_overall_rating", "rule_id": "same_valid_time_window", "window_gran": "member_day"}
+{"anchor_id": "A-EF2-PA", "binding_id": "B-EF2-AOR", "graph_version": "v2", "leg": "atom", "metric_id": "ef2.avg_overall_rating", "rule_id": "same_valid_time_window", "window_gran": "member_day"}
+{"anchor_id": "A-EF2-PA", "binding_id": "B-EF2-PMC", "graph_version": "v1", "leg": "atom", "metric_id": "ef2.pa_month_count", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-EF2-PA", "binding_id": "B-EF2-PMC", "graph_version": "v2", "leg": "atom", "metric_id": "ef2.pa_month_count", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-EF2-PA", "binding_id": "B-EF2-RWWR-D", "graph_version": "v1", "leg": "den", "metric_id": "ef2.rating_weighted_win_rate", "rule_id": "same_valid_time_window", "window_gran": "day"}
+{"anchor_id": "A-EF2-PA", "binding_id": "B-EF2-RWWR-D", "graph_version": "v2", "leg": "den", "metric_id": "ef2.rating_weighted_win_rate", "rule_id": "same_valid_time_window", "window_gran": "day"}
+{"anchor_id": "A-EF2-TA", "binding_id": "B-EF2-TBS", "graph_version": "v1", "leg": "atom", "metric_id": "ef2.team_buildup_speed", "rule_id": "same_valid_time_window", "window_gran": "member_day"}
+{"anchor_id": "A-EF2-TA", "binding_id": "B-EF2-TBS", "graph_version": "v2", "leg": "atom", "metric_id": "ef2.team_buildup_speed", "rule_id": "same_valid_time_window", "window_gran": "member_day"}
+
+-- TABLE gov_semantic_node  (rows=14)
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.country", "physical_table": "Country", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.league", "physical_table": "League", "scope_keys": {"league": "name"}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.match", "physical_table": "Match", "scope_keys": {"season": "season"}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.player", "physical_table": "Player", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.player_attr", "physical_table": "Player_Attributes", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.team", "physical_table": "Team", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v1", "node_id": "ef2.team_attr", "physical_table": "Team_Attributes", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.country", "physical_table": "Country", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.league", "physical_table": "League", "scope_keys": {"league": "name"}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.match", "physical_table": "Match", "scope_keys": {"season": "season"}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.player", "physical_table": "Player", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.player_attr", "physical_table": "Player_Attributes", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.team", "physical_table": "Team", "scope_keys": {}}
+{"domain": "european_football_2", "entity_key": "id", "graph_version": "v2", "node_id": "ef2.team_attr", "physical_table": "Team_Attributes", "scope_keys": {}}
+
+-- TABLE gov_granularity_edge  (rows=2)
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "european_football_2", "edge_id": "ef2.tg1", "from_level": "day", "graph_version": "v1", "group_cols": [], "node_id": null, "to_level": "month"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "european_football_2", "edge_id": "ef2.tg1", "from_level": "day", "graph_version": "v2", "group_cols": [], "node_id": null, "to_level": "month"}
+
+-- TABLE gov_disclosure_policy  (rows=0)

@@ -1,0 +1,94 @@
+
+## 治理元数据（本库 gov_* 登记表全量导出；与具体问题无关，同库所有问题看到的内容完全相同）
+-- 来源：world_1/gov_seed/*.jsonl（DESIGN_SPEC §3.1 十表 schema 法）；版本轴见 gov_semantic_graph_version
+-- 每个块 = 一张登记表，一行一个 JSON 对象，行按文本字典序排列
+
+-- TABLE gov_semantic_graph_version  (rows=2)
+{"change_note": "亚洲常住人口重定基：度量改指常住口径列（1.06 半上取整）", "commit_seq": 2, "committed_at": "2026-07-01", "domain": "world_1", "graph_version": "v2"}
+{"change_note": "初版治理：人口口径为普查基线序列", "commit_seq": 1, "committed_at": "2026-01-15", "domain": "world_1", "graph_version": "v1"}
+
+-- TABLE gov_metric_alias  (rows=12)
+{"alias_id": "w1.al1", "alias_text": "亚洲人口总和", "graph_version": "v1", "metric_id": "w1.asia_population_sum"}
+{"alias_id": "w1.al1", "alias_text": "亚洲人口总和", "graph_version": "v2", "metric_id": "w1.asia_population_sum"}
+{"alias_id": "w1.al2", "alias_text": "全球人口总和", "graph_version": "v1", "metric_id": "w1.world_population_sum"}
+{"alias_id": "w1.al2", "alias_text": "全球人口总和", "graph_version": "v2", "metric_id": "w1.world_population_sum"}
+{"alias_id": "w1.al3", "alias_text": "亚洲人口占比", "graph_version": "v1", "metric_id": "w1.population_share"}
+{"alias_id": "w1.al3", "alias_text": "亚洲人口占比", "graph_version": "v2", "metric_id": "w1.population_share"}
+{"alias_id": "w1.al4", "alias_text": "区间历史记录条数", "graph_version": "v1", "metric_id": "w1.history_rows_range"}
+{"alias_id": "w1.al4", "alias_text": "区间历史记录条数", "graph_version": "v2", "metric_id": "w1.history_rows_range"}
+{"alias_id": "w1.al5", "alias_text": "国民生产总值合计", "graph_version": "v1", "metric_id": "w1.gnp_sum"}
+{"alias_id": "w1.al5", "alias_text": "国民生产总值合计", "graph_version": "v2", "metric_id": "w1.gnp_sum"}
+{"alias_id": "w1.al6", "alias_text": "国家数量", "graph_version": "v1", "metric_id": "w1.country_count"}
+{"alias_id": "w1.al6", "alias_text": "国家数量", "graph_version": "v2", "metric_id": "w1.country_count"}
+
+-- TABLE gov_metric  (rows=12)
+{"den_node": "w1.country_history", "domain": "world_1", "graph_version": "v1", "kind": "ratio", "metric_id": "w1.population_share", "num_node": "w1.country_history"}
+{"den_node": "w1.country_history", "domain": "world_1", "graph_version": "v2", "kind": "ratio", "metric_id": "w1.population_share", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v1", "kind": "atomic", "metric_id": "w1.asia_population_sum", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v1", "kind": "atomic", "metric_id": "w1.country_count", "num_node": "w1.country"}
+{"den_node": null, "domain": "world_1", "graph_version": "v1", "kind": "atomic", "metric_id": "w1.gnp_sum", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v1", "kind": "atomic", "metric_id": "w1.history_rows_range", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v1", "kind": "atomic", "metric_id": "w1.world_population_sum", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v2", "kind": "atomic", "metric_id": "w1.asia_population_sum", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v2", "kind": "atomic", "metric_id": "w1.country_count", "num_node": "w1.country"}
+{"den_node": null, "domain": "world_1", "graph_version": "v2", "kind": "atomic", "metric_id": "w1.gnp_sum", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v2", "kind": "atomic", "metric_id": "w1.history_rows_range", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v2", "kind": "atomic", "metric_id": "w1.world_population_sum", "num_node": "w1.country_history"}
+
+-- TABLE gov_measure_def  (rows=14)
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "w1.cc.atom", "metric_id": "w1.country_count", "node_id": "w1.country", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "w1.hrr.atom", "metric_id": "w1.history_rows_range", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "sum:gnp", "measure_id": "w1.gs.atom", "metric_id": "w1.gnp_sum", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "sum:population", "measure_id": "w1.aps.atom", "metric_id": "w1.asia_population_sum", "node_id": "w1.country_history", "preds": [{"col": "Continent", "node": "w1.country", "op": "=", "value": "Asia"}]}
+{"graph_version": "v1", "leg": "atom", "measure": "sum:population", "measure_id": "w1.wps.atom", "metric_id": "w1.world_population_sum", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "sum:population", "measure_id": "w1.ps.den", "metric_id": "w1.population_share", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "sum:population", "measure_id": "w1.ps.num", "metric_id": "w1.population_share", "node_id": "w1.country_history", "preds": [{"col": "Continent", "node": "w1.country", "op": "=", "value": "Asia"}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "w1.cc.atom", "metric_id": "w1.country_count", "node_id": "w1.country", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "w1.hrr.atom", "metric_id": "w1.history_rows_range", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:gnp", "measure_id": "w1.gs.atom", "metric_id": "w1.gnp_sum", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:population_resident", "measure_id": "w1.aps.atom", "metric_id": "w1.asia_population_sum", "node_id": "w1.country_history", "preds": [{"col": "Continent", "node": "w1.country", "op": "=", "value": "Asia"}]}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:population_resident", "measure_id": "w1.wps.atom", "metric_id": "w1.world_population_sum", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "sum:population_resident", "measure_id": "w1.ps.den", "metric_id": "w1.population_share", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "sum:population_resident", "measure_id": "w1.ps.num", "metric_id": "w1.population_share", "node_id": "w1.country_history", "preds": [{"col": "Continent", "node": "w1.country", "op": "=", "value": "Asia"}]}
+
+-- TABLE gov_caliber_routing  (rows=8)
+{"dst_caliber": "all", "dst_node": "w1.country_history", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "w1.population_share", "routing_id": "w1.rt3", "src_node": "w1.country_history"}
+{"dst_caliber": "all", "dst_node": "w1.country_history", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "w1.population_share", "routing_id": "w1.rt3", "src_node": "w1.country_history"}
+{"dst_caliber": "scoped", "dst_node": "w1.country", "graph_version": "v1", "hop_seq": 0, "join_on": [["code", "Code"]], "leg": "atom", "metric_id": "w1.asia_population_sum", "routing_id": "w1.rt1", "src_node": "w1.country_history"}
+{"dst_caliber": "scoped", "dst_node": "w1.country", "graph_version": "v1", "hop_seq": 0, "join_on": [["code", "Code"]], "leg": "atom", "metric_id": "w1.gnp_sum", "routing_id": "w1.rt4", "src_node": "w1.country_history"}
+{"dst_caliber": "scoped", "dst_node": "w1.country", "graph_version": "v1", "hop_seq": 0, "join_on": [["code", "Code"]], "leg": "num", "metric_id": "w1.population_share", "routing_id": "w1.rt2", "src_node": "w1.country_history"}
+{"dst_caliber": "scoped", "dst_node": "w1.country", "graph_version": "v2", "hop_seq": 0, "join_on": [["code", "Code"]], "leg": "atom", "metric_id": "w1.asia_population_sum", "routing_id": "w1.rt1", "src_node": "w1.country_history"}
+{"dst_caliber": "scoped", "dst_node": "w1.country", "graph_version": "v2", "hop_seq": 0, "join_on": [["code", "Code"]], "leg": "atom", "metric_id": "w1.gnp_sum", "routing_id": "w1.rt4", "src_node": "w1.country_history"}
+{"dst_caliber": "scoped", "dst_node": "w1.country", "graph_version": "v2", "hop_seq": 0, "join_on": [["code", "Code"]], "leg": "num", "metric_id": "w1.population_share", "routing_id": "w1.rt2", "src_node": "w1.country_history"}
+
+-- TABLE gov_valid_time_anchor  (rows=2)
+{"anchor_id": "A-W1-HIST", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "effective_month", "granularity": "month_token_yyyy_mm", "graph_version": "v1", "node_id": "w1.country_history", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-W1-HIST", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "effective_month", "granularity": "month_token_yyyy_mm", "graph_version": "v2", "node_id": "w1.country_history", "vf_col": null, "vtc_col": null}
+
+-- TABLE gov_temporal_binding  (rows=12)
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-APS", "graph_version": "v1", "leg": "atom", "metric_id": "w1.asia_population_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-APS", "graph_version": "v2", "leg": "atom", "metric_id": "w1.asia_population_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-GS", "graph_version": "v1", "leg": "atom", "metric_id": "w1.gnp_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-GS", "graph_version": "v2", "leg": "atom", "metric_id": "w1.gnp_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-HRR", "graph_version": "v1", "leg": "atom", "metric_id": "w1.history_rows_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-HRR", "graph_version": "v2", "leg": "atom", "metric_id": "w1.history_rows_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-PS-D", "graph_version": "v1", "leg": "den", "metric_id": "w1.population_share", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-PS-D", "graph_version": "v2", "leg": "den", "metric_id": "w1.population_share", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-PS-N", "graph_version": "v1", "leg": "num", "metric_id": "w1.population_share", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-PS-N", "graph_version": "v2", "leg": "num", "metric_id": "w1.population_share", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-WPS", "graph_version": "v1", "leg": "atom", "metric_id": "w1.world_population_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-W1-HIST", "binding_id": "B-W1-WPS", "graph_version": "v2", "leg": "atom", "metric_id": "w1.world_population_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+
+-- TABLE gov_semantic_node  (rows=4)
+{"domain": "world_1", "entity_key": "Code", "graph_version": "v1", "node_id": "w1.country", "physical_table": "country", "scope_keys": {"continent": "Continent"}}
+{"domain": "world_1", "entity_key": "Code", "graph_version": "v2", "node_id": "w1.country", "physical_table": "country", "scope_keys": {"continent": "Continent"}}
+{"domain": "world_1", "entity_key": null, "graph_version": "v1", "node_id": "w1.country_history", "physical_table": "country_history", "scope_keys": {}}
+{"domain": "world_1", "entity_key": null, "graph_version": "v2", "node_id": "w1.country_history", "physical_table": "country_history", "scope_keys": {}}
+
+-- TABLE gov_granularity_edge  (rows=4)
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "world_1", "edge_id": "w1.eg1", "from_level": "country", "graph_version": "v1", "group_cols": ["Continent"], "node_id": "w1.country", "to_level": "continent"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "world_1", "edge_id": "w1.eg1", "from_level": "country", "graph_version": "v2", "group_cols": ["Continent"], "node_id": "w1.country", "to_level": "continent"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "world_1", "edge_id": "w1.eg2", "from_level": "continent", "graph_version": "v1", "group_cols": [], "node_id": "w1.country", "to_level": "all"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "world_1", "edge_id": "w1.eg2", "from_level": "continent", "graph_version": "v2", "group_cols": [], "node_id": "w1.country", "to_level": "all"}
+
+-- TABLE gov_disclosure_policy  (rows=0)

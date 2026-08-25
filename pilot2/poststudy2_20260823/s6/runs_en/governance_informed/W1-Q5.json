@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q5",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: The temporal binding rule (same_valid_time_window) requires the numerator and denominator of w1.population_share to use the same valid-time window. Using 2026-05 for the numerator and 2026-04 for the denominator violates this constraint.",
+ "sql": "REFUSE",
+ "prompt_sha256": "47d9cc703172407d8fe55ba860fbc95e90d74c438de37bd61bd60fa36272b698",
+ "prompt_chars": 16265,
+ "empty_response": false
+}

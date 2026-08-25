@@ -1,0 +1,32 @@
+{
+ "qid": "W1-Q4",
+ "domain": "world_1",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": null,
+  "declared_at": "2026-08-15",
+  "metric_alias": "区间历史记录条数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "month_token_range",
+   "lo": "2026-10",
+   "hi": "2027-03"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": "month",
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": null, \"declared_at\": \"2026-08-15\", \"metric_alias\": \"区间历史记录条数\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": {\"kind\": \"month_token_range\", \"lo\": \"2026-10\", \"hi\": \"2027-03\"}, \"requested_granularity\": null, \"requested_time_gran\": \"month\", \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "230e5fa8e3abb0c5d74a5af64732a4a3fdc49fa20d1498caaad2715a15278ffb",
+ "prompt_chars": 19033
+}

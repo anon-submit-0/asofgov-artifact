@@ -1,0 +1,4 @@
+{"anchor_id": "A-CARD-RUL", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v1", "node_id": "card.rulings", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CARD-SET", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "releaseDate", "granularity": "day", "graph_version": "v1", "node_id": "card.sets", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CARD-RUL", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v2", "node_id": "card.rulings", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CARD-SET", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "releaseDate", "granularity": "day", "graph_version": "v2", "node_id": "card.sets", "vf_col": null, "vtc_col": null}

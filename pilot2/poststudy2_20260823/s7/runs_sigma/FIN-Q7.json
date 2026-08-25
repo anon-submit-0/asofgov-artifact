@@ -1,0 +1,28 @@
+{
+ "qid": "FIN-Q7",
+ "domain": "financial",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "1999-06-15",
+  "declared_at": "1998-12-15",
+  "metric_alias": "当月交易笔数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"1999-06-15\", \"declared_at\": \"1998-12-15\", \"metric_alias\": \"当月交易笔数\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "be7239ca3c262c6734676a28861eb29eb43cb12f858db6426f60c52ed62656d1",
+ "prompt_chars": 26361
+}

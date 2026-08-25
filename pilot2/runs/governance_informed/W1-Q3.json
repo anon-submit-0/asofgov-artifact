@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q3",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 0.6075330810301713,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT\n  SUM(CASE WHEN c.\"Continent\" = 'Asia' THEN ch.population ELSE 0 END) * 1.0\n  / SUM(ch.population) AS asia_population_share\nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE ch.effective_month = '2026-03'\n```",
+ "sql": "SELECT\n  SUM(CASE WHEN c.\"Continent\" = 'Asia' THEN ch.population ELSE 0 END) * 1.0\n  / SUM(ch.population) AS asia_population_share\nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE ch.effective_month = '2026-03'",
+ "prompt_sha256": "30ed57d6a9f15ecd2360a372ca9adf7e707c6965994ad077f79154cad60fda59",
+ "prompt_chars": 16178,
+ "empty_response": false
+}

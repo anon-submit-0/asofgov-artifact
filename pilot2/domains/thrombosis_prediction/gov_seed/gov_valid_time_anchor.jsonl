@@ -1,0 +1,4 @@
+{"anchor_id": "A-TH-LAB", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "Date", "granularity": "day", "graph_version": "v1", "node_id": "th.laboratory", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-TH-EXAM", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "Examination Date", "granularity": "day", "graph_version": "v1", "node_id": "th.examination", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-TH-LAB", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "Date", "granularity": "day", "graph_version": "v2", "node_id": "th.laboratory", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-TH-EXAM", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "Examination Date", "granularity": "day", "graph_version": "v2", "node_id": "th.examination", "vf_col": null, "vtc_col": null}

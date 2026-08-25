@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q2",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: schema 中不存在与\"裁定强度\"相关的度量定义或时态锚点配置，无法构造符合治理规范的有效查询\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "6b941bafc51c53c02df2891a0ddd68862bbb3a584affef22047014a9e38e7f7b",
+ "prompt_chars": 5448,
+ "empty_response": false
+}

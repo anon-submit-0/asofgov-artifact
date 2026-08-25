@@ -1,0 +1,19 @@
+{
+ "qid": "FIN-Q8",
+ "domain": "financial",
+ "question_zh": "计算罚息交易占比，但分子取 1997 年 5 月、分母取 1997 年 4 月（声明时点 1998-09-15）。",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "Calculate the penalty interest transaction share, but with the numerator taken from May 1997 and the denominator taken from April 1997 (declaration instant 1998-09-15).",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=742 completion=43]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:38:26"
+}

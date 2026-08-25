@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q3",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT p.\"ID\", p.\"SEX\", DATE_TRUNC('year', p.\"Birthday\") AS \"Birthday_masked\", SPLIT_PART(p.\"Diagnosis\", ' ', 1) AS \"Diagnosis_masked\", COUNT(*) AS abnormal_lab_count\nFROM main.\"Laboratory\" l\nJOIN main.\"Patient\" p ON l.\"ID\" = p.\"ID\"\nWHERE l.\"GOT\" >= 60\n  AND l.\"Date\" >= '1997-01-01'\n  AND l.\"Date\" < '1998-01-01'\nGROUP BY p.\"ID\", p.\"SEX\", DATE_TRUNC('year', p.\"Birthday\"), SPLIT_PART(p.\"Diagnosis\", ' ', 1)\nHAVING COUNT(*) >= 10\nORDER BY p.\"ID\";\n```",
+ "sql": "SELECT p.\"ID\", p.\"SEX\", DATE_TRUNC('year', p.\"Birthday\") AS \"Birthday_masked\", SPLIT_PART(p.\"Diagnosis\", ' ', 1) AS \"Diagnosis_masked\", COUNT(*) AS abnormal_lab_count\nFROM main.\"Laboratory\" l\nJOIN main.\"Patient\" p ON l.\"ID\" = p.\"ID\"\nWHERE l.\"GOT\" >= 60\n  AND l.\"Date\" >= '1997-01-01'\n  AND l.\"Date\" < '1998-01-01'\nGROUP BY p.\"ID\", p.\"SEX\", DATE_TRUNC('year', p.\"Birthday\"), SPLIT_PART(p.\"Diagnosis\", ' ', 1)\nHAVING COUNT(*) >= 10\nORDER BY p.\"ID\"",
+ "prompt_sha256": "689db1af6648a5de0c33757a71b3101ce4fb26912fa1e5ea6bfe4d4eb3acd495",
+ "prompt_chars": 20497,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q7",
+ "system": "baseline_claude",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT u.DisplayName, u.Location\nFROM main.posts p\nJOIN main.users u ON p.OwnerUserId = u.Id\nWHERE p.PostTypeId = 2\n  AND p.Id IN (SELECT AcceptedAnswerId FROM main.posts WHERE AcceptedAnswerId IS NOT NULL)\n  AND p.CreaionDate >= '2013-06-01'\n  AND p.CreaionDate < '2013-07-01'\nGROUP BY u.Id, u.DisplayName, u.Location\nORDER BY COUNT(*) DESC\nLIMIT 10\n```",
+ "sql": "SELECT u.DisplayName, u.Location\nFROM main.posts p\nJOIN main.users u ON p.OwnerUserId = u.Id\nWHERE p.PostTypeId = 2\n  AND p.Id IN (SELECT AcceptedAnswerId FROM main.posts WHERE AcceptedAnswerId IS NOT NULL)\n  AND p.CreaionDate >= '2013-06-01'\n  AND p.CreaionDate < '2013-07-01'\nGROUP BY u.Id, u.DisplayName, u.Location\nORDER BY COUNT(*) DESC\nLIMIT 10",
+ "prompt_sha256": "38f05a8e2da060eaf6ed4186896aa46766f6ea471154d6b46dd21a79776b7319",
+ "prompt_chars": 4921,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q2",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 95.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT SUM(r.points) AS total_points\nFROM main.results r\nJOIN main.races ra ON r.raceId = ra.raceId\nJOIN main.drivers d ON r.driverId = d.driverId\nWHERE d.driverRef = 'button'\n  AND ra.year = 2009\n  AND ra.date < '2009-12-31'\n```",
+ "sql": "SELECT SUM(r.points) AS total_points\nFROM main.results r\nJOIN main.races ra ON r.raceId = ra.raceId\nJOIN main.drivers d ON r.driverId = d.driverId\nWHERE d.driverRef = 'button'\n  AND ra.year = 2009\n  AND ra.date < '2009-12-31'",
+ "prompt_sha256": "488f5cead7250fe30962722e123e6159f96bd95ed60ea96ee7a9f86cd52eef9d",
+ "prompt_chars": 5509,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q2",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 4313069067.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT SUM(ch.population_resident) AS asia_population_total\nFROM main.country_history ch\nJOIN main.country c ON ch.code = c.\"Code\"\nWHERE c.\"Continent\" = 'Asia'\n  AND ch.effective_month = '2026-05';\n```",
+ "sql": "SELECT SUM(ch.population_resident) AS asia_population_total\nFROM main.country_history ch\nJOIN main.country c ON ch.code = c.\"Code\"\nWHERE c.\"Continent\" = 'Asia'\n  AND ch.effective_month = '2026-05'",
+ "prompt_sha256": "ca1bf0f83cf75a06da3be99a90c977dd76ee17235c383cbd183489278fff8504",
+ "prompt_chars": 16294,
+ "empty_response": false
+}

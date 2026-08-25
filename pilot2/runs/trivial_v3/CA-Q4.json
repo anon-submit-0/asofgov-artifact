@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q4",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 8201.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"schools\" WHERE \"OpenDate\" <= '2000-09-01' AND (\"ClosedDate\" IS NULL OR \"ClosedDate\" > '2000-09-01') AND \"OpenDate\" <= '2015-05-01' AND (\"ClosedDate\" IS NULL OR \"ClosedDate\" > '2015-05-01');\n```\n\nWait — let me reconsider. The question asks for a bi-temporal query:\n\n- **声明时点 (assertion/transaction time)**: 2015-05-01 — this constrains what data was *known* as of that date. Since this is a static snapshot database without transaction-time tracking, we can only apply valid-time logic.\n- **as-of 时点 (valid time)**: 2000-09-01 — the school must have been open (in effect) at this point.\n\nThe valid-time condition is: the school was open on 2000-09-01, meaning it opened on or before that date and had not yet closed by that date.\n\n```sql\nSELECT COUNT(*) FROM main.\"schools\" WHERE \"OpenDate\" <= '2000-09-01' AND (\"ClosedDate\" IS NULL OR \"ClosedDate\" > '2000-09-01');\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"schools\" WHERE \"OpenDate\" <= '2000-09-01' AND (\"ClosedDate\" IS NULL OR \"ClosedDate\" > '2000-09-01') AND \"OpenDate\" <= '2015-05-01' AND (\"ClosedDate\" IS NULL OR \"ClosedDate\" > '2015-05-01')",
+ "prompt_sha256": "871021b473e2f6268d20809c4d0e562307b2eb0ce70846674e6af08bfa205cf7",
+ "prompt_chars": 5372,
+ "empty_response": false
+}

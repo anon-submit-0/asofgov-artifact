@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q8",
+ "system": "baseline_claude",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n  AVG(cr.points) \nFROM main.\"constructorResults\" cr\nJOIN main.\"races\" r ON cr.\"raceId\" = r.\"raceId\"\nJOIN main.\"constructors\" c ON cr.\"constructorId\" = c.\"constructorId\"\nWHERE c.\"constructorRef\" = 'brawn'\n  AND r.\"year\" = 2010\n  AND r.\"date\" <= '2010-07-01'\n```",
+ "sql": "SELECT \n  AVG(cr.points) \nFROM main.\"constructorResults\" cr\nJOIN main.\"races\" r ON cr.\"raceId\" = r.\"raceId\"\nJOIN main.\"constructors\" c ON cr.\"constructorId\" = c.\"constructorId\"\nWHERE c.\"constructorRef\" = 'brawn'\n  AND r.\"year\" = 2010\n  AND r.\"date\" <= '2010-07-01'",
+ "prompt_sha256": "e4639e03ecb337c98e411016fcde357ce2e9ca4439abc3e2c6428123e4d5eeaf",
+ "prompt_chars": 5497,
+ "empty_response": false
+}

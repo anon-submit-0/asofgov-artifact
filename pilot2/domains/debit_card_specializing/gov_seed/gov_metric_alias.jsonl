@@ -1,0 +1,10 @@
+{"alias_id": "deb.al1", "alias_text": "月均客户消费额", "graph_version": "v1", "metric_id": "deb.avg_consumption"}
+{"alias_id": "deb.al2", "alias_text": "月消费总额", "graph_version": "v1", "metric_id": "deb.consumption_sum"}
+{"alias_id": "deb.al3", "alias_text": "细分平均单笔交易金额", "graph_version": "v1", "metric_id": "deb.segment_avg_trans"}
+{"alias_id": "deb.al4", "alias_text": "价格毛利率", "graph_version": "v1", "metric_id": "deb.price_margin"}
+{"alias_id": "deb.al5", "alias_text": "站点交易笔数", "graph_version": "v1", "metric_id": "deb.station_trans_count"}
+{"alias_id": "deb.al1", "alias_text": "月均客户消费额", "graph_version": "v2", "metric_id": "deb.avg_consumption"}
+{"alias_id": "deb.al2", "alias_text": "月消费总额", "graph_version": "v2", "metric_id": "deb.consumption_sum"}
+{"alias_id": "deb.al3", "alias_text": "细分平均单笔交易金额", "graph_version": "v2", "metric_id": "deb.segment_avg_trans"}
+{"alias_id": "deb.al4", "alias_text": "价格毛利率", "graph_version": "v2", "metric_id": "deb.price_margin"}
+{"alias_id": "deb.al5", "alias_text": "站点交易笔数", "graph_version": "v2", "metric_id": "deb.station_trans_count"}

@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q1",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 0.6638,
+ "verdict": "wrong_value",
+ "raw": "I need to compute the \"提问采纳率\" (question acceptance rate) for December 2010, using the governance temporal binding rules.\n\nLet me first understand the metric by checking the governance tables.\n\nThe \"提问采纳率\" (question acceptance rate) would be: number of questions with an accepted answer / total number of questions, for posts created in December 2010.\n\nLet me check the governance tables for the relevant metric definition, temporal anchors, and bindings to ensure I apply the correct valid-time window.\n\nLooking at the schema:\n- `gov_metric` has metrics with `num_node` and `den_node`\n- `gov_temporal_binding` binds metrics to time anchors\n- `gov_valid_time_anchor` defines the time columns and granularity\n\nSince I need to query these gov tables to understand the rules, but ultimately produce a single SQL, let me construct the query based on the business logic:\n\n- **Denominator**: Questions (PostTypeId=1) created in December 2010\n- **Numerator**: Questions (PostTypeId=1) created in December 2010 that have an AcceptedAnswerId (not null)\n- **As-of 2010-12-15** falls in the month window of December 2010\n- **Declaration time 2011-02-01**: The data must have been available/valid by this date\n\nThe column for creation date in posts is `CreaionDate` (note the typo in schema).\n\n```sql\nSELECT ROUND(\n    CAST(SUM(CASE WHEN p.\"AcceptedAnswerId\" IS NOT NULL THEN 1 ELSE 0 END) AS DOUBLE) \n    / COUNT(*), 4\n) AS acceptance_rate\nFROM main.\"posts\" p\nWHERE p.\"PostTypeId\" = 1\n  AND p.\"CreaionDate\" >= TIMESTAMP '2010-12-01'\n  AND p.\"CreaionDate\" < TIMESTAMP '2011-01-01';\n```",
+ "sql": "SELECT ROUND(\n    CAST(SUM(CASE WHEN p.\"AcceptedAnswerId\" IS NOT NULL THEN 1 ELSE 0 END) AS DOUBLE) \n    / COUNT(*), 4\n) AS acceptance_rate\nFROM main.\"posts\" p\nWHERE p.\"PostTypeId\" = 1\n  AND p.\"CreaionDate\" >= TIMESTAMP '2010-12-01'\n  AND p.\"CreaionDate\" < TIMESTAMP '2011-01-01'",
+ "prompt_sha256": "c4f8e614f45793a052cf5170ca0aa29f3446019e27e13c752d56e0044f2d092b",
+ "prompt_chars": 5141,
+ "empty_response": false
+}

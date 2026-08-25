@@ -1,0 +1,16 @@
+{"alias_id": "fin.al1", "alias_text": "问题贷款率", "graph_version": "v1", "metric_id": "fin.problem_loan_rate"}
+{"alias_id": "fin.al2", "alias_text": "罚息交易占比", "graph_version": "v1", "metric_id": "fin.penalty_trans_rate"}
+{"alias_id": "fin.al3", "alias_text": "当月新增放贷笔数", "graph_version": "v1", "metric_id": "fin.loan_count_month"}
+{"alias_id": "fin.al4", "alias_text": "当月交易笔数", "graph_version": "v1", "metric_id": "fin.trans_count_month"}
+{"alias_id": "fin.al5", "alias_text": "区间交易笔数", "graph_version": "v1", "metric_id": "fin.trans_count_range"}
+{"alias_id": "fin.al6", "alias_text": "问题贷款笔数", "graph_version": "v1", "metric_id": "fin.problem_loan_count"}
+{"alias_id": "fin.al7", "alias_text": "分类交易罚息占比", "graph_version": "v1", "metric_id": "fin.penalty_rate_classified"}
+{"alias_id": "fin.al8", "alias_text": "平均贷款金额", "graph_version": "v1", "metric_id": "fin.avg_loan_amount"}
+{"alias_id": "fin.al1", "alias_text": "问题贷款率", "graph_version": "v2", "metric_id": "fin.problem_loan_rate"}
+{"alias_id": "fin.al2", "alias_text": "罚息交易占比", "graph_version": "v2", "metric_id": "fin.penalty_trans_rate"}
+{"alias_id": "fin.al3", "alias_text": "当月新增放贷笔数", "graph_version": "v2", "metric_id": "fin.loan_count_month"}
+{"alias_id": "fin.al4", "alias_text": "当月交易笔数", "graph_version": "v2", "metric_id": "fin.trans_count_month"}
+{"alias_id": "fin.al5", "alias_text": "区间交易笔数", "graph_version": "v2", "metric_id": "fin.trans_count_range"}
+{"alias_id": "fin.al6", "alias_text": "问题贷款笔数", "graph_version": "v2", "metric_id": "fin.problem_loan_count"}
+{"alias_id": "fin.al7", "alias_text": "分类交易罚息占比", "graph_version": "v2", "metric_id": "fin.penalty_rate_classified"}
+{"alias_id": "fin.al8", "alias_text": "平均贷款金额", "graph_version": "v2", "metric_id": "fin.avg_loan_amount"}

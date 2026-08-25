@@ -1,0 +1,28 @@
+{
+ "qid": "FIN-Q4",
+ "domain": "financial",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "1997-05-15",
+  "declared_at": "1998-09-15",
+  "metric_alias": "当月新增放贷笔数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"1997-05-15\", \"declared_at\": \"1998-09-15\", \"metric_alias\": \"当月新增放贷笔数\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "bc6ed2849a385723751ac397b22d86d0e1775325824974abeaa10c97f89a86ea",
+ "prompt_chars": 26374
+}

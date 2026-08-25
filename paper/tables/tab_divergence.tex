@@ -1,0 +1,61 @@
+% ---------------------------------------------------------------------
+%  Table F-C -- D1-D15 divergence ledger.  GENERATED FILE, DO NOT EDIT.
+%  Regenerate:  python3 tools/gen_table_divergence.py
+%  Source of record: impl/INTEGRATION_REPORT.md section 5 (15-row table)
+%  and section 2 (per-family check labels).  tools/gen_table_divergence.py
+%  parses that table, asserts 15 rows / 5+5+5 / the 25-rejection family
+%  decomposition, and fails rather than print stale content.
+%  The last column's headline case is MEASURED, not asserted: see the
+%  A/B recipe in the generator's module docstring.
+%  Macros used (\MC, \beta_v ...) are \providecommand'd in 03-semantics.
+% ---------------------------------------------------------------------
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.0pt}
+\renewcommand{\arraystretch}{0.93}
+\caption{Every disagreement the two implementations had on their first
+cross-check. \emph{Provenance}: this ledger was recorded during the two
+sides' integration on the production (enterprise) track that motivated this
+work, before the public suite of \S\ref{sec:eval-setup} existed; it is
+specification-level content --- readings, checks, guard order --- and
+carries no production data value, so it is reported as evidence about the
+\emph{design}, not about the released benchmark.
+\emph{Cls}: S~spec-reading, D~defect (subscript: which side),
+R~registration gap; \emph{Right}: the side the frozen text vindicated;
+\emph{Check}: the check that fired ($\dagger$~crashed). The 25 first-round
+rejections were V0$\times9$, V6a$\times9$, V3$\times3$, V6b$\times2$,
+V6c$\times1$, V4/V6c$\times1$, many-to-many onto these 15.
+\emph{Value gold?}: would the integration suite's value-level gold --- 51
+questions, 37 numeric and 14 refusal-token comparisons --- have failed? On
+no row, and the cell says why not:
+the value is unchanged; the lie is confined to the \emph{cert}ificate or
+registry that gold never reads; the erring side is the \emph{verif}ier that gold
+never runs; or the gold \emph{label} is itself what settled the reading. Both
+readings per row:~\cite{asofgov-tr}.}
+\label{tab:divergence}
+\begin{tabular}{@{}lccll@{}}
+\toprule
+Divergence & Cls & Right & Check & Value\\
+ & & & fired & gold?\\
+\midrule
+$D_{1}$ coverage domain gates before $\MC$? & S & spec & V6b & \ding{55}\,label\\
+$D_{2}$ $\beta_v$ defined when both legs are NULL? & S & spec & V6b & \ding{55}\,verif.\\
+$D_{3}$ prescribed anchor of an atomic metric & R & verif. & V0 & \ding{55}\,cert\\
+$D_{4}$ must a ratio carry a caliber route? & R & verif. & V4, V6c & \ding{55}\,cert\\
+$D_{5}$ is \texttt{avg\_handle\_hours} a ratio? & R & spec & V3 & \ding{55}\,label\\
+$D_{6}$ must a rewrite emit $w^*$'s lower bound? & D$_{\mathrm{c}}$ & verif. & V6a & \ding{55}\,value\\
+$D_{7}$ may an atom borrow another's binding row? & D$_{\mathrm{c}}$ & verif. & V3 & \ding{55}\,cert\\
+$D_{8}$ probe bound: arithmetic or literal window & D$_{\mathrm{c}}$ & verif. & V6b & \ding{55}\,cert\\
+$D_{9}$ does a month marker denote the month? & S & comp. & V6c & \ding{55}\,verif.\\
+$D_{10}$ is a derived-table alias a read object? & D$_{\mathrm{v}}$ & comp. & V6a & \ding{55}\,verif.\\
+$D_{11}$ does a conformed-dim join leave closure? & R & verif. & V6a & \ding{55}\,cert\\
+$D_{12}$ replay of the interval-anchor predicate & D$_{\mathrm{v}}$ & comp. & V6a$^{\dagger}$ & \ding{55}\,verif.\\
+$D_{13}$ where the re-anchoring $\bar a$ is carried & S & spec & V0 & \ding{55}\,cert\\
+$D_{14}$ how a delta question presents $\vec\omega$ & R & spec & V0 & \ding{55}\,cert\\
+$D_{15}$ certificate spelling of an unreg. anchor & S & either & V0 (V2) & \ding{55}\,cert\\
+\midrule
+\multicolumn{4}{@{}l}{5 S $\cdot$ 3+2 D $\cdot$ 5 R\ \ (25 rejections $\to$ 15 causes)} & \ding{55}\,$0/15$\\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q2",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": 0.3799,
+ "verdict": "correct",
+ "raw": "I need to analyze the governance tables to understand the metric definition, temporal bindings, and valid time anchors to answer this question about Alameda county's free meal rate for 2014-2015 academic year.\n\nLet me trace through the governance metadata:\n\n1. **Metric**: \"免费餐率\" (free meal rate) - likely a ratio metric\n2. **Temporal**: as-of 2015-09-01 for graph version, as-of 2015-04-15 for data\n3. **Scope**: Alameda county, 2014-2015 academic year\n\nThe question asks for the free meal rate at the county level for Alameda. Based on the `frpm` table schema, this would involve `Free Meal Count (K-12)` divided by `Enrollment (K-12)` for Alameda county in the 2014-2015 academic year.\n\nLet me check the governance tables to confirm the metric definition, but given the small row counts and that this is fundamentally about the `frpm` table data, the core computation is:\n\n- Numerator: SUM of `Free Meal Count (K-12)` for Alameda county\n- Denominator: SUM of `Enrollment (K-12)` for Alameda county\n- Filter: `Academic Year` = '2014-2015' and `County Name` = 'Alameda'\n\nThe gov tables with their small row counts define the semantic graph, but the actual calculation comes from the frpm table. The as-of constraints and graph versions guide which definition to use, but with only 2 graph versions and the straightforward nature of \"free meal rate,\" the default definition would be free meal count / enrollment.\n\n```sql\nSELECT ROUND(SUM(\"Free Meal Count (K-12)\") / SUM(\"Enrollment (K-12)\"), 4) AS free_meal_rate\nFROM main.\"frpm\"\nWHERE \"County Name\" = 'Alameda'\n  AND \"Academic Year\" = '2014-2015';\n```",
+ "sql": "SELECT ROUND(SUM(\"Free Meal Count (K-12)\") / SUM(\"Enrollment (K-12)\"), 4) AS free_meal_rate\nFROM main.\"frpm\"\nWHERE \"County Name\" = 'Alameda'\n  AND \"Academic Year\" = '2014-2015'",
+ "prompt_sha256": "ad1bf4d1e903ee7cbee1cdf71a9b07434eca1af2cdf7786c7999cb84faa53789",
+ "prompt_chars": 5329,
+ "empty_response": false
+}

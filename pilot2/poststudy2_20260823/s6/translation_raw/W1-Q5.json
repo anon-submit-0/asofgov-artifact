@@ -1,0 +1,19 @@
+{
+ "qid": "W1-Q5",
+ "domain": "world_1",
+ "question_zh": "计算亚洲人口占比，但分子取 2026-05、分母取 2026-04（声明时点 2026-08-15）。",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "Calculate the Asian population share, but take the numerator from 2026-05 and the denominator from 2026-04 (declaration instant 2026-08-15).",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=736 completion=42]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:39:38"
+}

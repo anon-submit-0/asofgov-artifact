@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q1",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 0.019933554817275746,
+ "verdict": "wrong_value",
+ "raw": "I need to calculate the abnormal lab rate where GOT≥60 for the year 1997, with an as-of declaration date of 1998-06-01.\n\nLet me analyze:\n- Declaration date: 1998-06-01 means we only consider data that would have been available by that date\n- 1997 natural year window: 1997-01-01 to 1997-12-31\n- GOT≥60 is the \"abnormal\" threshold\n- Rate = count of records with GOT≥60 / count of all records with non-null GOT, within the 1997 year window\n\nThe Laboratory table has \"Date\" and \"GOT\" columns. I need to filter:\n1. Lab dates in 1997 (1997-01-01 to 1997-12-31)\n2. GOT is not null (denominator)\n3. GOT >= 60 (numerator)\n\nThe as-of 1998-06-01 constraint means we use data available by that date. Since lab records have their own dates in 1997, they would all be available by 1998-06-01.\n\n```sql\nSELECT CAST(SUM(CASE WHEN \"GOT\" >= 60 THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) FROM main.\"Laboratory\" WHERE \"Date\" >= '1997-01-01' AND \"Date\" <= '1997-12-31' AND \"GOT\" IS NOT NULL;\n```",
+ "sql": "SELECT CAST(SUM(CASE WHEN \"GOT\" >= 60 THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) FROM main.\"Laboratory\" WHERE \"Date\" >= '1997-01-01' AND \"Date\" <= '1997-12-31' AND \"GOT\" IS NOT NULL",
+ "prompt_sha256": "5ce519f4e809f6823f5178d8be43cd0e6c8e0a39d1c4279587d5e02ebee46763",
+ "prompt_chars": 4342,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q1",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 缺少治理表中问题贷款率的具体定义及生效时间映射信息",
+ "sql": "REFUSE",
+ "prompt_sha256": "c8920f5ef856e56c686ffac6b9bff06546cf7a8e1d0a5ee8c15d3a1f2753a902",
+ "prompt_chars": 4084,
+ "empty_response": false
+}

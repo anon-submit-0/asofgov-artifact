@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q3",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 数据集缺少学校有效时间/生效日期的时态字段，无法执行 as-of 时点查询\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "21951fdba62052e0beeb0c012c5918e32e8a3cfe729b57597a759ad2182c4635",
+ "prompt_chars": 5185,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q7",
+ "system": "trivial_v2",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT u.\"DisplayName\", u.\"Location\"\nFROM main.\"posts\" p\nJOIN main.\"users\" u ON p.\"OwnerUserId\" = u.\"Id\"\nWHERE p.\"PostTypeId\" = 2\n  AND p.\"Id\" IN (\n    SELECT q.\"AcceptedAnswerId\"\n    FROM main.\"posts\" q\n    WHERE q.\"AcceptedAnswerId\" IS NOT NULL\n  )\n  AND p.\"CreaionDate\" >= '2013-06-01'\n  AND p.\"CreaionDate\" < '2013-07-01'\nGROUP BY u.\"Id\", u.\"DisplayName\", u.\"Location\"\nORDER BY COUNT(*) DESC\nLIMIT 10;\n```",
+ "sql": "SELECT u.\"DisplayName\", u.\"Location\"\nFROM main.\"posts\" p\nJOIN main.\"users\" u ON p.\"OwnerUserId\" = u.\"Id\"\nWHERE p.\"PostTypeId\" = 2\n  AND p.\"Id\" IN (\n    SELECT q.\"AcceptedAnswerId\"\n    FROM main.\"posts\" q\n    WHERE q.\"AcceptedAnswerId\" IS NOT NULL\n  )\n  AND p.\"CreaionDate\" >= '2013-06-01'\n  AND p.\"CreaionDate\" < '2013-07-01'\nGROUP BY u.\"Id\", u.\"DisplayName\", u.\"Location\"\nORDER BY COUNT(*) DESC\nLIMIT 10",
+ "prompt_sha256": "5f2a8dce795db2876b877fa36354d6ba8e44123367fb47c65c6e77e8772d9c51",
+ "prompt_chars": 5147,
+ "empty_response": false
+}

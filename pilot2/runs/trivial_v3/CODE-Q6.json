@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q6",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": "generalize_last_component",
+ "verdict": "wrong_value",
+ "raw": "Looking at the governance disclosure policy table to understand masking rules:\n\n```sql\nSELECT gdp.mask_class, gdp.cols, gdp.node_id, gdp.kind\nFROM main.\"gov_disclosure_policy\" gdp\nWHERE gdp.domain = 'codebase_community'\n```\n\nLet me directly query the policy and user data to provide the answer:\n\n```sql\nSELECT CASE \n    WHEN EXISTS (\n        SELECT 1 FROM main.\"gov_disclosure_policy\" \n        WHERE cols LIKE '%Location%' \n          AND mask_class IN ('suppress','redact','mask')\n    ) THEN 'REDACTED'\n    ELSE (SELECT \"Location\" FROM main.\"users\" WHERE \"Id\" = 22047)\nEND AS location;\n```\n\nWait, I need to inspect the actual policy first and then apply it. Let me write a single correct query:\n\n```sql\nSELECT u.\"Location\"\nFROM main.\"users\" u\nWHERE u.\"Id\" = 22047;\n```",
+ "sql": "SELECT gdp.mask_class, gdp.cols, gdp.node_id, gdp.kind\nFROM main.\"gov_disclosure_policy\" gdp\nWHERE gdp.domain = 'codebase_community'",
+ "prompt_sha256": "61ca75d421104236508be380acb164c34955d98626746b3aeacc6b202bbe98c5",
+ "prompt_chars": 5091,
+ "empty_response": false
+}

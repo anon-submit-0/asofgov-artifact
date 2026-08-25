@@ -1,0 +1,38 @@
+{
+ "domain": "thrombosis_prediction",
+ "built_at": "2026-08-04T03:27:25Z",
+ "extraction": "duckdb sqlite scanner ATTACH + CREATE TABLE AS (原值拷贝)",
+ "tables": {
+  "Examination": {
+   "rows": 806,
+   "authored": false
+  },
+  "Laboratory": {
+   "rows": 13908,
+   "authored": false
+  },
+  "Patient": {
+   "rows": 1238,
+   "authored": false
+  }
+ },
+ "authored_rules": null,
+ "source": {
+  "kind": "bird_dev_20240627",
+  "path": "/Users/loctek/bench_data/dev_20240627/dev_databases/thrombosis_prediction/thrombosis_prediction.sqlite",
+  "sha256": "e7e16d74b4731b4b8d33fdbe8c29cd5622620788ce8d1f335631f65fc7cf1db9",
+  "license": "CC BY-SA 4.0 (bird-bench.github.io)"
+ },
+ "gov_seed_rows": {
+  "gov_semantic_graph_version": 2,
+  "gov_semantic_node": 6,
+  "gov_metric": 12,
+  "gov_measure_def": 14,
+  "gov_metric_alias": 12,
+  "gov_caliber_routing": 8,
+  "gov_valid_time_anchor": 4,
+  "gov_temporal_binding": 12,
+  "gov_granularity_edge": 6,
+  "gov_disclosure_policy": 6
+ }
+}

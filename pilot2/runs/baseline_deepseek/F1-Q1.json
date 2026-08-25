@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q1",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 需要的时间绑定规则信息不足，无法确定2009年12月1日生效的积分规则如何应用于2009年7月1日截止的比赛结果。",
+ "sql": "REFUSE",
+ "prompt_sha256": "9961579af83525c6c402efc3062ae2dc29d879264aad30e70147f941e2b7567a",
+ "prompt_chars": 5509,
+ "empty_response": false
+}

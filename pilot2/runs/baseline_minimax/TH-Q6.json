@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q6",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "让我先查看数据库结构和数据样本，以便准确编写SQL。\n<minimax:tool_call>\n<invoke name=\"duckdb_query\">\nselect * from main.\"Laboratory\" limit 5</invoke>\n<invoke name=\"duckdb_query\">\nselect * from main.\"Patient\" limit 5</invoke>\n</minimax:tool_call>",
+ "sql": "让我先查看数据库结构和数据样本，以便准确编写SQL。\n<minimax:tool_call>\n<invoke name=\"duckdb_query\">\nselect * from main.\"Laboratory\" limit 5</invoke>\n<invoke name=\"duckdb_query\">\nselect * from main.\"Patient\" limit 5</invoke>\n</minimax:tool_call>",
+ "prompt_sha256": "0f0ce2ef2d615ccc877f4a23c850c2b799d352929dd8dfb0af1e4d9ce99fde7d",
+ "prompt_chars": 4130,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q5",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT CAST(p.\"CreaionDate\" AS DATE) AS question_date, COUNT(*) AS new_questions\nFROM main.\"posts\" p\nWHERE p.\"PostTypeId\" = 1\n  AND p.\"CreaionDate\" >= '2013-06-01'\n  AND p.\"CreaionDate\" < '2013-07-01'\nGROUP BY CAST(p.\"CreaionDate\" AS DATE)\nORDER BY question_date;\n```",
+ "sql": "SELECT CAST(p.\"CreaionDate\" AS DATE) AS question_date, COUNT(*) AS new_questions\nFROM main.\"posts\" p\nWHERE p.\"PostTypeId\" = 1\n  AND p.\"CreaionDate\" >= '2013-06-01'\n  AND p.\"CreaionDate\" < '2013-07-01'\nGROUP BY CAST(p.\"CreaionDate\" AS DATE)\nORDER BY question_date",
+ "prompt_sha256": "cf1ae25c78f298d2838f1b7612c997c222ae2382acd8491f617250ee8a900a72",
+ "prompt_chars": 28333,
+ "empty_response": false
+}

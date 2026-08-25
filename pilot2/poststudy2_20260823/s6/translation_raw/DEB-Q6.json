@@ -1,0 +1,19 @@
+{
+ "qid": "DEB-Q6",
+ "domain": "debit_card_specializing",
+ "question_zh": "以 2013-11-15 为声明时点，查询 as-of 2013-12（月粒）的全体客户月均客户消费额。",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2013-11-15 as the declaration instant, query the monthly average customer spending amount for all customers as-of 2013-12 at month granularity.",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5266 completion=55]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:37:32"
+}

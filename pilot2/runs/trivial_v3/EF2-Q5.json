@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q5",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 62.88611272515979,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT AVG(pa.\"overall_rating\") FROM main.\"Player_Attributes\" pa WHERE CAST(pa.\"date\" AS DATE) <= '2013-12-25'AND pa.\"id\" IN (SELECT MAX(pa2.\"id\") FROM main.\"Player_Attributes\" pa2 WHERE CAST(pa2.\"date\" AS DATE) <= '2013-12-25' GROUP BY pa2.\"player_api_id\")\n```",
+ "sql": "SELECT AVG(pa.\"overall_rating\") FROM main.\"Player_Attributes\" pa WHERE CAST(pa.\"date\" AS DATE) <= '2013-12-25'AND pa.\"id\" IN (SELECT MAX(pa2.\"id\") FROM main.\"Player_Attributes\" pa2 WHERE CAST(pa2.\"date\" AS DATE) <= '2013-12-25' GROUP BY pa2.\"player_api_id\")",
+ "prompt_sha256": "1cd6c96e024105acacfa864b793821a91eee07420a09cc111b0afbf8e4ae17aa",
+ "prompt_chars": 7805,
+ "empty_response": false
+}

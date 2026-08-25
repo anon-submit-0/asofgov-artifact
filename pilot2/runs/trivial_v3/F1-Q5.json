@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q5",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 16.0,
+ "verdict": "wrong_value",
+ "raw": "Looking at this problem, I need to find the number of race result records for the constructor \"brawn\" in the 2009 season, but only considering races that occurred before 2009-07-01 (as-of temporal constraint within the 2009 year window).\n\nLet me also consider the \"declaration time point\" of 2011-03-01 — this means the data should be available as of that date, but since we're looking at 2009 data, all 2009 race results would be available by 2011-03-01, so this constraint is naturally satisfied.\n\nThe \"as-of 2009-07-01 所在年窗\" means we look at the year window of the date 2009-07-01, which is the year 2009, but constrained to data as-of 2009-07-01 — meaning races with date < '2009-07-01' (or <= depending on interpretation). Following the as-of discipline, we should include records up to but not beyond 2009-07-01.\n\n```sql\nSELECT COUNT(*) FROM main.\"results\" r JOIN main.\"constructors\" c ON r.\"constructorId\" = c.\"constructorId\" JOIN main.\"races\" ra ON r.\"raceId\" = ra.\"raceId\" WHERE c.\"constructorRef\" = 'brawn' AND ra.\"year\" = 2009 AND ra.\"date\" < '2009-07-01';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"results\" r JOIN main.\"constructors\" c ON r.\"constructorId\" = c.\"constructorId\" JOIN main.\"races\" ra ON r.\"raceId\" = ra.\"raceId\" WHERE c.\"constructorRef\" = 'brawn' AND ra.\"year\" = 2009 AND ra.\"date\" < '2009-07-01'",
+ "prompt_sha256": "a29827cd92baff9260148566b1512db0fad16fa0d2c5870b901e99f7c0dc6789",
+ "prompt_chars": 5686,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q5",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 问题时点 2013-09-15 落在 v2 版本（2013-06-01 生效），该版本下客户级统计小胞阈值 k=20；细分平均单笔交易金额为 report 型指标（按实体粒度报告），需满足 k-threshold 披露策略，但给定日期范围（2012-08-23 至 2012-08-26，4 天）内 EUR 结算 LAM 细分客户数不足 20 人，无法按细分级（Segment）合规披露\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "81fac7e121307d366feb4aa6975336111162c581e47d8f003a5bfbf83b005095",
+ "prompt_chars": 19886,
+ "empty_response": false
+}

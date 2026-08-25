@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q3",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.6075330810301713,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT \n  CAST(SUM(CASE WHEN c.\"Continent\" = 'Asia' THEN ch.population ELSE 0 END) AS DOUBLE) / \n  NULLIF(SUM(ch.population), 0) AS asia_population_ratio\nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE ch.effective_month = '2026-03'\n```",
+ "sql": "SELECT \n  CAST(SUM(CASE WHEN c.\"Continent\" = 'Asia' THEN ch.population ELSE 0 END) AS DOUBLE) / \n  NULLIF(SUM(ch.population), 0) AS asia_population_ratio\nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE ch.effective_month = '2026-03'",
+ "prompt_sha256": "aedcd28ac55c14e2f7adb26b0a8aae8f8bbe5384a773671bcc7d2240ecc585c6",
+ "prompt_chars": 3078,
+ "empty_response": false
+}

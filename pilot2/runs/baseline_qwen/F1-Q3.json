@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q3",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 1009.0,
+ "verdict": "wrong_value",
+ "raw": "我需要先确认车手 \"button\" 的准确信息。在公式1数据集中，车手姓名存储在 drivers 表的 forename 和 surname 字段中。让我构建查询来找到正确的车手并计算 2009 赛季积分。\n\n```sql\nSELECT SUM(ds.points) FROM main.\"drivers\" d\nJOIN main.\"driverStandings\" ds ON d.driverId = ds.driverId\nJOIN main.\"races\" r ON ds.raceId = r.raceId\nWHERE d.surname = 'Button' AND r.year = 2009\n```",
+ "sql": "SELECT SUM(ds.points) FROM main.\"drivers\" d\nJOIN main.\"driverStandings\" ds ON d.driverId = ds.driverId\nJOIN main.\"races\" r ON ds.raceId = r.raceId\nWHERE d.surname = 'Button' AND r.year = 2009",
+ "prompt_sha256": "cd3b7792c7457c0291f9fd1723f98cf7ec83bdb72eee057cca87e6bf272d1200",
+ "prompt_chars": 5521,
+ "empty_response": false
+}

@@ -1,0 +1,47 @@
+% ---------------------------------------------------------------------
+%  Table: main results on the public base.  GENERATED FILE, DO NOT EDIT.
+%  Regenerate:  python3 figures/extract_p2.py && python3 figures/make_tables_p2.py
+%  Source of record: pilot2/pilot2_arms_summary.json (cross-asserted against
+%  pilot2/pilot2_summary.json and re-derived from per-question verdicts by
+%  figures/extract_p2.py); the mechanism row is the frozen impl/certs2
+%  acceptance anchor.  The generator fails rather than print stale content.
+% ---------------------------------------------------------------------
+\begin{table*}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4.0pt}
+\renewcommand{\arraystretch}{0.95}
+\caption{Main results: 60 governed questions over nine public databases
+(cluster bootstrap over the 9 DB clusters, $B{=}2000$; scorer frozen before
+any call).  \emph{err} counts all six failure classes against the true
+denominator 60; \emph{elim} is the fraction of the reference arm's
+36 errors an arm fixes; \emph{ans}/\emph{ref} count emitted answers
+and refusals (empty responses are neither and score as errors);
+\emph{corr.\ ref} counts refusals on the 15 refusal-gold questions
+(LLM arms are not required to name the refusal reason; the compiler's 15/15
+all carry the matching reason); \emph{over-ref} counts refusals on the 45
+answerable questions.  The governance-informed arm receives the entire
+governance layer of the question's database in context --- its 46.7\%
+error rate is the non-degeneracy result ND-4, and its elimination 0.361
+falls below the pre-registered 0.40 line (case~iii): under this protocol,
+in-context governance does not substantially close the gap.}
+\label{tab:main}
+\begin{tabular}{@{}clrlcrrrr@{}}
+\toprule
+ & arm & err & err\% [CI$_{95}$] & elim & ans & ref & corr.\ ref & over-ref\\
+\midrule
+\multirow{4}{*}{\rotatebox[origin=c]{90}{plain}} & claude-opus-4-6 \hfill(reference) & 36 & 60.0 [44.1, 74.6] & -- & 50 & 9 & 4/15 & 5/45\\
+ & qwen3-coder-next & 43 & 71.7 [61.0, 83.3] & 0.111 & 49 & 11 & 4/15 & 7/45\\
+ & deepseek-3.2 & 44 & 73.3 [56.7, 88.5] & 0.083 & 35 & 25 & 6/15 & 19/45\\
+ & minimax-m2.5 & 46 & 76.7 [62.7, 89.8] & 0.056 & 58 & 2 & 2/15 & 0/45\\
+\midrule
+\multirow{3}{*}{\rotatebox[origin=c]{90}{prompt}} & v1 one-line note & 32 & 53.3 [40.7, 64.5] & 0.222 & 49 & 9 & 6/15 & 3/45\\
+ & v2 anchor-join note & 35 & 58.3 [48.3, 69.4] & 0.167 & 56 & 4 & 3/15 & 1/45\\
+ & v3 worked example & 40 & 66.7 [52.7, 80.3] & 0.056 & 57 & 1 & 1/15 & 0/45\\
+\midrule
+gov. & full governance layer in context & 28 & 46.7 [28.6, 63.9] & 0.361 & 54 & 6 & 5/15 & 1/45\\
+\midrule
+ours & \textbf{binding compiler + verifier (ours)} & \textbf{0} & \textbf{0.0 [0.0, 0.0]} & \textbf{1.000} & \textbf{45} & \textbf{15} & \textbf{15/15} & \textbf{0/45}\\
+\bottomrule
+\end{tabular}
+\end{table*}

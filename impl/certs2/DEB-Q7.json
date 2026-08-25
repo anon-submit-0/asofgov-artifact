@@ -1,0 +1,108 @@
+{
+ "refusal": "anchor-mismatch",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "DEB-Q7",
+   "domain": "debit_card_specializing",
+   "metric": "deb.avg_consumption",
+   "metric_kind": "atomic",
+   "as_of": null
+  },
+  "graph_pin": {
+   "domain": "debit_card_specializing",
+   "graph_version": "v2",
+   "commit_id": "2013-06-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": "A-DEB-YM",
+    "registered": true,
+    "coverage_mode": "strict_member",
+    "granule": "month_token_yyyymm",
+    "window": {
+     "kind": "week",
+     "lo": "2013-03-04",
+     "hi_excl": "2013-03-11"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-DEB-AC",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": null,
+   "denominator_anchor": null,
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [
+   {
+    "caliber_key": "deb.rt1",
+    "metric": "deb.avg_consumption",
+    "leg": "scope",
+    "hop_seq": "0",
+    "src_node": "deb.yearmonth",
+    "dst_node": "deb.customers",
+    "via_table": "customers",
+    "dst_caliber": "scoped",
+    "join_keys": [
+     [
+      "CustomerID",
+      "CustomerID"
+     ]
+    ]
+   }
+  ],
+  "disclosure": {
+   "decision": "REFUSE",
+   "policy_ids": [],
+   "policy_table_present": true,
+   "ungoverned_disclosure": false,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-DEB-YM",
+    "coverage_mode": "strict_member",
+    "sql": "SELECT DISTINCT CAST(t.\"Date\" AS VARCHAR) FROM \"yearmonth\" t WHERE t.\"Date\" IS NOT NULL",
+    "observed": 21
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  },
+  "refusal": {
+   "reason": "anchor-mismatch",
+   "witness": {
+    "type": "window-grain-inexpressible",
+    "clause": "(iii)",
+    "binding_id": "B-DEB-AC",
+    "g_cmp": "month",
+    "window": {
+     "kind": "week",
+     "lo": "2013-03-04",
+     "hi_excl": "2013-03-11"
+    },
+    "mismatch_boundary_point": "2013-03-04",
+    "assertion": "W ∉ W_(g_cmp=month)：边界点 2013-03-04 不落粒元边界"
+   },
+   "ct": [
+    {
+     "slice": "(v2,B-DEB-AC)",
+     "reason": "anchor-mismatch"
+    }
+   ],
+   "slices_pass": [],
+   "composition": "slice-major(≺_det slice 序取首失败 slice; slice 内守卫序 OOV→AM→MC)"
+  }
+ }
+}

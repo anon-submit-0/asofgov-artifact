@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 特许授权日期无法与学年免费餐数据开窗对齐\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "0a1b7bc1de6e661353312db2e2d320739b4f5adbfecfb71f67d411d764e26020",
+ "prompt_chars": 17943,
+ "empty_response": false
+}

@@ -1,0 +1,4 @@
+{"domain": "world_1", "entity_key": "Code", "graph_version": "v1", "node_id": "w1.country", "physical_table": "country", "scope_keys": {"continent": "Continent"}}
+{"domain": "world_1", "entity_key": null, "graph_version": "v1", "node_id": "w1.country_history", "physical_table": "country_history", "scope_keys": {}}
+{"domain": "world_1", "entity_key": "Code", "graph_version": "v2", "node_id": "w1.country", "physical_table": "country", "scope_keys": {"continent": "Continent"}}
+{"domain": "world_1", "entity_key": null, "graph_version": "v2", "node_id": "w1.country_history", "physical_table": "country_history", "scope_keys": {}}

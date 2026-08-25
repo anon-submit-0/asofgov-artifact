@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q7",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": Infinity,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT CAST(num_count AS DOUBLE) / den_count AS ruling_intensity\nFROM (\n    SELECT COUNT(*) AS num_count\n    FROM rulings\n    WHERE date >= '2017-02-01' AND date < '2017-03-01'\n) n,\n(\n    SELECT COUNT(*) AS den_count\n    FROM cards\n    WHERE setCode IN (\n        SELECT code FROM sets\n        WHERE releaseDate >= '2017-02-01' AND releaseDate < '2017-03-01'\n    )\n) d\n```",
+ "sql": "SELECT CAST(num_count AS DOUBLE) / den_count AS ruling_intensity\nFROM (\n    SELECT COUNT(*) AS num_count\n    FROM rulings\n    WHERE date >= '2017-02-01' AND date < '2017-03-01'\n) n,\n(\n    SELECT COUNT(*) AS den_count\n    FROM cards\n    WHERE setCode IN (\n        SELECT code FROM sets\n        WHERE releaseDate >= '2017-02-01' AND releaseDate < '2017-03-01'\n    )\n) d",
+ "prompt_sha256": "7045c98f804d293b930021798dfd8a3f76b48a7f840d45632082f762b96a6582",
+ "prompt_chars": 23968,
+ "empty_response": false
+}

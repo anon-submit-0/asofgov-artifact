@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q5",
+ "system": "trivial_claude",
+ "kind": "no_sql",
+ "value": null,
+ "verdict": "no_sql",
+ "raw": "",
+ "sql": null,
+ "prompt_sha256": "e945c439e01ee71a1e4366545220bc5faf2f881f7d8a4099a9f768e3319a81f0",
+ "prompt_chars": 4194,
+ "empty_response": true
+}

@@ -1,0 +1,14 @@
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "th.alr.num", "metric_id": "th.abnormal_lab_rate", "node_id": "th.laboratory", "preds": [{"col": "GOT", "op": ">=", "value": 60}]}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "th.alr.den", "metric_id": "th.abnormal_lab_rate", "node_id": "th.laboratory", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "th.ec.atom", "metric_id": "th.exam_count", "node_id": "th.examination", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "th.par.atom", "metric_id": "th.patient_abnormal_report", "node_id": "th.laboratory", "preds": [{"col": "GOT", "op": ">=", "value": 60}]}
+{"graph_version": "v1", "leg": "atom", "measure": "value:Birthday", "measure_id": "th.pb.atom", "metric_id": "th.patient_birthday", "node_id": "th.patient", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "th.pr.atom", "metric_id": "th.patient_roster", "node_id": "th.laboratory", "preds": [{"col": "GOT", "op": ">=", "value": 60}]}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "th.apc.atom", "metric_id": "th.ana_positive_count", "node_id": "th.examination", "preds": [{"col": "ANA", "op": "not_null", "value": null}]}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "th.alr.num", "metric_id": "th.abnormal_lab_rate", "node_id": "th.laboratory", "preds": [{"col": "GOT", "op": ">=", "value": 60}]}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "th.alr.den", "metric_id": "th.abnormal_lab_rate", "node_id": "th.laboratory", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "th.ec.atom", "metric_id": "th.exam_count", "node_id": "th.examination", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "th.par.atom", "metric_id": "th.patient_abnormal_report", "node_id": "th.laboratory", "preds": [{"col": "GOT", "op": ">=", "value": 60}]}
+{"graph_version": "v2", "leg": "atom", "measure": "value:Birthday", "measure_id": "th.pb.atom", "metric_id": "th.patient_birthday", "node_id": "th.patient", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "th.pr.atom", "metric_id": "th.patient_roster", "node_id": "th.laboratory", "preds": [{"col": "GOT", "op": ">=", "value": 60}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "th.apc.atom", "metric_id": "th.ana_positive_count", "node_id": "th.examination", "preds": [{"col": "ANA", "op": "not_null", "value": null}]}

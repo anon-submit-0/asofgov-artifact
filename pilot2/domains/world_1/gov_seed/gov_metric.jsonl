@@ -1,0 +1,12 @@
+{"den_node": null, "domain": "world_1", "graph_version": "v1", "kind": "atomic", "metric_id": "w1.asia_population_sum", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v1", "kind": "atomic", "metric_id": "w1.world_population_sum", "num_node": "w1.country_history"}
+{"den_node": "w1.country_history", "domain": "world_1", "graph_version": "v1", "kind": "ratio", "metric_id": "w1.population_share", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v1", "kind": "atomic", "metric_id": "w1.history_rows_range", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v1", "kind": "atomic", "metric_id": "w1.gnp_sum", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v1", "kind": "atomic", "metric_id": "w1.country_count", "num_node": "w1.country"}
+{"den_node": null, "domain": "world_1", "graph_version": "v2", "kind": "atomic", "metric_id": "w1.asia_population_sum", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v2", "kind": "atomic", "metric_id": "w1.world_population_sum", "num_node": "w1.country_history"}
+{"den_node": "w1.country_history", "domain": "world_1", "graph_version": "v2", "kind": "ratio", "metric_id": "w1.population_share", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v2", "kind": "atomic", "metric_id": "w1.history_rows_range", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v2", "kind": "atomic", "metric_id": "w1.gnp_sum", "num_node": "w1.country_history"}
+{"den_node": null, "domain": "world_1", "graph_version": "v2", "kind": "atomic", "metric_id": "w1.country_count", "num_node": "w1.country"}

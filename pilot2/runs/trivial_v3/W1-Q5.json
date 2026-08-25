@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q5",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 0.6087343554547396,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n  SUM(CASE WHEN c.Continent = 'Asia' AND h.effective_month = '2026-05' THEN h.population ELSE 0 END) * 1.0 / \n  NULLIF(SUM(CASE WHEN h.effective_month = '2026-04' THEN h.population ELSE 0 END), 0)\nFROM main.\"country\" c\nJOIN main.\"country_history\" h ON c.Code = h.code\nWHERE h.effective_month IN ('2026-04', '2026-05')\n```",
+ "sql": "SELECT \n  SUM(CASE WHEN c.Continent = 'Asia' AND h.effective_month = '2026-05' THEN h.population ELSE 0 END) * 1.0 / \n  NULLIF(SUM(CASE WHEN h.effective_month = '2026-04' THEN h.population ELSE 0 END), 0)\nFROM main.\"country\" c\nJOIN main.\"country_history\" h ON c.Code = h.code\nWHERE h.effective_month IN ('2026-04', '2026-05')",
+ "prompt_sha256": "e3c454015a3694adc1f5637c401f08e1401ece8e8eaf4eb8ce2b79599362106c",
+ "prompt_chars": 3263,
+ "empty_response": false
+}

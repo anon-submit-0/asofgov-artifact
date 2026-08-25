@@ -1,0 +1,144 @@
+
+## 治理元数据（本库 gov_* 登记表全量导出；与具体问题无关，同库所有问题看到的内容完全相同）
+-- 来源：formula_1/gov_seed/*.jsonl（DESIGN_SPEC §3.1 十表 schema 法）；版本轴见 gov_semantic_graph_version
+-- 每个块 = 一张登记表，一行一个 JSON 对象，行按文本字典序排列
+
+-- TABLE gov_semantic_graph_version  (rows=2)
+{"change_note": "初版治理：赛季积分映射沿用前八名 10-8-6-5-4-3-2-1", "commit_seq": 1, "committed_at": "2009-03-01", "domain": "formula_1", "graph_version": "v1"}
+{"change_note": "积分映射改制：前十名 25-18-15-12-10-8-6-4-2-1", "commit_seq": 2, "committed_at": "2010-02-01", "domain": "formula_1", "graph_version": "v2"}
+
+-- TABLE gov_metric_alias  (rows=16)
+{"alias_id": "f1.al1", "alias_text": "赛季车手总积分", "graph_version": "v1", "metric_id": "f1.driver_season_points"}
+{"alias_id": "f1.al1", "alias_text": "赛季车手总积分", "graph_version": "v2", "metric_id": "f1.driver_season_points"}
+{"alias_id": "f1.al2", "alias_text": "车队场均积分", "graph_version": "v1", "metric_id": "f1.points_per_entry"}
+{"alias_id": "f1.al2", "alias_text": "车队场均积分", "graph_version": "v2", "metric_id": "f1.points_per_entry"}
+{"alias_id": "f1.al3", "alias_text": "赛季参赛记录条数", "graph_version": "v1", "metric_id": "f1.entry_count"}
+{"alias_id": "f1.al3", "alias_text": "赛季参赛记录条数", "graph_version": "v2", "metric_id": "f1.entry_count"}
+{"alias_id": "f1.al4", "alias_text": "当月大奖赛场数", "graph_version": "v1", "metric_id": "f1.races_count_month"}
+{"alias_id": "f1.al4", "alias_text": "当月大奖赛场数", "graph_version": "v2", "metric_id": "f1.races_count_month"}
+{"alias_id": "f1.al5", "alias_text": "区间大奖赛场数", "graph_version": "v1", "metric_id": "f1.races_count_range"}
+{"alias_id": "f1.al5", "alias_text": "区间大奖赛场数", "graph_version": "v2", "metric_id": "f1.races_count_range"}
+{"alias_id": "f1.al6", "alias_text": "两季车手积分差", "graph_version": "v1", "metric_id": "f1.season_points_delta"}
+{"alias_id": "f1.al6", "alias_text": "两季车手积分差", "graph_version": "v2", "metric_id": "f1.season_points_delta"}
+{"alias_id": "f1.al7", "alias_text": "官方积分榜总分", "graph_version": "v1", "metric_id": "f1.official_standing_points"}
+{"alias_id": "f1.al7", "alias_text": "官方积分榜总分", "graph_version": "v2", "metric_id": "f1.official_standing_points"}
+{"alias_id": "f1.al8", "alias_text": "平均圈速毫秒", "graph_version": "v1", "metric_id": "f1.avg_lap_ms"}
+{"alias_id": "f1.al8", "alias_text": "平均圈速毫秒", "graph_version": "v2", "metric_id": "f1.avg_lap_ms"}
+
+-- TABLE gov_metric  (rows=16)
+{"base_metric_id": "f1.driver_season_points", "den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "delta", "metric_id": "f1.season_points_delta", "num_node": "f1.results"}
+{"base_metric_id": "f1.driver_season_points", "den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "delta", "metric_id": "f1.season_points_delta", "num_node": "f1.results"}
+{"den_node": "f1.results", "domain": "formula_1", "graph_version": "v1", "kind": "ratio", "metric_id": "f1.points_per_entry", "num_node": "f1.results"}
+{"den_node": "f1.results", "domain": "formula_1", "graph_version": "v2", "kind": "ratio", "metric_id": "f1.points_per_entry", "num_node": "f1.results"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "atomic", "metric_id": "f1.avg_lap_ms", "num_node": "f1.lapTimes"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "atomic", "metric_id": "f1.driver_season_points", "num_node": "f1.results"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "atomic", "metric_id": "f1.entry_count", "num_node": "f1.results"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "atomic", "metric_id": "f1.official_standing_points", "num_node": "f1.driverStandings"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "atomic", "metric_id": "f1.races_count_month", "num_node": "f1.races"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "atomic", "metric_id": "f1.races_count_range", "num_node": "f1.races"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "atomic", "metric_id": "f1.avg_lap_ms", "num_node": "f1.lapTimes"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "atomic", "metric_id": "f1.driver_season_points", "num_node": "f1.results"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "atomic", "metric_id": "f1.entry_count", "num_node": "f1.results"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "atomic", "metric_id": "f1.official_standing_points", "num_node": "f1.driverStandings"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "atomic", "metric_id": "f1.races_count_month", "num_node": "f1.races"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "atomic", "metric_id": "f1.races_count_range", "num_node": "f1.races"}
+
+-- TABLE gov_measure_def  (rows=16)
+{"graph_version": "v1", "leg": "atom", "measure": "avg:milliseconds", "measure_id": "f1.alm.atom", "metric_id": "f1.avg_lap_ms", "node_id": "f1.lapTimes", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "f1.ec.atom", "metric_id": "f1.entry_count", "node_id": "f1.results", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "f1.rcm.atom", "metric_id": "f1.races_count_month", "node_id": "f1.races", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "f1.rcr.atom", "metric_id": "f1.races_count_range", "node_id": "f1.races", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "sum:points", "measure_id": "f1.osp.atom", "metric_id": "f1.official_standing_points", "node_id": "f1.driverStandings", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "sum:points_scheme.points", "measure_id": "f1.dsp.atom", "metric_id": "f1.driver_season_points", "node_id": "f1.results", "preds": [{"col": "scheme_id", "node": "f1.points_scheme", "op": "=", "value": "PS2009"}]}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "f1.ppe.den", "metric_id": "f1.points_per_entry", "node_id": "f1.results", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "sum:points_scheme.points", "measure_id": "f1.ppe.num", "metric_id": "f1.points_per_entry", "node_id": "f1.results", "preds": [{"col": "scheme_id", "node": "f1.points_scheme", "op": "=", "value": "PS2009"}]}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:milliseconds", "measure_id": "f1.alm.atom", "metric_id": "f1.avg_lap_ms", "node_id": "f1.lapTimes", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "f1.ec.atom", "metric_id": "f1.entry_count", "node_id": "f1.results", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "f1.rcm.atom", "metric_id": "f1.races_count_month", "node_id": "f1.races", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "f1.rcr.atom", "metric_id": "f1.races_count_range", "node_id": "f1.races", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:points", "measure_id": "f1.osp.atom", "metric_id": "f1.official_standing_points", "node_id": "f1.driverStandings", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:points_scheme.points", "measure_id": "f1.dsp.atom", "metric_id": "f1.driver_season_points", "node_id": "f1.results", "preds": [{"col": "scheme_id", "node": "f1.points_scheme", "op": "=", "value": "PS2010"}]}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "f1.ppe.den", "metric_id": "f1.points_per_entry", "node_id": "f1.results", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "sum:points_scheme.points", "measure_id": "f1.ppe.num", "metric_id": "f1.points_per_entry", "node_id": "f1.results", "preds": [{"col": "scheme_id", "node": "f1.points_scheme", "op": "=", "value": "PS2010"}]}
+
+-- TABLE gov_caliber_routing  (rows=20)
+{"dst_caliber": "scoped", "dst_node": "f1.constructors", "graph_version": "v1", "hop_seq": 0, "join_on": [["constructorId", "constructorId"]], "leg": "scope", "metric_id": "f1.entry_count", "routing_id": "f1.rt9", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.constructors", "graph_version": "v1", "hop_seq": 0, "join_on": [["constructorId", "constructorId"]], "leg": "scope", "metric_id": "f1.points_per_entry", "routing_id": "f1.rt7", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.constructors", "graph_version": "v2", "hop_seq": 0, "join_on": [["constructorId", "constructorId"]], "leg": "scope", "metric_id": "f1.entry_count", "routing_id": "f1.rt9", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.constructors", "graph_version": "v2", "hop_seq": 0, "join_on": [["constructorId", "constructorId"]], "leg": "scope", "metric_id": "f1.points_per_entry", "routing_id": "f1.rt7", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.drivers", "graph_version": "v1", "hop_seq": 0, "join_on": [["driverId", "driverId"]], "leg": "scope", "metric_id": "f1.driver_season_points", "routing_id": "f1.rt3", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.drivers", "graph_version": "v2", "hop_seq": 0, "join_on": [["driverId", "driverId"]], "leg": "scope", "metric_id": "f1.driver_season_points", "routing_id": "f1.rt3", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.points_scheme", "graph_version": "v1", "hop_seq": 1, "join_on": [["positionOrder", "position"]], "leg": "atom", "metric_id": "f1.driver_season_points", "routing_id": "f1.rt2", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.points_scheme", "graph_version": "v1", "hop_seq": 1, "join_on": [["positionOrder", "position"]], "leg": "num", "metric_id": "f1.points_per_entry", "routing_id": "f1.rt5", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.points_scheme", "graph_version": "v2", "hop_seq": 1, "join_on": [["positionOrder", "position"]], "leg": "atom", "metric_id": "f1.driver_season_points", "routing_id": "f1.rt2", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.points_scheme", "graph_version": "v2", "hop_seq": 1, "join_on": [["positionOrder", "position"]], "leg": "num", "metric_id": "f1.points_per_entry", "routing_id": "f1.rt5", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.races", "graph_version": "v1", "hop_seq": 0, "join_on": [["raceId", "raceId"]], "leg": "atom", "metric_id": "f1.driver_season_points", "routing_id": "f1.rt1", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.races", "graph_version": "v1", "hop_seq": 0, "join_on": [["raceId", "raceId"]], "leg": "atom", "metric_id": "f1.entry_count", "routing_id": "f1.rt8", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.races", "graph_version": "v1", "hop_seq": 0, "join_on": [["raceId", "raceId"]], "leg": "atom", "metric_id": "f1.season_points_delta", "routing_id": "f1.rt10", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.races", "graph_version": "v1", "hop_seq": 0, "join_on": [["raceId", "raceId"]], "leg": "den", "metric_id": "f1.points_per_entry", "routing_id": "f1.rt6", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.races", "graph_version": "v1", "hop_seq": 0, "join_on": [["raceId", "raceId"]], "leg": "num", "metric_id": "f1.points_per_entry", "routing_id": "f1.rt4", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.races", "graph_version": "v2", "hop_seq": 0, "join_on": [["raceId", "raceId"]], "leg": "atom", "metric_id": "f1.driver_season_points", "routing_id": "f1.rt1", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.races", "graph_version": "v2", "hop_seq": 0, "join_on": [["raceId", "raceId"]], "leg": "atom", "metric_id": "f1.entry_count", "routing_id": "f1.rt8", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.races", "graph_version": "v2", "hop_seq": 0, "join_on": [["raceId", "raceId"]], "leg": "atom", "metric_id": "f1.season_points_delta", "routing_id": "f1.rt10", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.races", "graph_version": "v2", "hop_seq": 0, "join_on": [["raceId", "raceId"]], "leg": "den", "metric_id": "f1.points_per_entry", "routing_id": "f1.rt6", "src_node": "f1.results"}
+{"dst_caliber": "scoped", "dst_node": "f1.races", "graph_version": "v2", "hop_seq": 0, "join_on": [["raceId", "raceId"]], "leg": "num", "metric_id": "f1.points_per_entry", "routing_id": "f1.rt4", "src_node": "f1.results"}
+
+-- TABLE gov_valid_time_anchor  (rows=2)
+{"anchor_id": "A-F1-RACE", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v1", "node_id": "f1.races", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-F1-RACE", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v2", "node_id": "f1.races", "vf_col": null, "vtc_col": null}
+
+-- TABLE gov_temporal_binding  (rows=16)
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-DSP", "graph_version": "v1", "leg": "atom", "metric_id": "f1.driver_season_points", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-DSP", "graph_version": "v2", "leg": "atom", "metric_id": "f1.driver_season_points", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-EC", "graph_version": "v1", "leg": "atom", "metric_id": "f1.entry_count", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-EC", "graph_version": "v2", "leg": "atom", "metric_id": "f1.entry_count", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-OSP", "graph_version": "v1", "leg": "atom", "metric_id": "f1.official_standing_points", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-OSP", "graph_version": "v2", "leg": "atom", "metric_id": "f1.official_standing_points", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-PPE-D", "graph_version": "v1", "leg": "den", "metric_id": "f1.points_per_entry", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-PPE-D", "graph_version": "v2", "leg": "den", "metric_id": "f1.points_per_entry", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-PPE-N", "graph_version": "v1", "leg": "num", "metric_id": "f1.points_per_entry", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-PPE-N", "graph_version": "v2", "leg": "num", "metric_id": "f1.points_per_entry", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-RCM", "graph_version": "v1", "leg": "atom", "metric_id": "f1.races_count_month", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-RCM", "graph_version": "v2", "leg": "atom", "metric_id": "f1.races_count_month", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-RCR", "graph_version": "v1", "leg": "atom", "metric_id": "f1.races_count_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-RCR", "graph_version": "v2", "leg": "atom", "metric_id": "f1.races_count_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-SPD", "graph_version": "v1", "leg": "atom", "metric_id": "f1.season_points_delta", "rule_id": "same_valid_time_window", "window_gran": "year"}
+{"anchor_id": "A-F1-RACE", "binding_id": "B-F1-SPD", "graph_version": "v2", "leg": "atom", "metric_id": "f1.season_points_delta", "rule_id": "same_valid_time_window", "window_gran": "year"}
+
+-- TABLE gov_semantic_node  (rows=28)
+{"domain": "formula_1", "entity_key": "circuitId", "graph_version": "v1", "node_id": "f1.circuits", "physical_table": "circuits", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "circuitId", "graph_version": "v2", "node_id": "f1.circuits", "physical_table": "circuits", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "constructorId", "graph_version": "v1", "node_id": "f1.constructors", "physical_table": "constructors", "scope_keys": {"constructor": "constructorRef"}}
+{"domain": "formula_1", "entity_key": "constructorId", "graph_version": "v2", "node_id": "f1.constructors", "physical_table": "constructors", "scope_keys": {"constructor": "constructorRef"}}
+{"domain": "formula_1", "entity_key": "constructorResultsId", "graph_version": "v1", "node_id": "f1.constructorResults", "physical_table": "constructorResults", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "constructorResultsId", "graph_version": "v2", "node_id": "f1.constructorResults", "physical_table": "constructorResults", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "constructorStandingsId", "graph_version": "v1", "node_id": "f1.constructorStandings", "physical_table": "constructorStandings", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "constructorStandingsId", "graph_version": "v2", "node_id": "f1.constructorStandings", "physical_table": "constructorStandings", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "driverId", "graph_version": "v1", "node_id": "f1.drivers", "physical_table": "drivers", "scope_keys": {"driver": "driverRef"}}
+{"domain": "formula_1", "entity_key": "driverId", "graph_version": "v2", "node_id": "f1.drivers", "physical_table": "drivers", "scope_keys": {"driver": "driverRef"}}
+{"domain": "formula_1", "entity_key": "driverStandingsId", "graph_version": "v1", "node_id": "f1.driverStandings", "physical_table": "driverStandings", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "driverStandingsId", "graph_version": "v2", "node_id": "f1.driverStandings", "physical_table": "driverStandings", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "qualifyId", "graph_version": "v1", "node_id": "f1.qualifying", "physical_table": "qualifying", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "qualifyId", "graph_version": "v2", "node_id": "f1.qualifying", "physical_table": "qualifying", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "raceId", "graph_version": "v1", "node_id": "f1.races", "physical_table": "races", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "raceId", "graph_version": "v2", "node_id": "f1.races", "physical_table": "races", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "resultId", "graph_version": "v1", "node_id": "f1.results", "physical_table": "results", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "resultId", "graph_version": "v2", "node_id": "f1.results", "physical_table": "results", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "statusId", "graph_version": "v1", "node_id": "f1.status", "physical_table": "status", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "statusId", "graph_version": "v2", "node_id": "f1.status", "physical_table": "status", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "year", "graph_version": "v1", "node_id": "f1.seasons", "physical_table": "seasons", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": "year", "graph_version": "v2", "node_id": "f1.seasons", "physical_table": "seasons", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": null, "graph_version": "v1", "node_id": "f1.lapTimes", "physical_table": "lapTimes", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": null, "graph_version": "v1", "node_id": "f1.pitStops", "physical_table": "pitStops", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": null, "graph_version": "v1", "node_id": "f1.points_scheme", "physical_table": "points_scheme", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": null, "graph_version": "v2", "node_id": "f1.lapTimes", "physical_table": "lapTimes", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": null, "graph_version": "v2", "node_id": "f1.pitStops", "physical_table": "pitStops", "scope_keys": {}}
+{"domain": "formula_1", "entity_key": null, "graph_version": "v2", "node_id": "f1.points_scheme", "physical_table": "points_scheme", "scope_keys": {}}
+
+-- TABLE gov_granularity_edge  (rows=4)
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "formula_1", "edge_id": "f1.tg1", "from_level": "day", "graph_version": "v1", "group_cols": [], "node_id": null, "to_level": "month"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "formula_1", "edge_id": "f1.tg1", "from_level": "day", "graph_version": "v2", "group_cols": [], "node_id": null, "to_level": "month"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "formula_1", "edge_id": "f1.tg2", "from_level": "month", "graph_version": "v1", "group_cols": [], "node_id": null, "to_level": "year"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "formula_1", "edge_id": "f1.tg2", "from_level": "month", "graph_version": "v2", "group_cols": [], "node_id": null, "to_level": "year"}
+
+-- TABLE gov_disclosure_policy  (rows=0)

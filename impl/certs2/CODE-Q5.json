@@ -1,0 +1,94 @@
+{
+ "sql": "SELECT (SELECT COUNT(*) FROM \"posts\" t0 WHERE t0.\"PostTypeId\" = 1 AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) >= '2013-06-01' AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) < '2013-07-01')",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "CODE-Q5",
+   "domain": "codebase_community",
+   "metric": "code.daily_questions",
+   "metric_kind": "report",
+   "as_of": "2013-06-15"
+  },
+  "graph_pin": {
+   "domain": "codebase_community",
+   "graph_version": "v2",
+   "commit_id": "2013-01-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": "A-CODE-POST",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "month",
+     "lo": "2013-06-01",
+     "hi_excl": "2013-07-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-CODE-DQ",
+   "rule": "same_valid_time_window",
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [],
+  "disclosure": {
+   "decision": "REWRITE",
+   "policy_ids": [
+    "code.pi4"
+   ],
+   "policy_table_present": true,
+   "ungoverned_disclosure": false,
+   "granularity": "month",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-CODE-POST",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)) FROM \"posts\" t WHERE t.\"CreaionDate\" IS NOT NULL",
+    "observed": [
+     "2009-02-02",
+     "2014-09-14"
+    ]
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  },
+  "rewrite": {
+   "kept_slices": [
+    "(v2,B-CODE-DQ)"
+   ],
+   "cut_trace": [
+    {
+     "kind": "granularity_rollup",
+     "requested_level": "day",
+     "effective_level": "month",
+     "policy_ids": [
+      "code.pi4"
+     ]
+    }
+   ],
+   "ct": [],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ }
+}

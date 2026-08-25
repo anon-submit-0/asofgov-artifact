@@ -1,0 +1,279 @@
+[
+ {
+  "qid": "CARD-Q1",
+  "domain": "card_games",
+  "question_zh": "以 2017-03-01 为声明时点，2017 年 2 月（as-of 2017-02-15 所在月窗）的当月裁定条数是多少？",
+  "as_of": "2017-02-15",
+  "declared_at": "2017-03-01",
+  "metric_alias": "当月裁定条数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "card.monthly_rulings",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT COUNT(*) FROM rulings WHERE date>='2017-02-01' AND date<'2017-03-01'",
+  "gold_value": 2161,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "2017-02-01",
+    "hi_excl": "2017-03-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "running example 分子侧合法值题（P-6：2,161）。"
+ },
+ {
+  "qid": "CARD-Q2",
+  "domain": "card_games",
+  "question_zh": "以 2017-03-01 为声明时点，2016 年 11 月（as-of 2016-11-15 所在月窗）的裁定强度是多少？",
+  "as_of": "2016-11-15",
+  "declared_at": "2017-03-01",
+  "metric_alias": "裁定强度",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "card.ruling_intensity",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT (SELECT COUNT(*) FROM rulings WHERE date>='2016-11-01' AND date<'2016-12-01')*1.0/(SELECT COUNT(*) FROM cards c INNER JOIN sets s ON c.setCode=s.code WHERE s.releaseDate>='2016-11-01' AND s.releaseDate<'2016-12-01')",
+  "gold_value": 0.4020100502512563,
+  "windows": {
+   "num": {
+    "kind": "range",
+    "lo": "2016-11-01",
+    "hi_excl": "2016-12-01"
+   },
+   "den": {
+    "kind": "range",
+    "lo": "2016-11-01",
+    "hi_excl": "2016-12-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "分母正质量月（320/796）：同题型与 CARD-Q7 组成同窗分母有/无对照。"
+ },
+ {
+  "qid": "CARD-Q3",
+  "domain": "card_games",
+  "question_zh": "以 2021-03-15 为声明时点，按当前轮替口径，截至 as-of 2021-03-10 的轮替合法卡牌总数是多少？",
+  "as_of": "2021-03-10",
+  "declared_at": "2021-03-15",
+  "metric_alias": "轮替合法卡牌总数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "card.standard_card_count",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT COUNT(*) FROM cards c INNER JOIN sets s ON c.setCode=s.code WHERE c.setCode IN ('BFZ','OGW','SOI','EMN','KLD','AER','AKH','HOU','XLN') AND s.releaseDate>='1993-08-05' AND s.releaseDate<='2021-03-10'",
+  "gold_value": 2339,
+  "windows": {
+   "atom": {
+    "kind": "cum",
+    "lo": "1993-08-05",
+    "hi_incl": "2021-03-10"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "跨版本语义变更（轮替清单 v1 KTK 期 1,310 → v2 XLN 期 2,339）；ver(T)=v2。"
+ },
+ {
+  "qid": "CARD-Q4",
+  "domain": "card_games",
+  "question_zh": "以 2015-09-01 为声明时点，Kytheon, Hero of Akros // Gideon, Battle-Forged（ORI 印次）在 2015 年 6 月（as-of 2015-06-22 所在月窗）的单卡当月裁定条数是多少？",
+  "as_of": "2015-06-22",
+  "declared_at": "2015-09-01",
+  "metric_alias": "单卡当月裁定条数",
+  "scope": {
+   "card_name": "Kytheon, Hero of Akros // Gideon, Battle-Forged",
+   "set_code": "ORI"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "card.card_rulings_count",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT COUNT(*) FROM rulings r INNER JOIN cards c ON r.uuid=c.uuid WHERE c.name='Kytheon, Hero of Akros // Gideon, Battle-Forged' AND c.setCode='ORI' AND r.date>='2015-06-01' AND r.date<'2015-07-01'",
+  "gold_value": 32,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "2015-06-01",
+    "hi_excl": "2015-07-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "卫星实体例（生命周期前沿）：ORI 发行 2015-07-17，2015-06 先行裁定已至（实测 36 条；规格 P-5 记 16 为设计期近似，以实测为准）。"
+ },
+ {
+  "qid": "CARD-Q5",
+  "domain": "card_games",
+  "question_zh": "以 2021-03-15 为声明时点，统计 2020-10-01 至 2021-06-30 的区间裁定条数。",
+  "as_of": null,
+  "declared_at": "2021-03-15",
+  "metric_alias": "区间裁定条数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "day_range",
+   "lo": "2020-10-01",
+   "hi_excl": "2021-07-01"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "card.rulings_range",
+  "expected_kind": "rewrite",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": {
+   "kind": "hull_trim",
+   "requested": {
+    "kind": "range",
+    "lo": "2020-10-01",
+    "hi_excl": "2021-07-01"
+   },
+   "effective": {
+    "kind": "range",
+    "lo": "2020-10-01",
+    "hi_excl": "2021-02-06"
+   }
+  },
+  "gold_sql": "SELECT COUNT(*) FROM rulings WHERE date>='2020-10-01' AND date<'2021-02-06'",
+  "gold_value": 7542,
+  "windows": {
+   "requested": {
+    "kind": "range",
+    "lo": "2020-10-01",
+    "hi_excl": "2021-07-01"
+   },
+   "effective": {
+    "kind": "range",
+    "lo": "2020-10-01",
+    "hi_excl": "2021-02-06"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "hull 裁剪 REWRITE：rulings.date hull 右端 2021-02-05。"
+ },
+ {
+  "qid": "CARD-Q6",
+  "domain": "card_games",
+  "question_zh": "以 2017-03-01 为声明时点，2017 年 2 月的保留卡收藏溢价率是多少？",
+  "as_of": "2017-02-15",
+  "declared_at": "2017-03-01",
+  "metric_alias": "保留卡收藏溢价率",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "card.collector_premium",
+  "expected_kind": "refusal",
+  "refusal_reason": "missing-caliber",
+  "refusal_subtype": "mc_i",
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": {
+   "num": {
+    "kind": "range",
+    "lo": "2017-02-01",
+    "hi_excl": "2017-03-01"
+   },
+   "den": {
+    "kind": "range",
+    "lo": "2017-02-01",
+    "hi_excl": "2017-03-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "MC(i)：路由 dst_caliber='none'（reference-only，无成本侧数据），元数据即可判（命题3.18 前三行）。"
+ },
+ {
+  "qid": "CARD-Q7",
+  "domain": "card_games",
+  "question_zh": "以 2017-03-01 为声明时点，2017 年 2 月（as-of 2017-02-15 所在月窗）的裁定强度是多少？",
+  "as_of": "2017-02-15",
+  "declared_at": "2017-03-01",
+  "metric_alias": "裁定强度",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "card.ruling_intensity",
+  "expected_kind": "refusal",
+  "refusal_reason": "missing-caliber",
+  "refusal_subtype": "mc_ii",
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": {
+   "num": {
+    "kind": "range",
+    "lo": "2017-02-01",
+    "hi_excl": "2017-03-01"
+   },
+   "den": {
+    "kind": "range",
+    "lo": "2017-02-01",
+    "hi_excl": "2017-03-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "running example 主例（rma SKU536-EOL 公开移植）：分子 2,161 仍至而当月零套牌发行 → 分母质量 μ_den≤0，⊥_MC；守卫序 OOV→AM→MC 走位一致；探针专属（ND-1：向 2017-02 插入一套牌+一卡即翻转）。"
+ }
+]

@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q6",
+ "system": "baseline_deepseek",
+ "kind": "value",
+ "value": 13403.217214544895,
+ "verdict": "answered_should_refuse",
+ "raw": "SELECT \n    AVG(ym.\"Consumption\") \nFROM main.\"yearmonth\" ym\nWHERE \n    ym.\"Date\" >= '2013-12-01' \n    AND ym.\"Date\" < '2014-01-01';",
+ "sql": "SELECT \n    AVG(ym.\"Consumption\") \nFROM main.\"yearmonth\" ym\nWHERE \n    ym.\"Date\" >= '2013-12-01' \n    AND ym.\"Date\" < '2014-01-01'",
+ "prompt_sha256": "0d90fc8cdce1b3d6039bca49bc4424f93c1bf4da58f4848b292865b27ac06cab",
+ "prompt_chars": 3702,
+ "empty_response": false
+}

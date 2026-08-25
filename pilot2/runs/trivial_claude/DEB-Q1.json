@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q1",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": 15626.138213557568,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT AVG(ym.\"Consumption\") AS avg_consumption\nFROM main.\"yearmonth\" ym\nJOIN main.\"customers\" c ON ym.\"CustomerID\" = c.\"CustomerID\"\nWHERE c.\"Currency\" = 'CZK'\n  AND ym.\"Date\" = '201308'\n```",
+ "sql": "SELECT AVG(ym.\"Consumption\") AS avg_consumption\nFROM main.\"yearmonth\" ym\nJOIN main.\"customers\" c ON ym.\"CustomerID\" = c.\"CustomerID\"\nWHERE c.\"Currency\" = 'CZK'\n  AND ym.\"Date\" = '201308'",
+ "prompt_sha256": "0b72571deec841c9c33930e37ebf2c34decc8265e9474b52016334eed9d7ff5c",
+ "prompt_chars": 3832,
+ "empty_response": false
+}

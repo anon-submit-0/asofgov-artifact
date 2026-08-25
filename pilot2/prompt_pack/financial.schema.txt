@@ -1,0 +1,56 @@
+-- financial 域 pilot2 warehouse.duckdb schema（源: BIRD/Spider dev 公开数据集，抽取与 real/authored 行数见 provenance.json）
+-- schema: main = 业务事实/维表 + gov_* 治理登记表（十表 schema 法, DESIGN_SPEC §3.1）
+
+CREATE TABLE main."account"("account_id" BIGINT, "district_id" BIGINT, "frequency" VARCHAR, "date" DATE);
+-- rowcount main."account" = 4500
+
+CREATE TABLE main."card"("card_id" BIGINT, "disp_id" BIGINT, "type" VARCHAR, "issued" DATE);
+-- rowcount main."card" = 892
+
+CREATE TABLE main."client"("client_id" BIGINT, "gender" VARCHAR, "birth_date" DATE, "district_id" BIGINT);
+-- rowcount main."client" = 5369
+
+CREATE TABLE main."disp"("disp_id" BIGINT, "client_id" BIGINT, "account_id" BIGINT, "type" VARCHAR);
+-- rowcount main."disp" = 5369
+
+CREATE TABLE main."district"("district_id" BIGINT, "A2" VARCHAR, "A3" VARCHAR, "A4" VARCHAR, "A5" VARCHAR, "A6" VARCHAR, "A7" VARCHAR, "A8" BIGINT, "A9" BIGINT, "A10" DOUBLE, "A11" BIGINT, "A12" DOUBLE, "A13" DOUBLE, "A14" BIGINT, "A15" BIGINT, "A16" BIGINT);
+-- rowcount main."district" = 77
+
+CREATE TABLE main."gov_caliber_routing"("routing_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "hop_seq" VARCHAR, "src_node" VARCHAR, "dst_node" VARCHAR, "join_on" VARCHAR, "dst_caliber" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_caliber_routing" = 10
+
+CREATE TABLE main."gov_disclosure_policy"("placeholder" VARCHAR);
+-- rowcount main."gov_disclosure_policy" = 0
+
+CREATE TABLE main."gov_granularity_edge"("edge_id" VARCHAR, "domain" VARCHAR, "axis" VARCHAR, "from_level" VARCHAR, "to_level" VARCHAR, "node_id" VARCHAR, "group_cols" VARCHAR, "derived" VARCHAR, "band_col" VARCHAR, "band_bounds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_granularity_edge" = 4
+
+CREATE TABLE main."gov_measure_def"("measure_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "node_id" VARCHAR, "measure" VARCHAR, "preds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_measure_def" = 22
+
+CREATE TABLE main."gov_metric"("metric_id" VARCHAR, "domain" VARCHAR, "kind" VARCHAR, "num_node" VARCHAR, "den_node" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_metric" = 16
+
+CREATE TABLE main."gov_metric_alias"("alias_id" VARCHAR, "alias_text" VARCHAR, "metric_id" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_metric_alias" = 16
+
+CREATE TABLE main."gov_semantic_graph_version"("graph_version" VARCHAR, "domain" VARCHAR, "committed_at" VARCHAR, "commit_seq" VARCHAR, "change_note" VARCHAR);
+-- rowcount main."gov_semantic_graph_version" = 2
+
+CREATE TABLE main."gov_semantic_node"("node_id" VARCHAR, "domain" VARCHAR, "physical_table" VARCHAR, "entity_key" VARCHAR, "scope_keys" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_semantic_node" = 16
+
+CREATE TABLE main."gov_temporal_binding"("binding_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "anchor_id" VARCHAR, "rule_id" VARCHAR, "window_gran" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_temporal_binding" = 18
+
+CREATE TABLE main."gov_valid_time_anchor"("anchor_id" VARCHAR, "node_id" VARCHAR, "anchor_type" VARCHAR, "effective_col" VARCHAR, "vf_col" VARCHAR, "vtc_col" VARCHAR, "granularity" VARCHAR, "coverage_mode" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_valid_time_anchor" = 6
+
+CREATE TABLE main."loan"("loan_id" BIGINT, "account_id" BIGINT, "date" DATE, "amount" BIGINT, "duration" BIGINT, "payments" DOUBLE, "status" VARCHAR);
+-- rowcount main."loan" = 682
+
+CREATE TABLE main."order"("order_id" BIGINT, "account_id" BIGINT, "bank_to" VARCHAR, "account_to" BIGINT, "amount" DOUBLE, "k_symbol" VARCHAR);
+-- rowcount main."order" = 6471
+
+CREATE TABLE main."trans"("trans_id" BIGINT, "account_id" BIGINT, "date" DATE, "type" VARCHAR, "operation" VARCHAR, "amount" BIGINT, "balance" BIGINT, "k_symbol" VARCHAR, "bank" VARCHAR, "account" BIGINT);
+-- rowcount main."trans" = 1056320

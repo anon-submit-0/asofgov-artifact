@@ -1,0 +1,67 @@
+{
+ "sql": "SELECT (SELECT AVG(t0.\"overall_rating\") FROM \"Player_Attributes\" t0 WHERE substr(CAST(t0.\"date\" AS VARCHAR),1,10) = '2015-09-21')",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "EF2-Q1",
+   "domain": "european_football_2",
+   "metric": "ef2.avg_overall_rating",
+   "metric_kind": "atomic",
+   "as_of": "2015-09-21"
+  },
+  "graph_pin": {
+   "domain": "european_football_2",
+   "graph_version": "v2",
+   "commit_id": "2014-08-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": "A-EF2-PA",
+    "registered": true,
+    "coverage_mode": "strict_member",
+    "granule": "day",
+    "window": {
+     "kind": "point",
+     "lo": "2015-09-21",
+     "hi_excl": "2015-09-22"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-EF2-AOR",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": null,
+   "denominator_anchor": null,
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [],
+  "disclosure": {
+   "decision": "ANSWER",
+   "policy_ids": [],
+   "policy_table_present": false,
+   "ungoverned_disclosure": true,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-EF2-PA",
+    "coverage_mode": "strict_member",
+    "sql": "SELECT COUNT(DISTINCT substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"Player_Attributes\" t WHERE t.\"date\" IS NOT NULL AND substr(CAST(t.\"date\" AS VARCHAR),1,10) >= '2015-09-21' AND substr(CAST(t.\"date\" AS VARCHAR),1,10) < '2015-09-22'",
+    "observed": 1
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  }
+ }
+}

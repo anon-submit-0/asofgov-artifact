@@ -1,0 +1,14 @@
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-AR-N", "graph_version": "v1", "leg": "num", "metric_id": "code.accepted_rate", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-AR-D", "graph_version": "v1", "leg": "den", "metric_id": "code.accepted_rate", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-VOTE", "binding_id": "B-CODE-MV", "graph_version": "v1", "leg": "atom", "metric_id": "code.monthly_votes", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-UAR", "graph_version": "v1", "leg": "atom", "metric_id": "code.user_accepted_report", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-DQ", "graph_version": "v1", "leg": "atom", "metric_id": "code.daily_questions", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-TAR", "graph_version": "v1", "leg": "atom", "metric_id": "code.top_answerer_roster", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-USER", "binding_id": "B-CODE-MB", "graph_version": "v1", "leg": "atom", "metric_id": "code.monthly_badges", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-AR-N", "graph_version": "v2", "leg": "num", "metric_id": "code.accepted_rate", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-AR-D", "graph_version": "v2", "leg": "den", "metric_id": "code.accepted_rate", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-VOTE", "binding_id": "B-CODE-MV", "graph_version": "v2", "leg": "atom", "metric_id": "code.monthly_votes", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-UAR", "graph_version": "v2", "leg": "atom", "metric_id": "code.user_accepted_report", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-DQ", "graph_version": "v2", "leg": "atom", "metric_id": "code.daily_questions", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-TAR", "graph_version": "v2", "leg": "atom", "metric_id": "code.top_answerer_roster", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-USER", "binding_id": "B-CODE-MB", "graph_version": "v2", "leg": "atom", "metric_id": "code.monthly_badges", "rule_id": "same_valid_time_window", "window_gran": "month"}

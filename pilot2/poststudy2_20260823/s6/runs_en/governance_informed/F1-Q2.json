@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q2",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 173.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT SUM(ps.points) AS season_driver_total_points\nFROM results r\nJOIN races ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN drivers d ON r.\"driverId\" = d.\"driverId\"\nJOIN points_scheme ps ON r.\"positionOrder\" = ps.\"position\"\nWHERE d.\"driverRef\" = 'button'\n  AND ra.\"year\" = 2009\n  AND ra.\"date\" < '2009-07-01'\n  AND ps.\"scheme_id\" = 'PS2010';\n```",
+ "sql": "SELECT SUM(ps.points) AS season_driver_total_points\nFROM results r\nJOIN races ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN drivers d ON r.\"driverId\" = d.\"driverId\"\nJOIN points_scheme ps ON r.\"positionOrder\" = ps.\"position\"\nWHERE d.\"driverRef\" = 'button'\n  AND ra.\"year\" = 2009\n  AND ra.\"date\" < '2009-07-01'\n  AND ps.\"scheme_id\" = 'PS2010'",
+ "prompt_sha256": "bce7f2464f90b76fb20a935254fe808e87eca6b9e7b688b44fffa380bc12c3db",
+ "prompt_chars": 27285,
+ "empty_response": false
+}

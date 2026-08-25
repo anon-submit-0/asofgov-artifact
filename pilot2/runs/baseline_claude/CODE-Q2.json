@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q2",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.2803,
+ "verdict": "wrong_value",
+ "raw": "I need to understand the question: \"以 2014-02-01 为声明时点，2013年12月（as-of 2013-12-15 所在月窗）的提问采纳率是多少？\"\n\nThis asks for the question acceptance rate for December 2013, with a declaration time point of 2014-02-01.\n\nLet me look at the governance tables to understand the metric definition.\n\nThe \"提问采纳率\" (question acceptance rate) would be: questions that have an accepted answer / total questions.\n\nLooking at the temporal aspects:\n- Declaration time point (声明时点): 2014-02-01 - this likely means we only consider data that existed as of 2014-02-01\n- Month window as-of 2013-12-15: December 2013\n\nFor questions in December 2013:\n- Questions are posts with PostTypeId = 1\n- A question is \"accepted\" if it has a non-null AcceptedAnswerId\n- The question was created in December 2013\n- The declaration time point 2014-02-01 means the accepted answer must have been posted by 2014-02-01\n\nSo the acceptance rate = (number of questions created in Dec 2013 that have an accepted answer where that answer was created by 2014-02-01) / (total questions created in Dec 2013)\n\n```sql\nSELECT ROUND(\n  CAST(SUM(CASE WHEN p.\"AcceptedAnswerId\" IS NOT NULL \n    AND EXISTS (\n      SELECT 1 FROM main.\"posts\" a \n      WHERE a.\"Id\" = p.\"AcceptedAnswerId\" \n      AND a.\"CreaionDate\" <= TIMESTAMP '2014-02-01'\n    ) THEN 1 ELSE 0 END) AS DOUBLE) \n  / COUNT(*), 4\n) AS acceptance_rate\nFROM main.\"posts\" p\nWHERE p.\"PostTypeId\" = 1\n  AND p.\"CreaionDate\" >= TIMESTAMP '2013-12-01'\n  AND p.\"CreaionDate\" < TIMESTAMP '2014-01-01';\n```",
+ "sql": "SELECT ROUND(\n  CAST(SUM(CASE WHEN p.\"AcceptedAnswerId\" IS NOT NULL \n    AND EXISTS (\n      SELECT 1 FROM main.\"posts\" a \n      WHERE a.\"Id\" = p.\"AcceptedAnswerId\" \n      AND a.\"CreaionDate\" <= TIMESTAMP '2014-02-01'\n    ) THEN 1 ELSE 0 END) AS DOUBLE) \n  / COUNT(*), 4\n) AS acceptance_rate\nFROM main.\"posts\" p\nWHERE p.\"PostTypeId\" = 1\n  AND p.\"CreaionDate\" >= TIMESTAMP '2013-12-01'\n  AND p.\"CreaionDate\" < TIMESTAMP '2014-01-01'",
+ "prompt_sha256": "c376874d096d6d012f58a7a93f242efeb7e1a8d4b4834c9ecc10038cb249c0ca",
+ "prompt_chars": 4915,
+ "empty_response": false
+}

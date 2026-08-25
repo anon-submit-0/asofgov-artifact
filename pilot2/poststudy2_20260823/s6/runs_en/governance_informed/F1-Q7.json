@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q7",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: as-of date 1949-05-15 falls outside the valid-time coverage of graph version v2 (committed 2010-02-01), and under v1 (committed 2009-03-01) the declaration instant 2011-03-01 post-dates v1's supersession by v2, so no consistent temporal binding can be established for this query.",
+ "sql": "REFUSE",
+ "prompt_sha256": "e03545d02aa306e1a358bf91ff57feb0ea6edf9e2c43e0deb068f351da95b9db",
+ "prompt_chars": 27199,
+ "empty_response": false
+}

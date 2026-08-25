@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q7",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 2161.0,
+ "verdict": "answered_should_refuse",
+ "raw": "SELECT COUNT(*) FROM main.rulings WHERE date BETWEEN '2017-02-01' AND '2017-02-28'",
+ "sql": "SELECT COUNT(*) FROM main.rulings WHERE date BETWEEN '2017-02-01' AND '2017-02-28'",
+ "prompt_sha256": "f9c570acf0a6e0e8935c91d750a09d075c8c6cf2a39ed99698def5f5fce56ec7",
+ "prompt_chars": 5447,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q7",
+ "system": "baseline_claude",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT AVG(Price) FROM main.\"transactions_1k\" WHERE \"Date\" BETWEEN '2013-03-04' AND '2013-03-10';\n```",
+ "sql": "SELECT AVG(Price) FROM main.\"transactions_1k\" WHERE \"Date\" BETWEEN '2013-03-04' AND '2013-03-10'",
+ "prompt_sha256": "d179013d61930d77b627a06dfc8bc69d18e80bbb0f0a20787c48b639fa0c6c97",
+ "prompt_chars": 3796,
+ "empty_response": false
+}

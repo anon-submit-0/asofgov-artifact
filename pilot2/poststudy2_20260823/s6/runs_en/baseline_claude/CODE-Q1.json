@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q1",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: The question conflates governance temporal-binding concepts (declaration instant, as-of, containing month window) with business data in a way that has no unambiguous executable interpretation against this schema.",
+ "sql": "REFUSE",
+ "prompt_sha256": "98303a6481bc04419e1cc3750512813df29afab5931398c319e3f406c29e9c86",
+ "prompt_chars": 4998,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q5",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 5065022.0,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT DISTINCT p.\"ID\", p.\"Birthday\", p.\"Diagnosis\"\nFROM main.\"Patient\" p\nJOIN main.\"Laboratory\" l ON p.\"ID\" = l.\"ID\"\nWHERE l.\"GOT\" >= 60\n  AND l.\"Date\" >= '1997-01-01'\n  AND l.\"Date\" < '1998-01-01';\n```",
+ "sql": "SELECT DISTINCT p.\"ID\", p.\"Birthday\", p.\"Diagnosis\"\nFROM main.\"Patient\" p\nJOIN main.\"Laboratory\" l ON p.\"ID\" = l.\"ID\"\nWHERE l.\"GOT\" >= 60\n  AND l.\"Date\" >= '1997-01-01'\n  AND l.\"Date\" < '1998-01-01'",
+ "prompt_sha256": "bb5aefad0b5c7de4cd7624461dc870df513a8138571343bcfbf1a6789acbc217",
+ "prompt_chars": 4241,
+ "empty_response": false
+}

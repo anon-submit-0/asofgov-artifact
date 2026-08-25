@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q4",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": "1934-02-13",
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \"Birthday\" FROM main.\"Patient\" WHERE \"ID\" = 2110;\n```\n\nWait — I need to check the disclosure policy first.\n\nLet me re-examine. The question asks to present the birthday according to the current disclosure policy (`gov_disclosure_policy`). Let me check what policy applies.\n\n```sql\nSELECT p.\"Birthday\",\n       dp.mask_class,\n       dp.time_floor_gran\nFROM main.\"Patient\" p,\n     main.\"gov_disclosure_policy\" dp\nWHERE p.\"ID\" = 2110\n  AND dp.domain = 'thrombosis_prediction'\n  AND dp.node_id IN (SELECT node_id FROM main.\"gov_semantic_node\" WHERE physical_table = 'Patient')\n  AND (dp.cols LIKE '%Birthday%' OR dp.cols = '*');\n```\n\nI need to actually look at the data to construct the right query. Let me do this properly.\n\n```sql\nSELECT * FROM main.\"gov_disclosure_policy\";\n```\n\nSince I can't execute queries interactively, I'll construct the safest answer based on the schema. The disclosure policy likely applies a `time_floor_gran` masking to dates (e.g., flooring to year). The standard approach:\n\n```sql\nSELECT DATE_TRUNC(\n         (SELECT dp.time_floor_gran\n          FROM main.\"gov_disclosure_policy\" dp\n          JOIN main.\"gov_semantic_node\" sn ON dp.node_id = sn.node_id\n          WHERE sn.physical_table = 'Patient'\n            AND dp.cols LIKE '%Birthday%'\n          LIMIT 1),\n         p.\"Birthday\"\n       ) AS \"Birthday\"\nFROM main.\"Patient\" p\nWHERE p.\"ID\" = 2110;\n```",
+ "sql": "SELECT \"Birthday\" FROM main.\"Patient\" WHERE \"ID\" = 2110",
+ "prompt_sha256": "b000f082ab580b2aaebab10fd740134d816707bd0dd0b3e0cbf0f1344e6b84ae",
+ "prompt_chars": 4362,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{"graph_version": "v1", "leg": "atom", "measure": "avg:Consumption", "measure_id": "deb.ac.atom", "metric_id": "deb.avg_consumption", "node_id": "deb.yearmonth", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "sum:Consumption", "measure_id": "deb.cs.atom", "metric_id": "deb.consumption_sum", "node_id": "deb.yearmonth", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "avg:Amount", "measure_id": "deb.sat.atom", "metric_id": "deb.segment_avg_trans", "node_id": "deb.transactions_1k", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "avg:Price", "measure_id": "deb.pm.num", "metric_id": "deb.price_margin", "node_id": "deb.transactions_1k", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "deb.pm.den", "metric_id": "deb.price_margin", "node_id": "deb.products", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "deb.stc.atom", "metric_id": "deb.station_trans_count", "node_id": "deb.transactions_1k", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:Consumption", "measure_id": "deb.ac.atom", "metric_id": "deb.avg_consumption", "node_id": "deb.yearmonth", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:Consumption", "measure_id": "deb.cs.atom", "metric_id": "deb.consumption_sum", "node_id": "deb.yearmonth", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:Amount", "measure_id": "deb.sat.atom", "metric_id": "deb.segment_avg_trans", "node_id": "deb.transactions_1k", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "avg:Price", "measure_id": "deb.pm.num", "metric_id": "deb.price_margin", "node_id": "deb.transactions_1k", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "deb.pm.den", "metric_id": "deb.price_margin", "node_id": "deb.products", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "deb.stc.atom", "metric_id": "deb.station_trans_count", "node_id": "deb.transactions_1k", "preds": []}

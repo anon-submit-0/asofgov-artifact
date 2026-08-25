@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q2",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 320.0,
+ "verdict": "wrong_value",
+ "raw": "SELECT COUNT(*) FROM rulings WHERE date BETWEEN '2016-11-01' AND '2016-11-30'",
+ "sql": "SELECT COUNT(*) FROM rulings WHERE date BETWEEN '2016-11-01' AND '2016-11-30'",
+ "prompt_sha256": "6b941bafc51c53c02df2891a0ddd68862bbb3a584affef22047014a9e38e7f7b",
+ "prompt_chars": 5448,
+ "empty_response": false
+}

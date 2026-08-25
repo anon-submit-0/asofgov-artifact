@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: >-
+  If you use this artifact, please cite the paper below (under submission);
+  until the camera-ready version exists, cite the repository.
+title: >-
+  Artifact for "AsOfGov: As-Of Correctness for Governed Queries with
+  Typed Refusals and Certificates"
+type: software
+authors:
+  - family-names: Wang
+    given-names: Hongsheng
+    email: wanghongsheng@zju.edu.cn
+  - family-names: Liang
+    given-names: Xiubo
+    email: xiubo@zju.edu.cn
+repository-code: "https://github.com/anon-submit-0/asofgov-artifact"
+license: Apache-2.0
+preferred-citation:
+  type: article
+  title: >-
+    AsOfGov: As-Of Correctness for Governed Queries with Typed Refusals
+    and Certificates
+  authors:
+    - family-names: Wang
+      given-names: Hongsheng
+    - family-names: Liang
+      given-names: Xiubo
+  journal: "under submission (PVLDB)"
+  year: 2026
+references:
+  - type: article
+    title: >-
+      Can LLM Already Serve as a Database Interface? A BIg Bench for
+      Large-Scale Database Grounded Text-to-SQLs (BIRD)
+    authors: [{family-names: Li, given-names: Jinyang}]
+    year: 2023
+    notes: "Source of the 8 BIRD dev databases; CC BY-SA 4.0; not redistributed here."
+  - type: article
+    title: >-
+      Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain
+      Semantic Parsing and Text-to-SQL Task
+    authors: [{family-names: Yu, given-names: Tao}]
+    year: 2018
+    notes: "Source of the world_1 database; CC BY-SA 4.0; not redistributed here."

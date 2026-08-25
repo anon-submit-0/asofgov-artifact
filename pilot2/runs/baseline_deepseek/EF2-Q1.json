@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q1",
+ "system": "baseline_deepseek",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "SELECT ROUND(AVG(overall_rating), 2) FROM main.\"Player_Attributes\" WHERE date <= '2015-09-21' AND date > '2015-09-21' - INTERVAL '30 days';",
+ "sql": "SELECT ROUND(AVG(overall_rating), 2) FROM main.\"Player_Attributes\" WHERE date <= '2015-09-21' AND date > '2015-09-21' - INTERVAL '30 days'",
+ "prompt_sha256": "b1f64cfb7f2a7b385e0f0c73b3a6ec1d6ae1b7e895e9859c6fc3e4fe4f35feae",
+ "prompt_chars": 7618,
+ "empty_response": false
+}

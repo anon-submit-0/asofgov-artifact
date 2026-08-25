@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q4",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 119.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nWITH button_driver AS (\n  SELECT driverId \n  FROM main.drivers \n  WHERE LOWER(surname) = 'button' OR LOWER(driverRef) = 'button'\n  LIMIT 1\n),\nrace_2010 AS (\n  SELECT raceId \n  FROM main.races \n  WHERE year = 2010\n),\nrace_2009 AS (\n  SELECT raceId \n  FROM main.races \n  WHERE year = 2009\n),\npoints_2010 AS (\n  SELECT COALESCE(SUM(r.points), 0) as total_points\n  FROM main.results r\n  INNER JOIN button_driver b ON r.driverId = b.driverId\n  INNER JOIN race_2010 r10 ON r.raceId = r10.raceId\n),\npoints_2009 AS (\n  SELECT COALESCE(SUM(r.points), 0) as total_points\n  FROM main.results r\n  INNER JOIN button_driver b ON r.driverId = b.driverId\n  INNER JOIN race_2009 r09 ON r.raceId = r09.raceId\n)\nSELECT (SELECT total_points FROM points_2010) - (SELECT total_points FROM points_2009) AS points_difference\n```",
+ "sql": "WITH button_driver AS (\n  SELECT driverId \n  FROM main.drivers \n  WHERE LOWER(surname) = 'button' OR LOWER(driverRef) = 'button'\n  LIMIT 1\n),\nrace_2010 AS (\n  SELECT raceId \n  FROM main.races \n  WHERE year = 2010\n),\nrace_2009 AS (\n  SELECT raceId \n  FROM main.races \n  WHERE year = 2009\n),\npoints_2010 AS (\n  SELECT COALESCE(SUM(r.points), 0) as total_points\n  FROM main.results r\n  INNER JOIN button_driver b ON r.driverId = b.driverId\n  INNER JOIN race_2010 r10 ON r.raceId = r10.raceId\n),\npoints_2009 AS (\n  SELECT COALESCE(SUM(r.points), 0) as total_points\n  FROM main.results r\n  INNER JOIN button_driver b ON r.driverId = b.driverId\n  INNER JOIN race_2009 r09 ON r.raceId = r09.raceId\n)\nSELECT (SELECT total_points FROM points_2010) - (SELECT total_points FROM points_2009) AS points_difference",
+ "prompt_sha256": "1e4f7a248938385a5ffcfdf02b00f07782aa558f451208da55a8c3546f2124b4",
+ "prompt_chars": 5508,
+ "empty_response": false
+}

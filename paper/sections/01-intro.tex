@@ -1,0 +1,185 @@
+% =====================================================================
+% Section 1 -- INTRODUCTION   (target: ~1.1 page of a 12-page PVLDB body)
+% Six-step formula, ONE paragraph per step: background / provenance split
+% (production motivation vs public evidence base) / quantified gap /
+% concrete example (Fig.1, card_games) / three challenges / "we present" /
+% THREE contribution bullets (scope pass AUD-c583a419) + an "Evidence"
+% paragraph carrying the headline numbers / positioning.
+% EVIDENCE BASE (author ruling, 2026-08-04): every result number in this
+% paper is computed on the pilot2 public base (9 BIRD/Spider-lineage
+% databases, 60 questions, pilot2/pilot2_summary.json + impl/certs2).
+% Enterprise material appears ONLY as motivation and carries an explicit
+% production-observation provenance mark.  Do not re-import enterprise
+% numbers into any result claim.
+% =====================================================================
+\providecommand{\sysname}{\textsc{AsOfGov}}
+\providecommand{\sem}[1]{[\![#1]\!]}
+% Macros needed by the Figure 1 caption; all are \providecommand in
+% sections/03-semantics.tex as well.
+\providecommand{\ver}{\mathrm{ver}}
+\providecommand{\OOV}{\mathsf{OOV}}
+\providecommand{\AM}{\mathsf{AM}}
+\providecommand{\MC}{\mathsf{MC}}
+\providecommand{\ANSW}{\mathsf{ANSWER}}
+\providecommand{\REWR}{\mathsf{REWRITE}}
+\providecommand{\REFU}{\mathsf{REFUSE}}
+
+\section{INTRODUCTION}
+\label{sec:intro}
+
+\looseness=-1 Enterprise analytics is increasingly mediated by a \emph{governed semantic
+layer}: metrics, calibers --- the registered conventions fixing which
+population a metric attributes over --- and valid-time anchors are
+registered as machine-readable objects over the warehouse, so that ``problem
+rate'' denotes one agreed computation rather than whatever an analyst
+types. Large language models now sit in front of that layer, and the two
+interact badly along one axis neither owns: \emph{time}. The layer is no static
+dictionary --- calibers are re-scoped, anchors re-declared, versions advance ---
+so a question asked ``as of March'' must be answered under the governance
+semantics in force for March, over facts whose valid time falls in March: the
+\emph{as-of correctness} problem.
+
+\smallskip\noindent\looseness=-1\textbf{Observed in production, measured in public.}
+The problem statement is industrial: on the production governance
+line behind this work (five governed domains), one problem-rate question
+evaluates to a
+caliber-aware $16.2\%$ against a caliber-blind $3.8\%$ --- a $4.2\times$ gap
+on the same rows. Those are \emph{production observations}: they
+motivate the problem and play no other role. Every result number from here
+on --- save the two provenance-marked enterprise measurements (these rates
+and the \S\ref{sec:eval-divergence} ledger) ---
+is computed on a fully public base --- nine versioned databases of
+BIRD/Spider lineage~\cite{bird,spider}, 3{,}830{,}036 real rows, a frozen
+suite of 60 Chinese questions --- whose complete chain ships in the artifact: the
+motivation is proprietary, the evidence is not.
+
+\smallskip\noindent\looseness=-1\textbf{The gap is measurable, and one-line prompting does
+not close it.} Gold on the 60 Chinese questions is 33 values, 12 governed rewrites and
+15 typed refusals (\S\ref{sec:eval}); every arm answers from one statement,
+without execution feedback, three families behind the gateway caveat of
+\S\ref{sec:eval-setup}. Four frontier model families answer 60.0--76.7\%
+incorrectly, answering straight through 11, 11, 9 and 13 of the 15 refusals;
+for three of the four at most a quarter of errors are failing or
+malformed SQL --- the gap is semantic, not syntactic. Three prompt variants of the reference backbone err on
+53.3--66.7\%, the best eliminating $22\%$ of its errors against the
+pre-registered $40\%$ line (\S\ref{sec:eval-gap}). An arm handing that
+backbone its database's \emph{entire} governance layer verbatim still errs on
+46.7\% (elimination $36\%$): \emph{under this protocol} --- one statement, no
+execution feedback --- in-context governance does not substantially close the
+gap --- answering through 6
+of the 7 probe-decidable refusals and all 3 policy-on-file questions,
+correct on 4 of the 5 registry-decidable (\S\ref{sec:eval-gov}).
+
+\smallskip\noindent\looseness=-1\textbf{A running example.} Figure~\ref{fig:running}, from
+the public \texttt{card\_games} database, recurs through
+\S\ref{sec:semantics}--\S\ref{sec:binding} and is scored in \S\ref{sec:eval}:
+\texttt{ruling\_\allowbreak intensity} relates a month's card rulings to the
+same month's newly released printings. In February 2017 the numerator leg is
+populated, the same-window denominator empty, the anchor's coverage still
+contains February: no point-in-time correct value exists, and the governed
+response is a typed refusal carrying a re-executable witness. Six of the eight
+LLM arms answer it anyway --- the arm holding the entire governance layer
+among them; the two refusals cannot resolve the metric's definition; the
+all-history base reports $\approx3.8\%$ (Figure~\ref{fig:running},
+bottom row).
+
+% PAGE-BUDGET PASS (B3/B5 merge, 2026-08-03).  This float was fig1_combined.pdf,
+% a full-width two-panel figure: (a) the as-of gap, (b) the five-stage pipeline.
+% Panel (b) was dropped and the float reverted to the single-column problem
+% figure fig1_asof_gap.pdf.  PILOT2 MIGRATION (2026-08-04): the figure is now
+% generated from the public card_games warehouse by figures/fig1_asof_gap.py
+% (self-contained: queries the warehouse, re-executes the CARD-Q7 witness
+% probe, re-tallies the 6/8 from the frozen arm cache; running example
+% CARD-Q2/CARD-Q7; the old rma instance survives only as the
+% production-observation motivation above).
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig1_asof_gap.pdf}
+\Description{Worked example on the public card games database: the governed
+metric ruling intensity at two declared instants. At T1, November 2016, the
+compiler answers 40.20 percent; at T2, February 2017, the numerator holds
+2,161 rulings but the same-window denominator is empty, so the compiler
+issues a typed refusal witnessed by a denominator probe returning zero,
+while most evaluated LLM arms answer through.}
+\caption{\textbf{The as-of gap.} Under the graph version in effect at the
+declared instant ($v_1$ of \texttt{card\_games}; $v_2$ commits 2017-09-28),
+\texttt{ruling\_\allowbreak intensity} anchors its numerator on
+\texttt{rulings.\allowbreak date} and its denominator on
+\texttt{sets.\allowbreak releaseDate}, bound by
+\texttt{same\_\allowbreak valid\_\allowbreak time\_\allowbreak window}. At
+$T_2=$~2017-02 the numerator leg holds 2{,}161 rulings, the same-window
+denominator is empty, and the denominator anchor's coverage hull
+$[\,$1993-08-05, 2021-03-19$\,]$ still contains February, so the request lies
+\emph{inside} validity and $\sem{q}_{\mathcal{G},T}=\bot_{\mathsf{MC}}$,
+witnessed by a denominator probe re-evaluating to $0$.}
+\label{fig:running}
+\end{figure}
+
+\smallskip\noindent\looseness=-1\textbf{Why this is hard.} Three obstacles organise the technical part.
+\emph{(1)~What is the correct answer at a declared time point?} The semantics
+must span the valid time of facts and the version axis of the governance graph,
+and be \emph{total}: refusal is a value it assigns, not an exception raised.
+\emph{(2)~Is refusal the last word?} A coarser, masked or narrowed query is
+often faithful and legal, so choosing among rewrites needs a fidelity order and
+a guarantee that refusal follows an empty legal set, not a search that gave up.
+\emph{(3)~Why believe the compiler?} A component that both answers and refuses
+is a single point of trust, so the decision must travel with an artifact a
+third party re-executes without importing the compiler.
+
+\smallskip\noindent\looseness=-1\textbf{This paper.} We present \sysname, which treats as-of
+correctness as a \emph{compile-time binding} problem: a question is bound to a
+point on the $\langle$valid-time anchor, governance-graph version$\rangle$
+plane, and binding either succeeds or fails in one of three decidable ways.
+
+\begin{itemize}
+\item \textbf{A bi-temporal governed query semantics}
+  (\S\ref{sec:semantics}): graph versions, valid-time anchors with declared
+  coverage modes, and a total point-in-time semantics whose failure values
+  $\bot_{\mathsf{OOV}}$, $\bot_{\mathsf{AM}}$, $\bot_{\mathsf{MC}}$ are typed
+  refusals; its degeneration theorem exhibits single-version read
+  consistency (defined in \S\ref{sec:semantics}) as the
+  one-dimensional \emph{shape} of the
+  two-axis binding, at construction strength.
+\item \textbf{Binding compilation and its decidability}
+  (\S\ref{sec:binding}--\S\ref{sec:rewrite}): a coverage theorem partitioning
+  well-formed single-period queries into bindable and three disjoint unbindable
+  classes, each decidable at a stated cost, the guard order itself part of the
+  semantics. Under a disclosure policy it extends to a bounded search,
+  \textsc{Mlr-Compile}, proved legal, maximal under deterministic selection,
+  complete on refusal.
+\item \textbf{Point-in-time certificates and independent verification}
+  (\S\ref{sec:certificates}): certificate contents --- anchor assignment,
+  version pin, routing path, disclosure decision, witnesses, probe records ---
+  and a checking relation a verifier decides from the governance graph, the data
+  and the request context, with checking completeness, refusal-reason soundness
+  under the frozen guard order, answer soundness on a template query class, and
+  per-field non-redundancy.
+\end{itemize}
+
+\noindent\looseness=-1\textbf{Evidence} (\S\ref{sec:system}--\S\ref{sec:eval}): a compiler
+and a verifier sharing no project-internal module, enforced by a CI import
+assertion; nine arms on 60 questions over nine clusters, bootstrap intervals
+and coverage beside every rate. The compiler matches the frozen gold
+on all 60 (33 answers, 12 rewrites, 15 refusals with reason class), a
+\emph{constructive upper bound}; the base exercises the disclosure layer
+(3 policy blocks, 5 roll-ups, 2 masks) and the version axis (two committed versions per database, four value-flipping pairs,
+one certified off-diagonal pin). The verifier accepts $60/60$ certificates
+while re-deriving 50 of the 60 window coordinates from registered as-of
+conventions --- run strictly, it fails closed on the 10 the question alone
+states --- and rejects $34/34$ forgeries.
+Verifying a decision costs a median
+$17.7\times$ the answering query in time and $10.2\times$ in bytes
+(\S\ref{sec:eval-cost}). The first cross-check of the two implementations rejected 25 of 51
+certificates over 15 root causes (\S\ref{sec:eval-divergence}).
+
+% Measurement marker: start of the theory block (former Section 2 content).
+% Theory-block span = page(sec:system) - page(mk:theorystart).  Safe to delete.
+\label{mk:theorystart}%
+\smallskip\noindent\looseness=-1\textbf{The governed store.} Everything below is stated over
+one object: a \emph{versioned governance graph} $G_v$ on an ordinary warehouse
+instance $D$, registering metrics, caliber routes, valid-time anchors,
+temporal bindings and disclosure policies on an append-only version axis
+(\S\ref{sec:semantics}); the nine public databases ship these
+tables (847 registry rows), authored by us under three pre-registered
+non-degeneracy gates (\S\ref{sec:eval-setup}). Full proofs, omitted constructions and per-check tables are in the
+extended version~\cite{asofgov-tr}, shipped with the artifact.

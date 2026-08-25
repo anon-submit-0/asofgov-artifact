@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q3",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 681.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE \"date\" >= '2015-06-01' AND \"date\" < '2015-07-01'\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE \"date\" >= '2015-06-01' AND \"date\" < '2015-07-01'",
+ "prompt_sha256": "02440a3c31513df97d7797dbf78bd72343d6b3c4a07b707bcb9cfb3b920accc6",
+ "prompt_chars": 7729,
+ "empty_response": false
+}

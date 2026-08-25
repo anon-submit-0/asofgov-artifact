@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q4",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 16.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) \nFROM main.\"loan\" \nWHERE date >= '1997-05-01' AND date < '1997-06-01'\n```",
+ "sql": "SELECT COUNT(*) \nFROM main.\"loan\" \nWHERE date >= '1997-05-01' AND date < '1997-06-01'",
+ "prompt_sha256": "af99219a95162020972479042372c79fb62c9d907f1df8fe325e86eb0188c73a",
+ "prompt_chars": 23518,
+ "empty_response": false
+}

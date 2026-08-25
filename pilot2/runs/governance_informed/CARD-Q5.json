@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q5",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 7542.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) AS 区间裁定条数\nFROM rulings\nWHERE date >= '2020-10-01'\n  AND date <= '2021-06-30'\n```",
+ "sql": "SELECT COUNT(*) AS 区间裁定条数\nFROM rulings\nWHERE date >= '2020-10-01'\n  AND date <= '2021-06-30'",
+ "prompt_sha256": "c3fc68d21721757a5088304b512e56c68fd8a12418c8659b2846c1c3f870f1b0",
+ "prompt_chars": 23961,
+ "empty_response": false
+}

@@ -1,0 +1,128 @@
+
+## 治理元数据（本库 gov_* 登记表全量导出；与具体问题无关，同库所有问题看到的内容完全相同）
+-- 来源：card_games/gov_seed/*.jsonl（DESIGN_SPEC §3.1 十表 schema 法）；版本轴见 gov_semantic_graph_version
+-- 每个块 = 一张登记表，一行一个 JSON 对象，行按文本字典序排列
+
+-- TABLE gov_semantic_graph_version  (rows=2)
+{"change_note": "初版治理：轮替合法套牌清单（鞑靼可汗期）", "commit_seq": 1, "committed_at": "2015-01-15", "domain": "card_games", "graph_version": "v1"}
+{"change_note": "轮替更新：合法套牌清单换代（依克夏兰期）", "commit_seq": 2, "committed_at": "2017-09-28", "domain": "card_games", "graph_version": "v2"}
+
+-- TABLE gov_metric_alias  (rows=16)
+{"alias_id": "card.al1", "alias_text": "裁定强度", "graph_version": "v1", "metric_id": "card.ruling_intensity"}
+{"alias_id": "card.al1", "alias_text": "裁定强度", "graph_version": "v2", "metric_id": "card.ruling_intensity"}
+{"alias_id": "card.al2", "alias_text": "当月裁定条数", "graph_version": "v1", "metric_id": "card.monthly_rulings"}
+{"alias_id": "card.al2", "alias_text": "当月裁定条数", "graph_version": "v2", "metric_id": "card.monthly_rulings"}
+{"alias_id": "card.al3", "alias_text": "轮替合法卡牌总数", "graph_version": "v1", "metric_id": "card.standard_card_count"}
+{"alias_id": "card.al3", "alias_text": "轮替合法卡牌总数", "graph_version": "v2", "metric_id": "card.standard_card_count"}
+{"alias_id": "card.al4", "alias_text": "单卡当月裁定条数", "graph_version": "v1", "metric_id": "card.card_rulings_count"}
+{"alias_id": "card.al4", "alias_text": "单卡当月裁定条数", "graph_version": "v2", "metric_id": "card.card_rulings_count"}
+{"alias_id": "card.al5", "alias_text": "区间裁定条数", "graph_version": "v1", "metric_id": "card.rulings_range"}
+{"alias_id": "card.al5", "alias_text": "区间裁定条数", "graph_version": "v2", "metric_id": "card.rulings_range"}
+{"alias_id": "card.al6", "alias_text": "保留卡收藏溢价率", "graph_version": "v1", "metric_id": "card.collector_premium"}
+{"alias_id": "card.al6", "alias_text": "保留卡收藏溢价率", "graph_version": "v2", "metric_id": "card.collector_premium"}
+{"alias_id": "card.al7", "alias_text": "当月新发行套牌数", "graph_version": "v1", "metric_id": "card.monthly_sets"}
+{"alias_id": "card.al7", "alias_text": "当月新发行套牌数", "graph_version": "v2", "metric_id": "card.monthly_sets"}
+{"alias_id": "card.al8", "alias_text": "外文覆盖率", "graph_version": "v1", "metric_id": "card.foreign_coverage"}
+{"alias_id": "card.al8", "alias_text": "外文覆盖率", "graph_version": "v2", "metric_id": "card.foreign_coverage"}
+
+-- TABLE gov_metric  (rows=16)
+{"den_node": "card.cards", "domain": "card_games", "graph_version": "v1", "kind": "ratio", "metric_id": "card.collector_premium", "num_node": "card.cards"}
+{"den_node": "card.cards", "domain": "card_games", "graph_version": "v1", "kind": "ratio", "metric_id": "card.foreign_coverage", "num_node": "card.foreign_data"}
+{"den_node": "card.cards", "domain": "card_games", "graph_version": "v1", "kind": "ratio", "metric_id": "card.ruling_intensity", "num_node": "card.rulings"}
+{"den_node": "card.cards", "domain": "card_games", "graph_version": "v2", "kind": "ratio", "metric_id": "card.collector_premium", "num_node": "card.cards"}
+{"den_node": "card.cards", "domain": "card_games", "graph_version": "v2", "kind": "ratio", "metric_id": "card.foreign_coverage", "num_node": "card.foreign_data"}
+{"den_node": "card.cards", "domain": "card_games", "graph_version": "v2", "kind": "ratio", "metric_id": "card.ruling_intensity", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v1", "kind": "atomic", "metric_id": "card.card_rulings_count", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v1", "kind": "atomic", "metric_id": "card.monthly_rulings", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v1", "kind": "atomic", "metric_id": "card.monthly_sets", "num_node": "card.sets"}
+{"den_node": null, "domain": "card_games", "graph_version": "v1", "kind": "atomic", "metric_id": "card.rulings_range", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v1", "kind": "atomic", "metric_id": "card.standard_card_count", "num_node": "card.cards"}
+{"den_node": null, "domain": "card_games", "graph_version": "v2", "kind": "atomic", "metric_id": "card.card_rulings_count", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v2", "kind": "atomic", "metric_id": "card.monthly_rulings", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v2", "kind": "atomic", "metric_id": "card.monthly_sets", "num_node": "card.sets"}
+{"den_node": null, "domain": "card_games", "graph_version": "v2", "kind": "atomic", "metric_id": "card.rulings_range", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v2", "kind": "atomic", "metric_id": "card.standard_card_count", "num_node": "card.cards"}
+
+-- TABLE gov_measure_def  (rows=22)
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "card.crc.atom", "metric_id": "card.card_rulings_count", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "card.mr.atom", "metric_id": "card.monthly_rulings", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "card.ms.atom", "metric_id": "card.monthly_sets", "node_id": "card.sets", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "card.rr.atom", "metric_id": "card.rulings_range", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "card.scc.atom", "metric_id": "card.standard_card_count", "node_id": "card.cards", "preds": [{"col": "setCode", "op": "in", "value": ["KTK", "FRF", "DTK", "ORI", "BFZ"]}]}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "card.cp.den", "metric_id": "card.collector_premium", "node_id": "card.cards", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "card.fc.den", "metric_id": "card.foreign_coverage", "node_id": "card.cards", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "card.ri.den", "metric_id": "card.ruling_intensity", "node_id": "card.cards", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "card.cp.num", "metric_id": "card.collector_premium", "node_id": "card.cards", "preds": [{"col": "isReserved", "op": "=", "value": 1}]}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "card.fc.num", "metric_id": "card.foreign_coverage", "node_id": "card.foreign_data", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "card.ri.num", "metric_id": "card.ruling_intensity", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "card.crc.atom", "metric_id": "card.card_rulings_count", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "card.mr.atom", "metric_id": "card.monthly_rulings", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "card.ms.atom", "metric_id": "card.monthly_sets", "node_id": "card.sets", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "card.rr.atom", "metric_id": "card.rulings_range", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "card.scc.atom", "metric_id": "card.standard_card_count", "node_id": "card.cards", "preds": [{"col": "setCode", "op": "in", "value": ["BFZ", "OGW", "SOI", "EMN", "KLD", "AER", "AKH", "HOU", "XLN"]}]}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "card.cp.den", "metric_id": "card.collector_premium", "node_id": "card.cards", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "card.fc.den", "metric_id": "card.foreign_coverage", "node_id": "card.cards", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "card.ri.den", "metric_id": "card.ruling_intensity", "node_id": "card.cards", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "card.cp.num", "metric_id": "card.collector_premium", "node_id": "card.cards", "preds": [{"col": "isReserved", "op": "=", "value": 1}]}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "card.fc.num", "metric_id": "card.foreign_coverage", "node_id": "card.foreign_data", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "card.ri.num", "metric_id": "card.ruling_intensity", "node_id": "card.rulings", "preds": []}
+
+-- TABLE gov_caliber_routing  (rows=12)
+{"dst_caliber": "all", "dst_node": "card.rulings", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "card.ruling_intensity", "routing_id": "card.rt1", "src_node": "card.rulings"}
+{"dst_caliber": "all", "dst_node": "card.rulings", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "card.ruling_intensity", "routing_id": "card.rt1", "src_node": "card.rulings"}
+{"dst_caliber": "none", "dst_node": "card.cards", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "card.collector_premium", "routing_id": "card.rt4", "src_node": "card.cards"}
+{"dst_caliber": "none", "dst_node": "card.cards", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "card.collector_premium", "routing_id": "card.rt4", "src_node": "card.cards"}
+{"dst_caliber": "scoped", "dst_node": "card.cards", "graph_version": "v1", "hop_seq": 0, "join_on": [["uuid", "uuid"]], "leg": "num", "metric_id": "card.foreign_coverage", "routing_id": "card.rt5", "src_node": "card.foreign_data"}
+{"dst_caliber": "scoped", "dst_node": "card.cards", "graph_version": "v1", "hop_seq": 0, "join_on": [["uuid", "uuid"]], "leg": "scope", "metric_id": "card.card_rulings_count", "routing_id": "card.rt3", "src_node": "card.rulings"}
+{"dst_caliber": "scoped", "dst_node": "card.cards", "graph_version": "v2", "hop_seq": 0, "join_on": [["uuid", "uuid"]], "leg": "num", "metric_id": "card.foreign_coverage", "routing_id": "card.rt5", "src_node": "card.foreign_data"}
+{"dst_caliber": "scoped", "dst_node": "card.cards", "graph_version": "v2", "hop_seq": 0, "join_on": [["uuid", "uuid"]], "leg": "scope", "metric_id": "card.card_rulings_count", "routing_id": "card.rt3", "src_node": "card.rulings"}
+{"dst_caliber": "scoped", "dst_node": "card.sets", "graph_version": "v1", "hop_seq": 0, "join_on": [["setCode", "code"]], "leg": "atom", "metric_id": "card.standard_card_count", "routing_id": "card.rt6", "src_node": "card.cards"}
+{"dst_caliber": "scoped", "dst_node": "card.sets", "graph_version": "v1", "hop_seq": 0, "join_on": [["setCode", "code"]], "leg": "den", "metric_id": "card.ruling_intensity", "routing_id": "card.rt2", "src_node": "card.cards"}
+{"dst_caliber": "scoped", "dst_node": "card.sets", "graph_version": "v2", "hop_seq": 0, "join_on": [["setCode", "code"]], "leg": "atom", "metric_id": "card.standard_card_count", "routing_id": "card.rt6", "src_node": "card.cards"}
+{"dst_caliber": "scoped", "dst_node": "card.sets", "graph_version": "v2", "hop_seq": 0, "join_on": [["setCode", "code"]], "leg": "den", "metric_id": "card.ruling_intensity", "routing_id": "card.rt2", "src_node": "card.cards"}
+
+-- TABLE gov_valid_time_anchor  (rows=4)
+{"anchor_id": "A-CARD-RUL", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v1", "node_id": "card.rulings", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CARD-RUL", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "date", "granularity": "day", "graph_version": "v2", "node_id": "card.rulings", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CARD-SET", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "releaseDate", "granularity": "day", "graph_version": "v1", "node_id": "card.sets", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CARD-SET", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "releaseDate", "granularity": "day", "graph_version": "v2", "node_id": "card.sets", "vf_col": null, "vtc_col": null}
+
+-- TABLE gov_temporal_binding  (rows=18)
+{"anchor_id": "A-CARD-RUL", "binding_id": "B-CARD-CRC", "graph_version": "v1", "leg": "atom", "metric_id": "card.card_rulings_count", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-RUL", "binding_id": "B-CARD-CRC", "graph_version": "v2", "leg": "atom", "metric_id": "card.card_rulings_count", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-RUL", "binding_id": "B-CARD-MR", "graph_version": "v1", "leg": "atom", "metric_id": "card.monthly_rulings", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-RUL", "binding_id": "B-CARD-MR", "graph_version": "v2", "leg": "atom", "metric_id": "card.monthly_rulings", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-RUL", "binding_id": "B-CARD-RI-N", "graph_version": "v1", "leg": "num", "metric_id": "card.ruling_intensity", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-RUL", "binding_id": "B-CARD-RI-N", "graph_version": "v2", "leg": "num", "metric_id": "card.ruling_intensity", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-RUL", "binding_id": "B-CARD-RR", "graph_version": "v1", "leg": "atom", "metric_id": "card.rulings_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-CARD-RUL", "binding_id": "B-CARD-RR", "graph_version": "v2", "leg": "atom", "metric_id": "card.rulings_range", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-CARD-SET", "binding_id": "B-CARD-CP-D", "graph_version": "v1", "leg": "den", "metric_id": "card.collector_premium", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-SET", "binding_id": "B-CARD-CP-D", "graph_version": "v2", "leg": "den", "metric_id": "card.collector_premium", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-SET", "binding_id": "B-CARD-CP-N", "graph_version": "v1", "leg": "num", "metric_id": "card.collector_premium", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-SET", "binding_id": "B-CARD-CP-N", "graph_version": "v2", "leg": "num", "metric_id": "card.collector_premium", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-SET", "binding_id": "B-CARD-MS", "graph_version": "v1", "leg": "atom", "metric_id": "card.monthly_sets", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-SET", "binding_id": "B-CARD-MS", "graph_version": "v2", "leg": "atom", "metric_id": "card.monthly_sets", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-SET", "binding_id": "B-CARD-RI-D", "graph_version": "v1", "leg": "den", "metric_id": "card.ruling_intensity", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-SET", "binding_id": "B-CARD-RI-D", "graph_version": "v2", "leg": "den", "metric_id": "card.ruling_intensity", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CARD-SET", "binding_id": "B-CARD-SCC", "graph_version": "v1", "leg": "atom", "metric_id": "card.standard_card_count", "rule_id": "same_valid_time_window", "window_gran": "cum_day"}
+{"anchor_id": "A-CARD-SET", "binding_id": "B-CARD-SCC", "graph_version": "v2", "leg": "atom", "metric_id": "card.standard_card_count", "rule_id": "same_valid_time_window", "window_gran": "cum_day"}
+
+-- TABLE gov_semantic_node  (rows=12)
+{"domain": "card_games", "entity_key": "code", "graph_version": "v1", "node_id": "card.sets", "physical_table": "sets", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "code", "graph_version": "v2", "node_id": "card.sets", "physical_table": "sets", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v1", "node_id": "card.foreign_data", "physical_table": "foreign_data", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v1", "node_id": "card.legalities", "physical_table": "legalities", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v1", "node_id": "card.rulings", "physical_table": "rulings", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v1", "node_id": "card.set_translations", "physical_table": "set_translations", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v2", "node_id": "card.foreign_data", "physical_table": "foreign_data", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v2", "node_id": "card.legalities", "physical_table": "legalities", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v2", "node_id": "card.rulings", "physical_table": "rulings", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v2", "node_id": "card.set_translations", "physical_table": "set_translations", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "uuid", "graph_version": "v1", "node_id": "card.cards", "physical_table": "cards", "scope_keys": {"card_name": "name", "set_code": "setCode"}}
+{"domain": "card_games", "entity_key": "uuid", "graph_version": "v2", "node_id": "card.cards", "physical_table": "cards", "scope_keys": {"card_name": "name", "set_code": "setCode"}}
+
+-- TABLE gov_granularity_edge  (rows=2)
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "card_games", "edge_id": "card.tg1", "from_level": "day", "graph_version": "v1", "group_cols": [], "node_id": null, "to_level": "month"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "card_games", "edge_id": "card.tg1", "from_level": "day", "graph_version": "v2", "group_cols": [], "node_id": null, "to_level": "month"}
+
+-- TABLE gov_disclosure_policy  (rows=0)

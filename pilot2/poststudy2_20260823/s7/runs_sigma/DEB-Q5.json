@@ -1,0 +1,35 @@
+{
+ "qid": "DEB-Q5",
+ "domain": "debit_card_specializing",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": null,
+  "declared_at": "2013-09-15",
+  "metric_alias": "细分平均单笔交易金额",
+  "scope": {
+   "currency": "EUR",
+   "segment": "LAM"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "day_range",
+   "lo": "2012-08-23",
+   "hi_excl": "2012-08-27"
+  },
+  "requested_granularity": "Segment",
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": null, \"declared_at\": \"2013-09-15\", \"metric_alias\": \"细分平均单笔交易金额\", \"scope\": {\"currency\": \"EUR\", \"segment\": \"LAM\"}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": {\"kind\": \"day_range\", \"lo\": \"2012-08-23\", \"hi_excl\": \"2012-08-27\"}, \"requested_granularity\": \"Segment\", \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "3ce23e9add4a06c9b884b12d6e643dfbe88b718f62bb1599131d5d58633d4a41",
+ "prompt_chars": 22742
+}

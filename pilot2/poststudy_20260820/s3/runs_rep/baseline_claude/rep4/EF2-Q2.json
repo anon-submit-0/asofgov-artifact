@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q2",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.4131578947368421,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT \n    CAST(SUM(CASE WHEN home_team_goal > away_team_goal THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) AS home_win_rate\nFROM main.\"Match\" m\nJOIN main.\"League\" l ON m.league_id = l.id\nWHERE l.name = 'England Premier League'\n    AND m.season = '2015/2016'\n    AND m.date >= '2015-08-01'\n    AND m.date <= '2016-05-25'\n```",
+ "sql": "SELECT \n    CAST(SUM(CASE WHEN home_team_goal > away_team_goal THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) AS home_win_rate\nFROM main.\"Match\" m\nJOIN main.\"League\" l ON m.league_id = l.id\nWHERE l.name = 'England Premier League'\n    AND m.season = '2015/2016'\n    AND m.date >= '2015-08-01'\n    AND m.date <= '2016-05-25'",
+ "prompt_sha256": "b0092894feb9256efcf46fdaeda03130a6fdc2b828fb54150beb2d3cdff7635e",
+ "prompt_chars": 7653,
+ "empty_response": false
+}

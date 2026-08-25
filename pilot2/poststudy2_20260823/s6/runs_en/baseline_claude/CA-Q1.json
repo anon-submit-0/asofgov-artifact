@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q1",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: The question references temporal/caliber governance concepts (declaration instant, default caliber, as-of semantics) that require runtime interpretation of the gov_* metadata tables to determine query logic, but there is no executable temporal query engine embedded in plain SQL that can resolve these governance bindings into a correct single-pass query against the frpm table.",
+ "sql": "REFUSE",
+ "prompt_sha256": "fe4ba1790a164104a4120c34404130860ec32173dfaa097db3030c874bd6665c",
+ "prompt_chars": 5316,
+ "empty_response": false
+}

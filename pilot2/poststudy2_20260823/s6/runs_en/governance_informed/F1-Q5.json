@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q5",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 16.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT COUNT(*) AS entry_count\nFROM results r\nJOIN races ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN constructors c ON r.\"constructorId\" = c.\"constructorId\"\nWHERE c.\"constructorRef\" = 'brawn'\n  AND ra.\"year\" = 2009\n  AND ra.\"date\" <= '2009-07-01'\n```",
+ "sql": "SELECT COUNT(*) AS entry_count\nFROM results r\nJOIN races ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN constructors c ON r.\"constructorId\" = c.\"constructorId\"\nWHERE c.\"constructorRef\" = 'brawn'\n  AND ra.\"year\" = 2009\n  AND ra.\"date\" <= '2009-07-01'",
+ "prompt_sha256": "e7d18d462ac7f71a64dad274f6f1809c2e3651e8624a02ecfec6c32ddb71a70e",
+ "prompt_chars": 27239,
+ "empty_response": false
+}

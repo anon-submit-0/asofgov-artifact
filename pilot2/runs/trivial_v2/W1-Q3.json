@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q3",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 0.6075330810301713,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT\n  SUM(CASE WHEN c.\"Continent\" = 'Asia' THEN ch.population ELSE 0 END) * 1.0\n  / SUM(ch.population) AS asia_population_ratio\nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE ch.effective_month = '2026-03'\n```",
+ "sql": "SELECT\n  SUM(CASE WHEN c.\"Continent\" = 'Asia' THEN ch.population ELSE 0 END) * 1.0\n  / SUM(ch.population) AS asia_population_ratio\nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE ch.effective_month = '2026-03'",
+ "prompt_sha256": "997060f4baa0d6135d85409a9b67c856b4a3430cf0269bfc0271123368b3d81d",
+ "prompt_chars": 3304,
+ "empty_response": false
+}

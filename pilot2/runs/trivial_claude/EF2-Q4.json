@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q4",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": 915.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"Match\" WHERE \"date\" >= '2016-03-01' AND \"date\" < '2016-09-01'\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"Match\" WHERE \"date\" >= '2016-03-01' AND \"date\" < '2016-09-01'",
+ "prompt_sha256": "082ea52e6bc105cdee8d54b8222460f4576474a318d280df9050210c84ec2b32",
+ "prompt_chars": 7732,
+ "empty_response": false
+}

@@ -1,0 +1,28 @@
+{
+ "qid": "CARD-Q2",
+ "domain": "card_games",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2016-11-15",
+  "declared_at": "2017-03-01",
+  "metric_alias": "裁定强度",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2016-11-15\", \"declared_at\": \"2017-03-01\", \"metric_alias\": \"裁定强度\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "e163712d5544f187facb9e1d6c2b8d5e3618956809d0223ff714ea71ce813fb1",
+ "prompt_chars": 26825
+}

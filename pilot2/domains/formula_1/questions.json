@@ -1,0 +1,320 @@
+[
+ {
+  "qid": "F1-Q1",
+  "domain": "formula_1",
+  "question_zh": "以 2009-12-01 为声明时点，按当时生效积分口径，车手 button 2009 赛季（as-of 2009-07-01 所在年窗）的赛季车手总积分是多少？",
+  "as_of": "2009-07-01",
+  "declared_at": "2009-12-01",
+  "metric_alias": "赛季车手总积分",
+  "scope": {
+   "driver": "button"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "f1.driver_season_points",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT SUM(ps.points) FROM results r INNER JOIN races ra ON r.raceId=ra.raceId INNER JOIN points_scheme ps ON r.positionOrder=ps.position INNER JOIN drivers d ON r.driverId=d.driverId WHERE ps.scheme_id='PS2009' AND d.driverRef='button' AND ra.date>='2009-01-01' AND ra.date<'2010-01-01'",
+  "gold_value": 100.0,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "2009-01-01",
+    "hi_excl": "2010-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "RC-8 版本轴旗舰 flip 前件：ver(T)=v1（10-8-6-5-4-3-2-1），冠军单场 10 分（P-4 原型）。"
+ },
+ {
+  "qid": "F1-Q2",
+  "domain": "formula_1",
+  "question_zh": "以 2011-03-01 为声明时点，按当时生效积分口径，车手 button 2009 赛季（as-of 2009-07-01 所在年窗）的赛季车手总积分是多少？",
+  "as_of": "2009-07-01",
+  "declared_at": "2011-03-01",
+  "metric_alias": "赛季车手总积分",
+  "scope": {
+   "driver": "button"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "f1.driver_season_points",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT SUM(ps.points) FROM results r INNER JOIN races ra ON r.raceId=ra.raceId INNER JOIN points_scheme ps ON r.positionOrder=ps.position INNER JOIN drivers d ON r.driverId=d.driverId WHERE ps.scheme_id='PS2010' AND d.driverRef='button' AND ra.date>='2009-01-01' AND ra.date<'2010-01-01'",
+  "gold_value": 252.0,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "2009-01-01",
+    "hi_excl": "2010-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "RC-8 flip 后件：ver(T)=v2（25-18-15-…），同题双 T 异值（100 vs 252），冠军单场 25 分。"
+ },
+ {
+  "qid": "F1-Q3",
+  "domain": "formula_1",
+  "question_zh": "以 2017-06-01 为声明时点，显式钉定治理版本 v1（2009 当时口径），回算车手 button 2009 赛季（as-of 2009-07-01 所在年窗）的赛季车手总积分。",
+  "as_of": "2009-07-01",
+  "declared_at": "2017-06-01",
+  "metric_alias": "赛季车手总积分",
+  "scope": {
+   "driver": "button"
+  },
+  "pinned_version": "v1",
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "f1.driver_season_points",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT SUM(ps.points) FROM results r INNER JOIN races ra ON r.raceId=ra.raceId INNER JOIN points_scheme ps ON r.positionOrder=ps.position INNER JOIN drivers d ON r.driverId=d.driverId WHERE ps.scheme_id='PS2009' AND d.driverRef='button' AND ra.date>='2009-01-01' AND ra.date<'2010-01-01'",
+  "gold_value": 100.0,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "2009-01-01",
+    "hi_excl": "2010-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "离对角显式钉版本（S-V + C5 offdiag 证书）：ver(T)=v2 而钉 p=v1≠ver(T)；GOLD-1 镜像——不带显式钉则缺省对角线口径（v2）适用，回算旧口径不可表达。"
+ },
+ {
+  "qid": "F1-Q4",
+  "domain": "formula_1",
+  "question_zh": "以 2011-03-01 为声明时点，按当时生效积分口径，车手 button 2010 赛季与 2009 赛季的两季车手积分差（2010 − 2009）是多少？",
+  "as_of": null,
+  "declared_at": "2011-03-01",
+  "metric_alias": "两季车手积分差",
+  "scope": {
+   "driver": "button"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": [
+   "2009",
+   "2010"
+  ],
+  "metric": "f1.season_points_delta",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT (SELECT SUM(ps.points) FROM results r INNER JOIN races ra ON r.raceId=ra.raceId INNER JOIN points_scheme ps ON r.positionOrder=ps.position INNER JOIN drivers d ON r.driverId=d.driverId WHERE ps.scheme_id='PS2010' AND d.driverRef='button' AND ra.date>='2010-01-01' AND ra.date<'2011-01-01') - (SELECT SUM(ps.points) FROM results r INNER JOIN races ra ON r.raceId=ra.raceId INNER JOIN points_scheme ps ON r.positionOrder=ps.position INNER JOIN drivers d ON r.driverId=d.driverId WHERE ps.scheme_id='PS2010' AND d.driverRef='button' AND ra.date>='2009-01-01' AND ra.date<'2010-01-01')",
+  "gold_value": -38.0,
+  "windows": {
+   "p1": {
+    "kind": "range",
+    "lo": "2009-01-01",
+    "hi_excl": "2010-01-01"
+   },
+   "p2": {
+    "kind": "range",
+    "lo": "2010-01-01",
+    "hi_excl": "2011-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "多期 delta（推论3.17′ 期序×守卫序）：两期均可绑定，声明期序 (2009,2010)，同版本 v2 度量（214−252=−38）。"
+ },
+ {
+  "qid": "F1-Q5",
+  "domain": "formula_1",
+  "question_zh": "以 2011-03-01 为声明时点，车队 brawn 2009 赛季（as-of 2009-07-01 所在年窗）的赛季参赛记录条数是多少？",
+  "as_of": "2009-07-01",
+  "declared_at": "2011-03-01",
+  "metric_alias": "赛季参赛记录条数",
+  "scope": {
+   "constructor": "brawn"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "f1.entry_count",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT COUNT(*) FROM results r INNER JOIN races ra ON r.raceId=ra.raceId INNER JOIN constructors c ON r.constructorId=c.constructorId WHERE c.constructorRef='brawn' AND ra.date>='2009-01-01' AND ra.date<'2010-01-01'",
+  "gold_value": 34,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "2009-01-01",
+    "hi_excl": "2010-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "Brawn 实体 EOL 前沿（P-4：2009 有 34 条、2010 零条）；与 F1-Q8 成对照。"
+ },
+ {
+  "qid": "F1-Q6",
+  "domain": "formula_1",
+  "question_zh": "以 2017-12-15 为声明时点，统计 2017-10-01 至 2018-03-31 的区间大奖赛场数。",
+  "as_of": null,
+  "declared_at": "2017-12-15",
+  "metric_alias": "区间大奖赛场数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "day_range",
+   "lo": "2017-10-01",
+   "hi_excl": "2018-04-01"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "f1.races_count_range",
+  "expected_kind": "rewrite",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": {
+   "kind": "hull_trim",
+   "requested": {
+    "kind": "range",
+    "lo": "2017-10-01",
+    "hi_excl": "2018-04-01"
+   },
+   "effective": {
+    "kind": "range",
+    "lo": "2017-10-01",
+    "hi_excl": "2017-11-27"
+   }
+  },
+  "gold_sql": "SELECT COUNT(*) FROM races WHERE date>='2017-10-01' AND date<'2017-11-27'",
+  "gold_value": 6,
+  "windows": {
+   "requested": {
+    "kind": "range",
+    "lo": "2017-10-01",
+    "hi_excl": "2018-04-01"
+   },
+   "effective": {
+    "kind": "range",
+    "lo": "2017-10-01",
+    "hi_excl": "2017-11-27"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "hull 裁剪 REWRITE：races.date hull 右端 2017-11-26。"
+ },
+ {
+  "qid": "F1-Q7",
+  "domain": "formula_1",
+  "question_zh": "以 2011-03-01 为声明时点，查询 as-of 1949-05-15 所在月窗的当月大奖赛场数。",
+  "as_of": "1949-05-15",
+  "declared_at": "2011-03-01",
+  "metric_alias": "当月大奖赛场数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "f1.races_count_month",
+  "expected_kind": "refusal",
+  "refusal_reason": "out-of-validity",
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "1949-05-01",
+    "hi_excl": "1949-06-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "OOV：hull 左外（races.date 自 1950-05-13 起）；ND-1 见证对：插入一场 1949-05 赛事即翻转。"
+ },
+ {
+  "qid": "F1-Q8",
+  "domain": "formula_1",
+  "question_zh": "以 2011-03-01 为声明时点，车队 brawn 2010 赛季（as-of 2010-07-01 所在年窗）的车队场均积分是多少？",
+  "as_of": "2010-07-01",
+  "declared_at": "2011-03-01",
+  "metric_alias": "车队场均积分",
+  "scope": {
+   "constructor": "brawn"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "f1.points_per_entry",
+  "expected_kind": "refusal",
+  "refusal_reason": "missing-caliber",
+  "refusal_subtype": "mc_ii",
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": {
+   "num": {
+    "kind": "range",
+    "lo": "2010-01-01",
+    "hi_excl": "2011-01-01"
+   },
+   "den": {
+    "kind": "range",
+    "lo": "2010-01-01",
+    "hi_excl": "2011-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "MC(ii)：Brawn 2010 实体 EOL（P-4 参赛 0 条），同窗分母空 μ_den≤0；探针专属（ND-1：向 2010 任一场赛事插入一条 brawn 参赛记录即翻转）。"
+ }
+]

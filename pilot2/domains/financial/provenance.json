@@ -1,0 +1,58 @@
+{
+ "domain": "financial",
+ "built_at": "2026-08-04T03:27:16Z",
+ "extraction": "duckdb sqlite scanner ATTACH + CREATE TABLE AS (原值拷贝)",
+ "tables": {
+  "account": {
+   "rows": 4500,
+   "authored": false
+  },
+  "card": {
+   "rows": 892,
+   "authored": false
+  },
+  "client": {
+   "rows": 5369,
+   "authored": false
+  },
+  "disp": {
+   "rows": 5369,
+   "authored": false
+  },
+  "district": {
+   "rows": 77,
+   "authored": false
+  },
+  "loan": {
+   "rows": 682,
+   "authored": false
+  },
+  "order": {
+   "rows": 6471,
+   "authored": false
+  },
+  "trans": {
+   "rows": 1056320,
+   "authored": false
+  }
+ },
+ "authored_rules": null,
+ "source": {
+  "kind": "bird_dev_20240627",
+  "path": "/Users/loctek/bench_data/dev_20240627/dev_databases/financial/financial.sqlite",
+  "sha256": "d15d89cdb068a202b6f2b99342af44dffc1d52545b39ceaf62efdc0ba570101e",
+  "license": "CC BY-SA 4.0 (bird-bench.github.io)"
+ },
+ "gov_seed_rows": {
+  "gov_semantic_graph_version": 2,
+  "gov_semantic_node": 16,
+  "gov_metric": 16,
+  "gov_measure_def": 22,
+  "gov_metric_alias": 16,
+  "gov_caliber_routing": 10,
+  "gov_valid_time_anchor": 6,
+  "gov_temporal_binding": 18,
+  "gov_granularity_edge": 4,
+  "gov_disclosure_policy": 0
+ }
+}

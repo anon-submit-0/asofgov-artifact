@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q6",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n  CAST(SUM(CASE WHEN c_num.isReserved = 1 THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(DISTINCT c_den.uuid) AS collector_premium\nFROM main.sets s\nLEFT JOIN main.cards c_num ON c_num.setCode = s.code\nLEFT JOIN main.cards c_den ON c_den.setCode = s.code\nWHERE s.releaseDate >= '2017-02-01' \n  AND s.releaseDate < '2017-03-01'\n  AND c_num.setCode = c_den.setCode\n```",
+ "sql": "SELECT \n  CAST(SUM(CASE WHEN c_num.isReserved = 1 THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(DISTINCT c_den.uuid) AS collector_premium\nFROM main.sets s\nLEFT JOIN main.cards c_num ON c_num.setCode = s.code\nLEFT JOIN main.cards c_den ON c_den.setCode = s.code\nWHERE s.releaseDate >= '2017-02-01' \n  AND s.releaseDate < '2017-03-01'\n  AND c_num.setCode = c_den.setCode",
+ "prompt_sha256": "710d6d2893390300f85e503939d62e4268b9b220301d140f48998058303ffb2d",
+ "prompt_chars": 23949,
+ "empty_response": false
+}

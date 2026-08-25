@@ -1,0 +1,32 @@
+{
+ "qid": "TH-Q3",
+ "domain": "thrombosis_prediction",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "1997-06-15",
+  "declared_at": "1998-06-01",
+  "metric_alias": "患者异常化验报表",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "month_token_range",
+   "lo": "1997-01",
+   "hi": "1997-12"
+  },
+  "requested_granularity": "patient",
+  "requested_time_gran": null,
+  "presentation": "raw_rows",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"1997-06-15\", \"declared_at\": \"1998-06-01\", \"metric_alias\": \"患者异常化验报表\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": {\"kind\":\"month_token_range\",\"lo\":\"1997-01\",\"hi\":\"1997-12\"}, \"requested_granularity\": \"patient\", \"requested_time_gran\": null, \"presentation\": \"raw_rows\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "85a289360b0e6380d7993d7e98af7b6572d29c388ade9ee6bca0d669c234e6dd",
+ "prompt_chars": 23256
+}

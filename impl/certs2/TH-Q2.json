@@ -1,0 +1,70 @@
+{
+ "sql": "SELECT (SELECT COUNT(*) FROM \"Examination\" t0 WHERE substr(CAST(t0.\"Examination Date\" AS VARCHAR),1,10) >= '1995-01-01' AND substr(CAST(t0.\"Examination Date\" AS VARCHAR),1,10) < '1996-01-01')",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "TH-Q2",
+   "domain": "thrombosis_prediction",
+   "metric": "th.exam_count",
+   "metric_kind": "atomic",
+   "as_of": "1995-06-30"
+  },
+  "graph_pin": {
+   "domain": "thrombosis_prediction",
+   "graph_version": "v1",
+   "commit_id": "1995-01-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": "A-TH-EXAM",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "year",
+     "lo": "1995-01-01",
+     "hi_excl": "1996-01-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-TH-EC",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": null,
+   "denominator_anchor": null,
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [],
+  "disclosure": {
+   "decision": "ANSWER",
+   "policy_ids": [],
+   "policy_table_present": true,
+   "ungoverned_disclosure": false,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-TH-EXAM",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"Examination Date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"Examination Date\" AS VARCHAR),1,10)) FROM \"Examination\" t WHERE t.\"Examination Date\" IS NOT NULL",
+    "observed": [
+     "1989-04-18",
+     "1998-04-17"
+    ]
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  }
+ }
+}

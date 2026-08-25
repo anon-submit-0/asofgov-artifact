@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q5",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 4632421.0,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT DISTINCT p.\"ID\", p.\"Birthday\", p.\"Diagnosis\"\nFROM main.\"Patient\" p\nJOIN main.\"Laboratory\" l ON p.\"ID\" = l.\"ID\"\nWHERE l.\"GOT\" >= 60\n  AND l.\"Date\" >= '1997-01-01'\n  AND l.\"Date\" < '1998-01-01'\n  AND l.\"Date\" < '1998-06-01'\nORDER BY p.\"ID\";\n```",
+ "sql": "SELECT DISTINCT p.\"ID\", p.\"Birthday\", p.\"Diagnosis\"\nFROM main.\"Patient\" p\nJOIN main.\"Laboratory\" l ON p.\"ID\" = l.\"ID\"\nWHERE l.\"GOT\" >= 60\n  AND l.\"Date\" >= '1997-01-01'\n  AND l.\"Date\" < '1998-01-01'\n  AND l.\"Date\" < '1998-06-01'\nORDER BY p.\"ID\"",
+ "prompt_sha256": "1300a41c42f8c18e5b1a3ea6bcaf267db0b05153702f3b27f5a4d6ace8a10fac",
+ "prompt_chars": 4368,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q1",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 2161.0,
+ "verdict": "correct",
+ "raw": "I need to analyze this question step by step:\n\n1. The question asks for the count of rulings in February 2017, using as-of date 2017-02-15 within a monthly window, with declaration time 2017-03-01.\n\n2. Let me first check the governance tables to understand temporal bindings.\n\nLooking at the schema:\n- `gov_valid_time_anchor` has columns for anchor_type, effective_col, vf_col, vtc_col, granularity, coverage_mode\n- `gov_temporal_binding` binds metrics to temporal anchors\n- `rulings` table has a `date` column\n\nThe question asks for rulings count in February 2017 (the month containing 2017-02-15). This means rulings where the date falls within 2017-02-01 to 2017-02-28.\n\nGiven the governance framework, I need to check if there's a temporal anchor for rulings. But since the gov tables have very few rows and the question is fundamentally about counting rulings in a specific month, let me construct the query.\n\nThe \"as-of 2017-02-15 所在月窗\" means the monthly window containing 2017-02-15, which is February 2017 (2017-02-01 to 2017-02-28).\n\nThe declaration time 2017-03-01 is after the end of February, so the window is closed and data should be available.\n\n```sql\nSELECT COUNT(*) FROM main.\"rulings\" WHERE \"date\" >= DATE '2017-02-01' AND \"date\" < DATE '2017-03-01';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"rulings\" WHERE \"date\" >= DATE '2017-02-01' AND \"date\" < DATE '2017-03-01'",
+ "prompt_sha256": "e3645692f77187f644c8f03a3130938103716440da5120ac3b080a3241b46cfb",
+ "prompt_chars": 5675,
+ "empty_response": false
+}

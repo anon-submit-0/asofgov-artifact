@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q3",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.1125456648699584,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \n    CAST(COUNT(*) FILTER (WHERE t.k_symbol = 'SIPO') AS DOUBLE) / NULLIF(COUNT(*), 0) AS ratio\nFROM main.trans t\nWHERE t.date >= '1997-01-01' \n    AND t.date <= '1997-12-31'\n    AND t.date <= '1998-09-15'\n```",
+ "sql": "SELECT \n    CAST(COUNT(*) FILTER (WHERE t.k_symbol = 'SIPO') AS DOUBLE) / NULLIF(COUNT(*), 0) AS ratio\nFROM main.trans t\nWHERE t.date >= '1997-01-01' \n    AND t.date <= '1997-12-31'\n    AND t.date <= '1998-09-15'",
+ "prompt_sha256": "485f77d6527d89a016bada4195809c1f9f994b420a2ef6ffc53242e4ee5f692f",
+ "prompt_chars": 4086,
+ "empty_response": false
+}

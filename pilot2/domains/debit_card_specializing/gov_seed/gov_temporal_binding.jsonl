@@ -1,0 +1,12 @@
+{"anchor_id": "A-DEB-YM", "binding_id": "B-DEB-AC", "graph_version": "v1", "leg": "atom", "metric_id": "deb.avg_consumption", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-DEB-YM", "binding_id": "B-DEB-CS", "graph_version": "v1", "leg": "atom", "metric_id": "deb.consumption_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-SAT", "graph_version": "v1", "leg": "atom", "metric_id": "deb.segment_avg_trans", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-PM-N", "graph_version": "v1", "leg": "num", "metric_id": "deb.price_margin", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-PM-D", "graph_version": "v1", "leg": "den", "metric_id": "deb.price_margin", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-STC", "graph_version": "v1", "leg": "atom", "metric_id": "deb.station_trans_count", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-DEB-YM", "binding_id": "B-DEB-AC", "graph_version": "v2", "leg": "atom", "metric_id": "deb.avg_consumption", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-DEB-YM", "binding_id": "B-DEB-CS", "graph_version": "v2", "leg": "atom", "metric_id": "deb.consumption_sum", "rule_id": "same_valid_time_window", "window_gran": "month_token"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-SAT", "graph_version": "v2", "leg": "atom", "metric_id": "deb.segment_avg_trans", "rule_id": "same_valid_time_window", "window_gran": "range_request"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-PM-N", "graph_version": "v2", "leg": "num", "metric_id": "deb.price_margin", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-PM-D", "graph_version": "v2", "leg": "den", "metric_id": "deb.price_margin", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-DEB-T1K", "binding_id": "B-DEB-STC", "graph_version": "v2", "leg": "atom", "metric_id": "deb.station_trans_count", "rule_id": "same_valid_time_window", "window_gran": "month"}

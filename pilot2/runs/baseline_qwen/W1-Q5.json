@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q5",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 1.0019368915945202,
+ "verdict": "answered_should_refuse",
+ "raw": "SELECT \n  SUM(CASE WHEN h.effective_month = '2026-05' THEN h.population END) /\n  SUM(CASE WHEN h.effective_month = '2026-04' THEN h.population END)\nFROM main.\"country\" c\nJOIN main.\"country_history\" h ON c.\"Code\" = h.code\nWHERE c.\"Continent\" = 'Asia'\n  AND h.authored = true;",
+ "sql": "SELECT \n  SUM(CASE WHEN h.effective_month = '2026-05' THEN h.population END) /\n  SUM(CASE WHEN h.effective_month = '2026-04' THEN h.population END)\nFROM main.\"country\" c\nJOIN main.\"country_history\" h ON c.\"Code\" = h.code\nWHERE c.\"Continent\" = 'Asia'\n  AND h.authored = true",
+ "prompt_sha256": "ba159d4b3f5e9fa48553cb2cde94f1dc33b3e188eca050d62e324f4eab595757",
+ "prompt_chars": 3076,
+ "empty_response": false
+}

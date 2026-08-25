@@ -1,0 +1,35 @@
+{
+ "qid": "EF2-Q2",
+ "domain": "european_football_2",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": null,
+  "declared_at": "2016-07-01",
+  "metric_alias": "主场胜率",
+  "scope": {
+   "league": "England Premier League",
+   "season": "2015/2016"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "day_range",
+   "lo": "2015-08-01",
+   "hi_excl": "2016-05-26"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": null, \"declared_at\": \"2016-07-01\", \"metric_alias\": \"主场胜率\", \"scope\": {\"league\": \"England Premier League\", \"season\": \"2015/2016\"}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": {\"kind\": \"day_range\", \"lo\": \"2015-08-01\", \"hi_excl\": \"2016-05-26\"}, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "2caa5ae075fb1a5d27676d21cc2cb1c69a6c9b914aa301386487980a7e8e8290",
+ "prompt_chars": 28173
+}

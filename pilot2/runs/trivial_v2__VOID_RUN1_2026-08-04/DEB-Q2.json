@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q2",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 1166.1530437665774,
+ "verdict": "correct",
+ "raw": "I need to analyze this step-by-step.\n\n**Understanding the question:** As of declaration date 2013-09-15, find the average monthly customer consumption for EUR-currency customers in August 2013 (2013-08 granularity).\n\n**Step 1: Check temporal bindings and anchors**\n\nLet me first understand what tables are involved: `customers` (for Currency='EUR') and `yearmonth` (for Consumption in 2013-08).\n\n**Step 2: Determine the relevant data**\n\nThe question asks for EUR customers' average consumption in 2013-08. The `yearmonth` table has `CustomerID`, `Date` (VARCHAR, likely 'YYYYMM' format), and `Consumption`. The `customers` table has `Currency`.\n\nI need to:\n1. Filter customers where Currency = 'EUR'\n2. Filter yearmonth where Date = '201308'\n3. Calculate average consumption per customer (which is just the Consumption value since yearmonth already has monthly granularity per customer)\n4. Return the mean across all such customers\n\n**Step 3: Check temporal governance**\n\nI need to check gov_valid_time_anchor and gov_temporal_binding for any constraints. The question specifies as-of 2013-09-15 with month granularity 2013-08. Since the declaration date (2013-09-15) is after the end of 2013-08, the data for 2013-08 should be valid/available. Without being able to query the gov tables directly, I'll proceed with the business logic since the as-of date is after the period in question.\n\n**Step 4: Build the SQL**\n\n```sql\nSELECT AVG(ym.Consumption) AS avg_monthly_consumption\nFROM main.yearmonth ym\nJOIN main.customers c ON ym.CustomerID = c.CustomerID\nWHERE c.Currency = 'EUR'\n  AND ym.Date = '201308';\n```\n\n```sql\nSELECT AVG(ym.Consumption) FROM main.yearmonth ym JOIN main.customers c ON ym.CustomerID = c.CustomerID WHERE c.Currency = 'EUR' AND ym.Date = '201308';",
+ "sql": "SELECT AVG(ym.Consumption) AS avg_monthly_consumption\nFROM main.yearmonth ym\nJOIN main.customers c ON ym.CustomerID = c.CustomerID\nWHERE c.Currency = 'EUR'\n  AND ym.Date = '201308'",
+ "prompt_sha256": "782de3532a5dc01c6df63d8d2fc3c7a02110c51b77cff8ba40196d3888583028",
+ "prompt_chars": 3943,
+ "empty_response": false
+}

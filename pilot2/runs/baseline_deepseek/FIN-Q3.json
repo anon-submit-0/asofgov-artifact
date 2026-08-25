@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q3",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 治理路由中未找到明确的罚息交易定义和时间窗口绑定规则",
+ "sql": "REFUSE",
+ "prompt_sha256": "485f77d6527d89a016bada4195809c1f9f994b420a2ef6ffc53242e4ee5f692f",
+ "prompt_chars": 4086,
+ "empty_response": false
+}

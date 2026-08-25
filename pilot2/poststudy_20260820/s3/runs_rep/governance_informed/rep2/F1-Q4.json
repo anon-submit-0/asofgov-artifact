@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q4",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": -38.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT \n  SUM(CASE WHEN r.year = 2010 THEN ps.points ELSE 0 END) - \n  SUM(CASE WHEN r.year = 2009 THEN ps.points ELSE 0 END) AS points_delta\nFROM main.results res\nJOIN main.races r ON res.raceId = r.raceId\nJOIN main.drivers d ON res.driverId = d.driverId\nJOIN main.points_scheme ps ON res.positionOrder = ps.position AND ps.scheme_id = 'PS2010'\nWHERE d.driverRef = 'button'\n  AND r.year IN (2009, 2010)\n```",
+ "sql": "SELECT \n  SUM(CASE WHEN r.year = 2010 THEN ps.points ELSE 0 END) - \n  SUM(CASE WHEN r.year = 2009 THEN ps.points ELSE 0 END) AS points_delta\nFROM main.results res\nJOIN main.races r ON res.raceId = r.raceId\nJOIN main.drivers d ON res.driverId = d.driverId\nJOIN main.points_scheme ps ON res.positionOrder = ps.position AND ps.scheme_id = 'PS2010'\nWHERE d.driverRef = 'button'\n  AND r.year IN (2009, 2010)",
+ "prompt_sha256": "cb2683d3e33cd223e21336d7c930803f8a9d0f06394a7738996eaa19c0b3c6de",
+ "prompt_chars": 27150,
+ "empty_response": false
+}

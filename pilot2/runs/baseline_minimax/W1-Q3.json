@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q3",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT SUM(ch.population) * 100.0 / (SELECT SUM(population) FROM main.\"country_history\" WHERE effective_month = '2026-03') AS asian_ratioFROM main.\"country\" cJOIN main.\"country_history\" ch ON c.\"Code\" = ch.codeWHERE ch.effective_month = '2026-03' AND c.\"Continent\" = 'Asia'\n```",
+ "sql": "SELECT SUM(ch.population) * 100.0 / (SELECT SUM(population) FROM main.\"country_history\" WHERE effective_month = '2026-03') AS asian_ratioFROM main.\"country\" cJOIN main.\"country_history\" ch ON c.\"Code\" = ch.codeWHERE ch.effective_month = '2026-03' AND c.\"Continent\" = 'Asia'",
+ "prompt_sha256": "aedcd28ac55c14e2f7adb26b0a8aae8f8bbe5384a773671bcc7d2240ecc585c6",
+ "prompt_chars": 3078,
+ "empty_response": false
+}

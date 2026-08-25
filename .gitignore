@@ -1,0 +1,12 @@
+# Rebuilt/derived data (fetch_and_rebuild.sh recreates all of it; ~1 GB)
+data/
+pilot2/domains/*/warehouse.duckdb
+pilot/public/warehouse.duckdb
+pilot2/ci/witness_work/
+
+# OS / editor / python junk
+.DS_Store
+._*
+__pycache__/
+*.pyc
+*.duckdb.wal

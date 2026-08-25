@@ -1,0 +1,54 @@
+{
+ "domain": "european_football_2",
+ "built_at": "2026-08-04T03:27:23Z",
+ "extraction": "duckdb sqlite scanner ATTACH + CREATE TABLE AS (原值拷贝)",
+ "tables": {
+  "Country": {
+   "rows": 11,
+   "authored": false
+  },
+  "League": {
+   "rows": 11,
+   "authored": false
+  },
+  "Match": {
+   "rows": 25979,
+   "authored": false
+  },
+  "Player": {
+   "rows": 11060,
+   "authored": false
+  },
+  "Player_Attributes": {
+   "rows": 183978,
+   "authored": false
+  },
+  "Team": {
+   "rows": 299,
+   "authored": false
+  },
+  "Team_Attributes": {
+   "rows": 1458,
+   "authored": false
+  }
+ },
+ "authored_rules": null,
+ "source": {
+  "kind": "bird_dev_20240627",
+  "path": "/Users/loctek/bench_data/dev_20240627/dev_databases/european_football_2/european_football_2.sqlite",
+  "sha256": "e4d361dbeec6591a4b315877c0c481da05c8ff5a3d389b34d6e17b6f15bee4e0",
+  "license": "CC BY-SA 4.0 (bird-bench.github.io)"
+ },
+ "gov_seed_rows": {
+  "gov_semantic_graph_version": 2,
+  "gov_semantic_node": 14,
+  "gov_metric": 14,
+  "gov_measure_def": 19,
+  "gov_metric_alias": 14,
+  "gov_caliber_routing": 8,
+  "gov_valid_time_anchor": 6,
+  "gov_temporal_binding": 18,
+  "gov_granularity_edge": 2,
+  "gov_disclosure_policy": 0
+ }
+}

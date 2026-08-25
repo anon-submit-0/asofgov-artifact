@@ -1,0 +1,31 @@
+{
+ "qid": "CARD-Q4",
+ "domain": "card_games",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2015-06-22",
+  "declared_at": "2015-09-01",
+  "metric_alias": "单卡当月裁定条数",
+  "scope": {
+   "card_name": "Kytheon, Hero of Akros // Gideon, Battle-Forged",
+   "set_code": "ORI"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2015-06-22\", \"declared_at\": \"2015-09-01\", \"metric_alias\": \"单卡当月裁定条数\", \"scope\": {\"card_name\": \"Kytheon, Hero of Akros // Gideon, Battle-Forged\", \"set_code\": \"ORI\"}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "bd5c6f142fcf8281834e46d237a1e74586934f741bcb92488a498090e499e2a8",
+ "prompt_chars": 26885
+}

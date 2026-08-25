@@ -1,0 +1,104 @@
+{
+ "sql": "SELECT (SELECT COUNT(*) FROM \"country_history\" t0 WHERE CAST(t0.\"effective_month\" AS VARCHAR) >= '2026-10' AND CAST(t0.\"effective_month\" AS VARCHAR) <= '2026-12')",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "W1-Q4",
+   "domain": "world_1",
+   "metric": "w1.history_rows_range",
+   "metric_kind": "atomic",
+   "as_of": null
+  },
+  "graph_pin": {
+   "domain": "world_1",
+   "graph_version": "v2",
+   "commit_id": "2026-07-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": "A-W1-HIST",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "month_token_yyyy_mm",
+    "window": {
+     "kind": "month-token-range",
+     "lo": "2026-10-01",
+     "hi_excl": "2027-01-01"
+    },
+    "window_requested": {
+     "kind": "month-token-range",
+     "lo": "2026-10-01",
+     "hi_excl": "2027-04-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-W1-HRR",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": null,
+   "denominator_anchor": null,
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [],
+  "disclosure": {
+   "decision": "REWRITE",
+   "policy_ids": [],
+   "policy_table_present": false,
+   "ungoverned_disclosure": true,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-W1-HIST",
+    "coverage_mode": "hull",
+    "sql": "SELECT DISTINCT CAST(t.\"effective_month\" AS VARCHAR) FROM \"country_history\" t WHERE t.\"effective_month\" IS NOT NULL",
+    "observed": 84
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  },
+  "rewrite": {
+   "kept_slices": [
+    "(v2,B-W1-HRR)"
+   ],
+   "cut_trace": [
+    {
+     "period": 0,
+     "role": "atom",
+     "anchor_id": "A-W1-HIST",
+     "requested": {
+      "kind": "month-token-range",
+      "lo": "2026-10-01",
+      "hi_excl": "2027-04-01"
+     },
+     "bound": {
+      "kind": "month-token-range",
+      "lo": "2026-10-01",
+      "hi_excl": "2027-01-01"
+     },
+     "cut": "coverage-hull: [2026-10-01,2027-04-01) -> [2026-10-01,2027-01-01)"
+    }
+   ],
+   "ct": [],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "qid": "EF2-Q3",
+ "domain": "european_football_2",
+ "question_zh": "以 2016-07-01 为声明时点，2015 年 6 月（as-of 2015-06-15 所在月窗）的当月球员属性快照条数是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2016-07-01 as the declaration instant, how many monthly player attribute snapshot records are there for June 2015 (as-of 2015-06-15 the containing month window)?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=749 completion=43]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:37:47"
+}

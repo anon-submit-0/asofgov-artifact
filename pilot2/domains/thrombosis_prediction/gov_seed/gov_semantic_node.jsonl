@@ -1,0 +1,6 @@
+{"domain": "thrombosis_prediction", "entity_key": "ID", "graph_version": "v1", "node_id": "th.laboratory", "physical_table": "Laboratory", "scope_keys": {}}
+{"domain": "thrombosis_prediction", "entity_key": "ID", "graph_version": "v1", "node_id": "th.patient", "physical_table": "Patient", "scope_keys": {"patient_id": "ID"}}
+{"domain": "thrombosis_prediction", "entity_key": "ID", "graph_version": "v1", "node_id": "th.examination", "physical_table": "Examination", "scope_keys": {}}
+{"domain": "thrombosis_prediction", "entity_key": "ID", "graph_version": "v2", "node_id": "th.laboratory", "physical_table": "Laboratory", "scope_keys": {}}
+{"domain": "thrombosis_prediction", "entity_key": "ID", "graph_version": "v2", "node_id": "th.patient", "physical_table": "Patient", "scope_keys": {"patient_id": "ID"}}
+{"domain": "thrombosis_prediction", "entity_key": "ID", "graph_version": "v2", "node_id": "th.examination", "physical_table": "Examination", "scope_keys": {}}

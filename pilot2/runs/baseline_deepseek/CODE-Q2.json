@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q2",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 缺少采纳时间信息，无法确定在声明时点2014-02-01的采纳状态。",
+ "sql": "REFUSE",
+ "prompt_sha256": "c376874d096d6d012f58a7a93f242efeb7e1a8d4b4834c9ecc10038cb249c0ca",
+ "prompt_chars": 4915,
+ "empty_response": false
+}

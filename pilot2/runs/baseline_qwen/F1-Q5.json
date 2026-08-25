@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q5",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 17.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT COUNT(DISTINCT r.raceId)\nFROM results r\nJOIN constructors c ON r.constructorId = c.constructorId\nJOIN races ra ON r.raceId = ra.raceId\nWHERE LOWER(c.name) = 'brawn'\n  AND ra.year = 2009;\n```",
+ "sql": "SELECT COUNT(DISTINCT r.raceId)\nFROM results r\nJOIN constructors c ON r.constructorId = c.constructorId\nJOIN races ra ON r.raceId = ra.raceId\nWHERE LOWER(c.name) = 'brawn'\n  AND ra.year = 2009",
+ "prompt_sha256": "78ffaf40309599c961b2814479b2e082182167f18c4ed4649b9d026dd81faa72",
+ "prompt_chars": 5499,
+ "empty_response": false
+}

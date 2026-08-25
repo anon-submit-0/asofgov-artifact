@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q2",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "<tool_code>\n<tool name=\"duckdb_query\">\n<sql>SELECT DISTINCT status FROM main.\"loan\" ORDER BY status</sql>\n</tool>\n<tool name=\"duckdb_query\">\n<sql>SELECT * FROM main.\"gov_measure_def\" LIMIT 10</sql>\n</tool>\n</tool_code>",
+ "sql": "<tool_code>\n<tool name=\"duckdb_query\">\n<sql>SELECT DISTINCT status FROM main.\"loan\" ORDER BY status</sql>\n</tool>\n<tool name=\"duckdb_query\">\n<sql>SELECT * FROM main.\"gov_measure_def\" LIMIT 10</sql>\n</tool>\n</tool_code>",
+ "prompt_sha256": "1d0762359887243597f90578cae4889c35490f780a4a48600380747238616cad",
+ "prompt_chars": 4084,
+ "empty_response": false
+}

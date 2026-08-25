@@ -1,0 +1,2 @@
+{"change_note": "初版治理：采纳率分母为窗内全部新提问", "commit_seq": 1, "committed_at": "2010-09-01", "domain": "codebase_community", "graph_version": "v1"}
+{"change_note": "采纳率分母排除社区共有帖（协作维基帖不计入）", "commit_seq": 2, "committed_at": "2013-01-01", "domain": "codebase_community", "graph_version": "v2"}

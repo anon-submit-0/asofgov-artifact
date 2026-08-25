@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q5",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 66.55,
+ "verdict": "answered_should_refuse",
+ "raw": "I need to find the average overall_rating of players as-of 2013-12-25, with a declaration time of 2014-02-01.\n\nLet me first check the temporal binding rules for Player_Attributes.\n\nLooking at `gov_valid_time_anchor`, I need to find the anchor for the Player_Attributes node to understand how to apply the as-of date.\n\nThe Player_Attributes table has a `date` column that represents when the rating was recorded. The as-of snapshot date is 2013-12-25, meaning I need the most recent player attribute record for each player where the date is <= '2013-12-25'.\n\nLet me construct the query: for each player, get the latest Player_Attributes record with date <= '2013-12-25', then compute the average overall_rating.\n\n```sql\nSELECT ROUND(AVG(pa.overall_rating), 2) AS avg_overall_rating\nFROM main.\"Player_Attributes\" pa\nINNER JOIN (\n    SELECT player_api_id, MAX(date) AS max_date\n    FROM main.\"Player_Attributes\"\n    WHERE date <= '2013-12-25'\n    GROUP BY player_api_id\n) latest ON pa.player_api_id = latest.player_api_id AND pa.date = latest.max_date\nWHERE pa.overall_rating IS NOT NULL;\n```",
+ "sql": "SELECT ROUND(AVG(pa.overall_rating), 2) AS avg_overall_rating\nFROM main.\"Player_Attributes\" pa\nINNER JOIN (\n    SELECT player_api_id, MAX(date) AS max_date\n    FROM main.\"Player_Attributes\"\n    WHERE date <= '2013-12-25'\n    GROUP BY player_api_id\n) latest ON pa.player_api_id = latest.player_api_id AND pa.date = latest.max_date\nWHERE pa.overall_rating IS NOT NULL",
+ "prompt_sha256": "bff0b3388a56bfced422366c60e25ffb8dfe5d74a0ffe5e4c498267c3878c307",
+ "prompt_chars": 7844,
+ "empty_response": false
+}

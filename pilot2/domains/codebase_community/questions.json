@@ -1,0 +1,277 @@
+[
+ {
+  "qid": "CODE-Q1",
+  "domain": "codebase_community",
+  "question_zh": "以 2011-02-01 为声明时点，2010 年 12 月（as-of 2010-12-15 所在月窗）的提问采纳率是多少？",
+  "as_of": "2010-12-15",
+  "declared_at": "2011-02-01",
+  "metric_alias": "提问采纳率",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "code.accepted_rate",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT (SELECT COUNT(*) FROM posts a INNER JOIN posts qq ON qq.AcceptedAnswerId=a.Id WHERE a.PostTypeId=2 AND a.CreaionDate>='2010-12-01' AND a.CreaionDate<'2011-01-01')*1.0/(SELECT COUNT(*) FROM posts WHERE PostTypeId=1 AND CreaionDate>='2010-12-01' AND CreaionDate<'2011-01-01')",
+  "gold_value": 0.6808510638297872,
+  "windows": {
+   "num": {
+    "kind": "range",
+    "lo": "2010-12-01",
+    "hi_excl": "2011-01-01"
+   },
+   "den": {
+    "kind": "range",
+    "lo": "2010-12-01",
+    "hi_excl": "2011-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "caliber 双分母公开复刻：aware 分母=窗内新提问 160/235=0.68085；blind 分母=窗内答案 160/551=0.29038（2.34×）。ver(T)=v1。"
+ },
+ {
+  "qid": "CODE-Q2",
+  "domain": "codebase_community",
+  "question_zh": "以 2014-02-01 为声明时点，2013 年 12 月（as-of 2013-12-15 所在月窗）的提问采纳率是多少？",
+  "as_of": "2013-12-15",
+  "declared_at": "2014-02-01",
+  "metric_alias": "提问采纳率",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "code.accepted_rate",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT (SELECT COUNT(*) FROM posts a INNER JOIN posts qq ON qq.AcceptedAnswerId=a.Id WHERE a.PostTypeId=2 AND a.CreaionDate>='2013-12-01' AND a.CreaionDate<'2014-01-01')*1.0/(SELECT COUNT(*) FROM posts WHERE PostTypeId=1 AND CommunityOwnedDate IS NULL AND CreaionDate>='2013-12-01' AND CreaionDate<'2014-01-01')",
+  "gold_value": 0.30677966101694915,
+  "windows": {
+   "num": {
+    "kind": "range",
+    "lo": "2013-12-01",
+    "hi_excl": "2014-01-01"
+   },
+   "den": {
+    "kind": "range",
+    "lo": "2013-12-01",
+    "hi_excl": "2014-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "跨版本语义变更：ver(T)=v2 分母排除社区共有帖（2013-12 实测排除 15 帖：1195→1180；362/1180=0.30678）。"
+ },
+ {
+  "qid": "CODE-Q3",
+  "domain": "codebase_community",
+  "question_zh": "以 2011-02-01 为声明时点，2010 年 12 月（as-of 2010-12-15 所在月窗）的当月投票总数是多少？",
+  "as_of": "2010-12-15",
+  "declared_at": "2011-02-01",
+  "metric_alias": "当月投票总数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "code.monthly_votes",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT COUNT(*) FROM votes WHERE CreationDate>='2010-12-01' AND CreationDate<'2011-01-01'",
+  "gold_value": 3208,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "2010-12-01",
+    "hi_excl": "2011-01-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "votes 天然窄 hull（2010-07-19→2011-05-01，P-11）内的合法月窗；跨锚覆盖差异素材。"
+ },
+ {
+  "qid": "CODE-Q4",
+  "domain": "codebase_community",
+  "question_zh": "以 2013-08-01 为声明时点，给出 2013 年 6 月各用户（用户级）的采纳答案数报表。",
+  "as_of": "2013-06-15",
+  "declared_at": "2013-08-01",
+  "metric_alias": "用户采纳答案数报表",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": "user",
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "code.user_accepted_report",
+  "expected_kind": "rewrite",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": {
+   "kind": "granularity_rollup",
+   "axis": "entity",
+   "requested_level": "user",
+   "effective_level": "reputation_band"
+  },
+  "gold_sql": "SELECT CASE WHEN u.Reputation>=10000 THEN '[10000,inf)' WHEN u.Reputation>=1000 THEN '[1000,10000)' WHEN u.Reputation>=100 THEN '[100,1000)' ELSE '[0,100)' END AS cell, COUNT(*) AS val FROM posts a INNER JOIN posts qq ON qq.AcceptedAnswerId=a.Id INNER JOIN users u ON a.OwnerUserId=u.Id WHERE a.PostTypeId=2 AND a.CreaionDate>='2013-06-01' AND a.CreaionDate<'2013-07-01' GROUP BY 1 ORDER BY 1",
+  "gold_value": [
+   [
+    "[0,100)",
+    13.0
+   ],
+   [
+    "[100,1000)",
+    56.0
+   ],
+   [
+    "[1000,10000)",
+    127.0
+   ],
+   [
+    "[10000,inf)",
+    95.0
+   ]
+  ],
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "2013-06-01",
+    "hi_excl": "2013-07-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "π2 粒度格 user→reputation_band→all + k=5：用户级小胞（胞实体数=1<5）驱动上卷；声望段四胞实体数 13/43/52/21 全部≥5，止于 band 级。"
+ },
+ {
+  "qid": "CODE-Q5",
+  "domain": "codebase_community",
+  "question_zh": "以 2013-08-01 为声明时点，给出 2013 年 6 月的逐日新提问数报表（日粒）。",
+  "as_of": "2013-06-15",
+  "declared_at": "2013-08-01",
+  "metric_alias": "新提问数报表",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": "day",
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "code.daily_questions",
+  "expected_kind": "rewrite",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": {
+   "kind": "granularity_rollup",
+   "axis": "time",
+   "requested_level": "day",
+   "effective_level": "month"
+  },
+  "gold_sql": "SELECT COUNT(*) FROM posts WHERE PostTypeId=1 AND CreaionDate>='2013-06-01' AND CreaionDate<'2013-07-01'",
+  "gold_value": 942,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "2013-06-01",
+    "hi_excl": "2013-07-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "π4 时间粒度下限 month（用户归属事件流）：日粒→月粒上卷，呈现月合计 942。"
+ },
+ {
+  "qid": "CODE-Q6",
+  "domain": "codebase_community",
+  "question_zh": "以 2013-08-01 为声明时点，用户 Id=22047 的用户所在地是什么（按现行披露策略呈现）？",
+  "as_of": null,
+  "declared_at": "2013-08-01",
+  "metric_alias": "用户所在地",
+  "scope": {
+   "user_id": 22047
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "value",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "code.user_location",
+  "expected_kind": "rewrite",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": {
+   "kind": "mask",
+   "mask_class": "generalize_last_component",
+   "col": "Location"
+  },
+  "gold_sql": "SELECT trim(regexp_extract(Location, '([^,]+)$', 1)) FROM users WHERE Id=22047",
+  "gold_value": "UK",
+  "windows": null,
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "π1 掩码呈现降级：Location 'Durham, UK' → 泛化末段 'UK'；carry 闭包沿 OwnerUserId 同步覆盖 posts.OwnerDisplayName（种子具备）。"
+ },
+ {
+  "qid": "CODE-Q7",
+  "domain": "codebase_community",
+  "question_zh": "以 2013-08-01 为声明时点，列出 2013 年 6 月采纳答案数前十用户的 DisplayName 与 Location 原值。",
+  "as_of": "2013-06-15",
+  "declared_at": "2013-08-01",
+  "metric_alias": "答题者名录",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": "user",
+  "requested_time_gran": null,
+  "presentation": "raw_rows",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "code.top_answerer_roster",
+  "expected_kind": "refusal",
+  "refusal_reason": "disclosure-blocked",
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "2013-06-01",
+    "hi_excl": "2013-07-01"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "DISCLOSURE-BLOCKED：刚性要求掩码列原值 + 用户级行呈现（闭包送 ⊤_M，S-M2）。"
+ }
+]

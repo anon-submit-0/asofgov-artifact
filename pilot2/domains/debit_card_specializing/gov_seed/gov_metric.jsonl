@@ -1,0 +1,10 @@
+{"den_node": null, "domain": "debit_card_specializing", "graph_version": "v1", "kind": "atomic", "metric_id": "deb.avg_consumption", "num_node": "deb.yearmonth"}
+{"den_node": null, "domain": "debit_card_specializing", "graph_version": "v1", "kind": "atomic", "metric_id": "deb.consumption_sum", "num_node": "deb.yearmonth"}
+{"den_node": null, "domain": "debit_card_specializing", "entity_node": "deb.customers", "graph_version": "v1", "kind": "report", "metric_id": "deb.segment_avg_trans", "num_node": "deb.transactions_1k", "report_axis": "entity"}
+{"den_node": "deb.products", "domain": "debit_card_specializing", "graph_version": "v1", "kind": "ratio", "metric_id": "deb.price_margin", "num_node": "deb.transactions_1k"}
+{"den_node": null, "domain": "debit_card_specializing", "graph_version": "v1", "kind": "atomic", "metric_id": "deb.station_trans_count", "num_node": "deb.transactions_1k"}
+{"den_node": null, "domain": "debit_card_specializing", "graph_version": "v2", "kind": "atomic", "metric_id": "deb.avg_consumption", "num_node": "deb.yearmonth"}
+{"den_node": null, "domain": "debit_card_specializing", "graph_version": "v2", "kind": "atomic", "metric_id": "deb.consumption_sum", "num_node": "deb.yearmonth"}
+{"den_node": null, "domain": "debit_card_specializing", "entity_node": "deb.customers", "graph_version": "v2", "kind": "report", "metric_id": "deb.segment_avg_trans", "num_node": "deb.transactions_1k", "report_axis": "entity"}
+{"den_node": "deb.products", "domain": "debit_card_specializing", "graph_version": "v2", "kind": "ratio", "metric_id": "deb.price_margin", "num_node": "deb.transactions_1k"}
+{"den_node": null, "domain": "debit_card_specializing", "graph_version": "v2", "kind": "atomic", "metric_id": "deb.station_trans_count", "num_node": "deb.transactions_1k"}

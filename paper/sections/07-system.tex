@@ -1,0 +1,64 @@
+% =====================================================================
+% Section 7 -- SYSTEM   (target: ~0.65 page)
+% Compiler + independent verifier architecture; producer/consumer
+% interface to the versioned governance substrate; zero-sharing
+% implementation discipline and its CI enforcement (the landing evidence
+% for the C5 claim -- KEEP the four CI assertions and the import-root
+% disjointness verbatim).  Adapter layer, per-step compiler walk-through
+% and the deviation ledger format are in the extended version.
+% =====================================================================
+\providecommand{\sysname}{\textsc{AsOfGov}}
+\providecommand{\sem}[1]{[\![#1]\!]}
+
+\section{SYSTEM}
+\label{sec:system}
+
+\looseness=-1\sysname{} is two programs deliberately kept apart: a \emph{binding compiler}
+($\approx$3.8k lines of Python: a shared core plus one adapter per
+evidence base) turning a question and a declared time point into a decision
+plus a certificate, and an \emph{independent verifier} ($\approx$5.1k
+lines) deciding the checking relation of \S\ref{sec:certificates} without
+running, importing or consulting the compiler --- that separation is the
+system contribution.
+
+\smallskip\noindent\looseness=-1\textbf{Compiler.} Given $(\sigma,T)$ it pins
+$\mathrm{ver}(T)$ with its typed commit, reads $G_v$ at that version, derives
+$\alpha$, evaluates the guards in the frozen order
+$\mathsf{OOV}\rightarrow\mathsf{AM}\rightarrow\mathsf{MC}$ leaving each probe
+transcript in the certificate, applies the disclosure gate, and emits SQL over
+the certified objects, a narrowed rewrite with its cut trace, or a typed refusal
+with a witness (walk-through in~\cite{asofgov-tr}).
+\emph{Registration over hard-coding}: a metric's anchor, caliber route and
+coverage-domain reading must be readable from $G_v$, not a dictionary
+inside the compiler (\S\ref{sec:eval-divergence} measures the cost of
+violating it). \emph{No post-hoc narration}: the certificate is
+emitted field by field from the decision that produced the plan.
+
+\smallskip\noindent\looseness=-1\textbf{Verifier and the anti-certification-loop rule.} The
+verifier takes the certificate envelope, the structured question, the
+governance tables at the pinned version, the data and the request context, and
+returns accept or reject with the failing check. The question is a shared
+input to both sides --- what defeats a self-signed override --- but read for
+its \emph{intent} fields only: metric, the two declared instants, scope, and,
+on the 10 questions of \S\ref{sec:eval-cert}, the presented window. Every
+other window coordinate is \emph{re-derived} from the
+registered as-of convention rather than consumed. What
+the verifier never takes is compiler internals: no templates, no shared module,
+no call into the compilation entry point; every fact the compiler looked up is
+\emph{re-queried} from $(G_v,D)$, so certificate fields are assertions awaiting
+verification. Even neutral-looking helpers are re-implemented: a shared wrong
+month expansion cancels.
+
+\looseness=-1 The rule is enforced mechanically. A CI check parses every verifier file and
+asserts that (a)~each import resolves to the Python standard library, the
+database driver, or a module inside the verifier package; (b)~no verifier file
+imports any compiler location, including the pilot's per-domain compilers;
+(c)~the two sides' project-internal import roots intersect in the empty set; and
+(d)~no dynamic-import or path-manipulation escape hatch points at a compiler
+directory. On the released artifact the intersection is empty. Under this
+discipline ``the compiler is buggy but the certificate verifies'' requires
+the same defect in two independent implementations
+\emph{and} in the declarative checking relation; the audit surface shrinks
+from a compiler to a one-page specification. A certificate travels as a JSON envelope: body
+(\S\ref{sec:cert:content}), probe transcripts, machine-readable
+deviation list.

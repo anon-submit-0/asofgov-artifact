@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q3",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 121345577.66,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT SUM(ym.\"Consumption\") AS consumption_sum\nFROM main.\"yearmonth\" ym\nJOIN main.\"customers\" c ON ym.\"CustomerID\" = c.\"CustomerID\"\nWHERE ym.\"Date\" = '201306'\n  AND c.\"Segment\" = 'SME'\n```",
+ "sql": "SELECT SUM(ym.\"Consumption\") AS consumption_sum\nFROM main.\"yearmonth\" ym\nJOIN main.\"customers\" c ON ym.\"CustomerID\" = c.\"CustomerID\"\nWHERE ym.\"Date\" = '201306'\n  AND c.\"Segment\" = 'SME'",
+ "prompt_sha256": "26768032e4466ff941bb0f8794de4fd6b5fee0c715b7a7786a1b7dbeb5087361",
+ "prompt_chars": 19873,
+ "empty_response": false
+}

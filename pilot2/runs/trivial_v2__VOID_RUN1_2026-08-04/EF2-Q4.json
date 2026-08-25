@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q4",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 915.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"Match\" WHERE CAST(\"date\" AS DATE) >= '2016-03-01' AND CAST(\"date\" AS DATE) <= '2016-08-31'\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"Match\" WHERE CAST(\"date\" AS DATE) >= '2016-03-01' AND CAST(\"date\" AS DATE) <= '2016-08-31'",
+ "prompt_sha256": "e89c61dc9165dff2a9564d103eabfc137d2984ea4bc4f225cb011ca0e409a518",
+ "prompt_chars": 7843,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q5",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 7542.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"rulings\" WHERE \"date\" >= '2020-10-01' AND \"date\" <= '2021-06-30';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"rulings\" WHERE \"date\" >= '2020-10-01' AND \"date\" <= '2021-06-30'",
+ "prompt_sha256": "9fa850040c5e4381c018c98498debdb8e7d3f73374addda92c611e7a04d6503b",
+ "prompt_chars": 5666,
+ "empty_response": false
+}

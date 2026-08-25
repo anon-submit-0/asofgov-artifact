@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q5",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 2013-09-15 应使用 v2 治理版本（k=20），但 2012-08-23 至 2012-08-26 数据早于 v2 生效日期 2013-06-01，无法应用该版本规则\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "81fac7e121307d366feb4aa6975336111162c581e47d8f003a5bfbf83b005095",
+ "prompt_chars": 19886,
+ "empty_response": false
+}

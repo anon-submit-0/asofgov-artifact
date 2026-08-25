@@ -1,0 +1,16 @@
+{
+ "qid": "DEB-Q5",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": [
+  [
+   25.410000000000004
+  ]
+ ],
+ "verdict": "wrong_value",
+ "raw": "I need to find the average transaction price for EUR currency, LAM segment customers, for transactions between 2012-08-23 and 2012-08-26.\n\nLet me analyze the schema:\n- `transactions_1k` has transaction details including `Date`, `Price`, `CustomerID`\n- `customers` has `CustomerID`, `Segment`, `Currency`\n- The question asks for EUR currency, LAM segment, average single transaction amount (Price)\n\nLet me also check the temporal/versioning aspects. The as-of date is 2013-09-15, but looking at the gov tables, they seem to be governance metadata. The actual business tables don't have versioning columns, so I'll proceed with the straightforward query.\n\nThe question asks for \"细分平均单笔交易金额\" which means the average transaction amount (Price) per transaction for the LAM segment with EUR currency, for dates between 2012-08-23 and 2012-08-26.\n\n```sql\nSELECT AVG(t.Price) AS avg_price\nFROM main.transactions_1k t\nJOIN main.customers c ON t.CustomerID = c.CustomerID\nWHERE c.Currency = 'EUR'\n  AND c.Segment = 'LAM'\n  AND t.Date BETWEEN DATE '2012-08-23' AND DATE '2012-08-26';\n```",
+ "sql": "SELECT AVG(t.Price) AS avg_price\nFROM main.transactions_1k t\nJOIN main.customers c ON t.CustomerID = c.CustomerID\nWHERE c.Currency = 'EUR'\n  AND c.Segment = 'LAM'\n  AND t.Date BETWEEN DATE '2012-08-23' AND DATE '2012-08-26'",
+ "prompt_sha256": "494fe3fff99ba1de42782d6529fcfa8b34c59e9370a5a92231365a3c3f5f9846",
+ "prompt_chars": 3843,
+ "empty_response": false
+}

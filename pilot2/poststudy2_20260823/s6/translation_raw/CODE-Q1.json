@@ -1,0 +1,19 @@
+{
+ "qid": "CODE-Q1",
+ "domain": "codebase_community",
+ "question_zh": "以 2011-02-01 为声明时点，2010 年 12 月（as-of 2010-12-15 所在月窗）的提问采纳率是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2011-02-01 as the declaration instant, what is the question acceptance rate for December 2010 (as-of 2010-12-15 the containing month window)?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5278 completion=54]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:36:50"
+}

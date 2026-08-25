@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q2",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 0.2803347280334728,
+ "verdict": "wrong_value",
+ "raw": "I need to calculate the \"question acceptance rate\" for December 2013, as of 2014-02-01.\n\n- **提问采纳率** = questions with an accepted answer / total questions\n- **Month window**: December 2013 (2013-12-01 to 2013-12-31)\n- **As-of 2014-02-01**: Only consider data that existed by 2014-02-01\n\nQuestions are posts with `PostTypeId = 1`. A question has an accepted answer if `AcceptedAnswerId` is not null. The as-of constraint means we only count questions created in Dec 2013, and we only consider accepted answers that were posted (as answers) by 2014-02-01.\n\nLet me think about this more carefully:\n- Numerator: Questions created in Dec 2013 that have an `AcceptedAnswerId` pointing to an answer that was created by 2014-02-01\n- Denominator: Questions created in Dec 2013\n\nThe `AcceptedAnswerId` on the question post points to an answer post. We need to check that the answer (and its acceptance) existed by the as-of date. The acceptance could have happened after the answer was created, but we use the answer's creation date as a proxy since we don't have a separate acceptance timestamp. Also, the question's `AcceptedAnswerId` field update timing is not tracked separately, so we check that the answer post itself was created by 2014-02-01.\n\n```sql\nSELECT CAST(SUM(CASE WHEN q.\"AcceptedAnswerId\" IS NOT NULL AND a.\"CreaionDate\" < '2014-02-01' THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) AS acceptance_rate\nFROM main.\"posts\" q\nLEFT JOIN main.\"posts\" a ON q.\"AcceptedAnswerId\" = a.\"Id\" AND a.\"PostTypeId\" = 2\nWHERE q.\"PostTypeId\" = 1\n  AND q.\"CreaionDate\" >= '2013-12-01'\n  AND q.\"CreaionDate\" < '2014-01-01';\n```",
+ "sql": "SELECT CAST(SUM(CASE WHEN q.\"AcceptedAnswerId\" IS NOT NULL AND a.\"CreaionDate\" < '2014-02-01' THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) AS acceptance_rate\nFROM main.\"posts\" q\nLEFT JOIN main.\"posts\" a ON q.\"AcceptedAnswerId\" = a.\"Id\" AND a.\"PostTypeId\" = 2\nWHERE q.\"PostTypeId\" = 1\n  AND q.\"CreaionDate\" >= '2013-12-01'\n  AND q.\"CreaionDate\" < '2014-01-01'",
+ "prompt_sha256": "c6029c3957375f209295bfed2d5c6747058d6544fee12e51685c81da8ca709b7",
+ "prompt_chars": 5102,
+ "empty_response": false
+}

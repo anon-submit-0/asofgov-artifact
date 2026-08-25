@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q2",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: The question references temporal governance concepts (declaration instant, adjudication intensity, as-of semantics, containing month window) that are defined in the gov_* metadata tables but lack actual fact data to compute a meaningful metric value.",
+ "sql": "REFUSE",
+ "prompt_sha256": "1098bc0822aa3df51b433077820a19fb13ddd600f23c5a21407e6c3c29156a38",
+ "prompt_chars": 5530,
+ "empty_response": false
+}

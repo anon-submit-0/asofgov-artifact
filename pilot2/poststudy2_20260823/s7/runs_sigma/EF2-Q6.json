@@ -1,0 +1,28 @@
+{
+ "qid": "EF2-Q6",
+ "domain": "european_football_2",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2013-12-01",
+  "declared_at": "2014-02-01",
+  "metric_alias": "评分归一当日胜率",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\":\"2013-12-01\",\"declared_at\":\"2014-02-01\",\"metric_alias\":\"评分归一当日胜率\",\"scope\":{},\"pinned_version\":null,\"cross_window\":null,\"anchor_override\":null,\"window_request\":null,\"requested_granularity\":null,\"requested_time_gran\":null,\"presentation\":\"aggregate\",\"ctx_role\":\"external_analyst\",\"periods\":null}"
+ ],
+ "prompt_sha256": "8c53d778226d6bd4555b1dd8d6d5fcbdc2f9622822b449441a89461f50ecfdd1",
+ "prompt_chars": 28135
+}

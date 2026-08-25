@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q5",
+ "system": "baseline_deepseek",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "SELECT \"CDSCode\", \"School Name\", \"Percent (%) Eligible FRPM (K-12)\" \nFROM main.\"frpm\" \nWHERE \"County Name\" = 'Alameda' \n  AND \"Academic Year\" = '2014-15' \n  AND \"School Code\" IS NOT NULL \n  AND \"School Code\" != '0000000'\nORDER BY \"CDSCode\";",
+ "sql": "SELECT \"CDSCode\", \"School Name\", \"Percent (%) Eligible FRPM (K-12)\" \nFROM main.\"frpm\" \nWHERE \"County Name\" = 'Alameda' \n  AND \"Academic Year\" = '2014-15' \n  AND \"School Code\" IS NOT NULL \n  AND \"School Code\" != '0000000'\nORDER BY \"CDSCode\"",
+ "prompt_sha256": "72afa009ce0d84b0216bda76ee4fcdd3201355e60cc14d58068b58980995ea10",
+ "prompt_chars": 5199,
+ "empty_response": false
+}

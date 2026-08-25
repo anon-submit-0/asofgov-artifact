@@ -1,0 +1,33 @@
+{
+ "qid": "F1-Q4",
+ "domain": "formula_1",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": null,
+  "declared_at": "2011-03-01",
+  "metric_alias": "两季车手积分差",
+  "scope": {
+   "driver": "button"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": [
+   "2009",
+   "2010"
+  ]
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": null, \"declared_at\": \"2011-03-01\", \"metric_alias\": \"两季车手积分差\", \"scope\": {\"driver\": \"button\"}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": [\"2009\", \"2010\"]}"
+ ],
+ "prompt_sha256": "063c4d9d3bd58f9a7a6c70e82e7810abaf6345196082afe427cf6bee55a184e7",
+ "prompt_chars": 30006
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q3",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 681.0,
+ "verdict": "correct",
+ "raw": "I need to find the count of Player_Attributes records valid as-of 2015-06-15 within the June 2015 monthly window.\n\nLet me first check the governance tables to understand the temporal binding rules.\n\nThe `gov_valid_time_anchor` table defines how valid-time works for each semantic node. I need to find the anchor for Player_Attributes, then apply the temporal rules.\n\nBased on the schema, `Player_Attributes` has a `date` column (VARCHAR) that serves as the effective date. The question asks for records in the monthly window containing 2015-06-15, which is June 2015 (2015-06-01 to 2015-06-30).\n\nThe declaration point (声明时点) is 2016-07-01, meaning we should only see data that was known/available as of that date — since all Player_Attributes dates in June 2015 would be before 2016-07-01, this constraint is naturally satisfied.\n\nFor the monthly window of 2015-06-15, I need Player_Attributes records whose `date` falls within June 2015.\n\n```sql\nSELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) >= DATE '2015-06-01' AND CAST(\"date\" AS DATE) < DATE '2015-07-01';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) >= DATE '2015-06-01' AND CAST(\"date\" AS DATE) < DATE '2015-07-01'",
+ "prompt_sha256": "23e6dcbbc154d3ff1a9c1a65203f1e333b5f7ba87dde8c058286498210a01558",
+ "prompt_chars": 7856,
+ "empty_response": false
+}

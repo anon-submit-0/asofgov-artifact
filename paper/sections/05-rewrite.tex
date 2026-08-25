@@ -1,0 +1,125 @@
+% =====================================================================
+%  Section 4 -- DISCLOSURE-CONSTRAINED REWRITING     (source: theory/C4)
+%  SCOPE DECISION (audit AUD-c583a419, scope pass): the MLR development was
+%  demoted from a headline contribution to a compact section.  The body
+%  KEEPS the one-paragraph policy model, the MLR problem definition, the
+%  three statements (soundness / maximality / determinism and refusal
+%  completeness) with their original labels -- \S\ref{sec:certificates} and
+%  \S\ref{sec:eval} cite them -- and the interface sentence to the guard
+%  order OOV -> AM -> MC.  MOVED to extended/appendix_proofs.tex
+%  (\cite{asofgov-tr}): Algorithm 1 and its line-level commentary, the grain
+%  and mask lattice machinery, the (S-A)..(S-M) coordinate semantics, the
+%  monotonicity and grain-frontier lemmas, the pruning corollary, and the
+%  complexity theorem with its proof.
+%
+%  PAGE-BUDGET PASS (B3/B5 float funding, 2026-08-03).  This section was the
+%  plan's designated donor when the layer had ZERO instances on the old
+%  51-question development suite.  Externalised to the TR in that pass: the
+%  elaborated mask derivation (mu*, top_Mask, the empty-shell argument), the
+%  binding-point range commentary, the frontier construction, and the two
+%  proof sketches.  DELETED as duplication rather than moved: the
+%  instance/context-relativity justification and the ungoverned-disclosure
+%  annotation gloss, both already carried by \S\ref{sec:cert:content}.
+%  PILOT2 MIGRATION (2026-08-04): on the public base the layer IS exercised
+%  (3 DISCLOSURE-BLOCKED + 5 roll-ups + 2 masks in gold; 10 F4 forgeries),
+%  so the "unexercised here" honesty sentence became the exercised-scope
+%  sentence -- do not resurrect the old wording.
+%  RED LINES kept verbatim: Theorem~\ref{thm:sound}/\ref{thm:maximal} and
+%  Theorem~\ref{thm:refusal} statements with their assumption recitals; the
+%  full-rule-predicate guard with Example~\ref{ex:symdiff}'s discriminant;
+%  the three open boundaries.
+%  Requires macros from 03-semantics.tex.
+% =====================================================================
+
+\section{DISCLOSURE-CONSTRAINED REWRITING}
+\label{sec:rewrite}
+
+\noindent\looseness=-1 Under a disclosure policy, binding compilation extends from a decision
+to a bounded search over binding points, with refusal a proof that the legal set
+is empty rather than an abstention. The search runs \emph{after} the guard order
+$\OOV\rightarrow\AM\rightarrow\MC$ has been discharged on a slice and $\DBL$
+follows all three, so a legally trimmed answer never becomes an answer to a
+different question at a different time point.
+
+\smallskip\noindent\looseness=-1\textbf{The policy model, MLR, and the compiler.} $G_v$
+declares a finite grain lattice whose roll-up edges are registered and never
+inferred from data, a finite mask lattice, and a finite versioned set $\Dpol_v$
+of \emph{disclosure policies}, each pairing a protected attribute set with a
+role branch, a minimum mask, a grain floor and a small-cell threshold; a
+candidate is \emph{admissible} when every policy whose protected closure it
+touches is discharged by one of those branches. The \emph{legal set}
+$L(q,T,\Gseq,\ctx,D)$ collects the closures of the \emph{binding points}
+$b=\langle\alpha,w,v,g\rangle$ of the \emph{structural} candidate space
+$X(q,T)$ of~\cite{asofgov-tr} --- one window candidate per slice, no
+data-driven shrinking --- faithful to the question's rigid
+commitments, bindable (Definition~\ref{def:bindable}) and admissible; one masking
+a rigidly requested attribute away entirely is refused
+\emph{disclosure-blocked} ($\DBL$), not answered with an empty shell.
+\textbf{MLR} (\emph{maximal legal rewrite}) asks for either $\ANSW$ from a
+$\preceq_D$-maximal element of
+$L/\!\approx_D$ under the \emph{fidelity order} $\preceq_D$ --- which compares
+only same-anchor, same-version points, $b\preceq_D b'$ when $b'$ trims no more
+of the window at no coarser a grain, $\approx_D$ its symmetric kernel ---
+or $\REFU$ with a
+per-slice reason table $\CT$ over $\{\MC,\AM,\OOV,\DBL\}$ evidencing
+$L=\emptyset$; \textsc{Mlr-Compile} solves it slice by slice under a declared
+total order; the algorithm, the lattices' coordinates, the frontier and
+pruning lemmas and a polynomial probe bound are in~\cite{asofgov-tr}. One guard
+must be named because both statements below rest on it: the rule test
+evaluates the \emph{full} predicate of Definition~\ref{def:rule}, clauses
+(i)--(iv), not the rule literal --- the binding row of
+Example~\ref{ex:symdiff} carries the same
+\texttt{same\_\allowbreak valid\_\allowbreak time\_\allowbreak window} literal
+as its trivially compatible siblings, and a literal-only check answers the
+request its audit refuses.
+\emph{Scope:} four of the nine domains register policies (18 instance rows),
+the other five carrying the
+\texttt{ungoverned-disclosure} annotation of \S\ref{sec:cert:content}. The suite binds the layer our
+development seeds only formalised: 3 questions refuse \textsc{disclosure-blocked} on a replayed
+small-cell probe, 5 answer only after a granularity roll-up --- one under a
+threshold the version change raises --- and 2 only under a mask closure
+(\S\ref{sec:eval-mech}); 10 of the 34 forgeries attack this layer.
+
+\begin{theorem}[soundness, maximality, determinism]
+\label{thm:sound}\label{thm:maximal}
+\looseness=-1 Assume \emph{(A1)--(A6)} of \S\ref{sec:binding} together with: the declared
+lattices are finite and the grain lattice's roll-up edges are registered;
+$\Dpol_v$ is finite and every policy is coarsening-compatible;
+$\prec_{\det}$ is a total key over versioned components of $G_v$; and
+\emph{(A-emit)}: the code emitter is point-in-time correct on bindable
+closures --- the syntax-to-semantics bridge assumed as A4.1 in~\cite{asofgov-tr}
+and recorded open there (gap G2), an obligation of the same kind as
+Theorem~\ref{thm:certsound}(b)'s declared scope.
+\emph{(a)} If \textsc{Mlr-Compile} returns $\ANSW$ then
+$\dcl(\hat b,\ctx)\in L(q,T,\Gseq,\ctx,D)$ and the emitted plan is
+point-in-time correct in the sense of Definition~\ref{def:bracket}.
+\emph{(b)} Every element of the frontier is $\preceq_D$-maximal in
+$L/\!\approx_D$, and the returned $\hat b$ is one of them.
+\emph{(c)} The returned representative is a function of
+$\langle q,T,\Gseq,\Dpol,\ctx,D\rangle$, since all three keys of
+$\prec_{\det}$ are versioned components of $G_v$; re-declaring $\prec_{\det}$
+changes the representative, not the maximal set and not the $\ANSW$/$\REFU$
+verdict.
+\end{theorem}
+
+\begin{theorem}[refusal completeness]
+\label{thm:refusal}
+\looseness=-1 Under the same assumptions, and with the denominator measure non-negative,
+\textsc{Mlr-Compile} returns $\REFU$ iff $L(q,T,\Gseq,\ctx,D)=\emptyset$. On
+refusal, $\CT$ carries a per-slice emptiness witness whose reasons decompose
+into the three binding-layer classes of \S\ref{sec:sem:fail} plus the
+disclosure-layer class $\DBL$; when $\Dpol_v=\emptyset$, $\DBL$ is unreachable
+and the statement reduces to binding completeness.
+\end{theorem}
+
+\noindent\looseness=-1 Both proofs are in~\cite{asofgov-tr}; refusal completeness is
+precisely where the full rule predicate is required.
+\textbf{Boundaries.} Three stay open: window bargaining needs
+a joint window--grain maximality theory (both theorems above are relative to
+$X$); we return one maximal element per slice
+frontier and do not bound the cost of enumerating all of them; and the rule
+language is confined to window-equality rules, so lag bindings need an extended
+predicate. Theorem~\ref{thm:refusal}'s stated premise, like the probe
+bound, assumes a non-negative denominator measure --- with
+refund-reversal columns the mass is not monotone along window containment and
+the pruning argument fails.

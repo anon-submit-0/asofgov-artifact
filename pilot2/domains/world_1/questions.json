@@ -1,0 +1,200 @@
+[
+ {
+  "qid": "W1-Q1",
+  "domain": "world_1",
+  "question_zh": "以 2026-06-15 为声明时点，按当时生效人口口径，as-of 2026-05 月粒的亚洲人口总和是多少？",
+  "as_of": "2026-05-10",
+  "declared_at": "2026-06-15",
+  "metric_alias": "亚洲人口总和",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "w1.asia_population_sum",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT SUM(h.population) FROM country_history h INNER JOIN country c ON h.code=c.\"Code\" WHERE c.\"Continent\"='Asia' AND h.effective_month='2026-05'",
+  "gold_value": 4068933086,
+  "windows": {
+   "atom": {
+    "kind": "month_token",
+    "token": "2026-05"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "RC-8 flip 对前件：ver(T)=v1 普查口径列 population；血缘簇承接旧 PUB-W（登记表已去退化：不携快照表/覆盖区间）。"
+ },
+ {
+  "qid": "W1-Q2",
+  "domain": "world_1",
+  "question_zh": "以 2026-08-15 为声明时点，按当时生效人口口径，as-of 2026-05 月粒的亚洲人口总和是多少？",
+  "as_of": "2026-05-10",
+  "declared_at": "2026-08-15",
+  "metric_alias": "亚洲人口总和",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "w1.asia_population_sum",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT SUM(h.population_resident) FROM country_history h INNER JOIN country c ON h.code=c.\"Code\" WHERE c.\"Continent\"='Asia' AND h.effective_month='2026-05'",
+  "gold_value": 4313069067,
+  "windows": {
+   "atom": {
+    "kind": "month_token",
+    "token": "2026-05"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "RC-8 flip 对后件：ver(T)=v2（2026-07-01 提交）度量改指常住口径列 population_resident（亚洲 ×1.06 半上取整，authored 数据行表达）；解析必须过 ver(T)。"
+ },
+ {
+  "qid": "W1-Q3",
+  "domain": "world_1",
+  "question_zh": "以 2026-06-15 为声明时点，as-of 2026-03 月粒的亚洲人口占比（亚洲/全球）是多少？",
+  "as_of": "2026-03-10",
+  "declared_at": "2026-06-15",
+  "metric_alias": "亚洲人口占比",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "w1.population_share",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT (SELECT SUM(h.population) FROM country_history h INNER JOIN country c ON h.code=c.\"Code\" WHERE c.\"Continent\"='Asia' AND h.effective_month='2026-03')*1.0/(SELECT SUM(population) FROM country_history WHERE effective_month='2026-03')",
+  "gold_value": 0.6075330810301713,
+  "windows": {
+   "num": {
+    "kind": "month_token",
+    "token": "2026-03"
+   },
+   "den": {
+    "kind": "month_token",
+    "token": "2026-03"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "洲/全球两级路由比率（同窗同锚）。"
+ },
+ {
+  "qid": "W1-Q4",
+  "domain": "world_1",
+  "question_zh": "以 2026-08-15 为声明时点，统计 2026-10 至 2027-03 各月的区间历史记录条数。",
+  "as_of": null,
+  "declared_at": "2026-08-15",
+  "metric_alias": "区间历史记录条数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "month_token_range",
+   "lo": "2026-10",
+   "hi": "2027-03"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "w1.history_rows_range",
+  "expected_kind": "rewrite",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": {
+   "kind": "hull_trim",
+   "requested": {
+    "kind": "month_token_range",
+    "lo": "2026-10",
+    "hi": "2027-03"
+   },
+   "effective": {
+    "kind": "month_token_range",
+    "lo": "2026-10",
+    "hi": "2026-12"
+   }
+  },
+  "gold_sql": "SELECT COUNT(*) FROM country_history WHERE effective_month>='2026-10' AND effective_month<='2026-12'",
+  "gold_value": 717,
+  "windows": {
+   "requested": {
+    "kind": "month_token_range",
+    "lo": "2026-10",
+    "hi": "2027-03"
+   },
+   "effective": {
+    "kind": "month_token_range",
+    "lo": "2026-10",
+    "hi": "2026-12"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "hull 裁剪 REWRITE：authored 月度序列 hull 右端 2026-12（239 国×3 月=717 行）。"
+ },
+ {
+  "qid": "W1-Q5",
+  "domain": "world_1",
+  "question_zh": "计算亚洲人口占比，但分子取 2026-05、分母取 2026-04（声明时点 2026-08-15）。",
+  "as_of": "2026-05-10",
+  "declared_at": "2026-08-15",
+  "metric_alias": "亚洲人口占比",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": {
+   "num": "2026-05",
+   "den": "2026-04"
+  },
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "w1.population_share",
+  "expected_kind": "refusal",
+  "refusal_reason": "anchor-mismatch",
+  "refusal_subtype": "am_ii",
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": {
+   "num": {
+    "kind": "month_token",
+    "token": "2026-05"
+   },
+   "den": {
+    "kind": "month_token",
+    "token": "2026-04"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "AM(ii) 跨窗祈使：违背 same_valid_time_window（与 FIN-Q8 同型，双库覆盖）。"
+ }
+]

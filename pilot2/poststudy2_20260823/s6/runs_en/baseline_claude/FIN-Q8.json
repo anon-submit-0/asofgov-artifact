@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q8",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: The question asks for a \"declaration instant 1998-09-15\" filter, but there is no declaration/reporting date column in the trans table or any business fact table that would support this constraint. The schema cannot answer this question as specified.",
+ "sql": "REFUSE",
+ "prompt_sha256": "453452bc9dba2761a7a8669c5c774e19ac02f79469410f982d6a622966ddbd6b",
+ "prompt_chars": 4190,
+ "empty_response": false
+}

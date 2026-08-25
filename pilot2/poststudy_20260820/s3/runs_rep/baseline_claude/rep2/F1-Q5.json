@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q5",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 17.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT COUNT(*) \nFROM main.\"constructorResults\" cr\nJOIN main.\"races\" r ON cr.\"raceId\" = r.\"raceId\"\nJOIN main.\"constructors\" c ON cr.\"constructorId\" = c.\"constructorId\"\nWHERE c.\"constructorRef\" = 'brawn'\n  AND r.\"year\" = 2009\n```",
+ "sql": "SELECT COUNT(*) \nFROM main.\"constructorResults\" cr\nJOIN main.\"races\" r ON cr.\"raceId\" = r.\"raceId\"\nJOIN main.\"constructors\" c ON cr.\"constructorId\" = c.\"constructorId\"\nWHERE c.\"constructorRef\" = 'brawn'\n  AND r.\"year\" = 2009",
+ "prompt_sha256": "78ffaf40309599c961b2814479b2e082182167f18c4ed4649b9d026dd81faa72",
+ "prompt_chars": 5499,
+ "empty_response": false
+}

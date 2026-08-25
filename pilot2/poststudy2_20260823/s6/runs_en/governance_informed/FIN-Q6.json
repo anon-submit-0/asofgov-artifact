@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q6",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 151237.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) AS interval_transaction_count\nFROM main.\"trans\"\nWHERE \"date\" >= '1998-07-01' AND \"date\" <= '1999-06-30';\n```",
+ "sql": "SELECT COUNT(*) AS interval_transaction_count\nFROM main.\"trans\"\nWHERE \"date\" >= '1998-07-01' AND \"date\" <= '1999-06-30'",
+ "prompt_sha256": "50e97c041e3b7e178047d490f0b47aadf2e727e40815355971fcff8dad756fa3",
+ "prompt_chars": 23567,
+ "empty_response": false
+}

@@ -1,0 +1,22 @@
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "fin.plr.num", "metric_id": "fin.problem_loan_rate", "node_id": "fin.loan", "preds": [{"col": "status", "op": "in", "value": ["B", "D"]}]}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "fin.plr.den", "metric_id": "fin.problem_loan_rate", "node_id": "fin.loan", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "fin.ptr.num", "metric_id": "fin.penalty_trans_rate", "node_id": "fin.trans", "preds": [{"col": "k_symbol", "op": "=", "value": "SANKC. UROK"}]}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "fin.ptr.den", "metric_id": "fin.penalty_trans_rate", "node_id": "fin.trans", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "fin.lcm.atom", "metric_id": "fin.loan_count_month", "node_id": "fin.loan", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "fin.tcm.atom", "metric_id": "fin.trans_count_month", "node_id": "fin.trans", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "fin.tcr.atom", "metric_id": "fin.trans_count_range", "node_id": "fin.trans", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "fin.prc.num", "metric_id": "fin.penalty_rate_classified", "node_id": "fin.trans", "preds": [{"col": "k_symbol", "op": "=", "value": "SANKC. UROK"}]}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "fin.prc.den", "metric_id": "fin.penalty_rate_classified", "node_id": "fin.trans", "preds": [{"col": "k_symbol", "op": "not_null", "value": null}]}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "fin.plc.atom", "metric_id": "fin.problem_loan_count", "node_id": "fin.loan", "preds": [{"col": "status", "op": "in", "value": ["B", "D"]}]}
+{"graph_version": "v1", "leg": "atom", "measure": "avg:amount", "measure_id": "fin.ala.atom", "metric_id": "fin.avg_loan_amount", "node_id": "fin.loan", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "fin.plr.num", "metric_id": "fin.problem_loan_rate", "node_id": "fin.loan", "preds": [{"col": "status", "op": "in", "value": ["D"]}]}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "fin.plr.den", "metric_id": "fin.problem_loan_rate", "node_id": "fin.loan", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "fin.ptr.num", "metric_id": "fin.penalty_trans_rate", "node_id": "fin.trans", "preds": [{"col": "k_symbol", "op": "=", "value": "SANKC. UROK"}]}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "fin.ptr.den", "metric_id": "fin.penalty_trans_rate", "node_id": "fin.trans", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "fin.lcm.atom", "metric_id": "fin.loan_count_month", "node_id": "fin.loan", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "fin.tcm.atom", "metric_id": "fin.trans_count_month", "node_id": "fin.trans", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "fin.tcr.atom", "metric_id": "fin.trans_count_range", "node_id": "fin.trans", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "fin.prc.num", "metric_id": "fin.penalty_rate_classified", "node_id": "fin.trans", "preds": [{"col": "k_symbol", "op": "=", "value": "SANKC. UROK"}]}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "fin.prc.den", "metric_id": "fin.penalty_rate_classified", "node_id": "fin.trans", "preds": [{"col": "k_symbol", "op": "not_null", "value": null}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "fin.plc.atom", "metric_id": "fin.problem_loan_count", "node_id": "fin.loan", "preds": [{"col": "status", "op": "in", "value": ["B", "D"]}]}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:amount", "measure_id": "fin.ala.atom", "metric_id": "fin.avg_loan_amount", "node_id": "fin.loan", "preds": []}

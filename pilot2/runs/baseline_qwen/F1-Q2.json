@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q2",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 95.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT SUM(r.points)\nFROM main.\"drivers\" d\nJOIN main.\"results\" r ON d.driverId = r.driverId\nJOIN main.\"races\" ra ON r.raceId = ra.raceId\nWHERE d.forename = 'Jenson' AND d.surname = 'Button' AND ra.year = 2009;\n```",
+ "sql": "SELECT SUM(r.points)\nFROM main.\"drivers\" d\nJOIN main.\"results\" r ON d.driverId = r.driverId\nJOIN main.\"races\" ra ON r.raceId = ra.raceId\nWHERE d.forename = 'Jenson' AND d.surname = 'Button' AND ra.year = 2009",
+ "prompt_sha256": "488f5cead7250fe30962722e123e6159f96bd95ed60ea96ee7a9f86cd52eef9d",
+ "prompt_chars": 5509,
+ "empty_response": false
+}

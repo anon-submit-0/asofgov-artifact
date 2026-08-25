@@ -1,0 +1,28 @@
+{
+ "qid": "W1-Q2",
+ "domain": "world_1",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2026-05-01",
+  "declared_at": "2026-08-15",
+  "metric_alias": "亚洲人口总和",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2026-05-01\", \"declared_at\": \"2026-08-15\", \"metric_alias\": \"亚洲人口总和\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "9d5769f9f78bc36d00c2170d36adbef4184e5258fed595298264061f422d9646",
+ "prompt_chars": 19037
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 给定 schema 中没有特许授权日期字段，无法按特许授权日期开窗统计\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "183f6a5052cd029940ed4c8cbfc2b1fe85d9e857e530926e00b27d5fbc354483",
+ "prompt_chars": 5187,
+ "empty_response": false
+}

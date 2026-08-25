@@ -1,0 +1,6 @@
+# Versions the paper's numbers were produced under (macOS 15, system python).
+# The scoring/build stack needs only duckdb; matplotlib+numpy are for figures.
+# python 3.9.6
+duckdb==1.4.4
+matplotlib==3.9.4
+numpy==2.0.2

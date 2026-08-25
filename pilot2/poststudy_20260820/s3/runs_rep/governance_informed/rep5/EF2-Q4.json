@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q4",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 915.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) AS matches_range\nFROM main.\"Match\"\nWHERE date >= '2016-03-01' AND date <= '2016-08-31'\n```",
+ "sql": "SELECT COUNT(*) AS matches_range\nFROM main.\"Match\"\nWHERE date >= '2016-03-01' AND date <= '2016-08-31'",
+ "prompt_sha256": "0933464d86aae5ade39e26d9089761552405a69ac1946a7f35d0bf22744e0cbb",
+ "prompt_chars": 25281,
+ "empty_response": false
+}

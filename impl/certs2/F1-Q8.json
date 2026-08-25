@@ -1,0 +1,181 @@
+{
+ "refusal": "missing-caliber",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "F1-Q8",
+   "domain": "formula_1",
+   "metric": "f1.points_per_entry",
+   "metric_kind": "ratio",
+   "as_of": "2010-07-01"
+  },
+  "graph_pin": {
+   "domain": "formula_1",
+   "graph_version": "v2",
+   "commit_id": "2010-02-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "numerator",
+    "anchor_id": "A-F1-RACE",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "year",
+     "lo": "2010-01-01",
+     "hi_excl": "2011-01-01"
+    }
+   },
+   {
+    "role": "denominator",
+    "anchor_id": "A-F1-RACE",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "year",
+     "lo": "2010-01-01",
+     "hi_excl": "2011-01-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-F1-PPE-N|B-F1-PPE-D",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": "A-F1-RACE",
+   "denominator_anchor": "A-F1-RACE",
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [
+   {
+    "caliber_key": "f1.rt4",
+    "metric": "f1.points_per_entry",
+    "leg": "num",
+    "hop_seq": "0",
+    "src_node": "f1.results",
+    "dst_node": "f1.races",
+    "via_table": "races",
+    "dst_caliber": "scoped",
+    "join_keys": [
+     [
+      "raceId",
+      "raceId"
+     ]
+    ]
+   },
+   {
+    "caliber_key": "f1.rt5",
+    "metric": "f1.points_per_entry",
+    "leg": "num",
+    "hop_seq": "1",
+    "src_node": "f1.results",
+    "dst_node": "f1.points_scheme",
+    "via_table": "points_scheme",
+    "dst_caliber": "scoped",
+    "join_keys": [
+     [
+      "positionOrder",
+      "position"
+     ]
+    ]
+   },
+   {
+    "caliber_key": "f1.rt7",
+    "metric": "f1.points_per_entry",
+    "leg": "scope",
+    "hop_seq": "0",
+    "src_node": "f1.results",
+    "dst_node": "f1.constructors",
+    "via_table": "constructors",
+    "dst_caliber": "scoped",
+    "join_keys": [
+     [
+      "constructorId",
+      "constructorId"
+     ]
+    ]
+   },
+   {
+    "caliber_key": "f1.rt6",
+    "metric": "f1.points_per_entry",
+    "leg": "den",
+    "hop_seq": "0",
+    "src_node": "f1.results",
+    "dst_node": "f1.races",
+    "via_table": "races",
+    "dst_caliber": "scoped",
+    "join_keys": [
+     [
+      "raceId",
+      "raceId"
+     ]
+    ]
+   }
+  ],
+  "disclosure": {
+   "decision": "REFUSE",
+   "policy_ids": [],
+   "policy_table_present": false,
+   "ungoverned_disclosure": true,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-F1-RACE",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"races\" t WHERE t.\"date\" IS NOT NULL",
+    "observed": [
+     "1950-05-13",
+     "2017-11-26"
+    ]
+   },
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-F1-RACE",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"races\" t WHERE t.\"date\" IS NOT NULL",
+    "observed": [
+     "1950-05-13",
+     "2017-11-26"
+    ]
+   },
+   {
+    "kind": "DEN_POP",
+    "role": "denominator",
+    "period": 0,
+    "sql": "SELECT (SELECT COUNT(*) FROM \"results\" t0 INNER JOIN \"races\" t1 ON t0.\"raceId\" = t1.\"raceId\" INNER JOIN \"constructors\" t2 ON t0.\"constructorId\" = t2.\"constructorId\" WHERE t2.\"constructorRef\" = 'brawn' AND substr(CAST(t1.\"date\" AS VARCHAR),1,10) >= '2010-01-01' AND substr(CAST(t1.\"date\" AS VARCHAR),1,10) < '2011-01-01')",
+    "observed": 0.0
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  },
+  "refusal": {
+   "reason": "missing-caliber",
+   "witness": {
+    "type": "empty-denominator-probe",
+    "probe_sql": "SELECT (SELECT COUNT(*) FROM \"results\" t0 INNER JOIN \"races\" t1 ON t0.\"raceId\" = t1.\"raceId\" INNER JOIN \"constructors\" t2 ON t0.\"constructorId\" = t2.\"constructorId\" WHERE t2.\"constructorRef\" = 'brawn' AND substr(CAST(t1.\"date\" AS VARCHAR),1,10) >= '2010-01-01' AND substr(CAST(t1.\"date\" AS VARCHAR),1,10) < '2011-01-01')",
+    "observed": 0.0,
+    "assertion": "μ_den ≤ 0（或空/NULL）：同窗分母质量空，MC(ii)（D4 加宽谓词）"
+   },
+   "ct": [
+    {
+     "slice": "(v2,B-F1-PPE-N|B-F1-PPE-D)",
+     "reason": "missing-caliber"
+    }
+   ],
+   "slices_pass": [],
+   "composition": "slice-major(≺_det slice 序取首失败 slice; slice 内守卫序 OOV→AM→MC)"
+  }
+ }
+}

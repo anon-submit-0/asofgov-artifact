@@ -1,0 +1,1001 @@
+{
+ "study": "S6 Stage B — English-question control (2 arms x 60)",
+ "prereg_sha256": "838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669",
+ "questions_en_sha256": "d9508f3f6e1617e080772630f51f6d1860cd0cfe1dae174b7f226ada548ba63f",
+ "protocol": {
+  "model": "claude-opus-4-6",
+  "arms": [
+   "baseline_claude",
+   "governance_informed"
+  ],
+  "sampling": "one sample, retry only on empty x3, 512-token cap, temperature unset",
+  "single_delta": "question text = frozen question_en (all else byte-frozen R2/RP chain)",
+  "scorer": "frozen R2.fetch_and_score (RP.score + §4.2 rowset/string dispatch)"
+ },
+ "n_questions": 60,
+ "error_counts_en": {
+  "baseline_claude": 35,
+  "governance_informed": 29
+ },
+ "error_rate_en": {
+  "baseline_claude": 0.5833333333333334,
+  "governance_informed": 0.48333333333333334
+ },
+ "empty_responses": {
+  "baseline_claude": 0,
+  "governance_informed": 0
+ },
+ "taxonomy_en": {
+  "baseline_claude": {
+   "correct": 25,
+   "wrong_value": 14,
+   "execution_error": 2,
+   "answered_should_refuse": 5,
+   "refused_should_answer": 14
+  },
+  "governance_informed": {
+   "correct": 31,
+   "wrong_value": 12,
+   "execution_error": 6,
+   "answered_should_refuse": 11
+  }
+ },
+ "refusal_stats_en": {
+  "baseline_claude": {
+   "correct_refusals": 10,
+   "n_refusal_questions": 15,
+   "over_refusals_on_answer_questions": 14,
+   "n_answer_questions": 45
+  },
+  "governance_informed": {
+   "correct_refusals": 4,
+   "n_refusal_questions": 15,
+   "over_refusals_on_answer_questions": 0,
+   "n_answer_questions": 45
+  }
+ },
+ "zh_anchors_frozen": {
+  "error_counts": {
+   "baseline_claude": 36,
+   "governance_informed": 28
+  },
+  "error_rate": {
+   "baseline_claude": 0.6,
+   "governance_informed": 0.4666666666666667
+  },
+  "source": "pilot2/pilot2_arms_summary.json per_question_verdicts (frozen 2026-08-04 main study)"
+ },
+ "probe7": {
+  "qids": [
+   "FIN-Q7",
+   "F1-Q7",
+   "DEB-Q6",
+   "EF2-Q5",
+   "CARD-Q7",
+   "F1-Q8",
+   "EF2-Q6"
+  ],
+  "provenance": "frozen PROBE7 list in pilot2/make_pilot2_summary.py (PREREG_pilot2_arms §5.2, 决定性探针 7 题); mirrored in pilot2_arms_summary.json governance_informed_arm.probe7_metadata_undecidable and paper/figures/fig_data_pilot2.json gov_arm.probe7_errors (§7.3a)",
+  "zh_governance_verdicts": {
+   "FIN-Q7": "answered_should_refuse",
+   "F1-Q7": "answered_should_refuse",
+   "DEB-Q6": "correct",
+   "EF2-Q5": "answered_should_refuse",
+   "CARD-Q7": "answered_should_refuse",
+   "F1-Q8": "answered_should_refuse",
+   "EF2-Q6": "answered_should_refuse"
+  },
+  "zh_governance_errors": 6,
+  "en_governance_verdicts": {
+   "FIN-Q7": "correct",
+   "F1-Q7": "correct",
+   "DEB-Q6": "answered_should_refuse",
+   "EF2-Q5": "answered_should_refuse",
+   "CARD-Q7": "answered_should_refuse",
+   "F1-Q8": "answered_should_refuse",
+   "EF2-Q6": "answered_should_refuse"
+  },
+  "en_governance_errors": 5
+ },
+ "predictions": {
+  "S6-P1": {
+   "stated": "EN backbone error within 0.600 +/- 0.10",
+   "observed": 0.5833333333333334,
+   "band": [
+    0.5,
+    0.7
+   ],
+   "met": true
+  },
+  "S6-P2": {
+   "stated": "EN governance-informed error within 0.467 +/- 0.10",
+   "observed": 0.48333333333333334,
+   "band": [
+    0.367,
+    0.567
+   ],
+   "met": true
+  },
+  "S6-P3": {
+   "stated": "backbone error > governance error in English",
+   "observed": [
+    0.5833333333333334,
+    0.48333333333333334
+   ],
+   "met": true
+  },
+  "S6-P4": {
+   "stated": "EN governance arm errs >= 4 of the 7 probe-only refusal questions",
+   "observed": 5,
+   "met": true
+  }
+ },
+ "call_log_account": {
+  "baseline_claude": {
+   "n_logged_calls": 60,
+   "retried_calls(attempts>1)": 0,
+   "total_latency_s": 279.968
+  },
+  "governance_informed": {
+   "n_logged_calls": 60,
+   "retried_calls(attempts>1)": 0,
+   "total_latency_s": 400.36
+  }
+ },
+ "flip_counts": {
+  "baseline_claude": {
+   "both_correct": 18,
+   "both_error": 29,
+   "zh_correct_en_error": 6,
+   "zh_error_en_correct": 7
+  },
+  "governance_informed": {
+   "both_correct": 25,
+   "both_error": 22,
+   "zh_correct_en_error": 7,
+   "zh_error_en_correct": 6
+  }
+ },
+ "per_question_flips": {
+  "CA-Q1": {
+   "cluster": "california_schools",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "refused_should_answer",
+    "en": "refused_should_answer",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "execution_error",
+    "en": "execution_error",
+    "flip": "both_error"
+   }
+  },
+  "CA-Q2": {
+   "cluster": "california_schools",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "refused_should_answer",
+    "en": "refused_should_answer",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "CA-Q3": {
+   "cluster": "california_schools",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "CA-Q4": {
+   "cluster": "california_schools",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "refused_should_answer",
+    "en": "wrong_value",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "CA-Q5": {
+   "cluster": "california_schools",
+   "expected_kind": "rewrite",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "refused_should_answer",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "wrong_value",
+    "en": "execution_error",
+    "flip": "both_error"
+   }
+  },
+  "CA-Q6": {
+   "cluster": "california_schools",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "answered_should_refuse",
+    "flip": "zh_correct_en_error"
+   }
+  },
+  "CARD-Q1": {
+   "cluster": "card_games",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "refused_should_answer",
+    "flip": "zh_correct_en_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "CARD-Q2": {
+   "cluster": "card_games",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "refused_should_answer",
+    "en": "refused_should_answer",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "execution_error",
+    "en": "wrong_value",
+    "flip": "both_error"
+   }
+  },
+  "CARD-Q3": {
+   "cluster": "card_games",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "refused_should_answer",
+    "en": "refused_should_answer",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "execution_error",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   }
+  },
+  "CARD-Q4": {
+   "cluster": "card_games",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "execution_error",
+    "flip": "zh_correct_en_error"
+   }
+  },
+  "CARD-Q5": {
+   "cluster": "card_games",
+   "expected_kind": "rewrite",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "refused_should_answer",
+    "flip": "zh_correct_en_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "CARD-Q6": {
+   "cluster": "card_games",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   }
+  },
+  "CARD-Q7": {
+   "cluster": "card_games",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   }
+  },
+  "CODE-Q1": {
+   "cluster": "codebase_community",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "execution_error",
+    "en": "refused_should_answer",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "execution_error",
+    "en": "wrong_value",
+    "flip": "both_error"
+   }
+  },
+  "CODE-Q2": {
+   "cluster": "codebase_community",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "refused_should_answer",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   }
+  },
+  "CODE-Q3": {
+   "cluster": "codebase_community",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "CODE-Q4": {
+   "cluster": "codebase_community",
+   "expected_kind": "rewrite",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   }
+  },
+  "CODE-Q5": {
+   "cluster": "codebase_community",
+   "expected_kind": "rewrite",
+   "baseline_claude": {
+    "zh": "execution_error",
+    "en": "execution_error",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "execution_error",
+    "en": "execution_error",
+    "flip": "both_error"
+   }
+  },
+  "CODE-Q6": {
+   "cluster": "codebase_community",
+   "expected_kind": "rewrite",
+   "baseline_claude": {
+    "zh": "no_sql",
+    "en": "refused_should_answer",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   }
+  },
+  "CODE-Q7": {
+   "cluster": "codebase_community",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   }
+  },
+  "DEB-Q1": {
+   "cluster": "debit_card_specializing",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "DEB-Q2": {
+   "cluster": "debit_card_specializing",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "DEB-Q3": {
+   "cluster": "debit_card_specializing",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "DEB-Q4": {
+   "cluster": "debit_card_specializing",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "DEB-Q5": {
+   "cluster": "debit_card_specializing",
+   "expected_kind": "rewrite",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "refused_should_answer",
+    "en": "wrong_value",
+    "flip": "both_error"
+   }
+  },
+  "DEB-Q6": {
+   "cluster": "debit_card_specializing",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "answered_should_refuse",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "answered_should_refuse",
+    "flip": "zh_correct_en_error"
+   }
+  },
+  "DEB-Q7": {
+   "cluster": "debit_card_specializing",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "answered_should_refuse",
+    "flip": "zh_correct_en_error"
+   }
+  },
+  "EF2-Q1": {
+   "cluster": "european_football_2",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "execution_error",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   }
+  },
+  "EF2-Q2": {
+   "cluster": "european_football_2",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "EF2-Q3": {
+   "cluster": "european_football_2",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "execution_error",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   }
+  },
+  "EF2-Q4": {
+   "cluster": "european_football_2",
+   "expected_kind": "rewrite",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "EF2-Q5": {
+   "cluster": "european_football_2",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   }
+  },
+  "EF2-Q6": {
+   "cluster": "european_football_2",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   }
+  },
+  "F1-Q1": {
+   "cluster": "formula_1",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   }
+  },
+  "F1-Q2": {
+   "cluster": "formula_1",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   }
+  },
+  "F1-Q3": {
+   "cluster": "formula_1",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "refused_should_answer",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "wrong_value",
+    "flip": "zh_correct_en_error"
+   }
+  },
+  "F1-Q4": {
+   "cluster": "formula_1",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "wrong_value",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   }
+  },
+  "F1-Q5": {
+   "cluster": "formula_1",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "refused_should_answer",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   }
+  },
+  "F1-Q6": {
+   "cluster": "formula_1",
+   "expected_kind": "rewrite",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "F1-Q7": {
+   "cluster": "formula_1",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "answered_should_refuse",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   },
+   "governance_informed": {
+    "zh": "answered_should_refuse",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   }
+  },
+  "F1-Q8": {
+   "cluster": "formula_1",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "answered_should_refuse",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   },
+   "governance_informed": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   }
+  },
+  "FIN-Q1": {
+   "cluster": "financial",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "FIN-Q2": {
+   "cluster": "financial",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "execution_error",
+    "en": "wrong_value",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "FIN-Q3": {
+   "cluster": "financial",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "execution_error",
+    "en": "refused_should_answer",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "FIN-Q4": {
+   "cluster": "financial",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "FIN-Q5": {
+   "cluster": "financial",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "wrong_value",
+    "flip": "zh_correct_en_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "FIN-Q6": {
+   "cluster": "financial",
+   "expected_kind": "rewrite",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "FIN-Q7": {
+   "cluster": "financial",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "answered_should_refuse",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   },
+   "governance_informed": {
+    "zh": "answered_should_refuse",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   }
+  },
+  "FIN-Q8": {
+   "cluster": "financial",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "answered_should_refuse",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "TH-Q1": {
+   "cluster": "thrombosis_prediction",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "TH-Q2": {
+   "cluster": "thrombosis_prediction",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "wrong_value",
+    "flip": "zh_correct_en_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "TH-Q3": {
+   "cluster": "thrombosis_prediction",
+   "expected_kind": "rewrite",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "execution_error",
+    "en": "execution_error",
+    "flip": "both_error"
+   }
+  },
+  "TH-Q4": {
+   "cluster": "thrombosis_prediction",
+   "expected_kind": "rewrite",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "wrong_value",
+    "flip": "zh_correct_en_error"
+   }
+  },
+  "TH-Q5": {
+   "cluster": "thrombosis_prediction",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   }
+  },
+  "TH-Q6": {
+   "cluster": "thrombosis_prediction",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "answered_should_refuse",
+    "en": "answered_should_refuse",
+    "flip": "both_error"
+   }
+  },
+  "W1-Q1": {
+   "cluster": "world_1",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "execution_error",
+    "flip": "zh_correct_en_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "wrong_value",
+    "flip": "zh_correct_en_error"
+   }
+  },
+  "W1-Q2": {
+   "cluster": "world_1",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "wrong_value",
+    "en": "wrong_value",
+    "flip": "both_error"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "W1-Q3": {
+   "cluster": "world_1",
+   "expected_kind": "value",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  },
+  "W1-Q4": {
+   "cluster": "world_1",
+   "expected_kind": "rewrite",
+   "baseline_claude": {
+    "zh": "correct",
+    "en": "refused_should_answer",
+    "flip": "zh_correct_en_error"
+   },
+   "governance_informed": {
+    "zh": "execution_error",
+    "en": "execution_error",
+    "flip": "both_error"
+   }
+  },
+  "W1-Q5": {
+   "cluster": "world_1",
+   "expected_kind": "refusal",
+   "baseline_claude": {
+    "zh": "answered_should_refuse",
+    "en": "correct",
+    "flip": "zh_error_en_correct"
+   },
+   "governance_informed": {
+    "zh": "correct",
+    "en": "correct",
+    "flip": "both_correct"
+   }
+  }
+ }
+}

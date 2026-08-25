@@ -1,0 +1,1064 @@
+{
+  "n_questions": 60,
+  "error_rate": {
+    "baseline_claude": 0.6,
+    "baseline_qwen": 0.7166666666666667,
+    "baseline_deepseek": 0.7333333333333333,
+    "baseline_minimax": 0.7666666666666667,
+    "trivial_claude": 0.5333333333333333,
+    "trivial_v2": 0.5833333333333334,
+    "trivial_v3": 0.6666666666666666,
+    "governance_informed": 0.4666666666666667,
+    "mechanism": 0.0
+  },
+  "cluster_bootstrap": {
+    "baseline_claude": {
+      "err": 0.6,
+      "ci95": [
+        0.4406779661016949,
+        0.746031746031746
+      ],
+      "B": 2000,
+      "cluster_unit": "domain (9 public DBs)"
+    },
+    "baseline_qwen": {
+      "err": 0.7166666666666667,
+      "ci95": [
+        0.6101694915254238,
+        0.8333333333333334
+      ],
+      "B": 2000,
+      "cluster_unit": "domain (9 public DBs)"
+    },
+    "baseline_deepseek": {
+      "err": 0.7333333333333333,
+      "ci95": [
+        0.5666666666666667,
+        0.8852459016393442
+      ],
+      "B": 2000,
+      "cluster_unit": "domain (9 public DBs)"
+    },
+    "baseline_minimax": {
+      "err": 0.7666666666666667,
+      "ci95": [
+        0.6271186440677966,
+        0.8983050847457628
+      ],
+      "B": 2000,
+      "cluster_unit": "domain (9 public DBs)"
+    },
+    "trivial_claude": {
+      "err": 0.5333333333333333,
+      "ci95": [
+        0.4067796610169492,
+        0.6451612903225806
+      ],
+      "B": 2000,
+      "cluster_unit": "domain (9 public DBs)"
+    },
+    "trivial_v2": {
+      "err": 0.5833333333333334,
+      "ci95": [
+        0.4827586206896552,
+        0.6935483870967742
+      ],
+      "B": 2000,
+      "cluster_unit": "domain (9 public DBs)"
+    },
+    "trivial_v3": {
+      "err": 0.6666666666666666,
+      "ci95": [
+        0.5272727272727272,
+        0.8032786885245902
+      ],
+      "B": 2000,
+      "cluster_unit": "domain (9 public DBs)"
+    },
+    "governance_informed": {
+      "err": 0.4666666666666667,
+      "ci95": [
+        0.2857142857142857,
+        0.639344262295082
+      ],
+      "B": 2000,
+      "cluster_unit": "domain (9 public DBs)"
+    },
+    "mechanism": {
+      "err": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "B": 2000,
+      "cluster_unit": "domain (9 public DBs)"
+    }
+  },
+  "coverage": {
+    "baseline_claude": {
+      "answered": 0.8333333333333334,
+      "refused": 0.15
+    },
+    "baseline_qwen": {
+      "answered": 0.8166666666666667,
+      "refused": 0.18333333333333332
+    },
+    "baseline_deepseek": {
+      "answered": 0.5833333333333334,
+      "refused": 0.4166666666666667
+    },
+    "baseline_minimax": {
+      "answered": 0.9666666666666667,
+      "refused": 0.03333333333333333
+    },
+    "trivial_claude": {
+      "answered": 0.8166666666666667,
+      "refused": 0.15
+    },
+    "trivial_v2": {
+      "answered": 0.9333333333333333,
+      "refused": 0.06666666666666667
+    },
+    "trivial_v3": {
+      "answered": 0.95,
+      "refused": 0.016666666666666666
+    },
+    "governance_informed": {
+      "answered": 0.9,
+      "refused": 0.1
+    },
+    "mechanism": {
+      "answered": 0.75,
+      "refused": 0.25
+    }
+  },
+  "reference_baseline": "baseline_claude",
+  "reference_errors": 36,
+  "eliminated_by_mechanism": 1.0,
+  "eliminated_by_trivial": 0.2222222222222222,
+  "A_pass(min plain-baseline err>=0.30)": true,
+  "B_pass(mechanism err=0 & elim=1.0)": true,
+  "C_pass(trivial eliminates<0.40)": true,
+  "criteria_note": "A'/B'/C' are the pilot2 descriptive criteria pre-registered in PREREG_pilot2_arms.md §4.4 — NOT a re-run of the old A/B/C gates (old adjudication frozen in pilot/pilot_summary.json; old numbers 51-question enterprise base, not comparable)",
+  "refusal_stats": {
+    "baseline_claude": {
+      "correct_refusals": 4,
+      "n_refusal_questions": 15,
+      "over_refusals_on_value_questions": 5,
+      "n_value_questions": 45
+    },
+    "baseline_qwen": {
+      "correct_refusals": 4,
+      "n_refusal_questions": 15,
+      "over_refusals_on_value_questions": 7,
+      "n_value_questions": 45
+    },
+    "baseline_deepseek": {
+      "correct_refusals": 6,
+      "n_refusal_questions": 15,
+      "over_refusals_on_value_questions": 19,
+      "n_value_questions": 45
+    },
+    "baseline_minimax": {
+      "correct_refusals": 2,
+      "n_refusal_questions": 15,
+      "over_refusals_on_value_questions": 0,
+      "n_value_questions": 45
+    },
+    "trivial_claude": {
+      "correct_refusals": 6,
+      "n_refusal_questions": 15,
+      "over_refusals_on_value_questions": 3,
+      "n_value_questions": 45
+    },
+    "trivial_v2": {
+      "correct_refusals": 3,
+      "n_refusal_questions": 15,
+      "over_refusals_on_value_questions": 1,
+      "n_value_questions": 45
+    },
+    "trivial_v3": {
+      "correct_refusals": 1,
+      "n_refusal_questions": 15,
+      "over_refusals_on_value_questions": 0,
+      "n_value_questions": 45
+    },
+    "governance_informed": {
+      "correct_refusals": 5,
+      "n_refusal_questions": 15,
+      "over_refusals_on_value_questions": 1,
+      "n_value_questions": 45
+    },
+    "mechanism": {
+      "correct_refusals": 15,
+      "n_refusal_questions": 15,
+      "over_refusals_on_value_questions": 0,
+      "n_value_questions": 45
+    }
+  },
+  "taxonomy": {
+    "baseline_claude": {
+      "correct": 24,
+      "wrong_value": 15,
+      "execution_error": 4,
+      "answered_should_refuse": 11,
+      "refused_should_answer": 5,
+      "no_sql": 1
+    },
+    "baseline_qwen": {
+      "correct": 17,
+      "wrong_value": 15,
+      "execution_error": 10,
+      "answered_should_refuse": 11,
+      "refused_should_answer": 7
+    },
+    "baseline_deepseek": {
+      "correct": 16,
+      "wrong_value": 10,
+      "execution_error": 6,
+      "answered_should_refuse": 9,
+      "refused_should_answer": 19
+    },
+    "baseline_minimax": {
+      "correct": 14,
+      "wrong_value": 9,
+      "execution_error": 24,
+      "answered_should_refuse": 13
+    },
+    "trivial_claude": {
+      "correct": 28,
+      "wrong_value": 10,
+      "execution_error": 9,
+      "answered_should_refuse": 9,
+      "refused_should_answer": 3,
+      "no_sql": 1
+    },
+    "trivial_v2": {
+      "correct": 25,
+      "wrong_value": 14,
+      "execution_error": 8,
+      "answered_should_refuse": 12,
+      "refused_should_answer": 1
+    },
+    "trivial_v3": {
+      "correct": 20,
+      "wrong_value": 16,
+      "execution_error": 8,
+      "answered_should_refuse": 14,
+      "no_sql": 2
+    },
+    "governance_informed": {
+      "correct": 32,
+      "wrong_value": 8,
+      "execution_error": 9,
+      "answered_should_refuse": 10,
+      "refused_should_answer": 1
+    },
+    "mechanism": {
+      "correct": 60
+    }
+  },
+  "scorer": {
+    "run_pilot_sha256": "fecda681ccce203fa08e1a8b28a8ff722093a50ce656c62e86d921b5949309ef",
+    "REL_TOL": 0.005,
+    "RAW_CAP": 2000,
+    "dispatch": "§4.2 frozen: rowset {CA-Q5,CODE-Q4,DEB-Q5,TH-Q3}, string {CODE-Q6,TH-Q4}, numeric otherwise",
+    "rescored_from": "cached raw responses in pilot2/runs/ — no new LLM calls"
+  },
+  "governance_informed_arm": {
+    "prereg": "PREREG_pilot2_arms.md §3 (ND-4 remount of B6 protocol; FROZEN 2026-08-04, 0 LLM calls at freeze)",
+    "E_gov": 28,
+    "error_qids": [
+      "CA-Q1",
+      "CA-Q5",
+      "CARD-Q2",
+      "CARD-Q3",
+      "CARD-Q6",
+      "CARD-Q7",
+      "CODE-Q1",
+      "CODE-Q2",
+      "CODE-Q4",
+      "CODE-Q5",
+      "CODE-Q6",
+      "CODE-Q7",
+      "DEB-Q5",
+      "EF2-Q1",
+      "EF2-Q3",
+      "EF2-Q5",
+      "EF2-Q6",
+      "F1-Q1",
+      "F1-Q2",
+      "F1-Q4",
+      "F1-Q5",
+      "F1-Q7",
+      "F1-Q8",
+      "FIN-Q7",
+      "TH-Q3",
+      "TH-Q5",
+      "TH-Q6",
+      "W1-Q4"
+    ],
+    "eliminated_by_governance": 0.3611111111111111,
+    "nd4_nondegeneracy": "PASS",
+    "prereg_case": "(iii) no substantial improvement (E>=3 & elim<0.40)",
+    "probe7_metadata_undecidable": {
+      "FIN-Q7": "answered_should_refuse",
+      "F1-Q7": "answered_should_refuse",
+      "DEB-Q6": "correct",
+      "EF2-Q5": "answered_should_refuse",
+      "CARD-Q7": "answered_should_refuse",
+      "F1-Q8": "answered_should_refuse",
+      "EF2-Q6": "answered_should_refuse"
+    },
+    "probe7_errors": 6,
+    "metadata_decidable_5": {
+      "CA-Q6": "correct",
+      "FIN-Q8": "correct",
+      "W1-Q5": "correct",
+      "DEB-Q7": "correct",
+      "CARD-Q6": "answered_should_refuse"
+    },
+    "md5_fixed": 4,
+    "disclosure_blocked_3": {
+      "CODE-Q7": "answered_should_refuse",
+      "TH-Q5": "answered_should_refuse",
+      "TH-Q6": "answered_should_refuse"
+    },
+    "paired_vs_baseline_claude": {
+      "b_other_correct_gov_wrong": 5,
+      "c_other_wrong_gov_correct": 13,
+      "tie_both_correct": 19,
+      "tie_both_wrong": 23,
+      "net": 8
+    },
+    "paired_vs_trivial_v2": {
+      "b_other_correct_gov_wrong": 4,
+      "c_other_wrong_gov_correct": 11,
+      "tie_both_correct": 21,
+      "tie_both_wrong": 24,
+      "net": 7
+    },
+    "per_cluster_vs_reference": {
+      "california_schools": {
+        "n": 6,
+        "errors": 2,
+        "correct_refusals": 1,
+        "n_refusal_questions": 1,
+        "baseline_claude_errors": 5
+      },
+      "card_games": {
+        "n": 7,
+        "errors": 4,
+        "correct_refusals": 0,
+        "n_refusal_questions": 2,
+        "baseline_claude_errors": 2
+      },
+      "codebase_community": {
+        "n": 7,
+        "errors": 6,
+        "correct_refusals": 0,
+        "n_refusal_questions": 1,
+        "baseline_claude_errors": 6
+      },
+      "debit_card_specializing": {
+        "n": 7,
+        "errors": 1,
+        "correct_refusals": 2,
+        "n_refusal_questions": 2,
+        "baseline_claude_errors": 3
+      },
+      "european_football_2": {
+        "n": 6,
+        "errors": 4,
+        "correct_refusals": 0,
+        "n_refusal_questions": 2,
+        "baseline_claude_errors": 2
+      },
+      "financial": {
+        "n": 8,
+        "errors": 1,
+        "correct_refusals": 1,
+        "n_refusal_questions": 2,
+        "baseline_claude_errors": 4
+      },
+      "formula_1": {
+        "n": 8,
+        "errors": 6,
+        "correct_refusals": 0,
+        "n_refusal_questions": 2,
+        "baseline_claude_errors": 7
+      },
+      "thrombosis_prediction": {
+        "n": 6,
+        "errors": 3,
+        "correct_refusals": 0,
+        "n_refusal_questions": 2,
+        "baseline_claude_errors": 5
+      },
+      "world_1": {
+        "n": 5,
+        "errors": 1,
+        "correct_refusals": 1,
+        "n_refusal_questions": 1,
+        "baseline_claude_errors": 2
+      }
+    }
+  },
+  "slices": {
+    "per_cluster": {
+      "baseline_claude": {
+        "california_schools": {
+          "n": 6,
+          "errors": 5
+        },
+        "card_games": {
+          "n": 7,
+          "errors": 2
+        },
+        "codebase_community": {
+          "n": 7,
+          "errors": 6
+        },
+        "debit_card_specializing": {
+          "n": 7,
+          "errors": 3
+        },
+        "european_football_2": {
+          "n": 6,
+          "errors": 2
+        },
+        "financial": {
+          "n": 8,
+          "errors": 4
+        },
+        "formula_1": {
+          "n": 8,
+          "errors": 7
+        },
+        "thrombosis_prediction": {
+          "n": 6,
+          "errors": 5
+        },
+        "world_1": {
+          "n": 5,
+          "errors": 2
+        }
+      },
+      "baseline_qwen": {
+        "california_schools": {
+          "n": 6,
+          "errors": 3
+        },
+        "card_games": {
+          "n": 7,
+          "errors": 4
+        },
+        "codebase_community": {
+          "n": 7,
+          "errors": 6
+        },
+        "debit_card_specializing": {
+          "n": 7,
+          "errors": 7
+        },
+        "european_football_2": {
+          "n": 6,
+          "errors": 3
+        },
+        "financial": {
+          "n": 8,
+          "errors": 5
+        },
+        "formula_1": {
+          "n": 8,
+          "errors": 6
+        },
+        "thrombosis_prediction": {
+          "n": 6,
+          "errors": 4
+        },
+        "world_1": {
+          "n": 5,
+          "errors": 5
+        }
+      },
+      "baseline_deepseek": {
+        "california_schools": {
+          "n": 6,
+          "errors": 6
+        },
+        "card_games": {
+          "n": 7,
+          "errors": 2
+        },
+        "codebase_community": {
+          "n": 7,
+          "errors": 7
+        },
+        "debit_card_specializing": {
+          "n": 7,
+          "errors": 6
+        },
+        "european_football_2": {
+          "n": 6,
+          "errors": 2
+        },
+        "financial": {
+          "n": 8,
+          "errors": 6
+        },
+        "formula_1": {
+          "n": 8,
+          "errors": 6
+        },
+        "thrombosis_prediction": {
+          "n": 6,
+          "errors": 4
+        },
+        "world_1": {
+          "n": 5,
+          "errors": 5
+        }
+      },
+      "baseline_minimax": {
+        "california_schools": {
+          "n": 6,
+          "errors": 4
+        },
+        "card_games": {
+          "n": 7,
+          "errors": 4
+        },
+        "codebase_community": {
+          "n": 7,
+          "errors": 7
+        },
+        "debit_card_specializing": {
+          "n": 7,
+          "errors": 7
+        },
+        "european_football_2": {
+          "n": 6,
+          "errors": 2
+        },
+        "financial": {
+          "n": 8,
+          "errors": 5
+        },
+        "formula_1": {
+          "n": 8,
+          "errors": 7
+        },
+        "thrombosis_prediction": {
+          "n": 6,
+          "errors": 5
+        },
+        "world_1": {
+          "n": 5,
+          "errors": 5
+        }
+      },
+      "trivial_claude": {
+        "california_schools": {
+          "n": 6,
+          "errors": 4
+        },
+        "card_games": {
+          "n": 7,
+          "errors": 3
+        },
+        "codebase_community": {
+          "n": 7,
+          "errors": 6
+        },
+        "debit_card_specializing": {
+          "n": 7,
+          "errors": 3
+        },
+        "european_football_2": {
+          "n": 6,
+          "errors": 1
+        },
+        "financial": {
+          "n": 8,
+          "errors": 5
+        },
+        "formula_1": {
+          "n": 8,
+          "errors": 4
+        },
+        "thrombosis_prediction": {
+          "n": 6,
+          "errors": 4
+        },
+        "world_1": {
+          "n": 5,
+          "errors": 2
+        }
+      },
+      "trivial_v2": {
+        "california_schools": {
+          "n": 6,
+          "errors": 4
+        },
+        "card_games": {
+          "n": 7,
+          "errors": 4
+        },
+        "codebase_community": {
+          "n": 7,
+          "errors": 6
+        },
+        "debit_card_specializing": {
+          "n": 7,
+          "errors": 3
+        },
+        "european_football_2": {
+          "n": 6,
+          "errors": 3
+        },
+        "financial": {
+          "n": 8,
+          "errors": 3
+        },
+        "formula_1": {
+          "n": 8,
+          "errors": 5
+        },
+        "thrombosis_prediction": {
+          "n": 6,
+          "errors": 5
+        },
+        "world_1": {
+          "n": 5,
+          "errors": 2
+        }
+      },
+      "trivial_v3": {
+        "california_schools": {
+          "n": 6,
+          "errors": 6
+        },
+        "card_games": {
+          "n": 7,
+          "errors": 4
+        },
+        "codebase_community": {
+          "n": 7,
+          "errors": 6
+        },
+        "debit_card_specializing": {
+          "n": 7,
+          "errors": 3
+        },
+        "european_football_2": {
+          "n": 6,
+          "errors": 3
+        },
+        "financial": {
+          "n": 8,
+          "errors": 4
+        },
+        "formula_1": {
+          "n": 8,
+          "errors": 7
+        },
+        "thrombosis_prediction": {
+          "n": 6,
+          "errors": 5
+        },
+        "world_1": {
+          "n": 5,
+          "errors": 2
+        }
+      },
+      "governance_informed": {
+        "california_schools": {
+          "n": 6,
+          "errors": 2
+        },
+        "card_games": {
+          "n": 7,
+          "errors": 4
+        },
+        "codebase_community": {
+          "n": 7,
+          "errors": 6
+        },
+        "debit_card_specializing": {
+          "n": 7,
+          "errors": 1
+        },
+        "european_football_2": {
+          "n": 6,
+          "errors": 4
+        },
+        "financial": {
+          "n": 8,
+          "errors": 1
+        },
+        "formula_1": {
+          "n": 8,
+          "errors": 6
+        },
+        "thrombosis_prediction": {
+          "n": 6,
+          "errors": 3
+        },
+        "world_1": {
+          "n": 5,
+          "errors": 1
+        }
+      },
+      "mechanism": {
+        "california_schools": {
+          "n": 6,
+          "errors": 0
+        },
+        "card_games": {
+          "n": 7,
+          "errors": 0
+        },
+        "codebase_community": {
+          "n": 7,
+          "errors": 0
+        },
+        "debit_card_specializing": {
+          "n": 7,
+          "errors": 0
+        },
+        "european_football_2": {
+          "n": 6,
+          "errors": 0
+        },
+        "financial": {
+          "n": 8,
+          "errors": 0
+        },
+        "formula_1": {
+          "n": 8,
+          "errors": 0
+        },
+        "thrombosis_prediction": {
+          "n": 6,
+          "errors": 0
+        },
+        "world_1": {
+          "n": 5,
+          "errors": 0
+        }
+      }
+    },
+    "per_gold_form": {
+      "baseline_claude": {
+        "value": {
+          "n": 33,
+          "errors": 18
+        },
+        "rewrite": {
+          "n": 12,
+          "errors": 7
+        },
+        "refusal": {
+          "n": 15,
+          "errors": 11
+        }
+      },
+      "baseline_qwen": {
+        "value": {
+          "n": 33,
+          "errors": 23
+        },
+        "rewrite": {
+          "n": 12,
+          "errors": 9
+        },
+        "refusal": {
+          "n": 15,
+          "errors": 11
+        }
+      },
+      "baseline_deepseek": {
+        "value": {
+          "n": 33,
+          "errors": 27
+        },
+        "rewrite": {
+          "n": 12,
+          "errors": 8
+        },
+        "refusal": {
+          "n": 15,
+          "errors": 9
+        }
+      },
+      "baseline_minimax": {
+        "value": {
+          "n": 33,
+          "errors": 25
+        },
+        "rewrite": {
+          "n": 12,
+          "errors": 8
+        },
+        "refusal": {
+          "n": 15,
+          "errors": 13
+        }
+      },
+      "trivial_claude": {
+        "value": {
+          "n": 33,
+          "errors": 16
+        },
+        "rewrite": {
+          "n": 12,
+          "errors": 7
+        },
+        "refusal": {
+          "n": 15,
+          "errors": 9
+        }
+      },
+      "trivial_v2": {
+        "value": {
+          "n": 33,
+          "errors": 15
+        },
+        "rewrite": {
+          "n": 12,
+          "errors": 8
+        },
+        "refusal": {
+          "n": 15,
+          "errors": 12
+        }
+      },
+      "trivial_v3": {
+        "value": {
+          "n": 33,
+          "errors": 19
+        },
+        "rewrite": {
+          "n": 12,
+          "errors": 7
+        },
+        "refusal": {
+          "n": 15,
+          "errors": 14
+        }
+      },
+      "governance_informed": {
+        "value": {
+          "n": 33,
+          "errors": 11
+        },
+        "rewrite": {
+          "n": 12,
+          "errors": 7
+        },
+        "refusal": {
+          "n": 15,
+          "errors": 10
+        }
+      },
+      "mechanism": {
+        "value": {
+          "n": 33,
+          "errors": 0
+        },
+        "rewrite": {
+          "n": 12,
+          "errors": 0
+        },
+        "refusal": {
+          "n": 15,
+          "errors": 0
+        }
+      }
+    },
+    "per_refusal_reason": {
+      "baseline_claude": {
+        "AM": {
+          "n": 5,
+          "correct": 2
+        },
+        "MC": {
+          "n": 3,
+          "correct": 2
+        },
+        "DB": {
+          "n": 3,
+          "correct": 0
+        },
+        "OOV": {
+          "n": 4,
+          "correct": 0
+        }
+      },
+      "baseline_qwen": {
+        "AM": {
+          "n": 5,
+          "correct": 2
+        },
+        "MC": {
+          "n": 3,
+          "correct": 1
+        },
+        "DB": {
+          "n": 3,
+          "correct": 0
+        },
+        "OOV": {
+          "n": 4,
+          "correct": 1
+        }
+      },
+      "baseline_deepseek": {
+        "AM": {
+          "n": 5,
+          "correct": 2
+        },
+        "MC": {
+          "n": 3,
+          "correct": 3
+        },
+        "DB": {
+          "n": 3,
+          "correct": 1
+        },
+        "OOV": {
+          "n": 4,
+          "correct": 0
+        }
+      },
+      "baseline_minimax": {
+        "AM": {
+          "n": 5,
+          "correct": 1
+        },
+        "MC": {
+          "n": 3,
+          "correct": 1
+        },
+        "DB": {
+          "n": 3,
+          "correct": 0
+        },
+        "OOV": {
+          "n": 4,
+          "correct": 0
+        }
+      },
+      "trivial_claude": {
+        "AM": {
+          "n": 5,
+          "correct": 1
+        },
+        "MC": {
+          "n": 3,
+          "correct": 2
+        },
+        "DB": {
+          "n": 3,
+          "correct": 1
+        },
+        "OOV": {
+          "n": 4,
+          "correct": 2
+        }
+      },
+      "trivial_v2": {
+        "AM": {
+          "n": 5,
+          "correct": 2
+        },
+        "MC": {
+          "n": 3,
+          "correct": 1
+        },
+        "DB": {
+          "n": 3,
+          "correct": 0
+        },
+        "OOV": {
+          "n": 4,
+          "correct": 0
+        }
+      },
+      "trivial_v3": {
+        "AM": {
+          "n": 5,
+          "correct": 1
+        },
+        "MC": {
+          "n": 3,
+          "correct": 0
+        },
+        "DB": {
+          "n": 3,
+          "correct": 0
+        },
+        "OOV": {
+          "n": 4,
+          "correct": 0
+        }
+      },
+      "governance_informed": {
+        "AM": {
+          "n": 5,
+          "correct": 4
+        },
+        "MC": {
+          "n": 3,
+          "correct": 0
+        },
+        "DB": {
+          "n": 3,
+          "correct": 0
+        },
+        "OOV": {
+          "n": 4,
+          "correct": 1
+        }
+      },
+      "mechanism": {
+        "AM": {
+          "n": 5,
+          "correct": 5
+        },
+        "MC": {
+          "n": 3,
+          "correct": 3
+        },
+        "DB": {
+          "n": 3,
+          "correct": 3
+        },
+        "OOV": {
+          "n": 4,
+          "correct": 4
+        }
+      }
+    }
+  },
+  "empty_responses": {
+    "baseline_claude": [
+      "CODE-Q6"
+    ],
+    "baseline_qwen": [],
+    "baseline_deepseek": [],
+    "baseline_minimax": [],
+    "trivial_claude": [
+      "CA-Q6",
+      "FIN-Q5"
+    ],
+    "trivial_v2": [],
+    "trivial_v3": [
+      "EF2-Q2",
+      "FIN-Q3"
+    ],
+    "governance_informed": []
+  },
+  "details": "pilot2_arms_summary.json (per-question verdicts, prompt char account)"
+}

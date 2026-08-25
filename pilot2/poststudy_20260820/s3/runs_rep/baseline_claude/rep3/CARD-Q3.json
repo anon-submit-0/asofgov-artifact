@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 问题提及\"轮替口径\"与\"as-of时点\"等时态语义，但schema中legalities表仅包含format/status/uuid列，无时间戳或版本字段；gov_*治理表中的时态绑定与锚点也未与legalities关联，无法回溯到2021-03-10的历史状态或应用声明时点逻辑。\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "7203e05966850628dce621d527b11a99de5f86d24265382f5aa8b4aaea74bcba",
+ "prompt_chars": 5446,
+ "empty_response": false
+}

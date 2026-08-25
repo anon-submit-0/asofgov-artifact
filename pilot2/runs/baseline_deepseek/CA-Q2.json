@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q2",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 治理表时间绑定与口径选择逻辑复杂，无法从schema推断具体实现",
+ "sql": "REFUSE",
+ "prompt_sha256": "73829b166ac8e4c3e46f90456738ea70a0e88510356d73ef4ba57cbca9091703",
+ "prompt_chars": 5214,
+ "empty_response": false
+}

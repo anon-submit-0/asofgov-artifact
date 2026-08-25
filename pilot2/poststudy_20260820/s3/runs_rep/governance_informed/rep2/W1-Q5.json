@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q5",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 分子分母必须取同一有效时间窗口，不能分别指定不同月份\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "110f8b709f4b5405fd31a1a13d80ca4f724591213a628238c2bf400b5b0f8ddf",
+ "prompt_chars": 16176,
+ "empty_response": false
+}

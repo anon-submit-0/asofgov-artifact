@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q1",
+ "system": "baseline_deepseek",
+ "kind": "value",
+ "value": 1.901743264659271,
+ "verdict": "wrong_value",
+ "raw": "SELECT \n    COUNT(CASE WHEN l.\"GOT\" >= 60 THEN 1 END) * 100.0 / COUNT(*)\nFROM main.\"Laboratory\" l\nWHERE l.\"Date\" BETWEEN DATE '1997-01-01' AND DATE '1997-12-31'\n    AND l.\"Date\" <= DATE '1998-06-01';",
+ "sql": "SELECT \n    COUNT(CASE WHEN l.\"GOT\" >= 60 THEN 1 END) * 100.0 / COUNT(*)\nFROM main.\"Laboratory\" l\nWHERE l.\"Date\" BETWEEN DATE '1997-01-01' AND DATE '1997-12-31'\n    AND l.\"Date\" <= DATE '1998-06-01'",
+ "prompt_sha256": "672f28bf2676501f401d3e143f42f353ea0ee442dd780fd743eb229808153fae",
+ "prompt_chars": 4155,
+ "empty_response": false
+}

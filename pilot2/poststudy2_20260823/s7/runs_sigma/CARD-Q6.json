@@ -1,0 +1,28 @@
+{
+ "qid": "CARD-Q6",
+ "domain": "card_games",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2017-02-01",
+  "declared_at": "2017-03-01",
+  "metric_alias": "保留卡收藏溢价率",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2017-02-01\", \"declared_at\": \"2017-03-01\", \"metric_alias\": \"保留卡收藏溢价率\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "92ae2bb72a9e53c5b7aa635280829b79ca25d8b68d6769e1f67c66624178541e",
+ "prompt_chars": 26805
+}

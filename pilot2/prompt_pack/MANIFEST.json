@@ -1,0 +1,424 @@
+{
+ "llm_calls_at_generation_time": 0,
+ "GOV_CAP": 32000,
+ "priority": [
+  "gov_semantic_graph_version",
+  "gov_metric_alias",
+  "gov_metric",
+  "gov_measure_def",
+  "gov_caliber_routing",
+  "gov_valid_time_anchor",
+  "gov_temporal_binding",
+  "gov_semantic_node",
+  "gov_granularity_edge",
+  "gov_disclosure_policy"
+ ],
+ "domains": {
+  "california_schools": {
+   "schema_chars": 4946,
+   "schema_sha256": "818d766c0996ba02c877b1d23c1e67bd4f6ef7d5895b2cfafcdcce196bc7faef",
+   "gov_chars": 12530,
+   "gov_sha256": "a573441a975534d45e7bc3dd81cd8d14f2a7dfff47076ead37c6bb6149e9e745",
+   "gov_blocks": 10,
+   "truncated": false,
+   "dropped_blocks": [],
+   "n_questions": 6
+  },
+  "card_games": {
+   "schema_chars": 5194,
+   "schema_sha256": "38fec5eae93a5e4f568f392f682e5e4bab39aff8e194564ca28f79ab1ba85ddd",
+   "gov_chars": 18295,
+   "gov_sha256": "684b99e482cd77e1d60ae2d45668c8c802a9624ddf0f690c94c1901bfc401511",
+   "gov_blocks": 10,
+   "truncated": false,
+   "dropped_blocks": [],
+   "n_questions": 7
+  },
+  "codebase_community": {
+   "schema_chars": 4660,
+   "schema_sha256": "3066e1e621772a38b5956fee8b6a329de8e2fdd8a80d59fca6a49ccf605fbfdc",
+   "gov_chars": 23132,
+   "gov_sha256": "95d52a5195695f34b4aff1c5058a4383473e23663b087e25af8c936b2835a5f3",
+   "gov_blocks": 10,
+   "truncated": false,
+   "dropped_blocks": [],
+   "n_questions": 7
+  },
+  "debit_card_specializing": {
+   "schema_chars": 3458,
+   "schema_sha256": "1be221812f777fb7ed50195aea2990da801afd7e803914b593669366e8a3bd69",
+   "gov_chars": 15932,
+   "gov_sha256": "b25563a9e5ebd08cef3566c7230a7e6da7f1514e596cad3ec057e27c71ac486b",
+   "gov_blocks": 10,
+   "truncated": false,
+   "dropped_blocks": [],
+   "n_questions": 7
+  },
+  "european_football_2": {
+   "schema_chars": 7371,
+   "schema_sha256": "ce7f968db2125731dd5a26bbe425bfadbfb4f644471bca2567f473bf4ae42b63",
+   "gov_chars": 17438,
+   "gov_sha256": "0fd45cadbf684f14960fd23bdb5b196992762bc57f418a2c83a256aadd03d173",
+   "gov_blocks": 10,
+   "truncated": false,
+   "dropped_blocks": [],
+   "n_questions": 6
+  },
+  "financial": {
+   "schema_chars": 3825,
+   "schema_sha256": "41dffeca2b2f54169107bc4bae7423d1ab2ac8650f097907f82647a5d25434d6",
+   "gov_chars": 19211,
+   "gov_sha256": "377926244a9966831b838f44e70ae6858cd9ed367179c77a40a5cfdc00570fee",
+   "gov_blocks": 10,
+   "truncated": false,
+   "dropped_blocks": [],
+   "n_questions": 8
+  },
+  "formula_1": {
+   "schema_chars": 5236,
+   "schema_sha256": "73e0fbb46163b2499b691ef2657528514395bbab4a2547677561ca3b2379d177",
+   "gov_chars": 21416,
+   "gov_sha256": "9fe3e5e4828db9c830ad24f8e8be68d13320354d2ce2e4298b8439bb019fa9d1",
+   "gov_blocks": 10,
+   "truncated": false,
+   "dropped_blocks": [],
+   "n_questions": 8
+  },
+  "thrombosis_prediction": {
+   "schema_chars": 3892,
+   "schema_sha256": "f026ded3c3e1c5b83e2388af2e977419aa7be757af141ec3f65a769d038ca0e5",
+   "gov_chars": 16034,
+   "gov_sha256": "64fcf5645e9488e45e701f2a137829ba52c30b993a157348ae655ca40c59529e",
+   "gov_blocks": 10,
+   "truncated": false,
+   "dropped_blocks": [],
+   "n_questions": 6
+  },
+  "world_1": {
+   "schema_chars": 2833,
+   "schema_sha256": "bb13920211a1d3857c5066a7d925ee2beb6553f462c9a7dbf27d49bbaa4ff5a4",
+   "gov_chars": 12874,
+   "gov_sha256": "3977f83eb94b79b832de73ef9880564e2d758ac016389f27ebaa6ce0616b59cf",
+   "gov_blocks": 10,
+   "truncated": false,
+   "dropped_blocks": [],
+   "n_questions": 5
+  }
+ },
+ "prompt_totals": {
+  "baseline_claude": 292332,
+  "baseline_qwen": 292332,
+  "baseline_deepseek": 292332,
+  "baseline_minimax": 292332,
+  "trivial_claude": 299232,
+  "trivial_v2": 305892,
+  "trivial_v3": 303552,
+  "governance_informed": 1372803
+ },
+ "prompt_len_range": {
+  "baseline_claude": {
+   "california_schools": [
+    5185,
+    5214
+   ],
+   "card_games": [
+    5428,
+    5508
+   ],
+   "codebase_community": [
+    4898,
+    4921
+   ],
+   "debit_card_specializing": [
+    3696,
+    3728
+   ],
+   "european_football_2": [
+    7615,
+    7653
+   ],
+   "financial": [
+    4068,
+    4086
+   ],
+   "formula_1": [
+    5480,
+    5521
+   ],
+   "thrombosis_prediction": [
+    4130,
+    4155
+   ],
+   "world_1": [
+    3076,
+    3081
+   ]
+  },
+  "baseline_qwen": {
+   "california_schools": [
+    5185,
+    5214
+   ],
+   "card_games": [
+    5428,
+    5508
+   ],
+   "codebase_community": [
+    4898,
+    4921
+   ],
+   "debit_card_specializing": [
+    3696,
+    3728
+   ],
+   "european_football_2": [
+    7615,
+    7653
+   ],
+   "financial": [
+    4068,
+    4086
+   ],
+   "formula_1": [
+    5480,
+    5521
+   ],
+   "thrombosis_prediction": [
+    4130,
+    4155
+   ],
+   "world_1": [
+    3076,
+    3081
+   ]
+  },
+  "baseline_deepseek": {
+   "california_schools": [
+    5185,
+    5214
+   ],
+   "card_games": [
+    5428,
+    5508
+   ],
+   "codebase_community": [
+    4898,
+    4921
+   ],
+   "debit_card_specializing": [
+    3696,
+    3728
+   ],
+   "european_football_2": [
+    7615,
+    7653
+   ],
+   "financial": [
+    4068,
+    4086
+   ],
+   "formula_1": [
+    5480,
+    5521
+   ],
+   "thrombosis_prediction": [
+    4130,
+    4155
+   ],
+   "world_1": [
+    3076,
+    3081
+   ]
+  },
+  "baseline_minimax": {
+   "california_schools": [
+    5185,
+    5214
+   ],
+   "card_games": [
+    5428,
+    5508
+   ],
+   "codebase_community": [
+    4898,
+    4921
+   ],
+   "debit_card_specializing": [
+    3696,
+    3728
+   ],
+   "european_football_2": [
+    7615,
+    7653
+   ],
+   "financial": [
+    4068,
+    4086
+   ],
+   "formula_1": [
+    5480,
+    5521
+   ],
+   "thrombosis_prediction": [
+    4130,
+    4155
+   ],
+   "world_1": [
+    3076,
+    3081
+   ]
+  },
+  "trivial_claude": {
+   "california_schools": [
+    5300,
+    5329
+   ],
+   "card_games": [
+    5543,
+    5623
+   ],
+   "codebase_community": [
+    5013,
+    5036
+   ],
+   "debit_card_specializing": [
+    3811,
+    3843
+   ],
+   "european_football_2": [
+    7730,
+    7768
+   ],
+   "financial": [
+    4183,
+    4201
+   ],
+   "formula_1": [
+    5595,
+    5636
+   ],
+   "thrombosis_prediction": [
+    4245,
+    4270
+   ],
+   "world_1": [
+    3191,
+    3196
+   ]
+  },
+  "trivial_v2": {
+   "california_schools": [
+    5411,
+    5440
+   ],
+   "card_games": [
+    5654,
+    5734
+   ],
+   "codebase_community": [
+    5124,
+    5147
+   ],
+   "debit_card_specializing": [
+    3922,
+    3954
+   ],
+   "european_football_2": [
+    7841,
+    7879
+   ],
+   "financial": [
+    4294,
+    4312
+   ],
+   "formula_1": [
+    5706,
+    5747
+   ],
+   "thrombosis_prediction": [
+    4356,
+    4381
+   ],
+   "world_1": [
+    3302,
+    3307
+   ]
+  },
+  "trivial_v3": {
+   "california_schools": [
+    5372,
+    5401
+   ],
+   "card_games": [
+    5615,
+    5695
+   ],
+   "codebase_community": [
+    5085,
+    5108
+   ],
+   "debit_card_specializing": [
+    3883,
+    3915
+   ],
+   "european_football_2": [
+    7802,
+    7840
+   ],
+   "financial": [
+    4255,
+    4273
+   ],
+   "formula_1": [
+    5667,
+    5708
+   ],
+   "thrombosis_prediction": [
+    4317,
+    4342
+   ],
+   "world_1": [
+    3263,
+    3268
+   ]
+  },
+  "governance_informed": {
+   "california_schools": [
+    17941,
+    17970
+   ],
+   "card_games": [
+    23949,
+    24029
+   ],
+   "codebase_community": [
+    28256,
+    28279
+   ],
+   "debit_card_specializing": [
+    19854,
+    19886
+   ],
+   "european_football_2": [
+    25279,
+    25317
+   ],
+   "financial": [
+    23505,
+    23523
+   ],
+   "formula_1": [
+    27122,
+    27163
+   ],
+   "thrombosis_prediction": [
+    20390,
+    20415
+   ],
+   "world_1": [
+    16176,
+    16181
+   ]
+  }
+ }
+}

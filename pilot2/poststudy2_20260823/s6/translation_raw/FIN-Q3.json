@@ -1,0 +1,19 @@
+{
+ "qid": "FIN-Q3",
+ "domain": "financial",
+ "question_zh": "以 1998-09-15 为声明时点，1997 自然年（as-of 1997-06-30 所在年窗）的罚息交易占比是多少（治理路由口径）？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 1998-09-15 as the declaration instant, what is the penalty interest transaction proportion for calendar year 1997 (as-of 1997-06-30 the containing year window) (governance-routed caliber)?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5295 completion=72]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:38:08"
+}

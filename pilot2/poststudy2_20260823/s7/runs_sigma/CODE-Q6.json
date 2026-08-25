@@ -1,0 +1,30 @@
+{
+ "qid": "CODE-Q6",
+ "domain": "codebase_community",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": null,
+  "declared_at": "2013-08-01",
+  "metric_alias": "用户所在地",
+  "scope": {
+   "user_id": 22047
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "value",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": null, \"declared_at\": \"2013-08-01\", \"metric_alias\": \"用户所在地\", \"scope\": {\"user_id\": 22047}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"value\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "29852c1bab544b87be37de3ab82b62b321d9e8da9ea1a2be90022c265d6bba3d",
+ "prompt_chars": 31118
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q7",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: The question uses governance/temporal concepts (\"declaration instant,\" \"containing month window,\" \"as-of\") that reference the gov_* metadata tables, but those tables lack sufficient binding rules and temporal anchor definitions to deterministically resolve the query against the races data.",
+ "sql": "REFUSE",
+ "prompt_sha256": "e3491e3a8749f98b0c22a61dfe7f7d8679d3480085d89983d7a875570dd90b00",
+ "prompt_chars": 5557,
+ "empty_response": false
+}

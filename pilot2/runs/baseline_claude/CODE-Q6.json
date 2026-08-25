@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q6",
+ "system": "baseline_claude",
+ "kind": "no_sql",
+ "value": null,
+ "verdict": "no_sql",
+ "raw": "",
+ "sql": null,
+ "prompt_sha256": "b5ab76212dbf6819770094390ee7ed6eaa9db8d36ecbd37ba133c902e1918b74",
+ "prompt_chars": 4904,
+ "empty_response": true
+}

@@ -1,0 +1,135 @@
+{
+ "sql": "SELECT 'all' AS cell, AVG(t0.\"Amount\") AS val FROM \"transactions_1k\" t0 INNER JOIN \"customers\" t1 ON t0.\"CustomerID\" = t1.\"CustomerID\" WHERE t1.\"Currency\" = 'EUR' AND substr(CAST(t0.\"Date\" AS VARCHAR),1,10) >= '2012-08-23' AND substr(CAST(t0.\"Date\" AS VARCHAR),1,10) < '2012-08-27' GROUP BY 1 ORDER BY 1",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "DEB-Q5",
+   "domain": "debit_card_specializing",
+   "metric": "deb.segment_avg_trans",
+   "metric_kind": "report",
+   "as_of": null
+  },
+  "graph_pin": {
+   "domain": "debit_card_specializing",
+   "graph_version": "v2",
+   "commit_id": "2013-06-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": "A-DEB-T1K",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "range",
+     "lo": "2012-08-23",
+     "hi_excl": "2012-08-27"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-DEB-SAT",
+   "rule": "same_valid_time_window",
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [
+   {
+    "caliber_key": "deb.rt3",
+    "metric": "deb.segment_avg_trans",
+    "leg": "scope",
+    "hop_seq": "0",
+    "src_node": "deb.transactions_1k",
+    "dst_node": "deb.customers",
+    "via_table": "customers",
+    "dst_caliber": "scoped",
+    "join_keys": [
+     [
+      "CustomerID",
+      "CustomerID"
+     ]
+    ]
+   },
+   {
+    "caliber_key": "deb.rt4",
+    "metric": "deb.segment_avg_trans",
+    "leg": "entity",
+    "hop_seq": "0",
+    "src_node": "deb.transactions_1k",
+    "dst_node": "deb.customers",
+    "via_table": "customers",
+    "dst_caliber": "scoped",
+    "join_keys": [
+     [
+      "CustomerID",
+      "CustomerID"
+     ]
+    ]
+   }
+  ],
+  "disclosure": {
+   "decision": "REWRITE",
+   "policy_ids": [
+    "deb.pi1"
+   ],
+   "policy_table_present": true,
+   "ungoverned_disclosure": false,
+   "granularity": "all",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-DEB-T1K",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"Date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"Date\" AS VARCHAR),1,10)) FROM \"transactions_1k\" t WHERE t.\"Date\" IS NOT NULL",
+    "observed": [
+     "2012-08-23",
+     "2012-08-26"
+    ]
+   },
+   {
+    "kind": "SUPPMIN",
+    "policy_id": "deb.pi1",
+    "level": "Segment",
+    "sql": "SELECT MIN(n) FROM (SELECT t1.\"Segment\" AS cell, COUNT(DISTINCT t1.\"CustomerID\") AS n FROM \"transactions_1k\" t0 INNER JOIN \"customers\" t1 ON t0.\"CustomerID\" = t1.\"CustomerID\" WHERE t1.\"Currency\" = 'EUR' AND t1.\"Segment\" = 'LAM' AND substr(CAST(t0.\"Date\" AS VARCHAR),1,10) >= '2012-08-23' AND substr(CAST(t0.\"Date\" AS VARCHAR),1,10) < '2012-08-27' GROUP BY 1 ORDER BY 1)",
+    "observed": 16,
+    "threshold": "20"
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  },
+  "rewrite": {
+   "kept_slices": [
+    "(v2,B-DEB-SAT)"
+   ],
+   "cut_trace": [
+    {
+     "kind": "granularity_rollup",
+     "requested_level": "Segment",
+     "effective_level": "all",
+     "policy_ids": [
+      "deb.pi1"
+     ]
+    }
+   ],
+   "ct": [],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ }
+}

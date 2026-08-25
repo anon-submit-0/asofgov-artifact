@@ -1,0 +1,4 @@
+{"dst_caliber": "all", "dst_node": "ca.frpm", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "ca.free_meal_rate", "routing_id": "ca.rt1", "src_node": "ca.frpm"}
+{"dst_caliber": "all", "dst_node": "ca.frpm", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "ca.free_meal_rate", "routing_id": "ca.rt2", "src_node": "ca.frpm"}
+{"dst_caliber": "all", "dst_node": "ca.frpm", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "num", "metric_id": "ca.free_meal_rate", "routing_id": "ca.rt1", "src_node": "ca.frpm"}
+{"dst_caliber": "all", "dst_node": "ca.frpm", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "ca.free_meal_rate", "routing_id": "ca.rt2", "src_node": "ca.frpm"}

@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q6",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 缺乏化验异常的标准定义或正常值范围。",
+ "sql": "REFUSE",
+ "prompt_sha256": "0f0ce2ef2d615ccc877f4a23c850c2b799d352929dd8dfb0af1e4d9ce99fde7d",
+ "prompt_chars": 4130,
+ "empty_response": false
+}

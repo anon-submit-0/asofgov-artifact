@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q8",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n    SUM(ps.points) / COUNT(*)\nFROM main.results r\nJOIN main.races ra ON r.raceId = ra.raceId\nJOIN main.constructors c ON r.constructorId = c.constructorId\nJOIN main.points_scheme ps ON r.positionOrder = ps.position\nWHERE c.constructorRef = 'brawn'\n  AND ra.year = 2010\n  AND ps.scheme_id = 'PS2010'\n```",
+ "sql": "SELECT \n    SUM(ps.points) / COUNT(*)\nFROM main.results r\nJOIN main.races ra ON r.raceId = ra.raceId\nJOIN main.constructors c ON r.constructorId = c.constructorId\nJOIN main.points_scheme ps ON r.positionOrder = ps.position\nWHERE c.constructorRef = 'brawn'\n  AND ra.year = 2010\n  AND ps.scheme_id = 'PS2010'",
+ "prompt_sha256": "1e16cc9c97e28655546a6ba5adc3b11d858a9d20aaf27cd4de35e6fc79c611cf",
+ "prompt_chars": 27139,
+ "empty_response": false
+}

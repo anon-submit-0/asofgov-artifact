@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q3",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 数据集中没有罚息（penalty interest）相关的标记字段或治理路由指标定义\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "485f77d6527d89a016bada4195809c1f9f994b420a2ef6ffc53242e4ee5f692f",
+ "prompt_chars": 4086,
+ "empty_response": false
+}

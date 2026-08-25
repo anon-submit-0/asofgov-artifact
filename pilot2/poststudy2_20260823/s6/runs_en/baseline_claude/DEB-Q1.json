@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q1",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 15626.138213557568,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT AVG(\"Consumption\") FROM main.\"yearmonth\" WHERE \"CustomerID\" IN (SELECT \"CustomerID\" FROM main.\"customers\" WHERE \"Currency\" = 'CZK') AND \"Date\" = '201308'\n```",
+ "sql": "SELECT AVG(\"Consumption\") FROM main.\"yearmonth\" WHERE \"CustomerID\" IN (SELECT \"CustomerID\" FROM main.\"customers\" WHERE \"Currency\" = 'CZK') AND \"Date\" = '201308'",
+ "prompt_sha256": "ca58f4cdde90bf46cd1508a75399d87235ae2a7d64672317861c34c6d3d10c5b",
+ "prompt_chars": 3828,
+ "empty_response": false
+}

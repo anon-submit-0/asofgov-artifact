@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q5",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: country_history表中没有2026-05或2026-04的数据可供验证，且跨期混合计算（分子分母取自不同月份）在语义上不构成有意义的\"亚洲人口占比\"指标，该问题无法被正确回答。",
+ "sql": "REFUSE",
+ "prompt_sha256": "49ed08a42a70a78c986ea107aded67f0401b56275da42d90170ff5ea61dba1eb",
+ "prompt_chars": 3165,
+ "empty_response": false
+}

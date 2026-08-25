@@ -1,0 +1,134 @@
+{
+ "claimed_verdicts": {
+  "S4-P1": "MISS",
+  "S4-P2": "MISS",
+  "S4-P3": "MET"
+ },
+ "compare_to_s4_summary": {
+  "governance_informed": {
+   "ci_match": true,
+   "claimed_ci": [
+    -0.05,
+    0.3
+   ],
+   "mean_match": true,
+   "my_ci": [
+    -0.05,
+    0.3
+   ]
+  },
+  "trivial_claude": {
+   "ci_match": true,
+   "claimed_ci": [
+    -0.046153846153846156,
+    0.1774193548387097
+   ],
+   "mean_match": true,
+   "my_ci": [
+    -0.046153846153846156,
+    0.1774193548387097
+   ]
+  },
+  "trivial_v2": {
+   "ci_match": true,
+   "claimed_ci": [
+    -0.1016949152542373,
+    0.11666666666666667
+   ],
+   "mean_match": true,
+   "my_ci": [
+    -0.1016949152542373,
+    0.11666666666666667
+   ]
+  },
+  "trivial_v3": {
+   "ci_match": true,
+   "claimed_ci": [
+    -0.14285714285714285,
+    -0.015151515151515152
+   ],
+   "mean_match": true,
+   "my_ci": [
+    -0.14285714285714285,
+    -0.015151515151515152
+   ]
+  }
+ },
+ "elim_match": {
+  "1": true,
+  "2": true,
+  "3": true,
+  "4": true,
+  "5": true
+ },
+ "independent_verdicts": {
+  "S4-P1": "MISS",
+  "S4-P2": "MISS",
+  "S4-P3": "MET"
+ },
+ "my_bootstrap": {
+  "governance_informed": {
+   "ci95": [
+    -0.05,
+    0.3
+   ],
+   "errors_arm": 28,
+   "errors_ref": 36,
+   "excludes0": false,
+   "mean": 0.13333333333333333
+  },
+  "trivial_claude": {
+   "ci95": [
+    -0.046153846153846156,
+    0.1774193548387097
+   ],
+   "errors_arm": 32,
+   "errors_ref": 36,
+   "excludes0": false,
+   "mean": 0.06666666666666667
+  },
+  "trivial_v2": {
+   "ci95": [
+    -0.1016949152542373,
+    0.11666666666666667
+   ],
+   "errors_arm": 35,
+   "errors_ref": 36,
+   "excludes0": false,
+   "mean": 0.016666666666666666
+  },
+  "trivial_v3": {
+   "ci95": [
+    -0.14285714285714285,
+    -0.015151515151515152
+   ],
+   "errors_arm": 40,
+   "errors_ref": 36,
+   "excludes0": true,
+   "mean": -0.06666666666666667
+  }
+ },
+ "my_elim": {
+  "1": {
+   "frac": 0.3611111111111111,
+   "n": 13
+  },
+  "2": {
+   "frac": 0.4166666666666667,
+   "n": 15
+  },
+  "3": {
+   "frac": 0.4166666666666667,
+   "n": 15
+  },
+  "4": {
+   "frac": 0.4166666666666667,
+   "n": 15
+  },
+  "5": {
+   "frac": 0.3888888888888889,
+   "n": 14
+  }
+ },
+ "prereg_sha256": "838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669"
+}

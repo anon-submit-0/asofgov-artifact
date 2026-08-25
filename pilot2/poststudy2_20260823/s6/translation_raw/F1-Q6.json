@@ -1,0 +1,19 @@
+{
+ "qid": "F1-Q6",
+ "domain": "formula_1",
+ "question_zh": "以 2017-12-15 为声明时点，统计 2017-10-01 至 2018-03-31 的区间大奖赛场数。",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2017-12-15 as the declaration instant, compute the interval grand prix event count from 2017-10-01 to 2018-03-31.",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5268 completion=44]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:38:50"
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q1",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 2161.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"rulings\" WHERE \"date\" >= '2017-02-01' AND \"date\" < '2017-03-01'\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"rulings\" WHERE \"date\" >= '2017-02-01' AND \"date\" < '2017-03-01'",
+ "prompt_sha256": "2b240dbf83e83c805f5bb73dadfdfd6e6e931e2df0479b95e084dacaa1b46f40",
+ "prompt_chars": 5636,
+ "empty_response": false
+}

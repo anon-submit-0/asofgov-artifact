@@ -1,0 +1,2 @@
+{"change_note": "初版治理：出生日期掩码保留年月", "commit_seq": 1, "committed_at": "1995-01-01", "domain": "thrombosis_prediction", "graph_version": "v1"}
+{"change_note": "掩码升级：出生日期仅保留年份", "commit_seq": 2, "committed_at": "1998-01-01", "domain": "thrombosis_prediction", "graph_version": "v2"}

@@ -1,0 +1,50 @@
+-- card_games 域 pilot2 warehouse.duckdb schema（源: BIRD/Spider dev 公开数据集，抽取与 real/authored 行数见 provenance.json）
+-- schema: main = 业务事实/维表 + gov_* 治理登记表（十表 schema 法, DESIGN_SPEC §3.1）
+
+CREATE TABLE main."cards"("id" BIGINT, "artist" VARCHAR, "asciiName" VARCHAR, "availability" VARCHAR, "borderColor" VARCHAR, "cardKingdomFoilId" VARCHAR, "cardKingdomId" VARCHAR, "colorIdentity" VARCHAR, "colorIndicator" VARCHAR, "colors" VARCHAR, "convertedManaCost" DOUBLE, "duelDeck" VARCHAR, "edhrecRank" BIGINT, "faceConvertedManaCost" DOUBLE, "faceName" VARCHAR, "flavorName" VARCHAR, "flavorText" VARCHAR, "frameEffects" VARCHAR, "frameVersion" VARCHAR, "hand" VARCHAR, "hasAlternativeDeckLimit" BIGINT, "hasContentWarning" BIGINT, "hasFoil" BIGINT, "hasNonFoil" BIGINT, "isAlternative" BIGINT, "isFullArt" BIGINT, "isOnlineOnly" BIGINT, "isOversized" BIGINT, "isPromo" BIGINT, "isReprint" BIGINT, "isReserved" BIGINT, "isStarter" BIGINT, "isStorySpotlight" BIGINT, "isTextless" BIGINT, "isTimeshifted" BIGINT, "keywords" VARCHAR, "layout" VARCHAR, "leadershipSkills" VARCHAR, "life" VARCHAR, "loyalty" VARCHAR, "manaCost" VARCHAR, "mcmId" VARCHAR, "mcmMetaId" VARCHAR, "mtgArenaId" VARCHAR, "mtgjsonV4Id" VARCHAR, "mtgoFoilId" VARCHAR, "mtgoId" VARCHAR, "multiverseId" VARCHAR, "name" VARCHAR, "number" VARCHAR, "originalReleaseDate" VARCHAR, "originalText" VARCHAR, "originalType" VARCHAR, "otherFaceIds" VARCHAR, "power" VARCHAR, "printings" VARCHAR, "promoTypes" VARCHAR, "purchaseUrls" VARCHAR, "rarity" VARCHAR, "scryfallId" VARCHAR, "scryfallIllustrationId" VARCHAR, "scryfallOracleId" VARCHAR, "setCode" VARCHAR, "side" VARCHAR, "subtypes" VARCHAR, "supertypes" VARCHAR, "tcgplayerProductId" VARCHAR, "text" VARCHAR, "toughness" VARCHAR, "type" VARCHAR, "types" VARCHAR, "uuid" VARCHAR, "variations" VARCHAR, "watermark" VARCHAR);
+-- rowcount main."cards" = 56822
+
+CREATE TABLE main."foreign_data"("id" BIGINT, "flavorText" VARCHAR, "language" VARCHAR, "multiverseid" BIGINT, "name" VARCHAR, "text" VARCHAR, "type" VARCHAR, "uuid" VARCHAR);
+-- rowcount main."foreign_data" = 229186
+
+CREATE TABLE main."gov_caliber_routing"("routing_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "hop_seq" VARCHAR, "src_node" VARCHAR, "dst_node" VARCHAR, "join_on" VARCHAR, "dst_caliber" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_caliber_routing" = 12
+
+CREATE TABLE main."gov_disclosure_policy"("placeholder" VARCHAR);
+-- rowcount main."gov_disclosure_policy" = 0
+
+CREATE TABLE main."gov_granularity_edge"("edge_id" VARCHAR, "domain" VARCHAR, "axis" VARCHAR, "from_level" VARCHAR, "to_level" VARCHAR, "node_id" VARCHAR, "group_cols" VARCHAR, "derived" VARCHAR, "band_col" VARCHAR, "band_bounds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_granularity_edge" = 2
+
+CREATE TABLE main."gov_measure_def"("measure_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "node_id" VARCHAR, "measure" VARCHAR, "preds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_measure_def" = 22
+
+CREATE TABLE main."gov_metric"("metric_id" VARCHAR, "domain" VARCHAR, "kind" VARCHAR, "num_node" VARCHAR, "den_node" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_metric" = 16
+
+CREATE TABLE main."gov_metric_alias"("alias_id" VARCHAR, "alias_text" VARCHAR, "metric_id" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_metric_alias" = 16
+
+CREATE TABLE main."gov_semantic_graph_version"("graph_version" VARCHAR, "domain" VARCHAR, "committed_at" VARCHAR, "commit_seq" VARCHAR, "change_note" VARCHAR);
+-- rowcount main."gov_semantic_graph_version" = 2
+
+CREATE TABLE main."gov_semantic_node"("node_id" VARCHAR, "domain" VARCHAR, "physical_table" VARCHAR, "entity_key" VARCHAR, "scope_keys" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_semantic_node" = 12
+
+CREATE TABLE main."gov_temporal_binding"("binding_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "anchor_id" VARCHAR, "rule_id" VARCHAR, "window_gran" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_temporal_binding" = 18
+
+CREATE TABLE main."gov_valid_time_anchor"("anchor_id" VARCHAR, "node_id" VARCHAR, "anchor_type" VARCHAR, "effective_col" VARCHAR, "vf_col" VARCHAR, "vtc_col" VARCHAR, "granularity" VARCHAR, "coverage_mode" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_valid_time_anchor" = 4
+
+CREATE TABLE main."legalities"("id" BIGINT, "format" VARCHAR, "status" VARCHAR, "uuid" VARCHAR);
+-- rowcount main."legalities" = 427907
+
+CREATE TABLE main."rulings"("id" BIGINT, "date" DATE, "text" VARCHAR, "uuid" VARCHAR);
+-- rowcount main."rulings" = 87769
+
+CREATE TABLE main."set_translations"("id" BIGINT, "language" VARCHAR, "setCode" VARCHAR, "translation" VARCHAR);
+-- rowcount main."set_translations" = 1210
+
+CREATE TABLE main."sets"("id" BIGINT, "baseSetSize" BIGINT, "block" VARCHAR, "booster" VARCHAR, "code" VARCHAR, "isFoilOnly" BIGINT, "isForeignOnly" BIGINT, "isNonFoilOnly" BIGINT, "isOnlineOnly" BIGINT, "isPartialPreview" BIGINT, "keyruneCode" VARCHAR, "mcmId" BIGINT, "mcmIdExtras" BIGINT, "mcmName" VARCHAR, "mtgoCode" VARCHAR, "name" VARCHAR, "parentCode" VARCHAR, "releaseDate" DATE, "tcgplayerGroupId" BIGINT, "totalSetSize" BIGINT, "type" VARCHAR);
+-- rowcount main."sets" = 551

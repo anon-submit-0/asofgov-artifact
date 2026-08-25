@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q1",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "<minimax:tool_call>\n<invoke name=\"read\">\n</invoke>\n</minimax:tool_call>",
+ "sql": "<minimax:tool_call>\n<invoke name=\"read\">\n</invoke>\n</minimax:tool_call>",
+ "prompt_sha256": "672f28bf2676501f401d3e143f42f353ea0ee442dd780fd743eb229808153fae",
+ "prompt_chars": 4155,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q7",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 0.0,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT COUNT(*) \nFROM main.\"races\" \nWHERE date >= '1949-05-01' AND date < '1949-06-01'\n```",
+ "sql": "SELECT COUNT(*) \nFROM main.\"races\" \nWHERE date >= '1949-05-01' AND date < '1949-06-01'",
+ "prompt_sha256": "29cccb936ce202b7d5cfaba82c607471e2ef6e4dbf082f4b965950d6f7539974",
+ "prompt_chars": 27122,
+ "empty_response": false
+}

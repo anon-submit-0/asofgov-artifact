@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 0.4659,
+ "verdict": "answered_should_refuse",
+ "raw": "I need to analyze this question carefully with the temporal governance framework.\n\nThe question asks: Using 2015-09-01 as the declaration time point, windowed by charter authorization date, calculate the free meal rate for the 2014-2015 academic year.\n\nLet me first check the governance tables to understand the temporal bindings and anchors.\n\nThe key tables involved are `frpm` (for free meal data) and `schools` (for charter authorization/open dates).\n\nLet me trace through the governance framework:\n\n1. Check `gov_valid_time_anchor` for anchors related to these nodes\n2. Check `gov_temporal_binding` for binding rules\n3. Apply the as-of time point (2015-09-01) to the correct window\n\nThe question asks for the free meal rate (`Percent (%) Eligible Free (K-12)`) for academic year 2014-2015, windowed by charter authorization date (which would be `OpenDate` in the `schools` table for charter schools), with an as-of date of 2015-09-01.\n\nSince this is a single-value result about free meal rate for 2014-2015 academic year, and we need to window by charter authorization date with as-of 2015-09-01, I interpret this as: for charter schools whose OpenDate (authorization date) is on or before 2015-09-01, calculate the overall free meal rate for the 2014-2015 academic year.\n\nFree meal rate = SUM(Free Meal Count (K-12)) / SUM(Enrollment (K-12))\n\n```sql\nSELECT ROUND(SUM(f.\"Free Meal Count (K-12)\") / SUM(f.\"Enrollment (K-12)\"), 4) AS free_meal_rate\nFROM main.frpm f\nJOIN main.schools s ON f.\"CDSCode\" = s.\"CDSCode\"\nWHERE f.\"Academic Year\" = '2014-2015'\n  AND s.\"Charter\" = 1\n  AND s.\"OpenDate\" <= DATE '2015-09-01';\n```",
+ "sql": "SELECT ROUND(SUM(f.\"Free Meal Count (K-12)\") / SUM(f.\"Enrollment (K-12)\"), 4) AS free_meal_rate\nFROM main.frpm f\nJOIN main.schools s ON f.\"CDSCode\" = s.\"CDSCode\"\nWHERE f.\"Academic Year\" = '2014-2015'\n  AND s.\"Charter\" = 1\n  AND s.\"OpenDate\" <= DATE '2015-09-01'",
+ "prompt_sha256": "60b7518e0bc3549c83366f92908742cccf9e53686359c37bd3529deef2ba614d",
+ "prompt_chars": 5413,
+ "empty_response": false
+}

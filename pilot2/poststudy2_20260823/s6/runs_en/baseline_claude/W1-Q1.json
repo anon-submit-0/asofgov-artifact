@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q1",
+ "system": "baseline_claude",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT SUM(ch.population) AS total_population\nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE c.\"Continent\" = 'Asia'\n  AND ch.effective_month = '2026-05'\n  AND ch.authored = FALSE;\n```",
+ "sql": "SELECT SUM(ch.population) AS total_population\nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE c.\"Continent\" = 'Asia'\n  AND ch.effective_month = '2026-05'\n  AND ch.authored = FALSE",
+ "prompt_sha256": "7d628de826ae57b3a195b8b93b30eb69fda3544f6bdbc05069c42c0ee8d983c3",
+ "prompt_chars": 3194,
+ "empty_response": false
+}

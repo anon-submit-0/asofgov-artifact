@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 特许学校授权日期与免费餐率数据来自不同语义节点（schools vs frpm），两者的时间锚定规则不兼容（SCD Type-2 vs 学年离散集），无法在同一查询中同时应用\"按特许授权日期开窗\"与\"2014-2015学年免费餐率\"的时间约束\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "0a1b7bc1de6e661353312db2e2d320739b4f5adbfecfb71f67d411d764e26020",
+ "prompt_chars": 17943,
+ "empty_response": false
+}

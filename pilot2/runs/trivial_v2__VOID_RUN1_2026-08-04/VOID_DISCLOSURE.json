@@ -1,0 +1,28 @@
+{
+ "arm": "trivial_v2",
+ "rule": "PREREG_pilot2_arms.md §6.4 arm-level void (empty responses >= 3)",
+ "run1": {
+  "dir": "runs/trivial_v2__VOID_RUN1_2026-08-04",
+  "calls": 60,
+  "empty_responses": 4,
+  "empty_qids": [
+   "F1-Q1",
+   "FIN-Q2",
+   "W1-Q2",
+   "W1-Q3"
+  ],
+  "correct": 27,
+  "errors": 33,
+  "status": "VOIDED (transport fault), preserved verbatim, never deleted"
+ },
+ "run2": {
+  "dir": "runs/trivial_v2",
+  "calls": 60,
+  "empty_responses": 0,
+  "correct": 25,
+  "errors": 35,
+  "status": "VALID"
+ },
+ "disclosed_at": "2026-08-04",
+ "note": "whole-arm rerun as mandated; no per-question retry; both runs must be disclosed in paper + PREREG §8 追记"
+}

@@ -1,0 +1,32 @@
+{
+ "qid": "EF2-Q4",
+ "domain": "european_football_2",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": null,
+  "declared_at": "2016-07-01",
+  "metric_alias": "区间比赛场数",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "day_range",
+   "lo": "2016-03-01",
+   "hi_excl": "2016-09-01"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": null, \"declared_at\": \"2016-07-01\", \"metric_alias\": \"区间比赛场数\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": {\"kind\": \"day_range\", \"lo\": \"2016-03-01\", \"hi_excl\": \"2016-09-01\"}, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "a66a0d65c56c1fac17e554513e1606172ebd308d6ff58519576fba6c35320dc6",
+ "prompt_chars": 28137
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q7",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.0,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT COUNT(DISTINCT raceId) \nFROM main.\"races\" \nWHERE date >= DATE '1949-05-01' \n  AND date < DATE '1949-06-01'\n```",
+ "sql": "SELECT COUNT(DISTINCT raceId) \nFROM main.\"races\" \nWHERE date >= DATE '1949-05-01' \n  AND date < DATE '1949-06-01'",
+ "prompt_sha256": "3bb992bcbb526d053e625008a0fdd10fe3f320c80e54da19ea0283a4c1479a76",
+ "prompt_chars": 5480,
+ "empty_response": false
+}

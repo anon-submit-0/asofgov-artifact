@@ -1,0 +1,19 @@
+# sha256 manifest of the PUBLIC SOURCE DATA consumed by the build (not shipped in this repo).
+# Format: <sha256>  <path relative to data/ (bird/*) | special entries>
+# BIRD dev archive as published at https://bird-bench.github.io/ (direct link in fetch_and_rebuild.sh):
+cdd6d19faeb45a23970b98d3ef6c40a87987c95459c2cf12076897a60cf5a630  bird-dev.zip
+# The 8 BIRD dev databases consumed (paths under data/ after unzip); hashes recorded at build
+# time in pilot2/domains/<db>/provenance.json and re-verified here:
+986817d793479801ed55133e55aa27e335422c0cd3866b54a3d6317b7c5f09c1  bird/dev_20240627/dev_databases/california_schools/california_schools.sqlite
+c98bdb57fe7474da798b407785544b9af0daaad5d61fd21e2a73309493bc1227  bird/dev_20240627/dev_databases/card_games/card_games.sqlite
+92101be6d2a9f6adceea59d38f6d1c556087f9eea1432432a21268cb1348036d  bird/dev_20240627/dev_databases/codebase_community/codebase_community.sqlite
+b3d149ad05746dbbe5116e229e17e18f09c39db43cf117d9ef3441753608b691  bird/dev_20240627/dev_databases/debit_card_specializing/debit_card_specializing.sqlite
+e4d361dbeec6591a4b315877c0c481da05c8ff5a3d389b34d6e17b6f15bee4e0  bird/dev_20240627/dev_databases/european_football_2/european_football_2.sqlite
+d15d89cdb068a202b6f2b99342af44dffc1d52545b39ceaf62efdc0ba570101e  bird/dev_20240627/dev_databases/financial/financial.sqlite
+17185981cd747f6cdc374cb02a6096db3130e6ec2ddc582fe1686a28fb4c4c8a  bird/dev_20240627/dev_databases/formula_1/formula_1.sqlite
+e7e16d74b4731b4b8d33fdbe8c29cd5622620788ce8d1f335631f65fc7cf1db9  bird/dev_20240627/dev_databases/thrombosis_prediction/thrombosis_prediction.sqlite
+# world_1 (Spider dev) enters via a legacy bridge duckdb (pilot/public/warehouse.duckdb,
+# table country_v2026_01 = Spider world_1.country original values, 239 rows x 9 cols).
+# duckdb FILE hashes are version-dependent, so the bridge is pinned by a LOGICAL hash
+# (see scripts/rebuild_world1_bridge.py for the exact canonicalization):
+cc37b01db6d262831563d69b0c0303c8107f660017bed776ddd51a6e3158a98e  world1-bridge:country_v2026_01:logical

@@ -1,0 +1,143 @@
+{
+ "claimed": {
+  "e2e_error": 5,
+  "exact_full_sigma": 40,
+  "metric_alias_match": 58
+ },
+ "error_rows_mine": {
+  "CA-Q5": {
+   "exact": false,
+   "field_match": {
+    "anchor_override": true,
+    "as_of": false,
+    "cross_window": true,
+    "ctx_role": true,
+    "declared_at": true,
+    "metric_alias": true,
+    "periods": true,
+    "pinned_version": true,
+    "presentation": false,
+    "requested_granularity": true,
+    "requested_time_gran": true,
+    "scope": true,
+    "window_request": true
+   },
+   "outcome": "compile_error",
+   "verdict": "error",
+   "why": "compile_error"
+  },
+  "CA-Q6": {
+   "exact": false,
+   "field_match": {
+    "anchor_override": false,
+    "as_of": false,
+    "cross_window": true,
+    "ctx_role": true,
+    "declared_at": true,
+    "metric_alias": true,
+    "periods": true,
+    "pinned_version": true,
+    "presentation": true,
+    "requested_granularity": true,
+    "requested_time_gran": true,
+    "scope": false,
+    "window_request": true
+   },
+   "outcome": "compile_error",
+   "verdict": "error",
+   "why": "compile_error"
+  },
+  "CODE-Q4": {
+   "exact": false,
+   "field_match": {
+    "anchor_override": true,
+    "as_of": true,
+    "cross_window": true,
+    "ctx_role": true,
+    "declared_at": true,
+    "metric_alias": true,
+    "periods": true,
+    "pinned_version": true,
+    "presentation": false,
+    "requested_granularity": true,
+    "requested_time_gran": true,
+    "scope": true,
+    "window_request": true
+   },
+   "outcome": "refusal",
+   "verdict": "error",
+   "why": "expected rewrite, got refusal disclosure-blocked"
+  },
+  "CODE-Q5": {
+   "exact": false,
+   "field_match": {
+    "anchor_override": true,
+    "as_of": true,
+    "cross_window": true,
+    "ctx_role": true,
+    "declared_at": true,
+    "metric_alias": true,
+    "periods": true,
+    "pinned_version": true,
+    "presentation": false,
+    "requested_granularity": true,
+    "requested_time_gran": true,
+    "scope": true,
+    "window_request": true
+   },
+   "outcome": "refusal",
+   "verdict": "error",
+   "why": "expected rewrite, got refusal disclosure-blocked"
+  },
+  "TH-Q3": {
+   "exact": false,
+   "field_match": {
+    "anchor_override": true,
+    "as_of": false,
+    "cross_window": true,
+    "ctx_role": true,
+    "declared_at": true,
+    "metric_alias": true,
+    "periods": true,
+    "pinned_version": true,
+    "presentation": false,
+    "requested_granularity": true,
+    "requested_time_gran": true,
+    "scope": true,
+    "window_request": false
+   },
+   "outcome": "refusal",
+   "verdict": "error",
+   "why": "expected rewrite, got refusal disclosure-blocked"
+  }
+ },
+ "independent_predictions": {
+  "S7-P1": "MET",
+  "S7-P2": "MET",
+  "S7-P3": "MET",
+  "S7-P4": "MET"
+ },
+ "ledger_mismatches": [],
+ "mine": {
+  "e2e_error": 5,
+  "exact_and_wrong": [],
+  "exact_full_sigma": 40,
+  "metric_alias_match": 58,
+  "per_field_match": {
+   "anchor_override": 59,
+   "as_of": 44,
+   "cross_window": 60,
+   "ctx_role": 60,
+   "declared_at": 60,
+   "metric_alias": 58,
+   "periods": 60,
+   "pinned_version": 60,
+   "presentation": 56,
+   "requested_granularity": 60,
+   "requested_time_gran": 59,
+   "scope": 59,
+   "window_request": 59
+  },
+  "wsv_mismatch_questions": 2
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q7",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT AVG(t.\"Price\") AS monthly_avg_customer_spending\nFROM main.\"transactions_1k\" t\nWHERE t.\"Date\" >= '2013-03-04' AND t.\"Date\" < '2013-03-11'\n```\n\nWait — let me reconsider this carefully.\n\nThe question asks for \"月均客户消费额\" (monthly average customer spending amount), which maps to metric `deb.avg_consumption`. That metric is defined on `deb.yearmonth` with measure `avg:Consumption`, anchored by `A-DEB-YM` with `anchor_type=date_set`, `granularity=month_token_yyyymm`, and `coverage_mode=strict_member`.\n\nThe temporal binding says `window_gran=month_token`. The request is for \"the one-week period starting from 2013-03-04\" — this is a day-level range (7 days). But the anchor's granularity is `month_token_yyyymm` with `coverage_mode=strict_member`, meaning data must be accessed at the month-token level. A one-week window doesn't align to any month token — it's a sub-month range that doesn't correspond to a strict member of the month_token set.\n\nThe declaration instant is 2013-09-15. The graph version in effect at that point is v2 (committed 2013-06-01). Under v2, the binding and anchor are unchanged.\n\nSince the yearmonth table stores data at month granularity (YYYYMM tokens) and `coverage_mode=strict_member` requires the query window to match an exact member of that set, a one-week window cannot be resolved to a valid temporal scope.\n\nREFUSE: The one-week window (2013-03-04 to 2013-03-10) cannot align to a strict month_token member required by the avg_consumption metric's temporal anchor.",
+ "sql": "SELECT AVG(t.\"Price\") AS monthly_avg_customer_spending\nFROM main.\"transactions_1k\" t\nWHERE t.\"Date\" >= '2013-03-04' AND t.\"Date\" < '2013-03-11'",
+ "prompt_sha256": "6af1120cdeff94a3471e9c61bc33ee4304204148a053991d549e6d3b5e052e57",
+ "prompt_chars": 19954,
+ "empty_response": false
+}

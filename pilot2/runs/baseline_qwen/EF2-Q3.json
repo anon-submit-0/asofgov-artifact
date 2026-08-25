@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q3",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 681.0,
+ "verdict": "correct",
+ "raw": "SELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE date >= '2015-06-01' AND date < '2015-07-01'",
+ "sql": "SELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE date >= '2015-06-01' AND date < '2015-07-01'",
+ "prompt_sha256": "b01f189b01c0021c33e492593945f364906da9beb8226652e5b66dbe6d1fbe84",
+ "prompt_chars": 7630,
+ "empty_response": false
+}

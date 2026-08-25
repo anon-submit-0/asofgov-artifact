@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q6",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: The schema lacks temporal versioning columns (effective_col, vf_col, vtc_col) on the business tables (yearmonth, transactions_1k) needed to evaluate an as-of declaration instant query; the gov_valid_time_anchor metadata references such columns but they do not exist in the physical tables, making a correct bitemporal as-of query impossible with this data.",
+ "sql": "REFUSE",
+ "prompt_sha256": "de5c67913246fe3f181da05fae3d67d86b4a16f944c2c822f2c59f50215f5912",
+ "prompt_chars": 3798,
+ "empty_response": false
+}

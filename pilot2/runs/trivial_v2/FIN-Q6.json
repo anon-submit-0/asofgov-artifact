@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q6",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 151237.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"trans\" WHERE \"date\" >= '1998-07-01' AND \"date\" <= '1999-06-30';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"trans\" WHERE \"date\" >= '1998-07-01' AND \"date\" <= '1999-06-30'",
+ "prompt_sha256": "fb6c846e9bbfd162c33e2e83f6065689c67b3e96acd0bf74de9410ecbac6c0b7",
+ "prompt_chars": 4297,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q7",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: The question references temporal binding concepts (declaration instant, as-of, containing month window) that require interpreting the gov_temporal_binding/gov_valid_time_anchor metadata as executable logic, but these governance tables define abstract routing/binding rules (with string-typed columns like window_gran, anchor_type, coverage_mode) rather than directly queryable temporal constraints that can be unambiguously translated into a single deterministic SQL query against the transaction data.",
+ "sql": "REFUSE",
+ "prompt_sha256": "b0b14f6827c56185e9d45be21acbc796692cb78e88f411dd64484f4a143eb7a9",
+ "prompt_chars": 4149,
+ "empty_response": false
+}

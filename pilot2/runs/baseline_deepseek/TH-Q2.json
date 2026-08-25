@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q2",
+ "system": "baseline_deepseek",
+ "kind": "value",
+ "value": 207.0,
+ "verdict": "correct",
+ "raw": "SELECT COUNT(*) FROM main.\"Examination\" WHERE \"Examination Date\" BETWEEN DATE '1995-01-01' AND DATE '1995-12-31'",
+ "sql": "SELECT COUNT(*) FROM main.\"Examination\" WHERE \"Examination Date\" BETWEEN DATE '1995-01-01' AND DATE '1995-12-31'",
+ "prompt_sha256": "d725d78f2ec47852fdb514cb6d18aa52fea416072858e124551c55b1473c6d08",
+ "prompt_chars": 4146,
+ "empty_response": false
+}

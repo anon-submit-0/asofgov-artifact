@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q4",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: schema不足以确定如何基于声明时点计算区间历史记录条数",
+ "sql": "REFUSE",
+ "prompt_sha256": "2f9b2fdf599f49c2cd54dafb1a54c4eaf83f3a115fc9d208ad5fa0ce7efc5678",
+ "prompt_chars": 3077,
+ "empty_response": false
+}

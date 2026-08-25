@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q6",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT CAST(SUM(CASE WHEN c.\"isReserved\" = 1 THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) AS collector_premium\nFROM main.\"cards\" c\nJOIN main.\"sets\" s ON c.\"setCode\" = s.\"code\"\nWHERE s.\"releaseDate\" >= '2017-02-01' AND s.\"releaseDate\" < '2017-03-01';\n```",
+ "sql": "SELECT CAST(SUM(CASE WHEN c.\"isReserved\" = 1 THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) AS collector_premium\nFROM main.\"cards\" c\nJOIN main.\"sets\" s ON c.\"setCode\" = s.\"code\"\nWHERE s.\"releaseDate\" >= '2017-02-01' AND s.\"releaseDate\" < '2017-03-01'",
+ "prompt_sha256": "710d6d2893390300f85e503939d62e4268b9b220301d140f48998058303ffb2d",
+ "prompt_chars": 23949,
+ "empty_response": false
+}

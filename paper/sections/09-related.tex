@@ -1,0 +1,93 @@
+% =====================================================================
+% Section 9 -- RELATED WORK   (target: ~0.75 page incl. Table 5)
+% The four-nearest-neighbour delineation is a RED LINE: it is carried by
+% Table~\ref{tab:delta} plus one dense paragraph, one sentence per
+% neighbour ("what it does / which requirement it lacks").  The temporal
+% database and NL2SQL lineages get one sentence each; refusal, disclosure
+% rewriting and certificates are folded into a single closing paragraph.
+% (2026-08-24, author decision) The concurrent-submission paragraph and the
+% substrate row/citations were removed; the remaining citation keys of the
+% long version are retained.
+% =====================================================================
+
+\section{RELATED WORK}
+\label{sec:related}
+
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.6pt}
+\renewcommand{\arraystretch}{0.95}
+\caption{The four nearest neighbours and the closest temporal-database
+lineage, against the four properties
+as-of correctness needs: none binds a
+question to a point on both axes, none makes a refusal a checkable value.}
+\label{tab:delta}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+& versioned & valid-time & typed & checkable\\
+& sem.\ layer & as-of bind & refusal & certificate\\
+\midrule
+schema-evolution robustness~\cite{evoschema}      & $\circ$ & --      & --      & --\\
+bitemporal agent memory~\cite{memstrata}          & --      & \checkmark & --   & --\\
+lakehouse time travel~\cite{deltalake,iceberg}    & --      & $\circ$ & --      & --\\
+transaction time + schema evol.~\cite{primatt,prism} & $\circ$ & \checkmark & -- & --\\
+static semantic layers~\cite{semlayerbench}       & --      & --      & --      & --\\
+\midrule
+\textbf{this paper}                               & \checkmark & \checkmark & \checkmark & \checkmark\\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\scriptsize\raggedright $\circ$ = partial: schema versions, not a governance
+layer; snapshot-level time travel without a semantic layer.\par}
+\end{table}
+
+\noindent\looseness=-1\textbf{The four nearest neighbours} each hold one half of the problem
+(Table~\ref{tab:delta}).
+\emph{Schema-evolution robustness}: EvoSchema~\cite{evoschema} perturbs schemas
+but asks a model to be \emph{insensitive} to the version it faces; as-of
+correctness asks it to be \emph{bound} to a declared one, saying so when no
+binding exists. \emph{Bitemporal agent memory}: MemStrata~\cite{memstrata} keeps
+\texttt{valid\_from}/\texttt{valid\_to}, supersession and as-of retrieval, but
+over retrieved facts, not compiled queries: no metric semantics, no
+compile-time decision. \emph{Lakehouse time travel}: snapshot
+pins~\cite{deltalake,iceberg} are a genuine as-of capability we consume, but
+answer ``which bytes'', not ``which meaning'', and return a number exactly
+where we refuse. \emph{Static semantic layers}: a governed metric layer measurably
+improves LLM analytics accuracy~\cite{semlayerbench} --- our nearest
+neighbour and a natural baseline, whose in-context content
+\S\ref{sec:eval-gov} bounds --- but a static document without versions,
+as-of binding or refusal. Substrates that own the version transition and
+disclaim metric correctness leave exactly the space this paper
+occupies; Theorem~\ref{thm:degen} makes the relationship precise.
+
+\smallskip\noindent\looseness=-1\textbf{Lineages we inherit.} Temporal databases give us the
+data axis wholesale --- valid and transaction time and the languages over
+them~\cite{tquel,tsql2,tempmod,tempalign,sql2011,timelineindex}, querying under
+schema evolution~\cite{primatt,prism}, dataset and relational
+versioning~\cite{dsversioning,orpheusdb,decibel} --- but no second axis for a
+\emph{governance} layer, no typed value for inability to answer --- so a hand-built
+temporal-SQL implementation of the sixty queries is a point in the compiler's
+design space minus the refusal classes and the certificate. Post-registered, we
+built one~\cite{asofgov-tr}: it errs $28/60$ --- level with the
+governance-informed arm --- all 15 refusals answered ($23/60$ crediting its
+five bare \texttt{NULL}s); an all-history twin errs $54/60$; values
+$6/33$ --- the data axis is not the bottleneck. The NL2SQL lineage~\cite{seq2sql,ratsql,spider,bird,dinsql,dailsql,
+nl2sqlsurvey,nl2sqltoday,solvednot} treats the database as a fixed
+target --- our evidence base takes nine of its databases~\cite{spider,bird}
+and registers the governance layer binding needs; time-sensitive
+QA~\cite{tdbench} scores answers, not queries.
+
+\smallskip\noindent\looseness=-1\textbf{Refusal, disclosure, certificates.} Refusal is studied
+as completeness over incomplete data~\cite{completeness} and abstention on
+unanswerable questions~\cite{ehrsql}; ours are decidable predicates over the
+governance state (Proposition~\ref{prop:decidable}) carrying a class and a
+replayable witness. Fine-grained access control~\cite{finegrained},
+purpose-limited disclosure~\cite{hippocratic} and anonymity
+thresholds~\cite{kanon,ldiversity} are long-standing, our grain and mask
+lattices ordinary instances; \S\ref{sec:rewrite} adds the joint statement
+\emph{after} temporal binding. Certifying
+algorithms~\cite{certifying}, provenance~\cite{semirings,provsurvey} and
+authenticated query processing~\cite{authindex,vsql} are our certificates'
+tradition; we add the coordinates they assume fixed and a certificate for
+a \emph{refusal}, which none can express.

@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q1",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 0.37804549460887515,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT \n    SUM(\"Free Meal Count (Ages 5-17)\") / SUM(\"Enrollment (Ages 5-17)\") AS free_meal_rate\nFROM main.\"frpm\"\nWHERE \"County Name\" = 'Alameda'\n  AND \"Academic Year\" = '2014-2015'\n```",
+ "sql": "SELECT \n    SUM(\"Free Meal Count (Ages 5-17)\") / SUM(\"Enrollment (Ages 5-17)\") AS free_meal_rate\nFROM main.\"frpm\"\nWHERE \"County Name\" = 'Alameda'\n  AND \"Academic Year\" = '2014-2015'",
+ "prompt_sha256": "69b365f7dd96f4ef51055d49d5f5df2255d341354f058c3b7d54b86fc119ee80",
+ "prompt_chars": 17970,
+ "empty_response": false
+}

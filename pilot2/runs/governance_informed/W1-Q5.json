@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q5",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 根据治理元数据 gov_temporal_binding，亚洲人口占比（w1.population_share）的分子（num）和分母（den）均绑定了 rule_id=\"same_valid_time_window\"、window_gran=\"month_token\"，要求分子分母必须在同一 valid-time 窗口内对齐。分子取 2026-05、分母取 2026-04 违反了该绑定规则，无法正确计算。",
+ "sql": "REFUSE",
+ "prompt_sha256": "110f8b709f4b5405fd31a1a13d80ca4f724591213a628238c2bf400b5b0f8ddf",
+ "prompt_chars": 16176,
+ "empty_response": false
+}

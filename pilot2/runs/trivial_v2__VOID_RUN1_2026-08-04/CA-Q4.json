@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q4",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 9270.0,
+ "verdict": "correct",
+ "raw": "I need to analyze this question carefully. The question asks: \"As of declaration time 2015-05-01, how many schools were effective as-of 2000-09-01?\"\n\nLet me check the temporal governance tables to understand the temporal binding rules.\n\nFirst, I need to look at `gov_valid_time_anchor` to find anchors related to schools. The `schools` table has `OpenDate` and `ClosedDate` columns which represent when schools became effective and when they closed.\n\nThe question asks for schools that were \"in effect\" (active) as of 2000-09-01. This means:\n- The school's `OpenDate` <= '2000-09-01' (opened on or before that date)\n- The school's `ClosedDate` > '2000-09-01' OR `ClosedDate` IS NULL (not yet closed)\n\nThe \"declaration time\" 2015-05-01 likely refers to the data snapshot/reporting perspective, but since we're working with the schools table directly, the key temporal filter is the as-of date.\n\nLet me check the gov_valid_time_anchor for guidance on which columns to use:\n\nThe anchor table likely maps `effective_col` to `OpenDate` and possibly `vtc_col` (valid time close) to `ClosedDate` for the schools node.\n\nGiven the schema and the straightforward nature of the question about counting active schools as of a specific date:\n\n```sql\nSELECT COUNT(*) FROM main.schools WHERE OpenDate <= '2000-09-01' AND (ClosedDate > '2000-09-01' OR ClosedDate IS NULL);\n```",
+ "sql": "SELECT COUNT(*) FROM main.schools WHERE OpenDate <= '2000-09-01' AND (ClosedDate > '2000-09-01' OR ClosedDate IS NULL)",
+ "prompt_sha256": "811d491ea86fb0ae2778738ff1406ac1d722ff54989d4c7923c660c10cbb6522",
+ "prompt_chars": 5411,
+ "empty_response": false
+}

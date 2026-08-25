@@ -1,0 +1,177 @@
+{
+ "study": "S7 NL->sigma arm (Stage B full run)",
+ "prereg_sha256": "838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669",
+ "model": "claude-opus-4-6",
+ "n": 60,
+ "llm_calls_this_run": 57,
+ "cache_hits_this_run": 3,
+ "format_retried_qids": [],
+ "extraction_error_qids": [],
+ "compile_error_qids": [
+  "CA-Q5",
+  "CA-Q6"
+ ],
+ "exact_full_sigma": 40,
+ "end_to_end_correct": 55,
+ "end_to_end_error": 5,
+ "per_field_match": {
+  "as_of": 44,
+  "declared_at": 60,
+  "metric_alias": 58,
+  "scope": 59,
+  "pinned_version": 60,
+  "cross_window": 60,
+  "anchor_override": 59,
+  "window_request": 59,
+  "requested_granularity": 60,
+  "requested_time_gran": 59,
+  "presentation": 56,
+  "ctx_role": 60,
+  "periods": 60
+ },
+ "per_field_mismatch": {
+  "as_of": 16,
+  "declared_at": 0,
+  "metric_alias": 2,
+  "scope": 1,
+  "pinned_version": 0,
+  "cross_window": 0,
+  "anchor_override": 1,
+  "window_request": 1,
+  "requested_granularity": 0,
+  "requested_time_gran": 1,
+  "presentation": 4,
+  "ctx_role": 0,
+  "periods": 0
+ },
+ "exact_sigma_and_wrong": [],
+ "by_domain": {
+  "california_schools": {
+   "n": 6,
+   "exact_full_sigma": 4,
+   "e2e_correct": 4,
+   "e2e_error": 2
+  },
+  "card_games": {
+   "n": 7,
+   "exact_full_sigma": 6,
+   "e2e_correct": 7,
+   "e2e_error": 0
+  },
+  "codebase_community": {
+   "n": 7,
+   "exact_full_sigma": 4,
+   "e2e_correct": 5,
+   "e2e_error": 2
+  },
+  "debit_card_specializing": {
+   "n": 7,
+   "exact_full_sigma": 2,
+   "e2e_correct": 7,
+   "e2e_error": 0
+  },
+  "european_football_2": {
+   "n": 6,
+   "exact_full_sigma": 6,
+   "e2e_correct": 6,
+   "e2e_error": 0
+  },
+  "financial": {
+   "n": 8,
+   "exact_full_sigma": 7,
+   "e2e_correct": 8,
+   "e2e_error": 0
+  },
+  "formula_1": {
+   "n": 8,
+   "exact_full_sigma": 8,
+   "e2e_correct": 8,
+   "e2e_error": 0
+  },
+  "thrombosis_prediction": {
+   "n": 6,
+   "exact_full_sigma": 3,
+   "e2e_correct": 5,
+   "e2e_error": 1
+  },
+  "world_1": {
+   "n": 5,
+   "exact_full_sigma": 0,
+   "e2e_correct": 5,
+   "e2e_error": 0
+  }
+ },
+ "by_gold_kind": {
+  "value": {
+   "n": 33,
+   "e2e_correct": 33,
+   "e2e_error": 0,
+   "exact_full_sigma": 26
+  },
+  "rewrite": {
+   "n": 12,
+   "e2e_correct": 8,
+   "e2e_error": 4,
+   "exact_full_sigma": 7
+  },
+  "refusal": {
+   "n": 15,
+   "e2e_correct": 14,
+   "e2e_error": 1,
+   "exact_full_sigma": 7
+  }
+ },
+ "reference_points": {
+  "governance_informed_error_frozen": 28,
+  "backbone_error_frozen": 36
+ },
+ "predictions": {
+  "S7-P1": {
+   "statement": "exact full-σ recovery on >= 36/60 questions",
+   "observed": {
+    "exact_full_sigma": 40,
+    "n": 60
+   },
+   "threshold": 36,
+   "met": true
+  },
+  "S7-P2": {
+   "statement": "end-to-end error <= 28/60 (the governance-informed arm's)",
+   "observed": {
+    "end_to_end_error": 5,
+    "n": 60
+   },
+   "threshold": 28,
+   "met": true
+  },
+  "S7-P3": {
+   "statement": "on questions with exact σ recovery, end-to-end error = 0 (compiler correctness transfers)",
+   "observed": {
+    "exact_sigma_questions": 40,
+    "errors_among_them": 0,
+    "witnesses": []
+   },
+   "met": true
+  },
+  "S7-P4": {
+   "statement": "metric-identity recovery >= 54/60 (>=90%); failures concentrate in window/scope/version fields, not metric identity",
+   "observed": {
+    "metric_alias_match": 58,
+    "n": 60,
+    "metric_alias_mismatches": 2,
+    "window_scope_version_mismatches_total": 2,
+    "window_scope_version_fields": [
+     "window_request",
+     "cross_window",
+     "scope",
+     "pinned_version"
+    ],
+    "concentration_ok": true,
+    "as_of_mismatches_descriptive": 16
+   },
+   "threshold": 54,
+   "met": true
+  }
+ },
+ "predictions_met": "4/4"
+}

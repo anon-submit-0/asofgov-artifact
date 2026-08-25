@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q5",
+ "system": "baseline_qwen",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "SELECT \n  \"CDSCode\",\n  \"School Name\",\n  \"Percent (%) Eligible Free (K-12)\" AS \"Free Meal Rate (%)\"\nFROM main.\"frpm\"\nWHERE \n  \"County Name\" = 'Alameda' \n  AND \"Academic Year\" = '2014-15'\nORDER BY \"School Name\"",
+ "sql": "SELECT \n  \"CDSCode\",\n  \"School Name\",\n  \"Percent (%) Eligible Free (K-12)\" AS \"Free Meal Rate (%)\"\nFROM main.\"frpm\"\nWHERE \n  \"County Name\" = 'Alameda' \n  AND \"Academic Year\" = '2014-15'\nORDER BY \"School Name\"",
+ "prompt_sha256": "72afa009ce0d84b0216bda76ee4fcdd3201355e60cc14d58068b58980995ea10",
+ "prompt_chars": 5199,
+ "empty_response": false
+}

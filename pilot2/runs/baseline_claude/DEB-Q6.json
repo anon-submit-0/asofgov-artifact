@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q6",
+ "system": "baseline_claude",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "I need to analyze this question carefully. It asks for the average monthly customer consumption as-of 2013-12 (month granularity), with a declaration point of 2013-11-15.\n\nLooking at the schema, the `yearmonth` table has `CustomerID`, `Date` (VARCHAR), and `Consumption`. The `Date` column likely contains year-month values like \"201312\".\n\nThe question asks for the average customer consumption for the month 2013-12 across all customers. The \"as-of 2013-11-15\" and \"声明时点\" (declaration time point) relate to the governance temporal bindings, but since the underlying data doesn't have valid-time columns in the `yearmonth` table, and the gov tables are metadata/configuration tables, I should focus on the business data.\n\n\"月均客户消费额\" means the average consumption per customer for the month 2013-12.\n\n```sql\nSELECT AVG(Consumption) FROM main.\"yearmonth\" WHERE \"Date\" = '201312';\n```",
+ "sql": "SELECT AVG(Consumption) FROM main.\"yearmonth\" WHERE \"Date\" = '201312'",
+ "prompt_sha256": "0d90fc8cdce1b3d6039bca49bc4424f93c1bf4da58f4848b292865b27ac06cab",
+ "prompt_chars": 3702,
+ "empty_response": false
+}

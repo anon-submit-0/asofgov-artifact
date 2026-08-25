@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q4",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 32.0,
+ "verdict": "correct",
+ "raw": "I need to find the number of rulings for the card \"Kytheon, Hero of Akros // Gideon, Battle-Forged\" from the ORI set, where the ruling date falls within June 2015, using the temporal governance framework.\n\nLet me first understand the temporal binding rules, then construct the query.\n\nThe question asks:\n1. Declaration time point: 2015-09-01\n2. Card: \"Kytheon, Hero of Akros // Gideon, Battle-Forged\" from ORI set\n3. As-of date: 2015-06-22, which falls in the June 2015 monthly window\n4. Count rulings for that card in June 2015\n\nLet me check the governance tables to understand temporal bindings, but ultimately the core query is about counting rulings for a specific card in a specific month.\n\n```sql\nSELECT COUNT(*) AS ruling_count\nFROM main.\"cards\" c\nJOIN main.\"rulings\" r ON c.\"uuid\" = r.\"uuid\"\nWHERE c.\"name\" = 'Kytheon, Hero of Akros // Gideon, Battle-Forged'\n  AND c.\"setCode\" = 'ORI'\n  AND r.\"date\" >= '2015-06-01'\n  AND r.\"date\" < '2015-07-01';\n```",
+ "sql": "SELECT COUNT(*) AS ruling_count\nFROM main.\"cards\" c\nJOIN main.\"rulings\" r ON c.\"uuid\" = r.\"uuid\"\nWHERE c.\"name\" = 'Kytheon, Hero of Akros // Gideon, Battle-Forged'\n  AND c.\"setCode\" = 'ORI'\n  AND r.\"date\" >= '2015-06-01'\n  AND r.\"date\" < '2015-07-01'",
+ "prompt_sha256": "3039de5b34b433d6ee3ede367e82bad2d7497582f5c486c15b27c4274fb9d2ff",
+ "prompt_chars": 5734,
+ "empty_response": false
+}

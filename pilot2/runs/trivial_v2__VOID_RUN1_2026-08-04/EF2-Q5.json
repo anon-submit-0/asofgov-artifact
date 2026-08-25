@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q5",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 66.55,
+ "verdict": "answered_should_refuse",
+ "raw": "I need to find the average overall_rating of players as-of 2013-12-25, with a declaration time of 2014-02-01.\n\nLet me first check the governance tables to understand the temporal bindings and valid time anchors for Player_Attributes.\n\nLooking at the `gov_valid_time_anchor` table, I need to find the anchor for Player_Attributes to understand how valid time works. The `gov_semantic_node` table maps nodes to physical tables, and `gov_valid_time_anchor` provides the effective/valid-from/valid-to columns.\n\nFor Player_Attributes, the temporal anchor likely uses the `date` column as the effective date. The as-of snapshot means I need the latest record for each player where the effective date is <= '2013-12-25', and the declaration time constraint means the record must have been available by 2014-02-01.\n\nSince Player_Attributes has only one `date` column, and there's no separate transaction-time column visible, the declaration time constraint (2014-02-01) would filter records where `date` <= '2014-02-01', and the as-of constraint filters to `date` <= '2013-12-25'. The as-of constraint is more restrictive, so effectively I need the latest attribute record per player with date <= '2013-12-25', then compute the average overall_rating.\n\n```sql\nSELECT ROUND(AVG(pa.overall_rating), 2) AS avg_overall_rating\nFROM (\n    SELECT player_api_id, MAX(date) AS max_date\n    FROM main.\"Player_Attributes\"\n    WHERE CAST(date AS DATE) <= DATE '2013-12-25'\n    GROUP BY player_api_id\n) latest\nJOIN main.\"Player_Attributes\" pa\n  ON pa.player_api_id = latest.player_api_id\n AND pa.date = latest.max_date\nWHERE pa.overall_rating IS NOT NULL;\n```",
+ "sql": "SELECT ROUND(AVG(pa.overall_rating), 2) AS avg_overall_rating\nFROM (\n    SELECT player_api_id, MAX(date) AS max_date\n    FROM main.\"Player_Attributes\"\n    WHERE CAST(date AS DATE) <= DATE '2013-12-25'\n    GROUP BY player_api_id\n) latest\nJOIN main.\"Player_Attributes\" pa\n  ON pa.player_api_id = latest.player_api_id\n AND pa.date = latest.max_date\nWHERE pa.overall_rating IS NOT NULL",
+ "prompt_sha256": "bff0b3388a56bfced422366c60e25ffb8dfe5d74a0ffe5e4c498267c3878c307",
+ "prompt_chars": 7844,
+ "empty_response": false
+}

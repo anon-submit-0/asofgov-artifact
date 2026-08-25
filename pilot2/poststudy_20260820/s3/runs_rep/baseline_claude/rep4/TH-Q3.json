@@ -1,0 +1,21 @@
+{
+ "qid": "TH-Q3",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": [
+  [
+   5065022,
+   7
+  ],
+  [
+   4632421,
+   5
+  ]
+ ],
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \n    p.ID,\n    COUNT(*) as abnormal_lab_count\nFROM main.\"Patient\" p\nINNER JOIN main.\"Laboratory\" l ON p.ID = l.ID\nWHERE l.\"Date\" >= DATE '1997-01-01' \n    AND l.\"Date\" < DATE '1998-01-01'\n    AND l.\"GOT\" >= 60\nGROUP BY p.ID\n```",
+ "sql": "SELECT \n    p.ID,\n    COUNT(*) as abnormal_lab_count\nFROM main.\"Patient\" p\nINNER JOIN main.\"Laboratory\" l ON p.ID = l.ID\nWHERE l.\"Date\" >= DATE '1997-01-01' \n    AND l.\"Date\" < DATE '1998-01-01'\n    AND l.\"GOT\" >= 60\nGROUP BY p.ID",
+ "prompt_sha256": "bb67abc1b9808b7497bd62e703f47970b7ecee57f9e68c39b1e0983e8857bf48",
+ "prompt_chars": 4140,
+ "empty_response": false
+}

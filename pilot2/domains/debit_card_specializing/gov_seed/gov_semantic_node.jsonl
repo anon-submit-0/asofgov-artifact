@@ -1,0 +1,10 @@
+{"domain": "debit_card_specializing", "entity_key": "CustomerID", "graph_version": "v1", "node_id": "deb.yearmonth", "physical_table": "yearmonth", "scope_keys": {}}
+{"domain": "debit_card_specializing", "entity_key": "CustomerID", "graph_version": "v1", "node_id": "deb.customers", "physical_table": "customers", "scope_keys": {"currency": "Currency", "segment": "Segment"}}
+{"domain": "debit_card_specializing", "entity_key": "TransactionID", "graph_version": "v1", "node_id": "deb.transactions_1k", "physical_table": "transactions_1k", "scope_keys": {}}
+{"domain": "debit_card_specializing", "entity_key": "GasStationID", "graph_version": "v1", "node_id": "deb.gasstations", "physical_table": "gasstations", "scope_keys": {"country": "Country"}}
+{"domain": "debit_card_specializing", "entity_key": "ProductID", "graph_version": "v1", "node_id": "deb.products", "physical_table": "products", "scope_keys": {}}
+{"domain": "debit_card_specializing", "entity_key": "CustomerID", "graph_version": "v2", "node_id": "deb.yearmonth", "physical_table": "yearmonth", "scope_keys": {}}
+{"domain": "debit_card_specializing", "entity_key": "CustomerID", "graph_version": "v2", "node_id": "deb.customers", "physical_table": "customers", "scope_keys": {"currency": "Currency", "segment": "Segment"}}
+{"domain": "debit_card_specializing", "entity_key": "TransactionID", "graph_version": "v2", "node_id": "deb.transactions_1k", "physical_table": "transactions_1k", "scope_keys": {}}
+{"domain": "debit_card_specializing", "entity_key": "GasStationID", "graph_version": "v2", "node_id": "deb.gasstations", "physical_table": "gasstations", "scope_keys": {"country": "Country"}}
+{"domain": "debit_card_specializing", "entity_key": "ProductID", "graph_version": "v2", "node_id": "deb.products", "physical_table": "products", "scope_keys": {}}

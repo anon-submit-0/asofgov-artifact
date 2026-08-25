@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q4",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 915.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"Match\" WHERE CAST(\"date\" AS DATE) BETWEEN '2016-03-01' AND '2016-08-31'\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"Match\" WHERE CAST(\"date\" AS DATE) BETWEEN '2016-03-01' AND '2016-08-31'",
+ "prompt_sha256": "0d277ad450277208f99cc0244b0662df531f7f69a1a2b08983e1393c6b0beba6",
+ "prompt_chars": 25342,
+ "empty_response": false
+}

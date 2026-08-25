@@ -1,0 +1,16 @@
+{
+ "qid": "DEB-Q5",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": [
+  [
+   26.06896551724138
+  ]
+ ],
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT AVG(t.Amount)\nFROM main.transactions_1k t\nJOIN main.customers c ON t.CustomerID = c.CustomerID\nWHERE t.Date >= '2012-08-23' \n  AND t.Date <= '2012-08-26'\n  AND c.Currency = 'EUR'\n  AND c.Segment = 'LAM'\n```",
+ "sql": "SELECT AVG(t.Amount)\nFROM main.transactions_1k t\nJOIN main.customers c ON t.CustomerID = c.CustomerID\nWHERE t.Date >= '2012-08-23' \n  AND t.Date <= '2012-08-26'\n  AND c.Currency = 'EUR'\n  AND c.Segment = 'LAM'",
+ "prompt_sha256": "81fac7e121307d366feb4aa6975336111162c581e47d8f003a5bfbf83b005095",
+ "prompt_chars": 19886,
+ "empty_response": false
+}

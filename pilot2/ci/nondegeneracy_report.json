@@ -1,0 +1,63 @@
+{
+ "ND2": {
+  "files": 90,
+  "rows": 847,
+  "hits": [],
+  "pass": true
+ },
+ "ND3": {
+  "per_domain": {
+   "financial": {
+    "total": 110,
+    "touched": 50,
+    "distractor_ratio": 0.5455
+   },
+   "card_games": {
+    "total": 104,
+    "touched": 43,
+    "distractor_ratio": 0.5865
+   },
+   "codebase_community": {
+    "total": 118,
+    "touched": 48,
+    "distractor_ratio": 0.5932
+   },
+   "formula_1": {
+    "total": 120,
+    "touched": 47,
+    "distractor_ratio": 0.6083
+   },
+   "debit_card_specializing": {
+    "total": 80,
+    "touched": 32,
+    "distractor_ratio": 0.6
+   },
+   "european_football_2": {
+    "total": 97,
+    "touched": 41,
+    "distractor_ratio": 0.5773
+   },
+   "california_schools": {
+    "total": 66,
+    "touched": 36,
+    "distractor_ratio": 0.4545
+   },
+   "thrombosis_prediction": {
+    "total": 82,
+    "touched": 34,
+    "distractor_ratio": 0.5854
+   },
+   "world_1": {
+    "total": 70,
+    "touched": 32,
+    "distractor_ratio": 0.5429
+   }
+  },
+  "total_rows": 847,
+  "touched_rows": 363,
+  "global_distractor_ratio": 0.5714,
+  "threshold": 0.3,
+  "pass": true
+ },
+ "pass": true
+}

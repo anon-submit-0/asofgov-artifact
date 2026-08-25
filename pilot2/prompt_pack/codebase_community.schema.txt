@@ -1,0 +1,56 @@
+-- codebase_community 域 pilot2 warehouse.duckdb schema（源: BIRD/Spider dev 公开数据集，抽取与 real/authored 行数见 provenance.json）
+-- schema: main = 业务事实/维表 + gov_* 治理登记表（十表 schema 法, DESIGN_SPEC §3.1）
+
+CREATE TABLE main."badges"("Id" BIGINT, "UserId" BIGINT, "Name" VARCHAR, "Date" TIMESTAMP);
+-- rowcount main."badges" = 79851
+
+CREATE TABLE main."comments"("Id" BIGINT, "PostId" BIGINT, "Score" BIGINT, "Text" VARCHAR, "CreationDate" TIMESTAMP, "UserId" BIGINT, "UserDisplayName" VARCHAR);
+-- rowcount main."comments" = 174285
+
+CREATE TABLE main."gov_caliber_routing"("routing_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "hop_seq" VARCHAR, "src_node" VARCHAR, "dst_node" VARCHAR, "join_on" VARCHAR, "dst_caliber" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_caliber_routing" = 14
+
+CREATE TABLE main."gov_disclosure_policy"("policy_id" VARCHAR, "domain" VARCHAR, "kind" VARCHAR, "node_id" VARCHAR, "cols" VARCHAR, "mask_class" VARCHAR, "lattice_levels" VARCHAR, "k" VARCHAR, "time_floor_gran" VARCHAR, "carry" VARCHAR, "applies_to" VARCHAR, "graph_version" VARCHAR, "k_exempt_top" VARCHAR);
+-- rowcount main."gov_disclosure_policy" = 8
+
+CREATE TABLE main."gov_granularity_edge"("edge_id" VARCHAR, "domain" VARCHAR, "axis" VARCHAR, "from_level" VARCHAR, "to_level" VARCHAR, "node_id" VARCHAR, "group_cols" VARCHAR, "derived" VARCHAR, "band_col" VARCHAR, "band_bounds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_granularity_edge" = 6
+
+CREATE TABLE main."gov_measure_def"("measure_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "node_id" VARCHAR, "measure" VARCHAR, "preds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_measure_def" = 20
+
+CREATE TABLE main."gov_metric"("metric_id" VARCHAR, "domain" VARCHAR, "kind" VARCHAR, "num_node" VARCHAR, "den_node" VARCHAR, "graph_version" VARCHAR, "report_axis" VARCHAR, "entity_node" VARCHAR);
+-- rowcount main."gov_metric" = 16
+
+CREATE TABLE main."gov_metric_alias"("alias_id" VARCHAR, "alias_text" VARCHAR, "metric_id" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_metric_alias" = 16
+
+CREATE TABLE main."gov_semantic_graph_version"("graph_version" VARCHAR, "domain" VARCHAR, "committed_at" VARCHAR, "commit_seq" VARCHAR, "change_note" VARCHAR);
+-- rowcount main."gov_semantic_graph_version" = 2
+
+CREATE TABLE main."gov_semantic_node"("node_id" VARCHAR, "domain" VARCHAR, "physical_table" VARCHAR, "entity_key" VARCHAR, "scope_keys" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_semantic_node" = 16
+
+CREATE TABLE main."gov_temporal_binding"("binding_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "anchor_id" VARCHAR, "rule_id" VARCHAR, "window_gran" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_temporal_binding" = 14
+
+CREATE TABLE main."gov_valid_time_anchor"("anchor_id" VARCHAR, "node_id" VARCHAR, "anchor_type" VARCHAR, "effective_col" VARCHAR, "vf_col" VARCHAR, "vtc_col" VARCHAR, "granularity" VARCHAR, "coverage_mode" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_valid_time_anchor" = 6
+
+CREATE TABLE main."postHistory"("Id" BIGINT, "PostHistoryTypeId" BIGINT, "PostId" BIGINT, "RevisionGUID" VARCHAR, "CreationDate" TIMESTAMP, "UserId" BIGINT, "Text" VARCHAR, "Comment" VARCHAR, "UserDisplayName" VARCHAR);
+-- rowcount main."postHistory" = 303155
+
+CREATE TABLE main."postLinks"("Id" BIGINT, "CreationDate" TIMESTAMP, "PostId" BIGINT, "RelatedPostId" BIGINT, "LinkTypeId" BIGINT);
+-- rowcount main."postLinks" = 11102
+
+CREATE TABLE main."posts"("Id" BIGINT, "PostTypeId" BIGINT, "AcceptedAnswerId" BIGINT, "CreaionDate" TIMESTAMP, "Score" BIGINT, "ViewCount" BIGINT, "Body" VARCHAR, "OwnerUserId" BIGINT, "LasActivityDate" TIMESTAMP, "Title" VARCHAR, "Tags" VARCHAR, "AnswerCount" BIGINT, "CommentCount" BIGINT, "FavoriteCount" BIGINT, "LastEditorUserId" BIGINT, "LastEditDate" TIMESTAMP, "CommunityOwnedDate" TIMESTAMP, "ParentId" BIGINT, "ClosedDate" TIMESTAMP, "OwnerDisplayName" VARCHAR, "LastEditorDisplayName" VARCHAR);
+-- rowcount main."posts" = 91966
+
+CREATE TABLE main."tags"("Id" BIGINT, "TagName" VARCHAR, "Count" BIGINT, "ExcerptPostId" BIGINT, "WikiPostId" BIGINT);
+-- rowcount main."tags" = 1032
+
+CREATE TABLE main."users"("Id" BIGINT, "Reputation" BIGINT, "CreationDate" TIMESTAMP, "DisplayName" VARCHAR, "LastAccessDate" TIMESTAMP, "WebsiteUrl" VARCHAR, "Location" VARCHAR, "AboutMe" VARCHAR, "Views" BIGINT, "UpVotes" BIGINT, "DownVotes" BIGINT, "AccountId" BIGINT, "Age" BIGINT, "ProfileImageUrl" VARCHAR);
+-- rowcount main."users" = 40325
+
+CREATE TABLE main."votes"("Id" BIGINT, "PostId" BIGINT, "VoteTypeId" BIGINT, "CreationDate" DATE, "UserId" BIGINT, "BountyAmount" BIGINT);
+-- rowcount main."votes" = 38930

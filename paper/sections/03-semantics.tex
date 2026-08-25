@@ -1,0 +1,388 @@
+% =====================================================================
+%  Section 3 -- BI-TEMPORAL GOVERNED QUERY SEMANTICS   (source: theory/C3)
+%  Needs acmart (+pvldb.sty) and amsmath,amssymb,booktabs,algorithm,
+%  algpseudocode.  acmart supplies theorem/lemma/proposition/corollary/
+%  definition/example on one section-numbered counter.  Shared macros are
+%  defined here (guarded), so this file must be \input before 04/05/06.
+%  COMPRESSION: full proofs and the full notation table live in
+%  extended/appendix_proofs.tex (extended version, \cite{asofgov-tr}).
+% =====================================================================
+
+% ---- shared notation macros (guarded; safe to duplicate in preamble) ----
+\providecommand{\Tdom}{\mathbb{T}}
+\providecommand{\Qdom}{\mathbb{Q}}
+\providecommand{\Wdom}{\mathcal{W}}
+\providecommand{\Gfam}{\mathbb{G}}
+\providecommand{\Vset}{\mathcal{V}}
+\providecommand{\Gseq}{\mathcal{G}}
+\providecommand{\Dpol}{\mathcal{D}}
+\providecommand{\Mask}{\mathbb{M}}
+\providecommand{\ver}{\mathrm{ver}}
+\providecommand{\Cov}{\mathrm{Cov}}
+\providecommand{\vt}{\mathrm{vt}}
+\providecommand{\cmode}{\mathrm{cm}}
+\providecommand{\hull}{\mathrm{hull}}
+\providecommand{\Pop}{\mathrm{Pop}}
+\providecommand{\Bindable}{\mathsf{Bindable}}
+\providecommand{\OOV}{\mathsf{OOV}}
+\providecommand{\AM}{\mathsf{AM}}
+\providecommand{\MC}{\mathsf{MC}}
+\providecommand{\DBL}{\mathsf{DB}}
+\providecommand{\svw}{\mathrm{svw}}
+\providecommand{\legn}{\mathrm{n}}
+\providecommand{\legd}{\mathrm{d}}
+\providecommand{\ANSW}{\mathsf{ANSWER}}
+\providecommand{\REWR}{\mathsf{REWRITE}}
+\providecommand{\REFU}{\mathsf{REFUSE}}
+\providecommand{\Chk}{\mathsf{Chk}}
+\providecommand{\ACC}{\mathsf{ACCEPT}}
+\providecommand{\REJ}{\mathsf{REJECT}}
+\providecommand{\sem}[1]{[\![#1]\!]}
+\providecommand{\dcl}{\mathrm{cl}}
+\providecommand{\Legal}{\mathrm{Legal}}
+\providecommand{\SUPPMIN}{\mathrm{SUPPMIN}}
+\providecommand{\Env}{\mathrm{Env}}
+\providecommand{\val}{\mathrm{val}}
+\providecommand{\touched}{\mathrm{touched}}
+\providecommand{\ctx}{\mathrm{ctx}}
+\providecommand{\dec}{\mathrm{dec}}
+\providecommand{\out}{\mathrm{out}}
+\providecommand{\CT}{\mathrm{CT}}
+\providecommand{\srig}{S_{\mathrm{rig}}}
+\providecommand{\sraw}{S_{\mathrm{raw}}}
+% ------------------------------------------------------------------------
+
+\section{BI-TEMPORAL GOVERNED QUERY SEMANTICS}
+\label{sec:semantics}
+
+\noindent\looseness=-1\textbf{Takeaway.}\ \emph{As-of correctness is a property of a
+two-axis binding --- the valid-time anchor axis in the data, the version axis
+of the governance layer --- and a structured refusal is a first-class value of
+it, not an error path.} Proofs are in~\cite{asofgov-tr};
+Table~\ref{tab:notation} collects the notation of
+\S\ref{sec:semantics}--\S\ref{sec:certificates}.
+
+% =====================================================================
+% NOTATION TABLE (added 2026-08-23, review R1-2-2): the body now carries
+% the notation of Sections 2-5 itself instead of deferring it to the TR.
+% Grouped one line per definition site; the TR keeps the long form.
+% =====================================================================
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{0.93}
+\caption{Notation of \S\ref{sec:semantics}--\S\ref{sec:certificates},
+in order of definition.}
+\label{tab:notation}
+\begin{tabular}{@{}ll@{}}
+\toprule
+$\Tdom$;\ $\Gfam,\sqsubseteq,\sqcap$;\ $\Wdom,\Wdom_g,\top$ &
+  time; granularities (refine, meet); windows\\
+$a=(o_a,\mathrm{ty}_a,\vt_a,g_a,\cmode_a)$ &
+  anchor: object, type, $\vt_a$, granule, mode\\
+$V_v(a)$;\ $\Cov_v(a)$ &
+  marking set; coverage domain ($\hull$/strict)\\
+$G_v=(N_v,E_v,\lambda_v;M_v,R_v,A_v,\beta_v)$ &
+  graph at $v$: nodes, edges, labels; registries\\
+$M_v$;\ $a_m$ & metric set (atomic/ratio); atomic-metric anchor\\
+$R_v(m){=}\rho{=}(\kappa,o_{\mathrm{via}},K_\rho,\mathrm{align}_\rho)$ &
+  caliber route: key, via-object, joins, alignment\\
+$\beta_v(m)=(a^*_\legn,a^*_\legd,\mathrm{rule})$ &
+  temporal binding: leg anchors, rule\\
+$\Gseq=(\{G_v\}_{v\in\Vset},\preceq,t)$;\ $\ver(T)$ &
+  version sequence, commits; in-effect version\\
+$q=(\sigma,T)$;\ $\sigma=(m,s,\vec\omega,\bar a)$ &
+  query: intent (metric, scope, $\vec\omega$, $\bar a$), instant\\
+$R(q)$;\ $\omega_r$;\ $\uparrow$;\ $\mathrm{RefA}_v$ &
+  roles; window map; unresolvable; absent names\\
+$\alpha_{q,v}$;\ $P_{\mathrm{rule}}$;\ $\svw$;\ $g^{\mathrm{cmp}}$ &
+  candidate asgn.; rule pred.; ref.\ rule; granule\\
+$\Pop^{r}_{v,T}(q)$;\ $\mu^{r}_{v,T}(q)$;\ $\models_\rho$ &
+  leg population; leg mass; scope match along $\rho$\\
+$\Bindable$, (b1)--(b4);\ $\sem{q}_{\Gseq,T}$;\ $\Qdom$ &
+  bindability, its guards; semantics; value domain\\
+$\bot_{\OOV},\bot_{\AM},\bot_{\MC}$;\ $\DBL$ &
+  typed refusals; disclosure-blocked class\\
+$\sem{\sigma}^1_{G_v,D}$;\ SVRC;\ (A1)--(A6);\ $n,|W|,|\sem{o}|$ &
+  1-axis semantics; consistency; assumptions; costs\\
+$\Dpol_v$;\ $L(q,T,\Gseq,\ctx,D)$;\ $X(q,T)$ &
+  policies; legal set; candidate space\\
+$b=\langle\alpha,w,v,g\rangle$;\ $\dcl(b,\ctx)$;\ $\preceq_D,\approx_D$ &
+  binding point; its closure; fidelity order, kernel\\
+$\prec_{\det}$;\ $\CT$;\ $U_{\min}$ &
+  deterministic key; reason table; legal grains\\
+$B=\langle\alpha,\nu,\rho,\delta\rangle$;\ $C=(q,T,B,\out)$ &
+  binding quadruple; certificate\\
+$\nu$;\ $\delta=(\dec,\Pi,h_{\ctx},g,\mu^*)$;\ $w$ &
+  version pin; disclosure decision; refusal witness\\
+$\Chk$;\ $\ACC/\REJ$;\ $\mathcal{Q}_{\mathrm{tmpl}}$ &
+  checking relation; verdicts; template class\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{example}[Running example: \textsc{card\_games}]
+\label{ex:run}
+\looseness=-1 The governed \texttt{card\_games} warehouse registers
+\texttt{ruling\_\allowbreak intensity} as a rulings leg over a new-printings
+leg, the denominator attributed along the caliber
+route \texttt{cards}$\bowtie$\texttt{sets}, both legs bound by
+\texttt{same\_\allowbreak valid\_\allowbreak time\_\allowbreak window} over the
+day-granular anchors of Figure~\ref{fig:running}. Four requests against that
+one registration carry the paper, worked out with every mass in
+Figure~\ref{fig:partition}.
+\end{example}
+
+\smallskip\noindent\looseness=-1\textbf{Anchors, versions, queries, and the answer
+semantics.}\label{sec:sem:graph}\label{sec:sem:bracket}\label{sec:sem:fail}\
+\textbf{Time and windows.} $\Tdom$ is a discrete, effectively presented
+time domain with decidable order. A
+finite granularity family $\Gfam$ (day\dots year) is ordered by refinement
+$\sqsubseteq$ and \emph{assumed} a meet-semilattice, $g\sqcap g'$ being the
+commonly expressible granularity --- an assumption, not a fact: weeks and months
+refine each other in neither direction. The window algebra $\Wdom$ holds
+half-open intervals and finite date sets under intersection and containment;
+$\Wdom_g$ collects $g$-aligned unions plus $\top$. Request windows are
+\emph{capped} to $\bigcup_g\Wdom_g$, so decidability in \S\ref{sec:binding} is
+relative to that cap; lifting it to arbitrary definable windows is open.
+
+\noindent\looseness=-1\textbf{Valid-time anchors.} Under version $v$, an anchor is
+$a=(o_a,\mathrm{ty}_a,\allowbreak\vt_a,g_a,\cmode_a)$: a semantic object, an
+anchor type,
+a valid-time assignment $\vt_a:\sem{o_a}_v\to\Wdom$, a marking granularity
+$g_a\in\Gfam\cup\{\mathsf{itv}\}$, and a coverage mode
+$\cmode_a\in\{\hull,\mathsf{strict\_member}\}$. A \emph{snapshot anchor}
+carries an effective date column, $\vt_a(r)=\mathrm{gr}_{g_a}(r.\mathrm{eff})$;
+an \emph{interval anchor} ($g_a=\mathsf{itv}$) carries
+$(\mathrm{vf},\mathrm{vtc})$ and sets
+$\vt_a(r)=[\,r.\mathrm{vf},r.\mathrm{vtc})$ under point-window semantics. The
+\emph{marking set} is $V_v(a)=\bigcup_{r\in\sem{o_a}_v}\vt_a(r)$; the
+\emph{coverage domain} $\Cov_v(a)$ is $\hull(V_v(a))$ under $\hull$ and
+$V_v(a)$ under $\mathsf{strict\_member}$.
+Codomain $\Wdom$ admits $\emptyset$: zero-length dimension rows
+($\mathrm{vf}=\mathrm{vtc}$) meet every window emptily. Coverage mode is
+\emph{per-anchor and versioned}, not global, and every refusal witness
+replays it under the declared mode.
+
+\smallskip\noindent\looseness=-1\textbf{Graph versions and the version axis.}
+$G_v=(N_v,E_v,\lambda_v;\allowbreak M_v,R_v,A_v,\beta_v)$
+(Table~\ref{tab:notation}): layer-labelled nodes, typed edges including
+\texttt{numerator\_\allowbreak of}$\langle m\rangle$ and
+\texttt{denominator\_\allowbreak of}$\langle m\rangle$; a metric set $M_v$ whose
+members are \emph{atomic} $(o_m,f_m)$ or \emph{ratio}
+$((o^{\legn}_m,f^{\legn}_m),\allowbreak(o^{\legd}_m,f^{\legd}_m))$; a partial
+routing
+$R_v(m)=\rho=(\kappa,o_{\mathrm{via}},\allowbreak K_\rho,\mathrm{align}_\rho)$
+fixing the \emph{scoped} denominator population; an anchor set
+$A_v$, carrying the atomic-metric anchor assignment $m\mapsto a_m$; and a
+partial \emph{temporal binding}
+$\beta_v(m)=(a^*_{\legn},a^*_{\legd},\mathrm{rule})$, with ``$m$ ratio
+$\Rightarrow\beta_v(m)$ defined, each prescribed anchor on its own leg, and a
+\emph{distinct}-anchor row declaring a realisation-sensitive clause-(iv)
+member'' a well-formedness invariant --- the second clause is what sends
+\emph{mixed} coverage to $\AM$(iv) and closes the forward-cited
+Theorem~\ref{thm:partition} of \S\ref{sec:binding}.
+
+\noindent\looseness=-1 A \emph{version sequence}
+$\Gseq=(\{G_v\}_{v\in\Vset},\preceq,t)$ has $\Vset$ finite non-empty under a
+total commit order and a computable strictly monotone commit map
+$t:\Vset\to\Tdom$; writing $t_i=t(v_i)$, the \emph{in-effect version} is
+$\ver(T)=v_i$ for $T\in[t_i,t_{i+1})$ ($t_{n+1}{=}{+}\infty$), undefined for
+$T<t_1$. The axis is \emph{append-only}: committed triples are never
+deleted or renumbered, a rollback being a re-commit under a fresh number.
+
+\looseness=-1\emph{Caliber} --- the route $\rho$ fixing over which population a
+metric's legs are computed --- \emph{is part of the value, not of
+execution.} On the shipped
+\texttt{financial} warehouse the same $(m,s,T)$ --- the 1997 penalty-transaction
+rate --- evaluates to $0.143\%$ under the registered route (denominator: all
+transactions) and to $2.174\%$ under a control route whose denominator is the
+penalised-account base itself, a $15.2\times$ gap on the same anchors and
+window. Hence the bracket carries $G_v$ as a subscript and $\rho$
+must be a certificate field.
+
+\begin{lemma}[version-axis stability]
+\label{lem:stability}
+\looseness=-1 Let $\Gseq'$ extend $\Gseq$ by appending $v_{n+1}$ with $t_{n+1}>t_n$. Then
+$\ver_{\Gseq'}(T)=\ver_{\Gseq}(T)$ and
+$\sem{q}_{\Gseq',T}=\sem{q}_{\Gseq,T}$ for every $T<t_{n+1}$ and every $q$
+declared at $T$.
+\end{lemma}
+
+\noindent\looseness=-1 Proof in~\cite{asofgov-tr}. Point-in-time answers, refusals included,
+are durable assertions about $(T,v)$. \emph{In our seeds}, four
+question pairs flip value under the version change alone
+(\S\ref{sec:eval}).
+
+\begin{definition}[bi-temporal query and candidate assignment]
+\label{def:query}\label{def:alpha}
+\looseness=-1 A query is $q=(\sigma,T)$ with declared instant $T$ and structured intent
+$\sigma=(m,s,\vec\omega,\bar a)$.
+\par\noindent\textbf{(1)~Intent.} $m$ is a metric reference and $s$ a scope
+selector; $\vec\omega$ assigns each role
+$r\in R(q)\subseteq\{\mathrm{num},\mathrm{den},\mathrm{atom}\}$ a computable
+\emph{window derivation} $\omega_r:\Tdom\to\Wdom\uplus\{\uparrow\}$ with an
+explicit unresolvable sentinel; $\bar a$ is a partial \emph{anchor override}
+from roles to anchor \emph{references by name}, not presumed to resolve in
+$A_v$.
+\par\noindent\textbf{(2)~Candidate assignment.} For $v=\ver(T)$
+and $m\in M_v$, with $\mathrm{RefA}_v$ the override names failing to resolve
+in $A_v$, the candidate assignment is the \emph{function}
+$\alpha_{q,v}:R(q)\rightharpoonup(A_v\uplus\mathrm{RefA}_v)\times\Wdom$,
+$\alpha_{q,v}(r)=(\bar a(r)\text{ else prescribed},\ \omega_r(T))$, the
+prescribed anchors being the two legs of $\beta_v(m)$ (ratio) or $a_m$
+(atomic).
+\par\noindent\textbf{(3)~Unresolved overrides.} An override resolving into
+$\mathrm{RefA}_v$ keeps the role out of the $\OOV$ coverage disjunct and
+classifies the query $\bot_{\AM}$, witness ``declared name absent from
+$A_v$'', for ratio and atomic metrics alike (once $\neg\OOV$;
+Definition~\ref{def:am}(2), a forward reference).
+\end{definition}
+
+\looseness=-1 That $\alpha_{q,v}$ is a function --- no search --- is deliberate: the
+existential quantifier over assignments is \S\ref{sec:rewrite}'s. The
+definitions sit on the \emph{diagonal} $T_{\mathrm{vt}}=T_{\mathrm{ver}}=T$;
+our suite runs the two-parameter bracket ($T_{\mathrm{ver}}$ declaring,
+$T_{\mathrm{vt}}$ as-of), carried statement by statement
+in~\cite{asofgov-tr}; admissibility stays a disclosure question.
+
+\begin{definition}[binding rule; \texttt{same\_valid\_time\_window}]
+\label{def:rule}
+\looseness=-1 Each rule denotes a decidable $P_{\mathrm{rule}}(\alpha;G_v,D)$. The reference
+rule $\svw$ holds on
+$\alpha=\{\mathrm{num}\mapsto(a_\legn,W_\legn),\mathrm{den}\mapsto(a_\legd,W_\legd)\}$
+when all four clauses hold:
+\par\noindent\textbf{(i) anchor fidelity:}
+$a_\legn=a^*_\legn,a_\legd=a^*_\legd$;
+\par\noindent\textbf{(ii) same window:} $W_\legn=W_\legd=:W$;
+\par\noindent\textbf{(iii) window--granularity expressibility:}
+$W\in\Wdom_{g^{\mathrm{cmp}}}$ for the declared comparison granularity, by
+default $g_{a^*_\legn}\sqcap g_{a^*_\legd}$ over the legs whose $g_a$ lies in
+$\Gfam$ (an interval-anchored leg imposes no granule constraint; where neither
+leg has one, $g^{\mathrm{cmp}}$ must be declared);
+\par\noindent\textbf{(iv) anchor-pair admissibility:} a member of a finite
+decidable check library fixed by the binding row's anchor pair --- trivially
+true, or a symmetric-difference audit on the marking domains or on the
+window-restricted realisations.
+\end{definition}
+
+\looseness=-1 Clause~(iv) reaches into governance content: the check
+library is versioned data, not part of the abstraction (its teeth:
+Example~\ref{ex:symdiff}).
+
+\begin{definition}[bindability]
+\label{def:bindable}
+\looseness=-1 With $v=\ver(T)$, $\rho=R_v(m)$ and $\alpha_{q,v}(r)=(a_r,W_r)$, the leg
+population and mass are
+$\Pop^{r}_{v,T}(q)=\{x\in\sem{o^{r}_m}_v: x\models_\rho s,\allowbreak\
+\vt_{a_r}(x)\cap W_r\neq\emptyset\}$ and
+$\mu^{r}_{v,T}(q)=\sum_{x\in\Pop^{r}_{v,T}(q)}f^{r}_m(x)$, where
+$x\models_\rho s$ means $x$ matches the scope after transfer along the route's
+join keys and attribution alignment. $\Bindable(q,\Gseq,D)$ holds when:
+\par\noindent\textbf{(b1)} \emph{both axes in effect} --- $\ver(T)$ defined,
+each $\omega_r(T)$ defined, and per role $a_r\in A_v$ with
+$W_r\cap\Cov_v(a_r)\neq\emptyset$;
+\par\noindent\textbf{(b2)} \emph{metric, route and binding registered} ---
+$m\in M_v$, and for a ratio $R_v(m)$ defined and recomputable and
+$\beta_v(m)$ defined;
+\par\noindent\textbf{(b3)} \emph{rule satisfied} ---
+$P_{\mathrm{rule}}(\alpha_{q,v};G_v,D)$ whenever $\beta_v(m)$ is defined;
+\par\noindent\textbf{(b4)} \emph{positive denominator mass} ---
+$\mu^{\mathrm{den}}_{v,T}(q)>0$ for a ratio.
+\end{definition}
+
+The legs are asymmetric: a zero numerator mass is a lawful $0$ where a zero
+denominator mass destroys the ratio.
+
+\begin{definition}[point-in-time answer semantics]
+\label{def:bracket}
+\looseness=-1 The denotation is the \emph{total} function $\sem{q}_{\Gseq,T}:
+\text{queries}\to\Qdom\cup\{\bot_{\OOV},\bot_{\AM},\bot_{\MC}\}$ given by
+$\mu^{\mathrm{num}}_{v,T}(q)/\mu^{\mathrm{den}}_{v,T}(q)$ if $\Bindable$ and
+$m$ is a ratio, $\mu^{\mathrm{atom}}_{v,T}(q)$ if $\Bindable$ and $m$ is
+atomic, and otherwise $\bot_c$ for the first failing guard $c$. Numerator and
+denominator are bound separately to the valid-time window of $T$ through their
+own anchors, and jointly to the version $\ver(T)$ in effect at $T$: this is
+the two-dimensional binding. Delta and multi-period intents expand by role
+$\times$ period and resolve lexicographically
+(Corollary~\ref{cor:multi}, a forward
+reference), keeping $\sem{\cdot}$ single-valued.
+\end{definition}
+
+\begin{proposition}[well-definedness]
+\label{prop:welldef}
+\looseness=-1 When $\Bindable(q,\Gseq,D)$ holds, $\sem{q}_{\Gseq,T}$ is determined by
+$(q,\Gseq,D)$ and independent of evaluation order.
+\end{proposition}
+
+\noindent\looseness=-1 Proof in~\cite{asofgov-tr}. \emph{Ratio-of-sums invariant:} each leg is
+aggregated over the window before dividing, since for $W=\biguplus_j W_j$
+$\sum_j\mu^{\legn}_j/\sum_j\mu^{\legd}_j$ and the average of per-part ratios
+differ; the template's \texttt{sum(rate)} ban and the verifier's ratio-shape
+check are its two projections.
+
+\begin{definition}[the three refusal classes, as a guard chain]
+\label{def:oov}\label{def:am}\label{def:mc}
+\looseness=-1 Each predicate is defined under the negation of its predecessors, which makes
+them pairwise disjoint and keeps every object they mention nameable.
+\textbf{(1) $\OOV$ (out-of-validity)}: $\ver(T)$ undefined, or some
+$\omega_r(T)=\uparrow$, or coverage vacuity over the single-period roles
+--- \emph{pair-level} where $\beta_v(m)$'s rule pairs two legs (both
+realisations empty; mixed is Definition~\ref{def:rule}(iv)'s audit
+jurisdiction), per-role $W_r\cap\Cov_v(a_r)=\emptyset$ for an unpaired
+(atom) role --- the reading frozen before any model call (deviation ledger
+\texttt{PORT\_REPORT} \S4(2), in the artifact). A disjunct naming a non-nameable object
+counts as false, so a missing object cannot masquerade as temporal failure.
+\textbf{(2) $\AM$ (anchor-mismatch), guarded by $\neg\OOV$}: $\beta_v(m)$
+defined and $\neg P_{\mathrm{rule}}(\alpha_{q,v};G_v,D)$, witnessed by
+whichever clause of Definition~\ref{def:rule} fails; or some declared
+override resolves into $\mathrm{RefA}_v$ --- witnessed by the name absent
+from $A_v$, the $\AM$(i) form --- for ratio and atomic metrics alike.
+\textbf{(3) $\MC$ (missing-caliber), guarded by $\neg\OOV\wedge\neg\AM$}:
+\emph{(i)} $m\notin M_v$, or $m$ a ratio with $R_v(m)$ undefined or not
+recomputable or $\beta_v(m)$ undefined; or \emph{(ii)} $m$ a ratio with
+$\mu^{\mathrm{den}}_{v,T}(q)\le0$.
+\end{definition}
+
+\looseness=-1 The $\OOV$/$\MC$(ii) boundary is the paper's most consequential
+adjudication: $\OOV$ carries \emph{coverage vacuity} --- the window missing
+the coverage domain altogether --- whereas zero denominator mass
+\emph{inside} that domain is a caliber failure (Figure~\ref{fig:partition}
+exhibits both on one scope); widening $\MC$(ii) to $\mu_{\mathrm{den}}\le0$
+also covers refund-reversal populations --- non-empty, non-positive mass ---
+a regime the \S\ref{sec:rewrite} guarantees exclude
+(Theorem~\ref{thm:refusal}). The scope selector
+$s$ is a predicate, not a governed object --- a scope matching nothing is
+lawful ($0$ atomic, $\MC$(ii) ratio) --- a membership guard is future work.
+
+\smallskip\noindent\looseness=-1\textbf{Degeneration: the one-dimensional shadow.}%
+\label{sec:sem:degen}
+Fix $(G_v,D)$. The \emph{single-version} semantics $\sem{\sigma}^1_{G_v,D}$
+drops anchor--window filtering but retains the anchor-validity restriction
+$\vt_{a_r}(x)\neq\emptyset$; an evaluation satisfies
+\emph{single-version read consistency} (SVRC) iff a single committed
+version $v$ supplies every governance object it reads --- metric record,
+route, anchors, binding row --- and the one snapshot $D$ every fact ---
+a definition complete here (restated in~\cite{asofgov-tr}).
+
+\begin{theorem}[degeneration]
+\label{thm:degen}
+\looseness=-1 Let $\mathcal{Q}^{\downarrow}$ be the queries satisfying \textbf{(H1)}
+$T\ge t_n$, hence $\ver(T)=v_n$; \textbf{(H2)} $\omega_r(T)=\top$ for every
+role; \textbf{(H3)} $\bar a=\emptyset$. Then for every
+$q\in\mathcal{Q}^{\downarrow}$: \emph{(1)} the evaluation satisfies SVRC,
+witnessed by $v_n$; \emph{(2)} whenever $\sem{q}_{\Gseq,T}\in\Qdom$ it equals
+$\sem{\sigma}^1_{G_{v_n},D}$; \emph{(3)} each failure class collapses to a
+non-temporal residue --- $\AM$ to a failure of clause~(iv) alone, $\OOV$ to
+$V_{v_n}(a)=\emptyset$ for every prescribed anchor, and $\MC$ to a missing route
+or a non-positive domain-wide scoped denominator mass.
+\end{theorem}
+
+\noindent\looseness=-1 Proof in~\cite{asofgov-tr}. Every $\Bindable$ evaluation satisfies
+SVRC, witnessed by $\ver(T)$; under (H1)--(H3) the temporal content collapses
+entirely to it. \emph{Honest strength:} under the snapshot assumption clause~(1) holds \emph{by
+construction}; re-proving a concurrency guarantee under version advance needs
+a per-datum read-version function a single-snapshot $D$ cannot express --- the
+shape of a substrate guarantee at construction strength, not its
+subsumption.

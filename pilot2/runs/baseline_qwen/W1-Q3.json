@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q3",
+ "system": "baseline_qwen",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 数据中无 2026-03 月的人口记录",
+ "sql": "REFUSE",
+ "prompt_sha256": "aedcd28ac55c14e2f7adb26b0a8aae8f8bbe5384a773671bcc7d2240ecc585c6",
+ "prompt_chars": 3078,
+ "empty_response": false
+}

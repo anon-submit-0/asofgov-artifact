@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q8",
+ "system": "baseline_qwen",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "让我仔细思考这个问题：\n\n1. **车队识别**：Brawn GP 在 2010 年确实存在（2009 年夺冠后，2010 年由梅赛德斯收购，但赛季初仍叫 Brawn GP）\n2. **时间范围**：2010 赛季对应 races 表中 year=2010 的记录\n3. **场均积分计算**：总积分 / 比赛场次\n4. **声明时点**：2011-03-01 可能只是 temporal 上下文，但考虑到数据集是抽取的，直接查询实际数据即可\n\n```sql\nSELECT SUM(cs.points) * 1.0 / COUNT(DISTINCT cs.raceId) \nFROM main.constructorStandings cs\nJOIN main.constructors c ON cs.constructorId = c.constructorId\nJOIN main.races r ON cs.raceId = r.raceId\nWHERE LOWER(c.name) LIKE '%brawn%' \nAND r.year = 2010\n```",
+ "sql": "SELECT SUM(cs.points) * 1.0 / COUNT(DISTINCT cs.raceId) \nFROM main.constructorStandings cs\nJOIN main.constructors c ON cs.constructorId = c.constructorId\nJOIN main.races r ON cs.raceId = r.raceId\nWHERE LOWER(c.name) LIKE '%brawn%' \nAND r.year = 2010",
+ "prompt_sha256": "e4639e03ecb337c98e411016fcde357ce2e9ca4439abc3e2c6428123e4d5eeaf",
+ "prompt_chars": 5497,
+ "empty_response": false
+}

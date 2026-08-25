@@ -1,0 +1,196 @@
+{
+ "schema": "asofgov/tab_benchmark.v1-pilot2",
+ "source": "figures/fig_data_pilot2.json",
+ "totals": {
+  "real_rows": 3830036,
+  "authored_rows": 20094,
+  "gov_seed_rows": 847,
+  "policy_rows": 18,
+  "versions": 18
+ },
+ "rows": [
+  {
+   "domain": "financial",
+   "source": "bird_dev_20240627",
+   "real_rows": 1079680,
+   "authored_rows": 0,
+   "largest_table": "trans",
+   "largest_rows": 1056320,
+   "n_anchors": 3,
+   "n_anchor_rows": 6,
+   "coverage_modes": [
+    "hull"
+   ],
+   "versions": 2,
+   "policy_rows": 0,
+   "gov_seed_rows": 110,
+   "n_q": 8,
+   "q_value": 5,
+   "q_rewrite": 1,
+   "q_refusal": 2
+  },
+  {
+   "domain": "card_games",
+   "source": "bird_dev_20240627",
+   "real_rows": 803445,
+   "authored_rows": 0,
+   "largest_table": "legalities",
+   "largest_rows": 427907,
+   "n_anchors": 2,
+   "n_anchor_rows": 4,
+   "coverage_modes": [
+    "hull"
+   ],
+   "versions": 2,
+   "policy_rows": 0,
+   "gov_seed_rows": 104,
+   "n_q": 7,
+   "q_value": 4,
+   "q_rewrite": 1,
+   "q_refusal": 2
+  },
+  {
+   "domain": "codebase_community",
+   "source": "bird_dev_20240627",
+   "real_rows": 740646,
+   "authored_rows": 0,
+   "largest_table": "postHistory",
+   "largest_rows": 303155,
+   "n_anchors": 3,
+   "n_anchor_rows": 6,
+   "coverage_modes": [
+    "hull"
+   ],
+   "versions": 2,
+   "policy_rows": 8,
+   "gov_seed_rows": 118,
+   "n_q": 7,
+   "q_value": 3,
+   "q_rewrite": 3,
+   "q_refusal": 1
+  },
+  {
+   "domain": "formula_1",
+   "source": "bird_dev_20240627",
+   "real_rows": 514287,
+   "authored_rows": 18,
+   "largest_table": "lapTimes",
+   "largest_rows": 420369,
+   "n_anchors": 1,
+   "n_anchor_rows": 2,
+   "coverage_modes": [
+    "hull"
+   ],
+   "versions": 2,
+   "policy_rows": 0,
+   "gov_seed_rows": 120,
+   "n_q": 8,
+   "q_value": 5,
+   "q_rewrite": 1,
+   "q_refusal": 2
+  },
+  {
+   "domain": "debit_card_specializing",
+   "source": "bird_dev_20240627",
+   "real_rows": 423050,
+   "authored_rows": 0,
+   "largest_table": "yearmonth",
+   "largest_rows": 383282,
+   "n_anchors": 2,
+   "n_anchor_rows": 4,
+   "coverage_modes": [
+    "hull",
+    "strict_member"
+   ],
+   "versions": 2,
+   "policy_rows": 2,
+   "gov_seed_rows": 80,
+   "n_q": 7,
+   "q_value": 4,
+   "q_rewrite": 1,
+   "q_refusal": 2
+  },
+  {
+   "domain": "european_football_2",
+   "source": "bird_dev_20240627",
+   "real_rows": 222796,
+   "authored_rows": 0,
+   "largest_table": "Player_Attributes",
+   "largest_rows": 183978,
+   "n_anchors": 3,
+   "n_anchor_rows": 6,
+   "coverage_modes": [
+    "hull",
+    "strict_member"
+   ],
+   "versions": 2,
+   "policy_rows": 0,
+   "gov_seed_rows": 97,
+   "n_q": 6,
+   "q_value": 3,
+   "q_rewrite": 1,
+   "q_refusal": 2
+  },
+  {
+   "domain": "california_schools",
+   "source": "bird_dev_20240627",
+   "real_rows": 29941,
+   "authored_rows": 0,
+   "largest_table": "schools",
+   "largest_rows": 17686,
+   "n_anchors": 2,
+   "n_anchor_rows": 4,
+   "coverage_modes": [
+    "hull",
+    "strict_member"
+   ],
+   "versions": 2,
+   "policy_rows": 2,
+   "gov_seed_rows": 66,
+   "n_q": 6,
+   "q_value": 4,
+   "q_rewrite": 1,
+   "q_refusal": 1
+  },
+  {
+   "domain": "thrombosis_prediction",
+   "source": "bird_dev_20240627",
+   "real_rows": 15952,
+   "authored_rows": 0,
+   "largest_table": "Laboratory",
+   "largest_rows": 13908,
+   "n_anchors": 2,
+   "n_anchor_rows": 4,
+   "coverage_modes": [
+    "hull"
+   ],
+   "versions": 2,
+   "policy_rows": 6,
+   "gov_seed_rows": 82,
+   "n_q": 6,
+   "q_value": 2,
+   "q_rewrite": 2,
+   "q_refusal": 2
+  },
+  {
+   "domain": "world_1",
+   "source": "spider_dev_via_pilot_public_extract",
+   "real_rows": 239,
+   "authored_rows": 20076,
+   "largest_table": "country",
+   "largest_rows": 239,
+   "n_anchors": 1,
+   "n_anchor_rows": 2,
+   "coverage_modes": [
+    "hull"
+   ],
+   "versions": 2,
+   "policy_rows": 0,
+   "gov_seed_rows": 70,
+   "n_q": 5,
+   "q_value": 3,
+   "q_rewrite": 1,
+   "q_refusal": 1
+  }
+ ]
+}

@@ -1,0 +1,2 @@
+{"change_note": "初版治理：客户级统计小胞阈值 k=10", "commit_seq": 1, "committed_at": "2012-06-01", "domain": "debit_card_specializing", "graph_version": "v1"}
+{"change_note": "披露收紧：客户级统计小胞阈值升至 k=20", "commit_seq": 2, "committed_at": "2013-06-01", "domain": "debit_card_specializing", "graph_version": "v2"}

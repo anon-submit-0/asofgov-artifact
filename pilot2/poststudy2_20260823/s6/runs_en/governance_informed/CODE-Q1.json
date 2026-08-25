@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q1",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 0.6638297872340425,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT CAST(num.cnt AS DOUBLE) / den.cnt AS accepted_rate\nFROM (\n  SELECT COUNT(*) AS cnt\n  FROM main.\"posts\" q\n  WHERE q.\"PostTypeId\" = 1\n    AND q.\"AcceptedAnswerId\" IS NOT NULL\n    AND EXISTS (\n      SELECT 1 FROM main.\"posts\" a\n      WHERE a.\"Id\" = q.\"AcceptedAnswerId\"\n        AND a.\"PostTypeId\" = 2\n    )\n    AND q.\"CreaionDate\" >= '2010-12-01'\n    AND q.\"CreaionDate\" < '2011-01-01'\n) num,\n(\n  SELECT COUNT(*) AS cnt\n  FROM main.\"posts\"\n  WHERE \"PostTypeId\" = 1\n    AND \"CreaionDate\" >= '2010-12-01'\n    AND \"CreaionDate\" < '2011-01-01'\n) den;\n```",
+ "sql": "SELECT CAST(num.cnt AS DOUBLE) / den.cnt AS accepted_rate\nFROM (\n  SELECT COUNT(*) AS cnt\n  FROM main.\"posts\" q\n  WHERE q.\"PostTypeId\" = 1\n    AND q.\"AcceptedAnswerId\" IS NOT NULL\n    AND EXISTS (\n      SELECT 1 FROM main.\"posts\" a\n      WHERE a.\"Id\" = q.\"AcceptedAnswerId\"\n        AND a.\"PostTypeId\" = 2\n    )\n    AND q.\"CreaionDate\" >= '2010-12-01'\n    AND q.\"CreaionDate\" < '2011-01-01'\n) num,\n(\n  SELECT COUNT(*) AS cnt\n  FROM main.\"posts\"\n  WHERE \"PostTypeId\" = 1\n    AND \"CreaionDate\" >= '2010-12-01'\n    AND \"CreaionDate\" < '2011-01-01'\n) den",
+ "prompt_sha256": "d5a64f30865dac0af156d4803a37ad98cd8743f4ad5041a5dc0a5abaaf49fc24",
+ "prompt_chars": 28356,
+ "empty_response": false
+}

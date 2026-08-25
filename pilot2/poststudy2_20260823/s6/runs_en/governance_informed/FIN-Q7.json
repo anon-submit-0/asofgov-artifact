@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q7",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: as-of时点1999-06-15超出声明时点1998-12-15，未来窗口数据不可见",
+ "sql": "REFUSE",
+ "prompt_sha256": "e59ab462250267a8ac5ceb594776c21bcb376de0d3218930d2c34c0193dfabe0",
+ "prompt_chars": 23586,
+ "empty_response": false
+}

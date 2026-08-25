@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q1",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "我需要先了解治理表中关于\"问题贷款率\"的定义。让我查询相关表。\n<tool_code>\n<tool name=\"duckdb_query\">\n<param name=\"sql\">SELECT * FROM gov_metric</param>\n</tool>\n<tool name=\"duckdb_query\">\n<param name=\"sql\">SELECT * FROM gov_measure_def</param>\n</tool>\n<tool name=\"duckdb_query\">\n<param name=\"sql\">SELECT * FROM gov_temporal_binding</param>\n</tool>\n</tool_code>",
+ "sql": "我需要先了解治理表中关于\"问题贷款率\"的定义。让我查询相关表。\n<tool_code>\n<tool name=\"duckdb_query\">\n<param name=\"sql\">SELECT * FROM gov_metric</param>\n</tool>\n<tool name=\"duckdb_query\">\n<param name=\"sql\">SELECT * FROM gov_measure_def</param>\n</tool>\n<tool name=\"duckdb_query\">\n<param name=\"sql\">SELECT * FROM gov_temporal_binding</param>\n</tool>\n</tool_code>",
+ "prompt_sha256": "c8920f5ef856e56c686ffac6b9bff06546cf7a8e1d0a5ee8c15d3a1f2753a902",
+ "prompt_chars": 4084,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q6",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 数据库中不存在价格相关字段，无法计算\"收藏溢价率\"（溢价率需要价格数据）。",
+ "sql": "REFUSE",
+ "prompt_sha256": "dd66ed8b2cadb33f3903a6e6965fa32e4439c5220b62680db249a65090276196",
+ "prompt_chars": 5428,
+ "empty_response": false
+}

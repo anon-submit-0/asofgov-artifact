@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q4",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": -38.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT \n  (SELECT COALESCE(SUM(ps.points), 0)\n   FROM main.results r\n   JOIN main.races ra ON r.raceId = ra.raceId\n   JOIN main.drivers d ON r.driverId = d.driverId\n   JOIN main.points_scheme ps ON r.positionOrder = ps.position AND ps.scheme_id = 'PS2010'\n   WHERE d.driverRef = 'button'\n     AND ra.year = 2010\n     AND ra.date <= '2011-03-01')\n  -\n  (SELECT COALESCE(SUM(ps.points), 0)\n   FROM main.results r\n   JOIN main.races ra ON r.raceId = ra.raceId\n   JOIN main.drivers d ON r.driverId = d.driverId\n   JOIN main.points_scheme ps ON r.positionOrder = ps.position AND ps.scheme_id = 'PS2010'\n   WHERE d.driverRef = 'button'\n     AND ra.year = 2009\n     AND ra.date <= '2011-03-01')\n```",
+ "sql": "SELECT \n  (SELECT COALESCE(SUM(ps.points), 0)\n   FROM main.results r\n   JOIN main.races ra ON r.raceId = ra.raceId\n   JOIN main.drivers d ON r.driverId = d.driverId\n   JOIN main.points_scheme ps ON r.positionOrder = ps.position AND ps.scheme_id = 'PS2010'\n   WHERE d.driverRef = 'button'\n     AND ra.year = 2010\n     AND ra.date <= '2011-03-01')\n  -\n  (SELECT COALESCE(SUM(ps.points), 0)\n   FROM main.results r\n   JOIN main.races ra ON r.raceId = ra.raceId\n   JOIN main.drivers d ON r.driverId = d.driverId\n   JOIN main.points_scheme ps ON r.positionOrder = ps.position AND ps.scheme_id = 'PS2010'\n   WHERE d.driverRef = 'button'\n     AND ra.year = 2009\n     AND ra.date <= '2011-03-01')",
+ "prompt_sha256": "cb2683d3e33cd223e21336d7c930803f8a9d0f06394a7738996eaa19c0b3c6de",
+ "prompt_chars": 27150,
+ "empty_response": false
+}

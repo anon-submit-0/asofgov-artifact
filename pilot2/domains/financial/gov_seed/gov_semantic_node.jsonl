@@ -1,0 +1,16 @@
+{"domain": "financial", "entity_key": "loan_id", "graph_version": "v1", "node_id": "fin.loan", "physical_table": "loan", "scope_keys": {}}
+{"domain": "financial", "entity_key": "trans_id", "graph_version": "v1", "node_id": "fin.trans", "physical_table": "trans", "scope_keys": {}}
+{"domain": "financial", "entity_key": "account_id", "graph_version": "v1", "node_id": "fin.account", "physical_table": "account", "scope_keys": {"district_id": "district_id"}}
+{"domain": "financial", "entity_key": "district_id", "graph_version": "v1", "node_id": "fin.district", "physical_table": "district", "scope_keys": {}}
+{"domain": "financial", "entity_key": "client_id", "graph_version": "v1", "node_id": "fin.client", "physical_table": "client", "scope_keys": {}}
+{"domain": "financial", "entity_key": "disp_id", "graph_version": "v1", "node_id": "fin.disp", "physical_table": "disp", "scope_keys": {}}
+{"domain": "financial", "entity_key": "card_id", "graph_version": "v1", "node_id": "fin.card", "physical_table": "card", "scope_keys": {}}
+{"domain": "financial", "entity_key": "order_id", "graph_version": "v1", "node_id": "fin.order", "physical_table": "order", "scope_keys": {}}
+{"domain": "financial", "entity_key": "loan_id", "graph_version": "v2", "node_id": "fin.loan", "physical_table": "loan", "scope_keys": {}}
+{"domain": "financial", "entity_key": "trans_id", "graph_version": "v2", "node_id": "fin.trans", "physical_table": "trans", "scope_keys": {}}
+{"domain": "financial", "entity_key": "account_id", "graph_version": "v2", "node_id": "fin.account", "physical_table": "account", "scope_keys": {"district_id": "district_id"}}
+{"domain": "financial", "entity_key": "district_id", "graph_version": "v2", "node_id": "fin.district", "physical_table": "district", "scope_keys": {}}
+{"domain": "financial", "entity_key": "client_id", "graph_version": "v2", "node_id": "fin.client", "physical_table": "client", "scope_keys": {}}
+{"domain": "financial", "entity_key": "disp_id", "graph_version": "v2", "node_id": "fin.disp", "physical_table": "disp", "scope_keys": {}}
+{"domain": "financial", "entity_key": "card_id", "graph_version": "v2", "node_id": "fin.card", "physical_table": "card", "scope_keys": {}}
+{"domain": "financial", "entity_key": "order_id", "graph_version": "v2", "node_id": "fin.order", "physical_table": "order", "scope_keys": {}}

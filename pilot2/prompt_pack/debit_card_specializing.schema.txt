@@ -1,0 +1,47 @@
+-- debit_card_specializing 域 pilot2 warehouse.duckdb schema（源: BIRD/Spider dev 公开数据集，抽取与 real/authored 行数见 provenance.json）
+-- schema: main = 业务事实/维表 + gov_* 治理登记表（十表 schema 法, DESIGN_SPEC §3.1）
+
+CREATE TABLE main."customers"("CustomerID" BIGINT, "Segment" VARCHAR, "Currency" VARCHAR);
+-- rowcount main."customers" = 32461
+
+CREATE TABLE main."gasstations"("GasStationID" BIGINT, "ChainID" BIGINT, "Country" VARCHAR, "Segment" VARCHAR);
+-- rowcount main."gasstations" = 5716
+
+CREATE TABLE main."gov_caliber_routing"("routing_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "hop_seq" VARCHAR, "src_node" VARCHAR, "dst_node" VARCHAR, "join_on" VARCHAR, "dst_caliber" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_caliber_routing" = 12
+
+CREATE TABLE main."gov_disclosure_policy"("policy_id" VARCHAR, "domain" VARCHAR, "kind" VARCHAR, "node_id" VARCHAR, "cols" VARCHAR, "mask_class" VARCHAR, "lattice_levels" VARCHAR, "k" VARCHAR, "time_floor_gran" VARCHAR, "carry" VARCHAR, "applies_to" VARCHAR, "k_exempt_top" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_disclosure_policy" = 2
+
+CREATE TABLE main."gov_granularity_edge"("edge_id" VARCHAR, "domain" VARCHAR, "axis" VARCHAR, "from_level" VARCHAR, "to_level" VARCHAR, "node_id" VARCHAR, "group_cols" VARCHAR, "derived" VARCHAR, "band_col" VARCHAR, "band_bounds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_granularity_edge" = 6
+
+CREATE TABLE main."gov_measure_def"("measure_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "node_id" VARCHAR, "measure" VARCHAR, "preds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_measure_def" = 12
+
+CREATE TABLE main."gov_metric"("metric_id" VARCHAR, "domain" VARCHAR, "kind" VARCHAR, "num_node" VARCHAR, "den_node" VARCHAR, "graph_version" VARCHAR, "report_axis" VARCHAR, "entity_node" VARCHAR);
+-- rowcount main."gov_metric" = 10
+
+CREATE TABLE main."gov_metric_alias"("alias_id" VARCHAR, "alias_text" VARCHAR, "metric_id" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_metric_alias" = 10
+
+CREATE TABLE main."gov_semantic_graph_version"("graph_version" VARCHAR, "domain" VARCHAR, "committed_at" VARCHAR, "commit_seq" VARCHAR, "change_note" VARCHAR);
+-- rowcount main."gov_semantic_graph_version" = 2
+
+CREATE TABLE main."gov_semantic_node"("node_id" VARCHAR, "domain" VARCHAR, "physical_table" VARCHAR, "entity_key" VARCHAR, "scope_keys" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_semantic_node" = 10
+
+CREATE TABLE main."gov_temporal_binding"("binding_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "anchor_id" VARCHAR, "rule_id" VARCHAR, "window_gran" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_temporal_binding" = 12
+
+CREATE TABLE main."gov_valid_time_anchor"("anchor_id" VARCHAR, "node_id" VARCHAR, "anchor_type" VARCHAR, "effective_col" VARCHAR, "vf_col" VARCHAR, "vtc_col" VARCHAR, "granularity" VARCHAR, "coverage_mode" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_valid_time_anchor" = 4
+
+CREATE TABLE main."products"("ProductID" BIGINT, "Description" VARCHAR);
+-- rowcount main."products" = 591
+
+CREATE TABLE main."transactions_1k"("TransactionID" BIGINT, "Date" DATE, "Time" VARCHAR, "CustomerID" BIGINT, "CardID" BIGINT, "GasStationID" BIGINT, "ProductID" BIGINT, "Amount" BIGINT, "Price" DOUBLE);
+-- rowcount main."transactions_1k" = 1000
+
+CREATE TABLE main."yearmonth"("CustomerID" BIGINT, "Date" VARCHAR, "Consumption" DOUBLE);
+-- rowcount main."yearmonth" = 383282

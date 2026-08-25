@@ -1,0 +1,142 @@
+
+## 治理元数据（本库 gov_* 登记表全量导出；与具体问题无关，同库所有问题看到的内容完全相同）
+-- 来源：codebase_community/gov_seed/*.jsonl（DESIGN_SPEC §3.1 十表 schema 法）；版本轴见 gov_semantic_graph_version
+-- 每个块 = 一张登记表，一行一个 JSON 对象，行按文本字典序排列
+
+-- TABLE gov_semantic_graph_version  (rows=2)
+{"change_note": "初版治理：采纳率分母为窗内全部新提问", "commit_seq": 1, "committed_at": "2010-09-01", "domain": "codebase_community", "graph_version": "v1"}
+{"change_note": "采纳率分母排除社区共有帖（协作维基帖不计入）", "commit_seq": 2, "committed_at": "2013-01-01", "domain": "codebase_community", "graph_version": "v2"}
+
+-- TABLE gov_metric_alias  (rows=16)
+{"alias_id": "code.al1", "alias_text": "提问采纳率", "graph_version": "v1", "metric_id": "code.accepted_rate"}
+{"alias_id": "code.al1", "alias_text": "提问采纳率", "graph_version": "v2", "metric_id": "code.accepted_rate"}
+{"alias_id": "code.al2", "alias_text": "当月投票总数", "graph_version": "v1", "metric_id": "code.monthly_votes"}
+{"alias_id": "code.al2", "alias_text": "当月投票总数", "graph_version": "v2", "metric_id": "code.monthly_votes"}
+{"alias_id": "code.al3", "alias_text": "用户采纳答案数报表", "graph_version": "v1", "metric_id": "code.user_accepted_report"}
+{"alias_id": "code.al3", "alias_text": "用户采纳答案数报表", "graph_version": "v2", "metric_id": "code.user_accepted_report"}
+{"alias_id": "code.al4", "alias_text": "新提问数报表", "graph_version": "v1", "metric_id": "code.daily_questions"}
+{"alias_id": "code.al4", "alias_text": "新提问数报表", "graph_version": "v2", "metric_id": "code.daily_questions"}
+{"alias_id": "code.al5", "alias_text": "用户所在地", "graph_version": "v1", "metric_id": "code.user_location"}
+{"alias_id": "code.al5", "alias_text": "用户所在地", "graph_version": "v2", "metric_id": "code.user_location"}
+{"alias_id": "code.al6", "alias_text": "答题者名录", "graph_version": "v1", "metric_id": "code.top_answerer_roster"}
+{"alias_id": "code.al6", "alias_text": "答题者名录", "graph_version": "v2", "metric_id": "code.top_answerer_roster"}
+{"alias_id": "code.al7", "alias_text": "答案采纳率", "graph_version": "v1", "metric_id": "code.answer_accept_share"}
+{"alias_id": "code.al7", "alias_text": "答案采纳率", "graph_version": "v2", "metric_id": "code.answer_accept_share"}
+{"alias_id": "code.al8", "alias_text": "当月徽章授予数", "graph_version": "v1", "metric_id": "code.monthly_badges"}
+{"alias_id": "code.al8", "alias_text": "当月徽章授予数", "graph_version": "v2", "metric_id": "code.monthly_badges"}
+
+-- TABLE gov_metric  (rows=16)
+{"den_node": "code.posts", "domain": "codebase_community", "graph_version": "v1", "kind": "ratio", "metric_id": "code.accepted_rate", "num_node": "code.posts"}
+{"den_node": "code.posts", "domain": "codebase_community", "graph_version": "v1", "kind": "ratio", "metric_id": "code.answer_accept_share", "num_node": "code.posts"}
+{"den_node": "code.posts", "domain": "codebase_community", "graph_version": "v2", "kind": "ratio", "metric_id": "code.accepted_rate", "num_node": "code.posts"}
+{"den_node": "code.posts", "domain": "codebase_community", "graph_version": "v2", "kind": "ratio", "metric_id": "code.answer_accept_share", "num_node": "code.posts"}
+{"den_node": null, "domain": "codebase_community", "entity_node": "code.users", "graph_version": "v1", "kind": "report", "metric_id": "code.daily_questions", "num_node": "code.posts", "report_axis": "time"}
+{"den_node": null, "domain": "codebase_community", "entity_node": "code.users", "graph_version": "v1", "kind": "report", "metric_id": "code.user_accepted_report", "num_node": "code.posts", "report_axis": "entity"}
+{"den_node": null, "domain": "codebase_community", "entity_node": "code.users", "graph_version": "v1", "kind": "roster", "metric_id": "code.top_answerer_roster", "num_node": "code.posts"}
+{"den_node": null, "domain": "codebase_community", "entity_node": "code.users", "graph_version": "v2", "kind": "report", "metric_id": "code.daily_questions", "num_node": "code.posts", "report_axis": "time"}
+{"den_node": null, "domain": "codebase_community", "entity_node": "code.users", "graph_version": "v2", "kind": "report", "metric_id": "code.user_accepted_report", "num_node": "code.posts", "report_axis": "entity"}
+{"den_node": null, "domain": "codebase_community", "entity_node": "code.users", "graph_version": "v2", "kind": "roster", "metric_id": "code.top_answerer_roster", "num_node": "code.posts"}
+{"den_node": null, "domain": "codebase_community", "graph_version": "v1", "kind": "atomic", "metric_id": "code.monthly_badges", "num_node": "code.badges"}
+{"den_node": null, "domain": "codebase_community", "graph_version": "v1", "kind": "atomic", "metric_id": "code.monthly_votes", "num_node": "code.votes"}
+{"den_node": null, "domain": "codebase_community", "graph_version": "v1", "kind": "attribute", "metric_id": "code.user_location", "num_node": "code.users"}
+{"den_node": null, "domain": "codebase_community", "graph_version": "v2", "kind": "atomic", "metric_id": "code.monthly_badges", "num_node": "code.badges"}
+{"den_node": null, "domain": "codebase_community", "graph_version": "v2", "kind": "atomic", "metric_id": "code.monthly_votes", "num_node": "code.votes"}
+{"den_node": null, "domain": "codebase_community", "graph_version": "v2", "kind": "attribute", "metric_id": "code.user_location", "num_node": "code.users"}
+
+-- TABLE gov_measure_def  (rows=20)
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "code.dq.atom", "metric_id": "code.daily_questions", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 1}]}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "code.mb.atom", "metric_id": "code.monthly_badges", "node_id": "code.badges", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "code.mv.atom", "metric_id": "code.monthly_votes", "node_id": "code.votes", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "code.tar.atom", "metric_id": "code.top_answerer_roster", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "code.uar.atom", "metric_id": "code.user_accepted_report", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v1", "leg": "atom", "measure": "value:Location", "measure_id": "code.ul.atom", "metric_id": "code.user_location", "node_id": "code.users", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "code.aas.den", "metric_id": "code.answer_accept_share", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "code.ar.den", "metric_id": "code.accepted_rate", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 1}]}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "code.aas.num", "metric_id": "code.answer_accept_share", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "code.ar.num", "metric_id": "code.accepted_rate", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "code.dq.atom", "metric_id": "code.daily_questions", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 1}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "code.mb.atom", "metric_id": "code.monthly_badges", "node_id": "code.badges", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "code.mv.atom", "metric_id": "code.monthly_votes", "node_id": "code.votes", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "code.tar.atom", "metric_id": "code.top_answerer_roster", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "code.uar.atom", "metric_id": "code.user_accepted_report", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v2", "leg": "atom", "measure": "value:Location", "measure_id": "code.ul.atom", "metric_id": "code.user_location", "node_id": "code.users", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "code.aas.den", "metric_id": "code.answer_accept_share", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "code.ar.den", "metric_id": "code.accepted_rate", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 1}, {"col": "CommunityOwnedDate", "op": "is_null", "value": null}]}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "code.aas.num", "metric_id": "code.answer_accept_share", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "code.ar.num", "metric_id": "code.accepted_rate", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+
+-- TABLE gov_caliber_routing  (rows=14)
+{"dst_caliber": "all", "dst_node": "code.posts", "graph_version": "v1", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "code.accepted_rate", "routing_id": "code.rt2", "src_node": "code.posts"}
+{"dst_caliber": "all", "dst_node": "code.posts", "graph_version": "v2", "hop_seq": 0, "join_on": [], "leg": "den", "metric_id": "code.accepted_rate", "routing_id": "code.rt2", "src_node": "code.posts"}
+{"dst_caliber": "scoped", "dst_node": "code.posts", "graph_version": "v1", "hop_seq": 0, "join_on": [["Id", "AcceptedAnswerId"]], "leg": "atom", "metric_id": "code.top_answerer_roster", "routing_id": "code.rt5", "src_node": "code.posts"}
+{"dst_caliber": "scoped", "dst_node": "code.posts", "graph_version": "v1", "hop_seq": 0, "join_on": [["Id", "AcceptedAnswerId"]], "leg": "atom", "metric_id": "code.user_accepted_report", "routing_id": "code.rt3", "src_node": "code.posts"}
+{"dst_caliber": "scoped", "dst_node": "code.posts", "graph_version": "v1", "hop_seq": 0, "join_on": [["Id", "AcceptedAnswerId"]], "leg": "num", "metric_id": "code.accepted_rate", "routing_id": "code.rt1", "src_node": "code.posts"}
+{"dst_caliber": "scoped", "dst_node": "code.posts", "graph_version": "v1", "hop_seq": 0, "join_on": [["Id", "AcceptedAnswerId"]], "leg": "num", "metric_id": "code.answer_accept_share", "routing_id": "code.rt7", "src_node": "code.posts"}
+{"dst_caliber": "scoped", "dst_node": "code.posts", "graph_version": "v2", "hop_seq": 0, "join_on": [["Id", "AcceptedAnswerId"]], "leg": "atom", "metric_id": "code.top_answerer_roster", "routing_id": "code.rt5", "src_node": "code.posts"}
+{"dst_caliber": "scoped", "dst_node": "code.posts", "graph_version": "v2", "hop_seq": 0, "join_on": [["Id", "AcceptedAnswerId"]], "leg": "atom", "metric_id": "code.user_accepted_report", "routing_id": "code.rt3", "src_node": "code.posts"}
+{"dst_caliber": "scoped", "dst_node": "code.posts", "graph_version": "v2", "hop_seq": 0, "join_on": [["Id", "AcceptedAnswerId"]], "leg": "num", "metric_id": "code.accepted_rate", "routing_id": "code.rt1", "src_node": "code.posts"}
+{"dst_caliber": "scoped", "dst_node": "code.posts", "graph_version": "v2", "hop_seq": 0, "join_on": [["Id", "AcceptedAnswerId"]], "leg": "num", "metric_id": "code.answer_accept_share", "routing_id": "code.rt7", "src_node": "code.posts"}
+{"dst_caliber": "scoped", "dst_node": "code.users", "graph_version": "v1", "hop_seq": 0, "join_on": [["OwnerUserId", "Id"]], "leg": "entity", "metric_id": "code.top_answerer_roster", "routing_id": "code.rt6", "src_node": "code.posts"}
+{"dst_caliber": "scoped", "dst_node": "code.users", "graph_version": "v1", "hop_seq": 0, "join_on": [["OwnerUserId", "Id"]], "leg": "entity", "metric_id": "code.user_accepted_report", "routing_id": "code.rt4", "src_node": "code.posts"}
+{"dst_caliber": "scoped", "dst_node": "code.users", "graph_version": "v2", "hop_seq": 0, "join_on": [["OwnerUserId", "Id"]], "leg": "entity", "metric_id": "code.top_answerer_roster", "routing_id": "code.rt6", "src_node": "code.posts"}
+{"dst_caliber": "scoped", "dst_node": "code.users", "graph_version": "v2", "hop_seq": 0, "join_on": [["OwnerUserId", "Id"]], "leg": "entity", "metric_id": "code.user_accepted_report", "routing_id": "code.rt4", "src_node": "code.posts"}
+
+-- TABLE gov_valid_time_anchor  (rows=6)
+{"anchor_id": "A-CODE-POST", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "CreaionDate", "granularity": "day", "graph_version": "v1", "node_id": "code.posts", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CODE-POST", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "CreaionDate", "granularity": "day", "graph_version": "v2", "node_id": "code.posts", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CODE-USER", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "CreationDate", "granularity": "day", "graph_version": "v1", "node_id": "code.users", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CODE-USER", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "CreationDate", "granularity": "day", "graph_version": "v2", "node_id": "code.users", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CODE-VOTE", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "CreationDate", "granularity": "day", "graph_version": "v1", "node_id": "code.votes", "vf_col": null, "vtc_col": null}
+{"anchor_id": "A-CODE-VOTE", "anchor_type": "snapshot_effective_date", "coverage_mode": "hull", "effective_col": "CreationDate", "granularity": "day", "graph_version": "v2", "node_id": "code.votes", "vf_col": null, "vtc_col": null}
+
+-- TABLE gov_temporal_binding  (rows=14)
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-AR-D", "graph_version": "v1", "leg": "den", "metric_id": "code.accepted_rate", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-AR-D", "graph_version": "v2", "leg": "den", "metric_id": "code.accepted_rate", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-AR-N", "graph_version": "v1", "leg": "num", "metric_id": "code.accepted_rate", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-AR-N", "graph_version": "v2", "leg": "num", "metric_id": "code.accepted_rate", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-DQ", "graph_version": "v1", "leg": "atom", "metric_id": "code.daily_questions", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-DQ", "graph_version": "v2", "leg": "atom", "metric_id": "code.daily_questions", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-TAR", "graph_version": "v1", "leg": "atom", "metric_id": "code.top_answerer_roster", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-TAR", "graph_version": "v2", "leg": "atom", "metric_id": "code.top_answerer_roster", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-UAR", "graph_version": "v1", "leg": "atom", "metric_id": "code.user_accepted_report", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-POST", "binding_id": "B-CODE-UAR", "graph_version": "v2", "leg": "atom", "metric_id": "code.user_accepted_report", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-USER", "binding_id": "B-CODE-MB", "graph_version": "v1", "leg": "atom", "metric_id": "code.monthly_badges", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-USER", "binding_id": "B-CODE-MB", "graph_version": "v2", "leg": "atom", "metric_id": "code.monthly_badges", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-VOTE", "binding_id": "B-CODE-MV", "graph_version": "v1", "leg": "atom", "metric_id": "code.monthly_votes", "rule_id": "same_valid_time_window", "window_gran": "month"}
+{"anchor_id": "A-CODE-VOTE", "binding_id": "B-CODE-MV", "graph_version": "v2", "leg": "atom", "metric_id": "code.monthly_votes", "rule_id": "same_valid_time_window", "window_gran": "month"}
+
+-- TABLE gov_semantic_node  (rows=16)
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.badges", "physical_table": "badges", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.comments", "physical_table": "comments", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.postHistory", "physical_table": "postHistory", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.postLinks", "physical_table": "postLinks", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.posts", "physical_table": "posts", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.tags", "physical_table": "tags", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.users", "physical_table": "users", "scope_keys": {"user_id": "Id"}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v1", "node_id": "code.votes", "physical_table": "votes", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.badges", "physical_table": "badges", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.comments", "physical_table": "comments", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.postHistory", "physical_table": "postHistory", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.postLinks", "physical_table": "postLinks", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.posts", "physical_table": "posts", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.tags", "physical_table": "tags", "scope_keys": {}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.users", "physical_table": "users", "scope_keys": {"user_id": "Id"}}
+{"domain": "codebase_community", "entity_key": "Id", "graph_version": "v2", "node_id": "code.votes", "physical_table": "votes", "scope_keys": {}}
+
+-- TABLE gov_granularity_edge  (rows=6)
+{"axis": "entity", "band_bounds": [0, 100, 1000, 10000], "band_col": "Reputation", "derived": [], "domain": "codebase_community", "edge_id": "code.eg1", "from_level": "user", "graph_version": "v1", "group_cols": [], "node_id": "code.users", "to_level": "reputation_band"}
+{"axis": "entity", "band_bounds": [0, 100, 1000, 10000], "band_col": "Reputation", "derived": [], "domain": "codebase_community", "edge_id": "code.eg1", "from_level": "user", "graph_version": "v2", "group_cols": [], "node_id": "code.users", "to_level": "reputation_band"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "codebase_community", "edge_id": "code.eg2", "from_level": "reputation_band", "graph_version": "v1", "group_cols": [], "node_id": "code.users", "to_level": "all"}
+{"axis": "entity", "band_bounds": [], "band_col": null, "derived": [], "domain": "codebase_community", "edge_id": "code.eg2", "from_level": "reputation_band", "graph_version": "v2", "group_cols": [], "node_id": "code.users", "to_level": "all"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "codebase_community", "edge_id": "code.tg1", "from_level": "day", "graph_version": "v1", "group_cols": [], "node_id": null, "to_level": "month"}
+{"axis": "time", "band_bounds": [], "band_col": null, "derived": [], "domain": "codebase_community", "edge_id": "code.tg1", "from_level": "day", "graph_version": "v2", "group_cols": [], "node_id": null, "to_level": "month"}
+
+-- TABLE gov_disclosure_policy  (rows=8)
+{"applies_to": "code.users", "carry": [], "cols": ["Age"], "domain": "codebase_community", "graph_version": "v1", "k": null, "kind": "present_only", "lattice_levels": [], "mask_class": "decade_band", "node_id": "code.users", "policy_id": "code.pi3", "time_floor_gran": null}
+{"applies_to": "code.users", "carry": [], "cols": ["Age"], "domain": "codebase_community", "graph_version": "v2", "k": null, "kind": "present_only", "lattice_levels": [], "mask_class": "decade_band", "node_id": "code.users", "policy_id": "code.pi3", "time_floor_gran": null}
+{"applies_to": "code.users", "carry": [], "cols": [], "domain": "codebase_community", "graph_version": "v1", "k": 5, "k_exempt_top": true, "kind": "k_threshold", "lattice_levels": ["user", "reputation_band", "all"], "mask_class": null, "node_id": "code.users", "policy_id": "code.pi2", "time_floor_gran": null}
+{"applies_to": "code.users", "carry": [], "cols": [], "domain": "codebase_community", "graph_version": "v1", "k": null, "kind": "time_floor", "lattice_levels": [], "mask_class": null, "node_id": "code.users", "policy_id": "code.pi4", "time_floor_gran": "month"}
+{"applies_to": "code.users", "carry": [], "cols": [], "domain": "codebase_community", "graph_version": "v2", "k": 5, "k_exempt_top": true, "kind": "k_threshold", "lattice_levels": ["user", "reputation_band", "all"], "mask_class": null, "node_id": "code.users", "policy_id": "code.pi2", "time_floor_gran": null}
+{"applies_to": "code.users", "carry": [], "cols": [], "domain": "codebase_community", "graph_version": "v2", "k": null, "kind": "time_floor", "lattice_levels": [], "mask_class": null, "node_id": "code.users", "policy_id": "code.pi4", "time_floor_gran": "month"}
+{"applies_to": "code.users", "carry": [{"col": "OwnerDisplayName", "node_id": "code.posts", "via": [["OwnerUserId", "Id"]]}], "cols": ["DisplayName", "Location", "AboutMe"], "domain": "codebase_community", "graph_version": "v1", "k": null, "kind": "mask", "lattice_levels": [], "mask_class": "generalize_last_component", "node_id": "code.users", "policy_id": "code.pi1", "time_floor_gran": null}
+{"applies_to": "code.users", "carry": [{"col": "OwnerDisplayName", "node_id": "code.posts", "via": [["OwnerUserId", "Id"]]}], "cols": ["DisplayName", "Location", "AboutMe"], "domain": "codebase_community", "graph_version": "v2", "k": null, "kind": "mask", "lattice_levels": [], "mask_class": "generalize_last_component", "node_id": "code.users", "policy_id": "code.pi1", "time_floor_gran": null}

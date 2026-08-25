@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q1",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 4068933086.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT SUM(ch.population) \nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE c.\"Continent\" = 'Asia' \n  AND ch.effective_month <= '2026-05'\n  AND ch.effective_month = (\n    SELECT MAX(ch2.effective_month)\n    FROM main.\"country_history\" ch2\n    WHERE ch2.code = ch.code \n      AND ch2.effective_month <= '2026-05'\n  )\n```",
+ "sql": "SELECT SUM(ch.population) \nFROM main.\"country_history\" ch\nJOIN main.\"country\" c ON ch.code = c.\"Code\"\nWHERE c.\"Continent\" = 'Asia' \n  AND ch.effective_month <= '2026-05'\n  AND ch.effective_month = (\n    SELECT MAX(ch2.effective_month)\n    FROM main.\"country_history\" ch2\n    WHERE ch2.code = ch.code \n      AND ch2.effective_month <= '2026-05'\n  )",
+ "prompt_sha256": "8cab1d24630fe2af87767316a1c200098e0a3483ba368451a99780a69fd9f645",
+ "prompt_chars": 3081,
+ "empty_response": false
+}

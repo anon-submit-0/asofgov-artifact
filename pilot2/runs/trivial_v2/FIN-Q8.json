@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q8",
+ "system": "trivial_v2",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 分子与分母时间窗口不一致，违反 gov_temporal_binding 要求的同窗对齐规则\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "6c5d9888c6bd5454ccb5f87ccbac00ecc87a39dd4ed753e3d43f7cd7097f2500",
+ "prompt_chars": 4300,
+ "empty_response": false
+}

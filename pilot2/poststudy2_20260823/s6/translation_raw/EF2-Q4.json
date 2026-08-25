@@ -1,0 +1,19 @@
+{
+ "qid": "EF2-Q4",
+ "domain": "european_football_2",
+ "question_zh": "以 2016-07-01 为声明时点，统计 2016-03-01 至 2016-08-31 的区间比赛场数。",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2016-07-01 as the declaration instant, compute the number of matches in the interval 2016-03-01 to 2016-08-31.",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5266 completion=43]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:37:50"
+}

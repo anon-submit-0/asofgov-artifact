@@ -1,0 +1,19 @@
+{
+ "qid": "F1-Q8",
+ "domain": "formula_1",
+ "question_zh": "以 2011-03-01 为声明时点，车队 brawn 2010 赛季（as-of 2010-07-01 所在年窗）的车队场均积分是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2011-03-01 as the declaration instant, what is the team average points per race for team brawn in the 2010 season (as-of 2010-07-01 the containing year window)?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5289 completion=61]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:38:56"
+}

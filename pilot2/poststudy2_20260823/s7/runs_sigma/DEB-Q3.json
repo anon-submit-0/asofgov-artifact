@@ -1,0 +1,30 @@
+{
+ "qid": "DEB-Q3",
+ "domain": "debit_card_specializing",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "2013-06-01",
+  "declared_at": "2013-09-15",
+  "metric_alias": "月消费总额",
+  "scope": {
+   "segment": "SME"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"2013-06-01\", \"declared_at\": \"2013-09-15\", \"metric_alias\": \"月消费总额\", \"scope\": {\"segment\": \"SME\"}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "371d80eb3eaffeef6d46d51a2f05d64a2b9306150e6d85656fec0c6856c74d9b",
+ "prompt_chars": 22729
+}

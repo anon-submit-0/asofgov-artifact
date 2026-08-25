@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q7",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: schema 中不存在\"裁定强度\"指标定义，且 rulings 表仅含 date/text/uuid，无法推断出\"裁定强度\"的计算逻辑\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "f9c570acf0a6e0e8935c91d750a09d075c8c6cf2a39ed99698def5f5fce56ec7",
+ "prompt_chars": 5447,
+ "empty_response": false
+}

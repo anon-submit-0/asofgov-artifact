@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q4",
+ "system": "baseline_deepseek",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT \n    COALESCE(SUM(CASE WHEN r.year = 2010 THEN COALESCE(ps.points, 0) ELSE 0 END), 0) -\n    COALESCE(SUM(CASE WHEN r.year = 2009 THEN COALESCE(ps.points, 0) ELSE 0 END), 0) AS points_diff\nFROM main.\"results\" r\nJOIN main.\"races\" ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN main.\"drivers\" d ON r.\"driverId\" = d.\"driverId\"\nLEFT JOIN main.\"points_scheme\" ps ON \n    r.\"positionOrder\" = ps.\"position\" \n    AND ps.\"scheme_id\" = (\n        SELECT \"scheme_id\" \n        FROM main.\"points_scheme\" \n        WHERE \"authored\" = true \n        ORDER BY \"scheme_id\" \n        LIMIT 1\n    )\nWHERE LOWER(d.\"surname\") = 'button' \n    AND ra.\"year\" IN (2009, 2010)\n    AND ra.\"date\" <= '2011-03-01';\n```",
+ "sql": "SELECT \n    COALESCE(SUM(CASE WHEN r.year = 2010 THEN COALESCE(ps.points, 0) ELSE 0 END), 0) -\n    COALESCE(SUM(CASE WHEN r.year = 2009 THEN COALESCE(ps.points, 0) ELSE 0 END), 0) AS points_diff\nFROM main.\"results\" r\nJOIN main.\"races\" ra ON r.\"raceId\" = ra.\"raceId\"\nJOIN main.\"drivers\" d ON r.\"driverId\" = d.\"driverId\"\nLEFT JOIN main.\"points_scheme\" ps ON \n    r.\"positionOrder\" = ps.\"position\" \n    AND ps.\"scheme_id\" = (\n        SELECT \"scheme_id\" \n        FROM main.\"points_scheme\" \n        WHERE \"authored\" = true \n        ORDER BY \"scheme_id\" \n        LIMIT 1\n    )\nWHERE LOWER(d.\"surname\") = 'button' \n    AND ra.\"year\" IN (2009, 2010)\n    AND ra.\"date\" <= '2011-03-01'",
+ "prompt_sha256": "1e4f7a248938385a5ffcfdf02b00f07782aa558f451208da55a8c3546f2124b4",
+ "prompt_chars": 5508,
+ "empty_response": false
+}

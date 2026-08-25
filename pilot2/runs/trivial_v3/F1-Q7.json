@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q7",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": 0.0,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"races\" WHERE \"date\" >= '1949-05-01' AND \"date\" < '1949-06-01'\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"races\" WHERE \"date\" >= '1949-05-01' AND \"date\" < '1949-06-01'",
+ "prompt_sha256": "b0a08747b4807c0c64a91c6aa83fe7abb27c4220942daadb2b87f18c61a970dc",
+ "prompt_chars": 5667,
+ "empty_response": false
+}

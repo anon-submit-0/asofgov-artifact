@@ -1,0 +1,12 @@
+{"graph_version": "v1", "leg": "num", "measure": "sum:Free Meal Count (K-12)", "measure_id": "ca.fmr.num", "metric_id": "ca.free_meal_rate", "node_id": "ca.frpm", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "sum:Enrollment (K-12)", "measure_id": "ca.fmr.den", "metric_id": "ca.free_meal_rate", "node_id": "ca.frpm", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "ca.sie.atom", "metric_id": "ca.schools_in_effect", "node_id": "ca.schools", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "ratio_of_base", "measure_id": "ca.sfr.atom", "metric_id": "ca.school_frpm_report", "node_id": "ca.frpm", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "avg:AvgScrMath", "measure_id": "ca.asm.atom", "metric_id": "ca.avg_sat_math", "node_id": "ca.satscores", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "ca.csc.atom", "metric_id": "ca.charter_school_count", "node_id": "ca.schools", "preds": [{"col": "Charter", "op": "=", "value": 1}]}
+{"graph_version": "v2", "leg": "num", "measure": "sum:Free Meal Count (Ages 5-17)", "measure_id": "ca.fmr.num", "metric_id": "ca.free_meal_rate", "node_id": "ca.frpm", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "sum:Enrollment (Ages 5-17)", "measure_id": "ca.fmr.den", "metric_id": "ca.free_meal_rate", "node_id": "ca.frpm", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "ca.sie.atom", "metric_id": "ca.schools_in_effect", "node_id": "ca.schools", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "ratio_of_base", "measure_id": "ca.sfr.atom", "metric_id": "ca.school_frpm_report", "node_id": "ca.frpm", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "avg:AvgScrMath", "measure_id": "ca.asm.atom", "metric_id": "ca.avg_sat_math", "node_id": "ca.satscores", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "ca.csc.atom", "metric_id": "ca.charter_school_count", "node_id": "ca.schools", "preds": [{"col": "Charter", "op": "=", "value": 1}]}

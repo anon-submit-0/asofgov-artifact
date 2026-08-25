@@ -1,0 +1,2 @@
+{"change_note": "初版治理：人口口径为普查基线序列", "commit_seq": 1, "committed_at": "2026-01-15", "domain": "world_1", "graph_version": "v1"}
+{"change_note": "亚洲常住人口重定基：度量改指常住口径列（1.06 半上取整）", "commit_seq": 2, "committed_at": "2026-07-01", "domain": "world_1", "graph_version": "v2"}

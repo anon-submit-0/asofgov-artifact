@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q5",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "```sql\nSELECT f.\"CDSCode\", f.\"School Name\", f.\"Free Meal Count (Ages 5-17)\" * 1.0 / NULLIF(f.\"Enrollment (Ages 5-17)\", 0) AS free_meal_rate\nFROM frpm f\nWHERE f.\"County Name\" = 'Alameda'\n  AND f.\"Academic Year\" = '2014-15'\n  AND f.\"Enrollment (Ages 5-17)\" >= 10\nORDER BY f.\"School Name\";\n```",
+ "sql": "SELECT f.\"CDSCode\", f.\"School Name\", f.\"Free Meal Count (Ages 5-17)\" * 1.0 / NULLIF(f.\"Enrollment (Ages 5-17)\", 0) AS free_meal_rate\nFROM frpm f\nWHERE f.\"County Name\" = 'Alameda'\n  AND f.\"Academic Year\" = '2014-15'\n  AND f.\"Enrollment (Ages 5-17)\" >= 10\nORDER BY f.\"School Name\"",
+ "prompt_sha256": "d0ffda021f33b670b53de8f7c83de6f723c40cb8f6714b793e0dd6e554de46e8",
+ "prompt_chars": 18064,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q4",
+ "system": "trivial_v3",
+ "kind": "value",
+ "value": "1934-02-13",
+ "verdict": "wrong_value",
+ "raw": "I need to find the birthday of patient ID=2110, but I need to check the disclosure policy to see if there's any masking applied to the birthday field.\n\nLet me examine the disclosure policy:\n\nThe `gov_disclosure_policy` table has columns: policy_id, domain, kind, node_id, cols, mask_class, lattice_levels, k, time_floor_gran, carry, applies_to, graph_version.\n\nThe `time_floor_gran` column likely specifies a granularity to which time/date fields should be floored (e.g., 'year', 'month', etc.) for disclosure purposes.\n\nI need to check if there's a policy applying to the Patient node's Birthday column. The policy might specify `time_floor_gran` which would floor the birthday to a certain granularity.\n\nLet me write a query that:\n1. Gets the birthday of patient 2110\n2. Applies the disclosure policy's `time_floor_gran` if applicable\n\nSince I can't preview the data, I'll construct a query that joins the policy and applies the floor. The most likely scenario is that the birthday is floored to year or month granularity.\n\n```sql\nSELECT\n  CASE\n    WHEN dp.time_floor_gran = 'year' THEN DATE_TRUNC('year', p.\"Birthday\")::DATE\n    WHEN dp.time_floor_gran = 'month' THEN DATE_TRUNC('month', p.\"Birthday\")::DATE\n    WHEN dp.time_floor_gran = 'day' THEN p.\"Birthday\"\n    ELSE p.\"Birthday\"\n  END AS \"Birthday\"\nFROM main.\"Patient\" p\nLEFT JOIN main.\"gov_semantic_node\" sn\n  ON sn.physical_table = 'Patient'\nLEFT JOIN main.\"gov_disclosure_policy\" dp\n  ON dp.node_id = sn.node_id\n  AND (dp.cols LIKE '%Birthday%' OR dp.cols = '*' OR dp.cols IS NULL)\nWHERE p.\"ID\" = 2110\nLIMIT 1;\n```",
+ "sql": "SELECT\n  CASE\n    WHEN dp.time_floor_gran = 'year' THEN DATE_TRUNC('year', p.\"Birthday\")::DATE\n    WHEN dp.time_floor_gran = 'month' THEN DATE_TRUNC('month', p.\"Birthday\")::DATE\n    WHEN dp.time_floor_gran = 'day' THEN p.\"Birthday\"\n    ELSE p.\"Birthday\"\n  END AS \"Birthday\"\nFROM main.\"Patient\" p\nLEFT JOIN main.\"gov_semantic_node\" sn\n  ON sn.physical_table = 'Patient'\nLEFT JOIN main.\"gov_disclosure_policy\" dp\n  ON dp.node_id = sn.node_id\n  AND (dp.cols LIKE '%Birthday%' OR dp.cols = '*' OR dp.cols IS NULL)\nWHERE p.\"ID\" = 2110\nLIMIT 1",
+ "prompt_sha256": "172cf06028e2c3f5c539ff574f9e5d484637d9507a2978a56e047d85d065b781",
+ "prompt_chars": 4323,
+ "empty_response": false
+}

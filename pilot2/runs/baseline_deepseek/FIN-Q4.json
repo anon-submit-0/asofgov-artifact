@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q4",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 问题涉及时点声明与时间窗口计算，但schema中无合适的时间锚点信息支持as-of语义计算",
+ "sql": "REFUSE",
+ "prompt_sha256": "52e1b0470fe4279a97288859174684431d102a60c7e203f0cd676e85090c2ac3",
+ "prompt_chars": 4081,
+ "empty_response": false
+}

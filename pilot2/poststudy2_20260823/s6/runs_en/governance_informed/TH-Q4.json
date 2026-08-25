@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q4",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": "1934-01-01",
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT DATE_TRUNC('year', \"Birthday\") AS \"Birthday\" FROM main.\"Patient\" WHERE \"ID\" = 2110;\n```",
+ "sql": "SELECT DATE_TRUNC('year', \"Birthday\") AS \"Birthday\" FROM main.\"Patient\" WHERE \"ID\" = 2110",
+ "prompt_sha256": "27e0a9f2a45b93cf7759fe046cd4fb9f3472de8963b00697bc419dfa309b703e",
+ "prompt_chars": 20481,
+ "empty_response": false
+}

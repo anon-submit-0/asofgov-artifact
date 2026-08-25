@@ -1,0 +1,52 @@
+{
+ "schema": "asofgov/fix_provenance_result.v1",
+ "ran_at": "2026-08-23",
+ "script": "pilot2/poststudy2_20260823/s5/fix_provenance.py",
+ "true_sha_recomputed_from_disk": "838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669",
+ "corrupted_sha": "838a214fc5a09902703d969c839872ff843f190e9f2e9f6902f231e061c669",
+ "dropped_chars": "1c",
+ "drop_offset": 44,
+ "renderer_fidelity_precheck": "PASS: render(original JSON) == frozen S5_REPORT.md, byte-for-byte",
+ "rerender_check": "PASS: render(corrected JSON) == frozen S5_REPORT.md with only the sha string replaced",
+ "guard_check": "PASS: inserted guard accepts the true sha and raises SystemExit on the corrupted one; patched script py_compiles",
+ "files_scanned": 177,
+ "files_changed": {
+  "S5_REPORT.md": {
+   "sha256_before": "09cefe8139598954e015c1be9b54b409330393021a4aac2a2d46eb31b0822f4b",
+   "sha256_after": "4f010981c5c817a331ca037ca318b5128f5feb03491a1663e25f3c1f116c4b5a",
+   "bytes_before": 8002,
+   "bytes_after": 9106,
+   "unified_diff": "--- s5/S5_REPORT.md (before)\n+++ s5/S5_REPORT.md (after)\n@@ -1,6 +1,6 @@\n # S5 — Cost-model scalability sweep (deterministic, zero LLM)\n \n-Post-registration study under `PREREG_poststudy2_20260823.md`, sha256 `838a214fc5a09902703d969c839872ff843f190e9f2e9f6902f231e061c669`. Generated 2026-08-23T21:39:03+08:00 by `pilot2/poststudy2_20260823/s5/s5_measure.py`; all numbers below are rendered from `s5_cost_sweep.json`.\n+Post-registration study under `PREREG_poststudy2_20260823.md`, sha256 `838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669`. Generated 2026-08-23T21:39:03+08:00 by `pilot2/poststudy2_20260823/s5/s5_measure.py`; all numbers below are rendered from `s5_cost_sweep.json`.\n \n **Verdicts: S5-P1 MISS · S5-P2 MET · S5-P3 MET.** A miss is published as a miss.\n \n@@ -81,3 +81,24 @@\n * The span-axis variants are cost probes derived from the frozen W1-Q4 dict (only qid/window fields swapped); gold values were set to null, never fabricated, and the variants are not scored questions.\n * Frozen evidence untouched: compiler/verifier imported read-only; the frozen warehouses and the sandbox were never opened read-write; all outputs are new files under `pilot2/poststudy2_20260823/s5/`.\n * S5-P1's monotonicity clause and S5-P2's strict reading fail on sub-noise / sub-1× effects respectively; both are published as written above rather than re-run or re-defined.\n+---\n+\n+## CORRECTION (2026-08-23) — prereg sha256 provenance\n+\n+The prereg sha256 quoted in the header above was corrected on 2026-08-23.\n+The original run's sweep-script constant dropped two hex characters\n+(`1c` at offset 44) and cited the 62-character value\n+`838a214fc5a09902703d969c839872ff843f190e9f2e9f6902f231e061c669` in place of the true\n+64-character sha (recomputed from the frozen prereg on disk)\n+`838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669`;\n+no S5 script re-asserted the hash from disk. The defect was found\n+by adversarial verification (`VERIFICATION2.md`, S5 section and\n+Defect list item 1). Measured numbers are unaffected and nothing\n+was re-run: this report was re-rendered (byte-identically, sha\n+string aside) from the corrected `s5_cost_sweep.json` by the\n+study's own `s5_render_report.py`; see that JSON's\n+`provenance_correction` object. `s5_measure.py`'s constant was\n+corrected and a runtime re-assert-from-disk added, so a future\n+re-run refuses on mismatch. Correction applied by\n+`fix_provenance.py`; byte-level before/after proof in\n+`fix_provenance_result.json`.\n"
+  },
+  "s5_cost_sweep.json": {
+   "sha256_before": "feeb68e53728db3166e6f72ba619c8854540ac2a26f83ef1c939878b15aed88b",
+   "sha256_after": "f39e2334c781c0f872f8ff75cc081f0028d00817c28b66b4980fb8b8a8210f47",
+   "bytes_before": 67908,
+   "bytes_after": 70076,
+   "unified_diff": "--- s5/s5_cost_sweep.json (before)\n+++ s5/s5_cost_sweep.json (after)\n@@ -4,7 +4,7 @@\n  \"generator\": \"pilot2/poststudy2_20260823/s5/s5_measure.py\",\n  \"prereg\": {\n   \"file\": \"PREREG_poststudy2_20260823.md\",\n-  \"sha256\": \"838a214fc5a09902703d969c839872ff843f190e9f2e9f6902f231e061c669\",\n+  \"sha256\": \"838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669\",\n   \"study\": \"S5\"\n  },\n  \"methodology\": {\n@@ -26,7 +26,7 @@\n  \"substrates_manifest\": {\n   \"generated_at\": \"2026-08-23T21:36:41+08:00\",\n   \"generator\": \"s5_build_substrates.py\",\n-  \"prereg_sha256\": \"838a214fc5a09902703d969c839872ff843f190e9f2e9f6902f231e061c669\",\n+  \"prereg_sha256\": \"838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669\",\n   \"source_sandbox_financial_sha256\": \"3409ec368c551f2cb13fd8f2929d21d77e1e574169d3b2eaa4dcfdaa77d69ec0\",\n   \"frozen_financial_sha256\": \"3409ec368c551f2cb13fd8f2929d21d77e1e574169d3b2eaa4dcfdaa77d69ec0\",\n   \"scaling_rule\": {\n@@ -2538,5 +2538,46 @@\n    \"note\": \"the financial certificates carry no clause-(iv) replay at any scale (the corpus's three window_realization_symdiff audits live on CARD-Q2/CARD-Q7/EF2-Q6, outside this domain); zero full-scan audits is therefore confirmed by census, and the window-bounded clause is vacuously true here\",\n    \"verdict\": \"MET\"\n   }\n+ },\n+ \"provenance_correction\": {\n+  \"schema\": \"asofgov/provenance_correction.v1\",\n+  \"corrected_at\": \"2026-08-23\",\n+  \"corrected_by\": \"pilot2/poststudy2_20260823/s5/fix_provenance.py\",\n+  \"defect\": {\n+   \"kind\": \"corrupted_prereg_sha_citation\",\n+   \"description\": \"s5_measure.py's PREREG_SHA constant dropped two hex characters ('1c' at offset 44) from the prereg sha256, citing a 62-character value; it propagated into this JSON (prereg.sha256, substrates_manifest.prereg_sha256) and the S5_REPORT.md header, and no S5 script re-asserted the hash from the frozen prereg on disk, so the typo went uncaught\",\n+   \"corrupted_value\": \"838a214fc5a09902703d969c839872ff843f190e9f2e9f6902f231e061c669\",\n+   \"correct_value\": \"838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669\",\n+   \"correct_value_recomputed_from\": \"/Volumes/SSD 1/explore_opportunity_cc/pilot2/poststudy2_20260823/PREREG_poststudy2_20260823.md\",\n+   \"dropped_chars\": \"1c\",\n+   \"drop_offset\": 44,\n+   \"fields_corrected\": [\n+    \"prereg.sha256\",\n+    \"substrates_manifest.prereg_sha256\"\n+   ]\n+  },\n+  \"discovery\": {\n+   \"method\": \"adversarial verification\",\n+   \"record\": \"poststudy2_20260823/VERIFICATION2.md (S5 section; Defect list item 1)\",\n+   \"date\": \"2026-08-23\"\n+  },\n+  \"impact\": \"metadata-only: no measured number, verdict, or certificate is affected; no timing was re-run\",\n+  \"companion_fixes\": [\n+   \"S5_REPORT.md re-rendered from this corrected JSON via s5_render_report.py (fidelity pre-checked byte-for-byte), with a visible CORRECTION note appended\",\n+   \"s5_measure.py: PREREG_SHA constant corrected (docstring citation included) and a runtime re-assert-from-disk added, so a future re-run refuses on mismatch\"\n+  ],\n+  \"residual_corrupted_citations_out_of_scope\": {\n+   \"note\": \"left untouched — outside the sanctioned correction scope under the append-only regime; NOTE a future rebuild via s5_build_substrates.py would regenerate work/substrates_manifest.json with the corrupted value — flagged for follow-up\",\n+   \"files\": [\n+    {\n+     \"file\": \"s5/s5_build_substrates.py\",\n+     \"occurrences\": 2\n+    },\n+    {\n+     \"file\": \"s5/work/substrates_manifest.json\",\n+     \"occurrences\": 1\n+    }\n+   ]\n+  }\n  }\n }"
+  },
+  "s5_measure.py": {
+   "sha256_before": "a7492b130eb491b794647ed1624aa72ac85eda662176a2728584d94267e1d89c",
+   "sha256_after": "62b0e537bc59b8aebd6218eee8e7c30682241bcab56889ab3fc344b1cd5beec5",
+   "bytes_before": 19522,
+   "bytes_after": 20122,
+   "unified_diff": "--- s5/s5_measure.py (before)\n+++ s5/s5_measure.py (after)\n@@ -3,7 +3,7 @@\n \"\"\"s5_measure.py — S5 cost-model scalability sweep (deterministic, zero LLM).\n \n Governing prereg: PREREG_poststudy2_20260823.md,\n-sha256 838a214fc5a09902703d969c839872ff843f190e9f2e9f6902f231e061c669.\n+sha256 838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669.\n \n Row-scale axis (mandatory): the six substrates under work/rowscale/\n (built by s5_build_substrates.py; scaling rule documented there).  On\n@@ -50,6 +50,7 @@\n from __future__ import annotations\n \n import datetime as dt\n+import hashlib\n import json\n import os\n import pathlib\n@@ -69,7 +70,19 @@\n import chk as CHKMOD  # noqa: E402          (frozen verifier)\n \n WARM_REPEATS = 9          # measure_cost.py default; prereg minimum is 5\n-PREREG_SHA = \"838a214fc5a09902703d969c839872ff843f190e9f2e9f6902f231e061c669\"\n+PREREG_SHA = \"838a214fc5a09902703d969c839872ff843f190e9f2e1c9f6902f231e061c669\"\n+\n+# Provenance re-assert added 2026-08-23 (fix_provenance.py; see\n+# s5_cost_sweep.json \"provenance_correction\"): the original run\n+# cited a corrupted 62-char sha because nothing checked the\n+# constant against the frozen prereg on disk.  A future re-run\n+# now refuses on mismatch.\n+PREREG_PATH = S5.parent / \"PREREG_poststudy2_20260823.md\"\n+_PREREG_DISK_SHA = hashlib.sha256(PREREG_PATH.read_bytes()).hexdigest()\n+if _PREREG_DISK_SHA != PREREG_SHA:\n+    raise SystemExit(\n+        \"PREREG sha mismatch: disk %s != constant %s -- refusing to run\"\n+        % (_PREREG_DISK_SHA, PREREG_SHA))\n \n # kept in sync with impl/measure_adm_scan.py\n FULL_SCAN_MODES = {\"symdiff_audit\"}\n"
+  }
+ },
+ "files_added_append_only": [],
+ "files_removed": [],
+ "files_unchanged": 174,
+ "unchanged_verified_by": "sha256 of every file under s5/ (work/ included), before vs after",
+ "residual_corrupted_citations_out_of_scope": [
+  {
+   "file": "s5/s5_build_substrates.py",
+   "occurrences": 2
+  },
+  {
+   "file": "s5/work/substrates_manifest.json",
+   "occurrences": 1
+  }
+ ],
+ "clean": true,
+ "problems": []
+}

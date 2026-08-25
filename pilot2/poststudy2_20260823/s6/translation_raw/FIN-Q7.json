@@ -1,0 +1,19 @@
+{
+ "qid": "FIN-Q7",
+ "domain": "financial",
+ "question_zh": "以 1998-12-15 为声明时点，查询 as-of 1999-06-15 所在月窗的当月交易笔数。",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 1998-12-15 as the declaration instant, query the monthly transaction count for the containing month window of as-of 1999-06-15.",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=736 completion=35]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:38:22"
+}

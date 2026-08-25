@@ -1,0 +1,12 @@
+{"alias_id": "w1.al1", "alias_text": "亚洲人口总和", "graph_version": "v1", "metric_id": "w1.asia_population_sum"}
+{"alias_id": "w1.al2", "alias_text": "全球人口总和", "graph_version": "v1", "metric_id": "w1.world_population_sum"}
+{"alias_id": "w1.al3", "alias_text": "亚洲人口占比", "graph_version": "v1", "metric_id": "w1.population_share"}
+{"alias_id": "w1.al4", "alias_text": "区间历史记录条数", "graph_version": "v1", "metric_id": "w1.history_rows_range"}
+{"alias_id": "w1.al5", "alias_text": "国民生产总值合计", "graph_version": "v1", "metric_id": "w1.gnp_sum"}
+{"alias_id": "w1.al6", "alias_text": "国家数量", "graph_version": "v1", "metric_id": "w1.country_count"}
+{"alias_id": "w1.al1", "alias_text": "亚洲人口总和", "graph_version": "v2", "metric_id": "w1.asia_population_sum"}
+{"alias_id": "w1.al2", "alias_text": "全球人口总和", "graph_version": "v2", "metric_id": "w1.world_population_sum"}
+{"alias_id": "w1.al3", "alias_text": "亚洲人口占比", "graph_version": "v2", "metric_id": "w1.population_share"}
+{"alias_id": "w1.al4", "alias_text": "区间历史记录条数", "graph_version": "v2", "metric_id": "w1.history_rows_range"}
+{"alias_id": "w1.al5", "alias_text": "国民生产总值合计", "graph_version": "v2", "metric_id": "w1.gnp_sum"}
+{"alias_id": "w1.al6", "alias_text": "国家数量", "graph_version": "v2", "metric_id": "w1.country_count"}

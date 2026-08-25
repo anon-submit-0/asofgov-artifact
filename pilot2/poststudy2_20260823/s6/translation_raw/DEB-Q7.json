@@ -1,0 +1,19 @@
+{
+ "qid": "DEB-Q7",
+ "domain": "debit_card_specializing",
+ "question_zh": "以 2013-09-15 为声明时点，统计自 2013-03-04 起一周的月均客户消费额。",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2013-09-15 as the declaration instant, compute the monthly average customer spending amount for the one-week period starting from 2013-03-04.",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=730 completion=36]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:37:37"
+}

@@ -1,0 +1,28 @@
+{
+ "qid": "FIN-Q1",
+ "domain": "financial",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "1996-06-30",
+  "declared_at": "1997-06-15",
+  "metric_alias": "问题贷款率",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"1996-06-30\", \"declared_at\": \"1997-06-15\", \"metric_alias\": \"问题贷款率\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "88a2a81f7c5c6bf31da03eb408a0e2bfc772b64fbdb1a99c363a31af61221eb6",
+ "prompt_chars": 26377
+}

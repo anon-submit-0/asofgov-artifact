@@ -1,0 +1,22 @@
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "card.ri.num", "metric_id": "card.ruling_intensity", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "card.ri.den", "metric_id": "card.ruling_intensity", "node_id": "card.cards", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "card.mr.atom", "metric_id": "card.monthly_rulings", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "card.scc.atom", "metric_id": "card.standard_card_count", "node_id": "card.cards", "preds": [{"col": "setCode", "op": "in", "value": ["KTK", "FRF", "DTK", "ORI", "BFZ"]}]}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "card.crc.atom", "metric_id": "card.card_rulings_count", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "card.rr.atom", "metric_id": "card.rulings_range", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "card.cp.num", "metric_id": "card.collector_premium", "node_id": "card.cards", "preds": [{"col": "isReserved", "op": "=", "value": 1}]}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "card.cp.den", "metric_id": "card.collector_premium", "node_id": "card.cards", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "card.fc.num", "metric_id": "card.foreign_coverage", "node_id": "card.foreign_data", "preds": []}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "card.fc.den", "metric_id": "card.foreign_coverage", "node_id": "card.cards", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "card.ms.atom", "metric_id": "card.monthly_sets", "node_id": "card.sets", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "card.ri.num", "metric_id": "card.ruling_intensity", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "card.ri.den", "metric_id": "card.ruling_intensity", "node_id": "card.cards", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "card.mr.atom", "metric_id": "card.monthly_rulings", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "card.scc.atom", "metric_id": "card.standard_card_count", "node_id": "card.cards", "preds": [{"col": "setCode", "op": "in", "value": ["BFZ", "OGW", "SOI", "EMN", "KLD", "AER", "AKH", "HOU", "XLN"]}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "card.crc.atom", "metric_id": "card.card_rulings_count", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "card.rr.atom", "metric_id": "card.rulings_range", "node_id": "card.rulings", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "card.cp.num", "metric_id": "card.collector_premium", "node_id": "card.cards", "preds": [{"col": "isReserved", "op": "=", "value": 1}]}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "card.cp.den", "metric_id": "card.collector_premium", "node_id": "card.cards", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "card.fc.num", "metric_id": "card.foreign_coverage", "node_id": "card.foreign_data", "preds": []}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "card.fc.den", "metric_id": "card.foreign_coverage", "node_id": "card.cards", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "card.ms.atom", "metric_id": "card.monthly_sets", "node_id": "card.sets", "preds": []}

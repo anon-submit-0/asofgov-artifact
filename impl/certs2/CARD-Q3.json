@@ -1,0 +1,87 @@
+{
+ "sql": "SELECT (SELECT COUNT(*) FROM \"cards\" t0 INNER JOIN \"sets\" t1 ON t0.\"setCode\" = t1.\"code\" WHERE t0.\"setCode\" IN ('BFZ', 'OGW', 'SOI', 'EMN', 'KLD', 'AER', 'AKH', 'HOU', 'XLN') AND substr(CAST(t1.\"releaseDate\" AS VARCHAR),1,10) >= '1993-08-05' AND substr(CAST(t1.\"releaseDate\" AS VARCHAR),1,10) <= '2021-03-10')",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "CARD-Q3",
+   "domain": "card_games",
+   "metric": "card.standard_card_count",
+   "metric_kind": "atomic",
+   "as_of": "2021-03-10"
+  },
+  "graph_pin": {
+   "domain": "card_games",
+   "graph_version": "v2",
+   "commit_id": "2017-09-28",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "atom",
+    "anchor_id": "A-CARD-SET",
+    "registered": true,
+    "coverage_mode": "hull",
+    "granule": "day",
+    "window": {
+     "kind": "cumulative",
+     "lo": "1993-08-05",
+     "hi_excl": "2021-03-11"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-CARD-SCC",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": null,
+   "denominator_anchor": null,
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [
+   {
+    "caliber_key": "card.rt6",
+    "metric": "card.standard_card_count",
+    "leg": "atom",
+    "hop_seq": "0",
+    "src_node": "card.cards",
+    "dst_node": "card.sets",
+    "via_table": "sets",
+    "dst_caliber": "scoped",
+    "join_keys": [
+     [
+      "setCode",
+      "code"
+     ]
+    ]
+   }
+  ],
+  "disclosure": {
+   "decision": "ANSWER",
+   "policy_ids": [],
+   "policy_table_present": false,
+   "ungoverned_disclosure": true,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-CARD-SET",
+    "coverage_mode": "hull",
+    "sql": "SELECT MIN(substr(CAST(t.\"releaseDate\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"releaseDate\" AS VARCHAR),1,10)) FROM \"sets\" t WHERE t.\"releaseDate\" IS NOT NULL",
+    "observed": [
+     "1993-08-05",
+     "2021-03-19"
+    ]
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  }
+ }
+}

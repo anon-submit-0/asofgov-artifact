@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q1",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": 69.97529917152501,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT AVG(pa.overall_rating)\nFROM main.\"Player_Attributes\" pa\nWHERE CAST(pa.\"date\" AS DATE) = '2015-09-21'\n```",
+ "sql": "SELECT AVG(pa.overall_rating)\nFROM main.\"Player_Attributes\" pa\nWHERE CAST(pa.\"date\" AS DATE) = '2015-09-21'",
+ "prompt_sha256": "b11d61c32a9e32d4cdc2fec99a799f1e8e4b4172ddec9885fe89c1aeb1e4dcee",
+ "prompt_chars": 7733,
+ "empty_response": false
+}

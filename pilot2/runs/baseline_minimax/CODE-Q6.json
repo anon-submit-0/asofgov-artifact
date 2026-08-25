@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q6",
+ "system": "baseline_minimax",
+ "kind": "value",
+ "value": "Durham, UK",
+ "verdict": "wrong_value",
+ "raw": "SELECT \"Location\" FROM main.\"users\" WHERE \"Id\" = 22047;",
+ "sql": "SELECT \"Location\" FROM main.\"users\" WHERE \"Id\" = 22047",
+ "prompt_sha256": "b5ab76212dbf6819770094390ee7ed6eaa9db8d36ecbd37ba133c902e1918b74",
+ "prompt_chars": 4904,
+ "empty_response": false
+}

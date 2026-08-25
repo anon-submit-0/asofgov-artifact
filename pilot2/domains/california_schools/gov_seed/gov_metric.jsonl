@@ -1,0 +1,10 @@
+{"den_node": "ca.frpm", "domain": "california_schools", "graph_version": "v1", "kind": "ratio", "metric_id": "ca.free_meal_rate", "num_node": "ca.frpm"}
+{"den_node": null, "domain": "california_schools", "graph_version": "v1", "kind": "atomic", "metric_id": "ca.schools_in_effect", "num_node": "ca.schools"}
+{"base_metric_id": "ca.free_meal_rate", "den_node": null, "domain": "california_schools", "entity_node": "ca.frpm", "graph_version": "v1", "kind": "report", "metric_id": "ca.school_frpm_report", "num_node": "ca.frpm", "report_axis": "entity"}
+{"den_node": null, "domain": "california_schools", "graph_version": "v1", "kind": "atomic", "metric_id": "ca.avg_sat_math", "num_node": "ca.satscores"}
+{"den_node": null, "domain": "california_schools", "graph_version": "v1", "kind": "atomic", "metric_id": "ca.charter_school_count", "num_node": "ca.schools"}
+{"den_node": "ca.frpm", "domain": "california_schools", "graph_version": "v2", "kind": "ratio", "metric_id": "ca.free_meal_rate", "num_node": "ca.frpm"}
+{"den_node": null, "domain": "california_schools", "graph_version": "v2", "kind": "atomic", "metric_id": "ca.schools_in_effect", "num_node": "ca.schools"}
+{"base_metric_id": "ca.free_meal_rate", "den_node": null, "domain": "california_schools", "entity_node": "ca.frpm", "graph_version": "v2", "kind": "report", "metric_id": "ca.school_frpm_report", "num_node": "ca.frpm", "report_axis": "entity"}
+{"den_node": null, "domain": "california_schools", "graph_version": "v2", "kind": "atomic", "metric_id": "ca.avg_sat_math", "num_node": "ca.satscores"}
+{"den_node": null, "domain": "california_schools", "graph_version": "v2", "kind": "atomic", "metric_id": "ca.charter_school_count", "num_node": "ca.schools"}

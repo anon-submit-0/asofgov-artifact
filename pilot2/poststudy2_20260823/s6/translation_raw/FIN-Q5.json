@@ -1,0 +1,19 @@
+{
+ "qid": "FIN-Q5",
+ "domain": "financial",
+ "question_zh": "以 1997-06-15 为声明时点，1996 年 6 月（as-of 1996-06-15 所在月窗）当月交易笔数是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 1997-06-15 as the declaration instant, what is the number of transactions for June 1996 (as-of 1996-06-15 the containing month window)?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5278 completion=52]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:38:15"
+}

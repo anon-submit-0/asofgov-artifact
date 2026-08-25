@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q3",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 121345577.66,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT SUM(ym.\"Consumption\")\nFROM main.\"yearmonth\" ym\nJOIN main.\"customers\" c ON ym.\"CustomerID\" = c.\"CustomerID\"\nWHERE c.\"Segment\" = 'SME'\n  AND ym.\"Date\" = '201306'\n```",
+ "sql": "SELECT SUM(ym.\"Consumption\")\nFROM main.\"yearmonth\" ym\nJOIN main.\"customers\" c ON ym.\"CustomerID\" = c.\"CustomerID\"\nWHERE c.\"Segment\" = 'SME'\n  AND ym.\"Date\" = '201306'",
+ "prompt_sha256": "f2bc2ddf95b113cf2c411b7d6b2827b1f76df55d64304e107b9f150e3074db8d",
+ "prompt_chars": 3941,
+ "empty_response": false
+}

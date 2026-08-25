@@ -1,0 +1,185 @@
+% =====================================================================
+%  Section 6 -- POINT-IN-TIME CERTIFICATES     (source: theory/C5)
+%  Requires macros from 03-semantics.tex; booktabs in the preamble.
+%  Full proofs: extended/appendix_proofs.tex (\cite{asofgov-tr}).
+% =====================================================================
+
+\section{POINT-IN-TIME CERTIFICATES}
+\label{sec:certificates}
+
+\noindent\looseness=-1 Compilation and verification read the
+same $(G_v,D)$ snapshot, and two commit axioms --- typed commit identifiers
+unique and fresh, version numbers never reused --- keep a certificate valid
+\emph{at its coordinate} $(T,v)$.
+
+\subsection{What a Certificate Contains}
+\label{sec:cert:content}
+
+\noindent\looseness=-1\textbf{Binding quadruple and certificate.}
+$B=\langle\alpha,\nu,\rho,\delta\rangle$ where \emph{(1)}
+$\alpha:R(q)\rightharpoonup\allowbreak A(G_v)\times\Wdom$ is the \emph{anchor
+assignment}, sending each metric role to the anchor and window resolved for it
+(delta intents expand by role $\times$ period); \emph{(2)}
+$\nu=(\mathrm{domain},v,c\,[,\mathrm{offdiag}])$ is the \emph{graph version
+pin}, $c$ a true typed-commit identifier and $\mathrm{offdiag}=(p,\ver(T))$
+the marker a certificate must carry whenever the pinned version departs from
+the one in effect at $T$ --- its absence commits to a diagonal read; \emph{(3)} $\rho=\langle e_1,\dots,e_k\rangle$ is the \emph{caliber
+routing path} ($\langle\rangle$ for atomic metrics); \emph{(4)}
+$\delta=(\dec,\Pi,h_{\ctx},g,\mu^*)$ is the \emph{disclosure decision}, with
+$\dec\in\{\ANSW,\REWR(q'),\REFU(r)\}$, the set $\Pi$ of policies in force, a
+hash of the request context, the delivered grain and the least mask closure; a
+policy-free domain sets $\Pi=\emptyset$ and must carry an
+\texttt{ungoverned-disclosure} annotation. A \emph{certificate} is
+$C=(q,T,B,\out)$: for $\dec\in\{\ANSW,\allowbreak\REWR(q')\}$, $\out$ is the
+emitted
+query text, a $\REWR$ additionally carrying a \emph{cut trace} --- retained
+and trimmed slices with their reason table $\CT$, and the declared keys of
+$\prec_{\det}$; for $\dec=\REFU(r)$,
+$r\in\{\MC,\allowbreak\AM,\OOV,\DBL\}$,
+$\out$ is a witness $w$. On a multi-slice question $(r,w)$ are taken
+\emph{slice-major}: the earliest failing slice under $\prec_{\det}$, then the
+guard order $\OOV\to\AM\to\MC$ --- pinned, since with one slice failing $\MC$
+and another $\AM$ the two readings report different classes.
+
+\smallskip\noindent\looseness=-1\textbf{Refusal witnesses.}\label{sec:cert:witness}
+Each refusal class carries a witness shaped to replay as one governance-table
+lookup or one single-scan probe with an assertion about its result ---
+refusals are \emph{falsifiable}: issued for a reason that does not hold, no
+witness survives replay. $\MC$ carries a routing
+lookup $(m,\kappa)$ showing no recomputable route under the caliber key, or a
+denominator probe $(m,p,W)$ whose observed value is recorded verbatim and lies
+in the widened empty set (empty, null, $\mu_{\mathrm{den}}\le0$); $\AM$ the
+failing clause $c\in\{\text{i--iv}\}$ of Definition~\ref{def:rule} with its
+payload --- an anchor pair, an offending window pair, a misaligned boundary
+point replayed against $\Wdom_{g^{\mathrm{cmp}}}$, or a discriminant date in the
+symmetric difference of the marking sets; $\OOV$ a triple $(a,W_T,\pi_V)$ whose
+coverage profile asserts
+$W_T\cap\Cov_v(a)=\emptyset$ under the declared mode, at the level
+Definition~\ref{def:oov}(1) adjudicates --- both legs where $\beta_v(m)$ pairs
+them; and $\DBL$ the blocked
+slices, triggering policies and support-probe transcript with its snapshot
+version, jointly asserting an empty legal-grain frontier,
+$U_{\min}=\emptyset$. Replay \emph{modes} are fixed
+by machine-readable declaration, never by free text. Well-formedness adds
+version closure, role coverage, routing continuity and decision--output
+matching, plus three widened variants so that even a metric with no
+assignable anchor, an unresolvable as-of or an undefined $\ver(T)$ admits a
+certificate.
+
+\smallskip\noindent\looseness=-1\textbf{The independent verifier.}\label{sec:cert:verifier}
+$\Chk(C,G_v,D,\ctx)$ is the conjunction of the ten checks below, with
+$G_v$ resolved through $C.\nu$ and $\ctx$ matched against $\delta.h_{\ctx}$; a
+\emph{verifier} is any procedure deciding $\Chk$ from those four arguments
+alone whose implementation shares no project-internal module, template or code
+path with the compiler; no coordinate the certificate asserts may be
+inherited. \textbf{V0} therefore re-checks the anchor assignment role by role through
+an independently written window arithmetic \emph{and} re-derives each role
+window from the registered as-of convention over $(G_v,D)$, exempting only
+the machine-readably declared deviations it enumerates --- an override or a cut-trace-backed $\REWR$, each
+still replayed by V3/V6c (\S\ref{sec:eval-cert}). Then: \textbf{V1} the version pin, its unique
+typed commit and its diagonality; \textbf{V2} anchor existence and window
+typing; \textbf{V3} the binding looked up \emph{by identifier} ---
+$(\text{domain},\text{metric})$ is not a functional key --- with its rule
+re-executed on $\alpha$'s windows and matched three-valued; \textbf{V4}
+routing-edge existence, join keys and path continuity; \textbf{V5} the policies
+that should be in force, with grain, mask, role-branch and small-cell clauses
+replayed and the \texttt{ungoverned-disclosure} annotation checked, since
+absence is not passing; \textbf{V6a} that the emitted text touches only
+certified objects,
+that every time predicate \emph{denotes} a subset of the certified window, and
+that the ratio shape aggregates each leg before dividing; \textbf{V6b(0)} the
+negation of every guard preceding $r$ in the frozen order --- an $\MC$ refusal
+must replay $\neg\OOV\wedge\neg\AM$; \textbf{V6b(1)} the witness under its
+declared replay modes, scoped to the first failing slice, other $\CT$ rows
+travelling as annotations; and \textbf{V6c}, for every answer and each retained
+slice of a rewrite, the negation of \emph{all} refusal guards. Per-check
+argument and answer/refusal tables:~\cite{asofgov-tr}.
+
+\looseness=-1 V6b(0) and V6c are the checks a definition-body verifier
+lacks: without V6b(0) a refusal certificate replays correctly with the
+wrong class (\S\ref{sec:bind:guardorder}); without V6c an ``answered where
+the semantics denotes $\bot$'' certificate passes every remaining check ---
+the dominant baseline failure mode turned into a certificate. \emph{Non-circularity:} the trusted base is the declarative
+$\Chk$ specification with $G_v$ and $D$ (\S\ref{sec:system}),
+clause-(iii) and clause-(iv) replay variants included.
+
+\subsection{Guarantees, and What They Do Not Cover}
+\label{sec:cert:thms}
+
+\begin{theorem}[verification completeness]
+\label{thm:certcomplete}
+\looseness=-1 Under the snapshot and commit assumptions, (A1)--(A6), and a compiler each of
+whose certificate fields is derived from facts or probe results over
+$(G_v,D,\ctx)$ using the frozen guard order and the replay modes $G_v$
+determines: every
+well-formed certificate the compiler emits, degenerate variants included,
+satisfies $\Chk(C,G_v,D,\ctx)=\ACC$.
+\end{theorem}
+
+\begin{theorem}[verification soundness]
+\label{thm:certsound}
+\looseness=-1 Suppose $\Chk(C,G_v,\allowbreak D,\ctx)=\ACC$. \emph{(a)} If $C$ is a refusal
+certificate,
+its reason holds at the coordinate $(T,v,D)$ under the guard semantics of
+\S\ref{sec:sem:fail} for $r\in\{\MC,\allowbreak\AM,\OOV\}$ and under the
+disclosure
+semantics of \S\ref{sec:rewrite} for $r=\DBL$. \emph{(b)} If $C$ is an answer
+certificate whose emitted text belongs to
+$\mathcal{Q}_{\mathrm{tmpl}}(C)$ (Definition~\ref{def:tmpl} below) then,
+under \emph{(A-tmpl)}, that text is point-in-time
+correct at $(T,v)$; for a rewrite, correctness is relative to the trimmed
+request.
+\end{theorem}
+
+\noindent\looseness=-1 Proofs in~\cite{asofgov-tr}: (a) is a case analysis on $r$ over
+V6b(0) plus V6b(1), turning on the fact that replaying $r$'s definition body
+alone establishes only the weaker conjunct of Theorem~\ref{thm:partition}; (b)
+layers $\Bindable$ at the coordinate, from V0 and V6c, over a leg-population
+agreement forced by V2--V4 with V6a on $\mathcal{Q}_{\mathrm{tmpl}}$.
+
+% (2026-08-23, R3-1-5) Q_tmpl formalised: the class Theorem certsound(b)
+% is asserted on now has a decidable syntactic definition in the body; the
+% "syntax implies semantics" lemma stays open and is the named assumption
+% (A-tmpl) below, parallel to (A-emit)/A4.1 in Theorem thm:sound.  Placed
+% AFTER both theorems so their reviewer-tracked numbers (5.1/5.2) hold.
+\begin{definition}[template class $\mathcal{Q}_{\mathrm{tmpl}}$]
+\label{def:tmpl}
+\looseness=-1 Relative to an answer certificate $C$:
+$Q\to L\mid(L)/(L)$, the ratio form iff $B$ certifies both legs;
+$L\to\texttt{SELECT}\ f(e)\ \texttt{FROM}\ J\ \texttt{WHERE}\ P$, with
+$f$ one unnested aggregate, $J$ exactly the leg's certified anchor and
+routing-path tables on the registered keys, $e$ and $P$ over certified
+columns only, and $P$ carrying one time predicate denoting a subset of
+the leg's certified window. Membership is decidable --- each clause a
+parse-tree test --- and V6a's containment check decides exactly these
+clauses (object set, window denotation, leg-before-divide shape).
+\end{definition}
+
+\smallskip\noindent\looseness=-1\textbf{Declared scope of Theorem~\ref{thm:certsound}(b).}
+Semantic equivalence is undecidable for arbitrary SQL with arithmetic and
+aggregation, so (b) is asserted on Definition~\ref{def:tmpl}'s class only
+and rests on \emph{(A-tmpl)}: on $\mathcal{Q}_{\mathrm{tmpl}}$, V6a's
+syntactic containment implies that the emitted text denotes the certified
+plan --- the ``syntax implies semantics'' lemma, still open
+in~\cite{asofgov-tr} and an obligation of the same kind as
+Theorem~\ref{thm:sound}'s \emph{(A-emit)}; a delta template subtracting
+two rates already sits outside the class. Rewrite maximality is a declared
+\emph{non-goal}: re-checking it would mean re-implementing
+\S\ref{sec:rewrite}'s search inside a verifier forbidden its code, so
+$\Chk$ verifies only that $q'$ is legal and its cut trace consistent.
+The statement is written on the diagonal; the suite's one off-diagonal
+certificate (\S\ref{sec:eval-mech}) reads under the two-parameter bracket
+of~\cite{asofgov-tr}.
+
+\begin{proposition}[field non-redundancy]
+\label{prop:nonredundant}
+\looseness=-1 For each $x\in\{\nu,\alpha,\allowbreak\rho,\delta,w\}$, let $\Chk_{-x}$ weaken
+$\Chk$ by
+dropping the checks that consume $x$. Then there is an instance that
+$\Chk_{-x}$ accepts although point-in-time correctness fails.
+\end{proposition}
+
+\looseness=-1 The five constructions are the proof~\cite{asofgov-tr};
+\S\ref{sec:eval-cert} exhibits the deletions empirically, the
+version-swap on both committed versions. The proposition is per-field
+non-redundancy under $\Chk$, not minimality.

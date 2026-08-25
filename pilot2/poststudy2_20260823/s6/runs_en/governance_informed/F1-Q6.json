@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q6",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 6.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) AS races_count_range\nFROM main.\"races\"\nWHERE \"date\" >= '2017-10-01'\n  AND \"date\" <= '2017-12-15';\n```",
+ "sql": "SELECT COUNT(*) AS races_count_range\nFROM main.\"races\"\nWHERE \"date\" >= '2017-10-01'\n  AND \"date\" <= '2017-12-15'",
+ "prompt_sha256": "990956aaba666d603ef3932337453b0312a56aa33b90e95e372d2c229fcd085b",
+ "prompt_chars": 27188,
+ "empty_response": false
+}

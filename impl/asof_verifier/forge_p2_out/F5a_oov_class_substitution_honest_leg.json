@@ -1,0 +1,179 @@
+{
+ "base_qid": "EF2-Q6",
+ "expected_reject_by": "V6b",
+ "envelope": {
+  "refusal": "out-of-validity",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "EF2-Q6",
+    "domain": "european_football_2",
+    "metric": "ef2.rating_weighted_win_rate",
+    "metric_kind": "ratio",
+    "as_of": "2013-12-01"
+   },
+   "graph_pin": {
+    "domain": "european_football_2",
+    "graph_version": "v1",
+    "commit_id": "2010-08-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "numerator",
+     "anchor_id": "A-EF2-MATCH",
+     "registered": true,
+     "coverage_mode": null,
+     "granule": "day",
+     "window": {
+      "kind": "point",
+      "lo": "2013-12-01",
+      "hi_excl": "2013-12-02"
+     }
+    },
+    {
+     "role": "denominator",
+     "anchor_id": "A-EF2-PA",
+     "registered": true,
+     "coverage_mode": null,
+     "granule": "day",
+     "window": {
+      "kind": "point",
+      "lo": "2013-12-01",
+      "hi_excl": "2013-12-02"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-EF2-RWWR-N|B-EF2-RWWR-D",
+    "rule": "same_valid_time_window",
+    "numerator_anchor": "A-EF2-MATCH",
+    "denominator_anchor": "A-EF2-PA",
+    "adm_check_mode": "window_realization_symdiff"
+   },
+   "routing": [
+    {
+     "caliber_key": "ef2.rt2",
+     "metric": "ef2.rating_weighted_win_rate",
+     "leg": "num",
+     "hop_seq": "0",
+     "src_node": "ef2.match",
+     "dst_node": "ef2.match",
+     "via_table": "Match",
+     "dst_caliber": "all",
+     "join_keys": []
+    },
+    {
+     "caliber_key": "ef2.rt3",
+     "metric": "ef2.rating_weighted_win_rate",
+     "leg": "den",
+     "hop_seq": "0",
+     "src_node": "ef2.player_attr",
+     "dst_node": "ef2.player_attr",
+     "via_table": "Player_Attributes",
+     "dst_caliber": "all",
+     "join_keys": []
+    }
+   ],
+   "disclosure": {
+    "decision": "REFUSE",
+    "policy_ids": [],
+    "policy_table_present": false,
+    "ungoverned_disclosure": true,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   },
+   "refusal": {
+    "reason": "out-of-validity",
+    "witness": {
+     "type": "window-outside-validity",
+     "anchor_id": "A-EF2-PA",
+     "coverage_mode": "strict_member",
+     "requested": {
+      "kind": "point",
+      "lo": "2013-12-01",
+      "hi_excl": "2013-12-02"
+     },
+     "assertion": "W ∩ Cov_v(A-EF2-PA)[strict_member] = ∅"
+    },
+    "ct": [
+     {
+      "slice": "(v1,B-EF2-RWWR-N|B-EF2-RWWR-D)",
+      "reason": "out-of-validity"
+     }
+    ],
+    "slices_pass": [],
+    "composition": "slice-major(⊥_OOV 单腿真空见证)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6b",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (2 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v1' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "2 α entr(ies) exist@v1 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "SKIP",
+    "detail": "V3 exempt for REFUSE(out-of-validity); guard negation replays in V6b(0)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (2 edge(s)) replayed against gov_caliber_routing@v1"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "ungoverned-disclosure domain: Π=∅, dec=REFUSE, annotation present"
+   },
+   {
+    "check": "V6a",
+    "status": "SKIP",
+    "detail": "V6a applies to answer certificates only"
+   },
+   {
+    "check": "V6b",
+    "status": "FAIL",
+    "detail": "refusal class substitution: OOV does not hold on (G_v,D) at the level its coverage disjunct is adjudicated (all role windows intersect their anchor coverage (pair-level: 1/2 legs empty — audit territory, not OOV))"
+   },
+   {
+    "check": "V6c",
+    "status": "SKIP",
+    "detail": "V6c applies to answer certificates only"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "beta_v(binding row prescribes legs)"
+  }
+ }
+}

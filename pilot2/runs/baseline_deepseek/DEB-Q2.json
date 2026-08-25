@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q2",
+ "system": "baseline_deepseek",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "SELECT AVG(ym.Consumption) \nFROM main.\"yearmonth\" ym\nJOIN main.\"customers\" c ON ym.CustomerID = c.CustomerID \nWHERE c.Currency = 'EUR' \nAND ym.Date = '2013-08'",
+ "sql": "SELECT AVG(ym.Consumption) \nFROM main.\"yearmonth\" ym\nJOIN main.\"customers\" c ON ym.CustomerID = c.CustomerID \nWHERE c.Currency = 'EUR' \nAND ym.Date = '2013-08'",
+ "prompt_sha256": "6ab766f46d7cc45f23533840a5889a8179199a228267ad7ba8bc3aef58e31e7f",
+ "prompt_chars": 3717,
+ "empty_response": false
+}

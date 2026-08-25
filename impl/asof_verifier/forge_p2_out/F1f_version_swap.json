@@ -1,0 +1,185 @@
+{
+ "base_qid": "FIN-Q1",
+ "expected_reject_by": "V1",
+ "envelope": {
+  "sql": "SELECT (SELECT COUNT(*) FROM \"loan\" t0 WHERE t0.\"status\" IN ('B', 'D') AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '1996-01-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '1997-01-01') * 1.0 / NULLIF((SELECT COUNT(*) FROM \"loan\" t0 WHERE substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '1996-01-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '1997-01-01'), 0)",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "FIN-Q1",
+    "domain": "financial",
+    "metric": "fin.problem_loan_rate",
+    "metric_kind": "ratio",
+    "as_of": "1996-06-30"
+   },
+   "graph_pin": {
+    "domain": "financial",
+    "graph_version": "v2",
+    "commit_id": "1998-03-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "numerator",
+     "anchor_id": "A-FIN-LOAN",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "year",
+      "lo": "1996-01-01",
+      "hi_excl": "1997-01-01"
+     }
+    },
+    {
+     "role": "denominator",
+     "anchor_id": "A-FIN-LOAN",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "year",
+      "lo": "1996-01-01",
+      "hi_excl": "1997-01-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-FIN-PLR-N|B-FIN-PLR-D",
+    "rule": "same_valid_time_window",
+    "numerator_anchor": "A-FIN-LOAN",
+    "denominator_anchor": "A-FIN-LOAN",
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [
+    {
+     "caliber_key": "fin.rt3",
+     "metric": "fin.problem_loan_rate",
+     "leg": "num",
+     "hop_seq": "0",
+     "src_node": "fin.loan",
+     "dst_node": "fin.loan",
+     "via_table": "loan",
+     "dst_caliber": "all",
+     "join_keys": []
+    },
+    {
+     "caliber_key": "fin.rt4",
+     "metric": "fin.problem_loan_rate",
+     "leg": "den",
+     "hop_seq": "0",
+     "src_node": "fin.loan",
+     "dst_node": "fin.loan",
+     "via_table": "loan",
+     "dst_caliber": "all",
+     "join_keys": []
+    }
+   ],
+   "disclosure": {
+    "decision": "ANSWER",
+    "policy_ids": [],
+    "policy_table_present": false,
+    "ungoverned_disclosure": true,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-FIN-LOAN",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"loan\" t WHERE t.\"date\" IS NOT NULL",
+     "observed": [
+      "1993-07-05",
+      "1998-12-08"
+     ]
+    },
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-FIN-LOAN",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"loan\" t WHERE t.\"date\" IS NOT NULL",
+     "observed": [
+      "1993-07-05",
+      "1998-12-08"
+     ]
+    },
+    {
+     "kind": "DEN_POP",
+     "role": "denominator",
+     "period": 0,
+     "sql": "SELECT (SELECT COUNT(*) FROM \"loan\" t0 WHERE substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '1996-01-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '1997-01-01')",
+     "observed": 117.0
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V1",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (2 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "FAIL",
+    "detail": "ν.v='v2' ≠ ver(T)='v1' without the explicit off_diagonal commitment marker (zero-trace off-diagonal certificate REJECT)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "2 α entr(ies) exist@v2 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "rule replay passes (clause (i) ok; clause (ii) ok; clause (iii) ok; clause (iv) trivial_true)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (2 edge(s)) replayed against gov_caliber_routing@v2"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "ungoverned-disclosure domain: Π=∅, dec=ANSWER, annotation present"
+   },
+   {
+    "check": "V6a",
+    "status": "PASS",
+    "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "beta_v(binding row prescribes legs)"
+  }
+ }
+}

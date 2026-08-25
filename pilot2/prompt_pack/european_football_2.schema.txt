@@ -1,0 +1,53 @@
+-- european_football_2 域 pilot2 warehouse.duckdb schema（源: BIRD/Spider dev 公开数据集，抽取与 real/authored 行数见 provenance.json）
+-- schema: main = 业务事实/维表 + gov_* 治理登记表（十表 schema 法, DESIGN_SPEC §3.1）
+
+CREATE TABLE main."Country"("id" BIGINT, "name" VARCHAR);
+-- rowcount main."Country" = 11
+
+CREATE TABLE main."League"("id" BIGINT, "country_id" BIGINT, "name" VARCHAR);
+-- rowcount main."League" = 11
+
+CREATE TABLE main."Match"("id" BIGINT, "country_id" BIGINT, "league_id" BIGINT, "season" VARCHAR, "stage" BIGINT, "date" VARCHAR, "match_api_id" BIGINT, "home_team_api_id" BIGINT, "away_team_api_id" BIGINT, "home_team_goal" BIGINT, "away_team_goal" BIGINT, "home_player_X1" BIGINT, "home_player_X2" BIGINT, "home_player_X3" BIGINT, "home_player_X4" BIGINT, "home_player_X5" BIGINT, "home_player_X6" BIGINT, "home_player_X7" BIGINT, "home_player_X8" BIGINT, "home_player_X9" BIGINT, "home_player_X10" BIGINT, "home_player_X11" BIGINT, "away_player_X1" BIGINT, "away_player_X2" BIGINT, "away_player_X3" BIGINT, "away_player_X4" BIGINT, "away_player_X5" BIGINT, "away_player_X6" BIGINT, "away_player_X7" BIGINT, "away_player_X8" BIGINT, "away_player_X9" BIGINT, "away_player_X10" BIGINT, "away_player_X11" BIGINT, "home_player_Y1" BIGINT, "home_player_Y2" BIGINT, "home_player_Y3" BIGINT, "home_player_Y4" BIGINT, "home_player_Y5" BIGINT, "home_player_Y6" BIGINT, "home_player_Y7" BIGINT, "home_player_Y8" BIGINT, "home_player_Y9" BIGINT, "home_player_Y10" BIGINT, "home_player_Y11" BIGINT, "away_player_Y1" BIGINT, "away_player_Y2" BIGINT, "away_player_Y3" BIGINT, "away_player_Y4" BIGINT, "away_player_Y5" BIGINT, "away_player_Y6" BIGINT, "away_player_Y7" BIGINT, "away_player_Y8" BIGINT, "away_player_Y9" BIGINT, "away_player_Y10" BIGINT, "away_player_Y11" BIGINT, "home_player_1" BIGINT, "home_player_2" BIGINT, "home_player_3" BIGINT, "home_player_4" BIGINT, "home_player_5" BIGINT, "home_player_6" BIGINT, "home_player_7" BIGINT, "home_player_8" BIGINT, "home_player_9" BIGINT, "home_player_10" BIGINT, "home_player_11" BIGINT, "away_player_1" BIGINT, "away_player_2" BIGINT, "away_player_3" BIGINT, "away_player_4" BIGINT, "away_player_5" BIGINT, "away_player_6" BIGINT, "away_player_7" BIGINT, "away_player_8" BIGINT, "away_player_9" BIGINT, "away_player_10" BIGINT, "away_player_11" BIGINT, "goal" VARCHAR, "shoton" VARCHAR, "shotoff" VARCHAR, "foulcommit" VARCHAR, "card" VARCHAR, "cross" VARCHAR, "corner" VARCHAR, "possession" VARCHAR, "B365H" DOUBLE, "B365D" DOUBLE, "B365A" DOUBLE, "BWH" DOUBLE, "BWD" DOUBLE, "BWA" DOUBLE, "IWH" DOUBLE, "IWD" DOUBLE, "IWA" DOUBLE, "LBH" DOUBLE, "LBD" DOUBLE, "LBA" DOUBLE, "PSH" DOUBLE, "PSD" DOUBLE, "PSA" DOUBLE, "WHH" DOUBLE, "WHD" DOUBLE, "WHA" DOUBLE, "SJH" DOUBLE, "SJD" DOUBLE, "SJA" DOUBLE, "VCH" DOUBLE, "VCD" DOUBLE, "VCA" DOUBLE, "GBH" DOUBLE, "GBD" DOUBLE, "GBA" DOUBLE, "BSH" DOUBLE, "BSD" DOUBLE, "BSA" DOUBLE);
+-- rowcount main."Match" = 25979
+
+CREATE TABLE main."Player"("id" VARCHAR, "player_api_id" VARCHAR, "player_name" VARCHAR, "player_fifa_api_id" VARCHAR, "birthday" VARCHAR, "height" VARCHAR, "weight" VARCHAR);
+-- rowcount main."Player" = 11060
+
+CREATE TABLE main."Player_Attributes"("id" BIGINT, "player_fifa_api_id" BIGINT, "player_api_id" BIGINT, "date" VARCHAR, "overall_rating" BIGINT, "potential" BIGINT, "preferred_foot" VARCHAR, "attacking_work_rate" VARCHAR, "defensive_work_rate" VARCHAR, "crossing" BIGINT, "finishing" BIGINT, "heading_accuracy" BIGINT, "short_passing" BIGINT, "volleys" BIGINT, "dribbling" BIGINT, "curve" BIGINT, "free_kick_accuracy" BIGINT, "long_passing" BIGINT, "ball_control" BIGINT, "acceleration" BIGINT, "sprint_speed" BIGINT, "agility" BIGINT, "reactions" BIGINT, "balance" BIGINT, "shot_power" BIGINT, "jumping" BIGINT, "stamina" BIGINT, "strength" BIGINT, "long_shots" BIGINT, "aggression" BIGINT, "interceptions" BIGINT, "positioning" BIGINT, "vision" BIGINT, "penalties" BIGINT, "marking" BIGINT, "standing_tackle" BIGINT, "sliding_tackle" BIGINT, "gk_diving" BIGINT, "gk_handling" BIGINT, "gk_kicking" BIGINT, "gk_positioning" BIGINT, "gk_reflexes" BIGINT);
+-- rowcount main."Player_Attributes" = 183978
+
+CREATE TABLE main."Team"("id" BIGINT, "team_api_id" BIGINT, "team_fifa_api_id" BIGINT, "team_long_name" VARCHAR, "team_short_name" VARCHAR);
+-- rowcount main."Team" = 299
+
+CREATE TABLE main."Team_Attributes"("id" BIGINT, "team_fifa_api_id" BIGINT, "team_api_id" BIGINT, "date" VARCHAR, "buildUpPlaySpeed" BIGINT, "buildUpPlaySpeedClass" VARCHAR, "buildUpPlayDribbling" BIGINT, "buildUpPlayDribblingClass" VARCHAR, "buildUpPlayPassing" BIGINT, "buildUpPlayPassingClass" VARCHAR, "buildUpPlayPositioningClass" VARCHAR, "chanceCreationPassing" BIGINT, "chanceCreationPassingClass" VARCHAR, "chanceCreationCrossing" BIGINT, "chanceCreationCrossingClass" VARCHAR, "chanceCreationShooting" BIGINT, "chanceCreationShootingClass" VARCHAR, "chanceCreationPositioningClass" VARCHAR, "defencePressure" BIGINT, "defencePressureClass" VARCHAR, "defenceAggression" BIGINT, "defenceAggressionClass" VARCHAR, "defenceTeamWidth" BIGINT, "defenceTeamWidthClass" VARCHAR, "defenceDefenderLineClass" VARCHAR);
+-- rowcount main."Team_Attributes" = 1458
+
+CREATE TABLE main."gov_caliber_routing"("routing_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "hop_seq" VARCHAR, "src_node" VARCHAR, "dst_node" VARCHAR, "join_on" VARCHAR, "dst_caliber" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_caliber_routing" = 8
+
+CREATE TABLE main."gov_disclosure_policy"("placeholder" VARCHAR);
+-- rowcount main."gov_disclosure_policy" = 0
+
+CREATE TABLE main."gov_granularity_edge"("edge_id" VARCHAR, "domain" VARCHAR, "axis" VARCHAR, "from_level" VARCHAR, "to_level" VARCHAR, "node_id" VARCHAR, "group_cols" VARCHAR, "derived" VARCHAR, "band_col" VARCHAR, "band_bounds" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_granularity_edge" = 2
+
+CREATE TABLE main."gov_measure_def"("measure_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "node_id" VARCHAR, "measure" VARCHAR, "preds" VARCHAR, "graph_version" VARCHAR, "weight" VARCHAR);
+-- rowcount main."gov_measure_def" = 19
+
+CREATE TABLE main."gov_metric"("metric_id" VARCHAR, "domain" VARCHAR, "kind" VARCHAR, "num_node" VARCHAR, "den_node" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_metric" = 14
+
+CREATE TABLE main."gov_metric_alias"("alias_id" VARCHAR, "alias_text" VARCHAR, "metric_id" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_metric_alias" = 14
+
+CREATE TABLE main."gov_semantic_graph_version"("graph_version" VARCHAR, "domain" VARCHAR, "committed_at" VARCHAR, "commit_seq" VARCHAR, "change_note" VARCHAR);
+-- rowcount main."gov_semantic_graph_version" = 2
+
+CREATE TABLE main."gov_semantic_node"("node_id" VARCHAR, "domain" VARCHAR, "physical_table" VARCHAR, "entity_key" VARCHAR, "scope_keys" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_semantic_node" = 14
+
+CREATE TABLE main."gov_temporal_binding"("binding_id" VARCHAR, "metric_id" VARCHAR, "leg" VARCHAR, "anchor_id" VARCHAR, "rule_id" VARCHAR, "window_gran" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_temporal_binding" = 18
+
+CREATE TABLE main."gov_valid_time_anchor"("anchor_id" VARCHAR, "node_id" VARCHAR, "anchor_type" VARCHAR, "effective_col" VARCHAR, "vf_col" VARCHAR, "vtc_col" VARCHAR, "granularity" VARCHAR, "coverage_mode" VARCHAR, "graph_version" VARCHAR);
+-- rowcount main."gov_valid_time_anchor" = 6

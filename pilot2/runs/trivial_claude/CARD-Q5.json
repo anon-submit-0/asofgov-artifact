@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q5",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": 7542.0,
+ "verdict": "correct",
+ "raw": "I need to find the number of rulings within the date range 2020-10-01 to 2021-06-30, respecting the as-of time point of 2021-03-15.\n\nLet me examine the temporal binding and valid time anchor tables to understand how to apply the as-of logic.\n\nLooking at `gov_valid_time_anchor`, it has columns: `anchor_id`, `node_id`, `anchor_type`, `effective_col`, `vf_col`, `vtc_col`, `granularity`, `coverage_mode`, `graph_version`.\n\nThe `rulings` table has a `date` column and contains ruling records. The question asks to count rulings between 2020-10-01 and 2021-06-30, with an as-of date of 2021-03-15.\n\nThe as-of time point (2021-03-15) means we should only count rulings whose date is both within the specified range AND whose date is <= the as-of date (since we can only \"see\" rulings that have occurred by the as-of date).\n\nSo the effective range becomes: 2020-10-01 to min(2021-06-30, 2021-03-15) = 2020-10-01 to 2021-03-15.\n\nBut let me check if the gov tables provide more specific guidance. The anchor table likely has an entry for the rulings node with `effective_col = 'date'` and coverage_mode that dictates how the as-of truncation works.\n\nGiven the complexity and that the gov tables may or may not have specific entries for rulings, the most reasonable interpretation is: the as-of date truncates the upper bound of the query window.\n\n```sql\nSELECT COUNT(*) FROM main.\"rulings\" WHERE \"date\" >= DATE '2020-10-01' AND \"date\" <= DATE '2021-03-15';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"rulings\" WHERE \"date\" >= DATE '2020-10-01' AND \"date\" <= DATE '2021-03-15'",
+ "prompt_sha256": "bd44981da221473045e0cab0f09e41bc06adddc3a9d74252be46a35b659c5a15",
+ "prompt_chars": 5555,
+ "empty_response": false
+}

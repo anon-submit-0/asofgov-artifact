@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q5",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 66.55253164556962,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT AVG(overall_rating)\nFROM main.\"Player_Attributes\"\nWHERE date <= '2013-12-25'\n  AND player_api_id IN (\n    SELECT DISTINCT player_api_id\n    FROM (\n      SELECT player_api_id, date,\n             ROW_NUMBER() OVER (PARTITION BY player_api_id ORDER BY date DESC) as rn\n      FROM main.\"Player_Attributes\"\n      WHERE date <= '2013-12-25'\n    ) t\n    WHERE rn = 1\n  )\n  AND (player_api_id, date) IN (\n    SELECT player_api_id, MAX(date)\n    FROM main.\"Player_Attributes\"\n    WHERE date <= '2013-12-25'\n    GROUP BY player_api_id\n  )\n```",
+ "sql": "SELECT AVG(overall_rating)\nFROM main.\"Player_Attributes\"\nWHERE date <= '2013-12-25'\n  AND player_api_id IN (\n    SELECT DISTINCT player_api_id\n    FROM (\n      SELECT player_api_id, date,\n             ROW_NUMBER() OVER (PARTITION BY player_api_id ORDER BY date DESC) as rn\n      FROM main.\"Player_Attributes\"\n      WHERE date <= '2013-12-25'\n    ) t\n    WHERE rn = 1\n  )\n  AND (player_api_id, date) IN (\n    SELECT player_api_id, MAX(date)\n    FROM main.\"Player_Attributes\"\n    WHERE date <= '2013-12-25'\n    GROUP BY player_api_id\n  )",
+ "prompt_sha256": "78a2b2e1a2bdf2431effa8dbb716a1c5ea7f453bd84da7605c299850744383cd",
+ "prompt_chars": 7618,
+ "empty_response": false
+}

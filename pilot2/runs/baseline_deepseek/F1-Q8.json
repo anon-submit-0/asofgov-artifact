@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q8",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 问题涉及时间绑定(2011-03-01声明时点, as-of 2010-07-01年窗)和度量定义治理逻辑，但未提供足够的治理表(gov_*)上下文来确定计算规则。",
+ "sql": "REFUSE",
+ "prompt_sha256": "e4639e03ecb337c98e411016fcde357ce2e9ca4439abc3e2c6428123e4d5eeaf",
+ "prompt_chars": 5497,
+ "empty_response": false
+}

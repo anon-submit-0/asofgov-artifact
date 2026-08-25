@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q7",
+ "system": "governance_informed",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 锚定表 yearmonth 的粒度为 month_token（YYYYMM），无法对\"自 2013-03-04 起一周\"的非整月窗口进行查询\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "0627552ef887b04d49e344a5340221486a725df8a26d7fbaeebe5a10071a8e8e",
+ "prompt_chars": 19854,
+ "empty_response": false
+}

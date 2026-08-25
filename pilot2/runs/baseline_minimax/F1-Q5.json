@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q5",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "<minimax:tool_call>\n<invoke name=\"duckdb_query\">\n<parameter name=\"sql\">SELECT constructorId, name FROM main.constructors WHERE name LIKE '%Brawn%' OR constructorRef LIKE '%brawn%'</parameter>\n</invoke>\n</minimax:tool_call>",
+ "sql": "<minimax:tool_call>\n<invoke name=\"duckdb_query\">\n<parameter name=\"sql\">SELECT constructorId, name FROM main.constructors WHERE name LIKE '%Brawn%' OR constructorRef LIKE '%brawn%'</parameter>\n</invoke>\n</minimax:tool_call>",
+ "prompt_sha256": "78ffaf40309599c961b2814479b2e082182167f18c4ed4649b9d026dd81faa72",
+ "prompt_chars": 5499,
+ "empty_response": false
+}

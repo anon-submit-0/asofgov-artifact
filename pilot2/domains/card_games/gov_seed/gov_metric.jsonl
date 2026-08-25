@@ -1,0 +1,16 @@
+{"den_node": "card.cards", "domain": "card_games", "graph_version": "v1", "kind": "ratio", "metric_id": "card.ruling_intensity", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v1", "kind": "atomic", "metric_id": "card.monthly_rulings", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v1", "kind": "atomic", "metric_id": "card.standard_card_count", "num_node": "card.cards"}
+{"den_node": null, "domain": "card_games", "graph_version": "v1", "kind": "atomic", "metric_id": "card.card_rulings_count", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v1", "kind": "atomic", "metric_id": "card.rulings_range", "num_node": "card.rulings"}
+{"den_node": "card.cards", "domain": "card_games", "graph_version": "v1", "kind": "ratio", "metric_id": "card.collector_premium", "num_node": "card.cards"}
+{"den_node": "card.cards", "domain": "card_games", "graph_version": "v1", "kind": "ratio", "metric_id": "card.foreign_coverage", "num_node": "card.foreign_data"}
+{"den_node": null, "domain": "card_games", "graph_version": "v1", "kind": "atomic", "metric_id": "card.monthly_sets", "num_node": "card.sets"}
+{"den_node": "card.cards", "domain": "card_games", "graph_version": "v2", "kind": "ratio", "metric_id": "card.ruling_intensity", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v2", "kind": "atomic", "metric_id": "card.monthly_rulings", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v2", "kind": "atomic", "metric_id": "card.standard_card_count", "num_node": "card.cards"}
+{"den_node": null, "domain": "card_games", "graph_version": "v2", "kind": "atomic", "metric_id": "card.card_rulings_count", "num_node": "card.rulings"}
+{"den_node": null, "domain": "card_games", "graph_version": "v2", "kind": "atomic", "metric_id": "card.rulings_range", "num_node": "card.rulings"}
+{"den_node": "card.cards", "domain": "card_games", "graph_version": "v2", "kind": "ratio", "metric_id": "card.collector_premium", "num_node": "card.cards"}
+{"den_node": "card.cards", "domain": "card_games", "graph_version": "v2", "kind": "ratio", "metric_id": "card.foreign_coverage", "num_node": "card.foreign_data"}
+{"den_node": null, "domain": "card_games", "graph_version": "v2", "kind": "atomic", "metric_id": "card.monthly_sets", "num_node": "card.sets"}

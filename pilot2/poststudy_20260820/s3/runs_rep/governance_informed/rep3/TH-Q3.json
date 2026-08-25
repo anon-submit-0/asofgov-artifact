@@ -1,0 +1,21 @@
+{
+ "qid": "TH-Q3",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": [
+  [
+   4632421,
+   5
+  ],
+  [
+   5065022,
+   7
+  ]
+ ],
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT \n    p.ID,\n    COUNT(*) as abnormal_count\nFROM main.\"Patient\" p\nJOIN main.\"Laboratory\" l ON p.ID = l.ID\nWHERE l.\"Date\" >= '1997-01-01' \n  AND l.\"Date\" < '1998-01-01'\n  AND l.\"GOT\" >= 60\nGROUP BY p.ID\n```",
+ "sql": "SELECT \n    p.ID,\n    COUNT(*) as abnormal_count\nFROM main.\"Patient\" p\nJOIN main.\"Laboratory\" l ON p.ID = l.ID\nWHERE l.\"Date\" >= '1997-01-01' \n  AND l.\"Date\" < '1998-01-01'\n  AND l.\"GOT\" >= 60\nGROUP BY p.ID",
+ "prompt_sha256": "3e70287ffefb90f4c65b8bf0ac3d077103b46fbb8b26097f4e4ee26a0ae1709f",
+ "prompt_chars": 20400,
+ "empty_response": false
+}

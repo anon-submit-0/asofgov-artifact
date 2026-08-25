@@ -1,0 +1,132 @@
+  GATE questions_en freeze OK (sha256 d9508f3f6e16…, 60 qids match frozen set)
+  GATE pack-integrity OK (18 files == MANIFEST byte/sha)
+  GATE channel OK (claude-opus-4-6 first-hit == 'tuzi', as frozen)
+  GATE byte-identity OK (baseline_claude: 60/60 ZH cached prompt_sha256+chars matched)
+  GATE byte-identity OK (governance_informed: 60/60 ZH cached prompt_sha256+chars matched)
+  GATE leak-EN OK (60x7 gold-side fields absent from EN prompts; 23 too-short skipped)
+  [REFUSE-OVERWRITE] baseline_claude/CA-Q1 cache exists — final, no call
+  [REFUSE-OVERWRITE] baseline_claude/CA-Q2 cache exists — final, no call
+  CALL baseline_claude/CA-Q3: verdict=correct latency=3.412s attempts=1 prompt_tok=6489 completion_tok=52
+  CALL baseline_claude/CA-Q4: verdict=wrong_value latency=4.813s attempts=1 prompt_tok=6489 completion_tok=51
+  CALL baseline_claude/CA-Q5: verdict=refused_should_answer latency=5.894s attempts=1 prompt_tok=6506 completion_tok=105
+  CALL baseline_claude/CA-Q6: verdict=correct latency=4.207s attempts=1 prompt_tok=6500 completion_tok=100
+  CALL baseline_claude/CARD-Q1: verdict=refused_should_answer latency=5.236s attempts=1 prompt_tok=6579 completion_tok=115
+  CALL baseline_claude/CARD-Q2: verdict=refused_should_answer latency=4.857s attempts=1 prompt_tok=6570 completion_tok=96
+  CALL baseline_claude/CARD-Q3: verdict=refused_should_answer latency=5.578s attempts=1 prompt_tok=6585 completion_tok=118
+  CALL baseline_claude/CARD-Q4: verdict=correct latency=3.59s attempts=1 prompt_tok=2031 completion_tok=94
+  CALL baseline_claude/CARD-Q5: verdict=refused_should_answer latency=4.545s attempts=1 prompt_tok=6556 completion_tok=66
+  CALL baseline_claude/CARD-Q6: verdict=correct latency=5.001s attempts=1 prompt_tok=6560 completion_tok=100
+  CALL baseline_claude/CARD-Q7: verdict=correct latency=5.04s attempts=1 prompt_tok=6585 completion_tok=127
+  CALL baseline_claude/CODE-Q1: verdict=refused_should_answer latency=4.018s attempts=1 prompt_tok=6388 completion_tok=82
+  CALL baseline_claude/CODE-Q2: verdict=refused_should_answer latency=5.685s attempts=1 prompt_tok=1864 completion_tok=74
+  CALL baseline_claude/CODE-Q3: verdict=correct latency=3.815s attempts=1 prompt_tok=1866 completion_tok=43
+  CALL baseline_claude/CODE-Q4: verdict=wrong_value latency=5.126s attempts=1 prompt_tok=6486 completion_tok=143
+  CALL baseline_claude/CODE-Q5: verdict=execution_error latency=4.219s attempts=1 prompt_tok=1856 completion_tok=97
+  CALL baseline_claude/CODE-Q6: verdict=refused_should_answer latency=5.19s attempts=1 prompt_tok=6422 completion_tok=134
+  CALL baseline_claude/CODE-Q7: verdict=answered_should_refuse latency=4.598s attempts=1 prompt_tok=6484 completion_tok=130
+  CALL baseline_claude/DEB-Q1: verdict=correct latency=3.737s attempts=1 prompt_tok=1568 completion_tok=64
+  CALL baseline_claude/DEB-Q2: verdict=correct latency=4.263s attempts=1 prompt_tok=5950 completion_tok=63
+  CALL baseline_claude/DEB-Q3: verdict=correct latency=3.337s attempts=1 prompt_tok=1376 completion_tok=65
+  CALL baseline_claude/DEB-Q4: verdict=correct latency=3.303s attempts=1 prompt_tok=5917 completion_tok=30
+  CALL baseline_claude/DEB-Q5: verdict=wrong_value latency=4.205s attempts=1 prompt_tok=6000 completion_tok=101
+  CALL baseline_claude/DEB-Q6: verdict=correct latency=4.967s attempts=1 prompt_tok=5971 completion_tok=136
+  CALL baseline_claude/DEB-Q7: verdict=answered_should_refuse latency=5.032s attempts=1 prompt_tok=5924 completion_tok=40
+  CALL baseline_claude/EF2-Q1: verdict=wrong_value latency=5.531s attempts=1 prompt_tok=7682 completion_tok=108
+  CALL baseline_claude/EF2-Q2: verdict=correct latency=4.956s attempts=1 prompt_tok=3305 completion_tok=152
+  CALL baseline_claude/EF2-Q3: verdict=correct latency=3.828s attempts=1 prompt_tok=7619 completion_tok=41
+  CALL baseline_claude/EF2-Q4: verdict=correct latency=3.818s attempts=1 prompt_tok=3293 completion_tok=41
+  CALL baseline_claude/EF2-Q5: verdict=answered_should_refuse latency=3.655s attempts=1 prompt_tok=3278 completion_tok=92
+  CALL baseline_claude/EF2-Q6: verdict=correct latency=4.225s attempts=1 prompt_tok=7643 completion_tok=100
+  CALL baseline_claude/FIN-Q1: verdict=correct latency=4.403s attempts=1 prompt_tok=6171 completion_tok=74
+  CALL baseline_claude/FIN-Q2: verdict=wrong_value latency=4.341s attempts=1 prompt_tok=6173 completion_tok=74
+  CALL baseline_claude/FIN-Q3: verdict=refused_should_answer latency=5.566s attempts=1 prompt_tok=6194 completion_tok=175
+  CALL baseline_claude/FIN-Q4: verdict=correct latency=3.194s attempts=1 prompt_tok=6128 completion_tok=45
+  CALL baseline_claude/FIN-Q5: verdict=wrong_value latency=3.14s attempts=1 prompt_tok=1730 completion_tok=36
+  CALL baseline_claude/FIN-Q6: verdict=correct latency=3.483s attempts=1 prompt_tok=6105 completion_tok=36
+  CALL baseline_claude/FIN-Q7: verdict=correct latency=5.294s attempts=1 prompt_tok=1787 completion_tok=165
+  CALL baseline_claude/FIN-Q8: verdict=correct latency=4.98s attempts=1 prompt_tok=6128 completion_tok=96
+  CALL baseline_claude/F1-Q1: verdict=wrong_value latency=5.507s attempts=1 prompt_tok=6660 completion_tok=101
+  CALL baseline_claude/F1-Q2: verdict=wrong_value latency=5.171s attempts=1 prompt_tok=6656 completion_tok=96
+  CALL baseline_claude/F1-Q3: verdict=refused_should_answer latency=6.392s attempts=1 prompt_tok=6662 completion_tok=142
+  CALL baseline_claude/F1-Q4: verdict=wrong_value latency=4.169s attempts=1 prompt_tok=6697 completion_tok=131
+  CALL baseline_claude/F1-Q5: verdict=refused_should_answer latency=4.671s attempts=1 prompt_tok=6608 completion_tok=113
+  CALL baseline_claude/F1-Q6: verdict=correct latency=3.332s attempts=1 prompt_tok=2045 completion_tok=40
+  CALL baseline_claude/F1-Q7: verdict=correct latency=4.359s attempts=1 prompt_tok=6582 completion_tok=111
+  CALL baseline_claude/F1-Q8: verdict=correct latency=5.53s attempts=1 prompt_tok=6603 completion_tok=93
+  CALL baseline_claude/TH-Q1: verdict=wrong_value latency=3.769s attempts=1 prompt_tok=1722 completion_tok=100
+  CALL baseline_claude/TH-Q2: verdict=wrong_value latency=3.607s attempts=1 prompt_tok=6207 completion_tok=49
+  CALL baseline_claude/TH-Q3: verdict=wrong_value latency=4.062s attempts=1 prompt_tok=6243 completion_tok=73
+  CALL baseline_claude/TH-Q4: verdict=wrong_value latency=3.455s attempts=1 prompt_tok=6173 completion_tok=25
+  CALL baseline_claude/TH-Q5: verdict=answered_should_refuse latency=3.756s attempts=1 prompt_tok=1712 completion_tok=93
+  CALL baseline_claude/TH-Q6: verdict=answered_should_refuse latency=9.923s attempts=1 prompt_tok=6775 completion_tok=326
+  CALL baseline_claude/W1-Q1: verdict=execution_error latency=3.899s attempts=1 prompt_tok=5758 completion_tok=84
+  CALL baseline_claude/W1-Q2: verdict=wrong_value latency=4.383s attempts=1 prompt_tok=5758 completion_tok=83
+  CALL baseline_claude/W1-Q3: verdict=correct latency=4.601s attempts=1 prompt_tok=5764 completion_tok=93
+  CALL baseline_claude/W1-Q4: verdict=refused_should_answer latency=7.501s attempts=1 prompt_tok=1157 completion_tok=94
+  CALL baseline_claude/W1-Q5: verdict=correct latency=6.589s attempts=1 prompt_tok=1163 completion_tok=85
+  GATE questions_en freeze OK (sha256 d9508f3f6e16…, 60 qids match frozen set)
+  GATE pack-integrity OK (18 files == MANIFEST byte/sha)
+  GATE channel OK (claude-opus-4-6 first-hit == 'tuzi', as frozen)
+  GATE byte-identity OK (baseline_claude: 60/60 ZH cached prompt_sha256+chars matched)
+  GATE byte-identity OK (governance_informed: 60/60 ZH cached prompt_sha256+chars matched)
+  GATE leak-EN OK (60x7 gold-side fields absent from EN prompts; 23 too-short skipped)
+  CALL governance_informed/CA-Q1: verdict=execution_error latency=12.064s attempts=1 prompt_tok=7229 completion_tok=73
+  CALL governance_informed/CA-Q2: verdict=correct latency=5.019s attempts=1 prompt_tok=11782 completion_tok=70
+  CALL governance_informed/CA-Q3: verdict=correct latency=5.096s attempts=1 prompt_tok=7203 completion_tok=51
+  CALL governance_informed/CA-Q4: verdict=correct latency=4.215s attempts=1 prompt_tok=7352 completion_tok=51
+  CALL governance_informed/CA-Q5: verdict=execution_error latency=4.828s attempts=1 prompt_tok=11815 completion_tok=108
+  CALL governance_informed/CA-Q6: verdict=answered_should_refuse latency=6.427s attempts=1 prompt_tok=11832 completion_tok=128
+  CALL governance_informed/CARD-Q1: verdict=correct latency=4.35s attempts=1 prompt_tok=9591 completion_tok=47
+  CALL governance_informed/CARD-Q2: verdict=wrong_value latency=4.906s attempts=1 prompt_tok=14113 completion_tok=92
+  CALL governance_informed/CARD-Q3: verdict=correct latency=5.571s attempts=1 prompt_tok=9590 completion_tok=51
+  CALL governance_informed/CARD-Q4: verdict=execution_error latency=6.524s attempts=1 prompt_tok=9616 completion_tok=77
+  CALL governance_informed/CARD-Q5: verdict=correct latency=3.539s attempts=1 prompt_tok=14046 completion_tok=36
+  CALL governance_informed/CARD-Q6: verdict=answered_should_refuse latency=4.933s attempts=1 prompt_tok=14086 completion_tok=82
+  CALL governance_informed/CARD-Q7: verdict=answered_should_refuse latency=5.241s attempts=1 prompt_tok=14134 completion_tok=107
+  CALL governance_informed/CODE-Q1: verdict=wrong_value latency=6.313s attempts=1 prompt_tok=15724 completion_tok=182
+  CALL governance_informed/CODE-Q2: verdict=wrong_value latency=7.091s attempts=1 prompt_tok=15755 completion_tok=218
+  CALL governance_informed/CODE-Q3: verdict=correct latency=9.022s attempts=1 prompt_tok=11008 completion_tok=47
+  CALL governance_informed/CODE-Q4: verdict=wrong_value latency=5.985s attempts=1 prompt_tok=15702 completion_tok=173
+  CALL governance_informed/CODE-Q5: verdict=execution_error latency=5.405s attempts=1 prompt_tok=15598 completion_tok=102
+  CALL governance_informed/CODE-Q6: verdict=wrong_value latency=3.864s attempts=1 prompt_tok=15509 completion_tok=24
+  CALL governance_informed/CODE-Q7: verdict=answered_should_refuse latency=5.599s attempts=1 prompt_tok=11253 completion_tok=130
+  CALL governance_informed/DEB-Q1: verdict=correct latency=4.375s attempts=1 prompt_tok=12547 completion_tok=75
+  CALL governance_informed/DEB-Q2: verdict=correct latency=4.354s attempts=1 prompt_tok=8008 completion_tok=77
+  CALL governance_informed/DEB-Q3: verdict=correct latency=5.191s attempts=1 prompt_tok=12547 completion_tok=74
+  CALL governance_informed/DEB-Q4: verdict=correct latency=4.682s attempts=1 prompt_tok=12497 completion_tok=30
+  CALL governance_informed/DEB-Q5: verdict=wrong_value latency=4.271s attempts=1 prompt_tok=12578 completion_tok=96
+  CALL governance_informed/DEB-Q6: verdict=answered_should_refuse latency=5.63s attempts=1 prompt_tok=8000 completion_tok=37
+  CALL governance_informed/DEB-Q7: verdict=answered_should_refuse latency=12.26s attempts=1 prompt_tok=12906 completion_tok=463
+  CALL governance_informed/EF2-Q1: verdict=correct latency=4.242s attempts=1 prompt_tok=15062 completion_tok=41
+  CALL governance_informed/EF2-Q2: verdict=correct latency=5.191s attempts=1 prompt_tok=10808 completion_tok=134
+  CALL governance_informed/EF2-Q3: verdict=correct latency=4.192s attempts=1 prompt_tok=15088 completion_tok=56
+  CALL governance_informed/EF2-Q4: verdict=correct latency=14.094s attempts=1 prompt_tok=10685 completion_tok=40
+  CALL governance_informed/EF2-Q5: verdict=answered_should_refuse latency=3.846s attempts=1 prompt_tok=10681 completion_tok=40
+  CALL governance_informed/EF2-Q6: verdict=answered_should_refuse latency=5.915s attempts=1 prompt_tok=10783 completion_tok=132
+  CALL governance_informed/FIN-Q1: verdict=correct latency=5.292s attempts=1 prompt_tok=9561 completion_tok=77
+  CALL governance_informed/FIN-Q2: verdict=correct latency=4.987s attempts=1 prompt_tok=14050 completion_tok=65
+  CALL governance_informed/FIN-Q3: verdict=correct latency=5.089s attempts=1 prompt_tok=14052 completion_tok=69
+  CALL governance_informed/FIN-Q4: verdict=correct latency=3.855s attempts=1 prompt_tok=9624 completion_tok=33
+  CALL governance_informed/FIN-Q5: verdict=correct latency=4.05s attempts=1 prompt_tok=14012 completion_tok=43
+  CALL governance_informed/FIN-Q6: verdict=correct latency=4.188s attempts=1 prompt_tok=14011 completion_tok=49
+  CALL governance_informed/FIN-Q7: verdict=correct latency=4.653s attempts=1 prompt_tok=13998 completion_tok=39
+  CALL governance_informed/FIN-Q8: verdict=correct latency=22.136s attempts=1 prompt_tok=14127 completion_tok=170
+  CALL governance_informed/F1-Q1: verdict=wrong_value latency=4.719s attempts=1 prompt_tok=15745 completion_tok=128
+  CALL governance_informed/F1-Q2: verdict=wrong_value latency=6.302s attempts=1 prompt_tok=11103 completion_tok=130
+  CALL governance_informed/F1-Q3: verdict=wrong_value latency=5.512s attempts=1 prompt_tok=15752 completion_tok=128
+  CALL governance_informed/F1-Q4: verdict=correct latency=6.1s attempts=1 prompt_tok=15864 completion_tok=206
+  CALL governance_informed/F1-Q5: verdict=wrong_value latency=4.171s attempts=1 prompt_tok=15694 completion_tok=93
+  CALL governance_informed/F1-Q6: verdict=correct latency=33.467s attempts=1 prompt_tok=15641 completion_tok=46
+  CALL governance_informed/F1-Q7: verdict=correct latency=5.413s attempts=1 prompt_tok=15676 completion_tok=107
+  CALL governance_informed/F1-Q8: verdict=answered_should_refuse latency=11.837s attempts=1 prompt_tok=11094 completion_tok=504
+  CALL governance_informed/TH-Q1: verdict=correct latency=4.156s attempts=1 prompt_tok=12739 completion_tok=63
+  CALL governance_informed/TH-Q2: verdict=correct latency=5.009s attempts=1 prompt_tok=12698 completion_tok=49
+  CALL governance_informed/TH-Q3: verdict=execution_error latency=6.409s attempts=1 prompt_tok=8309 completion_tok=200
+  CALL governance_informed/TH-Q4: verdict=wrong_value latency=3.746s attempts=1 prompt_tok=8295 completion_tok=37
+  CALL governance_informed/TH-Q5: verdict=answered_should_refuse latency=24.629s attempts=1 prompt_tok=13035 completion_tok=363
+  CALL governance_informed/TH-Q6: verdict=answered_should_refuse latency=4.864s attempts=1 prompt_tok=8366 completion_tok=94
+  CALL governance_informed/W1-Q1: verdict=wrong_value latency=4.48s attempts=1 prompt_tok=11262 completion_tok=78
+  CALL governance_informed/W1-Q2: verdict=correct latency=5.776s attempts=1 prompt_tok=11262 completion_tok=78
+  CALL governance_informed/W1-Q3: verdict=correct latency=6.821s attempts=1 prompt_tok=11283 completion_tok=95
+  CALL governance_informed/W1-Q4: verdict=execution_error latency=4.292s attempts=1 prompt_tok=11248 completion_tok=76
+  CALL governance_informed/W1-Q5: verdict=correct latency=4.172s attempts=1 prompt_tok=6868 completion_tok=91

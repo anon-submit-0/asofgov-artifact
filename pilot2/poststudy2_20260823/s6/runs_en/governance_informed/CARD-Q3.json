@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q3",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 2339.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM cards WHERE setCode IN ('BFZ','OGW','SOI','EMN','KLD','AER','AKH','HOU','XLN');\n```",
+ "sql": "SELECT COUNT(*) FROM cards WHERE setCode IN ('BFZ','OGW','SOI','EMN','KLD','AER','AKH','HOU','XLN')",
+ "prompt_sha256": "d557d1880d0832d5e39a9da7b199bd2b0adcd55f0b0ac47f6f319daf43ce94dc",
+ "prompt_chars": 24053,
+ "empty_response": false
+}

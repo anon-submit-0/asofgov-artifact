@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q5",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: The question asks for a multi-row report (one row per school), not a single scalar value, and it references a \"declaration instant\" concept tied to the governance temporal binding metadata that does not map to a straightforward executable query against the available data.",
+ "sql": "REFUSE",
+ "prompt_sha256": "0a6c485dc393d23b72ef0afdd18850449b827fa55337cba218bbbc5b693e1ac9",
+ "prompt_chars": 5308,
+ "empty_response": false
+}

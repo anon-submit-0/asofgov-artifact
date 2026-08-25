@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q3",
+ "system": "trivial_claude",
+ "kind": "value",
+ "value": 3208.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.\"votes\" WHERE \"CreationDate\" >= '2010-12-01' AND \"CreationDate\" < '2011-01-01';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"votes\" WHERE \"CreationDate\" >= '2010-12-01' AND \"CreationDate\" < '2011-01-01'",
+ "prompt_sha256": "51ed1670fce345dbdb37c4a31167d00435878348a0be9f86619758804b410243",
+ "prompt_chars": 5031,
+ "empty_response": false
+}

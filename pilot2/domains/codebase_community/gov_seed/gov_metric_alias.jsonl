@@ -1,0 +1,16 @@
+{"alias_id": "code.al1", "alias_text": "提问采纳率", "graph_version": "v1", "metric_id": "code.accepted_rate"}
+{"alias_id": "code.al2", "alias_text": "当月投票总数", "graph_version": "v1", "metric_id": "code.monthly_votes"}
+{"alias_id": "code.al3", "alias_text": "用户采纳答案数报表", "graph_version": "v1", "metric_id": "code.user_accepted_report"}
+{"alias_id": "code.al4", "alias_text": "新提问数报表", "graph_version": "v1", "metric_id": "code.daily_questions"}
+{"alias_id": "code.al5", "alias_text": "用户所在地", "graph_version": "v1", "metric_id": "code.user_location"}
+{"alias_id": "code.al6", "alias_text": "答题者名录", "graph_version": "v1", "metric_id": "code.top_answerer_roster"}
+{"alias_id": "code.al7", "alias_text": "答案采纳率", "graph_version": "v1", "metric_id": "code.answer_accept_share"}
+{"alias_id": "code.al8", "alias_text": "当月徽章授予数", "graph_version": "v1", "metric_id": "code.monthly_badges"}
+{"alias_id": "code.al1", "alias_text": "提问采纳率", "graph_version": "v2", "metric_id": "code.accepted_rate"}
+{"alias_id": "code.al2", "alias_text": "当月投票总数", "graph_version": "v2", "metric_id": "code.monthly_votes"}
+{"alias_id": "code.al3", "alias_text": "用户采纳答案数报表", "graph_version": "v2", "metric_id": "code.user_accepted_report"}
+{"alias_id": "code.al4", "alias_text": "新提问数报表", "graph_version": "v2", "metric_id": "code.daily_questions"}
+{"alias_id": "code.al5", "alias_text": "用户所在地", "graph_version": "v2", "metric_id": "code.user_location"}
+{"alias_id": "code.al6", "alias_text": "答题者名录", "graph_version": "v2", "metric_id": "code.top_answerer_roster"}
+{"alias_id": "code.al7", "alias_text": "答案采纳率", "graph_version": "v2", "metric_id": "code.answer_accept_share"}
+{"alias_id": "code.al8", "alias_text": "当月徽章授予数", "graph_version": "v2", "metric_id": "code.monthly_badges"}

@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q8",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: The database contains no team named \"brawn\" with results in 2010 (Brawn GP only competed in 2009 and was rebranded to Mercedes in 2010), and the temporal/declaration-instant semantics referenced cannot be resolved from the available schema.",
+ "sql": "REFUSE",
+ "prompt_sha256": "4f9f67135620540b7139eea1296bd4171b53319c647192c129eee2189ec37ef7",
+ "prompt_chars": 5593,
+ "empty_response": false
+}

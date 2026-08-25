@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: The question asks for a \"free meal rate windowed by charter authorization date\" which is not a well-defined single-value query — there is no charter authorization date column in the schema, and \"windowed by\" implies a set of rows rather than a scalar result.",
+ "sql": "REFUSE",
+ "prompt_sha256": "3c5b7cf294d5c74b167da4da13ba7b420e521c65e78ac07ddbda0d3f1c11b13e",
+ "prompt_chars": 5279,
+ "empty_response": false
+}

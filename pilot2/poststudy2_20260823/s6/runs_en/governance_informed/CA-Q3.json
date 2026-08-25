@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q3",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 10629.0,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT COUNT(*) FROM main.schools WHERE \"OpenDate\" <= '2015-01-01' AND (\"ClosedDate\" IS NULL OR \"ClosedDate\" >= '2015-01-01');\n```",
+ "sql": "SELECT COUNT(*) FROM main.schools WHERE \"OpenDate\" <= '2015-01-01' AND (\"ClosedDate\" IS NULL OR \"ClosedDate\" >= '2015-01-01')",
+ "prompt_sha256": "33d85b86d2bfd14c1ff523c92ada5d2d0616833ba04179e79481c6772cbe808e",
+ "prompt_chars": 17995,
+ "empty_response": false
+}

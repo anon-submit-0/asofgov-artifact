@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q1",
+ "system": "baseline_qwen",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 数据中 country_history 表的 effective_month 为历史月份（2000-2020范围），无 2026-05 数据；且无元数据表能确定 2026-06-15 时点有效的口径规则。",
+ "sql": "REFUSE",
+ "prompt_sha256": "8cab1d24630fe2af87767316a1c200098e0a3483ba368451a99780a69fd9f645",
+ "prompt_chars": 3081,
+ "empty_response": false
+}

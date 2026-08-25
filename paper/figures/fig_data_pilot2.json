@@ -1,0 +1,2519 @@
+{
+ "n_questions": 60,
+ "n_refusal_questions": 15,
+ "n_value_questions": 33,
+ "n_rewrite_questions": 12,
+ "base": "pilot2 (9 public BIRD/Spider-derived DBs, frozen 2026-08-04)",
+ "systems": [
+  {
+   "id": "baseline_claude",
+   "label": "claude-opus-4-6",
+   "class": "plain",
+   "family": "Anthropic"
+  },
+  {
+   "id": "baseline_qwen",
+   "label": "qwen3-coder-next",
+   "class": "plain",
+   "family": "Qwen"
+  },
+  {
+   "id": "baseline_deepseek",
+   "label": "deepseek-3.2",
+   "class": "plain",
+   "family": "DeepSeek"
+  },
+  {
+   "id": "baseline_minimax",
+   "label": "minimax-m2.5",
+   "class": "plain",
+   "family": "MiniMax"
+  },
+  {
+   "id": "trivial_claude",
+   "label": "prompt-v1 (one-line)",
+   "class": "prompt",
+   "family": "Anthropic"
+  },
+  {
+   "id": "trivial_v2",
+   "label": "prompt-v2 (anchor-join)",
+   "class": "prompt",
+   "family": "Anthropic"
+  },
+  {
+   "id": "trivial_v3",
+   "label": "prompt-v3 (worked example)",
+   "class": "prompt",
+   "family": "Anthropic"
+  },
+  {
+   "id": "governance_informed",
+   "label": "full governance layer",
+   "class": "governed",
+   "family": "Anthropic"
+  },
+  {
+   "id": "mechanism",
+   "label": "binding compiler (ours)",
+   "class": "mechanism",
+   "family": "--"
+  }
+ ],
+ "error_rate": {
+  "baseline_claude": 0.6,
+  "baseline_qwen": 0.7166666666666667,
+  "baseline_deepseek": 0.7333333333333333,
+  "baseline_minimax": 0.7666666666666667,
+  "trivial_claude": 0.5333333333333333,
+  "trivial_v2": 0.5833333333333334,
+  "trivial_v3": 0.6666666666666666,
+  "governance_informed": 0.4666666666666667,
+  "mechanism": 0.0
+ },
+ "error_counts": {
+  "baseline_claude": 36,
+  "baseline_qwen": 43,
+  "baseline_deepseek": 44,
+  "baseline_minimax": 46,
+  "trivial_claude": 32,
+  "trivial_v2": 35,
+  "trivial_v3": 40,
+  "governance_informed": 28,
+  "mechanism": 0
+ },
+ "ci95": {
+  "baseline_claude": [
+   0.4406779661016949,
+   0.746031746031746
+  ],
+  "baseline_qwen": [
+   0.6101694915254238,
+   0.8333333333333334
+  ],
+  "baseline_deepseek": [
+   0.5666666666666667,
+   0.8852459016393442
+  ],
+  "baseline_minimax": [
+   0.6271186440677966,
+   0.8983050847457628
+  ],
+  "trivial_claude": [
+   0.4067796610169492,
+   0.6451612903225806
+  ],
+  "trivial_v2": [
+   0.4827586206896552,
+   0.6935483870967742
+  ],
+  "trivial_v3": [
+   0.5272727272727272,
+   0.8032786885245902
+  ],
+  "governance_informed": [
+   0.2857142857142857,
+   0.639344262295082
+  ],
+  "mechanism": [
+   0.0,
+   0.0
+  ]
+ },
+ "coverage": {
+  "baseline_claude": {
+   "answered": 0.8333333333333334,
+   "refused": 0.15
+  },
+  "baseline_qwen": {
+   "answered": 0.8166666666666667,
+   "refused": 0.18333333333333332
+  },
+  "baseline_deepseek": {
+   "answered": 0.5833333333333334,
+   "refused": 0.4166666666666667
+  },
+  "baseline_minimax": {
+   "answered": 0.9666666666666667,
+   "refused": 0.03333333333333333
+  },
+  "trivial_claude": {
+   "answered": 0.8166666666666667,
+   "refused": 0.15
+  },
+  "trivial_v2": {
+   "answered": 0.9333333333333333,
+   "refused": 0.06666666666666667
+  },
+  "trivial_v3": {
+   "answered": 0.95,
+   "refused": 0.016666666666666666
+  },
+  "governance_informed": {
+   "answered": 0.9,
+   "refused": 0.1
+  },
+  "mechanism": {
+   "answered": 0.75,
+   "refused": 0.25
+  }
+ },
+ "taxonomy": {
+  "baseline_claude": {
+   "correct": 24,
+   "wrong_value": 15,
+   "execution_error": 4,
+   "answered_should_refuse": 11,
+   "refused_should_answer": 5,
+   "no_sql": 1
+  },
+  "baseline_qwen": {
+   "correct": 17,
+   "wrong_value": 15,
+   "execution_error": 10,
+   "answered_should_refuse": 11,
+   "refused_should_answer": 7
+  },
+  "baseline_deepseek": {
+   "correct": 16,
+   "wrong_value": 10,
+   "execution_error": 6,
+   "answered_should_refuse": 9,
+   "refused_should_answer": 19
+  },
+  "baseline_minimax": {
+   "correct": 14,
+   "wrong_value": 9,
+   "execution_error": 24,
+   "answered_should_refuse": 13
+  },
+  "trivial_claude": {
+   "correct": 28,
+   "wrong_value": 10,
+   "execution_error": 9,
+   "answered_should_refuse": 9,
+   "refused_should_answer": 3,
+   "no_sql": 1
+  },
+  "trivial_v2": {
+   "correct": 25,
+   "wrong_value": 14,
+   "execution_error": 8,
+   "answered_should_refuse": 12,
+   "refused_should_answer": 1
+  },
+  "trivial_v3": {
+   "correct": 20,
+   "wrong_value": 16,
+   "execution_error": 8,
+   "answered_should_refuse": 14,
+   "no_sql": 2
+  },
+  "governance_informed": {
+   "correct": 32,
+   "wrong_value": 8,
+   "execution_error": 9,
+   "answered_should_refuse": 10,
+   "refused_should_answer": 1
+  },
+  "mechanism": {
+   "correct": 60
+  }
+ },
+ "eliminated_by": {
+  "baseline_claude": 0.0,
+  "baseline_qwen": 0.1111111111111111,
+  "baseline_deepseek": 0.08333333333333333,
+  "baseline_minimax": 0.05555555555555555,
+  "trivial_claude": 0.2222222222222222,
+  "trivial_v2": 0.16666666666666666,
+  "trivial_v3": 0.05555555555555555,
+  "governance_informed": 0.3611111111111111,
+  "mechanism": 1.0
+ },
+ "refusal_stats": {
+  "baseline_claude": {
+   "correct_refusals": 4,
+   "n_refusal_questions": 15,
+   "over_refusals": 5,
+   "n_answer_questions": 45
+  },
+  "baseline_qwen": {
+   "correct_refusals": 4,
+   "n_refusal_questions": 15,
+   "over_refusals": 7,
+   "n_answer_questions": 45
+  },
+  "baseline_deepseek": {
+   "correct_refusals": 6,
+   "n_refusal_questions": 15,
+   "over_refusals": 19,
+   "n_answer_questions": 45
+  },
+  "baseline_minimax": {
+   "correct_refusals": 2,
+   "n_refusal_questions": 15,
+   "over_refusals": 0,
+   "n_answer_questions": 45
+  },
+  "trivial_claude": {
+   "correct_refusals": 6,
+   "n_refusal_questions": 15,
+   "over_refusals": 3,
+   "n_answer_questions": 45
+  },
+  "trivial_v2": {
+   "correct_refusals": 3,
+   "n_refusal_questions": 15,
+   "over_refusals": 1,
+   "n_answer_questions": 45
+  },
+  "trivial_v3": {
+   "correct_refusals": 1,
+   "n_refusal_questions": 15,
+   "over_refusals": 0,
+   "n_answer_questions": 45
+  },
+  "governance_informed": {
+   "correct_refusals": 5,
+   "n_refusal_questions": 15,
+   "over_refusals": 1,
+   "n_answer_questions": 45
+  },
+  "mechanism": {
+   "correct_refusals": 15,
+   "n_refusal_questions": 15,
+   "over_refusals": 0,
+   "n_answer_questions": 45
+  }
+ },
+ "per_gold_form": {
+  "baseline_claude": {
+   "value": {
+    "n": 33,
+    "errors": 18
+   },
+   "rewrite": {
+    "n": 12,
+    "errors": 7
+   },
+   "refusal": {
+    "n": 15,
+    "errors": 11
+   }
+  },
+  "baseline_qwen": {
+   "value": {
+    "n": 33,
+    "errors": 23
+   },
+   "rewrite": {
+    "n": 12,
+    "errors": 9
+   },
+   "refusal": {
+    "n": 15,
+    "errors": 11
+   }
+  },
+  "baseline_deepseek": {
+   "value": {
+    "n": 33,
+    "errors": 27
+   },
+   "rewrite": {
+    "n": 12,
+    "errors": 8
+   },
+   "refusal": {
+    "n": 15,
+    "errors": 9
+   }
+  },
+  "baseline_minimax": {
+   "value": {
+    "n": 33,
+    "errors": 25
+   },
+   "rewrite": {
+    "n": 12,
+    "errors": 8
+   },
+   "refusal": {
+    "n": 15,
+    "errors": 13
+   }
+  },
+  "trivial_claude": {
+   "value": {
+    "n": 33,
+    "errors": 16
+   },
+   "rewrite": {
+    "n": 12,
+    "errors": 7
+   },
+   "refusal": {
+    "n": 15,
+    "errors": 9
+   }
+  },
+  "trivial_v2": {
+   "value": {
+    "n": 33,
+    "errors": 15
+   },
+   "rewrite": {
+    "n": 12,
+    "errors": 8
+   },
+   "refusal": {
+    "n": 15,
+    "errors": 12
+   }
+  },
+  "trivial_v3": {
+   "value": {
+    "n": 33,
+    "errors": 19
+   },
+   "rewrite": {
+    "n": 12,
+    "errors": 7
+   },
+   "refusal": {
+    "n": 15,
+    "errors": 14
+   }
+  },
+  "governance_informed": {
+   "value": {
+    "n": 33,
+    "errors": 11
+   },
+   "rewrite": {
+    "n": 12,
+    "errors": 7
+   },
+   "refusal": {
+    "n": 15,
+    "errors": 10
+   }
+  },
+  "mechanism": {
+   "value": {
+    "n": 33,
+    "errors": 0
+   },
+   "rewrite": {
+    "n": 12,
+    "errors": 0
+   },
+   "refusal": {
+    "n": 15,
+    "errors": 0
+   }
+  }
+ },
+ "per_refusal_reason": {
+  "baseline_claude": {
+   "AM": {
+    "n": 5,
+    "correct": 2
+   },
+   "MC": {
+    "n": 3,
+    "correct": 2
+   },
+   "DB": {
+    "n": 3,
+    "correct": 0
+   },
+   "OOV": {
+    "n": 4,
+    "correct": 0
+   }
+  },
+  "baseline_qwen": {
+   "AM": {
+    "n": 5,
+    "correct": 2
+   },
+   "MC": {
+    "n": 3,
+    "correct": 1
+   },
+   "DB": {
+    "n": 3,
+    "correct": 0
+   },
+   "OOV": {
+    "n": 4,
+    "correct": 1
+   }
+  },
+  "baseline_deepseek": {
+   "AM": {
+    "n": 5,
+    "correct": 2
+   },
+   "MC": {
+    "n": 3,
+    "correct": 3
+   },
+   "DB": {
+    "n": 3,
+    "correct": 1
+   },
+   "OOV": {
+    "n": 4,
+    "correct": 0
+   }
+  },
+  "baseline_minimax": {
+   "AM": {
+    "n": 5,
+    "correct": 1
+   },
+   "MC": {
+    "n": 3,
+    "correct": 1
+   },
+   "DB": {
+    "n": 3,
+    "correct": 0
+   },
+   "OOV": {
+    "n": 4,
+    "correct": 0
+   }
+  },
+  "trivial_claude": {
+   "AM": {
+    "n": 5,
+    "correct": 1
+   },
+   "MC": {
+    "n": 3,
+    "correct": 2
+   },
+   "DB": {
+    "n": 3,
+    "correct": 1
+   },
+   "OOV": {
+    "n": 4,
+    "correct": 2
+   }
+  },
+  "trivial_v2": {
+   "AM": {
+    "n": 5,
+    "correct": 2
+   },
+   "MC": {
+    "n": 3,
+    "correct": 1
+   },
+   "DB": {
+    "n": 3,
+    "correct": 0
+   },
+   "OOV": {
+    "n": 4,
+    "correct": 0
+   }
+  },
+  "trivial_v3": {
+   "AM": {
+    "n": 5,
+    "correct": 1
+   },
+   "MC": {
+    "n": 3,
+    "correct": 0
+   },
+   "DB": {
+    "n": 3,
+    "correct": 0
+   },
+   "OOV": {
+    "n": 4,
+    "correct": 0
+   }
+  },
+  "governance_informed": {
+   "AM": {
+    "n": 5,
+    "correct": 4
+   },
+   "MC": {
+    "n": 3,
+    "correct": 0
+   },
+   "DB": {
+    "n": 3,
+    "correct": 0
+   },
+   "OOV": {
+    "n": 4,
+    "correct": 1
+   }
+  },
+  "mechanism": {
+   "AM": {
+    "n": 5,
+    "correct": 5
+   },
+   "MC": {
+    "n": 3,
+    "correct": 3
+   },
+   "DB": {
+    "n": 3,
+    "correct": 3
+   },
+   "OOV": {
+    "n": 4,
+    "correct": 4
+   }
+  }
+ },
+ "per_cluster": {
+  "baseline_claude": {
+   "california_schools": {
+    "n": 6,
+    "errors": 5
+   },
+   "card_games": {
+    "n": 7,
+    "errors": 2
+   },
+   "codebase_community": {
+    "n": 7,
+    "errors": 6
+   },
+   "debit_card_specializing": {
+    "n": 7,
+    "errors": 3
+   },
+   "european_football_2": {
+    "n": 6,
+    "errors": 2
+   },
+   "financial": {
+    "n": 8,
+    "errors": 4
+   },
+   "formula_1": {
+    "n": 8,
+    "errors": 7
+   },
+   "thrombosis_prediction": {
+    "n": 6,
+    "errors": 5
+   },
+   "world_1": {
+    "n": 5,
+    "errors": 2
+   }
+  },
+  "baseline_qwen": {
+   "california_schools": {
+    "n": 6,
+    "errors": 3
+   },
+   "card_games": {
+    "n": 7,
+    "errors": 4
+   },
+   "codebase_community": {
+    "n": 7,
+    "errors": 6
+   },
+   "debit_card_specializing": {
+    "n": 7,
+    "errors": 7
+   },
+   "european_football_2": {
+    "n": 6,
+    "errors": 3
+   },
+   "financial": {
+    "n": 8,
+    "errors": 5
+   },
+   "formula_1": {
+    "n": 8,
+    "errors": 6
+   },
+   "thrombosis_prediction": {
+    "n": 6,
+    "errors": 4
+   },
+   "world_1": {
+    "n": 5,
+    "errors": 5
+   }
+  },
+  "baseline_deepseek": {
+   "california_schools": {
+    "n": 6,
+    "errors": 6
+   },
+   "card_games": {
+    "n": 7,
+    "errors": 2
+   },
+   "codebase_community": {
+    "n": 7,
+    "errors": 7
+   },
+   "debit_card_specializing": {
+    "n": 7,
+    "errors": 6
+   },
+   "european_football_2": {
+    "n": 6,
+    "errors": 2
+   },
+   "financial": {
+    "n": 8,
+    "errors": 6
+   },
+   "formula_1": {
+    "n": 8,
+    "errors": 6
+   },
+   "thrombosis_prediction": {
+    "n": 6,
+    "errors": 4
+   },
+   "world_1": {
+    "n": 5,
+    "errors": 5
+   }
+  },
+  "baseline_minimax": {
+   "california_schools": {
+    "n": 6,
+    "errors": 4
+   },
+   "card_games": {
+    "n": 7,
+    "errors": 4
+   },
+   "codebase_community": {
+    "n": 7,
+    "errors": 7
+   },
+   "debit_card_specializing": {
+    "n": 7,
+    "errors": 7
+   },
+   "european_football_2": {
+    "n": 6,
+    "errors": 2
+   },
+   "financial": {
+    "n": 8,
+    "errors": 5
+   },
+   "formula_1": {
+    "n": 8,
+    "errors": 7
+   },
+   "thrombosis_prediction": {
+    "n": 6,
+    "errors": 5
+   },
+   "world_1": {
+    "n": 5,
+    "errors": 5
+   }
+  },
+  "trivial_claude": {
+   "california_schools": {
+    "n": 6,
+    "errors": 4
+   },
+   "card_games": {
+    "n": 7,
+    "errors": 3
+   },
+   "codebase_community": {
+    "n": 7,
+    "errors": 6
+   },
+   "debit_card_specializing": {
+    "n": 7,
+    "errors": 3
+   },
+   "european_football_2": {
+    "n": 6,
+    "errors": 1
+   },
+   "financial": {
+    "n": 8,
+    "errors": 5
+   },
+   "formula_1": {
+    "n": 8,
+    "errors": 4
+   },
+   "thrombosis_prediction": {
+    "n": 6,
+    "errors": 4
+   },
+   "world_1": {
+    "n": 5,
+    "errors": 2
+   }
+  },
+  "trivial_v2": {
+   "california_schools": {
+    "n": 6,
+    "errors": 4
+   },
+   "card_games": {
+    "n": 7,
+    "errors": 4
+   },
+   "codebase_community": {
+    "n": 7,
+    "errors": 6
+   },
+   "debit_card_specializing": {
+    "n": 7,
+    "errors": 3
+   },
+   "european_football_2": {
+    "n": 6,
+    "errors": 3
+   },
+   "financial": {
+    "n": 8,
+    "errors": 3
+   },
+   "formula_1": {
+    "n": 8,
+    "errors": 5
+   },
+   "thrombosis_prediction": {
+    "n": 6,
+    "errors": 5
+   },
+   "world_1": {
+    "n": 5,
+    "errors": 2
+   }
+  },
+  "trivial_v3": {
+   "california_schools": {
+    "n": 6,
+    "errors": 6
+   },
+   "card_games": {
+    "n": 7,
+    "errors": 4
+   },
+   "codebase_community": {
+    "n": 7,
+    "errors": 6
+   },
+   "debit_card_specializing": {
+    "n": 7,
+    "errors": 3
+   },
+   "european_football_2": {
+    "n": 6,
+    "errors": 3
+   },
+   "financial": {
+    "n": 8,
+    "errors": 4
+   },
+   "formula_1": {
+    "n": 8,
+    "errors": 7
+   },
+   "thrombosis_prediction": {
+    "n": 6,
+    "errors": 5
+   },
+   "world_1": {
+    "n": 5,
+    "errors": 2
+   }
+  },
+  "governance_informed": {
+   "california_schools": {
+    "n": 6,
+    "errors": 2
+   },
+   "card_games": {
+    "n": 7,
+    "errors": 4
+   },
+   "codebase_community": {
+    "n": 7,
+    "errors": 6
+   },
+   "debit_card_specializing": {
+    "n": 7,
+    "errors": 1
+   },
+   "european_football_2": {
+    "n": 6,
+    "errors": 4
+   },
+   "financial": {
+    "n": 8,
+    "errors": 1
+   },
+   "formula_1": {
+    "n": 8,
+    "errors": 6
+   },
+   "thrombosis_prediction": {
+    "n": 6,
+    "errors": 3
+   },
+   "world_1": {
+    "n": 5,
+    "errors": 1
+   }
+  },
+  "mechanism": {
+   "california_schools": {
+    "n": 6,
+    "errors": 0
+   },
+   "card_games": {
+    "n": 7,
+    "errors": 0
+   },
+   "codebase_community": {
+    "n": 7,
+    "errors": 0
+   },
+   "debit_card_specializing": {
+    "n": 7,
+    "errors": 0
+   },
+   "european_football_2": {
+    "n": 6,
+    "errors": 0
+   },
+   "financial": {
+    "n": 8,
+    "errors": 0
+   },
+   "formula_1": {
+    "n": 8,
+    "errors": 0
+   },
+   "thrombosis_prediction": {
+    "n": 6,
+    "errors": 0
+   },
+   "world_1": {
+    "n": 5,
+    "errors": 0
+   }
+  }
+ },
+ "reference": {
+  "id": "baseline_claude",
+  "errors": 36
+ },
+ "bootstrap": {
+  "B": 2000,
+  "unit": "domain (9 public DBs)",
+  "n_clusters": 9
+ },
+ "gov_arm": {
+  "E_gov": 28,
+  "elim": 0.3611111111111111,
+  "prereg_case": "(iii) no substantial improvement (E>=3 & elim<0.40)",
+  "probe7_errors": 6,
+  "md5_fixed": 4,
+  "disclosure_blocked_errors": 3,
+  "paired_vs_reference": {
+   "b_other_correct_gov_wrong": 5,
+   "c_other_wrong_gov_correct": 13,
+   "tie_both_correct": 19,
+   "tie_both_wrong": 23,
+   "net": 8
+  }
+ },
+ "running_example": {
+  "domain": "card_games",
+  "metric": "ruling_intensity",
+  "metric_def": "rulings issued in the month / new printings released in the month",
+  "months": [
+   "2016-11",
+   "2016-12",
+   "2017-01",
+   "2017-02",
+   "2017-03",
+   "2017-04"
+  ],
+  "rulings": {
+   "2016-11": 320,
+   "2016-12": 0,
+   "2017-01": 0,
+   "2017-02": 2161,
+   "2017-03": 633,
+   "2017-04": 2954
+  },
+  "printings": {
+   "2016-11": 796,
+   "2016-12": 0,
+   "2017-01": 280,
+   "2017-02": 0,
+   "2017-03": 314,
+   "2017-04": 473
+  },
+  "t1": "2016-11",
+  "t1_qid": "CARD-Q2",
+  "t1_num": 320,
+  "t1_den": 796,
+  "t1_rate": 0.4020100502512563,
+  "t2": "2017-02",
+  "t2_qid": "CARD-Q7",
+  "t2_num": 2161,
+  "t2_den": 0,
+  "t2_gold_kind": "refusal",
+  "t2_gold_refusal": "missing-caliber",
+  "t2_subtype": "MC(ii)",
+  "declared_at": "2017-03-01",
+  "graph_version": "v1",
+  "anchors": {
+   "num": "A-CARD-RUL (rulings.date)",
+   "den": "A-CARD-SET (sets.releaseDate)"
+  },
+  "hull_rulings": [
+   "2004-10-04",
+   "2021-02-05"
+  ],
+  "hull_sets": [
+   "1993-08-05",
+   "2021-03-19"
+  ],
+  "observed_t1": {
+   "baseline_claude": "refused_should_answer",
+   "baseline_qwen": "wrong_value",
+   "baseline_deepseek": "refused_should_answer",
+   "baseline_minimax": "execution_error",
+   "trivial_claude": "refused_should_answer",
+   "trivial_v2": "execution_error",
+   "trivial_v3": "execution_error",
+   "governance_informed": "execution_error",
+   "mechanism": "correct"
+  },
+  "observed_t2": {
+   "baseline_claude": "correct",
+   "baseline_qwen": "answered_should_refuse",
+   "baseline_deepseek": "correct",
+   "baseline_minimax": "answered_should_refuse",
+   "trivial_claude": "answered_should_refuse",
+   "trivial_v2": "answered_should_refuse",
+   "trivial_v3": "answered_should_refuse",
+   "governance_informed": "answered_should_refuse",
+   "mechanism": "correct"
+  },
+  "n_llm": 8,
+  "n_answered_at_t2": 6,
+  "n_correct_at_t1": 0,
+  "gov_arm_t2_value": "Infinity",
+  "sibling_note": "CARD-Q2 certificate ACCEPT; CARD-Q7 certificate ACCEPT (refusal witness re-executed above)"
+ },
+ "partition": {
+  "version": "v1",
+  "domain": "card_games",
+  "metric": "ruling_intensity",
+  "rule": "same_valid_time_window",
+  "guard_chain": [
+   "OOV",
+   "AM",
+   "MC"
+  ],
+  "coverage": {
+   "num": {
+    "anchor_id": "A-CARD-RUL",
+    "object": "rulings",
+    "column": "date",
+    "mode": "hull",
+    "granule": "day",
+    "lo": "2004-10-04",
+    "hi": "2021-02-05",
+    "n_rows": 87769
+   },
+   "den": {
+    "anchor_id": "A-CARD-SET",
+    "object": "sets",
+    "column": "releaseDate",
+    "mode": "hull",
+    "granule": "day",
+    "lo": "1993-08-05",
+    "hi": "2021-03-19",
+    "n_rows": 551
+   }
+  },
+  "cells": [
+   {
+    "tag": "a",
+    "cls": "Bindable",
+    "qid": "CARD-Q2",
+    "metric": "ruling_intensity",
+    "scope": "card_games (whole domain)",
+    "as_of": "2016-11",
+    "w_num": {
+     "kind": "month",
+     "lo": "2016-11-01",
+     "hi_excl": "2016-12-01"
+    },
+    "w_den": {
+     "kind": "month",
+     "lo": "2016-11-01",
+     "hi_excl": "2016-12-01"
+    },
+    "num_mass": 320,
+    "den_mass": 796,
+    "g_oov": {
+     "num": true,
+     "den": true
+    },
+    "g_am_ii": true,
+    "g_mc_i": true,
+    "g_mc_ii": true,
+    "value": 0.4020100502512563,
+    "gold_value": 0.4020100502512563,
+    "cert": "impl/certs2/CARD-Q2.json"
+   },
+   {
+    "tag": "b",
+    "cls": "OOV",
+    "qid": null,
+    "metric": "ruling_intensity",
+    "scope": "card_games (whole domain)",
+    "as_of": "2021-06",
+    "w_num": {
+     "kind": "month",
+     "lo": "2021-06-01",
+     "hi_excl": "2021-07-01"
+    },
+    "w_den": {
+     "kind": "month",
+     "lo": "2021-06-01",
+     "hi_excl": "2021-07-01"
+    },
+    "num_mass": 0,
+    "den_mass": 0,
+    "g_oov": {
+     "num": false,
+     "den": false
+    },
+    "g_am_ii": true,
+    "g_mc_i": true,
+    "g_mc_ii": false,
+    "cert": null
+   },
+   {
+    "tag": "c",
+    "cls": "AM",
+    "qid": null,
+    "metric": "ruling_intensity",
+    "scope": "card_games (whole domain)",
+    "as_of": "2016-11",
+    "w_num": {
+     "kind": "month",
+     "lo": "2016-11-01",
+     "hi_excl": "2016-12-01"
+    },
+    "w_den": {
+     "kind": "month",
+     "lo": "2016-10-01",
+     "hi_excl": "2016-11-01"
+    },
+    "num_mass": 320,
+    "den_mass": 5,
+    "g_oov": {
+     "num": true,
+     "den": true
+    },
+    "g_am_ii": false,
+    "g_mc_i": true,
+    "g_mc_ii": true,
+    "asked_value": 64.0,
+    "same_window_den": 796,
+    "same_window_value": 0.4020100502512563,
+    "cert": null
+   },
+   {
+    "tag": "d",
+    "cls": "MC",
+    "qid": "CARD-Q7",
+    "metric": "ruling_intensity",
+    "scope": "card_games (whole domain)",
+    "as_of": "2017-02",
+    "w_num": {
+     "kind": "month",
+     "lo": "2017-02-01",
+     "hi_excl": "2017-03-01"
+    },
+    "w_den": {
+     "kind": "month",
+     "lo": "2017-02-01",
+     "hi_excl": "2017-03-01"
+    },
+    "num_mass": 2161,
+    "den_mass": 0,
+    "g_oov": {
+     "num": true,
+     "den": true
+    },
+    "g_am_ii": true,
+    "g_mc_i": true,
+    "g_mc_ii": false,
+    "witness_type": "empty-denominator-probe",
+    "cert": "impl/certs2/CARD-Q7.json"
+   }
+  ],
+  "n_certified": 2,
+  "boundary": {
+   "mc_as_of": "2017-02",
+   "oov_as_of": "2021-06",
+   "hull_num_hi": "2021-02-05",
+   "hull_den_hi": "2021-03-19",
+   "jan_printings": 280,
+   "mar_printings": 314
+  },
+  "suite_note": "the suite's certified OOV / AM(ii) instances live in other clusters (FIN-Q6, F1-Q6, DEB-Q6, EF2-Q5; FIN-Q8, W1-Q5); rows (b) and (c) are read-only probes on this store"
+ },
+ "forge": {
+  "checks": [
+   "V0",
+   "V1",
+   "V2",
+   "V3",
+   "V4",
+   "V5",
+   "V6a",
+   "V6b",
+   "V6c"
+  ],
+  "check_order_src": "impl/asof_verifier/chk.py:CHECK_ORDER",
+  "columns": [
+   {
+    "id": "F1a",
+    "band": "F1",
+    "name": "F1a_wrong_year_answer",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V0",
+    "rejected_by": "V0",
+    "status": {
+     "V0": "FAIL",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F1b",
+    "band": "F1",
+    "name": "F1b_empty_denominator_answer",
+    "qid": "CARD-Q7",
+    "dec": "ANSWER",
+    "expected": "V6c",
+    "rejected_by": "V6c",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "FAIL"
+    }
+   },
+   {
+    "id": "F1c",
+    "band": "F1",
+    "name": "F1c_window_shift_mc",
+    "qid": "CARD-Q7",
+    "dec": "REFUSE",
+    "expected": "V0",
+    "rejected_by": "V0",
+    "status": {
+     "V0": "FAIL",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "PASS",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "F1d",
+    "band": "F1",
+    "name": "F1d_fake_window_pair_am",
+    "qid": "FIN-Q1",
+    "dec": "REFUSE",
+    "expected": "V0",
+    "rejected_by": "V0",
+    "status": {
+     "V0": "FAIL",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "FAIL",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "F1e",
+    "band": "F1",
+    "name": "F1e_offdiag_marker_deleted",
+    "qid": "F1-Q3",
+    "dec": "ANSWER",
+    "expected": "V1",
+    "rejected_by": "V1",
+    "status": {
+     "V0": "PASS",
+     "V1": "FAIL",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F1f",
+    "band": "F1",
+    "name": "F1f_version_swap",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V1",
+    "rejected_by": "V1",
+    "status": {
+     "V0": "PASS",
+     "V1": "FAIL",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F2a",
+    "band": "F2",
+    "name": "F2a_delete_nu",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V0",
+    "rejected_by": "V0",
+    "status": {
+     "V0": "FAIL",
+     "V1": "FAIL",
+     "V2": "FAIL",
+     "V3": "FAIL",
+     "V4": "FAIL",
+     "V5": "PASS",
+     "V6a": "FAIL",
+     "V6b": "SKIP",
+     "V6c": "FAIL"
+    }
+   },
+   {
+    "id": "F2b",
+    "band": "F2",
+    "name": "F2b_delete_alpha",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V0",
+    "rejected_by": "V0",
+    "status": {
+     "V0": "FAIL",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F2c",
+    "band": "F2",
+    "name": "F2c_delete_rho",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V4",
+    "rejected_by": "V4",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "FAIL",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "FAIL"
+    }
+   },
+   {
+    "id": "F2d",
+    "band": "F2",
+    "name": "F2d_delete_delta",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V5",
+    "rejected_by": "V5",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "FAIL",
+     "V6a": "SKIP",
+     "V6b": "SKIP",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "F2e",
+    "band": "F2",
+    "name": "F2e_delete_witness",
+    "qid": "CARD-Q7",
+    "dec": "REFUSE",
+    "expected": "V6b",
+    "rejected_by": "V6b",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "FAIL",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "F3a",
+    "band": "F3",
+    "name": "F3a_dangling_version_pin",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V0",
+    "rejected_by": "V0",
+    "status": {
+     "V0": "FAIL",
+     "V1": "FAIL",
+     "V2": "FAIL",
+     "V3": "FAIL",
+     "V4": "FAIL",
+     "V5": "PASS",
+     "V6a": "FAIL",
+     "V6b": "SKIP",
+     "V6c": "FAIL"
+    }
+   },
+   {
+    "id": "F3b",
+    "band": "F3",
+    "name": "F3b_ungoverned_unmarked",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V5",
+    "rejected_by": "V5",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "FAIL",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F3c",
+    "band": "F3",
+    "name": "F3c_sum_rate_form",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V6a",
+    "rejected_by": "V6a",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "FAIL",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F3d2",
+    "band": "F3",
+    "name": "F3d2_symdiff_count_tamper",
+    "qid": "EF2-Q6",
+    "dec": "REFUSE",
+    "expected": "V6b",
+    "rejected_by": "V6b",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "FAIL",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "F3d",
+    "band": "F3",
+    "name": "F3d_fake_pair_witness_am4",
+    "qid": "EF2-Q6",
+    "dec": "REFUSE",
+    "expected": "V6b",
+    "rejected_by": "V6b",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "FAIL",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "F3e",
+    "band": "F3",
+    "name": "F3e_alien_table",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V6a",
+    "rejected_by": "V6a",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "FAIL",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F3f",
+    "band": "F3",
+    "name": "F3f_self_declared_override",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V0",
+    "rejected_by": "V0",
+    "status": {
+     "V0": "FAIL",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "FAIL",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "FAIL"
+    }
+   },
+   {
+    "id": "F3g",
+    "band": "F3",
+    "name": "F3g_routing_via_tamper",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V4",
+    "rejected_by": "V4",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "FAIL",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F3h",
+    "band": "F3",
+    "name": "F3h_metric_swap",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": "V0",
+    "rejected_by": "V0",
+    "status": {
+     "V0": "FAIL",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F4a",
+    "band": "F4",
+    "name": "F4a_finegrain_answer_despite_k",
+    "qid": "CA-Q5",
+    "dec": "ANSWER",
+    "expected": "V5",
+    "rejected_by": "V5",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "FAIL",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F4b",
+    "band": "F4",
+    "name": "F4b_overcoarsened_rollup",
+    "qid": "CODE-Q4",
+    "dec": "ANSWER",
+    "expected": "V5",
+    "rejected_by": "V5",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "FAIL",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F4c",
+    "band": "F4",
+    "name": "F4c_forged_suppmin_transcript",
+    "qid": "CODE-Q7",
+    "dec": "REFUSE",
+    "expected": "V6b",
+    "rejected_by": "V6b",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "FAIL",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "F4d",
+    "band": "F4",
+    "name": "F4d_policy_set_cleared",
+    "qid": "CA-Q5",
+    "dec": "ANSWER",
+    "expected": "V5",
+    "rejected_by": "V5",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "FAIL",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F4e",
+    "band": "F4",
+    "name": "F4e_governed_claimed_ungoverned",
+    "qid": "CODE-Q6",
+    "dec": "ANSWER",
+    "expected": "V5",
+    "rejected_by": "V5",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "FAIL",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F4f",
+    "band": "F4",
+    "name": "F4f_db_blocking_set_emptied",
+    "qid": "CODE-Q7",
+    "dec": "REFUSE",
+    "expected": "V6b",
+    "rejected_by": "V6b",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "FAIL",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "F4g",
+    "band": "F4",
+    "name": "F4g_db_alien_policy_cited",
+    "qid": "TH-Q5",
+    "dec": "REFUSE",
+    "expected": "V6b",
+    "rejected_by": "V6b",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "FAIL",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "F4h",
+    "band": "F4",
+    "name": "F4h_mask_closure_omitted",
+    "qid": "CODE-Q6",
+    "dec": "ANSWER",
+    "expected": "V0",
+    "rejected_by": "V0",
+    "status": {
+     "V0": "FAIL",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "FAIL",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F4i",
+    "band": "F4",
+    "name": "F4i_mask_transform_stripped",
+    "qid": "CODE-Q6",
+    "dec": "ANSWER",
+    "expected": "V5",
+    "rejected_by": "V5",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "FAIL",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F4j",
+    "band": "F4",
+    "name": "F4j_mask_strength_downgraded",
+    "qid": "TH-Q4",
+    "dec": "ANSWER",
+    "expected": "V5",
+    "rejected_by": "V5",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "FAIL",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "F5a",
+    "band": "F5",
+    "name": "F5a_oov_class_substitution_honest_leg",
+    "qid": "EF2-Q6",
+    "dec": "REFUSE",
+    "expected": "V6b",
+    "rejected_by": "V6b",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "FAIL",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "F5b",
+    "band": "F5",
+    "name": "F5b_oov_class_substitution_covered_leg",
+    "qid": "EF2-Q6",
+    "dec": "REFUSE",
+    "expected": "V6b",
+    "rejected_by": "V6b",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "FAIL",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "F5c",
+    "band": "F5",
+    "name": "F5c_am4_variant_swap_fabricated_refusal",
+    "qid": "CARD-Q2",
+    "dec": "REFUSE",
+    "expected": "V3",
+    "rejected_by": "V3",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "FAIL",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "FAIL",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "F5d",
+    "band": "F5",
+    "name": "F5d_am4_variant_swap_on_genuine_refusal",
+    "qid": "EF2-Q6",
+    "dec": "REFUSE",
+    "expected": "V3",
+    "rejected_by": "V3",
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "FAIL",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "FAIL",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "ctl-FIN-Q1",
+    "band": "ctl",
+    "name": "unmutated base",
+    "qid": "FIN-Q1",
+    "dec": "ANSWER",
+    "expected": null,
+    "rejected_by": null,
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "ctl-F1-Q3",
+    "band": "ctl",
+    "name": "unmutated base",
+    "qid": "F1-Q3",
+    "dec": "ANSWER",
+    "expected": null,
+    "rejected_by": null,
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "ctl-CARD-Q2",
+    "band": "ctl",
+    "name": "unmutated base",
+    "qid": "CARD-Q2",
+    "dec": "ANSWER",
+    "expected": null,
+    "rejected_by": null,
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "ctl-CARD-Q7",
+    "band": "ctl",
+    "name": "unmutated base",
+    "qid": "CARD-Q7",
+    "dec": "REFUSE",
+    "expected": null,
+    "rejected_by": null,
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "PASS",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "ctl-EF2-Q6",
+    "band": "ctl",
+    "name": "unmutated base",
+    "qid": "EF2-Q6",
+    "dec": "REFUSE",
+    "expected": null,
+    "rejected_by": null,
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "PASS",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "ctl-CA-Q5",
+    "band": "ctl",
+    "name": "unmutated base",
+    "qid": "CA-Q5",
+    "dec": "REWRITE",
+    "expected": null,
+    "rejected_by": null,
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "ctl-CODE-Q4",
+    "band": "ctl",
+    "name": "unmutated base",
+    "qid": "CODE-Q4",
+    "dec": "REWRITE",
+    "expected": null,
+    "rejected_by": null,
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "PASS",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "ctl-CODE-Q6",
+    "band": "ctl",
+    "name": "unmutated base",
+    "qid": "CODE-Q6",
+    "dec": "REWRITE",
+    "expected": null,
+    "rejected_by": null,
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "ctl-CODE-Q7",
+    "band": "ctl",
+    "name": "unmutated base",
+    "qid": "CODE-Q7",
+    "dec": "REFUSE",
+    "expected": null,
+    "rejected_by": null,
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "PASS",
+     "V6c": "SKIP"
+    }
+   },
+   {
+    "id": "ctl-TH-Q4",
+    "band": "ctl",
+    "name": "unmutated base",
+    "qid": "TH-Q4",
+    "dec": "REWRITE",
+    "expected": null,
+    "rejected_by": null,
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "PASS",
+     "V6b": "SKIP",
+     "V6c": "PASS"
+    }
+   },
+   {
+    "id": "ctl-TH-Q5",
+    "band": "ctl",
+    "name": "unmutated base",
+    "qid": "TH-Q5",
+    "dec": "REFUSE",
+    "expected": null,
+    "rejected_by": null,
+    "status": {
+     "V0": "PASS",
+     "V1": "PASS",
+     "V2": "PASS",
+     "V3": "SKIP",
+     "V4": "PASS",
+     "V5": "PASS",
+     "V6a": "SKIP",
+     "V6b": "PASS",
+     "V6c": "SKIP"
+    }
+   }
+  ],
+  "families": {
+   "F1": 6,
+   "F2": 5,
+   "F3": 9,
+   "F4": 10,
+   "F5": 4
+  },
+  "load": {
+   "V0": {
+    "FAIL": 9,
+    "PASS": 25,
+    "SKIP": 0
+   },
+   "V1": {
+    "FAIL": 4,
+    "PASS": 30,
+    "SKIP": 0
+   },
+   "V2": {
+    "FAIL": 2,
+    "PASS": 32,
+    "SKIP": 0
+   },
+   "V3": {
+    "FAIL": 5,
+    "PASS": 17,
+    "SKIP": 12
+   },
+   "V4": {
+    "FAIL": 4,
+    "PASS": 30,
+    "SKIP": 0
+   },
+   "V5": {
+    "FAIL": 9,
+    "PASS": 25,
+    "SKIP": 0
+   },
+   "V6a": {
+    "FAIL": 4,
+    "PASS": 17,
+    "SKIP": 13
+   },
+   "V6b": {
+    "FAIL": 11,
+    "PASS": 1,
+    "SKIP": 22
+   },
+   "V6c": {
+    "FAIL": 5,
+    "PASS": 16,
+    "SKIP": 13
+   }
+  },
+  "first_reject": {
+   "V0": 9,
+   "V6c": 1,
+   "V1": 2,
+   "V4": 2,
+   "V5": 8,
+   "V6b": 8,
+   "V6a": 2,
+   "V3": 2
+  },
+  "never_first": [
+   "V2"
+  ],
+  "never_fail": [],
+  "v6b_clause0_fails": 0,
+  "n_expected_match": 34,
+  "n_bases": 11,
+  "base_qids": [
+   "FIN-Q1",
+   "F1-Q3",
+   "CARD-Q2",
+   "CARD-Q7",
+   "EF2-Q6",
+   "CA-Q5",
+   "CODE-Q4",
+   "CODE-Q6",
+   "CODE-Q7",
+   "TH-Q4",
+   "TH-Q5"
+  ],
+  "multi_fail": {
+   "F1d": [
+    "V0",
+    "V6b"
+   ],
+   "F2a": [
+    "V0",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V6a",
+    "V6c"
+   ],
+   "F2c": [
+    "V4",
+    "V6c"
+   ],
+   "F3a": [
+    "V0",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V6a",
+    "V6c"
+   ],
+   "F3f": [
+    "V0",
+    "V3",
+    "V6c"
+   ],
+   "F4h": [
+    "V0",
+    "V5"
+   ],
+   "F5c": [
+    "V3",
+    "V6b"
+   ],
+   "F5d": [
+    "V3",
+    "V6b"
+   ]
+  },
+  "declared_boundary": "a PARTIALLY omitted blocking set in a DB witness (non-empty, all registered) is not rejected -- only emptied (F4f) or unregistered (F4g) sets are"
+ },
+ "ablation": {
+  "n_questions": 60,
+  "rungs": [
+   {
+    "id": "A1",
+    "band": "compiler",
+    "label": "full system",
+    "correct": 60,
+    "lost": 0,
+    "lost_classes": {},
+    "provenance": "recomputed",
+    "note": "gold match on the shipped envelopes, SQL re-executed: 60/60; 15 refusals all carry the gold refusal reason"
+   },
+   {
+    "id": "A2",
+    "band": "compiler",
+    "label": "no rewrite layer",
+    "correct": 48,
+    "lost": 12,
+    "lost_classes": {
+     "refused_should_answer": 12
+    },
+    "provenance": "recomputed",
+    "note": "refusing wherever the request is not directly bindable turns the 12 REWRITE certificates (5 roll-ups + 5 hull trims + 2 masks) into over-refusals"
+   },
+   {
+    "id": "A3",
+    "band": "compiler",
+    "label": "no disclosure gate",
+    "correct": 50,
+    "lost": 10,
+    "lost_classes": {
+     "wrong_value": 7,
+     "answered_should_refuse": 3
+    },
+    "provenance": "recomputed",
+    "note": "answering at the requested grain loses the 5 roll-ups + 2 masks (fine-grained / unmasked values the policies forbid) and answers the 3 DISCLOSURE-BLOCKED refusals"
+   },
+   {
+    "id": "B1",
+    "band": "verifier",
+    "label": "as shipped",
+    "correct": 60,
+    "lost": 0,
+    "lost_classes": {},
+    "provenance": "recomputed",
+    "note": "Chk ACCEPT 60/60 (window_source: derived 50 / declared 8 / declared-override 2)"
+   },
+   {
+    "id": "B2",
+    "band": "verifier",
+    "label": "no question-supplied windows",
+    "correct": 50,
+    "lost": 10,
+    "lost_classes": {
+     "fail_closed_reject": 10
+    },
+    "provenance": "recomputed",
+    "note": "--no-declared-windows: ACCEPT 50/60; all 10 rejects are V0 fail-closed on the questions that present window coordinates (8 range requests + 2 cross-window imperatives)"
+   }
+  ],
+  "strict_rejects": [
+   "CARD-Q5",
+   "DEB-Q5",
+   "DEB-Q7",
+   "EF2-Q2",
+   "EF2-Q4",
+   "FIN-Q6",
+   "FIN-Q8",
+   "F1-Q6",
+   "W1-Q4",
+   "W1-Q5"
+  ],
+  "rewrite_kinds": {
+   "granularity_rollup": 5,
+   "hull_trim": 5,
+   "mask_presentation": 2
+  },
+  "window_source": {
+   "derived": 50,
+   "declared": 8,
+   "declared-override": 2
+  }
+ },
+ "benchmark": {
+  "per_domain": [
+   {
+    "domain": "california_schools",
+    "source": "bird_dev_20240627",
+    "real_rows": 29941,
+    "authored_rows": 0,
+    "largest_table": "schools",
+    "largest_rows": 17686,
+    "n_anchors": 2,
+    "n_anchor_rows": 4,
+    "coverage_modes": [
+     "hull",
+     "strict_member"
+    ],
+    "versions": 2,
+    "policy_rows": 2,
+    "gov_seed_rows": 66,
+    "n_q": 6,
+    "q_value": 4,
+    "q_rewrite": 1,
+    "q_refusal": 1
+   },
+   {
+    "domain": "card_games",
+    "source": "bird_dev_20240627",
+    "real_rows": 803445,
+    "authored_rows": 0,
+    "largest_table": "legalities",
+    "largest_rows": 427907,
+    "n_anchors": 2,
+    "n_anchor_rows": 4,
+    "coverage_modes": [
+     "hull"
+    ],
+    "versions": 2,
+    "policy_rows": 0,
+    "gov_seed_rows": 104,
+    "n_q": 7,
+    "q_value": 4,
+    "q_rewrite": 1,
+    "q_refusal": 2
+   },
+   {
+    "domain": "codebase_community",
+    "source": "bird_dev_20240627",
+    "real_rows": 740646,
+    "authored_rows": 0,
+    "largest_table": "postHistory",
+    "largest_rows": 303155,
+    "n_anchors": 3,
+    "n_anchor_rows": 6,
+    "coverage_modes": [
+     "hull"
+    ],
+    "versions": 2,
+    "policy_rows": 8,
+    "gov_seed_rows": 118,
+    "n_q": 7,
+    "q_value": 3,
+    "q_rewrite": 3,
+    "q_refusal": 1
+   },
+   {
+    "domain": "debit_card_specializing",
+    "source": "bird_dev_20240627",
+    "real_rows": 423050,
+    "authored_rows": 0,
+    "largest_table": "yearmonth",
+    "largest_rows": 383282,
+    "n_anchors": 2,
+    "n_anchor_rows": 4,
+    "coverage_modes": [
+     "hull",
+     "strict_member"
+    ],
+    "versions": 2,
+    "policy_rows": 2,
+    "gov_seed_rows": 80,
+    "n_q": 7,
+    "q_value": 4,
+    "q_rewrite": 1,
+    "q_refusal": 2
+   },
+   {
+    "domain": "european_football_2",
+    "source": "bird_dev_20240627",
+    "real_rows": 222796,
+    "authored_rows": 0,
+    "largest_table": "Player_Attributes",
+    "largest_rows": 183978,
+    "n_anchors": 3,
+    "n_anchor_rows": 6,
+    "coverage_modes": [
+     "hull",
+     "strict_member"
+    ],
+    "versions": 2,
+    "policy_rows": 0,
+    "gov_seed_rows": 97,
+    "n_q": 6,
+    "q_value": 3,
+    "q_rewrite": 1,
+    "q_refusal": 2
+   },
+   {
+    "domain": "financial",
+    "source": "bird_dev_20240627",
+    "real_rows": 1079680,
+    "authored_rows": 0,
+    "largest_table": "trans",
+    "largest_rows": 1056320,
+    "n_anchors": 3,
+    "n_anchor_rows": 6,
+    "coverage_modes": [
+     "hull"
+    ],
+    "versions": 2,
+    "policy_rows": 0,
+    "gov_seed_rows": 110,
+    "n_q": 8,
+    "q_value": 5,
+    "q_rewrite": 1,
+    "q_refusal": 2
+   },
+   {
+    "domain": "formula_1",
+    "source": "bird_dev_20240627",
+    "real_rows": 514287,
+    "authored_rows": 18,
+    "largest_table": "lapTimes",
+    "largest_rows": 420369,
+    "n_anchors": 1,
+    "n_anchor_rows": 2,
+    "coverage_modes": [
+     "hull"
+    ],
+    "versions": 2,
+    "policy_rows": 0,
+    "gov_seed_rows": 120,
+    "n_q": 8,
+    "q_value": 5,
+    "q_rewrite": 1,
+    "q_refusal": 2
+   },
+   {
+    "domain": "thrombosis_prediction",
+    "source": "bird_dev_20240627",
+    "real_rows": 15952,
+    "authored_rows": 0,
+    "largest_table": "Laboratory",
+    "largest_rows": 13908,
+    "n_anchors": 2,
+    "n_anchor_rows": 4,
+    "coverage_modes": [
+     "hull"
+    ],
+    "versions": 2,
+    "policy_rows": 6,
+    "gov_seed_rows": 82,
+    "n_q": 6,
+    "q_value": 2,
+    "q_rewrite": 2,
+    "q_refusal": 2
+   },
+   {
+    "domain": "world_1",
+    "source": "spider_dev_via_pilot_public_extract",
+    "real_rows": 239,
+    "authored_rows": 20076,
+    "largest_table": "country",
+    "largest_rows": 239,
+    "n_anchors": 1,
+    "n_anchor_rows": 2,
+    "coverage_modes": [
+     "hull"
+    ],
+    "versions": 2,
+    "policy_rows": 0,
+    "gov_seed_rows": 70,
+    "n_q": 5,
+    "q_value": 3,
+    "q_rewrite": 1,
+    "q_refusal": 1
+   }
+  ],
+  "totals": {
+   "real_rows": 3830036,
+   "authored_rows": 20094,
+   "gov_seed_rows": 847,
+   "policy_rows": 18,
+   "versions": 18
+  }
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q3",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 681.0,
+ "verdict": "correct",
+ "raw": "I need to find the number of Player_Attributes records valid as-of 2015-06-15, using the temporal binding rules from the governance tables.\n\nLet me trace through the governance tables:\n\n1. First, find the valid time anchor for Player_Attributes\n2. Apply the temporal rules to determine the correct window\n\nThe question asks for Player_Attributes snapshot records for the month window containing 2015-06-15, declared as-of 2016-07-01.\n\nLet me look at the gov_valid_time_anchor to understand how Player_Attributes temporal validity works. The anchor likely uses the \"date\" column in Player_Attributes.\n\nFor a monthly window containing 2015-06-15, we need records where the date falls within June 2015 (2015-06-01 to 2015-06-30).\n\nFor \"as-of\" semantics with valid time, we want the latest record per player that is effective on or before 2015-06-15, within the month window. But the simpler interpretation given \"当月球员属性快照条数\" (count of monthly player attribute snapshot records) is to count records whose date falls in June 2015.\n\nSince the declaration time is 2016-07-01 which is after the data period, all June 2015 data would be visible (no future restriction issue).\n\n```sql\nSELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) >= DATE '2015-06-01' AND CAST(\"date\" AS DATE) < DATE '2015-07-01';\n```",
+ "sql": "SELECT COUNT(*) FROM main.\"Player_Attributes\" WHERE CAST(\"date\" AS DATE) >= DATE '2015-06-01' AND CAST(\"date\" AS DATE) < DATE '2015-07-01'",
+ "prompt_sha256": "23e6dcbbc154d3ff1a9c1a65203f1e333b5f7ba87dde8c058286498210a01558",
+ "prompt_chars": 7856,
+ "empty_response": false
+}

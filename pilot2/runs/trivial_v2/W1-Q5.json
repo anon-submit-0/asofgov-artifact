@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q5",
+ "system": "trivial_v2",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "```sql\nREFUSE: 分子分母时点不一致违反 temporal binding 规则（分子2026-05 vs 分母2026-04），无法计算有效比率\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "52e5edf95f9f186cb8c87efd6d9ebe5d15a12737512fc95901279a52333dd7eb",
+ "prompt_chars": 3302,
+ "empty_response": false
+}

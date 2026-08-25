@@ -1,0 +1,123 @@
+{
+ "refusal": "anchor-mismatch",
+ "certificate": {
+  "cert_version": "c5.v1",
+  "question": {
+   "qid": "CA-Q6",
+   "domain": "california_schools",
+   "metric": "ca.free_meal_rate",
+   "metric_kind": "ratio",
+   "as_of": "2015-04-15"
+  },
+  "graph_pin": {
+   "domain": "california_schools",
+   "graph_version": "v2",
+   "commit_id": "2015-07-01",
+   "off_diagonal": null
+  },
+  "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "anchors": [
+   {
+    "role": "numerator",
+    "anchor_id": "charter_authorization_date",
+    "registered": false,
+    "coverage_mode": null,
+    "granule": "academic_year_token",
+    "window": {
+     "kind": "academic-year",
+     "lo": "2014-07-01",
+     "hi_excl": "2015-07-01"
+    },
+    "declared_override": true,
+    "unregistered_reference": true
+   },
+   {
+    "role": "denominator",
+    "anchor_id": "A-CA-FRPM",
+    "registered": true,
+    "coverage_mode": "strict_member",
+    "granule": "academic_year_token",
+    "window": {
+     "kind": "academic-year",
+     "lo": "2014-07-01",
+     "hi_excl": "2015-07-01"
+    }
+   }
+  ],
+  "binding": {
+   "binding_id": "B-CA-FMR-N|B-CA-FMR-D",
+   "rule": "same_valid_time_window",
+   "numerator_anchor": "A-CA-FRPM",
+   "denominator_anchor": "A-CA-FRPM",
+   "adm_check_mode": "trivial_true"
+  },
+  "routing": [
+   {
+    "caliber_key": "ca.rt1",
+    "metric": "ca.free_meal_rate",
+    "leg": "num",
+    "hop_seq": "0",
+    "src_node": "ca.frpm",
+    "dst_node": "ca.frpm",
+    "via_table": "frpm",
+    "dst_caliber": "all",
+    "join_keys": []
+   },
+   {
+    "caliber_key": "ca.rt2",
+    "metric": "ca.free_meal_rate",
+    "leg": "den",
+    "hop_seq": "0",
+    "src_node": "ca.frpm",
+    "dst_node": "ca.frpm",
+    "via_table": "frpm",
+    "dst_caliber": "all",
+    "join_keys": []
+   }
+  ],
+  "disclosure": {
+   "decision": "REFUSE",
+   "policy_ids": [],
+   "policy_table_present": true,
+   "ungoverned_disclosure": false,
+   "granularity": "scope×window",
+   "mask_closure": []
+  },
+  "probes": [
+   {
+    "kind": "COVERAGE",
+    "anchor_id": "A-CA-FRPM",
+    "coverage_mode": "strict_member",
+    "sql": "SELECT DISTINCT CAST(t.\"Academic Year\" AS VARCHAR) FROM \"frpm\" t WHERE t.\"Academic Year\" IS NOT NULL",
+    "observed": 1
+   }
+  ],
+  "det_order": {
+   "keys": [
+    "version_desc",
+    "binding_registration(binding_id)",
+    "ell_gamma"
+   ],
+   "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+  },
+  "refusal": {
+   "reason": "anchor-mismatch",
+   "witness": {
+    "type": "anchor-override",
+    "clause": "(i)",
+    "role": "numerator",
+    "declared_anchor": "charter_authorization_date",
+    "required_anchor": "A-CA-FRPM",
+    "assertion": "A_v 查无此锚（未注册锚引用；D8：与度量型别无关，同判 AM(i)）"
+   },
+   "ct": [
+    {
+     "slice": "(v2,B-CA-FMR-N|B-CA-FMR-D)",
+     "reason": "anchor-mismatch"
+    }
+   ],
+   "slices_pass": [],
+   "composition": "slice-major(≺_det slice 序取首失败 slice; slice 内守卫序 OOV→AM→MC)"
+  }
+ }
+}

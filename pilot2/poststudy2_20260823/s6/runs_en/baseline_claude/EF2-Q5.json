@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q5",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 66.55253164556962,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT AVG(pa.overall_rating) FROM main.\"Player_Attributes\" pa WHERE pa.date <= '2014-02-01' AND pa.date = (SELECT MAX(pa2.date) FROM main.\"Player_Attributes\" pa2 WHERE pa2.player_api_id = pa.player_api_id AND pa2.date <= '2013-12-25')\n```",
+ "sql": "SELECT AVG(pa.overall_rating) FROM main.\"Player_Attributes\" pa WHERE pa.date <= '2014-02-01' AND pa.date = (SELECT MAX(pa2.date) FROM main.\"Player_Attributes\" pa2 WHERE pa2.player_api_id = pa.player_api_id AND pa2.date <= '2013-12-25')",
+ "prompt_sha256": "a70b83b00e86a79e88e29d99c50b16201e61e9ffd53239f5e6118d14755c7a05",
+ "prompt_chars": 7693,
+ "empty_response": false
+}

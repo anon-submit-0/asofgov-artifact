@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q8",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 0.0,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n    CAST(SUM(CASE WHEN date >= '1997-05-01' AND date < '1997-06-01' AND k_symbol = 'SANKC UVER' THEN 1 ELSE 0 END) AS DOUBLE) / \n    NULLIF(SUM(CASE WHEN date >= '1997-04-01' AND date < '1997-05-01' THEN 1 ELSE 0 END), 0)\nFROM main.\"trans\"\n```",
+ "sql": "SELECT \n    CAST(SUM(CASE WHEN date >= '1997-05-01' AND date < '1997-06-01' AND k_symbol = 'SANKC UVER' THEN 1 ELSE 0 END) AS DOUBLE) / \n    NULLIF(SUM(CASE WHEN date >= '1997-04-01' AND date < '1997-05-01' THEN 1 ELSE 0 END), 0)\nFROM main.\"trans\"",
+ "prompt_sha256": "ee0142b48f52aca5516f0fb860609ae1e7b37ffce00f515851f7004de13dc278",
+ "prompt_chars": 4074,
+ "empty_response": false
+}

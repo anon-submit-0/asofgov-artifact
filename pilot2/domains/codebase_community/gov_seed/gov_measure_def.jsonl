@@ -1,0 +1,20 @@
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "code.ar.num", "metric_id": "code.accepted_rate", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "code.ar.den", "metric_id": "code.accepted_rate", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 1}]}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "code.mv.atom", "metric_id": "code.monthly_votes", "node_id": "code.votes", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "code.uar.atom", "metric_id": "code.user_accepted_report", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "code.dq.atom", "metric_id": "code.daily_questions", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 1}]}
+{"graph_version": "v1", "leg": "atom", "measure": "value:Location", "measure_id": "code.ul.atom", "metric_id": "code.user_location", "node_id": "code.users", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "code.tar.atom", "metric_id": "code.top_answerer_roster", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v1", "leg": "num", "measure": "count", "measure_id": "code.aas.num", "metric_id": "code.answer_accept_share", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v1", "leg": "den", "measure": "count", "measure_id": "code.aas.den", "metric_id": "code.answer_accept_share", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "code.mb.atom", "metric_id": "code.monthly_badges", "node_id": "code.badges", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "code.ar.num", "metric_id": "code.accepted_rate", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "code.ar.den", "metric_id": "code.accepted_rate", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 1}, {"col": "CommunityOwnedDate", "op": "is_null", "value": null}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "code.mv.atom", "metric_id": "code.monthly_votes", "node_id": "code.votes", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "code.uar.atom", "metric_id": "code.user_accepted_report", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "code.dq.atom", "metric_id": "code.daily_questions", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 1}]}
+{"graph_version": "v2", "leg": "atom", "measure": "value:Location", "measure_id": "code.ul.atom", "metric_id": "code.user_location", "node_id": "code.users", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "code.tar.atom", "metric_id": "code.top_answerer_roster", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v2", "leg": "num", "measure": "count", "measure_id": "code.aas.num", "metric_id": "code.answer_accept_share", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v2", "leg": "den", "measure": "count", "measure_id": "code.aas.den", "metric_id": "code.answer_accept_share", "node_id": "code.posts", "preds": [{"col": "PostTypeId", "op": "=", "value": 2}]}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "code.mb.atom", "metric_id": "code.monthly_badges", "node_id": "code.badges", "preds": []}

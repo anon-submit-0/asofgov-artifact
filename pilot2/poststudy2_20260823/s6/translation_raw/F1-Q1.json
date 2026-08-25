@@ -1,0 +1,19 @@
+{
+ "qid": "F1-Q1",
+ "domain": "formula_1",
+ "question_zh": "以 2009-12-01 为声明时点，按当时生效积分口径，车手 button 2009 赛季（as-of 2009-07-01 所在年窗）的赛季车手总积分是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2009-12-01 as the declaration instant, under the points caliber in effect at that time, what is the season driver total points for driver button in the 2009 season (as-of 2009-07-01 the containing year window)?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5310 completion=80]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:38:29"
+}

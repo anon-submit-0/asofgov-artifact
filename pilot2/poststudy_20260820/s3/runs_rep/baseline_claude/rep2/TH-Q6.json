@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q6",
+ "system": "baseline_claude",
+ "kind": "value",
+ "value": 5064814.0,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT DISTINCT p.ID\nFROM main.\"Patient\" p\nJOIN main.\"Laboratory\" l ON p.ID = l.ID\nWHERE l.\"Date\" >= DATE '1997-01-01' \n  AND l.\"Date\" < DATE '1998-01-01'\n  AND p.\"First Date\" < DATE '1998-06-01'\n```",
+ "sql": "SELECT DISTINCT p.ID\nFROM main.\"Patient\" p\nJOIN main.\"Laboratory\" l ON p.ID = l.ID\nWHERE l.\"Date\" >= DATE '1997-01-01' \n  AND l.\"Date\" < DATE '1998-01-01'\n  AND p.\"First Date\" < DATE '1998-06-01'",
+ "prompt_sha256": "0f0ce2ef2d615ccc877f4a23c850c2b799d352929dd8dfb0af1e4d9ce99fde7d",
+ "prompt_chars": 4130,
+ "empty_response": false
+}

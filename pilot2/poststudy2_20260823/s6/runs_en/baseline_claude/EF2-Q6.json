@@ -1,0 +1,12 @@
+{
+ "qid": "EF2-Q6",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 问题使用了不属于该数据库schema的自定义概念（\"rating-normalized same-day win rate\"、\"declaration instant\"、\"as-of single-day window\"），无法从给定表结构中明确推导出可执行的SQL。",
+ "sql": "REFUSE",
+ "prompt_sha256": "f6f4cc37215e8e3c530f1cadc4b47aee340269a6e848329db3a5b2672306dbfb",
+ "prompt_chars": 7698,
+ "empty_response": false
+}

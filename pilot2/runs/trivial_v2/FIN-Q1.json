@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q1",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 0.1368,
+ "verdict": "correct",
+ "raw": "I need to calculate the \"问题贷款率\" (problem loan rate) as of 1996, using the valid-time governance framework.\n\nLet me first understand the governance tables to find the relevant metric, anchors, and temporal bindings.\n\nThe \"问题贷款率\" likely relates to loans with problematic status. In the loan table, `status` can indicate problem loans (typically 'B' and 'D' are problem statuses in this dataset - 'B' = loan not paid, finished; 'D' = loan not paid, running).\n\nLet me trace through the governance framework:\n\n1. Find the metric for 问题贷款率 in gov_metric_alias or gov_metric\n2. Find temporal bindings and anchors\n3. Apply the as-of logic\n\nSince I need to work with the governance tables but can't preview them, I'll construct the query to:\n1. Look up the metric definition\n2. Apply temporal binding rules\n3. Calculate based on valid-time windows\n\nThe declaration time is 1997-06-15, and the as-of window is 1996 calendar year (anchored at 1996-06-30).\n\nFor the loan table, loans issued on or before the end of 1996 (1996-12-31) that would be active as of that period. Problem loans are those with status 'B' or 'D'.\n\nLet me write a query that respects the temporal governance but practically computes: number of problem loans / total loans for the 1996 calendar year window, where the declaration point 1997-06-15 means we use data available by that date.\n\n```sql\nSELECT ROUND(\n  SUM(CASE WHEN l.status IN ('B', 'D') THEN 1 ELSE 0 END) * 1.0 \n  / COUNT(*), 4\n) AS problem_loan_rate\nFROM main.loan l\nWHERE l.date <= '1996-12-31'\n  AND l.date >= '1996-01-01'\n```\n\nWait - but loans aren't necessarily originated in 1996 only. The \"as-of 1996-06-30 所在年窗\" means the year window containing 1",
+ "sql": "SELECT ROUND(\n  SUM(CASE WHEN l.status IN ('B', 'D') THEN 1 ELSE 0 END) * 1.0 \n  / COUNT(*), 4\n) AS problem_loan_rate\nFROM main.loan l\nWHERE l.date <= '1996-12-31'\n  AND l.date >= '1996-01-01'",
+ "prompt_sha256": "9a1e83a400b6c86d3f5adcc9f68cb3a3a27cb20514e9419937c9a43efcf23c5d",
+ "prompt_chars": 4310,
+ "empty_response": false
+}

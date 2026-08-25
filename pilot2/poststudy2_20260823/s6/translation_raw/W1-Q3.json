@@ -1,0 +1,19 @@
+{
+ "qid": "W1-Q3",
+ "domain": "world_1",
+ "question_zh": "以 2026-06-15 为声明时点，as-of 2026-03 月粒的亚洲人口占比（亚洲/全球）是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2026-06-15 as the declaration instant, what is the Asian population share (Asia/global) as-of 2026-03 at month granularity?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5273 completion=48]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:39:28"
+}

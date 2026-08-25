@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q2",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 给定 schema 未包含「声明时点」「生效口径」「as-of 时态语义」或「问题贷款率」指标定义的元数据；gov_* 治理表缺乏足够映射规则以将自然语言指标名与具体度量逻辑绑定\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "1d0762359887243597f90578cae4889c35490f780a4a48600380747238616cad",
+ "prompt_chars": 4084,
+ "empty_response": false
+}

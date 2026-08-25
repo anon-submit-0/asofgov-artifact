@@ -1,0 +1,19 @@
+{
+ "qid": "TH-Q5",
+ "domain": "thrombosis_prediction",
+ "question_zh": "以 1998-06-01 为声明时点，列出 1997 年有异常化验（GOT≥60）患者的 ID、出生日期与诊断原值。",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 1998-06-01 as the declaration instant, list the ID, date of birth, and original diagnosis value of patients who had abnormal lab tests (GOT≥60) in 1997.",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5281 completion=60]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:39:13"
+}

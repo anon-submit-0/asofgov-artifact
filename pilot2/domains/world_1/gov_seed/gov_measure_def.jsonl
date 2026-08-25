@@ -1,0 +1,14 @@
+{"graph_version": "v1", "leg": "atom", "measure": "sum:population", "measure_id": "w1.aps.atom", "metric_id": "w1.asia_population_sum", "node_id": "w1.country_history", "preds": [{"col": "Continent", "node": "w1.country", "op": "=", "value": "Asia"}]}
+{"graph_version": "v1", "leg": "atom", "measure": "sum:population", "measure_id": "w1.wps.atom", "metric_id": "w1.world_population_sum", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v1", "leg": "num", "measure": "sum:population", "measure_id": "w1.ps.num", "metric_id": "w1.population_share", "node_id": "w1.country_history", "preds": [{"col": "Continent", "node": "w1.country", "op": "=", "value": "Asia"}]}
+{"graph_version": "v1", "leg": "den", "measure": "sum:population", "measure_id": "w1.ps.den", "metric_id": "w1.population_share", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "w1.hrr.atom", "metric_id": "w1.history_rows_range", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "sum:gnp", "measure_id": "w1.gs.atom", "metric_id": "w1.gnp_sum", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v1", "leg": "atom", "measure": "count", "measure_id": "w1.cc.atom", "metric_id": "w1.country_count", "node_id": "w1.country", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:population_resident", "measure_id": "w1.aps.atom", "metric_id": "w1.asia_population_sum", "node_id": "w1.country_history", "preds": [{"col": "Continent", "node": "w1.country", "op": "=", "value": "Asia"}]}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:population_resident", "measure_id": "w1.wps.atom", "metric_id": "w1.world_population_sum", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v2", "leg": "num", "measure": "sum:population_resident", "measure_id": "w1.ps.num", "metric_id": "w1.population_share", "node_id": "w1.country_history", "preds": [{"col": "Continent", "node": "w1.country", "op": "=", "value": "Asia"}]}
+{"graph_version": "v2", "leg": "den", "measure": "sum:population_resident", "measure_id": "w1.ps.den", "metric_id": "w1.population_share", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "w1.hrr.atom", "metric_id": "w1.history_rows_range", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "sum:gnp", "measure_id": "w1.gs.atom", "metric_id": "w1.gnp_sum", "node_id": "w1.country_history", "preds": []}
+{"graph_version": "v2", "leg": "atom", "measure": "count", "measure_id": "w1.cc.atom", "metric_id": "w1.country_count", "node_id": "w1.country", "preds": []}

@@ -1,0 +1,12 @@
+{
+ "qid": "W1-Q2",
+ "system": "baseline_deepseek",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: schema中的治理表结构复杂，缺乏足够的时间版本映射信息，无法确定在2026-08-15时点生效的人口计算规则。",
+ "sql": "REFUSE",
+ "prompt_sha256": "96813b11ebf1108952cbda13394f488eb36c5ef19f335d2a62ec5afedf211253",
+ "prompt_chars": 3081,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "TH-Q4",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": "1934",
+ "verdict": "correct",
+ "raw": "```sql\nSELECT STRFTIME(p.\"Birthday\", '%Y') AS \"Birthday\"\nFROM main.\"Patient\" p\nWHERE p.\"ID\" = 2110\n```",
+ "sql": "SELECT STRFTIME(p.\"Birthday\", '%Y') AS \"Birthday\"\nFROM main.\"Patient\" p\nWHERE p.\"ID\" = 2110",
+ "prompt_sha256": "386cfb86d92b5762af82aa22080960d6b71d60a9ffa920f88fac3cb2c47881d1",
+ "prompt_chars": 20396,
+ "empty_response": false
+}

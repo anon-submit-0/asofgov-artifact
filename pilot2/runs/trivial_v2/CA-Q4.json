@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q4",
+ "system": "trivial_v2",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "REFUSE: 数据中没有可用于确定学校在 2000-09-01 时点\"在效\"状态的有效时间列（gov_valid_time_anchor 中的时间锚未绑定到 schools 表的实际生效/失效时间戳，且 schools.OpenDate/ClosedDate 数据无法与治理层的 valid-time 窗口机制对齐），无法正确回答该问题。",
+ "sql": "REFUSE",
+ "prompt_sha256": "811d491ea86fb0ae2778738ff1406ac1d722ff54989d4c7923c660c10cbb6522",
+ "prompt_chars": 5411,
+ "empty_response": false
+}

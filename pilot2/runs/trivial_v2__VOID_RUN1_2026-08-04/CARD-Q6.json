@@ -1,0 +1,12 @@
+{
+ "qid": "CARD-Q6",
+ "system": "trivial_v2",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 数据库中不存在价格或市场价值字段，无法计算\"溢价率\"。",
+ "sql": "REFUSE",
+ "prompt_sha256": "aadf730f796ce569c2288918d4770d4897614182a6ceb1923cbf5beccb0dc256",
+ "prompt_chars": 5654,
+ "empty_response": false
+}

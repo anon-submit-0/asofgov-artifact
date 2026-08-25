@@ -1,0 +1,261 @@
+[
+ {
+  "qid": "DEB-Q1",
+  "domain": "debit_card_specializing",
+  "question_zh": "以 2013-09-15 为声明时点，2013 年 8 月（as-of 2013-08 月粒）CZK 结算客户的月均客户消费额是多少？",
+  "as_of": "2013-08-15",
+  "declared_at": "2013-09-15",
+  "metric_alias": "月均客户消费额",
+  "scope": {
+   "currency": "CZK"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "deb.avg_consumption",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT AVG(y.Consumption) FROM yearmonth y INNER JOIN customers c ON y.CustomerID=c.CustomerID WHERE c.Currency='CZK' AND CAST(y.Date AS VARCHAR)='201308'",
+  "gold_value": 15626.138213557568,
+  "windows": {
+   "atom": {
+    "kind": "month_token",
+    "token": "201308"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "双币口径实测（P-9）：CZK 15,626.14 vs EUR 1,166.15 = 13.4×——混算失真的公开复刻（blind 混币值入 notes 不入金标）。"
+ },
+ {
+  "qid": "DEB-Q2",
+  "domain": "debit_card_specializing",
+  "question_zh": "以 2013-09-15 为声明时点，2013 年 8 月（as-of 2013-08 月粒）EUR 结算客户的月均客户消费额是多少？",
+  "as_of": "2013-08-15",
+  "declared_at": "2013-09-15",
+  "metric_alias": "月均客户消费额",
+  "scope": {
+   "currency": "EUR"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "deb.avg_consumption",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT AVG(y.Consumption) FROM yearmonth y INNER JOIN customers c ON y.CustomerID=c.CustomerID WHERE c.Currency='EUR' AND CAST(y.Date AS VARCHAR)='201308'",
+  "gold_value": 1166.1530437665776,
+  "windows": {
+   "atom": {
+    "kind": "month_token",
+    "token": "201308"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "per-currency scoped 路由第二值；blind 混币 AVG=15,127.68（种子外复算）。"
+ },
+ {
+  "qid": "DEB-Q3",
+  "domain": "debit_card_specializing",
+  "question_zh": "以 2013-09-15 为声明时点，2013 年 6 月（as-of 2013-06 月粒）SME 细分客户的月消费总额是多少？",
+  "as_of": "2013-06-15",
+  "declared_at": "2013-09-15",
+  "metric_alias": "月消费总额",
+  "scope": {
+   "segment": "SME"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "deb.consumption_sum",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT SUM(y.Consumption) FROM yearmonth y INNER JOIN customers c ON y.CustomerID=c.CustomerID WHERE c.Segment='SME' AND CAST(y.Date AS VARCHAR)='201306'",
+  "gold_value": 121345577.66,
+  "windows": {
+   "atom": {
+    "kind": "month_token",
+    "token": "201306"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "Segment scope 常规值题（v2 治下）。"
+ },
+ {
+  "qid": "DEB-Q4",
+  "domain": "debit_card_specializing",
+  "question_zh": "以 2012-09-15 为声明时点，2012 年 1 月（as-of 2012-01 月粒）全体客户的月消费总额是多少？",
+  "as_of": "2012-01-15",
+  "declared_at": "2012-09-15",
+  "metric_alias": "月消费总额",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "deb.consumption_sum",
+  "expected_kind": "value",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": "SELECT SUM(Consumption) FROM yearmonth WHERE CAST(Date AS VARCHAR)='201201'",
+  "gold_value": 44080288.83999992,
+  "windows": {
+   "atom": {
+    "kind": "month_token",
+    "token": "201201"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "strict_member 月集内合法 token（v1 治下）。"
+ },
+ {
+  "qid": "DEB-Q5",
+  "domain": "debit_card_specializing",
+  "question_zh": "以 2013-09-15 为声明时点，统计 2012-08-23 至 2012-08-26 间 EUR 结算 LAM 细分（细分级）的细分平均单笔交易金额。",
+  "as_of": null,
+  "declared_at": "2013-09-15",
+  "metric_alias": "细分平均单笔交易金额",
+  "scope": {
+   "currency": "EUR",
+   "segment": "LAM"
+  },
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "day_range",
+   "lo": "2012-08-23",
+   "hi_excl": "2012-08-27"
+  },
+  "requested_granularity": "Segment",
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "deb.segment_avg_trans",
+  "expected_kind": "rewrite",
+  "refusal_reason": null,
+  "refusal_subtype": null,
+  "rewrite": {
+   "kind": "granularity_rollup",
+   "axis": "entity",
+   "requested_level": "Segment",
+   "effective_level": "all"
+  },
+  "gold_sql": "SELECT 'all' AS cell, AVG(t.Amount) AS val FROM transactions_1k t INNER JOIN customers c ON t.CustomerID=c.CustomerID WHERE c.Currency='EUR' AND CAST(t.Date AS VARCHAR)>='2012-08-23' AND CAST(t.Date AS VARCHAR)<'2012-08-27'",
+  "gold_value": [
+   [
+    "all",
+    23.87878787878788
+   ]
+  ],
+  "windows": {
+   "atom": {
+    "kind": "range",
+    "lo": "2012-08-23",
+    "hi_excl": "2012-08-27"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "RC-7×RC-8 交互：LAM×EUR 胞实体数=16；v1(k=10) 治下 ANSWER、v2(k=20) 治下上卷至 all（EUR 全胞 42 客户）→ 本题 T 落 v2 故金标 REWRITE；小胞判定是 D 的函数（ND-1 见证对：补 4 个 EUR-LAM 客户即翻回 ANSWER）。上卷去 currency 外的 Segment 区分。"
+ },
+ {
+  "qid": "DEB-Q6",
+  "domain": "debit_card_specializing",
+  "question_zh": "以 2013-11-15 为声明时点，查询 as-of 2013-12（月粒）的全体客户月均客户消费额。",
+  "as_of": "2013-12-15",
+  "declared_at": "2013-11-15",
+  "metric_alias": "月均客户消费额",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "deb.avg_consumption",
+  "expected_kind": "refusal",
+  "refusal_reason": "out-of-validity",
+  "refusal_subtype": null,
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": {
+   "atom": {
+    "kind": "month_token",
+    "token": "201312"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "OOV：strict_member 月集（21 个月 201112→201311）判空——201312 ∉ 集合；集合成员性只能对 D 现算（ND-1：插入一行 201312 即翻转）。"
+ },
+ {
+  "qid": "DEB-Q7",
+  "domain": "debit_card_specializing",
+  "question_zh": "以 2013-09-15 为声明时点，统计自 2013-03-04 起一周的月均客户消费额。",
+  "as_of": null,
+  "declared_at": "2013-09-15",
+  "metric_alias": "月均客户消费额",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": {
+   "kind": "week",
+   "lo": "2013-03-04"
+  },
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null,
+  "metric": "deb.avg_consumption",
+  "expected_kind": "refusal",
+  "refusal_reason": "anchor-mismatch",
+  "refusal_subtype": "am_iii",
+  "rewrite": null,
+  "gold_sql": null,
+  "gold_value": null,
+  "windows": {
+   "requested": {
+    "kind": "week",
+    "lo": "2013-03-04",
+    "hi_excl": "2013-03-11"
+   }
+  },
+  "windows_note": "windows 为问题规格一等字段(C3 A5: ω_r 显式呈现)；校验器窗推导只依据 G_v 治理表+D+题面非窗字段，推得后与此比对（冻结工程纪律③）",
+  "notes": "AM(iii) 窗-粒度不可表达（全基座唯一）：周窗 ⋢ 月粒 token 锚（C3 定义3.8(iii)，W∉W_g^cmp）。"
+ }
+]

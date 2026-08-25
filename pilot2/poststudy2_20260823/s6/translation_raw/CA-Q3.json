@@ -1,0 +1,19 @@
+{
+ "qid": "CA-Q3",
+ "domain": "california_schools",
+ "question_zh": "以 2015-05-01 为声明时点，as-of 2015-01-01 时点在效学校数是多少？",
+ "model": "claude-opus-4-6",
+ "instruction_sha_note": "fixed INSTRUCTION in translate_s6.py",
+ "question_en_raw": "With 2015-05-01 as the declaration instant, what is the number of schools in effect as-of 2015-01-01?",
+ "attempts": [
+  {
+   "attempt": 1,
+   "rc": 0,
+   "stderr_head": [
+    "[提示] claude-opus-4-6 同时在 ['tuzi', 'tokens1688'], 默认走 tuzi; 需指定用 --channel",
+    "[claude-opus-4-6 | prompt=5253 completion=37]"
+   ]
+  }
+ ],
+ "ts": "2026-08-23T21:36:10"
+}

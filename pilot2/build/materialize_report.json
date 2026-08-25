@@ -1,0 +1,92 @@
+{
+ "expect_close": [
+  {
+   "qid": "FIN-Q3",
+   "expected": 0.0014310376957128643,
+   "got": 0.0014310376957128643,
+   "ok": true
+  },
+  {
+   "qid": "FIN-Q4",
+   "expected": 16,
+   "got": 16,
+   "ok": true
+  },
+  {
+   "qid": "CARD-Q1",
+   "expected": 2161,
+   "got": 2161,
+   "ok": true
+  },
+  {
+   "qid": "F1-Q5",
+   "expected": 34,
+   "got": 34,
+   "ok": true
+  },
+  {
+   "qid": "DEB-Q1",
+   "expected": 15626.138213557595,
+   "got": 15626.138213557568,
+   "ok": true
+  },
+  {
+   "qid": "DEB-Q2",
+   "expected": 1166.1530437665783,
+   "got": 1166.1530437665776,
+   "ok": true
+  },
+  {
+   "qid": "CA-Q3",
+   "expected": 10629,
+   "got": 10629,
+   "ok": true
+  }
+ ],
+ "flip_pairs": [
+  {
+   "pair": [
+    "FIN-Q1",
+    "FIN-Q2"
+   ],
+   "values": [
+    0.13675213675213677,
+    0.08547008547008547
+   ],
+   "distinct": true
+  },
+  {
+   "pair": [
+    "F1-Q1",
+    "F1-Q2"
+   ],
+   "values": [
+    100.0,
+    252.0
+   ],
+   "distinct": true
+  },
+  {
+   "pair": [
+    "CA-Q1",
+    "CA-Q2"
+   ],
+   "values": [
+    0.37985585826806795,
+    0.37804549460887515
+   ],
+   "distinct": true
+  },
+  {
+   "pair": [
+    "W1-Q1",
+    "W1-Q2"
+   ],
+   "values": [
+    4068933086,
+    4313069067
+   ],
+   "distinct": true
+  }
+ ]
+}

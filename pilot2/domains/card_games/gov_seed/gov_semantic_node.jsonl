@@ -1,0 +1,12 @@
+{"domain": "card_games", "entity_key": "id", "graph_version": "v1", "node_id": "card.rulings", "physical_table": "rulings", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "uuid", "graph_version": "v1", "node_id": "card.cards", "physical_table": "cards", "scope_keys": {"card_name": "name", "set_code": "setCode"}}
+{"domain": "card_games", "entity_key": "code", "graph_version": "v1", "node_id": "card.sets", "physical_table": "sets", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v1", "node_id": "card.legalities", "physical_table": "legalities", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v1", "node_id": "card.foreign_data", "physical_table": "foreign_data", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v1", "node_id": "card.set_translations", "physical_table": "set_translations", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v2", "node_id": "card.rulings", "physical_table": "rulings", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "uuid", "graph_version": "v2", "node_id": "card.cards", "physical_table": "cards", "scope_keys": {"card_name": "name", "set_code": "setCode"}}
+{"domain": "card_games", "entity_key": "code", "graph_version": "v2", "node_id": "card.sets", "physical_table": "sets", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v2", "node_id": "card.legalities", "physical_table": "legalities", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v2", "node_id": "card.foreign_data", "physical_table": "foreign_data", "scope_keys": {}}
+{"domain": "card_games", "entity_key": "id", "graph_version": "v2", "node_id": "card.set_translations", "physical_table": "set_translations", "scope_keys": {}}

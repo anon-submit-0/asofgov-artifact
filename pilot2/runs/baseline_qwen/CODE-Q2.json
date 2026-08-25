@@ -1,0 +1,12 @@
+{
+ "qid": "CODE-Q2",
+ "system": "baseline_qwen",
+ "kind": "value",
+ "value": 0.28619246861924685,
+ "verdict": "wrong_value",
+ "raw": "SELECT CAST(SUM(CASE WHEN \"AcceptedAnswerId\" IS NOT NULL THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) FROM main.\"posts\" WHERE \"PostTypeId\" = 1 AND \"CreaionDate\" >= TIMESTAMP '2013-12-01' AND \"CreaionDate\" < TIMESTAMP '2014-01-01'",
+ "sql": "SELECT CAST(SUM(CASE WHEN \"AcceptedAnswerId\" IS NOT NULL THEN 1 ELSE 0 END) AS DOUBLE) / COUNT(*) FROM main.\"posts\" WHERE \"PostTypeId\" = 1 AND \"CreaionDate\" >= TIMESTAMP '2013-12-01' AND \"CreaionDate\" < TIMESTAMP '2014-01-01'",
+ "prompt_sha256": "c376874d096d6d012f58a7a93f242efeb7e1a8d4b4834c9ecc10038cb249c0ca",
+ "prompt_chars": 4915,
+ "empty_response": false
+}

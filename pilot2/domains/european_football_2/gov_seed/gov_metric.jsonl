@@ -1,0 +1,14 @@
+{"den_node": null, "domain": "european_football_2", "graph_version": "v1", "kind": "atomic", "metric_id": "ef2.avg_overall_rating", "num_node": "ef2.player_attr"}
+{"den_node": "ef2.match", "domain": "european_football_2", "graph_version": "v1", "kind": "ratio", "metric_id": "ef2.win_rate", "num_node": "ef2.match"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v1", "kind": "atomic", "metric_id": "ef2.pa_month_count", "num_node": "ef2.player_attr"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v1", "kind": "atomic", "metric_id": "ef2.matches_range", "num_node": "ef2.match"}
+{"den_node": "ef2.player_attr", "domain": "european_football_2", "graph_version": "v1", "kind": "ratio", "metric_id": "ef2.rating_weighted_win_rate", "num_node": "ef2.match"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v1", "kind": "atomic", "metric_id": "ef2.team_buildup_speed", "num_node": "ef2.team_attr"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v1", "kind": "atomic", "metric_id": "ef2.goal_sum_month", "num_node": "ef2.match"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v2", "kind": "atomic", "metric_id": "ef2.avg_overall_rating", "num_node": "ef2.player_attr"}
+{"den_node": "ef2.match", "domain": "european_football_2", "graph_version": "v2", "kind": "ratio", "metric_id": "ef2.win_rate", "num_node": "ef2.match"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v2", "kind": "atomic", "metric_id": "ef2.pa_month_count", "num_node": "ef2.player_attr"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v2", "kind": "atomic", "metric_id": "ef2.matches_range", "num_node": "ef2.match"}
+{"den_node": "ef2.player_attr", "domain": "european_football_2", "graph_version": "v2", "kind": "ratio", "metric_id": "ef2.rating_weighted_win_rate", "num_node": "ef2.match"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v2", "kind": "atomic", "metric_id": "ef2.team_buildup_speed", "num_node": "ef2.team_attr"}
+{"den_node": null, "domain": "european_football_2", "graph_version": "v2", "kind": "atomic", "metric_id": "ef2.goal_sum_month", "num_node": "ef2.match"}

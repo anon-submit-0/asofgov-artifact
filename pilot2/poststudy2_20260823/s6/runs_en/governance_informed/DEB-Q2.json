@@ -1,0 +1,12 @@
+{
+ "qid": "DEB-Q2",
+ "system": "governance_informed",
+ "kind": "value",
+ "value": 1166.1530437665776,
+ "verdict": "correct",
+ "raw": "```sql\nSELECT AVG(ym.\"Consumption\") AS monthly_avg_consumption\nFROM main.\"yearmonth\" ym\nJOIN main.\"customers\" c ON ym.\"CustomerID\" = c.\"CustomerID\"\nWHERE c.\"Currency\" = 'EUR'\n  AND ym.\"Date\" = '201308'\n```",
+ "sql": "SELECT AVG(ym.\"Consumption\") AS monthly_avg_consumption\nFROM main.\"yearmonth\" ym\nJOIN main.\"customers\" c ON ym.\"CustomerID\" = c.\"CustomerID\"\nWHERE c.\"Currency\" = 'EUR'\n  AND ym.\"Date\" = '201308'",
+ "prompt_sha256": "13f63cf4480aa99b925e3cd084b72d8f4e7136bc00083ea73875575ae6fc48a5",
+ "prompt_chars": 19986,
+ "empty_response": false
+}

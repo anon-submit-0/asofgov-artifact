@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q3",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "None",
+ "sql": "None",
+ "prompt_sha256": "485f77d6527d89a016bada4195809c1f9f994b420a2ef6ffc53242e4ee5f692f",
+ "prompt_chars": 4086,
+ "empty_response": false
+}

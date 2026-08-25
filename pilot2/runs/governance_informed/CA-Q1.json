@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q1",
+ "system": "governance_informed",
+ "kind": "error",
+ "value": null,
+ "verdict": "execution_error",
+ "raw": "Looking at this problem, I need to determine:\n\n1. **Declaration time point: 2015-05-01** — Which graph version applies? `v1` was committed 2014-09-01, `v2` was committed 2015-07-01. So as of 2015-05-01, `v1` is the active version.\n\n2. **Under v1, the free meal rate metric (`ca.free_meal_rate`)** uses:\n   - Numerator: `sum:Free Meal Count (K-12)` \n   - Denominator: `sum:Enrollment (K-12)`\n\n3. **Temporal binding**: Both num and den use anchor `A-CA-FRPM` with `same_valid_time_window` on `academic_year_token`. The effective_col is `Academic Year`. The as-of date 2015-04-15 falls in academic year 2014-2015.\n\n4. **Scope**: Alameda county, using `County Name` from frpm table.\n\n5. **Granularity**: County level aggregation via `gov_granularity_edge` grouping by `County Name`.\n\n```sql\nSELECT SUM(\"Free Meal Count (K-12)\") / SUM(\"Enrollment (K-12)\") AS free_meal_rate\nFROM main.frpm\nWHERE \"County Name\" = 'Alameda'\n  AND \"Academic Year\" = '2014-15'\n  AND \"Enrollment (K-12)\" > 0;\n```",
+ "sql": "SELECT SUM(\"Free Meal Count (K-12)\") / SUM(\"Enrollment (K-12)\") AS free_meal_rate\nFROM main.frpm\nWHERE \"County Name\" = 'Alameda'\n  AND \"Academic Year\" = '2014-15'\n  AND \"Enrollment (K-12)\" > 0",
+ "prompt_sha256": "69b365f7dd96f4ef51055d49d5f5df2255d341354f058c3b7d54b86fc119ee80",
+ "prompt_chars": 17970,
+ "empty_response": false
+}

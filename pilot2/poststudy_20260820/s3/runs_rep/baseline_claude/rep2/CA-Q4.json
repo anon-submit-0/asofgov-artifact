@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q4",
+ "system": "baseline_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "refused_should_answer",
+ "raw": "```sql\nREFUSE: 给定 schema 中不包含学校有效时间范围或as-of时态查询所需的时间有效性字段\n```",
+ "sql": "REFUSE",
+ "prompt_sha256": "2e241e1f7fec53d3bec31443dedd3502f47a7bb14d644fbe61440ed9fdca9a15",
+ "prompt_chars": 5185,
+ "empty_response": false
+}

@@ -1,0 +1,12 @@
+{
+ "qid": "FIN-Q7",
+ "system": "trivial_claude",
+ "kind": "refuse",
+ "value": null,
+ "verdict": "correct",
+ "raw": "REFUSE: 声明时点 1998-12-15 早于 as-of 目标 1999-06-15，该月窗数据在声明时点尚未发生，无法从过去时点查询未来窗口。",
+ "sql": "REFUSE",
+ "prompt_sha256": "04347ced00087c3fb8ff7fcc9831feccc0e99cab34afcc705fe11d0a639414c8",
+ "prompt_chars": 4183,
+ "empty_response": false
+}

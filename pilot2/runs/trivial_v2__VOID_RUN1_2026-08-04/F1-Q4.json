@@ -1,0 +1,12 @@
+{
+ "qid": "F1-Q4",
+ "system": "trivial_v2",
+ "kind": "value",
+ "value": 119.0,
+ "verdict": "wrong_value",
+ "raw": "```sql\nSELECT SUM(CASE WHEN r.\"year\" = 2010 THEN res.\"points\" ELSE 0 END) - SUM(CASE WHEN r.\"year\" = 2009 THEN res.\"points\" ELSE 0 END) AS points_diff FROM main.\"results\" res JOIN main.\"races\" r ON res.\"raceId\" = r.\"raceId\" JOIN main.\"drivers\" d ON res.\"driverId\" = d.\"driverId\" WHERE d.\"driverRef\" = 'button' AND r.\"year\" IN (2009, 2010);\n```",
+ "sql": "SELECT SUM(CASE WHEN r.\"year\" = 2010 THEN res.\"points\" ELSE 0 END) - SUM(CASE WHEN r.\"year\" = 2009 THEN res.\"points\" ELSE 0 END) AS points_diff FROM main.\"results\" res JOIN main.\"races\" r ON res.\"raceId\" = r.\"raceId\" JOIN main.\"drivers\" d ON res.\"driverId\" = d.\"driverId\" WHERE d.\"driverRef\" = 'button' AND r.\"year\" IN (2009, 2010)",
+ "prompt_sha256": "0656bc67e5247faeeeaa0c6057ebd52496592520493af5022e9fd3fe382b64e8",
+ "prompt_chars": 5734,
+ "empty_response": false
+}

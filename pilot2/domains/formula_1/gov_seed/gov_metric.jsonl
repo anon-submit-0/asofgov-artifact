@@ -1,0 +1,16 @@
+{"den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "atomic", "metric_id": "f1.driver_season_points", "num_node": "f1.results"}
+{"den_node": "f1.results", "domain": "formula_1", "graph_version": "v1", "kind": "ratio", "metric_id": "f1.points_per_entry", "num_node": "f1.results"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "atomic", "metric_id": "f1.entry_count", "num_node": "f1.results"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "atomic", "metric_id": "f1.races_count_month", "num_node": "f1.races"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "atomic", "metric_id": "f1.races_count_range", "num_node": "f1.races"}
+{"base_metric_id": "f1.driver_season_points", "den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "delta", "metric_id": "f1.season_points_delta", "num_node": "f1.results"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "atomic", "metric_id": "f1.official_standing_points", "num_node": "f1.driverStandings"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v1", "kind": "atomic", "metric_id": "f1.avg_lap_ms", "num_node": "f1.lapTimes"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "atomic", "metric_id": "f1.driver_season_points", "num_node": "f1.results"}
+{"den_node": "f1.results", "domain": "formula_1", "graph_version": "v2", "kind": "ratio", "metric_id": "f1.points_per_entry", "num_node": "f1.results"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "atomic", "metric_id": "f1.entry_count", "num_node": "f1.results"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "atomic", "metric_id": "f1.races_count_month", "num_node": "f1.races"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "atomic", "metric_id": "f1.races_count_range", "num_node": "f1.races"}
+{"base_metric_id": "f1.driver_season_points", "den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "delta", "metric_id": "f1.season_points_delta", "num_node": "f1.results"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "atomic", "metric_id": "f1.official_standing_points", "num_node": "f1.driverStandings"}
+{"den_node": null, "domain": "formula_1", "graph_version": "v2", "kind": "atomic", "metric_id": "f1.avg_lap_ms", "num_node": "f1.lapTimes"}

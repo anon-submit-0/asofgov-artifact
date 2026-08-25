@@ -1,0 +1,82 @@
+{
+ "domain": "formula_1",
+ "built_at": "2026-08-04T03:27:22Z",
+ "extraction": "duckdb sqlite scanner ATTACH + CREATE TABLE AS (原值拷贝)",
+ "tables": {
+  "circuits": {
+   "rows": 72,
+   "authored": false
+  },
+  "constructorResults": {
+   "rows": 11082,
+   "authored": false
+  },
+  "constructorStandings": {
+   "rows": 11836,
+   "authored": false
+  },
+  "constructors": {
+   "rows": 208,
+   "authored": false
+  },
+  "driverStandings": {
+   "rows": 31578,
+   "authored": false
+  },
+  "drivers": {
+   "rows": 840,
+   "authored": false
+  },
+  "lapTimes": {
+   "rows": 420369,
+   "authored": false
+  },
+  "pitStops": {
+   "rows": 6070,
+   "authored": false
+  },
+  "qualifying": {
+   "rows": 7397,
+   "authored": false
+  },
+  "races": {
+   "rows": 976,
+   "authored": false
+  },
+  "results": {
+   "rows": 23657,
+   "authored": false
+  },
+  "seasons": {
+   "rows": 68,
+   "authored": false
+  },
+  "status": {
+   "rows": 134,
+   "authored": false
+  },
+  "points_scheme": {
+   "rows": 18,
+   "authored": true
+  }
+ },
+ "authored_rules": "points_scheme: PS2009(前八 10-8-6-5-4-3-2-1)/PS2010(前十 25-18-…-1) 真实历史积分口径的关系原子化; seed=20260731; deterministic via sha1, no RNG state",
+ "source": {
+  "kind": "bird_dev_20240627",
+  "path": "/Users/loctek/bench_data/dev_20240627/dev_databases/formula_1/formula_1.sqlite",
+  "sha256": "17185981cd747f6cdc374cb02a6096db3130e6ec2ddc582fe1686a28fb4c4c8a",
+  "license": "CC BY-SA 4.0 (bird-bench.github.io)"
+ },
+ "gov_seed_rows": {
+  "gov_semantic_graph_version": 2,
+  "gov_semantic_node": 28,
+  "gov_metric": 16,
+  "gov_measure_def": 16,
+  "gov_metric_alias": 16,
+  "gov_caliber_routing": 20,
+  "gov_valid_time_anchor": 2,
+  "gov_temporal_binding": 16,
+  "gov_granularity_edge": 4,
+  "gov_disclosure_policy": 0
+ }
+}

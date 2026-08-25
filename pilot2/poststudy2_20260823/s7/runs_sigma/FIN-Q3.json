@@ -1,0 +1,28 @@
+{
+ "qid": "FIN-Q3",
+ "domain": "financial",
+ "system": "nl2sigma",
+ "model": "claude-opus-4-6",
+ "sigma": {
+  "as_of": "1997-06-30",
+  "declared_at": "1998-09-15",
+  "metric_alias": "罚息交易占比",
+  "scope": {},
+  "pinned_version": null,
+  "cross_window": null,
+  "anchor_override": null,
+  "window_request": null,
+  "requested_granularity": null,
+  "requested_time_gran": null,
+  "presentation": "aggregate",
+  "ctx_role": "external_analyst",
+  "periods": null
+ },
+ "extraction_error": false,
+ "attempts": 1,
+ "raw": [
+  "{\"as_of\": \"1997-06-30\", \"declared_at\": \"1998-09-15\", \"metric_alias\": \"罚息交易占比\", \"scope\": {}, \"pinned_version\": null, \"cross_window\": null, \"anchor_override\": null, \"window_request\": null, \"requested_granularity\": null, \"requested_time_gran\": null, \"presentation\": \"aggregate\", \"ctx_role\": \"external_analyst\", \"periods\": null}"
+ ],
+ "prompt_sha256": "4280a86dfc622360e98be025eee9896dd1c7786c2059f3230cb5299540a0cc64",
+ "prompt_chars": 26379
+}

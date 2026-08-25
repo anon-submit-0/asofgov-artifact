@@ -1,0 +1,12 @@
+{
+ "qid": "CA-Q6",
+ "system": "baseline_minimax",
+ "kind": "error",
+ "value": null,
+ "verdict": "answered_should_refuse",
+ "raw": "```sql\nSELECT \n    CASE \n        WHEN s.\"OpenDate\" IS NULL THEN 'Unknown'\n        WHEN s.\"OpenDate\" < '2010-01-01' THEN 'Before 2010'\n        WHEN s.\"OpenDate\" < '2012-01-01' THEN '2010-2011'\n        WHEN s.\"OpenDate\" < '2014-01-01' THEN '2012-2013'\n        WHEN s.\"OpenDate\" < '2015-09-01' THEN '2014-2015'\n        ELSE 'After 2015-09-01'\n    END AS charter_auth_window,\n    AVG(f.\"Percent (%) Eligible Free (K-12)\") AS avg_free_meal_rate\nFROM main.\"frpm\" f\nLEFT JOIN main.\"schools\" s ON f.\"CDSCode\" = s.\"CDSCode\"\nWHERE f.\"Academic Year\" = '2014-2015'\n  AND (s.\"OpenDate\" IS NULL OR s.\"OpenDate\" <= '2015-09-01')\nGROUP BY charter_auth_window\nORDER BY charter_auth_window\n```",
+ "sql": "SELECT \n    CASE \n        WHEN s.\"OpenDate\" IS NULL THEN 'Unknown'\n        WHEN s.\"OpenDate\" < '2010-01-01' THEN 'Before 2010'\n        WHEN s.\"OpenDate\" < '2012-01-01' THEN '2010-2011'\n        WHEN s.\"OpenDate\" < '2014-01-01' THEN '2012-2013'\n        WHEN s.\"OpenDate\" < '2015-09-01' THEN '2014-2015'\n        ELSE 'After 2015-09-01'\n    END AS charter_auth_window,\n    AVG(f.\"Percent (%) Eligible Free (K-12)\") AS avg_free_meal_rate\nFROM main.\"frpm\" f\nLEFT JOIN main.\"schools\" s ON f.\"CDSCode\" = s.\"CDSCode\"\nWHERE f.\"Academic Year\" = '2014-2015'\n  AND (s.\"OpenDate\" IS NULL OR s.\"OpenDate\" <= '2015-09-01')\nGROUP BY charter_auth_window\nORDER BY charter_auth_window",
+ "prompt_sha256": "183f6a5052cd029940ed4c8cbfc2b1fe85d9e857e530926e00b27d5fbc354483",
+ "prompt_chars": 5187,
+ "empty_response": false
+}
