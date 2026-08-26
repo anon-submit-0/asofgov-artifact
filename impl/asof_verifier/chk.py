@@ -16,7 +16,10 @@ Input signature is strictly (certificate, q, G_v, D):
                   warehouse (the same duckdb file also carries D);
   - D           : the warehouse fact tables (read-only duckdb connection).
 
-Verdict: ACCEPT iff every check in {V0,V1,V2,V3,V4,V5,V6a,V6b,V6c} passes.
+Verdict: ACCEPT iff every check in {V0,V1,V2,V3,V4,V5,V6a,V6b,V6c,V6a+} passes.
+(V6a+ — post-registration structural hardening, PREREG_poststudy3_20260826 —
+lives in v6aplus.py and is reported last so pre-existing first-FAIL
+attributions stay frozen.)
 Reporting: every check is attempted; `rejected_by` is the first FAIL in canonical order.
 
 Anti-certification-loop red lines (C5 Req 5.8, 梁老师意见3):
@@ -52,9 +55,17 @@ import sys
 
 import duckdb
 
+import v6aplus  # verifier-side module (stdlib only; zero compiler imports)
+
 DAY = dt.timedelta(days=1)
 
-CHECK_ORDER = ["V0", "V1", "V2", "V3", "V4", "V5", "V6a", "V6b", "V6c"]
+# V6a+ (PREREG_poststudy3_20260826, sha256 426017ddfd8af8608e452b44175e2158
+# c620c2e8cebe3a17572ee3fe15d7a192 — see v6aplus.py header for the same hash)
+# is appended AFTER V6c so that every pre-existing forgery keeps its frozen
+# first-FAIL attribution (`rejected_by`); the verdict stays the conjunction
+# over ALL checks, so appending strengthens and never weakens the gate.
+CHECK_ORDER = ["V0", "V1", "V2", "V3", "V4", "V5", "V6a", "V6b", "V6c",
+               "V6a+"]
 GUARD_ORDER = ["OOV", "AM", "MC"]  # frozen report order (D2 / C3 note 3.18')
 
 REASONS = {"missing-caliber": "MC", "anchor-mismatch": "AM",
@@ -3433,6 +3444,31 @@ def check_V6a(cx):
                     "lies inside its certified window; ratio form legal")
 
 
+# Frozen window arithmetic handed to the V6a+ module (single source of truth:
+# v6aplus imports nothing back from chk, keeping the import graph acyclic and
+# the arithmetic identical to what V0–V6c already use).
+_V6APLUS_HELPERS = {
+    "DAY": DAY,
+    "parse_day": _parse_day,
+    "token_day_window": token_day_window,
+    "w_eq": w_eq,
+    "w_norm": w_norm,
+    "w_intersect": w_intersect,
+    "w_subset": w_subset,
+    "w_str": w_str,
+    "base_metric": base_metric,
+}
+
+
+def check_V6a_plus(cx):
+    """V6a+ — structural template membership against the registered seeds
+    (PREREG_poststudy3_20260826; implementation in v6aplus.py). Fail-closed:
+    unparseable, non-template, wrong-measure, swapped-leg, wrong-predicate,
+    unequal-window and unregistered-join answers all REJECT with a
+    machine-readable V6P_* reason code in the detail."""
+    return v6aplus.check_v6a_plus(cx, _V6APLUS_HELPERS)
+
+
 def _replay_neg_oov(cx):
     ok, detail = replay_oov(cx.gv, cx.guard_roles())
     if ok is None:
@@ -3895,7 +3931,7 @@ def verify(cert_obj, q, con, ctx=None, allow_declared_windows=True):
     checks = []
     fns = {"V0": check_V0, "V1": check_V1, "V2": check_V2, "V3": check_V3,
            "V4": check_V4, "V5": check_V5, "V6a": check_V6a, "V6b": check_V6b,
-           "V6c": check_V6c}
+           "V6c": check_V6c, "V6a+": check_V6a_plus}
     for cid in CHECK_ORDER:
         try:
             status, detail = fns[cid](cx)

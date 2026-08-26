@@ -35,9 +35,9 @@ $=\bot_{\AM}\iff$(c), $=\bot_{\MC}\iff$(d).
 
 \noindent\looseness=-1 Proof in~\cite{asofgov-tr}: disjointness follows from the guard
 chain and obligations (b1)--(b4) of Definition~\ref{def:bindable};
-exhaustiveness uses Proposition~\ref{prop:decidable}, whose proof does not use
-this theorem, to make each guard two-valued on its domain, and the
-vacuity convention of Definition~\ref{def:oov} to keep a missing object out of
+exhaustiveness uses Proposition~\ref{prop:decidable} (whose proof does not
+use this theorem) and Definition~\ref{def:oov}'s vacuity convention,
+keeping a missing object out of
 the temporal door. Figure~\ref{fig:partition} walks one request into
 each of the four outcomes on a single store.
 % The four-case walk that used to be prose here is Figure~\ref{fig:partition},
@@ -60,10 +60,10 @@ window coordinates differ.}
 store: only the coordinates move, so each row leaves the chain in a different
 column. (b) and (d) are the $\OOV$/$\MC$(ii) boundary --- one metric, one
 empty same-month denominator, two classes --- because $\Cov$ is the hull of
-the \emph{anchor's} table: 2017-02 lies inside it, 2021-06 after it. (c)~is
+the \emph{anchor's} table: 2017-02 lies inside, 2021-06 after. (c)~is
 what a refusal buys: the $6400\%$ its cross-window binding would report
-against the $40.2\%$ the same-window rule delivers in (a). (a) and (d) are
-suite questions with verifier-accepted certificates; (b) and (c) are probes on
+against the $40.2\%$ the same-window rule delivers in (a). (a)/(d) are
+suite questions with verifier-accepted certificates; (b)/(c) probes on
 the same store, and say so.}
 \label{fig:partition}
 \end{figure}

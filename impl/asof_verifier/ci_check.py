@@ -189,6 +189,22 @@ def main():
             failures.append("A2: %s manipulates sys.path toward a compiler dir: %s"
                             % (os.path.relpath(f, ROOT), " | ".join(hit)))
 
+    # A5 (V6a+ hardening, PREREG_poststudy3_20260826): the structural check
+    #     module must exist on the verifier side and be imported by chk.py —
+    #     so the red line (stdlib+duckdb only, zero compiler imports) provably
+    #     covers it via A1/A2 above, and removing it cannot silently weaken
+    #     the gate.
+    v6ap = os.path.join(VERIFIER_DIR, "v6aplus.py")
+    if not os.path.isfile(v6ap):
+        failures.append("A5: v6aplus.py (V6a+ structural check) missing from "
+                        "the verifier side")
+    else:
+        chk_path = os.path.join(VERIFIER_DIR, "chk.py")
+        chk_roots = v["files"].get(chk_path) or []
+        if "v6aplus" not in chk_roots:
+            failures.append("A5: chk.py does not import v6aplus — the V6a+ "
+                            "gate is not wired into the verdict")
+
     # A3: project-internal import roots of the two sides must be disjoint;
     #     additionally neither side may import a module whose NAME belongs to
     #     the other side (shared-module exclusion).

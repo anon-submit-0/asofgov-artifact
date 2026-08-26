@@ -1,0 +1,55 @@
+{
+  "ok": true,
+  "verifier_files": [
+    "impl/asof_verifier/chk.py",
+    "impl/asof_verifier/ci_check.py",
+    "impl/asof_verifier/forge_p2.py",
+    "impl/asof_verifier/runall.py",
+    "impl/asof_verifier/v6aplus.py",
+    "impl/asof_verifier/forge_v6aplus.py"
+  ],
+  "verifier_import_roots": [
+    "__future__",
+    "argparse",
+    "ast",
+    "chk",
+    "copy",
+    "datetime",
+    "duckdb",
+    "hashlib",
+    "json",
+    "os",
+    "re",
+    "sys",
+    "v6aplus"
+  ],
+  "compiler_files": [
+    "impl/asof_compiler/__init__.py",
+    "impl/asof_compiler/acceptance_pilot2.py",
+    "impl/asof_compiler/adapters.py",
+    "impl/asof_compiler/adapters_pilot2.py",
+    "impl/asof_compiler/certificate.py",
+    "impl/asof_compiler/core.py"
+  ],
+  "compiler_import_roots": [
+    ".",
+    "__future__",
+    "argparse",
+    "asof_compiler",
+    "calendar",
+    "dataclasses",
+    "datetime",
+    "duckdb",
+    "hashlib",
+    "json",
+    "pathlib",
+    "re",
+    "sys",
+    "typing"
+  ],
+  "compiler_side_present": true,
+  "shared_internal_roots": [],
+  "whitelist": "stdlib ∪ {duckdb}",
+  "failures": [],
+  "notes": []
+}

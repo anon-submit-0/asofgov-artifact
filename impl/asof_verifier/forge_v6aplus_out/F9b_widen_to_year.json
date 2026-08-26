@@ -1,0 +1,138 @@
+{
+ "base_qid": "FIN-Q4",
+ "expected_reject_by": "V6a",
+ "envelope": {
+  "sql": "SELECT (SELECT COUNT(*) FROM \"loan\" t0 WHERE substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '1997-01-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '1998-01-01')",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "FIN-Q4",
+    "domain": "financial",
+    "metric": "fin.loan_count_month",
+    "metric_kind": "atomic",
+    "as_of": "1997-05-15"
+   },
+   "graph_pin": {
+    "domain": "financial",
+    "graph_version": "v2",
+    "commit_id": "1998-03-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "atom",
+     "anchor_id": "A-FIN-LOAN",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "month",
+      "lo": "1997-05-01",
+      "hi_excl": "1997-06-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-FIN-LCM",
+    "rule": "same_valid_time_window",
+    "numerator_anchor": null,
+    "denominator_anchor": null,
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [],
+   "disclosure": {
+    "decision": "ANSWER",
+    "policy_ids": [],
+    "policy_table_present": false,
+    "ungoverned_disclosure": true,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-FIN-LOAN",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"loan\" t WHERE t.\"date\" IS NOT NULL",
+     "observed": [
+      "1993-07-05",
+      "1998-12-08"
+     ]
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6a",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (1 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v2' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "1 α entr(ies) exist@v2 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "atomic metric: cited registry row 'B-FIN-LCM' governs the metric; svw replay vacuous (no two legs)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (0 edge(s)) replayed against gov_caliber_routing@v2"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "ungoverned-disclosure domain: Π=∅, dec=ANSWER, annotation present"
+   },
+   {
+    "check": "V6a",
+    "status": "FAIL",
+    "detail": "block on 'loan': time predicate denotation [1997-01-01, 1998-01-01) ⊄ certified window [1997-05-01, 1997-06-01) (role atom)"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   },
+   {
+    "check": "V6a+",
+    "status": "FAIL",
+    "detail": "V6P_WINDOW: time predicate denotation [1997-01-01, 1998-01-01) != certified role window [1997-05-01, 1997-06-01)"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "registered-binding(atom leg)"
+  }
+ }
+}

@@ -1,0 +1,135 @@
+{
+ "base_qid": "CA-Q3",
+ "expected_reject_by": "V6a",
+ "envelope": {
+  "sql": "SELECT (SELECT COUNT(*) FROM \"schools\" t0 WHERE substr(CAST(t0.\"OpenDate\" AS VARCHAR),1,10) <= '2014-12-31' AND (t0.\"ClosedDate\" IS NULL OR substr(CAST(t0.\"ClosedDate\" AS VARCHAR),1,10) > '2015-01-01'))",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "CA-Q3",
+    "domain": "california_schools",
+    "metric": "ca.schools_in_effect",
+    "metric_kind": "atomic",
+    "as_of": "2015-01-01"
+   },
+   "graph_pin": {
+    "domain": "california_schools",
+    "graph_version": "v1",
+    "commit_id": "2014-09-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "atom",
+     "anchor_id": "A-CA-SCD",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "point",
+      "lo": "2015-01-01",
+      "hi_excl": "2015-01-02"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-CA-SIE",
+    "rule": "point_in_effect",
+    "numerator_anchor": null,
+    "denominator_anchor": null,
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [],
+   "disclosure": {
+    "decision": "ANSWER",
+    "policy_ids": [],
+    "policy_table_present": true,
+    "ungoverned_disclosure": false,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-CA-SCD",
+     "coverage_mode": "hull",
+     "sql": "SELECT COUNT(*) FROM \"schools\" t WHERE substr(CAST(t.\"OpenDate\" AS VARCHAR),1,10) <= '2015-01-01' AND (t.\"ClosedDate\" IS NULL OR substr(CAST(t.\"ClosedDate\" AS VARCHAR),1,10) > '2015-01-01')",
+     "observed": 10629
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6a",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (1 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v1' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "1 α entr(ies) exist@v1 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "atomic metric: cited registry row 'B-CA-SIE' governs the metric; svw replay vacuous (no two legs)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (0 edge(s)) replayed against gov_caliber_routing@v1"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "governed disclosure (p2) replayed: Π=[]; k/lattice, mask and time-floor clauses re-established from (G_v, D)"
+   },
+   {
+    "check": "V6a",
+    "status": "FAIL",
+    "detail": "block on 'schools': SCD-2 in-effect predicate not replayed (missing `opendate <= DATE '2015-01-01'`; role atom)"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   },
+   {
+    "check": "V6a+",
+    "status": "FAIL",
+    "detail": "V6P_WINDOW: in-effect lower bound `opendate <= '2015-01-01'` not replayed"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "registered-binding(atom leg)"
+  }
+ }
+}

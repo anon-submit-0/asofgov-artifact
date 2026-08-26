@@ -54,6 +54,11 @@ ROOT = os.path.dirname(PAPER)
 S = json.load(open(os.path.join(ROOT, "pilot2", "pilot2_summary.json")))
 A = json.load(open(os.path.join(ROOT, "pilot2", "pilot2_arms_summary.json")))
 COST = json.load(open(os.path.join(ROOT, "impl", "cost_p2.json")))
+# (2026-08-26) poststudy3 verifier-hardening summary (V6a+); sha-gated in the
+# poststudy3 block below, loaded here so the E5 forgery-count assertions can
+# derive every grown total from it instead of typing one.
+V6P = json.load(open(os.path.join(ROOT, "pilot2", "poststudy3_20260826",
+                                  "results", "v6aplus_summary.json")))
 
 
 def rawfile(rel):
@@ -396,10 +401,16 @@ ck("empty-completion sensitivity is 13/35=0.371 (numerator unmoved)",
    (len(_elim_ne), len(_errs_ne)) == (13, 35)
    and f"{len(_elim_ne)/len(_errs_ne):.3f}" == "0.371",
    (len(_elim_ne), len(_errs_ne)))
-ck("denominator clause printed, and still under the line",
-   "does not itself enter the rule" in EVAL
-   and r"$13/35=0.371$ without the reference arm's empty completion" in EVAL
-   and "the case is unchanged" in EVAL, "missing")
+# (2026-08-26, M2 honest-uncertainty pass) RELOCATED TO TR per protocol:
+# the in-body sensitivity clause ("does not itself enter the rule",
+# "$13/35=0.371$ ...", "the case is unchanged") moved to the TR's
+# item-by-item ledger, which prints the full clause.  The 13/35=0.371
+# VALUE above still re-derives and must stay true; the body keeps the
+# overshoot NAMED inside the ledger sentence plus the TR pointer,
+# asserted here instead.
+ck("denominator overshoot named in the ledger sentence (full clause: TR)",
+   "the denominator's own overshoot" in EVAL
+   and r"accounted item by item in~\cite{asofgov-tr}" in EVAL, "missing")
 ck("protocol-scoped wording", r"\textbf{under this protocol}" in EVAL
    and "512-token" in EVAL, "missing")
 for f_ in ("main.tex", "01-intro.tex", "10-conclusion.tex"):
@@ -502,8 +513,11 @@ ck("policy/registry residual count is the printed four",
    d3 + (len(MD5) - m5) == 4
    and "the four policy/registry residuals are not probe-decidable" in EVAL,
    d3 + (len(MD5) - m5))
-ck("abstract and S9 carry the probe-oracle ceiling",
-   r"at most $0.472$" in MAIN and "probe-oracle ceiling" in CONCL, "missing")
+# (2026-08-26, M2) The ABSTRACT's copy of the probe-oracle ceiling moved
+# out under the ~210-word compression; E3's arithmetic (asserted above)
+# and S9's sentence remain, and the abstract must stay clean of remnants.
+ck("S9 carries the probe-oracle ceiling; abstract no longer prints it",
+   "probe-oracle ceiling" in CONCL and "0.472" not in MAIN, "missing")
 
 # (2026-08-23, R3-1-4) The ceiling above credits only the probe-decidable
 # refusal residuals; an execution-feedback loop would also recover the
@@ -537,9 +551,10 @@ ck("extended-ceiling sentence printed in E3 with all its numbers",
    "further crediting all nine execution-error residuals" in EVAL
    and "seven among the 36, two regressions" in EVAL
    and r"leaves $13/60$" in EVAL and r"$24/36=0.667$" in EVAL, "missing")
-ck("abstract and S9 carry the extended ceiling, consistently worded",
-   r"to at most $0.667$" in MAIN
-   and r"bounds the recoverable share at $0.667$" in CONCL, "missing")
+# (2026-08-26, M2) same relocation as the probe-oracle ceiling above.
+ck("S9 carries the extended ceiling; abstract no longer prints it",
+   r"bounds the recoverable share at $0.667$" in CONCL
+   and "0.667" not in MAIN, "missing")
 
 FLIP8 = ["CA-Q1", "CA-Q2", "FIN-Q1", "FIN-Q2", "F1-Q1", "F1-Q2",
          "W1-Q1", "W1-Q2"]           # RC-8 pairs, ACCEPTANCE_REPORT S5
@@ -626,8 +641,10 @@ for arm in pred:
 ck("case-(iii) denominator (36) overshot its own frozen point prediction (25)",
    (errors(BACKBONE), pred[BACKBONE][0]) == (36, 25),
    (errors(BACKBONE), pred.get(BACKBONE)))
-ck("the denominator's own miss is printed beside the ratio",
-   r"$36$ against a frozen point of $25$" in EVAL, "missing")
+# (2026-08-26, M2) the "$36$ against a frozen point of $25$" literal moved
+# to the TR ledger with the rest of the sensitivity clause; the VALUE ck
+# above still scores 36 vs 25 from the frozen PREREG, and the compressed
+# overshoot clause is asserted at the M6 site above.
 above_point = sum(1 for a, (pt, lo, hi) in pred.items() if EC[a] > pt)
 above_hi = sum(1 for a, (pt, lo, hi) in pred.items() if EC[a] > hi)
 inside = sorted(a for a, (pt, lo, hi) in pred.items() if lo <= EC[a] <= hi)
@@ -635,10 +652,17 @@ ck("all 8 observed error counts exceed their point predictions",
    len(pred) == 8 and above_point == 8, (len(pred), above_point))
 ck("7 of 8 exceed the 80% upper end; trivial_claude alone inside",
    above_hi == 7 and inside == ["trivial_claude"], (above_hi, inside))
-ck("prediction sentence printed",
+# (2026-08-26, M2 second pass) The accounting paragraph moved to the TR in
+# full; the body keeps the optimism tally and the ledger pointer inside the
+# case-(iii) verdict paragraph.  The sharpest-miss literal (14 [8--22] ->
+# 28) and the elimination miss's point pair (0.55 -> 0.361) are TR-side
+# now; both stay DERIVED and SCORED here (above/below) so the values
+# cannot drift while relocated.
+ck("prediction-optimism sentence printed with the TR ledger pointer",
    "all 8 observed error counts exceed their point predictions and 7 of 8"
-   in EVAL and "predicted 14 [8--22], observed 28" in EVAL
-   and "predicted 0.55, observed 0.361" in EVAL, "missing")
+   in EVAL
+   and r"the miss ledger is accounted item by item in~\cite{asofgov-tr}"
+   in EVAL, "missing")
 
 # (2026-08-10, M4) "Prediction accounting, in full" was NOT full: PREREG S5.2
 # freezes two more governance-arm predictions besides elim_gov and the probe
@@ -661,9 +685,11 @@ if m:
     ck("correct_refusals observed 5 falls BELOW its frozen 80% interval",
        (cr_pt, cr_lo, cr_hi, cr_obs) == (9, 6, 12, 5) and cr_obs < cr_lo,
        (cr_pt, cr_lo, cr_hi, cr_obs))
-    ck("correct-refusal miss printed with its frozen interval",
-       f"${cr_pt}/{cr_den}$ [{cr_lo}--{cr_hi}] predicted, {cr_obs} observed"
-       in EVAL and r"miss \emph{below} their interval" in EVAL, "missing")
+    # (2026-08-26, M2; deepened same day) the correct-refusal miss moved
+    # to the TR's item-by-item ledger with the rest of the accounting
+    # paragraph; it stays parsed and SCORED from the frozen PREREG above
+    # (below-interval asserted on values), and the body's ledger pointer
+    # is asserted at the optimism-sentence ck.
 m = re.search(r"`over_refusals`\s*由素基线的\s*~(\d+)/(\d+)\s*升至\s*~(\d+)/(\d+)，"
               r"\s*区间\s*(\d+)[–-](\d+)）", PREREG_RAW)
 ck("PREREG S5.2 over_refusals prediction parses", m is not None, "row not found")
@@ -675,9 +701,8 @@ if m:
     ck("over_refusals observed 1 sits AT its frozen interval floor",
        (or_pt, or_lo, or_hi, or_obs) == (4, 1, 9, 1) and or_obs == or_lo,
        (or_pt, or_lo, or_hi, or_obs))
-    ck("over-refusal floor printed with its frozen interval",
-       f"[{or_lo}--{or_hi}], {or_obs})" in EVAL
-       and r"over-refusals sit at its floor" in EVAL, "missing")
+    # (2026-08-26, M2; deepened same day) same relocation as the
+    # correct-refusal miss: TR-side, values still scored above.
 # the two S5.2 predictions the paragraph already carried, re-parsed from source
 m = re.search(r"`elim_gov`\s*点\s*\*\*([\d.]+)\*\*（区间\s*([\d.]+)[–-]([\d.]+)）",
               PREREG_RAW)
@@ -695,16 +720,30 @@ if m:
     _lo, _hi = float(m.group(2)), float(m.group(3))
     ck("elim's frozen interval really straddles the 0.40 line",
        _lo < 0.40 < _hi, (_lo, _hi))
-    ck("abstract reports elim beside its frozen interval, with the straddle",
-       f"[{m.group(2)}, {m.group(3)}]" in MAIN
-       and "straddles that $40\%$ line" in MAIN,
-       "abstract lost the elim interval or the straddle wording")
+    # (2026-08-26, M2 honest-uncertainty pass; deepened same day)
+    # RELOCATED: the abstract now prints the frozen-run verdict + five-rep
+    # span + paired nine-cluster CI (asserted in the M2 block below, all
+    # derived from the s3/s4 summary JSONs); the frozen [0.35,0.75]
+    # interval literal moved to the TR ledger with the accounting
+    # paragraph, and the body NAMES it ("the elimination miss's frozen
+    # interval") next to the ledger pointer.  The straddle VALUE stays
+    # re-derived just above; nothing numeric weakens.
+    ck("the frozen elim interval is named beside the TR ledger pointer",
+       "the elimination miss's frozen interval" in EVAL,
+       "the ledger sentence lost the named interval")
 m = re.search(r"答错\s*≥(\d+)/(\d+)\*\*（区间\s*(\d+)[–-](\d+)）", PREREG_RAW)
 ck("PREREG S5.2 probe-set prediction parses as >=3/7 [3-6]",
    m is not None and tuple(int(x) for x in m.groups()) == (3, 7, 3, 6),
    m.groups() if m else "row not found")
-ck("all four S5.2 governance-arm predictions are now accounted for in prose",
-   "Prediction accounting, in full" in EVAL, "the paragraph lost its title")
+# (2026-08-26, M2; deepened same day) the accounting paragraph relocated
+# to the TR in full; all four S5.2 predictions still parsed + scored
+# above, and the body's case-(iii) paragraph carries the optimism tally,
+# the ledger pointer, and names both TR-side items (frozen interval,
+# denominator overshoot) -- asserted at their own cks.
+ck("the miss ledger is pointed at from the case-(iii) paragraph",
+   r"accounted item by item in~\cite{asofgov-tr}" in EVAL
+   and "the elimination miss's frozen interval" in EVAL,
+   "the ledger pointer or its named items are gone")
 
 # trivial_v2 void disclosure (both runs)
 ck("trivial_v2 void disclosed with both runs",
@@ -752,12 +791,118 @@ for pat, why in ((r"accepts \$60/60\$", "verifier acceptance"),
 # and the self-declared clause-(iv) replay variant.  Battery grows 30 -> 34
 # over 10 -> 11 bases (CARD-Q2 joins: no prior base was an ANSWER on a
 # distinct-anchor ratio pair, which the fabricated-refusal forgery requires).
-ck("family sizes sum to 34", 6 + 5 + 9 + 10 + 4 == 34)
+# (2026-08-26, poststudy3 / PREREG sha 426017dd...) The corpus grows again:
+# an external review exhibited V6a-accepted mutations, and the hardened
+# V6a+ ships with 5 pinned reproduction mutations + 31 new F6-F10 forgeries
+# on top of the 34.  Every grown total below DERIVES from the poststudy3
+# summary JSON (V6P, sha-gated in the poststudy3 block); the pre-registered
+# battery's own strings stay asserted above, so nothing is weakened -- the
+# totals are extended.
+F15_TOT = V6P["old_forgeries_f1_f5"]["total"]
+NEW_TOT = V6P["new_forgeries_f6_f10"]["total"]
+PIN_TOT = V6P["pinned_regressions"]["total"]
+TOT_FORGE = F15_TOT + NEW_TOT + PIN_TOT
+POST_TOT = NEW_TOT + PIN_TOT
+ck("forgery grand total derives as 34+31+5=70, post-registered share 36",
+   (F15_TOT, NEW_TOT, PIN_TOT, TOT_FORGE, POST_TOT) == (34, 31, 5, 70, 36),
+   (F15_TOT, NEW_TOT, PIN_TOT))
+ck("family sizes sum to the pre-registered 34",
+   6 + 5 + 9 + 10 + 4 == F15_TOT == 34)
+ck("old F1-F5 corpus still fully rejects with frozen attribution kept",
+   V6P["old_forgeries_f1_f5"]["reject"] == F15_TOT
+   and V6P["old_forgeries_f1_f5"]["frozen_attribution_kept"] == F15_TOT
+   and V6P["old_forgeries_f1_f5"]["bases_accept"] == "11/11"
+   and V6P["old_forgeries_f1_f5"]["by_family"]
+   == {"F1": 6, "F2": 5, "F3": 9, "F4": 10, "F5": 4},
+   V6P["old_forgeries_f1_f5"])
 ck("forgery total consistent across intro/abstract/rewrite/conclusion",
-   r"rejects $34/34$ forgeries" in PROSE["01-intro.tex"]
-   and "34 of 34 forgeries" in MAIN
-   and "10 of the 34 forgeries" in REWRITE
-   and "11 bases and 34 forgeries" in PROSE["10-conclusion.tex"], "drift")
+   rf"rejects ${TOT_FORGE}/{TOT_FORGE}$ forgeries" in PROSE["01-intro.tex"]
+   and f"{TOT_FORGE} of {TOT_FORGE} forgeries" in MAIN
+   and f"10 of the {F15_TOT} pre-registered forgeries" in REWRITE
+   and f"11 bases and {F15_TOT} forgeries plus the post-registered V6a+"
+   in PROSE["10-conclusion.tex"], "drift")
+ck("intro and E-takeaway carry the post-registered share",
+   f"{POST_TOT} of them post-registered" in PROSE["01-intro.tex"]
+   and (f"rejects all {TOT_FORGE} forgeries, {POST_TOT} of them "
+        "post-registered") in EVAL, "missing")
+ck("E5 announces the 70-forgery corpus with its split",
+   f"{TOT_FORGE} forged certificates in all" in EVAL
+   and f"{F15_TOT} pre-registered with the suite" in EVAL
+   and f"{POST_TOT} post-registered with the V6a+ hardening" in EVAL,
+   "missing")
+per_fam3 = {k: v["total"] for k, v in
+            V6P["new_forgeries_f6_f10"]["families"].items()}
+ck("F6-F10 family sizes derive and sum to 31, each fully rejected+asserted",
+   per_fam3 == {"F6": 6, "F7": 5, "F8": 8, "F9": 6, "F10": 6}
+   and sum(per_fam3.values()) == NEW_TOT
+   and all(v["rejected"] == v["total"] == v["asserted_ok"] for v in
+           V6P["new_forgeries_f6_f10"]["families"].values()), per_fam3)
+for _fam, _label in (("F6", "F6 wrong aggregate"), ("F7", "F7 leg swap"),
+                     ("F8", "F8 wrong/absent predicate"),
+                     ("F9", "F9 narrowed/widened window"),
+                     ("F10", "F10 constant/multi-row")):
+    ck(f"E5 prints {_fam} with its derived count",
+       f"{_label} ({per_fam3[_fam]})" in EVAL, per_fam3[_fam])
+NEW_BASES = sorted({b for v in V6P["new_forgeries_f6_f10"]["families"].values()
+                    for b in v["bases"]})
+ck("F6-F10 distinct bases recompute to 22, all in the frozen suite, all "
+   "accepted", len(NEW_BASES) == 22
+   and V6P["new_forgeries_f6_f10"]["bases_accept"] == "22/22"
+   and all(b in qs for b in NEW_BASES), (len(NEW_BASES), NEW_BASES[:6]))
+ck("E5 prints the 22-base coverage and the 31/31 rejection",
+   f"over {len(NEW_BASES)} accepted bases" in EVAL
+   and rf"reject ${NEW_TOT}/{NEW_TOT}$" in EVAL, "missing")
+ck("the 5 reproduction mutations reject, each on its pinned reason code",
+   V6P["pinned_regressions"]["reject"] == PIN_TOT == 5
+   and V6P["pinned_regressions"]["with_pinned_reason_code"] == 5
+   and sorted(r["reason_code"] for r in V6P["pinned_regressions"]["rows"])
+   == ["V6P_LEG_ROLE", "V6P_MEASURE", "V6P_PARSE", "V6P_SHAPE",
+       "V6P_WINDOW"], V6P["pinned_regressions"])
+ck("E5 prints the pinned-regression sentence",
+   f"the {PIN_TOT} reproduction mutations" in EVAL
+   and "pinned reason code" in EVAL, "missing")
+ck("genuine 60 accept under V6a+; PASS/SKIP = answer+rewrite / refusal",
+   V6P["genuine60"]["total"] == 60 and V6P["genuine60"]["accept"] == 60
+   and V6P["genuine60"]["reject"] == 0
+   and V6P["genuine60"]["v6aplus_status"]["PASS"]
+   == kinds["value"] + kinds["rewrite"] == 45
+   and V6P["genuine60"]["v6aplus_status"]["SKIP"] == kinds["refusal"] == 15,
+   V6P["genuine60"])
+ck("all four poststudy3 predictions hold with no misses",
+   V6P["all_predictions_hold"]
+   and all(V6P["predictions"][p]["holds"]
+           and V6P["predictions"][p]["misses"] == []
+           for p in ("P1", "P2", "P3", "P4")), V6P["predictions"])
+ck("E5 prints attribution persistence, invariance and the outcome",
+   "keep every frozen" in EVAL
+   and "per-question verdicts identical" in EVAL
+   and "All four frozen predictions held" in EVAL
+   and rf"total is ${TOT_FORGE}/{TOT_FORGE}$ rejected" in EVAL, "missing")
+ck("E5 discloses the review-found gap in one sentence",
+   "An external review (2026-08) exhibited what this battery had not probed"
+   in EVAL
+   and ("V6a accepted wrong-aggregate, swapped-leg, constant-output and "
+        "narrowed-window mutations") in EVAL, "missing")
+# ---- S5: the check definition and the soundness rescope (Def 5.3 / 5.2(b)).
+# NOT added to PROSE (the per-file headline loops would wrongly demand eval
+# numbers there); read directly, like sections/05-rewrite.tex.
+CERT = tex("sections/06-certificates.tex")
+ck("S5 defines V6a+ as the eleventh check with the five structural faces",
+   "conjunction of the eleven checks" in CERT and "V6a+" in CERT
+   and "template membership for" in CERT
+   and "implementing its registered" in CERT
+   and "window equality" in CERT
+   and "registered routing keys" in CERT
+   and "fail-closed" in CERT, "missing")
+ck("S5 rescopes Def 5.3 and (A-tmpl) onto V6a+",
+   "V6a+ decides full membership" in CERT
+   and "V6a+'s structural validation implies" in CERT, "missing")
+# (2026-08-26, page pass) the four-mutation enumeration lives at the E5
+# battery (asserted above); S5 keeps the provenance pointer -- review,
+# date, and that the ORIGINAL V6a accepted the mutations.
+ck("S5 carries the gap disclosure pointer with review provenance",
+   "an external review (2026-08)" in CERT
+   and "the original V6a accepted" in CERT, "missing")
 
 # disclosure-gate first instances
 ck("disclosure instances printed",
@@ -1593,6 +1738,142 @@ ck("threats print the NL->sigma measurement, JSON-derived, TR-cited",
    f"${S7J['end_to_end_error']}/60$~\\cite{{asofgov-tr}}" in EVAL
    and "recovering $\\sigma$ is not where the difficulty lives" in EVAL,
    "missing")
+# (2026-08-26, D-visibility) The E-takeaway promotes the same hybrid; its
+# count derives from the same S7 summary so the two copies cannot drift.
+ck("E-takeaway promotes the NL->sigma hybrid with the derived count",
+   f"NL-to-$\\sigma$ hybrid errs ${S7J['end_to_end_error']}/60$" in EVAL,
+   "missing")
+
+# =========================================================== poststudy3 block
+# (2026-08-26, verifier hardening V6a+) One post-registered study shipped in
+# pilot2/poststudy3_20260826/ under PREREG_poststudy3_20260826.md (sha256
+# asserted below, on-disk bytes, not a quoted constant): the response to an
+# external review that exhibited V6a-accepted mutations of a genuine
+# certificate.  Every forgery-count and V6a+ assertion above derives from
+# the study's summary JSON (V6P, loaded at the top); this block pins the
+# provenance chain -- PREREG bytes, FREEZE record, the summary's own sha
+# citation, and the hardened verifier files the summary certifies, hashed
+# on disk against the recorded values so the shipped code cannot drift from
+# the study that validated it.
+PS3 = os.path.join(ROOT, "pilot2", "poststudy3_20260826")
+PREREG_PS3_SHA = ("426017ddfd8af8608e452b44175e2158"
+                  "c620c2e8cebe3a17572ee3fe15d7a192")
+_ps3_sha = hashlib.sha256(open(os.path.join(
+    PS3, "PREREG_poststudy3_20260826.md"), "rb").read()).hexdigest()
+ck("poststudy3 PREREG on disk hashes to its frozen sha256",
+   _ps3_sha == PREREG_PS3_SHA, _ps3_sha)
+ck("poststudy3 FREEZE file records that same sha256",
+   PREREG_PS3_SHA in open(os.path.join(PS3, "FREEZE_poststudy3.sha256"),
+                          encoding="utf-8").read(), "FREEZE drift")
+ck("v6aplus summary pins the poststudy3 PREREG sha",
+   V6P["prereg"]["sha256"] == PREREG_PS3_SHA, V6P["prereg"]["sha256"])
+for _fn, _want in sorted(V6P["verifier"]["files"].items()):
+    _got = hashlib.sha256(open(os.path.join(
+        ROOT, "impl", "asof_verifier", _fn), "rb").read()).hexdigest()
+    ck(f"shipped verifier file {_fn} hashes to the study-recorded sha256",
+       _got == _want, _got)
+ck("the summary certifies exactly the four hardening-relevant files",
+   set(V6P["verifier"]["files"])
+   == {"chk.py", "v6aplus.py", "forge_v6aplus.py", "ci_check.py"},
+   sorted(V6P["verifier"]["files"]))
+
+# ========================================================== M2 block
+# (2026-08-26, M2 honest uncertainty) The elimination verdict now prints,
+# in the abstract, at the E3 case-(iii) verdict, and in S9, the frozen-run
+# scope beside the five-repetition span and the paired nine-cluster CI.
+# Every printed number derives here from the s3/s4 summary JSONs; the span
+# is cross-derived from S3J's per-rep eliminations and S4J's restatement,
+# and rep 1 is re-anchored to the same elim_gov this file derives from the
+# frozen verdict matrix.
+ER = S4J["elimination_restatement"]
+_fr5 = [S3J["elimination_governance_informed"]["per_rep"][r]
+        ["eliminated_frac"] for r in "12345"]
+ck("five-rep elimination fractions agree across S3 and S4; rep1 = 13/36",
+   [ER["per_rep"][r]["eliminated_frac"] for r in "12345"] == _fr5
+   and abs(_fr5[0] - elim_gov / 36) < 1e-12
+   and ER["reasserted_equal_to_frozen_s3_summary"], _fr5)
+SPAN_LO3, SPAN_HI3 = f"{min(_fr5):.3f}", f"{max(_fr5):.3f}"
+ck("the span is 0.361-0.417, in the prereg band, straddling the 0.40 line",
+   (SPAN_LO3, SPAN_HI3) == ("0.361", "0.417")
+   and ER["prereg_line"] == 0.40 and ER["range_straddles_line"]
+   and min(_fr5) < ER["prereg_line"] < max(_fr5)
+   and ER["all_in_band"] and S4J["predictions"]["S4-P3"]["met"],
+   (SPAN_LO3, SPAN_HI3))
+_ci9 = S4J["paired_differences"]["governance_informed"]["ci95_percentile"]
+CI_STR = f"[{_ci9[0]:.2f},{_ci9[1]:.2f}]"
+ck("the paired nine-cluster CI formats as [-0.05,0.30] and includes zero",
+   CI_STR == "[-0.05,0.30]" and _ci9[0] < 0 < _ci9[1]
+   and not S4J["paired_differences"]["governance_informed"]
+   ["ci_excludes_zero"], CI_STR)
+ck("abstract prints the frozen-run verdict with span and CI",
+   ("the frozen run does not cross the pre-registered $40\\%$ elimination "
+    "line") in MAIN
+   and f"five repetitions span {SPAN_LO3}--{SPAN_HI3}" in MAIN
+   and f"${CI_STR}$" in MAIN, "abstract lost the M2 form")
+ck("E3 case-(iii) verdict carries the span and CI, TR-cited",
+   f"elimination spans ${SPAN_LO3}$--${SPAN_HI3}$" in EVAL
+   and "straddling the $0.40$ line" in EVAL
+   and f"${CI_STR}$" in EVAL
+   and "ordering stable in all five" in EVAL, "missing")
+ck("the all-five ordering claim is S3's ordering check, re-asserted",
+   S3J["ordering_check"]["all_reps_pass"]
+   and all(S3J["ordering_check"]["per_rep"][r]["baseline_gt_governance"]
+           for r in "12345"), "ordering broke")
+ck("E3 claim wording is frozen-run-scoped",
+   "the frozen run does not substantially eliminate the" in EVAL, "missing")
+# (the span+CI print in the abstract and at the E3 verdict; S9 keeps the
+# frozen-run scope with the line's-edge pointer, funding the page budget)
+ck("S9 scopes the verdict to the frozen run, pointing at the E3 numbers",
+   "the frozen run yields no substantial elimination" in CONCL
+   and "at the line's edge" in CONCL, "missing")
+
+# ============================================== template-restoration block
+# (2026-08-26) main.tex dropped the route-C spacing block and the
+# \@BAlancecol patch; the paper typesets on template defaults.  Guard the
+# restoration so a later pass cannot quietly re-introduce glue overrides,
+# and pin the slimmed divergence summary's content beside its audit.  The
+# guard runs on COMMENT-STRIPPED source: the restoration note may name the
+# removed macros, live code may not.  The \@BAlancecol balance.sty fix is
+# the one documented exception and it FIRED: the template-default build
+# emitted the references-page `Overfull \vbox (1.13pt) ... while \output
+# is active' (the package's height-only column sizing), so the patch is
+# re-added ALONE per the exception and asserted PRESENT here -- it is a
+# package-bug correctness fix, not a spacing override, and every route-C
+# glue item below stays banned.
+MAIN_CODE = re.sub(r"\s+", " ",
+                   re.sub(r"(?<!\\)%.*", "", rawfile("main.tex")))
+for _pat, _why in ((r"\\microtypesetup", "protrusion raise"),
+                   (r"\\captionsetup", "caption gap"),
+                   (r"\\setlength\\textfloatsep", "float gap"),
+                   (r"\\setlength\\aboverulesep", "booktabs padding"),
+                   (r"\\renewcommand\\smallskip", "smallskip lead"),
+                   (r"thm@preskip", "theorem surround")):
+    ck(f"main.tex stays template-pristine: no {_why}",
+       not re.search(_pat, MAIN_CODE), _pat)
+ck("main.tex keeps the balance.sty ht+dp fix (documented exception; the "
+   "references-page overfull vbox resurfaced without it)",
+   re.search(r"\\@BAlancecol", MAIN_CODE) is not None
+   and "max(ht+dp)" in MAIN, "the balance fix or its justification is gone")
+DTEX = tex("tables/tab_divergence.tex")
+ck("slimmed divergence table prints the class counts and total",
+   r"all 15: 5 S $\cdot$ 3+2 D $\cdot$ 5 R" in DTEX
+   and r"(25 rejections $\to$ 15 causes)" in DTEX
+   and r"$0/15$" in DTEX, "missing")
+ck("slimmed divergence table prints one exemplar per class + TR pointer",
+   "$D_{1}$" in DTEX and "$D_{7}$" in DTEX and "$D_{4}$" in DTEX
+   and r"in~\cite{asofgov-tr}" in DTEX, "missing")
+DAUD = json.load(open(os.path.join(PAPER, "tables",
+                                   "tab_divergence.audit.json")))
+ck("divergence audit still ships all 15 rows with the printed-rows note",
+   len(DAUD["rows"]) == 15 and DAUD["printed_rows"] == ["D1", "D7", "D4"]
+   and [r["id"] for r in DAUD["rows"]] == [f"D{i}" for i in range(1, 16)],
+   (len(DAUD.get("rows", [])), DAUD.get("printed_rows")))
+# (2026-08-26, D-visibility) S8 restores the schema-evolution delineation
+# without citing removed papers.
+ck("S8 delineates schema-version rewriting from governance re-scoping",
+   r"query rewriting across \emph{schema}" in RELATED
+   and "re-scopes governed meaning over unchanged rows" in RELATED
+   and "typed refusal has no counterpart" in RELATED, "missing")
 
 # ---------------------------------------------------------------- report
 print(f"four-place number check (public base): {checks} assertions, "

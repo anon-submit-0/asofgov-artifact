@@ -14,8 +14,8 @@
 \label{sec:system}
 
 \looseness=-1\sysname{} is two programs deliberately kept apart: a \emph{binding compiler}
-($\approx$3.8k lines of Python: a shared core plus one adapter per
-evidence base) turning a question and a declared time point into a decision
+($\approx$3.8k Python lines, a shared core plus per-base
+adapters) turning a question and a declared time point into a decision
 plus a certificate, and an \emph{independent verifier} ($\approx$5.1k
 lines) deciding the checking relation of \S\ref{sec:certificates} without
 running, importing or consulting the compiler --- that separation is the
@@ -46,8 +46,8 @@ registered as-of convention rather than consumed. What
 the verifier never takes is compiler internals: no templates, no shared module,
 no call into the compilation entry point; every fact the compiler looked up is
 \emph{re-queried} from $(G_v,D)$, so certificate fields are assertions awaiting
-verification. Even neutral-looking helpers are re-implemented: a shared wrong
-month expansion cancels.
+verification --- even neutral-looking helpers are re-implemented, since a
+shared wrong month expansion cancels.
 
 \looseness=-1 The rule is enforced mechanically. A CI check parses every verifier file and
 asserts that (a)~each import resolves to the Python standard library, the

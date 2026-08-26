@@ -54,46 +54,39 @@
 \usepackage{pifont}
 \usepackage{balance}
 
-% ---------------------------------------------------------------------
-%  LAST-PAGE COLUMN-BALANCING FIX (added 2026-08-07, when the route-A prose
-%  cuts and the route-C spacing block were combined).
+\graphicspath{{figures/}}
+
+% =====================================================================
+%  TEMPLATE RESTORATION (2026-08-26).  The route-C typographic-space-
+%  recovery block (2026-08-07: microtype protrusion factor 1300, caption
+%  skip 4pt, float separations 9pt, booktabs rule padding, \smallskip
+%  1pt, theorem surround .25\baselineskip) and the \@BAlancecol
+%  ht+dp balancing patch are REMOVED IN FULL: the paper now typesets
+%  under acmart/pvldb defaults, nothing but the template's own spacing.
+%  The ~25 reclaimed-space debt is paid by content, not glue: the M2
+%  abstract + S7.3 compressions and the tab:divergence summary slimming
+%  (see sections/08-eval.tex header notes, dated 2026-08-26).
+%  The \@BAlancecol patch fixed a balance.sty height-only-accounting bug
+%  that produced a 1.1pt overfull \vbox on the references-only page at
+%  the 2026-08-07 break position; it is removed WITH the spacing block
+%  and is to be re-added (alone, with its documented justification) ONLY
+%  if the overfull \vbox resurfaces at the new break position -- the
+%  build gate stays 0 errors / 0 overfull / 0 undefined either way.
+%  \emergencystretch below is line-breaking, not spacing, and stays.
 %
-%  SYMPTOM: `Overfull \vbox (1.11pt too high) ... while \output is active',
-%  emitted while shipping the final, references-only page.  Zero overfull
-%  \hbox, and nothing crosses the text block -- but it is still an overfull
-%  box, and this manuscript's build gate requires none.
-%
-%  IT IS NOT OUR \balance CALL.  acmart.cls defaults to `balance=true' and
-%  issues \balance itself from \AtEndDocument, so the call further down in
-%  this file is redundant and commenting it out changes nothing.  (Verified:
-%  identical 1.11176pt with that call removed.)
-%
-%  ROOT CAUSE.  Read off a \tracingoutput dump of the offending box --
-%  \vbox(186.54024+0.0)x241.14749: one PVLDB column wide, and 186.54pt is
-%  balance's own computed half-height \@tempdima, not \@colht -- plus a
-%  \typeout probe inside \@BAlancecol on the failing page, which reported
-%    tempdima=186.54024pt  ht(col1)=186.0pt  oldvsize=626.0pt  colht=1252.0pt
-%  balance.sty sizes its two balanced columns by HEIGHT ALONE.  It checks
-%  \ht3 against \@tempdima in its split loop, and ships each column as
-%    \vbox to \@tempdima{<column material>\vfil}.
-%  But that trailing \vfil makes the material's own DEPTH count as height:
-%  the last line's descender, which was the box's depth while it was being
-%  measured, sits above the \vfil in the box that is actually shipped.  So a
-%  column whose height fits by 0.54pt can still overrun its target by the
-%  ~1.1pt of depth nobody counted.  Height-only accounting is the bug; it is
-%  latent in balance.sty and surfaced here only because routes A and C moved
-%  the reference list to a break where the last line carries a descender.
-%
-%  FIX: reassemble both columns exactly as they will be shipped, then size
-%  the pair by max(ht+dp) rather than max(ht), and keep the result bounded by
-%  one real column (\oldvsize holds it, because \@BAdblcol has doubled
-%  \@colht by this point).  No warning is suppressed, \vfuzz is untouched,
-%  and the split point -- hence the CONTENT of both columns -- is unchanged;
-%  the balanced columns simply get the ~1pt they always needed, on a page
-%  with ~440pt of unused height.  Inert whenever the split lands cleanly, so
-%  this stays correct when the reference list changes length again.
-%  Verified: overfull 3 -> 0 with the body length,
-%  all three content gates and the float and claim counts unchanged.
+%  2026-08-26, SAME PASS, MEASURED: with the patch removed the template-
+%  default build emits exactly one `Overfull \vbox (1.13pt too high) ...
+%  while \output is active', shipped from the references-only final page
+%  during column balancing -- the documented balance.sty defect (its split
+%  loop sizes the two balanced columns by HEIGHT ALONE, then ships each as
+%  \vbox to \@tempdima{...\vfil}, so the last line's DEPTH turns into
+%  height nobody counted; see the 2026-08-07 \tracingoutput analysis).  The
+%  exception foreseen above therefore applies, and the patch below is
+%  re-added ALONE: it changes no split point and no content, sizes the two
+%  balanced columns by max(ht+dp) instead of max(ht), stays bounded by one
+%  real column, and is inert whenever the split lands cleanly.  It is a
+%  correctness fix for a package bug, invisible in output -- NOT a spacing
+%  override; every route-C item stays removed.
 \newsavebox\rcbalcolone
 \newsavebox\rcbalcoltwo
 \makeatletter
@@ -119,133 +112,6 @@
    \setbox\@outputbox=\vbox to \@tempdima{\unvbox\rcbalcoltwo\vfil}%
   \fi}
 \makeatother
-% ---------------------------------------------------------------------
-
-\graphicspath{{figures/}}
-
-% =====================================================================
-%  TYPOGRAPHIC SPACE RECOVERY  (route C, 2026-08-07).
-%
-%  WHY THIS BLOCK EXISTS.  Four revision rounds independently measured the
-%  body at 12.001 pages with zero slack, which blocked ~30 AE-confirmed
-%  SHOULD-level edits: there was nowhere to put a sentence.  This block
-%  recovers room WITHOUT touching a single word, number, red line, claim
-%  or float.  It changes only inter-element white space and the strength
-%  of character protrusion.  It does NOT touch the type area
-%  (\textwidth/\textheight/\columnsep), the body font size, \baselineskip,
-%  or any acmart.cls / pvldb.sty file -- those are the things PVLDB
-%  actually polices, and they are all untouched.
-%
-%  MEASUREMENT.  Gain is measured as the total NATURAL height of the body
-%  material, summed over the 24 body columns of an otherwise identical
-%  \raggedbottom twin build (tools cannot read it off the normal build:
-%  acmart is \flushbottom, so every column is stretched to exactly 626pt
-%  and a saving of a few tens of points hides inside the glue instead of
-%  moving the last line).  Baseline H = 14823.2pt; with this block
-%  H = 14542.9pt.  Recovered: 280.3pt = 0.2239 body page = ~25 body lines,
-%  and the REFERENCES heading moves off page 13 back onto page 12.
-%  Per-item gains, each measured alone against the same baseline, are
-%  given beside each item below.  Compile quality does not regress:
-%  0 errors, 0 overfull \hbox, 0 undefined references, and the count of
-%  underfull \hbox drops from 8 to 6 (worst line badness 7012 -> 7064).
-% ---------------------------------------------------------------------
-
-%  (1) CHARACTER PROTRUSION, +30%.  [-45.7pt, -4 lines]
-%  acmart already loads microtype with protrusion and expansion both on;
-%  this only raises the protrusion amounts.  Optical margin alignment is
-%  invisible to a reader -- no glyph changes shape or size, punctuation
-%  hangs a hair further into the margin -- and it is the one setting here
-%  that IMPROVES line quality: underfull \hbox 8 -> 6.  Swept
-%  1000/1100/1200/1300/1400/1500: 1300 is the smallest value that reaches
-%  the -4-line plateau, and 1500 buys one more line at worse badness.
-\microtypesetup{factor=1300}
-
-%  (2) FLOAT-TO-CAPTION GAP, 12pt -> 4pt, over the 7 floats.  [-49.0pt]
-%  acmart's 12pt was set for a one-column journal measure; at PVLDB's
-%  241pt column it reads as a hole between a figure and its own caption.
-\captionsetup{skip=4pt}
-
-%  (3) FLOAT-TO-TEXT GAPS, 15/12/12pt -> 9pt.  [-35.6pt]
-%  All seven floats are [t]; \textfloatsep is what each one costs where it
-%  meets the column text.  9pt still clears the caption's descenders.
-%  SHRINK RESERVE (added when routes A and C were combined, 2026-08-07):
-%  the `minus' components below are deliberately LARGER than route C's
-%  original 3pt.  Shrinkability costs zero natural height -- it does not
-%  give back one point of the recovered space -- but it is what \output
-%  needs to square a \flushbottom column.  With route C's tighter glue and
-%  route A's new page breaks, page 12 came out 1.145pt overfull for want of
-%  exactly this.  Do not reduce these `minus' values.
-\setlength\textfloatsep{9pt plus 4pt minus 5pt}
-\setlength\floatsep{9pt plus 4pt minus 5pt}
-\setlength\intextsep{9pt plus 4pt minus 5pt}
-
-%  (4) BOOKTABS RULE PADDING.  [-25.4pt]
-%  ~20 rules across the four tables, each carrying 0.4ex above and 0.65ex
-%  below.  The tables are already \scriptsize with \tabcolsep 2.0-2.6pt;
-%  this is the last unclaimed vertical space in them.  NOTE, measured:
-%  pushing \arraystretch below its current 0.93-0.97 buys exactly 0.0pt --
-%  the rows are already content-bound, not strut-bound -- so the row
-%  heights are deliberately left alone.
-\setlength\aboverulesep{0.15ex}
-\setlength\belowrulesep{0.25ex}
-\setlength\abovetopsep{0pt}
-\setlength\belowbottomsep{0pt}
-
-%  (5) RUN-IN-HEADING LEAD, 1.925pt -> 1pt, over the 38 \smallskip sites.
-%  [-31.0pt]  These are the `\smallskip\noindent\textbf{...}' paragraph
-%  leads that carry this paper's argument structure; the separation stays
-%  visible, it just stops being a third of a blank line.  \smallskipamount
-%  itself cannot be used here: amsart recomputes it from \baselineskip
-%  inside \normalsize, so a preamble \setlength is silently reverted
-%  (measured: 0.0pt).  acmart.cls, pvldb.sty and amsart.cls contain no
-%  internal use of \smallskip, so this reaches only the 38 author sites.
-%  (`minus 1pt' rather than route C's `minus 0.4pt': see the SHRINK RESERVE
-%  note above.  Natural height is still 1pt, so the -31.0pt gain is intact.)
-\renewcommand\smallskip{\vspace{1pt plus 0.6pt minus 1pt}}
-
-%  (6) THEOREM-ENVIRONMENT SURROUND, .5\baselineskip -> .25\baselineskip
-%  above and below.  [-71.6pt -- the largest single item]
-%  16 numbered claims plus 2 examples, each paying 5.5pt+5.5pt.  The
-%  environments keep acmart's small-caps head and italic body, so they
-%  remain unmistakable at 2.75pt.  Applied by appending to acmart's own
-%  style macros, which amsthm expands at environment-open time, so the
-%  \newtheorem declarations and the shared section counter are untouched.
-%  Note there are ZERO display equations in this paper (all math is
-%  inline), so \abovedisplayskip/\belowdisplayskip/\jot are worth 0pt and
-%  are deliberately not touched.
-\makeatletter
-%  (`\@minus.25\baselineskip' rather than route C's `.1': SHRINK RESERVE
-%  again.  The natural .25\baselineskip is unchanged, so -71.6pt is intact.)
-\newcommand\rcthmskip{\thm@preskip=.25\baselineskip\@plus.1\baselineskip\@minus.25\baselineskip
-  \thm@postskip=\thm@preskip}
-\AtBeginDocument{%
-  \apptocmd{\th@acmplain}{\rcthmskip}{}{\typeout{ROUTEC-FAIL acmplain}}%
-  \apptocmd{\th@acmdefinition}{\rcthmskip}{}{\typeout{ROUTEC-FAIL acmdefinition}}%
-}
-\makeatother
-
-%  MEASURED AND REJECTED, so the next pass does not re-litigate them:
-%   * \looseness escalation: all 88 existing \looseness=-1 sites were
-%     swept to -2 one at a time (88 builds).  Every one returned +0 lines:
-%     -1 already extracts the minimum feasible setting of every paragraph.
-%     The lever is spent.  (Harness sanity-checked: +1 moves the count.)
-%   * \pretolerance=-1, \hyphenpenalty=30, \tolerance=300, and microtype
-%     expansion stretch/shrink 20->30: 0.0 to -0.3pt each.  Same reason.
-%   * \widowpenalty/\clubpenalty 10000 -> 300: +8.0pt, i.e. WORSE, so the
-%     widow/orphan protection costs nothing here and stays at 10000.
-%   * \arraystretch below current values: 0.0pt (see item 4).
-%   * Section/subsection heading skips -25%: -26.5pt, but the patch
-%     collides with acmart's \ACM@NRadjust (4 errors, 2 overfull) and
-%     heading white space is a primary structural cue.  Declined.
-%   * Figure geometry: figA_partition is already at the floor on BOTH axes
-%     (5.4pt type, 6.95pt leading on 5.6pt body = 1.24x), so it cannot be
-%     scaled at all; fig1_asof_gap and fig3_failure_taxonomy render at
-%     5.95pt and 5.71pt minimum type, which caps pure scaling at 0.907x
-%     and 0.946x = 21pt and 6pt.  Re-generating fig1 at 2.90in instead of
-%     3.25in (-25pt) was built and inspected at 300dpi: the
-%     governance-blind row crowds the green band above it and the footer
-%     below it.  Declined -- 40-50pt is not worth a visible regression in
-%     the paper's problem figure.
 % =====================================================================
 
 % ---------------------------------------------------------------------
@@ -334,32 +200,37 @@ Correctness for Governed Queries with Typed~Refusals and Certificates}
 
 \renewcommand{\shortauthors}{Wang and Liang}
 
+% ABSTRACT COMPRESSED 2026-08-26 (M2 honest-uncertainty pass): the
+% elimination accounting now prints the frozen-run verdict beside the
+% five-repetition span and the paired nine-cluster CI (gate-wired to
+% s3/s4 summary JSONs); the in-abstract frozen-interval straddle and the
+% two recoverable-share ceilings moved to S7.3/S9, where they were
+% already printed and gated.  Forgery total grew (poststudy3 V6a+).
 \begin{abstract}
 \looseness=-1 Enterprise analytics increasingly runs through a governed
 semantic layer driven by a language model, and the layer moves: calibers are
-re-scoped, valid-time anchors re-declared, graph versions advance. Yet
+re-scoped, anchors re-declared, versions advance. Yet
 answering a governed question ``as of $T$'' is still treated as a prompting
-problem. We show that, on the evidence of a single-statement,
+problem. We show that, under a single-statement,
 no-execution-feedback protocol, it is a compile-time \emph{binding} problem.
 We present \textsc{AsOfGov}: a bi-temporal governed query semantics whose
 typed refusals are values, prove that bindability plus three refusal classes
 decidably partition well-formed single-period queries, extend compilation
-under a disclosure policy to \textsc{Mlr-Compile} (a maximal legal rewrite or
-a complete structured refusal), and add point-in-time certificates checked by
+under a disclosure policy to \textsc{Mlr-Compile} --- a maximal legal
+rewrite or a refusal proved complete --- and add point-in-time certificates
+checked by
 a verifier sharing no module with the compiler. On a fully public 60-question
-suite, four frontier model families err on 60.0--76.7\% of questions and
+suite, four frontier model families err on 60.0--76.7\% and
 three prompt variants on 53.3--66.7\%. Handed its database's entire
-governance layer verbatim, a pre-registered arm still errs on 46.7\%, and its
+governance layer verbatim, a pre-registered arm still errs on 46.7\%, its
 refusal-side errors concentrate where only a data probe decides (6 of 7,
-against 1 of 5 on registry-decidable refusals): under this protocol,
-in-context governance eliminates only 0.361 of the reference backbone's
-errors, short of the frozen $40\%$ line; its frozen 80\% prediction interval
-[0.35, 0.75] straddles that $40\%$ line, and crediting every probe-decidable
-residual lifts elimination to at most $0.472$, every execution-error residual
-as well to at most $0.667$, past that line either way. The compiler resolves
+against 1 of 5 on registry-decidable refusals): under this protocol the
+frozen run does not cross the pre-registered $40\%$ elimination line (0.361;
+five repetitions span 0.361--0.417; paired nine-cluster 95\% CI for absolute
+error reduction $[-0.05,0.30]$). The compiler resolves
 all 60 questions, a constructive upper bound; the verifier accepts 60 of 60
-certificates and rejects 34 of 34 forgeries. Verification costs a paired
-median $17.7\times$ the answering query it certifies and the certificate
+certificates and rejects 70 of 70 forgeries. Verification costs a paired
+median $17.7\times$ the answering query and the certificate
 $10.2\times$ the query's bytes.
 \end{abstract}
 

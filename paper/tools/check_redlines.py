@@ -22,8 +22,18 @@ no check:
     17.7x/10.2x; the old strings are BANNED by check_numbers.py's stale
     list rather than required here.  (The forgery total in this note read
     30/30 until 2026-08-10, when family F5 took the battery to 34 over 11
-    bases; the live pin is the "E: 60/60 certificates and 34/34 forgeries"
+    bases, and the battery grew again to 70 on 2026-08-26 with the
+    poststudy3 V6a+ hardening; the live pin is the "E: 60/60 certificates"
     entry below, not this comment.)
+  - 2026-08-26 (M2 honest uncertainty + template restoration), all per the
+    relocated-to-TR protocol with the full content preserved in the TR and
+    the frozen artifacts: the in-body S5.2 per-prediction digits, the
+    case-(iii) denominator sensitivity clause, and the full 15-row
+    D1-D15 table each compressed in body and relocated; every affected
+    entry below carries its own dated note, the surviving compressed form
+    is re-pinned, and the new five-rep span + paired-CI content is pinned
+    as "M2: ..." -- no value assertion was weakened (check_numbers.py
+    still derives and scores every relocated number).
 
 Exit code 0 iff every red line is present.  Usage: python3 tools/check_redlines.py
 """
@@ -58,9 +68,25 @@ RED = [
   [r"cluster bootstrap 95\\% intervals", r"B\{=\}2000"]),
  ("E: failure-taxonomy table with the form split", "sections/08-eval.tex",
   [r"\\label\{tab:taxonomy\}", r"errors by (gold )?form"]),
- ("E: 60/60 certificates and 34/34 forgeries", "sections/08-eval.tex",
+ # (2026-08-26, poststudy3 V6a+): the battery GREW 34 -> 70 (34 pre-registered
+ # F1-F5 + 5 pinned reproduction mutations + 31 post-registered F6-F10, all
+ # rejected; values gated by check_numbers.py on v6aplus_summary.json).  The
+ # pre-registered strings stay pinned and the grown totals are pinned WITH
+ # them -- extension, not retirement.
+ ("E: 60/60 certificates; 34/34 pre-registered + 70/70 total forgeries",
+  "sections/08-eval.tex",
   [r"accepts \$60/60\$", r"rejects \$34/34\$",
-   r"11 unmodified compiler certificates"]),
+   r"11 unmodified compiler certificates",
+   r"70 forged certificates in all", r"reject \$31/31\$",
+   r"total is \$70/70\$ rejected"]),
+ # (2026-08-26, poststudy3): the review-found V6a gap is DISCLOSED -- in S5
+ # at the soundness scope and in E5 at the battery -- and stays disclosed: a
+ # compression pass must not keep the grown counts while eating the reason
+ # they grew.
+ ("C5+E5: V6a+ hardening disclosed with its review provenance", None,
+  [r"[Aa]n external review \(2026-08\)", r"pinned reason code",
+   r"narrowed-window mutations", r"All four frozen predictions held",
+   r"the original V6a accepted"]),
  ("E: strict track fail-closed, the 10 questions characterised",
   "sections/08-eval.tex",
   [r"those \$50/60\$", r"fails closed", r"8 questions", r"2 cross-window"]),
@@ -126,11 +152,25 @@ RED = [
  # and the consistently re-worded recoverable-share sentences (abstract,
  # S9), so no compression pass can quietly fall back to the probe-only
  # bound while still claiming it bounds "the recoverable share".
+ # (2026-08-26, M2): the ABSTRACT's copy of the recoverable-share bound
+ # ("to at most $0.667$") moved out under the ~210-word compression;
+ # the protected content -- the extended ceiling's arithmetic in E3 and
+ # the recoverable-share sentence in S9 -- remains pinned, and
+ # check_numbers.py now asserts the abstract stays CLEAN of the ceilings.
  ("GOV: extended probe+execution ceiling printed and quoted consistently",
   None,
   [r"further crediting all nine execution-error residuals",
-   r"\$24/36=0\.667\$", r"to at most \$0\.667\$",
+   r"\$24/36=0\.667\$",
    r"bounds the recoverable share at \$0\.667\$"]),
+ # (2026-08-26, M2 honest uncertainty): the five-repetition span and the
+ # paired nine-cluster CI now carry the elimination verdict's uncertainty
+ # in the abstract, at the E3 verdict, and in S9 (values gated by
+ # check_numbers.py on the s3/s4 summary JSONs).  A compression pass must
+ # not eat the span, the CI, or the straddle.
+ ("M2: five-rep span + paired CI printed at the verdict", None,
+  [r"0\.361\$?--\$?0\.417", r"\[-0\.05,0\.30\]",
+   r"straddling the \$0\.40\$ line",
+   r"the frozen run does not cross the pre-registered \$40\\%\$"]),
  # (2026-08-23, R3-1-5) Q_tmpl is formally defined in the body and Theorem
  # certsound(b) is restated over Definition def:tmpl under the explicit,
  # still-open assumption (A-tmpl); S9 mirrors the assumption.  A page cut
@@ -168,7 +208,8 @@ RED = [
  # name attribution -- Theorem thm:degen must stay checkable from this
  # submission alone, with no under-submission manuscript on the path.
  # (2026-08-24, author decision) SUPERSEDED IN PART: the author ruled that
- # the three concurrent same-author submissions (removed by author decision; names withheld from this live script) are not cited or mentioned anywhere in this paper, so the
+ # the three concurrent same-author submissions (REDACTED-CONCURRENT, REDACTED-CONCURRENT,
+ # REDACTED-CONCURRENT) are not cited or mentioned anywhere in this paper, so the
  # "\cite{REDACTED-CONCURRENT} supplies the name only" pattern would pin a sentence
  # that no longer exists and is retired.  The protected content -- SVRC
  # defined completely in the body, so thm:degen is checkable from this
@@ -196,23 +237,40 @@ RED = [
  # over_refusals AT its floor -- so they are exactly the ones a compression
  # pass would be tempted to drop.  check_numbers.py re-parses both out of the
  # frozen PREREG and scores them; this pins their presence in the prose.
- ("H: prediction misses published, all four S5.2 predictions accounted for",
+ # (2026-08-26, M2 honest-uncertainty pass) RELOCATED TO TR, per protocol:
+ # the "Prediction accounting" paragraph moved to the TR in full -- the
+ # sharpest-miss literal (14 [8-22] -> 28), the elimination miss's point
+ # pair and frozen [0.35,0.75] interval, the S5.2 digits (correct_refusals
+ # 9/15 [6-12] observed 5 BELOW; over_refusals ~4/45 [1-9] observed 1 at
+ # the floor) and the denominator sensitivity all print there (the TR
+ # carries the full paragraph and both tables), and check_numbers.py STILL
+ # parses and scores every one of those predictions from the frozen
+ # PREREG, so no value weakened.  Pinned in body: the 8/8 + 7/8 optimism
+ # tally inside the case-(iii) paragraph, the named TR-side items, and the
+ # item-by-item ledger pointer.
+ ("H: prediction misses published; the item ledger relocated to TR",
   "sections/08-eval.tex",
-  [r"exceed their point predictions and 7 of 8",
-   r"predicted 14 \[8--22\], observed 28",
-   r"Prediction accounting, in full",
-   r"miss \\emph\{below\} their interval",
-   r"over-refusals sit at its floor"]),
+  [r"The frozen predictions were\s*optimistic",
+   r"exceed their point predictions and 7 of 8",
+   r"the elimination miss's frozen interval",
+   r"the\s*denominator's own overshoot",
+   r"accounted item by item\s*in~\\cite\{asofgov-tr\}"]),
  # (2026-08-10, M6) The case-(iii) verdict is a ratio whose DENOMINATOR is
  # itself one measurement that overshot its own frozen prediction.  The clause
  # discloses that, states the sensitivity, and explicitly does NOT re-adjudicate
  # on it.  All three halves are pinned together: dropping the "does not itself
  # enter the rule" half would turn a disclosure into a second adjudication.
- ("H: case-(iii) denominator disclosed, and excluded from the adjudication",
+ # (2026-08-26, M2 honest-uncertainty pass) RELOCATED TO TR, per protocol:
+ # the full clause ("$36$ against a frozen point of $25$", "does not itself
+ # enter the rule", "$13/35=0.371$", "the case is unchanged") moved to the
+ # TR's item-by-item accounting, which prints it verbatim; check_numbers.py
+ # still re-derives 36-vs-25 and 13/35=0.371 from the frozen artifacts, so
+ # the values cannot drift.  The body keeps the overshoot NAMED inside the
+ # miss-ledger sentence -- a disclosure that survives compression without
+ # re-adjudicating -- and that surviving form is pinned below.
+ ("H: case-(iii) denominator overshoot still disclosed (full clause: TR)",
   "sections/08-eval.tex",
-  [r"\$36\$\s*against a frozen point of \$25\$",
-   r"does not itself enter the rule",
-   r"\$13/35=0\.371\$", r"the case is unchanged"]),
+  [r"the\s*denominator's own overshoot"]),
  ("H: hull-trim giveaway questions disclosed", "sections/08-eval.tex",
   [r"window-blind aggregate equals gold by construction"]),
  ("H: gateway third-party preamble disclosed", "sections/08-eval.tex",
@@ -245,11 +303,35 @@ RED = [
  ("P: public caliber pair carried where caliber is defined",
   "sections/03-semantics.tex",
   [r"15\.2\\times"]),
+ # (2026-08-26, template restoration) The FULL 15-row ledger RELOCATED TO
+ # TR, per protocol: the TR prints every row with both readings, the
+ # machine-readable source of record stays impl/INTEGRATION_REPORT.md
+ # section 5, and tab_divergence.audit.json still ships all 15 rows with
+ # evidence (asserted by check_numbers.py).  The body table is a summary
+ # -- per-class counts + three exemplar rows, one per root-cause class --
+ # whose provenance pin below is UNCHANGED (the caption keeps it), and
+ # whose summary content gets its own pin beside it.
  ("P: D1-D15 ledger keeps its integration provenance",
   "tables/tab_divergence.tex",
   [r"Provenance", r"production", r"no production data value"]),
+ ("P: slimmed divergence summary carries counts, exemplars, TR pointer",
+  "tables/tab_divergence.tex",
+  [r"all 15: 5 S \$\\cdot\$ 3\+2 D \$\\cdot\$ 5 R",
+   r"\$D_\{1\}\$", r"\$D_\{7\}\$", r"\$D_\{4\}\$",
+   r"asofgov-tr"]),
  ("P: E6 frames the ledger with provenance", "sections/08-eval.tex",
   [r"recorded during", r"integration on the production track"]),
+ # (2026-08-26, D-visibility): the NL->sigma hybrid is promoted in the
+ # E-takeaway (count gated on the S7 summary by check_numbers.py) and the
+ # precise schema-evolution delineation is restored in S8 (schema-version
+ # query rewriting vs governance-version re-scoping over unchanged rows;
+ # typed refusal absent there) without citing removed papers.
+ ("D: NL->sigma hybrid promoted in the E-takeaway", "sections/08-eval.tex",
+  [r"NL-to-\$\\sigma\$ hybrid errs \$5/60\$"]),
+ ("D: schema-evolution delineation restored in S8", "sections/09-related.tex",
+  [r"query rewriting across \\emph\{schema\}",
+   r"re-scopes governed meaning over unchanged rows",
+   r"typed refusal has no counterpart"]),
  # ---- 10-conclusion: version axis + artifact + AI disclosure ---------------
  ("S9: version axis exercised + residual unexercised paths",
   "sections/10-conclusion.tex",
@@ -257,10 +339,13 @@ RED = [
  ("S9: generative-AI disclosure, full wording", "sections/10-conclusion.tex",
   [r"Disclosure of generative AI use",
    r"take full\s*responsibility for the entire content of this paper"]),
+ # (2026-08-26, poststudy3): inventory EXTENDED with the V6a+ battery
+ # (pinned reproduction mutations + F6-F10); the original pin stays.
  ("S9: artifact availability inventory (public base)",
   "sections/10-conclusion.tex",
   [r"Artifact availability", r"\\url\{\\artifacturl\}",
-   r"voided \\texttt\{trivial\\_v2\} first run", r"11 bases and 34\s*forgeries"]),
+   r"voided \\texttt\{trivial\\_v2\} first run", r"11 bases and 34\s*forgeries",
+   r"post-registered\s*V6a\+ battery"]),
  # ---- 07-system: the four CI assertions ------------------------------------
  ("S6: four CI assertions verbatim", "sections/07-system.tex",
   [r"\(a\)~each import resolves to the Python standard library",

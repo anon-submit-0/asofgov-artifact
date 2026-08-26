@@ -1,6 +1,12 @@
 {
  "source_of_record": "impl/INTEGRATION_REPORT.md",
  "source_section": "5 (15-row table) + 2 (per-family check labels)",
+ "printed_rows": [
+  "D1",
+  "D7",
+  "D4"
+ ],
+ "printed_rows_note": "2026-08-26 slimming: the body table prints per-class counts plus these three exemplar rows (one per root-cause class, the rows the E6 lessons quote); this audit and the TR keep all 15 rows.",
  "rows": [
   {
    "id": "D1",

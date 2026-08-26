@@ -1,0 +1,210 @@
+{
+ "base_qid": "CODE-Q7",
+ "expected_reject_by": "V6b",
+ "envelope": {
+  "refusal": "disclosure-blocked",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "CODE-Q7",
+    "domain": "codebase_community",
+    "metric": "code.top_answerer_roster",
+    "metric_kind": "roster",
+    "as_of": "2013-06-15"
+   },
+   "graph_pin": {
+    "domain": "codebase_community",
+    "graph_version": "v2",
+    "commit_id": "2013-01-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "atom",
+     "anchor_id": "A-CODE-POST",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "month",
+      "lo": "2013-06-01",
+      "hi_excl": "2013-07-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-CODE-TAR",
+    "rule": "same_valid_time_window",
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [
+    {
+     "caliber_key": "code.rt5",
+     "metric": "code.top_answerer_roster",
+     "leg": "atom",
+     "hop_seq": "0",
+     "src_node": "code.posts",
+     "dst_node": "code.posts",
+     "via_table": "posts",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "Id",
+       "AcceptedAnswerId"
+      ]
+     ]
+    },
+    {
+     "caliber_key": "code.rt6",
+     "metric": "code.top_answerer_roster",
+     "leg": "entity",
+     "hop_seq": "0",
+     "src_node": "code.posts",
+     "dst_node": "code.users",
+     "via_table": "users",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "OwnerUserId",
+       "Id"
+      ]
+     ]
+    }
+   ],
+   "disclosure": {
+    "decision": "REFUSE",
+    "policy_ids": [
+     "code.pi1",
+     "code.pi2"
+    ],
+    "policy_table_present": true,
+    "ungoverned_disclosure": false,
+    "granularity": "user",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-CODE-POST",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)) FROM \"posts\" t WHERE t.\"CreaionDate\" IS NOT NULL",
+     "observed": [
+      "2009-02-02",
+      "2014-09-14"
+     ]
+    },
+    {
+     "kind": "SUPPMIN",
+     "policy_id": "code.pi2",
+     "level": "user",
+     "sql": "SELECT MIN(n) FROM (SELECT t2.\"Id\" AS cell, COUNT(DISTINCT t2.\"Id\") AS n FROM \"posts\" t0 INNER JOIN \"posts\" t1 ON t0.\"Id\" = t1.\"AcceptedAnswerId\" INNER JOIN \"users\" t2 ON t0.\"OwnerUserId\" = t2.\"Id\" WHERE t0.\"PostTypeId\" = 2 AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) >= '2013-06-01' AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) < '2013-07-01' GROUP BY 1 ORDER BY 1)",
+     "observed": 1,
+     "threshold": "5"
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   },
+   "refusal": {
+    "reason": "disclosure-blocked",
+    "witness": {
+     "type": "empty-legal-rewrite",
+     "blocked_slices": [
+      "(v2,code.top_answerer_roster)"
+     ],
+     "blocking_policy_ids": [],
+     "probe_transcript": [
+      {
+       "kind": "SUPPMIN",
+       "policy_id": "code.pi2",
+       "level": "user",
+       "sql": "SELECT MIN(n) FROM (SELECT t2.\"Id\" AS cell, COUNT(DISTINCT t2.\"Id\") AS n FROM \"posts\" t0 INNER JOIN \"posts\" t1 ON t0.\"Id\" = t1.\"AcceptedAnswerId\" INNER JOIN \"users\" t2 ON t0.\"OwnerUserId\" = t2.\"Id\" WHERE t0.\"PostTypeId\" = 2 AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) >= '2013-06-01' AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) < '2013-07-01' GROUP BY 1 ORDER BY 1)",
+       "observed": 1,
+       "threshold": "5"
+      }
+     ],
+     "u_min_empty": true,
+     "assertion": "名录/原值行呈现刚性（S-M2 ⊤_M）：掩码列原值 + 实体级行呈现不可合法化，掩码/小胞条款联合封顶 U_min=∅"
+    },
+    "ct": [
+     {
+      "slice": "(v2,B-CODE-TAR)",
+      "reason": "disclosure-blocked"
+     }
+    ],
+    "slices_pass": [],
+    "composition": "slice-major(≺_det slice 序取首失败 slice; slice 内守卫序 OOV→AM→MC)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6b",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (1 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v2' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "1 α entr(ies) exist@v2 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "SKIP",
+    "detail": "V3 exempt for REFUSE(disclosure-blocked); guard negation replays in V6b(0)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (2 edge(s)) replayed against gov_caliber_routing@v2"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "governed disclosure (p2): Π=['code.pi1', 'code.pi2'] replayed; REFUSE clause replay delegated to the witness (V6b)"
+   },
+   {
+    "check": "V6a",
+    "status": "SKIP",
+    "detail": "V6a applies to answer certificates only"
+   },
+   {
+    "check": "V6b",
+    "status": "FAIL",
+    "detail": "DB witness cites no blocking policy"
+   },
+   {
+    "check": "V6c",
+    "status": "SKIP",
+    "detail": "V6c applies to answer certificates only"
+   },
+   {
+    "check": "V6a+",
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "registered-binding(atom leg)"
+  }
+ }
+}

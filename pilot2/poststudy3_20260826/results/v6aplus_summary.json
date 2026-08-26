@@ -1,0 +1,218 @@
+{
+ "study": "poststudy3_20260826 — verifier hardening V6a+",
+ "prereg": {
+  "path": "PREREG_poststudy3_20260826.md",
+  "sha256": "426017ddfd8af8608e452b44175e2158c620c2e8cebe3a17572ee3fe15d7a192"
+ },
+ "verifier": {
+  "tree": "/Volumes/SSD 1/vldb_asof/asof-gov-vldb-artifact/impl/asof_verifier",
+  "files": {
+   "chk.py": "be156627bfd571cacac8fd29c1d4ac418537d38e9f8f625810eca3c7864cecc7",
+   "v6aplus.py": "6537e7292e0d649657dacecf7fe754d6273c27d7244e9b86919ad43510a7f092",
+   "forge_v6aplus.py": "86f91b82657916b827744348a4230ac317c854f9515b53679c7b1a3e09c2a477",
+   "ci_check.py": "72d331db6ef09e1465893a89e697375663177f054a71ac2234122a9d91c749ef"
+  }
+ },
+ "genuine60": {
+  "total": 60,
+  "accept": 60,
+  "reject": 0,
+  "v6aplus_status": {
+   "PASS": 45,
+   "SKIP": 15
+  },
+  "by_kind_decision": {
+   "atomic/ANSWER": 21,
+   "atomic/REFUSE": 5,
+   "atomic/REWRITE": 5,
+   "attribute/REWRITE": 2,
+   "delta/ANSWER": 1,
+   "ratio/ANSWER": 11,
+   "ratio/REFUSE": 7,
+   "report/REWRITE": 5,
+   "roster/REFUSE": 3
+  },
+  "note": "V6a+ SKIPs exactly the REFUSE certificates (no answer SQL to validate); every ANSWER/REWRITE certificate PASSes it."
+ },
+ "pinned_regressions": {
+  "total": 5,
+  "reject": 5,
+  "with_pinned_reason_code": 5,
+  "rows": [
+   {
+    "name": "PINNED_cert_mut_a_count_distinct_date",
+    "expected": "REJECT(V6P_MEASURE)",
+    "actual": "REJECT by V6a+",
+    "reason_code": "V6P_MEASURE"
+   },
+   {
+    "name": "PINNED_cert_mut_b_leg_swap",
+    "expected": "REJECT(V6P_PARSE)",
+    "actual": "REJECT by V6a+",
+    "reason_code": "V6P_PARSE"
+   },
+   {
+    "name": "PINNED_cert_mut_b2_leg_swap_valid",
+    "expected": "REJECT(V6P_LEG_ROLE)",
+    "actual": "REJECT by V6a+",
+    "reason_code": "V6P_LEG_ROLE"
+   },
+   {
+    "name": "PINNED_cert_mut_c_constant_999",
+    "expected": "REJECT(V6P_SHAPE)",
+    "actual": "REJECT by V6a+",
+    "reason_code": "V6P_SHAPE"
+   },
+   {
+    "name": "PINNED_cert_mut_d_narrowed_predicate",
+    "expected": "REJECT(V6P_WINDOW)",
+    "actual": "REJECT by V6a+",
+    "reason_code": "V6P_WINDOW"
+   }
+  ]
+ },
+ "old_forgeries_f1_f5": {
+  "bases_accept": "11/11",
+  "total": 34,
+  "reject": 34,
+  "frozen_attribution_kept": 34,
+  "by_family": {
+   "F1": 6,
+   "F2": 5,
+   "F3": 9,
+   "F4": 10,
+   "F5": 4
+  }
+ },
+ "new_forgeries_f6_f10": {
+  "bases_accept": "22/22",
+  "total": 31,
+  "reject": 31,
+  "asserted_ok": 31,
+  "families": {
+   "F6": {
+    "total": 6,
+    "rejected": 6,
+    "asserted_ok": 6,
+    "bases": [
+     "CA-Q1",
+     "CARD-Q2",
+     "DEB-Q3",
+     "F1-Q1",
+     "TH-Q1",
+     "W1-Q1"
+    ],
+    "rejected_by": {
+     "V6a+": 6
+    }
+   },
+   "F7": {
+    "total": 5,
+    "rejected": 5,
+    "asserted_ok": 5,
+    "bases": [
+     "CA-Q1",
+     "CODE-Q1",
+     "EF2-Q2",
+     "FIN-Q1",
+     "W1-Q3"
+    ],
+    "rejected_by": {
+     "V6a+": 5
+    }
+   },
+   "F8": {
+    "total": 8,
+    "rejected": 8,
+    "asserted_ok": 8,
+    "bases": [
+     "CA-Q1",
+     "CARD-Q4",
+     "CODE-Q1",
+     "CODE-Q2",
+     "F1-Q1",
+     "FIN-Q1",
+     "FIN-Q3",
+     "TH-Q1"
+    ],
+    "rejected_by": {
+     "V6a+": 8
+    }
+   },
+   "F9": {
+    "total": 6,
+    "rejected": 6,
+    "asserted_ok": 6,
+    "bases": [
+     "CA-Q3",
+     "CARD-Q1",
+     "DEB-Q1",
+     "EF2-Q2",
+     "FIN-Q4",
+     "W1-Q1"
+    ],
+    "rejected_by": {
+     "V6a+": 3,
+     "V6a": 3
+    }
+   },
+   "F10": {
+    "total": 6,
+    "rejected": 6,
+    "asserted_ok": 6,
+    "bases": [
+     "CARD-Q1",
+     "CODE-Q3",
+     "EF2-Q1",
+     "FIN-Q5",
+     "TH-Q2",
+     "W1-Q2"
+    ],
+    "rejected_by": {
+     "V6a+": 6
+    }
+   }
+  }
+ },
+ "v6aplus_reason_code_distribution": {
+  "V6P_KIND": 2,
+  "V6P_LEG_ROLE": 1,
+  "V6P_MEASURE": 9,
+  "V6P_PARSE": 1,
+  "V6P_PREDICATE": 13,
+  "V6P_SHAPE": 9,
+  "V6P_WINDOW": 9
+ },
+ "predictions": {
+  "P1": {
+   "statement": "all 60 genuine certificates still ACCEPT under V6a+",
+   "observed": "60/60 ACCEPT",
+   "holds": true,
+   "misses": []
+  },
+  "P2": {
+   "statement": "all five reproduction mutations REJECT",
+   "observed": "5/5 REJECT (5/5 with the pinned reason code)",
+   "holds": true,
+   "misses": []
+  },
+  "P3": {
+   "statement": "every new F6-F10 forgery REJECTs",
+   "observed": "31/31 REJECT",
+   "holds": true,
+   "misses": []
+  },
+  "P4": {
+   "statement": "the original 34 F1-F5 forgeries still all REJECT",
+   "observed": "34/34 REJECT (34/34 with the frozen rejected_by attribution)",
+   "holds": true,
+   "misses": []
+  }
+ },
+ "all_predictions_hold": true,
+ "inputs": {
+  "genuine60_verdicts.json": "5d5f8a8e3864bcf834f480110c603234abab771f8d509119e119e9dcb9aa5e96",
+  "forge_v6aplus_run.json": "2b07416c810e8effebbd9f7d2e7cd9e0523d4d6c0a8714d6a24ab0e838ddd500",
+  "forge_p2_v6aplus_run.json": "843192ef7f455879a594f37fd061d287ca3aef323add9d74fc9f25b8d4cbd77e"
+ }
+}

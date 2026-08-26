@@ -1,0 +1,190 @@
+{
+ "base_qid": "TH-Q1",
+ "expected_reject_by": "V6a+",
+ "envelope": {
+  "sql": "SELECT (SELECT COUNT(t0.\"GOT\") FROM \"Laboratory\" t0 WHERE t0.\"GOT\" >= 60 AND substr(CAST(t0.\"Date\" AS VARCHAR),1,10) >= '1997-01-01' AND substr(CAST(t0.\"Date\" AS VARCHAR),1,10) < '1998-01-01') * 1.0 / NULLIF((SELECT COUNT(*) FROM \"Laboratory\" t0 WHERE substr(CAST(t0.\"Date\" AS VARCHAR),1,10) >= '1997-01-01' AND substr(CAST(t0.\"Date\" AS VARCHAR),1,10) < '1998-01-01'), 0)",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "TH-Q1",
+    "domain": "thrombosis_prediction",
+    "metric": "th.abnormal_lab_rate",
+    "metric_kind": "ratio",
+    "as_of": "1997-06-30"
+   },
+   "graph_pin": {
+    "domain": "thrombosis_prediction",
+    "graph_version": "v2",
+    "commit_id": "1998-01-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "numerator",
+     "anchor_id": "A-TH-LAB",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "year",
+      "lo": "1997-01-01",
+      "hi_excl": "1998-01-01"
+     }
+    },
+    {
+     "role": "denominator",
+     "anchor_id": "A-TH-LAB",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "year",
+      "lo": "1997-01-01",
+      "hi_excl": "1998-01-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-TH-ALR-N|B-TH-ALR-D",
+    "rule": "same_valid_time_window",
+    "numerator_anchor": "A-TH-LAB",
+    "denominator_anchor": "A-TH-LAB",
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [
+    {
+     "caliber_key": "th.rt1",
+     "metric": "th.abnormal_lab_rate",
+     "leg": "num",
+     "hop_seq": "0",
+     "src_node": "th.laboratory",
+     "dst_node": "th.laboratory",
+     "via_table": "Laboratory",
+     "dst_caliber": "all",
+     "join_keys": []
+    },
+    {
+     "caliber_key": "th.rt2",
+     "metric": "th.abnormal_lab_rate",
+     "leg": "den",
+     "hop_seq": "0",
+     "src_node": "th.laboratory",
+     "dst_node": "th.laboratory",
+     "via_table": "Laboratory",
+     "dst_caliber": "all",
+     "join_keys": []
+    }
+   ],
+   "disclosure": {
+    "decision": "ANSWER",
+    "policy_ids": [],
+    "policy_table_present": true,
+    "ungoverned_disclosure": false,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-TH-LAB",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"Date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"Date\" AS VARCHAR),1,10)) FROM \"Laboratory\" t WHERE t.\"Date\" IS NOT NULL",
+     "observed": [
+      "1981-01-27",
+      "1999-03-04"
+     ]
+    },
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-TH-LAB",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"Date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"Date\" AS VARCHAR),1,10)) FROM \"Laboratory\" t WHERE t.\"Date\" IS NOT NULL",
+     "observed": [
+      "1981-01-27",
+      "1999-03-04"
+     ]
+    },
+    {
+     "kind": "DEN_POP",
+     "role": "denominator",
+     "period": 0,
+     "sql": "SELECT (SELECT COUNT(*) FROM \"Laboratory\" t0 WHERE substr(CAST(t0.\"Date\" AS VARCHAR),1,10) >= '1997-01-01' AND substr(CAST(t0.\"Date\" AS VARCHAR),1,10) < '1998-01-01')",
+     "observed": 631.0
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6a+",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (2 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v2' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "2 α entr(ies) exist@v2 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "rule replay passes (clause (i) ok; clause (ii) ok; clause (iii) ok; clause (iv) trivial_true)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (2 edge(s)) replayed against gov_caliber_routing@v2"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "governed disclosure (p2) replayed: Π=[]; k/lattice, mask and time-floor clauses re-established from (G_v, D)"
+   },
+   {
+    "check": "V6a",
+    "status": "PASS",
+    "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   },
+   {
+    "check": "V6a+",
+    "status": "FAIL",
+    "detail": "V6P_MEASURE: leg must implement registered measure count as COUNT(*); got count"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "beta_v(binding row prescribes legs)"
+  }
+ }
+}

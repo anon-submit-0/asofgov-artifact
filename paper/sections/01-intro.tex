@@ -33,39 +33,39 @@ population a metric attributes over --- and valid-time anchors are
 registered as machine-readable objects over the warehouse, so that ``problem
 rate'' denotes one agreed computation rather than whatever an analyst
 types. Large language models now sit in front of that layer, and the two
-interact badly along one axis neither owns: \emph{time}. The layer is no static
-dictionary --- calibers are re-scoped, anchors re-declared, versions advance ---
+interact badly along one axis neither owns: \emph{time}. The layer
+moves --- calibers re-scoped, anchors re-declared, versions advancing ---
 so a question asked ``as of March'' must be answered under the governance
 semantics in force for March, over facts whose valid time falls in March: the
 \emph{as-of correctness} problem.
 
 \smallskip\noindent\looseness=-1\textbf{Observed in production, measured in public.}
-The problem statement is industrial: on the production governance
+On the production governance
 line behind this work (five governed domains), one problem-rate question
 evaluates to a
 caliber-aware $16.2\%$ against a caliber-blind $3.8\%$ --- a $4.2\times$ gap
-on the same rows. Those are \emph{production observations}: they
-motivate the problem and play no other role. Every result number from here
-on --- save the two provenance-marked enterprise measurements (these rates
-and the \S\ref{sec:eval-divergence} ledger) ---
-is computed on a fully public base --- nine versioned databases of
-BIRD/Spider lineage~\cite{bird,spider}, 3{,}830{,}036 real rows, a frozen
-suite of 60 Chinese questions --- whose complete chain ships in the artifact: the
+on the same rows. Those are \emph{production observations}: they motivate,
+nothing more. Every result number from here
+on --- save these rates
+and the \S\ref{sec:eval-divergence} ledger, both provenance-marked ---
+is computed on a fully public base (nine versioned
+BIRD/Spider-lineage databases~\cite{bird,spider}, 3{,}830{,}036 real rows, a
+frozen
+suite of 60 Chinese questions) whose complete chain ships in the artifact: the
 motivation is proprietary, the evidence is not.
 
 \smallskip\noindent\looseness=-1\textbf{The gap is measurable, and one-line prompting does
 not close it.} Gold on the 60 Chinese questions is 33 values, 12 governed rewrites and
-15 typed refusals (\S\ref{sec:eval}); every arm answers from one statement,
-without execution feedback, three families behind the gateway caveat of
-\S\ref{sec:eval-setup}. Four frontier model families answer 60.0--76.7\%
-incorrectly, answering straight through 11, 11, 9 and 13 of the 15 refusals;
-for three of the four at most a quarter of errors are failing or
-malformed SQL --- the gap is semantic, not syntactic. Three prompt variants of the reference backbone err on
+15 typed refusals (\S\ref{sec:eval}); every arm answers from one statement
+without execution feedback, three families behind \S\ref{sec:eval-setup}'s
+gateway caveat. Four frontier model families answer 60.0--76.7\%
+incorrectly, answering straight through 11, 11, 9 and 13 of the 15
+refusals. Three prompt variants of the reference backbone err on
 53.3--66.7\%, the best eliminating $22\%$ of its errors against the
 pre-registered $40\%$ line (\S\ref{sec:eval-gap}). An arm handing that
 backbone its database's \emph{entire} governance layer verbatim still errs on
-46.7\% (elimination $36\%$): \emph{under this protocol} --- one statement, no
-execution feedback --- in-context governance does not substantially close the
+46.7\% (elimination $36\%$): \emph{under this protocol}, in-context
+governance does not substantially close the
 gap --- answering through 6
 of the 7 probe-decidable refusals and all 3 policy-on-file questions,
 correct on 4 of the 5 registry-decidable (\S\ref{sec:eval-gov}).
@@ -73,13 +73,12 @@ correct on 4 of the 5 registry-decidable (\S\ref{sec:eval-gov}).
 \smallskip\noindent\looseness=-1\textbf{A running example.} Figure~\ref{fig:running}, from
 the public \texttt{card\_games} database, recurs through
 \S\ref{sec:semantics}--\S\ref{sec:binding} and is scored in \S\ref{sec:eval}:
-\texttt{ruling\_\allowbreak intensity} relates a month's card rulings to the
-same month's newly released printings. In February 2017 the numerator leg is
+in February 2017 \texttt{ruling\_\allowbreak intensity}'s numerator leg is
 populated, the same-window denominator empty, the anchor's coverage still
-contains February: no point-in-time correct value exists, and the governed
+contains February --- no point-in-time correct value exists, and the governed
 response is a typed refusal carrying a re-executable witness. Six of the eight
-LLM arms answer it anyway --- the arm holding the entire governance layer
-among them; the two refusals cannot resolve the metric's definition; the
+LLM arms answer it anyway, the arm holding the entire governance layer
+among them; the
 all-history base reports $\approx3.8\%$ (Figure~\ref{fig:running},
 bottom row).
 
@@ -108,8 +107,8 @@ declared instant ($v_1$ of \texttt{card\_games}; $v_2$ commits 2017-09-28),
 \texttt{sets.\allowbreak releaseDate}, bound by
 \texttt{same\_\allowbreak valid\_\allowbreak time\_\allowbreak window}. At
 $T_2=$~2017-02 the numerator leg holds 2{,}161 rulings, the same-window
-denominator is empty, and the denominator anchor's coverage hull
-$[\,$1993-08-05, 2021-03-19$\,]$ still contains February, so the request lies
+denominator is empty, and the anchor's coverage hull still contains
+February: the request lies
 \emph{inside} validity and $\sem{q}_{\mathcal{G},T}=\bot_{\mathsf{MC}}$,
 witnessed by a denominator probe re-evaluating to $0$.}
 \label{fig:running}
@@ -117,7 +116,7 @@ witnessed by a denominator probe re-evaluating to $0$.}
 
 \smallskip\noindent\looseness=-1\textbf{Why this is hard.} Three obstacles organise the technical part.
 \emph{(1)~What is the correct answer at a declared time point?} The semantics
-must span the valid time of facts and the version axis of the governance graph,
+must span facts' valid time and the graph's version axis,
 and be \emph{total}: refusal is a value it assigns, not an exception raised.
 \emph{(2)~Is refusal the last word?} A coarser, masked or narrowed query is
 often faithful and legal, so choosing among rewrites needs a fidelity order and
@@ -136,10 +135,9 @@ plane, and binding either succeeds or fails in one of three decidable ways.
   (\S\ref{sec:semantics}): graph versions, valid-time anchors with declared
   coverage modes, and a total point-in-time semantics whose failure values
   $\bot_{\mathsf{OOV}}$, $\bot_{\mathsf{AM}}$, $\bot_{\mathsf{MC}}$ are typed
-  refusals; its degeneration theorem exhibits single-version read
-  consistency (defined in \S\ref{sec:semantics}) as the
-  one-dimensional \emph{shape} of the
-  two-axis binding, at construction strength.
+  refusals; a degeneration theorem exhibits single-version read
+  consistency as the two-axis binding's one-dimensional \emph{shape}, at
+  construction strength.
 \item \textbf{Binding compilation and its decidability}
   (\S\ref{sec:binding}--\S\ref{sec:rewrite}): a coverage theorem partitioning
   well-formed single-period queries into bindable and three disjoint unbindable
@@ -150,9 +148,10 @@ plane, and binding either succeeds or fails in one of three decidable ways.
 \item \textbf{Point-in-time certificates and independent verification}
   (\S\ref{sec:certificates}): certificate contents --- anchor assignment,
   version pin, routing path, disclosure decision, witnesses, probe records ---
-  and a checking relation a verifier decides from the governance graph, the data
-  and the request context, with checking completeness, refusal-reason soundness
-  under the frozen guard order, answer soundness on a template query class, and
+  and a checking relation decided from graph, data
+  and request context alone, with checking completeness, refusal-reason
+  soundness
+  under the frozen guard order, answer soundness on a template class, and
   per-field non-redundancy.
 \end{itemize}
 
@@ -162,11 +161,13 @@ assertion; nine arms on 60 questions over nine clusters, bootstrap intervals
 and coverage beside every rate. The compiler matches the frozen gold
 on all 60 (33 answers, 12 rewrites, 15 refusals with reason class), a
 \emph{constructive upper bound}; the base exercises the disclosure layer
-(3 policy blocks, 5 roll-ups, 2 masks) and the version axis (two committed versions per database, four value-flipping pairs,
-one certified off-diagonal pin). The verifier accepts $60/60$ certificates
-while re-deriving 50 of the 60 window coordinates from registered as-of
-conventions --- run strictly, it fails closed on the 10 the question alone
-states --- and rejects $34/34$ forgeries.
+(3 policy blocks, 5 roll-ups, 2 masks) and the version axis (two committed
+versions per database, four value-flipping pairs,
+an off-diagonal pin). The verifier accepts $60/60$ certificates,
+re-deriving 50 of 60 window coordinates itself (run strictly it fails
+closed on the other 10), and rejects $70/70$ forgeries, 36 of them
+post-registered after
+an external review (\S\ref{sec:eval-cert}).
 Verifying a decision costs a median
 $17.7\times$ the answering query in time and $10.2\times$ in bytes
 (\S\ref{sec:eval-cost}). The first cross-check of the two implementations rejected 25 of 51
@@ -181,5 +182,6 @@ instance $D$, registering metrics, caliber routes, valid-time anchors,
 temporal bindings and disclosure policies on an append-only version axis
 (\S\ref{sec:semantics}); the nine public databases ship these
 tables (847 registry rows), authored by us under three pre-registered
-non-degeneracy gates (\S\ref{sec:eval-setup}). Full proofs, omitted constructions and per-check tables are in the
-extended version~\cite{asofgov-tr}, shipped with the artifact.
+non-degeneracy gates (\S\ref{sec:eval-setup}). Full proofs and omitted
+constructions: the extended version~\cite{asofgov-tr}, shipped with the
+artifact.

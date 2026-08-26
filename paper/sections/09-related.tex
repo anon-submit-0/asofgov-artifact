@@ -58,13 +58,15 @@ improves LLM analytics accuracy~\cite{semlayerbench} --- our nearest
 neighbour and a natural baseline, whose in-context content
 \S\ref{sec:eval-gov} bounds --- but a static document without versions,
 as-of binding or refusal. Substrates that own the version transition and
-disclaim metric correctness leave exactly the space this paper
-occupies; Theorem~\ref{thm:degen} makes the relationship precise.
+disclaim metric correctness leave exactly this paper's space
+(Theorem~\ref{thm:degen}).
 
 \smallskip\noindent\looseness=-1\textbf{Lineages we inherit.} Temporal databases give us the
 data axis wholesale --- valid and transaction time and the languages over
 them~\cite{tquel,tsql2,tempmod,tempalign,sql2011,timelineindex}, querying under
-schema evolution~\cite{primatt,prism}, dataset and relational
+schema evolution~\cite{primatt,prism} (query rewriting across \emph{schema}
+versions; our version axis re-scopes governed meaning over unchanged rows,
+and its typed refusal has no counterpart there), dataset and relational
 versioning~\cite{dsversioning,orpheusdb,decibel} --- but no second axis for a
 \emph{governance} layer, no typed value for inability to answer --- so a hand-built
 temporal-SQL implementation of the sixty queries is a point in the compiler's

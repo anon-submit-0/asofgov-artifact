@@ -1,0 +1,151 @@
+{
+ "base_qid": "CODE-Q6",
+ "expected_reject_by": "V0",
+ "envelope": {
+  "sql": "SELECT trim(regexp_extract(t0.\"Location\", '([^,]+)$', 1)) FROM \"users\" t0 WHERE t0.\"Id\" = 22047",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "CODE-Q6",
+    "domain": "codebase_community",
+    "metric": "code.user_location",
+    "metric_kind": "attribute",
+    "as_of": null
+   },
+   "graph_pin": {
+    "domain": "codebase_community",
+    "graph_version": "v2",
+    "commit_id": "2013-01-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "atom",
+     "anchor_id": null,
+     "registered": false,
+     "coverage_mode": null,
+     "granule": "atemporal",
+     "window": {
+      "kind": "atemporal"
+     },
+     "explicit_empty_assignment": true,
+     "empty_assignment": true,
+     "metric": "code.user_location"
+    }
+   ],
+   "binding": null,
+   "routing": [],
+   "disclosure": {
+    "decision": "REWRITE",
+    "policy_ids": [
+     "code.pi1"
+    ],
+    "policy_table_present": true,
+    "ungoverned_disclosure": false,
+    "granularity": "value",
+    "mask_closure": []
+   },
+   "probes": [],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   },
+   "notes": [
+    "attribute 度量非时态：α 记显式空指派（I2'(a)），无锚窗可评"
+   ],
+   "rewrite": {
+    "kept_slices": [
+     "(v2,code.user_location)"
+    ],
+    "cut_trace": [
+     {
+      "kind": "mask_presentation",
+      "attributes": [
+       "Location"
+      ],
+      "mask": "generalize_last_component",
+      "policy_id": "code.pi1"
+     }
+    ],
+    "ct": [],
+    "det_order": {
+     "keys": [
+      "version_desc",
+      "binding_registration(binding_id)",
+      "ell_gamma"
+     ],
+     "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+    }
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V0",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "FAIL",
+    "detail": "dec=REWRITE but every coordinate equals the request (no window narrowing, no grain coarsening, no mask closure — mapping requires dec=ANSWER)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v2' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "1 α entr(ies) exist@v2 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "SKIP",
+    "detail": "β_v undefined for metric (atomic / no binding row): V3 vacuously passes"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (0 edge(s)) replayed against gov_caliber_routing@v2"
+   },
+   {
+    "check": "V5",
+    "status": "FAIL",
+    "detail": "mask clause: μ* [] does not cover policy 'code.pi1' mask_class 'generalize_last_component'"
+   },
+   {
+    "check": "V6a",
+    "status": "PASS",
+    "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   },
+   {
+    "check": "V6a+",
+    "status": "PASS",
+    "detail": "AST lies in the registered attribute template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-atemporal",
+   "arity_source": "no-registry-row(arity unregistered; read as atomic)"
+  }
+ }
+}

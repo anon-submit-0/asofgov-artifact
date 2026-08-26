@@ -1,0 +1,184 @@
+{
+ "base_qid": "CA-Q1",
+ "expected_reject_by": "V6a+",
+ "envelope": {
+  "sql": "SELECT (SELECT SUM(t0.\"Free Meal Count (K-12)\") FROM \"frpm\" t0 WHERE CAST(t0.\"Academic Year\" AS VARCHAR) = '2014-2015') * 1.0 / NULLIF((SELECT SUM(t0.\"Enrollment (K-12)\") FROM \"frpm\" t0 WHERE CAST(t0.\"Academic Year\" AS VARCHAR) = '2014-2015'), 0)",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "CA-Q1",
+    "domain": "california_schools",
+    "metric": "ca.free_meal_rate",
+    "metric_kind": "ratio",
+    "as_of": "2015-04-15"
+   },
+   "graph_pin": {
+    "domain": "california_schools",
+    "graph_version": "v1",
+    "commit_id": "2014-09-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "numerator",
+     "anchor_id": "A-CA-FRPM",
+     "registered": true,
+     "coverage_mode": "strict_member",
+     "granule": "academic_year_token",
+     "window": {
+      "kind": "academic-year",
+      "lo": "2014-07-01",
+      "hi_excl": "2015-07-01"
+     }
+    },
+    {
+     "role": "denominator",
+     "anchor_id": "A-CA-FRPM",
+     "registered": true,
+     "coverage_mode": "strict_member",
+     "granule": "academic_year_token",
+     "window": {
+      "kind": "academic-year",
+      "lo": "2014-07-01",
+      "hi_excl": "2015-07-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-CA-FMR-N|B-CA-FMR-D",
+    "rule": "same_valid_time_window",
+    "numerator_anchor": "A-CA-FRPM",
+    "denominator_anchor": "A-CA-FRPM",
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [
+    {
+     "caliber_key": "ca.rt1",
+     "metric": "ca.free_meal_rate",
+     "leg": "num",
+     "hop_seq": "0",
+     "src_node": "ca.frpm",
+     "dst_node": "ca.frpm",
+     "via_table": "frpm",
+     "dst_caliber": "all",
+     "join_keys": []
+    },
+    {
+     "caliber_key": "ca.rt2",
+     "metric": "ca.free_meal_rate",
+     "leg": "den",
+     "hop_seq": "0",
+     "src_node": "ca.frpm",
+     "dst_node": "ca.frpm",
+     "via_table": "frpm",
+     "dst_caliber": "all",
+     "join_keys": []
+    }
+   ],
+   "disclosure": {
+    "decision": "ANSWER",
+    "policy_ids": [],
+    "policy_table_present": true,
+    "ungoverned_disclosure": false,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-CA-FRPM",
+     "coverage_mode": "strict_member",
+     "sql": "SELECT DISTINCT CAST(t.\"Academic Year\" AS VARCHAR) FROM \"frpm\" t WHERE t.\"Academic Year\" IS NOT NULL",
+     "observed": 1
+    },
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-CA-FRPM",
+     "coverage_mode": "strict_member",
+     "sql": "SELECT DISTINCT CAST(t.\"Academic Year\" AS VARCHAR) FROM \"frpm\" t WHERE t.\"Academic Year\" IS NOT NULL",
+     "observed": 1
+    },
+    {
+     "kind": "DEN_POP",
+     "role": "denominator",
+     "period": 0,
+     "sql": "SELECT (SELECT SUM(t0.\"Enrollment (K-12)\") FROM \"frpm\" t0 WHERE t0.\"County Name\" = 'Alameda' AND CAST(t0.\"Academic Year\" AS VARCHAR) = '2014-2015')",
+     "observed": 224085.0
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6a+",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (2 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v1' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "2 α entr(ies) exist@v1 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "rule replay passes (clause (i) ok; clause (ii) ok; clause (iii) ok; clause (iv) trivial_true)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (2 edge(s)) replayed against gov_caliber_routing@v1"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "governed disclosure (p2) replayed: Π=[]; k/lattice, mask and time-floor clauses re-established from (G_v, D)"
+   },
+   {
+    "check": "V6a",
+    "status": "PASS",
+    "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   },
+   {
+    "check": "V6a+",
+    "status": "FAIL",
+    "detail": "V6P_PREDICATE: leg (ca.free_meal_rate, num) does not implement the question's declared scope key(s) ['county'] (registered via gov_semantic_node.scope_keys on this leg's closure)"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "beta_v(binding row prescribes legs)"
+  }
+ }
+}

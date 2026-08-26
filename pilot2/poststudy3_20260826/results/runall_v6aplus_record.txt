@@ -1,0 +1,13 @@
+runall under hardened verifier (ROOT=/Volumes/SSD 1/explore_opportunity_cc; old51 rejects are the six pre-existing V3/V6b adm_check_mode rejects, byte-identical to the unhardened baseline)
+rc=1
+
+[old51 / declared-ok] ACCEPT 45/51  window_source={'derived': 49, 'declared-override': 2}
+   REJECT AIBUY-Q4   by V3  : certificate adm_check_mode 'trivial_true' contradicts the clause-(iv) variant re-derived from G_v: 'window_realization_symdiff' (A_v registers both coverage modes (recommendation_snapshots.created_at (FK carry via snapsh
+   REJECT rma_q1     by V3  : certificate adm_check_mode 'trivial_true' contradicts the clause-(iv) variant re-derived from G_v: 'symdiff_audit' (A_v registers no coverage mode for either of 'rma_event_time'/'sales_event_time')
+   REJECT rma_q2     by V3  : certificate adm_check_mode 'trivial_true' contradicts the clause-(iv) variant re-derived from G_v: 'symdiff_audit' (A_v registers no coverage mode for either of 'rma_event_time'/'sales_event_time')
+   REJECT rma_q3     by V3  : certificate adm_check_mode 'trivial_true' contradicts the clause-(iv) variant re-derived from G_v: 'symdiff_audit' (A_v registers no coverage mode for either of 'rma_event_time'/'sales_event_time')
+   REJECT rma_q5     by V6b : ¬AM replay undecidable: certificate adm_check_mode 'trivial_true' contradicts the clause-(iv) variant re-derived from G_v: 'symdiff_audit' (A_v registers no coverage mode for either of 'rma_event_time'/'sales_event_time'
+   REJECT rma_q6     by V3  : certificate adm_check_mode 'trivial_true' contradicts the clause-(iv) variant re-derived from G_v: 'symdiff_audit' (A_v registers no coverage mode for either of 'rma_event_time'/'sales_event_time')
+[old51 / no-declared-windows] ACCEPT 45/51  window_source={'derived': 51}
+[p2 / declared-ok] ACCEPT 60/60  window_source={'derived': 50, 'declared': 8, 'declared-override': 2}
+[p2 / no-declared-windows] ACCEPT 50/60  window_source={'derived': 52, None: 8}

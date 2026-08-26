@@ -23,7 +23,11 @@
 #                     byte-for-byte against impl/certs2), verifier replay over
 #                     the 60 certificates (both protocols), the forgery battery
 #                     (34/34 over 11 bases, families F1-F5, each rejection
-#                     pinned on its pre-registered check), import-disjointness
+#                     pinned on its pre-registered check), the post-registered
+#                     V6a+ hardening battery (2026-08-26: 5 pinned reproduction
+#                     mutations + 31 F6-F10 forgeries over 22 bases, each
+#                     rejection asserted against its pinned expectation),
+#                     import-disjointness
 #                     red line, leak/nondegeneracy/witness CI gates, and the
 #                     cost stage -- fresh wall-clock medians, printed and
 #                     shape-asserted but deliberately NOT diffed, since they
@@ -177,6 +181,42 @@ for k in sorted(set(a) | set(b)):
         print("   DRIFT %-46s fresh=%s committed=%s" % (k, a.get(k), b.get(k)))
 sys.exit(1)
 PYFORGE
+  # (2026-08-26, poststudy3) The paper's E5 now also claims the V6a+
+  # hardening battery -- 5 pinned reproduction mutations rejecting on their
+  # pinned reason codes plus 31 F6-F10 forgeries over 22 accepted bases --
+  # so that claim is re-runnable here under the same discipline as 6b: the
+  # runner asserts every expectation itself (exit nonzero on drift), writes
+  # only into scratch, and the committed forge_v6aplus_out/ verdicts are
+  # diffed on the adjudication fields only.
+  say "stage 6c: V6a+ battery (5 pinned mutations + F6-F10 31/31 over 22 bases)"
+  gate "forge_v6aplus.py pinned+new forgeries all REJECT as pre-registered" \
+    python3 "$REPO/impl/asof_verifier/forge_v6aplus.py" \
+            --out "$TMP/forge_v6ap_re" --p2 "$REPO/pilot2/domains"
+  gate "re-run verdicts match the committed forge_v6aplus_out/ run" \
+    python3 - "$TMP/forge_v6ap_re" "$REPO/impl/asof_verifier/forge_v6aplus_out" <<'PYFORGE'
+import json, os, sys
+fresh, comm = sys.argv[1], sys.argv[2]
+def load(d):
+    out = {}
+    for fn in sorted(os.listdir(d)):
+        if not fn.endswith(".json") or fn.startswith("._"):
+            continue
+        r = json.load(open(os.path.join(d, fn), encoding="utf-8"))
+        rep = r.get("report", {})
+        # compare only the adjudication, never timings or absolute paths
+        out[fn] = (r.get("base_qid"), r.get("expected_reject_by"),
+                   rep.get("verdict"), rep.get("rejected_by"))
+    return out
+a, b = load(fresh), load(comm)
+if a == b:
+    print("   %d V6a+ battery verdicts identical to the committed run" % len(a))
+    sys.exit(0)
+for k in sorted(set(a) | set(b)):
+    if a.get(k) != b.get(k):
+        print("   DRIFT %-46s fresh=%s committed=%s" % (k, a.get(k), b.get(k)))
+sys.exit(1)
+PYFORGE
+
   for r in leak_report nondegeneracy_report witness_report; do
     cp "$REPO/pilot2/ci/$r.json" "$TMP/committed_$r.json"
   done

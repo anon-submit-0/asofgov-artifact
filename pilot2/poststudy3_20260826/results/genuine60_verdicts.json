@@ -1,0 +1,3374 @@
+{
+ "suite": "genuine60",
+ "verifier": "chk.py+v6aplus.py (V6a+ hardened, final)",
+ "warehouse_root": "/Volumes/SSD 1/explore_opportunity_cc/pilot2/domains",
+ "n_total": 60,
+ "n_accept": 60,
+ "n_reject": 0,
+ "v6aplus_status_counts": {
+  "PASS": 45,
+  "SKIP": 15
+ },
+ "rows": [
+  {
+   "qid": "CA-Q1",
+   "domain": "california_schools",
+   "metric": "ca.free_meal_rate",
+   "metric_kind": "ratio",
+   "decision": "ANSWER",
+   "cert_sha256": "cf8bcb21146ce95c152d1e6548f22d8d9a86f7bd8da7012ffd830785af321b42",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered ratio template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CA-Q2",
+   "domain": "california_schools",
+   "metric": "ca.free_meal_rate",
+   "metric_kind": "ratio",
+   "decision": "ANSWER",
+   "cert_sha256": "2f4985527e9a86f815058dbda6621ca87d7b9f29992319c57ed2b097309510e0",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered ratio template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CA-Q3",
+   "domain": "california_schools",
+   "metric": "ca.schools_in_effect",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "f55475b08f3f3819fc0083f8f9780069522fc80eb1e5221fbe095821ddf5944a",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CA-Q4",
+   "domain": "california_schools",
+   "metric": "ca.schools_in_effect",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "48db341860d5b5f29a2e7f1b05a2eded1561671ea29c17b6b636ac7bf50b221e",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CA-Q5",
+   "domain": "california_schools",
+   "metric": "ca.school_frpm_report",
+   "metric_kind": "report",
+   "decision": "REWRITE",
+   "cert_sha256": "2b3c6fa719486aaadc82b84ad43ec172fbf4dd02f82c317cefa1c817485b62cb",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered report template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CA-Q6",
+   "domain": "california_schools",
+   "metric": "ca.free_meal_rate",
+   "metric_kind": "ratio",
+   "decision": "REFUSE",
+   "cert_sha256": "f3f584e69a503e00b8dbb2283f99474a69533b26e1b17707073358046c519abb",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "CARD-Q1",
+   "domain": "card_games",
+   "metric": "card.monthly_rulings",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "bbdefe1e65349135de475b437e9caf71becbf29056dd37e8b145a419d2225114",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CARD-Q2",
+   "domain": "card_games",
+   "metric": "card.ruling_intensity",
+   "metric_kind": "ratio",
+   "decision": "ANSWER",
+   "cert_sha256": "847e9268e866e6e1eb643975ec20fe198dffa655fcebcf12bfaf82ebd81d3052",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered ratio template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CARD-Q3",
+   "domain": "card_games",
+   "metric": "card.standard_card_count",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "f138b48c6f45e3aa437a8551bc1ddbf3a576e2f029948222c1a197b6a5a7af09",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CARD-Q4",
+   "domain": "card_games",
+   "metric": "card.card_rulings_count",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "70cc8859febd23061b47eff03966f4be9a980db2d2c922b0a6275f8da1df798f",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CARD-Q5",
+   "domain": "card_games",
+   "metric": "card.rulings_range",
+   "metric_kind": "atomic",
+   "decision": "REWRITE",
+   "cert_sha256": "a6d5d7ec965cb97ec0f38144f8a82b477e7db6a1bb79ad7d74f0890f7eeaf74e",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CARD-Q6",
+   "domain": "card_games",
+   "metric": "card.collector_premium",
+   "metric_kind": "ratio",
+   "decision": "REFUSE",
+   "cert_sha256": "85760f270e41efc72b7d7e1ecba6ac8c0f3f93cd1590cc373c48c328c888ab8f",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "SKIP"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "CARD-Q7",
+   "domain": "card_games",
+   "metric": "card.ruling_intensity",
+   "metric_kind": "ratio",
+   "decision": "REFUSE",
+   "cert_sha256": "b61e40a7e1d8528dfb6462f5fb352221c745d952a4b8e8bdbfa174e9ed85e4a7",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "SKIP"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "CODE-Q1",
+   "domain": "codebase_community",
+   "metric": "code.accepted_rate",
+   "metric_kind": "ratio",
+   "decision": "ANSWER",
+   "cert_sha256": "ff4e51d12343d396ceb9685bb65f6dea54645e6c4918f215f4b4cad0b61154fd",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered ratio template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CODE-Q2",
+   "domain": "codebase_community",
+   "metric": "code.accepted_rate",
+   "metric_kind": "ratio",
+   "decision": "ANSWER",
+   "cert_sha256": "1c76bbffb0994d5f90b21d0ac40bd7e75f0529519c4b30e1f303f19f45a20726",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered ratio template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CODE-Q3",
+   "domain": "codebase_community",
+   "metric": "code.monthly_votes",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "b419422362b9baa644fdad99bcfec74e1a19323d69df9d54362f4650f6bed3cb",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CODE-Q4",
+   "domain": "codebase_community",
+   "metric": "code.user_accepted_report",
+   "metric_kind": "report",
+   "decision": "REWRITE",
+   "cert_sha256": "5803e2500758108d0daa3acaff5b6eaa17bd128c32d943e9d91381c25fa77d21",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered report template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CODE-Q5",
+   "domain": "codebase_community",
+   "metric": "code.daily_questions",
+   "metric_kind": "report",
+   "decision": "REWRITE",
+   "cert_sha256": "6dda86e1fde00cdc978ecedc45d74a9d71fd2d39a3ae5baf8d4866ae61457df1",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered report template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CODE-Q6",
+   "domain": "codebase_community",
+   "metric": "code.user_location",
+   "metric_kind": "attribute",
+   "decision": "REWRITE",
+   "cert_sha256": "417d0ca149fdf5867c0bbaef2b633aaf7d2f938768a85c56023e9a85dab5232f",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered attribute template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "SKIP"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "CODE-Q7",
+   "domain": "codebase_community",
+   "metric": "code.top_answerer_roster",
+   "metric_kind": "roster",
+   "decision": "REFUSE",
+   "cert_sha256": "32ca53f67770d5379f3121eefe53243f2ee5e9c392daf5b2b96f59eec69593bc",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "SKIP"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "DEB-Q1",
+   "domain": "debit_card_specializing",
+   "metric": "deb.avg_consumption",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "5e17d1d33300f590e8424571e97e62bef477e85c4b28154f886ff6b72314919f",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "DEB-Q2",
+   "domain": "debit_card_specializing",
+   "metric": "deb.avg_consumption",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "9e81afdd8b8cfb94ab6d3011b3e837ab0239108cd1ca6b69fdad4422c7f4d8e2",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "DEB-Q3",
+   "domain": "debit_card_specializing",
+   "metric": "deb.consumption_sum",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "441024567d183705470fbbb36a22e24199d32eff2bfe3230c8db4c22d6f451df",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "DEB-Q4",
+   "domain": "debit_card_specializing",
+   "metric": "deb.consumption_sum",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "21117b0e6791ddd98d26caa484487acd8cff125e4ee30f1ebbf350f6d8dfaee6",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "DEB-Q5",
+   "domain": "debit_card_specializing",
+   "metric": "deb.segment_avg_trans",
+   "metric_kind": "report",
+   "decision": "REWRITE",
+   "cert_sha256": "66578b86794e00ed92349a3c3de5ad3e39f654d2fd36d13c53a287e842a46069",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered report template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "DEB-Q6",
+   "domain": "debit_card_specializing",
+   "metric": "deb.avg_consumption",
+   "metric_kind": "atomic",
+   "decision": "REFUSE",
+   "cert_sha256": "ba02137af4b45e1c2d9247be4d3fc5f0c00445f4e51bc77dafa72199e8c3e881",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "SKIP"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "DEB-Q7",
+   "domain": "debit_card_specializing",
+   "metric": "deb.avg_consumption",
+   "metric_kind": "atomic",
+   "decision": "REFUSE",
+   "cert_sha256": "728b094e80f18d1827e4c23da2e12b6bd1334c547df797a4cdad3cc629897358",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "EF2-Q1",
+   "domain": "european_football_2",
+   "metric": "ef2.avg_overall_rating",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "988b82be2fcc297a58122888180fbabc87ea40a0893f01705ea903bed91e63d0",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "EF2-Q2",
+   "domain": "european_football_2",
+   "metric": "ef2.win_rate",
+   "metric_kind": "ratio",
+   "decision": "ANSWER",
+   "cert_sha256": "7a6cd7b5d71051e109d128aa02496c09fe48964ec1ccc692a5d9b3547489b628",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered ratio template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "EF2-Q3",
+   "domain": "european_football_2",
+   "metric": "ef2.pa_month_count",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "8fc8cdcdc77cb1e79a537d3ada17421387558938e5b9b1064da48b30a8a92dff",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "EF2-Q4",
+   "domain": "european_football_2",
+   "metric": "ef2.matches_range",
+   "metric_kind": "atomic",
+   "decision": "REWRITE",
+   "cert_sha256": "17ae4a9632ca18d5ff344572de7248237a9eb9f1459154e82a118da50a1b92e9",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "EF2-Q5",
+   "domain": "european_football_2",
+   "metric": "ef2.avg_overall_rating",
+   "metric_kind": "atomic",
+   "decision": "REFUSE",
+   "cert_sha256": "cbba7a6ee8bad1559331b9baa2800109b3bf42d56107f56ea95ce0b581d49a29",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "SKIP"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "EF2-Q6",
+   "domain": "european_football_2",
+   "metric": "ef2.rating_weighted_win_rate",
+   "metric_kind": "ratio",
+   "decision": "REFUSE",
+   "cert_sha256": "09096ebe7759d0e0159a5976102021b15a42add6630d05052a223a2031884fee",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "F1-Q1",
+   "domain": "formula_1",
+   "metric": "f1.driver_season_points",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "ae4ef279e1c4a049f0e5e2883446019f8cd935e15b851cb62d2a8766ad2a1d27",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "F1-Q2",
+   "domain": "formula_1",
+   "metric": "f1.driver_season_points",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "b1b90b1d74937778f721cca6fbc551f27b42fbd34fdc9d73c71dbcc21df4f287",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "F1-Q3",
+   "domain": "formula_1",
+   "metric": "f1.driver_season_points",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "180efffba62be291ffbbef6cc9202f28b5f23dc65fc2240c8147f72428939753",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "F1-Q4",
+   "domain": "formula_1",
+   "metric": "f1.season_points_delta",
+   "metric_kind": "delta",
+   "decision": "ANSWER",
+   "cert_sha256": "349c183652c34288ec7a52a2427cba6949338dd3bef0829830db05c10cdc62d8",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered delta template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "F1-Q5",
+   "domain": "formula_1",
+   "metric": "f1.entry_count",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "f09c7e99e29a3378d893de265846507f87d5ca604d883cd2c494df5563f7dda8",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "F1-Q6",
+   "domain": "formula_1",
+   "metric": "f1.races_count_range",
+   "metric_kind": "atomic",
+   "decision": "REWRITE",
+   "cert_sha256": "ae22ce87f1b7333cb3d2de2a767027acdd787840ccdc50e4703924b48b483ecf",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "F1-Q7",
+   "domain": "formula_1",
+   "metric": "f1.races_count_month",
+   "metric_kind": "atomic",
+   "decision": "REFUSE",
+   "cert_sha256": "bc23f9a528c978c717f97af412b060ac1350c7253c807786292c069297a0a37a",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "SKIP"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "F1-Q8",
+   "domain": "formula_1",
+   "metric": "f1.points_per_entry",
+   "metric_kind": "ratio",
+   "decision": "REFUSE",
+   "cert_sha256": "1a31d9a6f177d0dbd7132413385d94f299ffb5de4710b27880ccf2a9e8a71805",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "SKIP"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "FIN-Q1",
+   "domain": "financial",
+   "metric": "fin.problem_loan_rate",
+   "metric_kind": "ratio",
+   "decision": "ANSWER",
+   "cert_sha256": "51b1cd61ed077ec0ca5f9bfce071e9d69b978f637fe6d8205ffd01bdd98c1db2",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered ratio template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "FIN-Q2",
+   "domain": "financial",
+   "metric": "fin.problem_loan_rate",
+   "metric_kind": "ratio",
+   "decision": "ANSWER",
+   "cert_sha256": "2f739877cded2be563842f90cdb7872cf9545c5e154ff0cf17f642c50b5321f5",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered ratio template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "FIN-Q3",
+   "domain": "financial",
+   "metric": "fin.penalty_trans_rate",
+   "metric_kind": "ratio",
+   "decision": "ANSWER",
+   "cert_sha256": "d7bbe625b8cdfed154371d7a8b801bed3f423dc8abbf280f5cc107bdbc97801c",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered ratio template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "FIN-Q4",
+   "domain": "financial",
+   "metric": "fin.loan_count_month",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "272c9347ad8aaaf7fbf43eca1f1e197c6623dd7c56b6e4619e00239eefe81687",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "FIN-Q5",
+   "domain": "financial",
+   "metric": "fin.trans_count_month",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "13e7363e5c8f77f7569b163db528d9c2983e1888e4d2050a04db58be5f2ae0d7",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "FIN-Q6",
+   "domain": "financial",
+   "metric": "fin.trans_count_range",
+   "metric_kind": "atomic",
+   "decision": "REWRITE",
+   "cert_sha256": "2719f3026b9687a094377e27a783c849072be0b7e67c22511dfd58a4590822ad",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "FIN-Q7",
+   "domain": "financial",
+   "metric": "fin.trans_count_month",
+   "metric_kind": "atomic",
+   "decision": "REFUSE",
+   "cert_sha256": "a14d5ba2ff12b7e37a7aa6b0f5da3e0fd2e9313f9fad493ea27a9d9d3641e653",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "SKIP"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "FIN-Q8",
+   "domain": "financial",
+   "metric": "fin.penalty_trans_rate",
+   "metric_kind": "ratio",
+   "decision": "REFUSE",
+   "cert_sha256": "fe7884bdb46a395b82367a5bf49f4f5b2c9c5afe0e4514402d51ca35e03b56ab",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "TH-Q1",
+   "domain": "thrombosis_prediction",
+   "metric": "th.abnormal_lab_rate",
+   "metric_kind": "ratio",
+   "decision": "ANSWER",
+   "cert_sha256": "840967fe5c93dd96d78f9ef149af66c68ddf3a1609f8b415c72375a6679a6205",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered ratio template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "TH-Q2",
+   "domain": "thrombosis_prediction",
+   "metric": "th.exam_count",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "052e67c2a00e2c84363274f18f79832b5c0230d7baae4efd2810dcb148f1bc07",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "TH-Q3",
+   "domain": "thrombosis_prediction",
+   "metric": "th.patient_abnormal_report",
+   "metric_kind": "report",
+   "decision": "REWRITE",
+   "cert_sha256": "db2c50a98ed007ab81eae6fd12ca795a36722b6c5c0d0cce1641ca511f82c7db",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered report template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "TH-Q4",
+   "domain": "thrombosis_prediction",
+   "metric": "th.patient_birthday",
+   "metric_kind": "attribute",
+   "decision": "REWRITE",
+   "cert_sha256": "d8bdc04f0d5a0ded3df90f494ec79ed9c862fda874385a7d394ea5fe8975d3e0",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered attribute template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "SKIP"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "TH-Q5",
+   "domain": "thrombosis_prediction",
+   "metric": "th.patient_roster",
+   "metric_kind": "roster",
+   "decision": "REFUSE",
+   "cert_sha256": "b14f85844d7e4267093fc82e81a4b9c108de8b7d73fa68c5a0df30e8513e96a1",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "SKIP"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "TH-Q6",
+   "domain": "thrombosis_prediction",
+   "metric": "th.patient_roster",
+   "metric_kind": "roster",
+   "decision": "REFUSE",
+   "cert_sha256": "052937c1aff91ff308649f67874c9e390a9c65ed414857f11f5918f407a3f082",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "SKIP"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  },
+  {
+   "qid": "W1-Q1",
+   "domain": "world_1",
+   "metric": "w1.asia_population_sum",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "9282fcb7e81d85b76e4f79c5a0b136a54641bb26131c8b0f0980f3bf584267e1",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "W1-Q2",
+   "domain": "world_1",
+   "metric": "w1.asia_population_sum",
+   "metric_kind": "atomic",
+   "decision": "ANSWER",
+   "cert_sha256": "aae5fdd25cb86d3b3827bd03770eb9195e78b9fca02c8d280b188d7b939fd980",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "W1-Q3",
+   "domain": "world_1",
+   "metric": "w1.population_share",
+   "metric_kind": "ratio",
+   "decision": "ANSWER",
+   "cert_sha256": "baec0ee62f885d76c0832af3182bb994ccadc4b5c2dbbfa2f8eb13f5ccc69682",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered ratio template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "W1-Q4",
+   "domain": "world_1",
+   "metric": "w1.history_rows_range",
+   "metric_kind": "atomic",
+   "decision": "REWRITE",
+   "cert_sha256": "7cf8d8d7e10504dc3d546244e380c853f6da28d53c4c3c88f28833183da0a2e3",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "PASS"
+    },
+    {
+     "check": "V6b",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6c",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a+",
+     "status": "PASS"
+    }
+   ]
+  },
+  {
+   "qid": "W1-Q5",
+   "domain": "world_1",
+   "metric": "w1.population_share",
+   "metric_kind": "ratio",
+   "decision": "REFUSE",
+   "cert_sha256": "6af355d952e33a41f110263e129c24c96e5d71fca9ab51654e8577ac6c68c370",
+   "verdict": "ACCEPT",
+   "rejected_by": null,
+   "v6aplus": {
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   "checks": [
+    {
+     "check": "V0",
+     "status": "PASS"
+    },
+    {
+     "check": "V1",
+     "status": "PASS"
+    },
+    {
+     "check": "V2",
+     "status": "PASS"
+    },
+    {
+     "check": "V3",
+     "status": "PASS"
+    },
+    {
+     "check": "V4",
+     "status": "PASS"
+    },
+    {
+     "check": "V5",
+     "status": "PASS"
+    },
+    {
+     "check": "V6a",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6b",
+     "status": "PASS"
+    },
+    {
+     "check": "V6c",
+     "status": "SKIP"
+    },
+    {
+     "check": "V6a+",
+     "status": "SKIP"
+    }
+   ]
+  }
+ ]
+}

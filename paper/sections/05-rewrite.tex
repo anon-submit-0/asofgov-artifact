@@ -74,11 +74,10 @@ as its trivially compatible siblings, and a literal-only check answers the
 request its audit refuses.
 \emph{Scope:} four of the nine domains register policies (18 instance rows),
 the other five carrying the
-\texttt{ungoverned-disclosure} annotation of \S\ref{sec:cert:content}. The suite binds the layer our
-development seeds only formalised: 3 questions refuse \textsc{disclosure-blocked} on a replayed
-small-cell probe, 5 answer only after a granularity roll-up --- one under a
-threshold the version change raises --- and 2 only under a mask closure
-(\S\ref{sec:eval-mech}); 10 of the 34 forgeries attack this layer.
+\texttt{ungoverned-disclosure} annotation of \S\ref{sec:cert:content}; the
+suite exercises the layer on gold --- 3 blocked, 5 roll-ups, 2 masks
+(\S\ref{sec:eval-mech}) --- and 10 of the 34 pre-registered forgeries
+attack it.
 
 \begin{theorem}[soundness, maximality, determinism]
 \label{thm:sound}\label{thm:maximal}

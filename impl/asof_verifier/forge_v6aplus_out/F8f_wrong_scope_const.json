@@ -1,0 +1,155 @@
+{
+ "base_qid": "CARD-Q4",
+ "expected_reject_by": "V6a+",
+ "envelope": {
+  "sql": "SELECT (SELECT COUNT(*) FROM \"rulings\" t0 INNER JOIN \"cards\" t1 ON t0.\"uuid\" = t1.\"uuid\" WHERE t1.\"name\" = 'Kytheon, Hero of Akros // Gideon, Battle-Forged' AND t1.\"setCode\" = 'KTK' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '2015-06-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '2015-07-01')",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "CARD-Q4",
+    "domain": "card_games",
+    "metric": "card.card_rulings_count",
+    "metric_kind": "atomic",
+    "as_of": "2015-06-22"
+   },
+   "graph_pin": {
+    "domain": "card_games",
+    "graph_version": "v1",
+    "commit_id": "2015-01-15",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "atom",
+     "anchor_id": "A-CARD-RUL",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "month",
+      "lo": "2015-06-01",
+      "hi_excl": "2015-07-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-CARD-CRC",
+    "rule": "same_valid_time_window",
+    "numerator_anchor": null,
+    "denominator_anchor": null,
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [
+    {
+     "caliber_key": "card.rt3",
+     "metric": "card.card_rulings_count",
+     "leg": "scope",
+     "hop_seq": "0",
+     "src_node": "card.rulings",
+     "dst_node": "card.cards",
+     "via_table": "cards",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "uuid",
+       "uuid"
+      ]
+     ]
+    }
+   ],
+   "disclosure": {
+    "decision": "ANSWER",
+    "policy_ids": [],
+    "policy_table_present": false,
+    "ungoverned_disclosure": true,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-CARD-RUL",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"rulings\" t WHERE t.\"date\" IS NOT NULL",
+     "observed": [
+      "2004-10-04",
+      "2021-02-05"
+     ]
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6a+",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (1 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v1' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "1 α entr(ies) exist@v1 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "atomic metric: cited registry row 'B-CARD-CRC' governs the metric; svw replay vacuous (no two legs)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (1 edge(s)) replayed against gov_caliber_routing@v1"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "ungoverned-disclosure domain: Π=∅, dec=ANSWER, annotation present"
+   },
+   {
+    "check": "V6a",
+    "status": "PASS",
+    "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   },
+   {
+    "check": "V6a+",
+    "status": "FAIL",
+    "detail": "V6P_PREDICATE: predicate of type 'COMPARE_EQUAL' is neither a registered measure predicate, a registered question-scope predicate, nor the anchor time form"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "registered-binding(atom leg)"
+  }
+ }
+}

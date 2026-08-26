@@ -1,0 +1,59 @@
+{
+ "verdict": "ACCEPT",
+ "rejected_by": null,
+ "checks": [
+  {
+   "check": "V0",
+   "status": "PASS",
+   "detail": "α matches the independently re-derived α_{q,v} (2 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+  },
+  {
+   "check": "V1",
+   "status": "PASS",
+   "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v1' (timestamps commit map)"
+  },
+  {
+   "check": "V2",
+   "status": "PASS",
+   "detail": "2 α entr(ies) exist@v1 with well-typed windows"
+  },
+  {
+   "check": "V3",
+   "status": "PASS",
+   "detail": "rule replay passes (clause (i) ok; clause (ii) ok; clause (iii) ok; clause (iv) window-realization sets equal)"
+  },
+  {
+   "check": "V4",
+   "status": "PASS",
+   "detail": "ρ (2 edge(s)) replayed against gov_caliber_routing@v1"
+  },
+  {
+   "check": "V5",
+   "status": "PASS",
+   "detail": "ungoverned-disclosure domain: Π=∅, dec=ANSWER, annotation present"
+  },
+  {
+   "check": "V6a",
+   "status": "PASS",
+   "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+  },
+  {
+   "check": "V6b",
+   "status": "SKIP",
+   "detail": "V6b applies to refusal certificates only"
+  },
+  {
+   "check": "V6c",
+   "status": "PASS",
+   "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+  }
+ ],
+ "gv_notes": [],
+ "independence": {
+  "declared_windows_allowed": true,
+  "alpha_status": "ok",
+  "window_source": "derived",
+  "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+  "arity_source": "beta_v(binding row prescribes legs)"
+ }
+}

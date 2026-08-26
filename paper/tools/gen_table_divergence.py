@@ -246,39 +246,64 @@ def assert_invariants(rows: list[dict], text: str) -> None:
     assert set(EDIT) == set(f"D{i}" for i in range(1, 16))
 
 
-CAPTION = r"""Every disagreement the two implementations had on their first
-cross-check. \emph{Provenance}: this ledger was recorded during the two
-sides' integration on the production (enterprise) track that motivated this
-work, before the public suite of \S\ref{sec:eval-setup} existed; it is
-specification-level content --- readings, checks, guard order --- and
-carries no production data value, so it is reported as evidence about the
-\emph{design}, not about the released benchmark.
-\emph{Cls}: S~spec-reading, D~defect (subscript: which side),
-R~registration gap; \emph{Right}: the side the frozen text vindicated;
-\emph{Check}: the check that fired ($\dagger$~crashed). The 25 first-round
-rejections were V0$\times9$, V6a$\times9$, V3$\times3$, V6b$\times2$,
-V6c$\times1$, V4/V6c$\times1$, many-to-many onto these 15.
-\emph{Value gold?}: would the integration suite's value-level gold --- 51
-questions, 37 numeric and 14 refusal-token comparisons --- have failed? On
-no row, and the cell says why not:
-the value is unchanged; the lie is confined to the \emph{cert}ificate or
-registry that gold never reads; the erring side is the \emph{verif}ier that gold
-never runs; or the gold \emph{label} is itself what settled the reading. Both
-readings per row:~\cite{asofgov-tr}."""
+# ---------------------------------------------------------------------------
+# SLIMMED 2026-08-26 (template-restoration funding; see paper/main.tex and the
+# sections/08-eval.tex red-line note of the same date).  The emitted table is
+# now a SUMMARY: per-root-cause-class counts plus the three most instructive
+# rows; the full 15-row ledger, both readings per row, stays in the TR
+# (asof-gov-tr.pdf carries every row and both readings), in
+# impl/INTEGRATION_REPORT.md section 5 (source of record), and in
+# tab_divergence.audit.json, which this generator still writes with ALL 15
+# rows and their evidence.  parse_section5/assert_invariants are UNCHANGED:
+# the generator still parses and asserts the full ledger before printing
+# anything, so a stale or edited report still fails loudly.
+#
+# THE THREE EXEMPLARS are the rows the E6 lessons quote, one per class:
+#   D1 (S)  guard order settled by the frozen gold label -- the row the
+#           suite's frozen guard-order adjudications descend from;
+#   D7 (Dc) compiler defect returning the RIGHT answer under a
+#           non-re-derivable certificate claim -- the "value gold catches
+#           none of this" lesson in one row;
+#   D4 (R)  a ratio's caliber route missing from the registry -- the
+#           registration-gap lesson (checkability measures governedness).
+# The choice is pinned here and asserted one-per-class below.
+# ---------------------------------------------------------------------------
+EXEMPLARS = ("D1", "D7", "D4")
+
+CAPTION = r"""The two implementations' first cross-check: root-cause
+counts plus the three rows the \S\ref{sec:eval-divergence} lessons quote
+(full D1--D15 ledger, both readings per row:~\cite{asofgov-tr}).
+\emph{Provenance}: recorded during the two sides' integration on the
+production (enterprise) track, before the public suite existed ---
+specification-level content, no production data value.
+\emph{Cls}: S~spec-reading, D$_{\mathrm{c/v}}$~defect
+(compiler/verifier side), R~registration gap; \emph{Right}: the side the
+frozen text vindicated; \emph{Check}: the check that fired.
+\emph{Value gold?}: the 51-question value-level gold fails on \emph{no}
+row --- the lie sits in the \emph{cert}ificate/registry gold never reads,
+or the gold \emph{label} itself settled the reading."""
 
 
 def emit(rows: list[dict]) -> str:
+    by_id = {r["id"]: r for r in rows}
+    # the exemplar pick is pinned above; assert it is one row per class so a
+    # future edit cannot quietly bias the sample toward one root cause.
+    assert [by_id[x]["cls"] for x in EXEMPLARS] == ["S", "Dc", "R"], \
+        [by_id[x]["cls"] for x in EXEMPLARS]
     L = []
     A = L.append
     A("% ---------------------------------------------------------------------")
-    A("%  Table F-C -- D1-D15 divergence ledger.  GENERATED FILE, DO NOT EDIT.")
+    A("%  Table F-C -- D1-D15 divergence SUMMARY.  GENERATED FILE, DO NOT EDIT.")
     A("%  Regenerate:  python3 tools/gen_table_divergence.py")
     A("%  Source of record: impl/INTEGRATION_REPORT.md section 5 (15-row table)")
     A("%  and section 2 (per-family check labels).  tools/gen_table_divergence.py")
     A("%  parses that table, asserts 15 rows / 5+5+5 / the 25-rejection family")
-    A("%  decomposition, and fails rather than print stale content.")
-    A("%  The last column's headline case is MEASURED, not asserted: see the")
-    A("%  A/B recipe in the generator's module docstring.")
+    A("%  decomposition, and fails rather than print stale content.  SLIMMED")
+    A("%  2026-08-26: the emitted table prints per-class counts + the three")
+    A("%  exemplar rows the E6 lessons quote; the full ledger stays in the TR,")
+    A("%  the report, and tab_divergence.audit.json (all 15 rows, unchanged).")
+    A("%  The verifier column's headline case is MEASURED, not asserted: see")
+    A("%  the A/B recipe in the generator's module docstring.")
     A("%  Macros used (\\MC, \\beta_v ...) are \\providecommand'd in 03-semantics.")
     A("% ---------------------------------------------------------------------")
     A(r"\begin{table}[t]")
@@ -293,9 +318,10 @@ def emit(rows: list[dict]) -> str:
     A(r"Divergence & Cls & Right & Check & Value\\")
     A(r" & & & fired & gold?\\")
     A(r"\midrule")
-    for r in rows:
-        e = EDIT[r["id"]]
-        num = r["id"][1:]
+    for rid in EXEMPLARS:
+        r = by_id[rid]
+        e = EDIT[rid]
+        num = rid[1:]
         A(f"$D_{{{num}}}$ {e['short']} & {CLASS_TEX[r['cls']]} & {SIDE_TEX[r['side']]}"
           f" & {e['check']} & " + r"\ding{55}\," + GOLD_TEX[e["gold"]] + r"\\")
     A(r"\midrule")
@@ -304,7 +330,16 @@ def emit(rows: list[dict]) -> str:
     nDc = sum(1 for r in rows if r["cls"] == "Dc")
     nDv = sum(1 for r in rows if r["cls"] == "Dv")
     nR = sum(1 for r in rows if r["cls"] == "R")
-    A(r"\multicolumn{4}{@{}l}{" + f"{nS} S $\\cdot$ {nDc}+{nDv} D $\\cdot$ {nR} R"
+    rem = [r for r in rows if r["id"] not in EXEMPLARS]
+    rS = sum(1 for r in rem if r["cls"] == "S")
+    rDc = sum(1 for r in rem if r["cls"] == "Dc")
+    rDv = sum(1 for r in rem if r["cls"] == "Dv")
+    rR = sum(1 for r in rem if r["cls"] == "R")
+    A(r"\multicolumn{4}{@{}l}{" + f"the other {len(rem)}: {rS} S $\\cdot$ "
+      + f"{rDc}+{rDv} D $\\cdot$ {rR} R, rows in~\\cite{{asofgov-tr}}}}"
+      + r" & \ding{55}\,$0/" + str(len(rem)) + r"$\\")
+    A(r"\multicolumn{4}{@{}l}{" + f"all {n}: {nS} S $\\cdot$ {nDc}+{nDv} D "
+      + f"$\\cdot$ {nR} R"
       + r"\ \ (25 rejections $\to$ " + str(n) + r" causes)} & \ding{55}\,$0/"
       + str(n) + r"$\\")
     A(r"\bottomrule")
@@ -330,6 +365,12 @@ def main() -> int:
         # in-artifact run of reproduce_all.sh (the file is generated in both).
         "source_of_record": str(REPORT.relative_to(ROOT)),
         "source_section": "5 (15-row table) + 2 (per-family check labels)",
+        "printed_rows": list(EXEMPLARS),
+        "printed_rows_note": "2026-08-26 slimming: the body table prints "
+                             "per-class counts plus these three exemplar "
+                             "rows (one per root-cause class, the rows the "
+                             "E6 lessons quote); this audit and the TR keep "
+                             "all 15 rows.",
         "rows": [{"id": r["id"],
                   "section5_line": r["raw"],
                   "point_zh": r["point"],
