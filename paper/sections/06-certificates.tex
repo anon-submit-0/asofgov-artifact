@@ -100,7 +100,11 @@ faces: template membership for the certified metric kind; each leg's
 aggregate implementing its registered measure, not a lookalike; legs
 computed from their own registered objects; registered and question-scope
 predicates at \emph{exact} window equality; joins only on registered
-routing keys. Per-check
+routing keys; and, round-2 hardened, the outer node of a ratio/atomic answer
+carries no row filter --- a non-null outer \texttt{WHERE} rejects with
+\texttt{V6P\_SHAPE} --- while the answer SQL is executed read-only, its
+executed arity required to match the certified shape (\texttt{V6P\_ARITY}).
+Per-check
 argument and answer/refusal tables:~\cite{asofgov-tr}.
 
 \looseness=-1 V6b(0) and V6c are the checks a definition-body verifier
@@ -160,8 +164,10 @@ routing-path tables on the registered keys, $e$ and $P$ over certified
 columns only, and $P$ carrying one time predicate denoting a subset of
 the leg's certified window. Membership is decidable --- each clause a
 parse-tree test; V6a decides the containment clauses (object set, window
-denotation, leg-before-divide shape) and V6a+ decides full membership,
-fail-closed, against the registered seeds.
+denotation, leg-before-divide shape) and V6a+ decides full membership ---
+including outer-filter membership, the round-2 requirement that a ratio/atomic
+answer carry no outer row filter, enforced structurally and by an
+executed-arity check --- fail-closed, against the registered seeds.
 \end{definition}
 
 \smallskip\noindent\looseness=-1\textbf{Declared scope of Theorem~\ref{thm:certsound}(b).}
@@ -174,8 +180,11 @@ in~\cite{asofgov-tr} and an obligation of the same kind as
 Theorem~\ref{thm:sound}'s \emph{(A-emit)}; a delta template subtracting
 two rates already sits outside the class. The hardening is disclosed, not
 silent: V6a+ answers an external review (2026-08) that exhibited mutations
-the original V6a accepted; \S\ref{sec:eval-cert} carries the faces and the
-battery. Rewrite maximality is a declared
+the original V6a accepted, and a second external review (2026-08) that
+exhibited an outer filter --- a top-level \texttt{WHERE} over the ratio that
+empties the answer --- V6a+ itself still accepted, closed round-2 by the
+outer-filter and executed-arity faces above; \S\ref{sec:eval-cert} carries the
+faces and the battery. Rewrite maximality is a declared
 \emph{non-goal}: re-checking it would mean re-implementing
 \S\ref{sec:rewrite}'s search inside a verifier forbidden its code, so
 $\Chk$ verifies only that $q'$ is legal and its cut trace consistent.

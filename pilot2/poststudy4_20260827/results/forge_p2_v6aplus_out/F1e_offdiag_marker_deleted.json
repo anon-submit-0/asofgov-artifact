@@ -1,0 +1,192 @@
+{
+ "base_qid": "F1-Q3",
+ "expected_reject_by": "V1",
+ "envelope": {
+  "sql": "SELECT (SELECT SUM(t2.\"points\") FROM \"results\" t0 INNER JOIN \"races\" t1 ON t0.\"raceId\" = t1.\"raceId\" INNER JOIN \"points_scheme\" t2 ON t0.\"positionOrder\" = t2.\"position\" INNER JOIN \"drivers\" t3 ON t0.\"driverId\" = t3.\"driverId\" WHERE t2.\"scheme_id\" = 'PS2009' AND t3.\"driverRef\" = 'button' AND substr(CAST(t1.\"date\" AS VARCHAR),1,10) >= '2009-01-01' AND substr(CAST(t1.\"date\" AS VARCHAR),1,10) < '2010-01-01')",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "F1-Q3",
+    "domain": "formula_1",
+    "metric": "f1.driver_season_points",
+    "metric_kind": "atomic",
+    "as_of": "2009-07-01"
+   },
+   "graph_pin": {
+    "domain": "formula_1",
+    "graph_version": "v1",
+    "commit_id": "2009-03-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "atom",
+     "anchor_id": "A-F1-RACE",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "year",
+      "lo": "2009-01-01",
+      "hi_excl": "2010-01-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-F1-DSP",
+    "rule": "same_valid_time_window",
+    "numerator_anchor": null,
+    "denominator_anchor": null,
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [
+    {
+     "caliber_key": "f1.rt1",
+     "metric": "f1.driver_season_points",
+     "leg": "atom",
+     "hop_seq": "0",
+     "src_node": "f1.results",
+     "dst_node": "f1.races",
+     "via_table": "races",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "raceId",
+       "raceId"
+      ]
+     ]
+    },
+    {
+     "caliber_key": "f1.rt2",
+     "metric": "f1.driver_season_points",
+     "leg": "atom",
+     "hop_seq": "1",
+     "src_node": "f1.results",
+     "dst_node": "f1.points_scheme",
+     "via_table": "points_scheme",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "positionOrder",
+       "position"
+      ]
+     ]
+    },
+    {
+     "caliber_key": "f1.rt3",
+     "metric": "f1.driver_season_points",
+     "leg": "scope",
+     "hop_seq": "0",
+     "src_node": "f1.results",
+     "dst_node": "f1.drivers",
+     "via_table": "drivers",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "driverId",
+       "driverId"
+      ]
+     ]
+    }
+   ],
+   "disclosure": {
+    "decision": "ANSWER",
+    "policy_ids": [],
+    "policy_table_present": false,
+    "ungoverned_disclosure": true,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-F1-RACE",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"races\" t WHERE t.\"date\" IS NOT NULL",
+     "observed": [
+      "1950-05-13",
+      "2017-11-26"
+     ]
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V1",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (1 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "FAIL",
+    "detail": "ν.v='v1' ≠ ver(T)='v2' without the explicit off_diagonal commitment marker (zero-trace off-diagonal certificate REJECT)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "1 α entr(ies) exist@v1 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "atomic metric: cited registry row 'B-F1-DSP' governs the metric; svw replay vacuous (no two legs)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (3 edge(s)) replayed against gov_caliber_routing@v1"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "ungoverned-disclosure domain: Π=∅, dec=ANSWER, annotation present"
+   },
+   {
+    "check": "V6a",
+    "status": "PASS",
+    "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   },
+   {
+    "check": "V6a+",
+    "status": "PASS",
+    "detail": "AST lies in the registered atomic template: measures, leg-role binding, registered predicates, window equality and routing joins all replayed from G_v"
+   },
+   {
+    "check": "V6a+x",
+    "status": "PASS",
+    "detail": "executed answer shape 1 row(s) x 1 column(s) matches the certified 'atomic' arity"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "registered-binding(atom leg)"
+  }
+ }
+}

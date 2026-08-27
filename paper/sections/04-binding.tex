@@ -38,8 +38,8 @@ chain and obligations (b1)--(b4) of Definition~\ref{def:bindable};
 exhaustiveness uses Proposition~\ref{prop:decidable} (whose proof does not
 use this theorem) and Definition~\ref{def:oov}'s vacuity convention,
 keeping a missing object out of
-the temporal door. Figure~\ref{fig:partition} walks one request into
-each of the four outcomes on a single store.
+the temporal door. Figure~\ref{fig:partition}'s guard-chain inset walks one
+request into each of the four outcomes on a single store.
 % The four-case walk that used to be prose here is Figure~\ref{fig:partition},
 % which prints every mass; keep this pointer, not a second telling of it.
 
@@ -49,22 +49,22 @@ each of the four outcomes on a single store.
 % from the public card_games warehouse and cross-asserted against impl/certs2/.
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figA_partition.pdf}
-\Description{Four sibling requests on the same governed metric walked
-through the guard chain in its frozen order, one row per request: each row
-prints the request window, the outcome of every guard with the quantity
-that decided it, and the exit --- one bound answer and the three refusal
-classes --- so the four rows realise the four-way partition while only the
-window coordinates differ.}
-\caption{The partition on four sibling requests to the \texttt{card\_games}
-store: only the coordinates move, so each row leaves the chain in a different
-column. (b) and (d) are the $\OOV$/$\MC$(ii) boundary --- one metric, one
-empty same-month denominator, two classes --- because $\Cov$ is the hull of
-the \emph{anchor's} table: 2017-02 lies inside, 2021-06 after. (c)~is
-what a refusal buys: the $6400\%$ its cross-window binding would report
-against the $40.2\%$ the same-window rule delivers in (a). (a)/(d) are
-suite questions with verifier-accepted certificates; (b)/(c) probes on
-the same store, and say so.}
+\includegraphics[width=\columnwidth]{fig2_certchain.pdf}
+\Description{A single-column dataflow from a governed store and a question at a
+declared instant, down through MLR-Compile, a guard-chain inset firing OOV then
+AM then MC before Bindable with one worked instance under each exit, into a
+certificate; a dashed trust boundary separates the compiler side from an
+independent verifier that re-executes probes and reports 60 of 60 genuine
+certificates accepted and 78 of 78 forgeries rejected, at a verification cost
+above the answering query.}
+\caption{From question to independently checkable decision.
+\textsc{Mlr-Compile} binds $(q,T)$; the guard chain fires in the frozen order
+$\OOV\!\to\!\AM\!\to\!\MC$, so every request exits Bindable or as one typed
+refusal (a worked instance under each exit; the full walk
+is in~\cite{asofgov-tr}). Both ship as a certificate --- the only object
+crossing to $\Chk$, which shares no compiler module and re-executes the probes:
+$60/60$ genuine accept, $78/78$ forgeries reject (\S\ref{sec:eval-cert}), at a
+median $17.7\times$ the answering time and $10.2\times$ its bytes.}
 \label{fig:partition}
 \end{figure}
 
@@ -135,7 +135,8 @@ $\OOV$ does not range across periods.
 
 \looseness=-1 The second condition is forced by an instance: the delta over
 $[\,2017\text{-}02,$\linebreak[0] $2021\text{-}06\,]$ on
-Figure~\ref{fig:partition}'s store (b,\,d) has periods $\bot_{\MC}$ and
+Figure~\ref{fig:partition}'s $\MC$ and $\OOV$ exits (2017-02 and 2021-06)
+have periods $\bot_{\MC}$ and
 $\OOV$; a cross-period quantifier would report $\bot_{\OOV}$, the
 lexicographic rule $\bot_{\MC}$.
 

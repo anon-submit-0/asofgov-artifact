@@ -16,10 +16,13 @@ Input signature is strictly (certificate, q, G_v, D):
                   warehouse (the same duckdb file also carries D);
   - D           : the warehouse fact tables (read-only duckdb connection).
 
-Verdict: ACCEPT iff every check in {V0,V1,V2,V3,V4,V5,V6a,V6b,V6c,V6a+} passes.
+Verdict: ACCEPT iff every check in {V0,V1,V2,V3,V4,V5,V6a,V6b,V6c,V6a+,V6a+x}
+passes.
 (V6a+ — post-registration structural hardening, PREREG_poststudy3_20260826 —
-lives in v6aplus.py and is reported last so pre-existing first-FAIL
-attributions stay frozen.)
+and V6a+x — the round-2 execution-shape check, PREREG_poststudy4_20260827 —
+both live in v6aplus.py and are reported last, in that order, so pre-existing
+first-FAIL attributions stay frozen. V6a+x is the only site that EXECUTES the
+answer SQL; every check before it is parse-only over (G_v, D).)
 Reporting: every check is attempted; `rejected_by` is the first FAIL in canonical order.
 
 Anti-certification-loop red lines (C5 Req 5.8, 梁老师意见3):
@@ -61,11 +64,14 @@ DAY = dt.timedelta(days=1)
 
 # V6a+ (PREREG_poststudy3_20260826, sha256 426017ddfd8af8608e452b44175e2158
 # c620c2e8cebe3a17572ee3fe15d7a192 — see v6aplus.py header for the same hash)
-# is appended AFTER V6c so that every pre-existing forgery keeps its frozen
-# first-FAIL attribution (`rejected_by`); the verdict stays the conjunction
-# over ALL checks, so appending strengthens and never weakens the gate.
+# is appended AFTER V6c, and V6a+x (PREREG_poststudy4_20260827, sha256
+# a7ff13112c6988e98fceb238972a0ae0fff87a037b9f9630577fc618c04b1a75 — the
+# execution-shape check) AFTER V6a+, so that every pre-existing forgery keeps
+# its frozen first-FAIL attribution (`rejected_by`); the verdict stays the
+# conjunction over ALL checks, so appending strengthens and never weakens the
+# gate.
 CHECK_ORDER = ["V0", "V1", "V2", "V3", "V4", "V5", "V6a", "V6b", "V6c",
-               "V6a+"]
+               "V6a+", "V6a+x"]
 GUARD_ORDER = ["OOV", "AM", "MC"]  # frozen report order (D2 / C3 note 3.18')
 
 REASONS = {"missing-caliber": "MC", "anchor-mismatch": "AM",
@@ -3465,8 +3471,21 @@ def check_V6a_plus(cx):
     (PREREG_poststudy3_20260826; implementation in v6aplus.py). Fail-closed:
     unparseable, non-template, wrong-measure, swapped-leg, wrong-predicate,
     unequal-window and unregistered-join answers all REJECT with a
-    machine-readable V6P_* reason code in the detail."""
+    machine-readable V6P_* reason code in the detail.
+    (PREREG_poststudy4_20260827 fix 1 adds the outer-filter closure: an outer
+    WHERE on the scalar atomic/ratio/delta node now REJECTs V6P_SHAPE.)"""
     return v6aplus.check_v6a_plus(cx, _V6APLUS_HELPERS)
+
+
+def check_V6a_plus_x(cx):
+    """V6a+x — execution-shape check (PREREG_poststudy4_20260827 fix 2;
+    implementation in v6aplus.py). Appended AFTER V6a+ so all frozen first-FAIL
+    attributions persist. It is the first V6a+-family site to EXECUTE the
+    answer SQL: each ANSWER/REWRITE answer query is run read-only against the
+    warehouse (D, via cx.con — the same read-only connection the V6b/V6c probes
+    use) and must return the certified row/column arity; any other shape
+    REJECTs V6P_ARITY. REFUSE certificates are SKIPped (no answer SQL)."""
+    return v6aplus.check_exec_shape(cx, _V6APLUS_HELPERS)
 
 
 def _replay_neg_oov(cx):
@@ -3931,7 +3950,7 @@ def verify(cert_obj, q, con, ctx=None, allow_declared_windows=True):
     checks = []
     fns = {"V0": check_V0, "V1": check_V1, "V2": check_V2, "V3": check_V3,
            "V4": check_V4, "V5": check_V5, "V6a": check_V6a, "V6b": check_V6b,
-           "V6c": check_V6c, "V6a+": check_V6a_plus}
+           "V6c": check_V6c, "V6a+": check_V6a_plus, "V6a+x": check_V6a_plus_x}
     for cid in CHECK_ORDER:
         try:
             status, detail = fns[cid](cx)

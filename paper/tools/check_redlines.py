@@ -73,12 +73,27 @@ RED = [
  # rejected; values gated by check_numbers.py on v6aplus_summary.json).  The
  # pre-registered strings stay pinned and the grown totals are pinned WITH
  # them -- extension, not retirement.
- ("E: 60/60 certificates; 34/34 pre-registered + 70/70 total forgeries",
+ # (2026-08-27, poststudy4 round 2) the battery grew 70 -> 78 with the F11
+ # outer-row-filter family (34 pre-registered + 44 post-registered); the pre-
+ # registered strings stay pinned and the grown totals are pinned WITH them --
+ # extension, not retirement (values gated by check_numbers.py on
+ # v6aplus_v4_summary.json).
+ ("E: 60/60 certificates; 34/34 pre-registered + 78/78 family forgeries",
   "sections/08-eval.tex",
   [r"accepts \$60/60\$", r"rejects \$34/34\$",
    r"11 unmodified compiler certificates",
-   r"70 forged certificates in all", r"reject \$31/31\$",
-   r"total is \$70/70\$ rejected"]),
+   r"78 forged certificates in all", r"reject \$31/31\$",
+   r"total is \$78/78\$ rejected"]),
+ # (2026-08-27, poststudy4) the round-2 outer-filter closure is DISCLOSED with
+ # its F11 family, the two pinned exploits (grand total 80) and both new reason
+ # codes; a compression pass must not keep the grown counts while eating the
+ # reason they grew.
+ ("E5+C5: round-2 outer-filter closure disclosed with F11 and the grand total",
+  None,
+  [r"F11 outer-row-filter \(8\)", r"\$8/8\$", r"\$80/80\$",
+   r"filtering the scalar answer to zero rows",
+   r"V6P\\_SHAPE", r"V6P\\_ARITY",
+   r"a second external review \(2026-08\)"]),
  # (2026-08-26, poststudy3): the review-found V6a gap is DISCLOSED -- in S5
  # at the soundness scope and in E5 at the battery -- and stays disclosed: a
  # compression pass must not keep the grown counts while eating the reason
@@ -326,8 +341,13 @@ RED = [
  # precise schema-evolution delineation is restored in S8 (schema-version
  # query rewriting vs governance-version re-scoping over unchanged rows;
  # typed refusal absent there) without citing removed papers.
- ("D: NL->sigma hybrid promoted in the E-takeaway", "sections/08-eval.tex",
-  [r"NL-to-\$\\sigma\$ hybrid errs \$5/60\$"]),
+ # (2026-08-27, poststudy4 item B) the hybrid is now BOTH in the E-takeaway
+ # and a main-results row (tab:main, 5/60, gate-wired from s7_summary.json);
+ # its caption names it the recommended deployment path.
+ ("D: NL->sigma hybrid promoted to the E-takeaway and a main-results row",
+  "sections/08-eval.tex",
+  [r"NL-to-\$\\sigma\$ hybrid errs \$5/60\$",
+   r"recommended deployment path"]),
  ("D: schema-evolution delineation restored in S8", "sections/09-related.tex",
   [r"query rewriting across \\emph\{schema\}",
    r"re-scopes governed meaning over unchanged rows",

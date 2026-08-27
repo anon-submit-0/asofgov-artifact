@@ -1,0 +1,157 @@
+{
+ "base_qid": "DEB-Q3",
+ "expected_reject_by": "V6a+",
+ "envelope": {
+  "sql": "SELECT (SELECT COUNT(*) FROM \"yearmonth\" t0 INNER JOIN \"customers\" t1 ON t0.\"CustomerID\" = t1.\"CustomerID\" WHERE t1.\"Segment\" = 'SME' AND CAST(t0.\"Date\" AS VARCHAR) = '201306')",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "DEB-Q3",
+    "domain": "debit_card_specializing",
+    "metric": "deb.consumption_sum",
+    "metric_kind": "atomic",
+    "as_of": "2013-06-15"
+   },
+   "graph_pin": {
+    "domain": "debit_card_specializing",
+    "graph_version": "v2",
+    "commit_id": "2013-06-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "atom",
+     "anchor_id": "A-DEB-YM",
+     "registered": true,
+     "coverage_mode": "strict_member",
+     "granule": "month_token_yyyymm",
+     "window": {
+      "kind": "month",
+      "lo": "2013-06-01",
+      "hi_excl": "2013-07-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-DEB-CS",
+    "rule": "same_valid_time_window",
+    "numerator_anchor": null,
+    "denominator_anchor": null,
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [
+    {
+     "caliber_key": "deb.rt2",
+     "metric": "deb.consumption_sum",
+     "leg": "scope",
+     "hop_seq": "0",
+     "src_node": "deb.yearmonth",
+     "dst_node": "deb.customers",
+     "via_table": "customers",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "CustomerID",
+       "CustomerID"
+      ]
+     ]
+    }
+   ],
+   "disclosure": {
+    "decision": "ANSWER",
+    "policy_ids": [],
+    "policy_table_present": true,
+    "ungoverned_disclosure": false,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-DEB-YM",
+     "coverage_mode": "strict_member",
+     "sql": "SELECT DISTINCT CAST(t.\"Date\" AS VARCHAR) FROM \"yearmonth\" t WHERE t.\"Date\" IS NOT NULL",
+     "observed": 21
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6a+",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (1 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v2' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "1 α entr(ies) exist@v2 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "atomic metric: cited registry row 'B-DEB-CS' governs the metric; svw replay vacuous (no two legs)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (1 edge(s)) replayed against gov_caliber_routing@v2"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "governed disclosure (p2) replayed: Π=[]; k/lattice, mask and time-floor clauses re-established from (G_v, D)"
+   },
+   {
+    "check": "V6a",
+    "status": "PASS",
+    "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   },
+   {
+    "check": "V6a+",
+    "status": "FAIL",
+    "detail": "V6P_MEASURE: leg must implement sum:Consumption as SUM(Consumption)"
+   },
+   {
+    "check": "V6a+x",
+    "status": "PASS",
+    "detail": "executed answer shape 1 row(s) x 1 column(s) matches the certified 'atomic' arity"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "registered-binding(atom leg)"
+  }
+ }
+}

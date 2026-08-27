@@ -109,7 +109,7 @@ diffgate "fig_data_pilot2.json" "$REPO/paper/figures/fig_data_pilot2.json" "$TMP
 
 # ---------------------------------------------------------------- figures
 say "stage 3: regenerate the paper figures (PDF bytes not asserted)"
-for f in fig1_asof_gap figA_partition fig3_failure_taxonomy fig1_combined figB_forgery_matrix figD_cost_ablation; do
+for f in fig1_asof_gap fig2_certchain fig3_paired_stratified figA_partition fig3_failure_taxonomy fig1_combined figB_forgery_matrix figD_cost_ablation; do
   gate "$f.py" sh -c "cd '$REPO/paper/figures' && python3 $f.py >/dev/null"
 done
 

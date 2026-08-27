@@ -1,0 +1,208 @@
+{
+ "base_qid": "CARD-Q2",
+ "expected_reject_by": "V6a+",
+ "envelope": {
+  "sql": "SELECT (SELECT COUNT(*) FROM \"rulings\" t0 WHERE substr(CAST(t0.\"date\" AS VARCHAR),1,10) >= '2016-11-01' AND substr(CAST(t0.\"date\" AS VARCHAR),1,10) < '2016-12-01') * 1.0 / NULLIF((SELECT COUNT(*) FROM \"cards\" t0 INNER JOIN \"sets\" t1 ON t0.\"setCode\" = t1.\"code\" WHERE substr(CAST(t1.\"releaseDate\" AS VARCHAR),1,10) >= '2016-11-01' AND substr(CAST(t1.\"releaseDate\" AS VARCHAR),1,10) < '2016-12-01'), 0) WHERE 1=0",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "CARD-Q2",
+    "domain": "card_games",
+    "metric": "card.ruling_intensity",
+    "metric_kind": "ratio",
+    "as_of": "2016-11-15"
+   },
+   "graph_pin": {
+    "domain": "card_games",
+    "graph_version": "v1",
+    "commit_id": "2015-01-15",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "numerator",
+     "anchor_id": "A-CARD-RUL",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "month",
+      "lo": "2016-11-01",
+      "hi_excl": "2016-12-01"
+     }
+    },
+    {
+     "role": "denominator",
+     "anchor_id": "A-CARD-SET",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "month",
+      "lo": "2016-11-01",
+      "hi_excl": "2016-12-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-CARD-RI-N|B-CARD-RI-D",
+    "rule": "same_valid_time_window",
+    "numerator_anchor": "A-CARD-RUL",
+    "denominator_anchor": "A-CARD-SET",
+    "adm_check_mode": "window_realization_symdiff"
+   },
+   "routing": [
+    {
+     "caliber_key": "card.rt1",
+     "metric": "card.ruling_intensity",
+     "leg": "num",
+     "hop_seq": "0",
+     "src_node": "card.rulings",
+     "dst_node": "card.rulings",
+     "via_table": "rulings",
+     "dst_caliber": "all",
+     "join_keys": []
+    },
+    {
+     "caliber_key": "card.rt2",
+     "metric": "card.ruling_intensity",
+     "leg": "den",
+     "hop_seq": "0",
+     "src_node": "card.cards",
+     "dst_node": "card.sets",
+     "via_table": "sets",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "setCode",
+       "code"
+      ]
+     ]
+    }
+   ],
+   "disclosure": {
+    "decision": "ANSWER",
+    "policy_ids": [],
+    "policy_table_present": false,
+    "ungoverned_disclosure": true,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-CARD-RUL",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"date\" AS VARCHAR),1,10)) FROM \"rulings\" t WHERE t.\"date\" IS NOT NULL",
+     "observed": [
+      "2004-10-04",
+      "2021-02-05"
+     ]
+    },
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-CARD-SET",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"releaseDate\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"releaseDate\" AS VARCHAR),1,10)) FROM \"sets\" t WHERE t.\"releaseDate\" IS NOT NULL",
+     "observed": [
+      "1993-08-05",
+      "2021-03-19"
+     ]
+    },
+    {
+     "kind": "ADM_WINDOW_REALIZATION",
+     "anchors": [
+      "A-CARD-RUL",
+      "A-CARD-SET"
+     ],
+     "observed": 0
+    },
+    {
+     "kind": "DEN_POP",
+     "role": "denominator",
+     "period": 0,
+     "sql": "SELECT (SELECT COUNT(*) FROM \"cards\" t0 INNER JOIN \"sets\" t1 ON t0.\"setCode\" = t1.\"code\" WHERE substr(CAST(t1.\"releaseDate\" AS VARCHAR),1,10) >= '2016-11-01' AND substr(CAST(t1.\"releaseDate\" AS VARCHAR),1,10) < '2016-12-01')",
+     "observed": 796.0
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6a+",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (2 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v1' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "2 α entr(ies) exist@v1 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "rule replay passes (clause (i) ok; clause (ii) ok; clause (iii) ok; clause (iv) window-realization sets equal)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (2 edge(s)) replayed against gov_caliber_routing@v1"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "ungoverned-disclosure domain: Π=∅, dec=ANSWER, annotation present"
+   },
+   {
+    "check": "V6a",
+    "status": "PASS",
+    "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   },
+   {
+    "check": "V6a+",
+    "status": "FAIL",
+    "detail": "V6P_SHAPE: outer WHERE outside the template"
+   },
+   {
+    "check": "V6a+x",
+    "status": "FAIL",
+    "detail": "V6P_ARITY: executed answer shape 0 row(s) x 1 column(s) is not the certified arity for a 'ratio' metric (expected exactly 1 row x 1 column)"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "beta_v(binding row prescribes legs)"
+  }
+ }
+}

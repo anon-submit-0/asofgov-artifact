@@ -1,0 +1,357 @@
+{
+ "study": "poststudy4_20260827 — verifier hardening V6a+ round 2 (outer-filter closure + execution shape check)",
+ "prereg": {
+  "path": "PREREG_poststudy4_20260827.md",
+  "sha256": "a7ff13112c6988e98fceb238972a0ae0fff87a037b9f9630577fc618c04b1a75"
+ },
+ "verifier": {
+  "tree_A": "/Volumes/SSD 1/vldb_asof/asof-gov-vldb-artifact/impl/asof_verifier",
+  "tree_B": "/Volumes/SSD 1/explore_opportunity_cc/impl/asof_verifier",
+  "files_A": {
+   "chk.py": "f3f23be5a5dcf1232edc60908594ca3585a9e41a2538a579c0d037297443a510",
+   "v6aplus.py": "d09dece46e71b112131bfef72c20872a8f8bc4864fb6fccf41d3d57a26023c11",
+   "forge_v6aplus.py": "1f08abc57b9e6d503a68a7605723c2f149a2d91d3173359b57edb7b31eba4ca4",
+   "ci_check.py": "0875d0e6075f01d553c7e5aee95b2aef18425811dd8d354783388f9d34d7c9bc"
+  },
+  "files_B": {
+   "chk.py": "f3f23be5a5dcf1232edc60908594ca3585a9e41a2538a579c0d037297443a510",
+   "v6aplus.py": "d09dece46e71b112131bfef72c20872a8f8bc4864fb6fccf41d3d57a26023c11",
+   "forge_v6aplus.py": "1f08abc57b9e6d503a68a7605723c2f149a2d91d3173359b57edb7b31eba4ca4",
+   "ci_check.py": "0875d0e6075f01d553c7e5aee95b2aef18425811dd8d354783388f9d34d7c9bc"
+  },
+  "trees_byte_identical": true
+ },
+ "ci_check": {
+  "ok": true,
+  "failures": []
+ },
+ "genuine60": {
+  "total": 60,
+  "accept": 60,
+  "reject": 0,
+  "v6aplus_status": {
+   "PASS": 45,
+   "SKIP": 15
+  },
+  "v6aplus_x_status": {
+   "PASS": 45,
+   "SKIP": 15
+  },
+  "executed_arity_pass": 45,
+  "by_kind_decision": {
+   "atomic/ANSWER": 21,
+   "atomic/REFUSE": 5,
+   "atomic/REWRITE": 5,
+   "attribute/REWRITE": 2,
+   "delta/ANSWER": 1,
+   "ratio/ANSWER": 11,
+   "ratio/REFUSE": 7,
+   "report/REWRITE": 5,
+   "roster/REFUSE": 3
+  },
+  "note": "V6a+ and the new execution-shape check V6a+x each SKIP exactly the 15 REFUSE certificates (no answer SQL) and PASS all 45 ANSWER/REWRITE certificates; the 45 executed answers all carry their certified arity."
+ },
+ "pinned_regressions": {
+  "total": 7,
+  "reject": 7,
+  "with_pinned_reason_code": 7,
+  "round1_total": 5,
+  "round2_total": 2,
+  "rows": [
+   {
+    "name": "PINNED_cert_mut_a_count_distinct_date",
+    "expected": "REJECT(V6P_MEASURE)",
+    "actual": "REJECT by V6a+",
+    "reason_code": "V6P_MEASURE"
+   },
+   {
+    "name": "PINNED_cert_mut_b_leg_swap",
+    "expected": "REJECT(V6P_PARSE)",
+    "actual": "REJECT by V6a+",
+    "reason_code": "V6P_PARSE"
+   },
+   {
+    "name": "PINNED_cert_mut_b2_leg_swap_valid",
+    "expected": "REJECT(V6P_LEG_ROLE)",
+    "actual": "REJECT by V6a+",
+    "reason_code": "V6P_LEG_ROLE"
+   },
+   {
+    "name": "PINNED_cert_mut_c_constant_999",
+    "expected": "REJECT(V6P_SHAPE)",
+    "actual": "REJECT by V6a+",
+    "reason_code": "V6P_SHAPE"
+   },
+   {
+    "name": "PINNED_cert_mut_d_narrowed_predicate",
+    "expected": "REJECT(V6P_WINDOW)",
+    "actual": "REJECT by V6a+",
+    "reason_code": "V6P_WINDOW"
+   },
+   {
+    "name": "PINNED_cert_mut_e_outer_where_1eq0",
+    "expected": "REJECT(V6P_SHAPE)",
+    "actual": "REJECT by V6a+",
+    "reason_code": "V6P_SHAPE"
+   },
+   {
+    "name": "PINNED_cert_mut_f_outer_where_false",
+    "expected": "REJECT(V6P_SHAPE)",
+    "actual": "REJECT by V6a+",
+    "reason_code": "V6P_SHAPE"
+   }
+  ]
+ },
+ "exploits_p0repro": {
+  "confirmed_exploit_names": [
+   "V1_outer_where_1eq0",
+   "V1c_outer_where_false"
+  ],
+  "confirmed_all_reject": true,
+  "rows": [
+   {
+    "name": "V1_outer_where_1eq0",
+    "verdict": "REJECT",
+    "rejected_by": "V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": "V6P_ARITY",
+    "executed_shape": [
+     0,
+     1
+    ],
+    "note": "confirmed exploit: outer WHERE filters the ratio to 0 rows (pre-fix ACCEPT)"
+   },
+   {
+    "name": "V1b_outer_where_1eq1_control",
+    "verdict": "REJECT",
+    "rejected_by": "V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": null,
+    "executed_shape": [
+     1,
+     1
+    ],
+    "note": "denotation-preserving control: TRUE outer WHERE, still 1x1 (pre-fix ACCEPT); caught post-fix by the structural closure only"
+   },
+   {
+    "name": "V1c_outer_where_false",
+    "verdict": "REJECT",
+    "rejected_by": "V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": "V6P_ARITY",
+    "executed_shape": [
+     0,
+     1
+    ],
+    "note": "confirmed exploit: outer WHERE 'a'='b' filters to 0 rows (pre-fix ACCEPT)"
+   },
+   {
+    "name": "V2_wrap_derived_where_1eq0",
+    "verdict": "REJECT",
+    "rejected_by": "V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": "V6P_ARITY",
+    "executed_shape": [
+     0,
+     1
+    ],
+    "note": "derived-table wrap: already rejected before round 2 (non-empty outer FROM); documented, not newly pinned"
+   },
+   {
+    "name": "V3_num_leg_and_1eq0",
+    "verdict": "REJECT",
+    "rejected_by": "V6a+",
+    "v6aplus_code": "V6P_PREDICATE",
+    "v6aplus_x_code": null,
+    "executed_shape": [
+     1,
+     1
+    ],
+    "note": "leg-level AND 1=0: already rejected before round 2 (V6P_PREDICATE)"
+   },
+   {
+    "name": "V4_multirow_from_values",
+    "verdict": "REJECT",
+    "rejected_by": "V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": "V6P_ARITY",
+    "executed_shape": [
+     3,
+     1
+    ],
+    "note": "outer FROM (VALUES ...): forces 3 rows; already rejected before round 2 (non-empty outer FROM); V6P_ARITY now also fires"
+   }
+  ]
+ },
+ "old_forgeries_f1_f5": {
+  "bases_accept": "11/11",
+  "total": 34,
+  "reject": 34,
+  "frozen_attribution_kept": 34,
+  "by_family": {
+   "F1": 6,
+   "F2": 5,
+   "F3": 9,
+   "F4": 10,
+   "F5": 4
+  }
+ },
+ "prior_forgeries_f6_f10": {
+  "total": 31,
+  "reject": 31,
+  "asserted_ok": 31
+ },
+ "new_forgeries_f11": {
+  "bases_accept": "23/23",
+  "total": 8,
+  "reject": 8,
+  "asserted_ok": 8,
+  "distinct_bases": [
+   "CA-Q1",
+   "CARD-Q1",
+   "CARD-Q2",
+   "CODE-Q1",
+   "DEB-Q1",
+   "F1-Q4",
+   "FIN-Q1",
+   "TH-Q1"
+  ],
+  "rejected_by": {
+   "V6a+": 8
+  },
+  "arity_backstop_hits": 7,
+  "rows": [
+   {
+    "name": "F11a_ratio_outer_where_1eq0",
+    "base": "CARD-Q2",
+    "actual": "REJECT by V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": "V6P_ARITY"
+   },
+   {
+    "name": "F11b_ratio_outer_where_false_str",
+    "base": "FIN-Q1",
+    "actual": "REJECT by V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": "V6P_ARITY"
+   },
+   {
+    "name": "F11c_delta_outer_where_1eq0",
+    "base": "F1-Q4",
+    "actual": "REJECT by V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": "V6P_ARITY"
+   },
+   {
+    "name": "F11d_atomic_outer_where_1eq0",
+    "base": "CARD-Q1",
+    "actual": "REJECT by V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": "V6P_ARITY"
+   },
+   {
+    "name": "F11e_ratio_outer_where_1eq1_true",
+    "base": "CA-Q1",
+    "actual": "REJECT by V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": null
+   },
+   {
+    "name": "F11f_ratio_outer_from_values_multirow",
+    "base": "TH-Q1",
+    "actual": "REJECT by V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": "V6P_ARITY"
+   },
+   {
+    "name": "F11g_atomic_outer_where_false_str",
+    "base": "DEB-Q1",
+    "actual": "REJECT by V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": "V6P_ARITY"
+   },
+   {
+    "name": "F11h_ratio_outer_where_numeric_false",
+    "base": "CODE-Q1",
+    "actual": "REJECT by V6a+",
+    "v6aplus_code": "V6P_SHAPE",
+    "v6aplus_x_code": "V6P_ARITY"
+   }
+  ]
+ },
+ "sweep_append_outer_where": {
+  "mutation": "append top-level ' WHERE 1=0' to the answer SQL",
+  "n_total_bases": 60,
+  "n_answer_bearing": 45,
+  "n_answer_bearing_reject": 45,
+  "n_refuse_no_answer_sql": 15,
+  "answer_bearing_all_reject": true,
+  "scope_note": "the outer-row-filter attack forges an ANSWER by filtering it; the 15 REFUSE certificates carry no answer SQL, so the attack surface does not exist for them (recorded as no_answer_sql, not as a reject or an escape)."
+ },
+ "forgery_counts": {
+  "pinned_round1": 5,
+  "f1_f5": 34,
+  "f6_f10": 31,
+  "prior_total_70": 70,
+  "f11": 8,
+  "pinned_round2": 2,
+  "task_formula_70_plus_f11": 78,
+  "grand_total_forged_certs": 80,
+  "sweep_answer_bearing_mutations": 45
+ },
+ "reason_code_distribution": {
+  "v6aplus_structural": {
+   "V6P_KIND": 2,
+   "V6P_MEASURE": 8,
+   "V6P_PREDICATE": 14,
+   "V6P_SHAPE": 21,
+   "V6P_WINDOW": 8
+  },
+  "v6aplus_x_arity": {
+   "V6P_ARITY": 17
+  },
+  "combined": {
+   "V6P_ARITY": 17,
+   "V6P_KIND": 2,
+   "V6P_MEASURE": 8,
+   "V6P_PREDICATE": 14,
+   "V6P_SHAPE": 21,
+   "V6P_WINDOW": 8
+  }
+ },
+ "predictions": {
+  "P1": {
+   "statement": "all 60 genuine certificates still ACCEPT (shape check passes on every genuine answer)",
+   "observed": "60/60 ACCEPT",
+   "holds": true,
+   "misses": []
+  },
+  "P2": {
+   "statement": "the confirmed outer-filter exploits all REJECT (V6P_SHAPE for the outer WHERE; V6P_ARITY backstop on zero/multi-row)",
+   "observed": "2/2 confirmed exploits REJECT (V1: V6P_SHAPE +V6P_ARITY; V1c: V6P_SHAPE +V6P_ARITY)",
+   "holds": true,
+   "misses": []
+  },
+  "P3": {
+   "statement": "every F11 forgery REJECTs; the append-outer-WHERE sweep REJECTs on every answer-bearing base (REFUSE certs carry no answer SQL to filter)",
+   "observed": "F11 8/8 REJECT; sweep 45/45 answer-bearing REJECT, 15 REFUSE with no answer SQL (of 60 total)",
+   "holds": true,
+   "misses": []
+  },
+  "P4": {
+   "statement": "the full prior battery still holds — 60/60 genuine ACCEPT, and the 70 prior forgeries (5 round-1 pinned + F1-F10) all REJECT",
+   "observed": "60/60 genuine ACCEPT; prior forgeries 70/70 REJECT (pinned-r1 5/5, F1-F5 34/34, F6-F10 31/31)",
+   "holds": true,
+   "misses": []
+  }
+ },
+ "all_predictions_hold": true,
+ "inputs": {
+  "genuine60_verdicts.json": "d59da3149e1810381cbcfe322f31ed12bbd5159163150fb2478faa321f794b42",
+  "exploits_run.json": "4079728a6bdde8d410c55444e76040ec1627b39920e5534590b8d0a5428c759a",
+  "sweep_run.json": "5060b350fc9265870f16fba60be963769c24c894ef937a4bd0c0d50c82825613",
+  "forge_v6aplus_run.json": "e93302e83d68880a9c1f903e7aea4d68052c119702908e133b30d6bb512e0cc7",
+  "forge_p2_v6aplus_run.json": "2f3e0f9d9d537508a5ffcca4a9795335e3d54071d4e0460d7f54209f1535a7ae",
+  "ci_check_v6aplus.json": "5045f7ef18200e3dcbf7f0cfa56d72b832e9e94407e18cb92f0ca9adef450a4a"
+ }
+}

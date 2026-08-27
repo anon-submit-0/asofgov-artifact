@@ -85,15 +85,21 @@ def apply():
         "savefig.format": "pdf",
         "savefig.bbox": "tight",
         "savefig.pad_inches": 0.01,
-        # in-figure type ~= body type after placement; >= 7pt everywhere
+        # in-figure type ~= body type after placement; >= 7.5pt everywhere.
+        # Floor raised 2026-08-27 (FIGURE_REDESIGN_SPEC v1 §6.1): the body
+        # figures are reflowed so 7.5pt fits at \columnwidth; this default is
+        # the single source of truth for that floor.  The three body scripts
+        # (fig1_asof_gap, fig2_certchain, fig3_paired_stratified) additionally
+        # set every literal fontsize>=7.5.  Legacy/TR scripts pass explicit
+        # fs= for their small type and are unaffected by this default.
         "font.family": "sans-serif",
         "font.sans-serif": ["DejaVu Sans", "Helvetica", "Arial"],
-        "font.size": 7.0,
-        "axes.titlesize": 7.5,
-        "axes.labelsize": 7.0,
-        "xtick.labelsize": 7.0,
-        "ytick.labelsize": 7.0,
-        "legend.fontsize": 6.5,
+        "font.size": 7.5,
+        "axes.titlesize": 8.0,
+        "axes.labelsize": 7.5,
+        "xtick.labelsize": 7.5,
+        "ytick.labelsize": 7.5,
+        "legend.fontsize": 7.5,
         "legend.frameon": False,
         "legend.handlelength": 1.6,
         "legend.columnspacing": 1.0,

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""forge_v6aplus.py — forgery families F6–F10 (V6a+ hardening battery,
-PREREG_poststudy3_20260826.md sha256
-426017ddfd8af8608e452b44175e2158c620c2e8cebe3a17572ee3fe15d7a192).
+"""forge_v6aplus.py — forgery families F6–F11 (V6a+ hardening battery).
+F6–F10: PREREG_poststudy3_20260826.md sha256
+426017ddfd8af8608e452b44175e2158c620c2e8cebe3a17572ee3fe15d7a192.
+F11 (outer-row-filter): PREREG_poststudy4_20260827.md sha256
+a7ff13112c6988e98fceb238972a0ae0fff87a037b9f9630577fc618c04b1a75.
 
 Every base is a REAL compiler-emitted certificate the hardened verifier
 ACCEPTs unmutated; each forgery is a systematic SQL-text mutation (exact
@@ -26,6 +28,15 @@ showed V6a alone could not police. Families, per the prereg:
   F10 constant/multi-row output — constant projections, multi-row and
                              multi-column outputs, set operations, and
                              non-aggregate scalar subqueries.
+  F11 outer-row-filter     — an outer WHERE (1=0, 'a'='b', 2=3, the TRUE
+                             1=1 control) or an outer FROM (VALUES ...) is
+                             appended to the scalar answer, filtering the
+                             certified 1x1 result to zero or many rows with
+                             every certificate FIELD intact; ratio, delta and
+                             atomic bases. Fix 1 rejects the outer WHERE
+                             structurally (V6P_SHAPE); the execution-shape
+                             check V6a+x is the independent zero/multi-row
+                             backstop (V6P_ARITY).
 
 Expectation model: every forgery must REJECT, and "V6a+" must be among the
 failing checks. `rejected_by` (first FAIL in the frozen canonical order) is
@@ -65,7 +76,7 @@ BASE_QIDS = {
     "EF2-Q1": "european_football_2", "EF2-Q2": "european_football_2",
     "FIN-Q1": "financial", "FIN-Q3": "financial", "FIN-Q4": "financial",
     "FIN-Q5": "financial",
-    "F1-Q1": "formula_1",
+    "F1-Q1": "formula_1", "F1-Q4": "formula_1",
     "TH-Q1": "thrombosis_prediction", "TH-Q2": "thrombosis_prediction",
     "W1-Q1": "world_1", "W1-Q2": "world_1", "W1-Q3": "world_1",
 }
@@ -241,19 +252,69 @@ def forgeries():
         lambda s: "SELECT 0.5"),
         "V6a+", "the whole answer replaced by a bare constant"))
 
+    # ------------- F11: outer-row-filter (PREREG_poststudy4_20260827) -------
+    # The round-2 review class: an outer WHERE / outer FROM appended to the
+    # scalar answer that filters the certified 1x1 result to zero or many rows
+    # while leaving every certificate FIELD intact. Fix 1 rejects the outer
+    # WHERE structurally (V6P_SHAPE); fix 2's execution-shape check (V6a+x) is
+    # the independent backstop on the zero-row / multi-row denotation change
+    # (V6P_ARITY). Every row REJECTs with rejected_by == "V6a+" (the structural
+    # closure fires before the appended V6a+x check).
+    out.append(("F11a_ratio_outer_where_1eq0", "CARD-Q2", _sql_mut(
+        lambda s: s + " WHERE 1=0"),
+        "V6a+", "outer WHERE 1=0 appended to the ratio: filters the scalar "
+                "answer to zero rows (the confirmed round-2 exploit surface; "
+                "V6P_SHAPE + V6P_ARITY backstop)"))
+    out.append(("F11b_ratio_outer_where_false_str", "FIN-Q1", _sql_mut(
+        lambda s: s + " WHERE 'a'='b'"),
+        "V6a+", "outer WHERE 'a'='b' appended to the ratio: a different "
+                "zero-row spelling of the same outer-filter attack"))
+    out.append(("F11c_delta_outer_where_1eq0", "F1-Q4", _sql_mut(
+        lambda s: s + " WHERE 1=0"),
+        "V6a+", "outer WHERE 1=0 appended to the DELTA answer — the sibling "
+                "code path _check_delta shared the pre-fix gap with "
+                "_check_ratio; must REJECT identically"))
+    out.append(("F11d_atomic_outer_where_1eq0", "CARD-Q1", _sql_mut(
+        lambda s: s + " WHERE 1=0"),
+        "V6a+", "outer WHERE 1=0 appended to the ATOMIC answer: the scalar "
+                "closure is uniform across atomic/ratio/delta"))
+    out.append(("F11e_ratio_outer_where_1eq1_true", "CA-Q1", _sql_mut(
+        lambda s: s + " WHERE 1=1"),
+        "V6a+", "outer WHERE 1=1 appended to the ratio: TRUE and denotation-"
+                "preserving (still 1x1, so the arity backstop passes) — caught "
+                "ONLY by the structural closure V6P_SHAPE, proving fix 1 is "
+                "necessary and not subsumed by fix 2"))
+    out.append(("F11f_ratio_outer_from_values_multirow", "TH-Q1", _sql_mut(
+        lambda s: s + " FROM (VALUES (1),(2),(3)) v(x)"),
+        "V6a+", "outer FROM (VALUES ...) appended to the ratio: forces THREE "
+                "output rows from the scalar template (V6P_SHAPE non-empty "
+                "outer FROM + V6P_ARITY multi-row backstop)"))
+    out.append(("F11g_atomic_outer_where_false_str", "DEB-Q1", _sql_mut(
+        lambda s: s + " WHERE 'x'='y'"),
+        "V6a+", "outer WHERE 'x'='y' appended to the ATOMIC answer: zero-row "
+                "filter, atomic variant"))
+    out.append(("F11h_ratio_outer_where_numeric_false", "CODE-Q1", _sql_mut(
+        lambda s: s + " WHERE 2=3"),
+        "V6a+", "outer WHERE 2=3 appended to the ratio: a third zero-row "
+                "constant spelling over a distinct base/domain"))
+
     return out
 
 
 PINNED = [
-    # (file stem, expected primary V6P reason code) — the five preserved
-    # reproduction mutations of CARD-Q2 (Codex 2026-08-26 / m1-repro), all
-    # of which the pre-hardening verifier ACCEPTed. See
+    # (file stem, expected primary V6P reason code from the V6a+ check) — the
+    # preserved reproduction mutations of CARD-Q2, all of which the relevant
+    # pre-hardening verifier ACCEPTed. a-d (Codex 2026-08-26 / m1-repro) were
+    # closed in round 1; e-f (Codex 2026-08-27 / p0-repro) are the round-2
+    # outer-row-filter exploits closed by PREREG_poststudy4_20260827. See
     # pinned_regressions/README.md for provenance hashes.
     ("cert_mut_a_count_distinct_date", "V6P_MEASURE"),
     ("cert_mut_b_leg_swap", "V6P_PARSE"),
     ("cert_mut_b2_leg_swap_valid", "V6P_LEG_ROLE"),
     ("cert_mut_c_constant_999", "V6P_SHAPE"),
     ("cert_mut_d_narrowed_predicate", "V6P_WINDOW"),
+    ("cert_mut_e_outer_where_1eq0", "V6P_SHAPE"),
+    ("cert_mut_f_outer_where_false", "V6P_SHAPE"),
 ]
 
 

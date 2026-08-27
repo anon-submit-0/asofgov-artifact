@@ -59,6 +59,17 @@ COST = json.load(open(os.path.join(ROOT, "impl", "cost_p2.json")))
 # derive every grown total from it instead of typing one.
 V6P = json.load(open(os.path.join(ROOT, "pilot2", "poststudy3_20260826",
                                   "results", "v6aplus_summary.json")))
+# (2026-08-27) poststudy4 verifier-hardening ROUND 2 (V6a+ outer-filter
+# closure + execution-shape/arity check); sha-gated in the poststudy4 block
+# below.  The E5 forgery FAMILY total grows 70 -> 78 with the F11 family; the
+# two confirmed round-2 exploits pinned as regressions take the GRAND total to
+# 80.  Every grown count DERIVES from this summary, never typed.
+V6P4 = json.load(open(os.path.join(ROOT, "pilot2", "poststudy4_20260827",
+                                   "results", "v6aplus_v4_summary.json")))
+# (2026-08-27) S7 NL->sigma hybrid arm (poststudy2/s7), promoted to a 10th
+# main-results row; its 5/60 end-to-end error is gated here on the S7 summary.
+S7 = json.load(open(os.path.join(ROOT, "pilot2", "poststudy2_20260823",
+                                  "s7", "s7_summary.json")))
 
 
 def rawfile(rel):
@@ -160,7 +171,13 @@ tbl = EVAL_RAW[EVAL_RAW.index(r"\label{tab:main}"):]
 tbl = tbl[:tbl.index(r"\end{tabular}")]
 body = [l for l in tbl.splitlines() if l.strip().endswith(r"\\")]
 rows = [l for l in body if "&" in l and "System" not in l]   # single header row
-ck("tab:main has 9 data rows", len(rows) == 9, f"found {len(rows)}")
+# (2026-08-27, poststudy4 item B) A 10th arm -- the post-registered NL->sigma
+# hybrid -- is APPENDED after the compiler row.  The zip(ROWS, rows) loop below
+# validates the 9 pre-registered arms exactly as before (ROWS has 9, so zip
+# stops there); the appended 10th row is validated separately, from S7, in the
+# hybrid block just after the loop.
+ck("tab:main has 10 data rows (9 pre-registered arms + NL->sigma hybrid)",
+   len(rows) == 10, f"found {len(rows)}")
 
 ELIM_PRINT = {"baseline_claude": "---"}
 for sysid in ROWS[1:]:
@@ -222,10 +239,54 @@ for sysid, line in zip(ROWS, rows):
        errors(sysid) == sum(int(x) for x in want5) + 0
        and t["correct"] + errors(sysid) == 60, "complement broken")
 
-# ---- (1) vs the taxonomy figure (fig3_failure_taxonomy, float surgery) -----
-# The six-class half of the old merged table lives in fig:taxonomy; its data
-# file is the frozen extractor output, gated cell-by-cell against (1) so the
-# figure cannot drift from the summary the table prints.
+# ---- (1) vs (2): the appended NL->sigma hybrid row (poststudy4 item B) -------
+# The 10th row's numbers are the frozen S7 measurement, not the pilot2 matrix,
+# so they are gated here against s7_summary.json.  E/60 and the gold-form error
+# split come from S7; the CI/elim/coverage columns S7 does not measure are
+# em-dashed (a post-registered single run, not part of the pre-registered
+# nine-arm cluster-bootstrap matrix), which the caption discloses.  The
+# compiler row's constructive-upper-bound framing is untouched.
+hyb = [c.strip() for c in rows[9].replace(r"\\", "").split("&")]
+if hyb and hyb[0] == "":
+    hyb = hyb[1:]
+S7_ERR = S7["end_to_end_error"]                              # 5
+S7_REF_OK = S7["by_gold_kind"]["refusal"]["e2e_correct"]     # 14 correct refusals
+S7_V = S7["by_gold_kind"]["value"]["e2e_error"]              # 0
+S7_RW = S7["by_gold_kind"]["rewrite"]["e2e_error"]           # 4
+S7_RF = S7["by_gold_kind"]["refusal"]["e2e_error"]           # 1
+ck("s7 hybrid: 5/60 end-to-end error, gold-form split 0/4/1 sums to 5",
+   S7_ERR == 5 and S7["n"] == 60
+   and (S7_V, S7_RW, S7_RF) == (0, 4, 1)
+   and S7_V + S7_RW + S7_RF == S7_ERR
+   and S7["predictions"]["S7-P2"]["met"], (S7_ERR, S7_V, S7_RW, S7_RF))
+ck("tab:main 10th row is the NL->sigma hybrid with E/60 = s7 end-to-end error",
+   "hybrid" in rows[9] and hyb[1] == str(S7_ERR) == "5", hyb[:2])
+ck("tab:main hybrid Err. is 8.3% (5/60), gate-wired from s7",
+   hyb[2] == pct(S7_ERR / 60) + r"\%" == r"8.3\%", hyb[2])
+ck("tab:main hybrid em-dashes the CI/elim/coverage columns it does not measure",
+   hyb[3] == "---" and hyb[4] == "---"
+   and hyb[5] == "---" and hyb[6] == "---", hyb[3:7])
+ck("tab:main hybrid ok/15 and gold-form error split are the s7 counts",
+   hyb[7] == str(S7_REF_OK) == "14"
+   and hyb[8:11] == [str(S7_V), str(S7_RW), str(S7_RF)] == ["0", "4", "1"],
+   (hyb[7], hyb[8:11]))
+ck("tab:main caption discloses the hybrid row's source + em-dashed columns",
+   "NL-to-$\\sigma$ hybrid" in EVAL
+   and "post-registered single run" in EVAL, "missing")
+ck("E-takeaway promotes the hybrid as the recommended deployment path",
+   r"NL-to-$\sigma$ hybrid errs $5/60$" in EVAL
+   and "deployment path" in EVAL, "missing")
+
+# ---- (1) vs the fig:taxonomy float (poststudy4 figure redesign) ------------
+# (2026-08-27, FIGURE_REDESIGN_SPEC v1) The body float at label fig:taxonomy
+# was REDRAWN: the six-class stacked taxonomy bar (fig3_failure_taxonomy.pdf)
+# is replaced by the two-panel paired-effect + stratified-accuracy figure
+# (fig3_paired_stratified.pdf), and the six-class bar relocates to the TR.
+# This is a figure SWAP, not a gate weakening: the DATA-integrity assertions
+# below still gate fig_data_pilot2.json cell-by-cell against the summary (the
+# file is unchanged and still feeds the new figure's row order + stratified
+# panel), and the "true denominator of 60" honesty phrase survives in the new
+# caption; only the float's filename and the six-way-typing prose ref move.
 FD = json.load(open(os.path.join(PAPER, "figures", "fig_data_pilot2.json")))
 ck("fig:taxonomy data file covers the suite", FD["n_questions"] == N
    and FD["n_refusal_questions"] == 15,
@@ -242,16 +303,16 @@ for sysid in ROWS:
        sum(FD["taxonomy"][sysid].values()))
 ck("fig:taxonomy per-gold-form block equals the summary",
    FD["per_gold_form"] == S["slices"]["per_gold_form"], "per_gold_form drift")
-ck("fig:taxonomy float wired at column width",
-   r"\includegraphics[width=\columnwidth]{fig3_failure_taxonomy.pdf}"
+ck("fig:taxonomy float wired at column width (redrawn paired+stratified)",
+   r"\includegraphics[width=\columnwidth]{fig3_paired_stratified.pdf}"
    in EVAL_RAW and r"\label{fig:taxonomy}" in EVAL_RAW, "float missing")
-ck("fig:taxonomy referenced from the typing sentence and E1--E2",
+ck("fig:taxonomy referenced at least twice in the eval section",
    EVAL_RAW.count(r"\ref{fig:taxonomy}") >= 2,
    EVAL_RAW.count(r"\ref{fig:taxonomy}"))
-ck("fig:taxonomy pdf present beside the tex",
+ck("fig:taxonomy pdf present beside the tex (redrawn paired+stratified)",
    os.path.isfile(os.path.join(PAPER, "figures",
-                               "fig3_failure_taxonomy.pdf")), "pdf missing")
-ck("fig:taxonomy caption states the true denominator",
+                               "fig3_paired_stratified.pdf")), "pdf missing")
+ck("fig:taxonomy caption keeps the true-denominator honesty phrase",
    "true denominator of 60" in EVAL, "missing")
 
 # ---- tab:suite: composition against the frozen questions.json --------------
@@ -798,14 +859,33 @@ for pat, why in ((r"accepts \$60/60\$", "verifier acceptance"),
 # summary JSON (V6P, sha-gated in the poststudy3 block); the pre-registered
 # battery's own strings stay asserted above, so nothing is weakened -- the
 # totals are extended.
-F15_TOT = V6P["old_forgeries_f1_f5"]["total"]
-NEW_TOT = V6P["new_forgeries_f6_f10"]["total"]
-PIN_TOT = V6P["pinned_regressions"]["total"]
-TOT_FORGE = F15_TOT + NEW_TOT + PIN_TOT
-POST_TOT = NEW_TOT + PIN_TOT
-ck("forgery grand total derives as 34+31+5=70, post-registered share 36",
-   (F15_TOT, NEW_TOT, PIN_TOT, TOT_FORGE, POST_TOT) == (34, 31, 5, 70, 36),
-   (F15_TOT, NEW_TOT, PIN_TOT))
+# (2026-08-27, poststudy4 / PREREG sha a7ff1311...) ROUND 2: a second external
+# review exhibited a genuine ratio/delta certificate whose OUTER SELECT carries
+# a top-level WHERE filtering the answer to zero rows, which V6a+ still
+# ACCEPTed; the round-2 V6a+ closes it (outer-filter closure V6P_SHAPE +
+# executed-arity check V6P_ARITY).  The forgery FAMILY total grows 70 -> 78
+# with the 8-forgery F11 outer-row-filter family; the two confirmed exploits
+# (V1, V1c) pinned as round-2 regressions take the GRAND total to 80.  Every
+# grown total below DERIVES from V6P4 (sha-gated in the poststudy4 block).
+F15_TOT = V6P["old_forgeries_f1_f5"]["total"]   # 34 pre-registered (F1-F5)
+NEW_TOT = V6P["new_forgeries_f6_f10"]["total"]  # 31 F6-F10 (poststudy3)
+PIN_TOT = V6P["pinned_regressions"]["total"]    # 5 round-1 pinned mutations
+PRIOR_70 = F15_TOT + NEW_TOT + PIN_TOT          # 70 (the poststudy3 total)
+F11_TOT = V6P4["new_forgeries_f11"]["total"]        # 8 F11 outer-row-filter
+PIN2_TOT = V6P4["forgery_counts"]["pinned_round2"]  # 2 round-2 pinned (V1, V1c)
+TOT_FORGE = PRIOR_70 + F11_TOT                  # 78 (task formula 70+|F11|)
+GRAND_FORGE = TOT_FORGE + PIN2_TOT              # 80 (incl. 2 round-2 pinned)
+POST_TOT = NEW_TOT + PIN_TOT + F11_TOT          # 44 (F6-F10 + pin-r1 + F11)
+ck("forgery family battery derives as 34+31+5+8=78, post-registered 44",
+   (F15_TOT, NEW_TOT, PIN_TOT, F11_TOT, TOT_FORGE, POST_TOT)
+   == (34, 31, 5, 8, 78, 44), (F15_TOT, NEW_TOT, PIN_TOT, F11_TOT))
+ck("poststudy4 summary pins the same counts (70 prior, 78 family, 80 grand)",
+   V6P4["forgery_counts"]["prior_total_70"] == PRIOR_70 == 70
+   and V6P4["forgery_counts"]["f11"] == F11_TOT == 8
+   and V6P4["forgery_counts"]["task_formula_70_plus_f11"] == TOT_FORGE == 78
+   and V6P4["forgery_counts"]["grand_total_forged_certs"] == GRAND_FORGE == 80
+   and V6P4["forgery_counts"]["pinned_round2"] == PIN2_TOT == 2,
+   V6P4["forgery_counts"])
 ck("family sizes sum to the pre-registered 34",
    6 + 5 + 9 + 10 + 4 == F15_TOT == 34)
 ck("old F1-F5 corpus still fully rejects with frozen attribution kept",
@@ -825,7 +905,7 @@ ck("intro and E-takeaway carry the post-registered share",
    f"{POST_TOT} of them post-registered" in PROSE["01-intro.tex"]
    and (f"rejects all {TOT_FORGE} forgeries, {POST_TOT} of them "
         "post-registered") in EVAL, "missing")
-ck("E5 announces the 70-forgery corpus with its split",
+ck("E5 announces the 78-forgery corpus with its split",
    f"{TOT_FORGE} forged certificates in all" in EVAL
    and f"{F15_TOT} pre-registered with the suite" in EVAL
    and f"{POST_TOT} post-registered with the V6a+ hardening" in EVAL,
@@ -883,6 +963,78 @@ ck("E5 discloses the review-found gap in one sentence",
    in EVAL
    and ("V6a accepted wrong-aggregate, swapped-leg, constant-output and "
         "narrowed-window mutations") in EVAL, "missing")
+# ===================================================== poststudy4 round-2 (F11)
+# (2026-08-27) Round-2 V6a+ closes the outer-row-filter gap (a genuine
+# ratio/delta whose OUTER SELECT filters the scalar answer to 0 rows, which
+# V6a+ still ACCEPTed) with an outer-filter closure (V6P_SHAPE) plus a
+# read-only execution-shape/arity check (V6P_ARITY).  All counts derive from
+# V6P4; the E5 prose that states them is asserted here.  The poststudy4
+# provenance chain (PREREG bytes, FREEZE, shipped verifier files) is pinned in
+# the poststudy4 block at the end of this file.
+F11 = V6P4["new_forgeries_f11"]
+ck("F11 outer-row-filter family derives as 8, all reject, all asserted",
+   F11["total"] == F11_TOT == 8 and F11["reject"] == 8
+   and F11["asserted_ok"] == 8 and F11["rejected_by"] == {"V6a+": 8}, F11)
+F11_BASES = sorted(F11["distinct_bases"])
+ck("F11 distinct bases recompute to 8, all in the frozen suite, all accepted",
+   len(F11_BASES) == 8 and F11["bases_accept"] == "23/23"
+   and all(b in qs for b in F11_BASES), (len(F11_BASES), F11_BASES))
+ck("E5 prints the F11 family with its derived count and 8/8 rejection",
+   f"F11 outer-row-filter ({F11_TOT})" in EVAL
+   and rf"${F11_TOT}/{F11_TOT}$" in EVAL, "missing")
+# the read-only execution-shape check V6P_ARITY is the new round-2 code; the
+# arity backstop trips on 7 of the 8 F11 forgeries (the 8th is the TRUE outer
+# WHERE, still 1x1, caught by the structural closure alone).
+ck("V6P_ARITY is the round-2 execution-shape code; arity backstop hits 7 of 8",
+   F11["arity_backstop_hits"] == 7
+   and V6P4["reason_code_distribution"]["v6aplus_x_arity"] == {"V6P_ARITY": 17},
+   (F11["arity_backstop_hits"],
+    V6P4["reason_code_distribution"]["v6aplus_x_arity"]))
+# the 2 confirmed exploits (V1, V1c) that motivated the fix, pinned as round-2
+# regressions -> grand total 80 = 78 family + 2 pinned
+EXP = V6P4["exploits_p0repro"]
+ck("the 2 confirmed round-2 exploits (V1, V1c) all REJECT, pinned round-2",
+   EXP["confirmed_all_reject"]
+   and set(EXP["confirmed_exploit_names"])
+   == {"V1_outer_where_1eq0", "V1c_outer_where_false"}
+   and V6P4["pinned_regressions"]["round2_total"] == PIN2_TOT == 2
+   and V6P4["pinned_regressions"]["total"] == 7, EXP["confirmed_exploit_names"])
+_v1 = next(r for r in EXP["rows"] if r["name"] == "V1_outer_where_1eq0")
+_v1c = next(r for r in EXP["rows"] if r["name"] == "V1c_outer_where_false")
+ck("V1/V1c reject with V6P_SHAPE (structural) + V6P_ARITY (execution backstop)",
+   _v1["v6aplus_code"] == _v1c["v6aplus_code"] == "V6P_SHAPE"
+   and _v1["v6aplus_x_code"] == _v1c["v6aplus_x_code"] == "V6P_ARITY"
+   and _v1["executed_shape"] == _v1c["executed_shape"] == [0, 1],
+   (_v1, _v1c))
+# the systematic append-outer-WHERE sweep: 45 answer-bearing bases all reject;
+# the 15 REFUSE certs carry no answer SQL, so the attack surface does not exist
+SW = V6P4["sweep_append_outer_where"]
+ck("append-outer-WHERE sweep: 45/45 answer-bearing reject, 15 REFUSE no-SQL",
+   SW["n_total_bases"] == 60 and SW["n_answer_bearing"] == 45
+   and SW["n_answer_bearing_reject"] == 45 and SW["answer_bearing_all_reject"]
+   and SW["n_refuse_no_answer_sql"] == 15, SW)
+# (2026-08-27) the sweep's 45/45 detail is TR-side and JSON-gated above; E5
+# under the 12-page ceiling keeps the one-sentence gap disclosure + the F11
+# family total, not the sweep digits (task item A: "one honest sentence").
+# grand total 80 (family 78 + 2 pinned round-2 exploits); the family 78/78 is
+# also asserted at the poststudy3 outcome ck above
+ck("E5 states the grand total 80/80 (family 78 + 2 pinned round-2 exploits)",
+   rf"${GRAND_FORGE}/{GRAND_FORGE}$" in EVAL, GRAND_FORGE)
+ck("all four poststudy4 predictions hold with no misses",
+   V6P4["all_predictions_hold"]
+   and all(V6P4["predictions"][p]["holds"]
+           and V6P4["predictions"][p]["misses"] == []
+           for p in ("P1", "P2", "P3", "P4")), V6P4["predictions"])
+# the gap sentence lives in E5; the two reason codes V6P_SHAPE / V6P_ARITY are
+# named at their definition in S5 (asserted in the CERT block below), not
+# duplicated into E5 under the page ceiling.
+ck("E5 discloses the round-2 outer-filter gap in one honest sentence",
+   "filtering the scalar answer to zero rows" in EVAL, "missing")
+# genuine 60 still ACCEPT under both V6a+ and the new execution-shape check
+ck("round-2: genuine 60 ACCEPT, 45 executed answers carry certified arity",
+   V6P4["genuine60"]["accept"] == 60 and V6P4["genuine60"]["reject"] == 0
+   and V6P4["genuine60"]["executed_arity_pass"] == 45
+   and V6P4["genuine60"]["v6aplus_x_status"]["PASS"] == 45, V6P4["genuine60"])
 # ---- S5: the check definition and the soundness rescope (Def 5.3 / 5.2(b)).
 # NOT added to PROSE (the per-file headline loops would wrongly demand eval
 # numbers there); read directly, like sections/05-rewrite.tex.
@@ -903,6 +1055,18 @@ ck("S5 rescopes Def 5.3 and (A-tmpl) onto V6a+",
 ck("S5 carries the gap disclosure pointer with review provenance",
    "an external review (2026-08)" in CERT
    and "the original V6a accepted" in CERT, "missing")
+# (2026-08-27, poststudy4 round 2) S5 states that V6a+ now ALSO decides
+# outer-filter membership (rejects a non-null outer WHERE, V6P_SHAPE) AND
+# checks executed arity (V6P_ARITY), and discloses the round-2 gap in one
+# honest sentence.  The five round-1 faces asserted above stay; these are
+# ADDED, not substituted -- Def 5.3 / Thm 5.2(b) are extended, not weakened.
+ck("S5 states V6a+ decides outer-filter membership and checks executed arity",
+   "outer-filter membership" in CERT
+   and "executed arity" in CERT
+   and r"V6P\_ARITY" in CERT, "missing")
+ck("S5 discloses the round-2 outer-filter gap with its provenance",
+   "a second external review (2026-08)" in CERT
+   and "outer filter" in CERT.replace("-", " "), "missing")
 
 # disclosure-gate first instances
 ck("disclosure instances printed",
@@ -1767,15 +1931,67 @@ ck("poststudy3 FREEZE file records that same sha256",
                           encoding="utf-8").read(), "FREEZE drift")
 ck("v6aplus summary pins the poststudy3 PREREG sha",
    V6P["prereg"]["sha256"] == PREREG_PS3_SHA, V6P["prereg"]["sha256"])
-for _fn, _want in sorted(V6P["verifier"]["files"].items()):
-    _got = hashlib.sha256(open(os.path.join(
-        ROOT, "impl", "asof_verifier", _fn), "rb").read()).hexdigest()
-    ck(f"shipped verifier file {_fn} hashes to the study-recorded sha256",
-       _got == _want, _got)
-ck("the summary certifies exactly the four hardening-relevant files",
+# (2026-08-27, poststudy4 supersession) The round-1 V6a+ files this study
+# recorded were themselves hardened in ROUND 2 (outer-filter closure +
+# execution-shape check), so the SHIPPED impl/asof_verifier/ tree no longer
+# hashes to poststudy3's recorded values -- it hashes to the poststudy4
+# files_A values, pinned live against the on-disk tree in the poststudy4 block
+# below.  This is a SUPERSESSION, not a weakened pin: the shipped code is
+# hashed HARDER below (both working trees, byte-identical, all four files),
+# and this study's own recorded hashes stay asserted for internal consistency
+# (its summary JSON is frozen evidence).  The per-file live-hash loop that
+# used to live here therefore MOVED to the poststudy4 block; the four-file
+# structural pin stays here.
+ck("the poststudy3 summary records exactly the four hardening-relevant files",
    set(V6P["verifier"]["files"])
    == {"chk.py", "v6aplus.py", "forge_v6aplus.py", "ci_check.py"},
    sorted(V6P["verifier"]["files"]))
+ck("poststudy3 recorded hashes differ from the shipped round-2 tree (proof "
+   "the code moved on, superseded not silently mutated)",
+   V6P["verifier"]["files"] != V6P4["verifier"]["files_A"], "hashes coincide")
+
+# =========================================================== poststudy4 block
+# (2026-08-27, verifier hardening V6a+ ROUND 2) The second post-registered
+# study shipped in pilot2/poststudy4_20260827/ under
+# PREREG_poststudy4_20260827.md (sha256 asserted below from on-disk bytes):
+# the response to a second external review that exhibited an outer-row-filter
+# gap (a genuine ratio/delta whose OUTER SELECT filters the scalar answer to
+# 0 rows) V6a+ still ACCEPTed.  Every F11 / round-2 / grand-total assertion
+# above derives from this study's summary JSON (V6P4, loaded at the top); this
+# block pins the provenance chain -- PREREG bytes, FREEZE record, the summary's
+# own sha citation, and the round-2 hardened verifier files (both working trees
+# byte-identical), hashed on disk so the shipped code cannot drift from the
+# study that validated it.
+PS4 = os.path.join(ROOT, "pilot2", "poststudy4_20260827")
+PREREG_PS4_SHA = ("a7ff13112c6988e98fceb238972a0ae0f"
+                  "ff87a037b9f9630577fc618c04b1a75")
+_ps4_sha = hashlib.sha256(open(os.path.join(
+    PS4, "PREREG_poststudy4_20260827.md"), "rb").read()).hexdigest()
+ck("poststudy4 PREREG on disk hashes to its frozen sha256",
+   _ps4_sha == PREREG_PS4_SHA, _ps4_sha)
+ck("poststudy4 FREEZE file records that same sha256",
+   PREREG_PS4_SHA in open(os.path.join(PS4, "FREEZE_poststudy4.sha256"),
+                          encoding="utf-8").read(), "FREEZE drift")
+ck("v6aplus v4 summary pins the poststudy4 PREREG sha",
+   V6P4["prereg"]["sha256"] == PREREG_PS4_SHA, V6P4["prereg"]["sha256"])
+for _fn, _want in sorted(V6P4["verifier"]["files_A"].items()):
+    _got = hashlib.sha256(open(os.path.join(
+        ROOT, "impl", "asof_verifier", _fn), "rb").read()).hexdigest()
+    ck(f"shipped verifier file {_fn} hashes to the poststudy4 files_A sha256",
+       _got == _want, _got)
+ck("poststudy4 certifies the four files, both trees byte-identical",
+   set(V6P4["verifier"]["files_A"])
+   == {"chk.py", "v6aplus.py", "forge_v6aplus.py", "ci_check.py"}
+   and V6P4["verifier"]["files_A"] == V6P4["verifier"]["files_B"]
+   and V6P4["verifier"]["trees_byte_identical"] is True,
+   sorted(V6P4["verifier"]["files_A"]))
+# the round-2 study's own inputs are hash-pinned in the summary; re-verify a
+# couple of the answer-bearing ledgers on disk so the copied study cannot drift
+for _fn in ("genuine60_verdicts.json", "exploits_run.json", "sweep_run.json"):
+    _got = hashlib.sha256(open(os.path.join(
+        PS4, "results", _fn), "rb").read()).hexdigest()
+    ck(f"poststudy4 input {_fn} hashes to the summary-recorded value",
+       _got == V6P4["inputs"][_fn], _got)
 
 # ========================================================== M2 block
 # (2026-08-26, M2 honest uncertainty) The elimination verdict now prints,

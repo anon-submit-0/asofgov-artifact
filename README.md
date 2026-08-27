@@ -7,15 +7,15 @@ benchmark build (9 public BIRD/Spider-derived databases, **3,830,036 real
 rows**), the frozen pre-registered LLM-arm runs, the binding compiler +
 certificates, the independent verifier + forgery battery, and every script
 that produced every figure, table and prose number. The extended technical
-report is [`tr/asof-gov-tr.pdf`](tr/asof-gov-tr.pdf) (154 pp., referenced
+report is [`tr/asof-gov-tr.pdf`](tr/asof-gov-tr.pdf) (161 pp., referenced
 from the paper as `\extendedtrurl`).
 
 Headline result (all reproducible below): plain NL2SQL baselines err on
 **60.0–76.7%** of the 60 as-of questions, a fully governance-informed prompt
 arm still errs on **46.7%**, while the binding compiler is at **0/60** with
 60/60 machine-checkable certificates accepted by an independent verifier that
-rejects all 70 certificate forgeries (34 pre-registered F1–F5, plus the 36
-post-registration V6a+ hardening battery of 2026-08-26, below).
+rejects all 78 certificate forgeries (34 pre-registered F1–F5, plus the 44
+post-registration V6a+ hardening battery of 2026-08-26/27, below).
 
 ## Requirements
 
@@ -36,8 +36,8 @@ pip install -r requirements.txt
 ```bash
 # The entry point. Needs NOTHING beyond this repository + python3:
 # no warehouses, no network, no LaTeX, no LLM keys.
-bash reproduce_all.sh gates   # the paper's 559-assertion number gate +
-                              # 155-assertion red-line gate; prints PASS/FAIL
+bash reproduce_all.sh gates   # the paper's 588-assertion number gate +
+                              # 163-assertion red-line gate; prints PASS/FAIL
 ```
 
 The full pipeline — data rebuild → scoring → figures/tables → verifier +
@@ -73,7 +73,7 @@ Note on Tables 2–3: in the paper body they are typeset inline (a layout
 surgery joined the taxonomy block into Table 3), so `paper/tables/*.tex`
 here are the generated reference twins; cell-for-cell equality between the
 body tables, these twins and the JSON evidence is enforced by the paper
-559-assertion number gate (shipped here, and re-runnable: see
+588-assertion number gate (shipped here, and re-runnable: see
 §4), which reads the same
 `fig_data_pilot2.json` / `pilot2_*.json` shipped here.
 
@@ -98,7 +98,7 @@ Unused-by-the-body pipeline scripts kept for lineage: `fig1_combined.py`,
 | 60 questions = 33 value + 12 rewrite + 15 refusal | asserted in `pilot2/make_pilot2_summary.py` (`load_questions`) over `domains/*/questions.json` |
 
 Every prose number is machine-diffed against these same JSONs by the
-paper's 559-assertion number gate, which is **shipped and runnable in this
+paper's 588-assertion number gate, which is **shipped and runnable in this
 repository**: `paper/tools/check_numbers.py` plus the paper sources it
 parses (`paper/main.tex`, `paper/sections/*.tex`) are here, and
 `./reproduce_all.sh gates` re-runs it -- together with the 137-assertion
@@ -283,6 +283,49 @@ own stage; everything frozen stayed byte-untouched, and every output is
 append-only under
 [`pilot2/poststudy3_20260826/`](pilot2/poststudy3_20260826/).
 
+### Post-registration study 4 (2026-08-27): verifier hardening V6a+, round 2
+
+*Added 2026-08-27, as a plain dated note.* A second external review
+(2026-08-27), reproduced independently, showed that the round-1 V6a+
+still ACCEPTed a genuine ratio/delta certificate whose outer `SELECT`
+carried a top-level `WHERE` that filtered the scalar answer to zero rows
+(`WHERE 1=0`, `WHERE 'a'='b'`): the ratio/delta checks did not reject an
+outer `where_clause`, and no check executed the answer to test its shape.
+We reproduced both confirmed exploits against the real verifier, froze the
+plan in
+[`pilot2/poststudy4_20260827/PREREG_poststudy4_20260827.md`](pilot2/poststudy4_20260827/PREREG_poststudy4_20260827.md)
+(sha256 `a7ff13112c6988e98fceb238972a0ae0fff87a037b9f9630577fc618c04b1a75`,
+frozen before the hardened verifier ran on any certificate or forgery),
+and then added two fail-closed fixes to
+[`impl/asof_verifier/v6aplus.py`](impl/asof_verifier/v6aplus.py): an
+**outer-filter closure** (`_plain_node` rejects a non-null outer `WHERE`
+by default, `allow_outer_where=False`, with `V6P_SHAPE`; the scalar outer
+nodes of atomic/ratio/delta route through that default) and an
+**execution-shape check** (`V6a+x`, appended last so every prior
+first-FAIL attribution stays frozen, executes each answer SQL read-only
+against the warehouse and requires the certified row/column arity, else
+`V6P_ARITY`). Post-registration results
+([`pilot2/poststudy4_20260827/results/v6aplus_v4_summary.json`](pilot2/poststudy4_20260827/results/v6aplus_v4_summary.json),
+report in `results/V6APLUS_V4_REPORT.md`): all **60/60 genuine
+certificates still ACCEPT** (45 V6a+ PASS + 15 REFUSE SKIPped, identically
+under V6a+x); the two confirmed exploits and the **8 new F11
+outer-row-filter forgeries over 8 bases all REJECT** (each on `V6P_SHAPE`,
+with the `V6P_ARITY` backstop also firing on the 7 non-trivial ones); the
+denotation-preserving `WHERE 1=1` control is caught by the structural
+closure alone, proving the two fixes are independent; a corpus sweep that
+appends `WHERE 1=0` to every genuine answer SQL **REJECTs 45/45
+answer-bearing bases** (the remaining 15 are REFUSE certificates with no
+answer SQL to filter); and the **prior 70-forgery battery (34 F1–F5, 31
+F6–F10, 5 round-1 pins) still all REJECT**, with two new round-2 exploit
+pins shipped under `impl/asof_verifier/pinned_regressions/`. The forgery
+total is now **78** (70 + the 8-forgery F11 family; the grand total of
+forged certificates including the 2 round-2 pins is 80). The paper's §5
+verifier definition, Theorem scope and §7.5 forgery counts state exactly
+what V6a+ now decides, and the round-1 gap is disclosed, not erased.
+`./reproduce_all.sh verify` runs the extended V6a+ battery; everything
+frozen stayed byte-untouched, and every output is append-only under
+[`pilot2/poststudy4_20260827/`](pilot2/poststudy4_20260827/).
+
 ## 3. Repository layout
 
 ```
@@ -311,11 +354,11 @@ impl/
 pilot/run_pilot.py frozen scorer (sha-asserted import; see pilot/README.md)
 paper/main.tex     the submitted body sources, shipped so that the number
 paper/sections/    and red-line gates below are runnable, not just readable
-paper/tools/       check_numbers.py (559 assertions) + check_redlines.py (155)
+paper/tools/       check_numbers.py (588 assertions) + check_redlines.py (163)
                    + check_bodylength.py (needs a compiled PDF; not wired)
 paper/figures      every figure/number script (see map above)
 paper/tables       generated reference tables + cell-level audit JSONs
-tr/asof-gov-tr.pdf extended technical report (154 pp.)
+tr/asof-gov-tr.pdf extended technical report (161 pp.)
 scripts/           path-portable wrappers (originals stay byte-frozen)
 manifests/         sha256 of source data + of every tracked file
 fetch_and_rebuild.sh   official-channel downloads -> rebuild everything derived
@@ -330,8 +373,8 @@ reproduce_all.sh       gates -> scoring -> figures -> tables (-> verifier +
 
 # 1) the entry gate.  Needs NOTHING -- no warehouses, no network, no LaTeX,
 #    no LLM keys.  Start here.
-bash reproduce_all.sh gates   # stage 0 only: the paper's 559-assertion number
-                              #   gate + 155-assertion red-line gate over the
+bash reproduce_all.sh gates   # stage 0 only: the paper's 588-assertion number
+                              #   gate + 163-assertion red-line gate over the
                               #   shipped .tex sources.
 
 # 2) rebuild the data substrate (~1 GB, BIRD auto-download; Spider needs one

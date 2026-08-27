@@ -82,8 +82,8 @@ one-line prompting (E2) and survives the entire governance layer in context, its
 refusal-side errors landing where a decision needs a data probe rather than a
 registry line (E3). The compiler closes it as a constructive upper bound with disclosure
 and version axes exercised (E4); the independent checker accepts all 60
-certificates and rejects all 70 forgeries, 36 of them post-registered after
-an external review (E5); its first cross-check's
+certificates and rejects all 78 forgeries, 44 of them post-registered after
+external review (E5); its first cross-check's
 ledger stays the most useful thing we measured (E6); and a post-registered
 NL-to-$\sigma$ hybrid errs $5/60$ (\S\ref{sec:eval-threats}) --- the
 deployment path these numbers recommend.}
@@ -137,8 +137,8 @@ retry only on an empty completion (3 attempts, then scored as error),
 within $0.5\%$ relative error of gold executed on the same warehouse, four
 report-shaped questions by row multiset, two by string; a refusal question
 is correct when the system refuses --- \emph{LLM arms owe no refusal
-class}, the compiler is charged with it. Errors are typed six ways
-(Figure~\ref{fig:taxonomy}); every rate below sits beside its
+class}, the compiler is charged with it. Errors are typed six
+ways~\cite{asofgov-tr}; every rate below sits beside its
 answered/refused shares on the stated denominator (60 questions; 45
 value+rewrite; 15 refusals). Questions come in nine database clusters, so we
 report cluster bootstrap 95\% intervals ($B{=}2000$, frozen seed). Arms, prompt byte
@@ -211,9 +211,11 @@ $0.40$); errors by gold form (v$/$33, rw$/$12,
 rf$/$15). The compiler's
 $0\%$ is a \emph{constructive upper bound} (\S\ref{sec:eval-mech}); its row
 is a deterministic acceptance transcript, not a sample, so it carries no
-interval. \emph{Scoring is asymmetric in the baselines' favour}:
-\textsf{ok} credits an LLM any refusal, the compiler only when the refusal
-\emph{class} matches gold; rewrites scored by value, no declaration asked.}
+interval. The final row is a post-registered NL-to-$\sigma$ hybrid (the
+recommended deployment path, \S\ref{sec:eval-threats}): its $5/60$ error
+reported, the rest em-dashed as a post-registered single run. \emph{Scoring
+is asymmetric in the baselines' favour}: \textsf{ok} credits an LLM any
+refusal, the compiler only when the refusal \emph{class} matches gold.}
 \label{tab:main}\label{tab:taxonomy}
 \begin{tabular}{@{}llrrlrrrrrrr@{}}
 \toprule
@@ -233,6 +235,8 @@ interval. \emph{Scoring is asymmetric in the baselines' favour}:
 & full governance layer     & 28 & 46.7\% & [28.6,\,63.9] & 0.361 & 0.90 & 0.10 & 5 & 11 & 7 & 10\\
 \midrule
 & \textbf{binding compiler} & \textbf{0} & \textbf{0.0\%} & --- & 1.000 & 0.75 & 0.25 & 15 & 0 & 0 & 0\\
+\midrule
+& NL$\to\sigma$ hybrid      & 5 & 8.3\% & --- & --- & --- & --- & 14 & 0 & 4 & 1\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -245,17 +249,20 @@ interval. \emph{Scoring is asymmetric in the baselines' favour}:
 % cell, so no printed count can drift from tab:main's E/60 column.
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{fig3_failure_taxonomy.pdf}
-\Description{Horizontal stacked bars, one per evaluated arm in the row
-order of the main results table, decomposing all 60 questions into six
-outcome segments --- answered where gold refuses, wrong value, execution
-error, over-refusal, no SQL, and correct --- with the count printed on
-every non-empty segment; each bar sums to the true denominator of 60.}
-\caption{Failure taxonomy in the row order of Table~\ref{tab:main}: each
-bar stacks to the true denominator of 60, every non-empty segment
-prints its count. Wrong
-value includes a wrong window or version; \emph{no SQL} is neither an
-answer nor a refusal.}
+\includegraphics[width=\columnwidth]{fig3_paired_stratified.pdf}
+\Description{Two panels sharing the row order of the main results table.
+Left: per-arm paired error reduction against the pre-registered reference
+backbone with cluster-bootstrap 95 percent intervals over nine databases;
+the only interval excluding zero belongs to a prompt variant, in the wrong
+direction, and the compiler's zero-error row is a deterministic transcript
+drawn without an interval. Right: accuracy stratified by gold form (value,
+rewrite, refusal) with the correct count over each form's denominator
+printed in every cell.}
+\caption{Effects with uncertainty (left: paired error reduction vs the
+reference, cluster-bootstrap 95\% CIs over nine databases; only v3's excludes
+zero, wrong-signed) and accuracy by gold form (right: the three denominators
+partition the true denominator of 60), in the row order of
+Table~\ref{tab:main}.}
 \label{fig:taxonomy}
 \end{figure}
 
@@ -266,7 +273,8 @@ answer nor a refusal.}
 60 Chinese questions (Table~\ref{tab:main}): every family clears the pre-registered
 floor (criterion A$'$, $\min\geq0.30$) by
 $2\times$; every cluster interval excludes zero, too
-wide to rank families. Figure~\ref{fig:taxonomy} shows a two-sided shape: on
+wide to rank families. Figure~\ref{fig:taxonomy}'s stratified panel shows a
+two-sided shape: on
 the refusal side the baselines answer through 11, 11, 9 and 13 of the
 15 refusals, refusing correctly on 4, 4, 6 and 2 --- no class
 demanded; over the eight LLM arms the refusal classes
@@ -304,7 +312,8 @@ It bounds what a governed metric layer's
 
 \smallskip\noindent\looseness=-1\textbf{Result.} The arm errs on $46.7\%$ ($28/60$), the
 best LLM arm. It eliminates 13 of the reference's 36 errors and introduces 5
-new ones (net $+8$); against \texttt{trivial\_v2}, which isolates the
+new ones (net $+8$; Figure~\ref{fig:taxonomy}, left panel); against
+\texttt{trivial\_v2}, which isolates the
 instruction, 11 fixed against 4 broken --- content, not instruction, carries
 the gain, instruction alone moving one question ($36\to35$) against
 content's
@@ -357,8 +366,6 @@ the six; seven among the 36, two regressions) leaves $13/60$, at most
 $24/36=0.667$: the verdict is a fact about probe-less, feedback-less
 passes, and the four policy/registry
 residuals are not probe-decidable at all.
-The content buys what a registry can state and almost nothing a probe must
-decide.
 
 \smallskip\noindent\looseness=-1\textbf{Three alternative explanations, checked.}
 \emph{Context dilution}: package length is constant within a database
@@ -374,8 +381,8 @@ refused --- excluded as the driver.
 \smallskip\noindent\looseness=-1\textbf{Non-degeneracy, adversarially confirmed
 (ND-4).} This arm is the designed attack on our own benchmark: on the
 retired public track, whose registries carried expressions and coverage
-literals, the same protocol scored $0/20$ --- a lookup, not a finding. Handed strictly more content, it errs on 46.7\% and errs
-\emph{where} the design predicts.
+literals, the same protocol scored $0/20$ --- a lookup, not a finding. Handed strictly
+more content, it errs \emph{where} the design predicts.
 
 \subsection{E4: The Certified Compiler}
 \label{sec:eval-mech}
@@ -421,44 +428,39 @@ commitment marker, whose deletion is one forgery below.
 \label{sec:eval-cert}
 
 \looseness=-1 The independent verifier accepts $60/60$ certificates; the
-discriminating experiment is forgery: 70 forged certificates in all --- 34
+discriminating experiment is forgery: 78 forged certificates in all --- 34
 pre-registered with the suite over \emph{11 unmodified compiler certificates
-as bases} (all
-11 accept), 36 post-registered with the V6a+ hardening below; F1--F5
-coverage is family-level, one landing per check face. The verifier rejects
-$34/34$, each on the check its construction pre-registered: 6 value/window
-lies (among them an
-empty-denominator refusal flipped to an answer over a lied count, caught by
-\emph{re-executing} the probe, and the off-diagonal marker deleted); 5
-\emph{field deletions} --- $\nu,\alpha,\rho,\delta$, refusal
-witness --- confirming each field is consumed by a non-vacuous check, the
-converse half of Proposition~\ref{prop:nonredundant}; 9 semantic lies
-(out-of-closure read, self-granted anchor override, among others); 10
-disclosure forgeries, new with the exercised layer (banned
-grain with roll-up traces stripped, a support transcript replaced by
-\texttt{SELECT 999}, masks
-dropped or version-downgraded); and 4 refusal-class substitutions ($\AM$(iv)
-re-issued as $\OOV$ on one genuinely vacuous leg; a self-granted
-clause-(iv) replay variant). \emph{One boundary case is accepted and we say
-so}: deleting \emph{part} of a refusal's blocking-policy list (leaving it
-non-empty and registered) passes --- beyond non-emptiness that list is not
-load-bearing, decision and class pinned by checks re-deriving the policy
-set; the hardening is a set-equality audit.
+as bases} (all 11 accept), 44 post-registered with the V6a+ hardening below.
+The verifier rejects $34/34$, each on the check its construction
+pre-registered: 6 value/window lies (one an empty-denominator refusal flipped
+to an answer, caught by \emph{re-executing} the probe); 5 \emph{field
+deletions} --- $\nu,\alpha,\rho,\delta$, refusal witness --- one per field, the
+converse half of Proposition~\ref{prop:nonredundant}; 9 semantic lies; 10
+disclosure forgeries (banned grain, \texttt{SELECT 999} for a support
+transcript, masks dropped); and 4 refusal-class substitutions. \emph{One
+boundary case is accepted and we say so}: deleting \emph{part} of a refusal's
+blocking-policy list (still non-empty and registered) passes --- beyond
+non-emptiness that list is not load-bearing.
 
 \smallskip\noindent\looseness=-1\textbf{Hardened after external review
 (V6a+).} An external review (2026-08) exhibited what this battery had not
 probed: V6a accepted wrong-aggregate, swapped-leg, constant-output and
-narrowed-window mutations of a genuine certificate. V6a+
-(\S\ref{sec:cert:verifier}) responds, scope and predictions
+narrowed-window mutations of a genuine certificate. V6a+ responds, scope
 frozen first~\cite{asofgov-tr}: the 5 reproduction mutations
 reject as pinned regressions, each on its pinned reason code; five new
 families over 22 accepted bases --- F6 wrong aggregate (6), F7 leg swap
 (5), F8 wrong/absent predicate (8), F9 narrowed/widened
-window (6), F10 constant/multi-row (6) --- reject $31/31$; the
-original 34 keep every frozen \emph{rejected-by} attribution; and all 60
-genuine certificates still accept, per-question verdicts identical to the
-pre-hardening verifier. All four frozen predictions held; the forgery
-total is $70/70$ rejected.
+window (6), F10 constant/multi-row (6) --- reject $31/31$; the 34 keep every
+frozen \emph{rejected-by} attribution, all 60 genuine still accept with
+per-question verdicts identical. All four frozen predictions held.
+
+\smallskip\noindent\looseness=-1\textbf{Round 2: outer-filter closure.} A
+second external review (2026-08) exhibited a genuine ratio whose outer
+\texttt{WHERE}, filtering the scalar answer to zero rows, V6a+ accepted --- now
+rejected structurally and by an executed-arity check
+(\S\ref{sec:cert:verifier}), the two exploits pinned. A new F11
+outer-row-filter (8) rejects $8/8$; the family total is $78/78$ rejected,
+$80/80$ with the pins~\cite{asofgov-tr}.
 
 \smallskip\noindent\looseness=-1\textbf{Independence, measured.} A window
 read off the shared question would restate what

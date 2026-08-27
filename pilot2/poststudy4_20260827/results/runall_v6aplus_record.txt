@@ -1,0 +1,2 @@
+[p2 / declared-ok] ACCEPT 60/60  window_source={'derived': 50, 'declared': 8, 'declared-override': 2}
+[p2 / no-declared-windows] ACCEPT 50/60  window_source={'derived': 52, None: 8}

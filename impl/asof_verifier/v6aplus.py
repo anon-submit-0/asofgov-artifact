@@ -71,6 +71,27 @@ Reason codes (machine-readable; the FAIL detail is
                  metric's legs (wrong keys, wrong tables, or a non-INNER /
                  non-equality join).
   V6P_TABLE      a FROM relation lies outside the leg's registered closure.
+  V6P_ARITY      (PREREG_poststudy4_20260827, fix 2) the executed answer SQL
+                 does not have the certified row/column arity — exactly one
+                 row and one column for a scalar (atomic/ratio/delta) or an
+                 attribute metric, or the (cell,val) report arity (>=1 row x 2
+                 columns, or the 1x1 scalar-atom spelling). This is the ONLY
+                 code raised by the appended execution-shape check (check id
+                 V6a+x), which is the first V6a+-family site to EXECUTE the
+                 answer SQL (read-only, via the same connection the V6b/V6c
+                 probes use); all structural checks above remain parse-only.
+
+Round-2 hardening (PREREG_poststudy4_20260827.md sha256
+a7ff13112c6988e98fceb238972a0ae0fff87a037b9f9630577fc618c04b1a75): a second
+external review (Codex 2026-08-27) showed the round-1 V6a+ still ACCEPTed a
+genuine ratio/delta certificate whose outer SELECT carried a top-level WHERE
+filtering the scalar answer to zero rows (WHERE 1=0, WHERE 'a'='b'), because
+_check_ratio/_check_delta did not reject an outer where_clause and nothing
+executed the answer to check its shape. Fix 1 closes the structure
+(_plain_node rejects a non-null outer WHERE by default -> V6P_SHAPE); fix 2
+adds the execution-shape backstop (V6P_ARITY). The genuine certificates carry
+no outer WHERE and keep their 1x1 (or certified report/attribute) arity, so
+both remain invariant on the genuine corpus.
 
 Red lines kept: this module imports NOTHING from any compiler tree (stdlib
 only; the DuckDB parser is reached through the verifier's own read-only
@@ -90,7 +111,7 @@ import json
 
 REASON_CODES = ("V6P_PARSE", "V6P_KIND", "V6P_SHAPE", "V6P_MEASURE",
                 "V6P_LEG_ROLE", "V6P_PREDICATE", "V6P_WINDOW", "V6P_JOIN",
-                "V6P_TABLE")
+                "V6P_TABLE", "V6P_ARITY")
 
 _DATE_RE_FULL = None  # set lazily from helpers (re module use kept local)
 
@@ -986,7 +1007,9 @@ class V6aPlus:
 
     def _check_leg(self, node, metric, leg, alpha_ent, extra_metrics=()):
         """Validate one leg SELECT node against its registered role facts."""
-        self._plain_node(node, allow_from=True)
+        # A leg carries a real FROM and its own predicate WHERE (walked below):
+        # allow_outer_where=True keeps that read as before.
+        self._plain_node(node, allow_from=True, allow_outer_where=True)
         sel = node.get("select_list") or []
         if len(sel) != 1:
             raise _Reject("V6P_SHAPE",
@@ -1068,7 +1091,7 @@ class V6aPlus:
     # ---------------- node shape ----------------
 
     def _plain_node(self, node, allow_from, allow_order=False,
-                    allow_group1=False):
+                    allow_group1=False, allow_outer_where=False):
         if not isinstance(node, dict) or node.get("type") != "SELECT_NODE":
             raise _Reject("V6P_SHAPE",
                           "not a plain SELECT node (%r)"
@@ -1100,6 +1123,14 @@ class V6aPlus:
         if not allow_from and (node.get("from_table") or {}).get("type") != "EMPTY":
             raise _Reject("V6P_SHAPE",
                           "scalar template requires an empty outer FROM")
+        # Outer-filter closure (PREREG_poststudy4_20260827, fix 1): a non-null
+        # outer WHERE on a template node is outside the class and is rejected by
+        # DEFAULT. The scalar OUTER nodes of atomic/ratio/delta carry no WHERE
+        # (they route through here with allow_outer_where=False); the FROM-
+        # carrying leg / report / attribute predicate walkers pass
+        # allow_outer_where=True and read their own where_clause as before.
+        if not allow_outer_where and node.get("where_clause") is not None:
+            raise _Reject("V6P_SHAPE", "outer WHERE outside the template")
 
     # ---------------- scalar wrappers ----------------
 
@@ -1205,14 +1236,14 @@ class V6aPlus:
         return ent
 
     def _check_atomic(self, node, metric, leg="atom", alpha_key="atom"):
+        # Fix 1: the outer WHERE rejection now lives in _plain_node's default
+        # (allow_outer_where=False), so atomic/ratio/delta share one closure.
         self._plain_node(node, allow_from=False)
         sel = node.get("select_list") or []
         if len(sel) != 1:
             raise _Reject("V6P_SHAPE",
                           "scalar template requires one output column, got %d"
                           % len(sel))
-        if node.get("where_clause") is not None:
-            raise _Reject("V6P_SHAPE", "outer WHERE outside the template")
         sub = self._scalar_subquery_node(sel[0])
         self._check_leg(sub, metric, leg, self._alpha(alpha_key))
 
@@ -1283,9 +1314,10 @@ class V6aPlus:
                 ((node.get("from_table") or {}).get("type") == "EMPTY"):
             self._check_atomic(node, self.metric)
             return
-        # (cell, val) spelling
+        # (cell, val) spelling — a FROM-carrying node whose WHERE is the
+        # report predicate walker's (read below): allow_outer_where=True.
         self._plain_node(node, allow_from=True, allow_order=True,
-                         allow_group1=True)
+                         allow_group1=True, allow_outer_where=True)
         if len(sel) != 2:
             raise _Reject("V6P_SHAPE",
                           "report template outputs (cell, val), got %d columns"
@@ -1394,7 +1426,9 @@ class V6aPlus:
                            role_alias=role_alias)
 
     def _check_attribute(self, node, metric):
-        self._plain_node(node, allow_from=True)
+        # A FROM-carrying node whose WHERE is the attribute predicate walker's
+        # (read below): allow_outer_where=True.
+        self._plain_node(node, allow_from=True, allow_outer_where=True)
         sel = node.get("select_list") or []
         if len(sel) != 1:
             raise _Reject("V6P_SHAPE",
@@ -1501,3 +1535,74 @@ def check_v6a_plus(cx, helpers):
     except Exception as e:  # noqa: BLE001 — fail-closed on any surprise
         return ("FAIL", "V6P_PARSE: structural validation crashed "
                         "(fail-closed): %s: %s" % (type(e).__name__, e))
+
+
+# ---------------- execution-shape check (V6a+x; fix 2) ----------------
+
+def _arity_ok(kind, ncols, nrows_cap):
+    """Does an executed answer of `ncols` columns and `nrows_cap` rows
+    (nrows_cap is min(actual_rows, 2): 0=empty, 1=exactly one, 2=two-or-more)
+    have the certified arity for `kind`?  Scalar (atomic/ratio/delta) and
+    attribute answers are exactly 1 row x 1 column; a report answer is the
+    (cell,val) group-by-1 shape (>=1 row x 2 columns) or the scalar-atom
+    spelling (1 row x 1 column).  Any other kind fails closed."""
+    if kind in ("atomic", "ratio", "delta", "attribute"):
+        return nrows_cap == 1 and ncols == 1
+    if kind == "report":
+        return (ncols == 2 and nrows_cap >= 1) or (ncols == 1 and nrows_cap == 1)
+    return False
+
+
+def _arity_want(kind):
+    if kind in ("atomic", "ratio", "delta", "attribute"):
+        return "exactly 1 row x 1 column"
+    if kind == "report":
+        return ("the (cell,val) report arity: >=1 row x 2 columns, or the 1 "
+                "row x 1 column scalar-atom spelling")
+    return "a metric kind with a registered executable answer template"
+
+
+def check_exec_shape(cx, helpers):
+    """Execution-shape check — check id `V6a+x` (PREREG_poststudy4_20260827
+    fix 2).  This is the FIRST V6a+-family site to EXECUTE the answer SQL: it
+    runs each ANSWER/REWRITE certificate's answer query read-only against the
+    warehouse (`cx.con` — the same read-only DuckDB connection the V6b/V6c
+    probes use; no new connection, no writes) and requires the executed result
+    to carry the certified row/column arity, else REJECTs with the machine-
+    readable code `V6P_ARITY`.  Appended LAST in the check order so every
+    pre-existing first-FAIL attribution stays frozen; REFUSE certificates carry
+    no answer SQL and are SKIPped exactly as V6a+ SKIPs them.  Returns
+    (status, detail)."""
+    if cx.dec not in ("ANSWER", "REWRITE"):
+        return ("SKIP", "execution-shape check applies to answer certificates "
+                        "only (REFUSE carries no answer SQL)")
+    if not getattr(cx.gv, "is_p2", False):
+        return ("SKIP", "execution-shape check validates the pilot2 governance "
+                        "seed schema (gov_metric absent in this graph)")
+    s = cx.sql
+    if not isinstance(s, str) or not s.strip():
+        return ("FAIL", "V6P_ARITY: answer certificate without query text")
+    try:
+        metric = helpers["base_metric"](cx.q.get("metric"))
+        kind = (cx.gv.metric_row(metric) or {}).get("kind")
+    except Exception as e:  # noqa: BLE001 — fail-closed
+        return ("FAIL", "V6P_ARITY: metric kind unresolvable for the arity "
+                        "contract (fail-closed): %s: %s" % (type(e).__name__, e))
+    try:
+        res = cx.con.execute(s)
+        ncols = len(res.description) if res.description else 0
+        head = res.fetchmany(2)          # cap: enough to tell 0 / 1 / >=2 rows
+        nrows_cap = len(head)
+    except Exception as e:  # noqa: BLE001 — an unexecutable answer is fail-closed
+        return ("FAIL", "V6P_ARITY: answer SQL did not execute read-only "
+                        "(fail-closed): %s: %s"
+                        % (type(e).__name__, str(e)[:140]))
+    if not _arity_ok(kind, ncols, nrows_cap):
+        rowtxt = ">=2" if nrows_cap == 2 else str(nrows_cap)
+        return ("FAIL", "V6P_ARITY: executed answer shape %s row(s) x %d "
+                        "column(s) is not the certified arity for a %r metric "
+                        "(expected %s)"
+                        % (rowtxt, ncols, kind, _arity_want(kind)))
+    rowtxt = ">=2" if nrows_cap == 2 else str(nrows_cap)
+    return ("PASS", "executed answer shape %s row(s) x %d column(s) matches the "
+                    "certified %r arity" % (rowtxt, ncols, kind))

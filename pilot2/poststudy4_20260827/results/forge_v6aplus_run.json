@@ -1,0 +1,885 @@
+{
+  "ok": true,
+  "families": {
+    "F6": {
+      "total": 6,
+      "rejected": 6,
+      "bases": [
+        "CA-Q1",
+        "CARD-Q2",
+        "DEB-Q3",
+        "F1-Q1",
+        "TH-Q1",
+        "W1-Q1"
+      ]
+    },
+    "F7": {
+      "total": 5,
+      "rejected": 5,
+      "bases": [
+        "CA-Q1",
+        "CODE-Q1",
+        "EF2-Q2",
+        "FIN-Q1",
+        "W1-Q3"
+      ]
+    },
+    "F8": {
+      "total": 8,
+      "rejected": 8,
+      "bases": [
+        "CA-Q1",
+        "CARD-Q4",
+        "CODE-Q1",
+        "CODE-Q2",
+        "F1-Q1",
+        "FIN-Q1",
+        "FIN-Q3",
+        "TH-Q1"
+      ]
+    },
+    "F9": {
+      "total": 6,
+      "rejected": 6,
+      "bases": [
+        "CA-Q3",
+        "CARD-Q1",
+        "DEB-Q1",
+        "EF2-Q2",
+        "FIN-Q4",
+        "W1-Q1"
+      ]
+    },
+    "F10": {
+      "total": 6,
+      "rejected": 6,
+      "bases": [
+        "CARD-Q1",
+        "CODE-Q3",
+        "EF2-Q1",
+        "FIN-Q5",
+        "TH-Q2",
+        "W1-Q2"
+      ]
+    },
+    "F11": {
+      "total": 8,
+      "rejected": 8,
+      "bases": [
+        "CA-Q1",
+        "CARD-Q1",
+        "CARD-Q2",
+        "CODE-Q1",
+        "DEB-Q1",
+        "F1-Q4",
+        "FIN-Q1",
+        "TH-Q1"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "name": "PINNED_cert_mut_a_count_distinct_date",
+      "base": "CARD-Q2",
+      "expected": "REJECT(V6P_MEASURE)",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_MEASURE",
+      "first_fail_detail": "V6P_MEASURE: leg must implement registered measure count as COUNT(*); got count(DISTINCT …)",
+      "note": "pinned reproduction mutation (m1-repro; must REJECT forever)"
+    },
+    {
+      "name": "PINNED_cert_mut_b_leg_swap",
+      "base": "CARD-Q2",
+      "expected": "REJECT(V6P_PARSE)",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_PARSE",
+      "first_fail_detail": "V6P_PARSE: DuckDB cannot parse the answer SQL (parser: syntax error at or near \"*\")",
+      "note": "pinned reproduction mutation (m1-repro; must REJECT forever)"
+    },
+    {
+      "name": "PINNED_cert_mut_b2_leg_swap_valid",
+      "base": "CARD-Q2",
+      "expected": "REJECT(V6P_LEG_ROLE)",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_LEG_ROLE",
+      "first_fail_detail": "V6P_LEG_ROLE: registered role table 'rulings' absent from the leg's FROM",
+      "note": "pinned reproduction mutation (m1-repro; must REJECT forever)"
+    },
+    {
+      "name": "PINNED_cert_mut_c_constant_999",
+      "base": "CARD-Q2",
+      "expected": "REJECT(V6P_SHAPE)",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: scalar template requires an empty outer FROM",
+      "note": "pinned reproduction mutation (m1-repro; must REJECT forever)"
+    },
+    {
+      "name": "PINNED_cert_mut_d_narrowed_predicate",
+      "base": "CARD-Q2",
+      "expected": "REJECT(V6P_WINDOW)",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_WINDOW",
+      "first_fail_detail": "V6P_WINDOW: time predicate denotation [2016-11-10, 2016-11-20) != certified role window [2016-11-01, 2016-12-01)",
+      "note": "pinned reproduction mutation (m1-repro; must REJECT forever)"
+    },
+    {
+      "name": "PINNED_cert_mut_e_outer_where_1eq0",
+      "base": "CARD-Q2",
+      "expected": "REJECT(V6P_SHAPE)",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: outer WHERE outside the template",
+      "note": "pinned reproduction mutation (m1-repro; must REJECT forever)"
+    },
+    {
+      "name": "PINNED_cert_mut_f_outer_where_false",
+      "base": "CARD-Q2",
+      "expected": "REJECT(V6P_SHAPE)",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: outer WHERE outside the template",
+      "note": "pinned reproduction mutation (m1-repro; must REJECT forever)"
+    },
+    {
+      "name": "BASE_CA-Q1",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_CA-Q3",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_CARD-Q1",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_CARD-Q2",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_CARD-Q4",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_CODE-Q1",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_CODE-Q2",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_CODE-Q3",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_DEB-Q1",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_DEB-Q3",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_EF2-Q1",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_EF2-Q2",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_F1-Q1",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_F1-Q4",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_FIN-Q1",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_FIN-Q3",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_FIN-Q4",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_FIN-Q5",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_TH-Q1",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_TH-Q2",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_W1-Q1",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_W1-Q2",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "BASE_W1-Q3",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT under the hardened verifier)"
+    },
+    {
+      "name": "F6a_count_distinct_num",
+      "base": "CARD-Q2",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_MEASURE",
+      "first_fail_detail": "V6P_MEASURE: leg must implement registered measure count as COUNT(*); got count(DISTINCT …)",
+      "note": "numerator count re-implemented as COUNT(DISTINCT rulings.date): same table, same window, wrong registered measure"
+    },
+    {
+      "name": "F6b_avg_for_sum",
+      "base": "CA-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_MEASURE",
+      "first_fail_detail": "V6P_MEASURE: leg must implement sum:Free Meal Count (K-12) as SUM(Free Meal Count (K-12))",
+      "note": "numerator sum:<col> replaced by AVG over the same registered column"
+    },
+    {
+      "name": "F6c_count_for_sum",
+      "base": "DEB-Q3",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_MEASURE",
+      "first_fail_detail": "V6P_MEASURE: leg must implement sum:Consumption as SUM(Consumption)",
+      "note": "sum:Consumption replaced by COUNT(*): a plausible atomic lookalike inside the certified closure"
+    },
+    {
+      "name": "F6d_wrong_sum_column",
+      "base": "W1-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_MEASURE",
+      "first_fail_detail": "V6P_MEASURE: SUM(country_history.population_resident) does not implement the registered argument country_history.population",
+      "note": "sum:population replaced by the sibling registered column population_resident (W1-Q2's caliber, not W1-Q1's)"
+    },
+    {
+      "name": "F6e_raw_points_column",
+      "base": "F1-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_MEASURE",
+      "first_fail_detail": "V6P_MEASURE: SUM(results.points) does not implement the registered argument points_scheme.points",
+      "note": "sum:points_scheme.points replaced by the raw results.points column — the exact registered-form-not-lookalike case"
+    },
+    {
+      "name": "F6f_count_col_for_count",
+      "base": "TH-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_MEASURE",
+      "first_fail_detail": "V6P_MEASURE: leg must implement registered measure count as COUNT(*); got count",
+      "note": "count implemented as COUNT(col): NULL-skipping lookalike of the registered COUNT(*)"
+    },
+    {
+      "name": "F7a_leg_swap_codeq1",
+      "base": "CODE-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_PREDICATE",
+      "first_fail_detail": "V6P_PREDICATE: predicate of type 'COMPARE_EQUAL' is neither a registered measure predicate, a registered question-scope predicate, nor the anchor time form",
+      "note": "numerator and denominator legs exchanged inside the intact `num * 1.0 / NULLIF(den, 0)` frame"
+    },
+    {
+      "name": "F7b_leg_swap_finq1",
+      "base": "FIN-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_PREDICATE",
+      "first_fail_detail": "V6P_PREDICATE: registered predicate(s) missing from the leg: [{\"col\": \"status\", \"op\": \"in\", \"value\": [\"B\", \"D\"]}]",
+      "note": "numerator and denominator legs exchanged inside the intact `num * 1.0 / NULLIF(den, 0)` frame"
+    },
+    {
+      "name": "F7c_leg_swap_w1q3",
+      "base": "W1-Q3",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_PREDICATE",
+      "first_fail_detail": "V6P_PREDICATE: registered predicate(s) missing from the leg: [{\"col\": \"Continent\", \"node\": \"w1.country\", \"op\": \"=\", \"value\": \"Asia\"}]",
+      "note": "numerator and denominator legs exchanged inside the intact `num * 1.0 / NULLIF(den, 0)` frame"
+    },
+    {
+      "name": "F7d_leg_swap_caq1",
+      "base": "CA-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_MEASURE",
+      "first_fail_detail": "V6P_MEASURE: SUM(frpm.enrollment (k-12)) does not implement the registered argument frpm.free meal count (k-12)",
+      "note": "numerator and denominator legs exchanged inside the intact `num * 1.0 / NULLIF(den, 0)` frame"
+    },
+    {
+      "name": "F7e_leg_swap_ef2q2",
+      "base": "EF2-Q2",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_PREDICATE",
+      "first_fail_detail": "V6P_PREDICATE: registered predicate(s) missing from the leg: [{\"col\": \"home_team_goal\", \"op\": \">col\", \"value\": \"away_team_goal\"}]",
+      "note": "numerator and denominator legs exchanged inside the intact `num * 1.0 / NULLIF(den, 0)` frame"
+    },
+    {
+      "name": "F8a_drop_status_pred",
+      "base": "FIN-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_PREDICATE",
+      "first_fail_detail": "V6P_PREDICATE: registered predicate(s) missing from the leg: [{\"col\": \"status\", \"op\": \"in\", \"value\": [\"B\", \"D\"]}]",
+      "note": "registered numerator predicate status IN ('B','D') deleted: num silently becomes den"
+    },
+    {
+      "name": "F8b_wrong_ksymbol",
+      "base": "FIN-Q3",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_PREDICATE",
+      "first_fail_detail": "V6P_PREDICATE: predicate of type 'COMPARE_EQUAL' is neither a registered measure predicate, a registered question-scope predicate, nor the anchor time form",
+      "note": "registered k_symbol constant replaced by another real k_symbol value"
+    },
+    {
+      "name": "F8c_weakened_threshold",
+      "base": "TH-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_PREDICATE",
+      "first_fail_detail": "V6P_PREDICATE: predicate of type 'COMPARE_GREATERTHANOREQUALTO' is neither a registered measure predicate, a registered question-scope predicate, nor the anchor time form",
+      "note": "registered GOT >= 60 threshold weakened to 6"
+    },
+    {
+      "name": "F8d_wrong_posttype",
+      "base": "CODE-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_PREDICATE",
+      "first_fail_detail": "V6P_PREDICATE: predicate of type 'COMPARE_EQUAL' is neither a registered measure predicate, a registered question-scope predicate, nor the anchor time form",
+      "note": "registered PostTypeId = 2 numerator predicate re-pointed at wiki posts"
+    },
+    {
+      "name": "F8e_drop_isnull_pred",
+      "base": "CODE-Q2",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_PREDICATE",
+      "first_fail_detail": "V6P_PREDICATE: registered predicate(s) missing from the leg: [{\"col\": \"CommunityOwnedDate\", \"op\": \"is_null\", \"value\": null}]",
+      "note": "v2-registered denominator predicate CommunityOwnedDate IS NULL deleted"
+    },
+    {
+      "name": "F8f_wrong_scope_const",
+      "base": "CARD-Q4",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_PREDICATE",
+      "first_fail_detail": "V6P_PREDICATE: predicate of type 'COMPARE_EQUAL' is neither a registered measure predicate, a registered question-scope predicate, nor the anchor time form",
+      "note": "scope constant contradicts the question's own set_code declaration (q says ORI)"
+    },
+    {
+      "name": "F8g_drop_scope_join_pred",
+      "base": "F1-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_PREDICATE",
+      "first_fail_detail": "V6P_PREDICATE: leg (f1.driver_season_points, atom) does not implement the question's declared scope key(s) ['driver'] (registered via gov_semantic_node.scope_keys on this leg's closure)",
+      "note": "the question's driver scope (join + predicate) silently dropped from an ANSWER: computes every driver's points (hole found and closed during hardening — the declared scope keys are registered predicates of the binding)"
+    },
+    {
+      "name": "F8h_drop_scope_pred_both_legs",
+      "base": "CA-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_PREDICATE",
+      "first_fail_detail": "V6P_PREDICATE: leg (ca.free_meal_rate, num) does not implement the question's declared scope key(s) ['county'] (registered via gov_semantic_node.scope_keys on this leg's closure)",
+      "note": "the question's county scope dropped from both ratio legs of an ANSWER: state-wide rate presented as Alameda's"
+    },
+    {
+      "name": "F9a_narrow_month",
+      "base": "CARD-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_WINDOW",
+      "first_fail_detail": "V6P_WINDOW: time predicate denotation [2017-02-10, 2017-02-20) != certified role window [2017-02-01, 2017-03-01)",
+      "note": "month window narrowed to [02-10, 02-20): still inside the certified window, invisible to V6a's containment scan"
+    },
+    {
+      "name": "F9b_widen_to_year",
+      "base": "FIN-Q4",
+      "expected": "V6a",
+      "actual": "REJECT by V6a",
+      "ok": true,
+      "failed_checks": [
+        "V6a",
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_WINDOW",
+      "first_fail_detail": "block on 'loan': time predicate denotation [1997-01-01, 1998-01-01) ⊄ certified window [1997-05-01, 1997-06-01) (role atom)",
+      "note": "month window widened to the whole year: escapes containment (V6a, frozen attribution) and fails window equality (V6a+)"
+    },
+    {
+      "name": "F9c_shift_token",
+      "base": "W1-Q1",
+      "expected": "V6a",
+      "actual": "REJECT by V6a",
+      "ok": true,
+      "failed_checks": [
+        "V6a",
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_WINDOW",
+      "first_fail_detail": "block on 'country_history': time predicate denotation [2026-04-01, 2026-05-01) ⊄ certified window [2026-05-01, 2026-06-01) (role atom)",
+      "note": "month token shifted to 2026-04: outside the certified month (V6a) and unequal to it (V6a+)"
+    },
+    {
+      "name": "F9d_narrow_num_leg",
+      "base": "EF2-Q2",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_WINDOW",
+      "first_fail_detail": "V6P_WINDOW: time predicate denotation [2015-08-01, 2016-05-01) != certified role window [2015-08-01, 2016-05-26)",
+      "note": "numerator leg's upper bound pulled to 05-01 while the denominator keeps the certified range: in-window narrowing of one ratio leg"
+    },
+    {
+      "name": "F9e_extra_day_bound",
+      "base": "DEB-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_WINDOW",
+      "first_fail_detail": "V6P_WINDOW: time predicate denotation [2013-08-10, 2013-09-01) != certified role window [2013-08-01, 2013-09-01)",
+      "note": "an extra lower day-bound conjoined onto the certified month-token equality narrows the leg inside the window"
+    },
+    {
+      "name": "F9f_move_ineffect_bound",
+      "base": "CA-Q3",
+      "expected": "V6a",
+      "actual": "REJECT by V6a",
+      "ok": true,
+      "failed_checks": [
+        "V6a",
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_WINDOW",
+      "first_fail_detail": "block on 'schools': SCD-2 in-effect predicate not replayed (missing `opendate <= DATE '2015-01-01'`; role atom)",
+      "note": "the in-effect lower bound is moved off the certified point day (V6a's SCD-2 replay catches it first; V6a+ must too)"
+    },
+    {
+      "name": "F10a_constant_multirow",
+      "base": "CARD-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: scalar template requires an empty outer FROM",
+      "note": "constant multi-row projection over the certified table and window (the Codex mutation class, on a fresh base)"
+    },
+    {
+      "name": "F10b_constant_scalar",
+      "base": "FIN-Q5",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: FROM relation of unsupported type 'EMPTY'",
+      "note": "constant-only scalar subquery: reads no relation at all"
+    },
+    {
+      "name": "F10c_union_extra_row",
+      "base": "TH-Q2",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: not a plain SELECT node ('SET_OPERATION_NODE')",
+      "note": "UNION ALL appends a second output row to a scalar template"
+    },
+    {
+      "name": "F10d_two_columns",
+      "base": "CODE-Q3",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: scalar template requires one output column, got 2",
+      "note": "a second output column appended to the scalar template"
+    },
+    {
+      "name": "F10e_nonaggregate_subquery",
+      "base": "W1-Q2",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_MEASURE",
+      "first_fail_detail": "V6P_MEASURE: leg output is not an aggregate function",
+      "note": "aggregate dropped: the leg subquery projects a raw column (multi-row scalar subquery)"
+    },
+    {
+      "name": "F10f_bare_constant",
+      "base": "EF2-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: expected a scalar-subquery leg, got 'CONSTANT'",
+      "note": "the whole answer replaced by a bare constant"
+    },
+    {
+      "name": "F11a_ratio_outer_where_1eq0",
+      "base": "CARD-Q2",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: outer WHERE outside the template",
+      "note": "outer WHERE 1=0 appended to the ratio: filters the scalar answer to zero rows (the confirmed round-2 exploit surface; V6P_SHAPE + V6P_ARITY backstop)"
+    },
+    {
+      "name": "F11b_ratio_outer_where_false_str",
+      "base": "FIN-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: outer WHERE outside the template",
+      "note": "outer WHERE 'a'='b' appended to the ratio: a different zero-row spelling of the same outer-filter attack"
+    },
+    {
+      "name": "F11c_delta_outer_where_1eq0",
+      "base": "F1-Q4",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: outer WHERE outside the template",
+      "note": "outer WHERE 1=0 appended to the DELTA answer — the sibling code path _check_delta shared the pre-fix gap with _check_ratio; must REJECT identically"
+    },
+    {
+      "name": "F11d_atomic_outer_where_1eq0",
+      "base": "CARD-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: outer WHERE outside the template",
+      "note": "outer WHERE 1=0 appended to the ATOMIC answer: the scalar closure is uniform across atomic/ratio/delta"
+    },
+    {
+      "name": "F11e_ratio_outer_where_1eq1_true",
+      "base": "CA-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: outer WHERE outside the template",
+      "note": "outer WHERE 1=1 appended to the ratio: TRUE and denotation-preserving (still 1x1, so the arity backstop passes) — caught ONLY by the structural closure V6P_SHAPE, proving fix 1 is necessary and not subsumed by fix 2"
+    },
+    {
+      "name": "F11f_ratio_outer_from_values_multirow",
+      "base": "TH-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: scalar template requires an empty outer FROM",
+      "note": "outer FROM (VALUES ...) appended to the ratio: forces THREE output rows from the scalar template (V6P_SHAPE non-empty outer FROM + V6P_ARITY multi-row backstop)"
+    },
+    {
+      "name": "F11g_atomic_outer_where_false_str",
+      "base": "DEB-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: outer WHERE outside the template",
+      "note": "outer WHERE 'x'='y' appended to the ATOMIC answer: zero-row filter, atomic variant"
+    },
+    {
+      "name": "F11h_ratio_outer_where_numeric_false",
+      "base": "CODE-Q1",
+      "expected": "V6a+",
+      "actual": "REJECT by V6a+",
+      "ok": true,
+      "failed_checks": [
+        "V6a+",
+        "V6a+x"
+      ],
+      "v6aplus_reason_code": "V6P_SHAPE",
+      "first_fail_detail": "V6P_SHAPE: outer WHERE outside the template",
+      "note": "outer WHERE 2=3 appended to the ratio: a third zero-row constant spelling over a distinct base/domain"
+    }
+  ],
+  "n_bases": 23,
+  "n_pinned": 7,
+  "n_forgeries": 39
+}

@@ -1,0 +1,530 @@
+{
+  "ok": true,
+  "rows": [
+    {
+      "name": "BASE_CA-Q5",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT)"
+    },
+    {
+      "name": "BASE_CARD-Q2",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT)"
+    },
+    {
+      "name": "BASE_CARD-Q7",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT)"
+    },
+    {
+      "name": "BASE_CODE-Q4",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT)"
+    },
+    {
+      "name": "BASE_CODE-Q6",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT)"
+    },
+    {
+      "name": "BASE_CODE-Q7",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT)"
+    },
+    {
+      "name": "BASE_EF2-Q6",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT)"
+    },
+    {
+      "name": "BASE_F1-Q3",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT)"
+    },
+    {
+      "name": "BASE_FIN-Q1",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT)"
+    },
+    {
+      "name": "BASE_TH-Q4",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT)"
+    },
+    {
+      "name": "BASE_TH-Q5",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT",
+      "ok": true,
+      "first_fail_detail": "",
+      "note": "real compiler-emitted certificate (must ACCEPT)"
+    },
+    {
+      "name": "F1a_wrong_year_answer",
+      "base": "FIN-Q1",
+      "expected": "V0",
+      "actual": "REJECT by V0",
+      "ok": true,
+      "failed_checks": [
+        "V0"
+      ],
+      "first_fail_detail": "role numerator: window [1995-01-01, 1996-01-01) ≠ derived [1996-01-01, 1997-01-01); role denominator: window [1995-01-01, 1996-01-01) ≠ derived [1996-01-01, 1997-01-01)",
+      "note": "1996 problem-loan-rate answered on coherently shifted 1995 windows; only V0's independent α re-derivation pins it"
+    },
+    {
+      "name": "F1b_empty_denominator_answer",
+      "base": "CARD-Q7",
+      "expected": "V6c",
+      "actual": "REJECT by V6c",
+      "ok": true,
+      "failed_checks": [
+        "V6c",
+        "V6a+"
+      ],
+      "first_fail_detail": "MC(ii) holds yet the certificate answers: re-executed μ_den=0 ∈ 𝒵 (empty/NULL/≤0)",
+      "note": "mc_ii refusal flipped to ANSWER: re-executed μ_den=0 ∈ 𝒵 while the DEN_POP transcript records the 490 lie"
+    },
+    {
+      "name": "F1c_window_shift_mc",
+      "base": "CARD-Q7",
+      "expected": "V0",
+      "actual": "REJECT by V0",
+      "ok": true,
+      "failed_checks": [
+        "V0"
+      ],
+      "first_fail_detail": "role numerator: window [2016-12-01, 2017-01-01) ≠ derived [2017-02-01, 2017-03-01); role denominator: window [2016-12-01, 2017-01-01) ≠ derived [2017-02-01, 2017-03-01)",
+      "note": "MC(ii) refusal replays fine on the shifted (also-empty) 2016-12 window; V0 rejects the α that is not q's α_{q,v}"
+    },
+    {
+      "name": "F1d_fake_window_pair_am",
+      "base": "FIN-Q1",
+      "expected": "V0",
+      "actual": "REJECT by V0",
+      "ok": true,
+      "failed_checks": [
+        "V0",
+        "V6b"
+      ],
+      "first_fail_detail": "role denominator: window [1995-01-01, 1996-01-01) ≠ derived [1996-01-01, 1997-01-01)",
+      "note": "same-window ratio refused AM(ii) on a fabricated (1996,1995) pair; the α carrying it fails the re-derivation"
+    },
+    {
+      "name": "F1e_offdiag_marker_deleted",
+      "base": "F1-Q3",
+      "expected": "V1",
+      "actual": "REJECT by V1",
+      "ok": true,
+      "failed_checks": [
+        "V1"
+      ],
+      "first_fail_detail": "ν.v='v1' ≠ ver(T)='v2' without the explicit off_diagonal commitment marker (zero-trace off-diagonal certificate REJECT)",
+      "note": "pinned v1 read at declared_at where ver(T)=v2: deleting the off_diagonal commitment is the GOLD-1 zero-trace surface"
+    },
+    {
+      "name": "F1f_version_swap",
+      "base": "FIN-Q1",
+      "expected": "V1",
+      "actual": "REJECT by V1",
+      "ok": true,
+      "failed_checks": [
+        "V1",
+        "V6a+"
+      ],
+      "first_fail_detail": "ν.v='v2' ≠ ver(T)='v1' without the explicit off_diagonal commitment marker (zero-trace off-diagonal certificate REJECT)",
+      "note": "ν repinned to v2 while ver(declared_at)=v1 and no off-diagonal commitment marker exists"
+    },
+    {
+      "name": "F2a_delete_nu",
+      "base": "FIN-Q1",
+      "expected": "V0",
+      "actual": "REJECT by V0",
+      "ok": true,
+      "failed_checks": [
+        "V0",
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V6a",
+        "V6c",
+        "V6a+",
+        "V6a+x"
+      ],
+      "first_fail_detail": "alias '问题贷款率' resolves to no metric@None yet the certificate answers",
+      "note": "no version coordinate: version-swap surface (p2 alias layer is version-scoped, so V0's alias re-resolution fails first; V1 must also fail with the 'graph_pin missing' detail)"
+    },
+    {
+      "name": "F2b_delete_alpha",
+      "base": "FIN-Q1",
+      "expected": "V0",
+      "actual": "REJECT by V0",
+      "ok": true,
+      "failed_checks": [
+        "V0",
+        "V6a+"
+      ],
+      "first_fail_detail": "role numerator missing from certificate α; role denominator missing from certificate α",
+      "note": "no anchor assignment: window-swap surface"
+    },
+    {
+      "name": "F2c_delete_rho",
+      "base": "FIN-Q1",
+      "expected": "V4",
+      "actual": "REJECT by V4",
+      "ok": true,
+      "failed_checks": [
+        "V4",
+        "V6c"
+      ],
+      "first_fail_detail": "ratio-type metric answered without a caliber routing path ρ (caliber-blind substitution surface, C5 Prop 5.12)",
+      "note": "ratio answered without ρ: caliber-blind substitution surface"
+    },
+    {
+      "name": "F2d_delete_delta",
+      "base": "FIN-Q1",
+      "expected": "V5",
+      "actual": "REJECT by V5",
+      "ok": true,
+      "failed_checks": [
+        "V5"
+      ],
+      "first_fail_detail": "disclosure section (δ) missing (disclosure-laundering surface, C5 Prop 5.12)",
+      "note": "no disclosure decision: disclosure-laundering surface"
+    },
+    {
+      "name": "F2e_delete_witness",
+      "base": "CARD-Q7",
+      "expected": "V6b",
+      "actual": "REJECT by V6b",
+      "ok": true,
+      "failed_checks": [
+        "V6b"
+      ],
+      "first_fail_detail": "refusal without witness (unfalsifiable refusal, C5 Prop 5.12)",
+      "note": "refusal without witness: unfalsifiable refusal"
+    },
+    {
+      "name": "F3a_dangling_version_pin",
+      "base": "FIN-Q1",
+      "expected": "V0",
+      "actual": "REJECT by V0",
+      "ok": true,
+      "failed_checks": [
+        "V0",
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V6a",
+        "V6c",
+        "V6a+",
+        "V6a+x"
+      ],
+      "first_fail_detail": "alias '问题贷款率' resolves to no metric@v9 yet the certificate answers",
+      "note": "ν pinned to a version absent from gov_semantic_graph_version (alias@v9 resolves nothing → V0 first; V1 must also fail with the 0-row pin-resolution detail)"
+    },
+    {
+      "name": "F3b_ungoverned_unmarked",
+      "base": "FIN-Q1",
+      "expected": "V5",
+      "actual": "REJECT by V5",
+      "ok": true,
+      "failed_checks": [
+        "V5"
+      ],
+      "first_fail_detail": "ungoverned-disclosure annotation missing (absence ≠ checked; D5: 缺标即 REJECT)",
+      "note": "D5: zero-policy domain without the ungoverned-disclosure annotation"
+    },
+    {
+      "name": "F3c_sum_rate_form",
+      "base": "FIN-Q1",
+      "expected": "V6a",
+      "actual": "REJECT by V6a",
+      "ok": true,
+      "failed_checks": [
+        "V6a",
+        "V6a+"
+      ],
+      "first_fail_detail": "ratio structure violated: aggregate over a rate/share column (sum(rate) form; C3 note 3.13 ratio-of-sums)",
+      "note": "average-of-daily-rates violates the ratio-of-sums invariant (C3 note 3.13)"
+    },
+    {
+      "name": "F3d_fake_pair_witness_am4",
+      "base": "EF2-Q6",
+      "expected": "V6b",
+      "actual": "REJECT by V6b",
+      "ok": true,
+      "failed_checks": [
+        "V6b"
+      ],
+      "first_fail_detail": "AM(iv) payload num window [2013-11-30, 2013-12-01) is not q's request window [2013-12-01, 2013-12-02) (fake-pair replay rejected)",
+      "note": "AM(iv) payload cites a window that is not q's request pair (fake-pair replay rejected)"
+    },
+    {
+      "name": "F3d2_symdiff_count_tamper",
+      "base": "EF2-Q6",
+      "expected": "V6b",
+      "actual": "REJECT by V6b",
+      "ok": true,
+      "failed_checks": [
+        "V6b"
+      ],
+      "first_fail_detail": "symdiff_count 3 ≠ replayed |△| = 1",
+      "note": "AM(iv) symdiff_count 3 ≠ replayed |Δ| = 1 on the request window pair"
+    },
+    {
+      "name": "F3e_alien_table",
+      "base": "FIN-Q1",
+      "expected": "V6a",
+      "actual": "REJECT by V6a",
+      "ok": true,
+      "failed_checks": [
+        "V6a",
+        "V6a+"
+      ],
+      "first_fail_detail": "table 'card' outside the certified closure (α objects ∪ inheritance ∪ 发布节点 ∪ 维度 ∪ ρ via)",
+      "note": "reads \"card\" outside the certified closure (α objects ∪ inheritance ∪ dims ∪ ρ via ∪ registered metric tables)"
+    },
+    {
+      "name": "F3f_self_declared_override",
+      "base": "FIN-Q1",
+      "expected": "V0",
+      "actual": "REJECT by V0",
+      "ok": true,
+      "failed_checks": [
+        "V0",
+        "V3",
+        "V6c",
+        "V6a+"
+      ],
+      "first_fail_detail": "role numerator: anchor 'A-FIN-TRANS' ≠ derived 'A-FIN-LOAN'",
+      "note": "numerator re-anchored to A-FIN-TRANS behind a certificate-only declared_override record; q declares no ā"
+    },
+    {
+      "name": "F3g_routing_via_tamper",
+      "base": "FIN-Q1",
+      "expected": "V4",
+      "actual": "REJECT by V4",
+      "ok": true,
+      "failed_checks": [
+        "V4"
+      ],
+      "first_fail_detail": "edge 'fin.rt3' via_table 'trans' ≠ registered 'loan'",
+      "note": "cited hop's via_table contradicts gov_caliber_routing@v1"
+    },
+    {
+      "name": "F3h_metric_swap",
+      "base": "FIN-Q1",
+      "expected": "V0",
+      "actual": "REJECT by V0",
+      "ok": true,
+      "failed_checks": [
+        "V0"
+      ],
+      "first_fail_detail": "certificate metric 'fin.penalty_trans_rate' ≠ alias resolution 'fin.problem_loan_rate' (alias '问题贷款率'@v1)",
+      "note": "certificate pins a metric the registered alias map does not resolve q's alias to (alias-layer substitution)"
+    },
+    {
+      "name": "F4a_finegrain_answer_despite_k",
+      "base": "CA-Q5",
+      "expected": "V5",
+      "actual": "REJECT by V5",
+      "ok": true,
+      "failed_checks": [
+        "V5"
+      ],
+      "first_fail_detail": "k clause fails at the certified grain 'school': min cell 1 < k=10",
+      "note": "school-grain roster ANSWER with the rollup trace stripped: the k clause re-computed from D gives min cell 1 < k=10 at the certified grain"
+    },
+    {
+      "name": "F4b_overcoarsened_rollup",
+      "base": "CODE-Q4",
+      "expected": "V5",
+      "actual": "REJECT by V5",
+      "ok": true,
+      "failed_checks": [
+        "V5"
+      ],
+      "first_fail_detail": "grain minimality violated: finer level 'reputation_band' is already legal (min cell 13 ≥ k=5) yet the certificate coarsened to 'all'",
+      "note": "rollup trace forged past the minimal legal level: reputation_band already has min cell 13 ≥ k=5, coarsening to 'all' violates SelectMin minimality"
+    },
+    {
+      "name": "F4c_forged_suppmin_transcript",
+      "base": "CODE-Q7",
+      "expected": "V6b",
+      "actual": "REJECT by V6b",
+      "ok": true,
+      "failed_checks": [
+        "V6b"
+      ],
+      "first_fail_detail": "DB does not replay: SUPPMIN 999 ≥ threshold '5'",
+      "note": "DB witness transcript replaced by a fabricated big-cell probe: re-execution yields 999 ≥ threshold, the refusal does not replay"
+    },
+    {
+      "name": "F4d_policy_set_cleared",
+      "base": "CA-Q5",
+      "expected": "V5",
+      "actual": "REJECT by V5",
+      "ok": true,
+      "failed_checks": [
+        "V5"
+      ],
+      "first_fail_detail": "effective policy set mismatch: expected ['ca.pi1'], certificate Π=[]",
+      "note": "Π cleared on a governed rollup certificate: independent Π re-derivation expects ['ca.pi1']"
+    },
+    {
+      "name": "F4e_governed_claimed_ungoverned",
+      "base": "CODE-Q6",
+      "expected": "V5",
+      "actual": "REJECT by V5",
+      "ok": true,
+      "failed_checks": [
+        "V5"
+      ],
+      "first_fail_detail": "domain carries 4 disclosure policies@v2 yet the certificate claims ungoverned-disclosure; effective policy set mismatch: expected ['code.pi1'], certificate Π=[]; mask clause: μ* [] does not cover policy 'code.pi1' mask_c",
+      "note": "governed domain laundered as ungoverned: raw protected column surfaced as a plain ANSWER"
+    },
+    {
+      "name": "F4f_db_blocking_set_emptied",
+      "base": "CODE-Q7",
+      "expected": "V6b",
+      "actual": "REJECT by V6b",
+      "ok": true,
+      "failed_checks": [
+        "V6b"
+      ],
+      "first_fail_detail": "DB witness cites no blocking policy",
+      "note": "DISCLOSURE-BLOCKED witness citing no blocking policy"
+    },
+    {
+      "name": "F4g_db_alien_policy_cited",
+      "base": "TH-Q5",
+      "expected": "V6b",
+      "actual": "REJECT by V6b",
+      "ok": true,
+      "failed_checks": [
+        "V6b"
+      ],
+      "first_fail_detail": "DB blocking policies ['th.pi99'] not registered@v2",
+      "note": "DB witness cites th.pi99, absent from gov_disclosure_policy@v"
+    },
+    {
+      "name": "F4h_mask_closure_omitted",
+      "base": "CODE-Q6",
+      "expected": "V0",
+      "actual": "REJECT by V0",
+      "ok": true,
+      "failed_checks": [
+        "V0",
+        "V5"
+      ],
+      "first_fail_detail": "dec=REWRITE but every coordinate equals the request (no window narrowing, no grain coarsening, no mask closure — mapping requires dec=ANSWER)",
+      "note": "μ* emptied under dec=REWRITE: no narrowing axis remains, the C4 Def 4.10 mapping demands dec=ANSWER (silent-narrowing surface)"
+    },
+    {
+      "name": "F4i_mask_transform_stripped",
+      "base": "CODE-Q6",
+      "expected": "V5",
+      "actual": "REJECT by V5",
+      "ok": true,
+      "failed_checks": [
+        "V5"
+      ],
+      "first_fail_detail": "mask clause: query surfaces 'Location' without the 'generalize_last_component' masking transform",
+      "note": "μ* still claims generalize_last_component but the emitted query surfaces Location without the masking transform"
+    },
+    {
+      "name": "F4j_mask_strength_downgraded",
+      "base": "TH-Q4",
+      "expected": "V5",
+      "actual": "REJECT by V5",
+      "ok": true,
+      "failed_checks": [
+        "V5"
+      ],
+      "first_fail_detail": "mask clause: μ* ['year_month'] does not cover policy 'th.pi1' mask_class 'year_only'",
+      "note": "v2 registers year_only for Birthday; the certificate presents the v1-strength year_month mask"
+    },
+    {
+      "name": "F5a_oov_class_substitution_honest_leg",
+      "base": "EF2-Q6",
+      "expected": "V6b",
+      "actual": "REJECT by V6b",
+      "ok": true,
+      "failed_checks": [
+        "V6b"
+      ],
+      "first_fail_detail": "refusal class substitution: OOV does not hold on (G_v,D) at the level its coverage disjunct is adjudicated (all role windows intersect their anchor coverage (pair-level: 1/2 legs empty — audit territory, not OOV))",
+      "note": "the vacuum witness is TRUE on its own leg (2013-12-01 is no Player_Attributes marker day) — but the pair is mixed, the match leg meets its hull, and Def 3.14's coverage disjunct is pair-level: the denotation is ⊥_AM(iv), not ⊥_OOV"
+    },
+    {
+      "name": "F5b_oov_class_substitution_covered_leg",
+      "base": "EF2-Q6",
+      "expected": "V6b",
+      "actual": "REJECT by V6b",
+      "ok": true,
+      "failed_checks": [
+        "V6b"
+      ],
+      "first_fail_detail": "refusal class substitution: OOV does not hold on (G_v,D) at the level its coverage disjunct is adjudicated (all role windows intersect their anchor coverage (pair-level: 1/2 legs empty — audit territory, not OOV))",
+      "note": "same substitution witnessed on the covered leg: false at leg level too (the old verifier caught only this half)"
+    },
+    {
+      "name": "F5c_am4_variant_swap_fabricated_refusal",
+      "base": "CARD-Q2",
+      "expected": "V3",
+      "actual": "REJECT by V3",
+      "ok": true,
+      "failed_checks": [
+        "V3",
+        "V6b"
+      ],
+      "first_fail_detail": "certificate adm_check_mode 'symdiff_audit' contradicts the clause-(iv) variant re-derived from G_v: 'window_realization_symdiff' (A_v registers both coverage modes (A-CARD-RUL[hull], A-CARD-SET[hull]))",
+      "note": "a question the compiler ANSWERS is refused instead: β_v's registered pair passes the window-realisation audit, so the forgery grants itself the unwindowed symdiff_audit variant, under which the two marker sets differ — a refusal manufactured out of a replay mode"
+    },
+    {
+      "name": "F5d_am4_variant_swap_on_genuine_refusal",
+      "base": "EF2-Q6",
+      "expected": "V3",
+      "actual": "REJECT by V3",
+      "ok": true,
+      "failed_checks": [
+        "V3",
+        "V6b"
+      ],
+      "first_fail_detail": "certificate adm_check_mode 'symdiff_audit' contradicts the clause-(iv) variant re-derived from G_v: 'window_realization_symdiff' (A_v registers both coverage modes (A-EF2-MATCH[hull], A-EF2-PA[strict_member]))",
+      "note": "right verdict, self-chosen reason: the genuine AM(iv) refusal re-declared under a variant β_v does not register for this pair, with an honest payload computed under that variant"
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+ "base_qid": "W1-Q3",
+ "expected_reject_by": "V6a+",
+ "envelope": {
+  "sql": "SELECT (SELECT SUM(t0.\"population\") FROM \"country_history\" t0 WHERE CAST(t0.\"effective_month\" AS VARCHAR) = '2026-03') * 1.0 / NULLIF((SELECT SUM(t0.\"population\") FROM \"country_history\" t0 INNER JOIN \"country\" t1 ON t0.\"code\" = t1.\"Code\" WHERE t1.\"Continent\" = 'Asia' AND CAST(t0.\"effective_month\" AS VARCHAR) = '2026-03'), 0)",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "W1-Q3",
+    "domain": "world_1",
+    "metric": "w1.population_share",
+    "metric_kind": "ratio",
+    "as_of": "2026-03-10"
+   },
+   "graph_pin": {
+    "domain": "world_1",
+    "graph_version": "v1",
+    "commit_id": "2026-01-15",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "numerator",
+     "anchor_id": "A-W1-HIST",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "month_token_yyyy_mm",
+     "window": {
+      "kind": "month",
+      "lo": "2026-03-01",
+      "hi_excl": "2026-04-01"
+     }
+    },
+    {
+     "role": "denominator",
+     "anchor_id": "A-W1-HIST",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "month_token_yyyy_mm",
+     "window": {
+      "kind": "month",
+      "lo": "2026-03-01",
+      "hi_excl": "2026-04-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-W1-PS-N|B-W1-PS-D",
+    "rule": "same_valid_time_window",
+    "numerator_anchor": "A-W1-HIST",
+    "denominator_anchor": "A-W1-HIST",
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [
+    {
+     "caliber_key": "w1.rt2",
+     "metric": "w1.population_share",
+     "leg": "num",
+     "hop_seq": "0",
+     "src_node": "w1.country_history",
+     "dst_node": "w1.country",
+     "via_table": "country",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "code",
+       "Code"
+      ]
+     ]
+    },
+    {
+     "caliber_key": "w1.rt3",
+     "metric": "w1.population_share",
+     "leg": "den",
+     "hop_seq": "0",
+     "src_node": "w1.country_history",
+     "dst_node": "w1.country_history",
+     "via_table": "country_history",
+     "dst_caliber": "all",
+     "join_keys": []
+    }
+   ],
+   "disclosure": {
+    "decision": "ANSWER",
+    "policy_ids": [],
+    "policy_table_present": false,
+    "ungoverned_disclosure": true,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-W1-HIST",
+     "coverage_mode": "hull",
+     "sql": "SELECT DISTINCT CAST(t.\"effective_month\" AS VARCHAR) FROM \"country_history\" t WHERE t.\"effective_month\" IS NOT NULL",
+     "observed": 84
+    },
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-W1-HIST",
+     "coverage_mode": "hull",
+     "sql": "SELECT DISTINCT CAST(t.\"effective_month\" AS VARCHAR) FROM \"country_history\" t WHERE t.\"effective_month\" IS NOT NULL",
+     "observed": 84
+    },
+    {
+     "kind": "DEN_POP",
+     "role": "denominator",
+     "period": 0,
+     "sql": "SELECT (SELECT SUM(t0.\"population\") FROM \"country_history\" t0 WHERE CAST(t0.\"effective_month\" AS VARCHAR) = '2026-03')",
+     "observed": 6671720057.0
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6a+",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (2 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v1' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "2 α entr(ies) exist@v1 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "rule replay passes (clause (i) ok; clause (ii) ok; clause (iii) ok; clause (iv) trivial_true)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (2 edge(s)) replayed against gov_caliber_routing@v1"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "ungoverned-disclosure domain: Π=∅, dec=ANSWER, annotation present"
+   },
+   {
+    "check": "V6a",
+    "status": "PASS",
+    "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   },
+   {
+    "check": "V6a+",
+    "status": "FAIL",
+    "detail": "V6P_PREDICATE: registered predicate(s) missing from the leg: [{\"col\": \"Continent\", \"node\": \"w1.country\", \"op\": \"=\", \"value\": \"Asia\"}]"
+   },
+   {
+    "check": "V6a+x",
+    "status": "PASS",
+    "detail": "executed answer shape 1 row(s) x 1 column(s) matches the certified 'ratio' arity"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "beta_v(binding row prescribes legs)"
+  }
+ }
+}

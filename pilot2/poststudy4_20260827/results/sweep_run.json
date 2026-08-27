@@ -1,0 +1,627 @@
+{
+ "mutation": "append top-level ' WHERE 1=0' to the answer SQL",
+ "n_total_bases": 60,
+ "n_answer_bearing": 45,
+ "n_answer_bearing_reject": 45,
+ "n_refuse_no_answer_sql": 15,
+ "answer_bearing_all_reject": true,
+ "refuse_no_answer_sql_qids": [
+  "CA-Q6",
+  "CARD-Q6",
+  "CARD-Q7",
+  "CODE-Q7",
+  "DEB-Q6",
+  "DEB-Q7",
+  "EF2-Q5",
+  "EF2-Q6",
+  "F1-Q7",
+  "F1-Q8",
+  "FIN-Q7",
+  "FIN-Q8",
+  "TH-Q5",
+  "TH-Q6",
+  "W1-Q5"
+ ],
+ "rows": [
+  {
+   "qid": "CA-Q1",
+   "decision": "ANSWER",
+   "metric_kind": "ratio",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CA-Q2",
+   "decision": "ANSWER",
+   "metric_kind": "ratio",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CA-Q3",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CA-Q4",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CA-Q5",
+   "decision": "REWRITE",
+   "metric_kind": "report",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CA-Q6",
+   "decision": "REFUSE",
+   "metric_kind": "ratio",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "CARD-Q1",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CARD-Q2",
+   "decision": "ANSWER",
+   "metric_kind": "ratio",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CARD-Q3",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CARD-Q4",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CARD-Q5",
+   "decision": "REWRITE",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CARD-Q6",
+   "decision": "REFUSE",
+   "metric_kind": "ratio",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "CARD-Q7",
+   "decision": "REFUSE",
+   "metric_kind": "ratio",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "CODE-Q1",
+   "decision": "ANSWER",
+   "metric_kind": "ratio",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CODE-Q2",
+   "decision": "ANSWER",
+   "metric_kind": "ratio",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CODE-Q3",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CODE-Q4",
+   "decision": "REWRITE",
+   "metric_kind": "report",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CODE-Q5",
+   "decision": "REWRITE",
+   "metric_kind": "report",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CODE-Q6",
+   "decision": "REWRITE",
+   "metric_kind": "attribute",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "CODE-Q7",
+   "decision": "REFUSE",
+   "metric_kind": "roster",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "DEB-Q1",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "DEB-Q2",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "DEB-Q3",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "DEB-Q4",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "DEB-Q5",
+   "decision": "REWRITE",
+   "metric_kind": "report",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "DEB-Q6",
+   "decision": "REFUSE",
+   "metric_kind": "atomic",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "DEB-Q7",
+   "decision": "REFUSE",
+   "metric_kind": "atomic",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "EF2-Q1",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "EF2-Q2",
+   "decision": "ANSWER",
+   "metric_kind": "ratio",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "EF2-Q3",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "EF2-Q4",
+   "decision": "REWRITE",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "EF2-Q5",
+   "decision": "REFUSE",
+   "metric_kind": "atomic",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "EF2-Q6",
+   "decision": "REFUSE",
+   "metric_kind": "ratio",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "F1-Q1",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "F1-Q2",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "F1-Q3",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "F1-Q4",
+   "decision": "ANSWER",
+   "metric_kind": "delta",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "F1-Q5",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "F1-Q6",
+   "decision": "REWRITE",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "F1-Q7",
+   "decision": "REFUSE",
+   "metric_kind": "atomic",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "F1-Q8",
+   "decision": "REFUSE",
+   "metric_kind": "ratio",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "FIN-Q1",
+   "decision": "ANSWER",
+   "metric_kind": "ratio",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "FIN-Q2",
+   "decision": "ANSWER",
+   "metric_kind": "ratio",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "FIN-Q3",
+   "decision": "ANSWER",
+   "metric_kind": "ratio",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "FIN-Q4",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "FIN-Q5",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "FIN-Q6",
+   "decision": "REWRITE",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "FIN-Q7",
+   "decision": "REFUSE",
+   "metric_kind": "atomic",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "FIN-Q8",
+   "decision": "REFUSE",
+   "metric_kind": "ratio",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "TH-Q1",
+   "decision": "ANSWER",
+   "metric_kind": "ratio",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "TH-Q2",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "TH-Q3",
+   "decision": "REWRITE",
+   "metric_kind": "report",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "TH-Q4",
+   "decision": "REWRITE",
+   "metric_kind": "attribute",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "TH-Q5",
+   "decision": "REFUSE",
+   "metric_kind": "roster",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "TH-Q6",
+   "decision": "REFUSE",
+   "metric_kind": "roster",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  },
+  {
+   "qid": "W1-Q1",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "W1-Q2",
+   "decision": "ANSWER",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "W1-Q3",
+   "decision": "ANSWER",
+   "metric_kind": "ratio",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "W1-Q4",
+   "decision": "REWRITE",
+   "metric_kind": "atomic",
+   "has_answer_sql": true,
+   "mutation": "append ' WHERE 1=0'",
+   "verdict": "REJECT",
+   "rejected_by": "V6a+",
+   "status": "REJECT"
+  },
+  {
+   "qid": "W1-Q5",
+   "decision": "REFUSE",
+   "metric_kind": "ratio",
+   "has_answer_sql": false,
+   "mutation": null,
+   "verdict": null,
+   "rejected_by": null,
+   "status": "no_answer_sql"
+  }
+ ]
+}

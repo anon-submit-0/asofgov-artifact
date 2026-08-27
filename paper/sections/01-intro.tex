@@ -102,15 +102,14 @@ issues a typed refusal witnessed by a denominator probe returning zero,
 while most evaluated LLM arms answer through.}
 \caption{\textbf{The as-of gap.} Under the graph version in effect at the
 declared instant ($v_1$ of \texttt{card\_games}; $v_2$ commits 2017-09-28),
-\texttt{ruling\_\allowbreak intensity} anchors its numerator on
+\texttt{ruling\_\allowbreak intensity} binds its numerator on
 \texttt{rulings.\allowbreak date} and its denominator on
-\texttt{sets.\allowbreak releaseDate}, bound by
+\texttt{sets.\allowbreak releaseDate} under
 \texttt{same\_\allowbreak valid\_\allowbreak time\_\allowbreak window}. At
-$T_2=$~2017-02 the numerator leg holds 2{,}161 rulings, the same-window
-denominator is empty, and the anchor's coverage hull still contains
-February: the request lies
-\emph{inside} validity and $\sem{q}_{\mathcal{G},T}=\bot_{\mathsf{MC}}$,
-witnessed by a denominator probe re-evaluating to $0$.}
+$T_2$ the numerator holds 2{,}161 rulings but the same-window denominator is
+empty \emph{inside} validity, so the governed answer is $\bot_{\mathsf{MC}}$,
+witnessed by a probe re-evaluating to $0$ (panels and fractions on the
+figure).}
 \label{fig:running}
 \end{figure}
 
@@ -165,9 +164,9 @@ on all 60 (33 answers, 12 rewrites, 15 refusals with reason class), a
 versions per database, four value-flipping pairs,
 an off-diagonal pin). The verifier accepts $60/60$ certificates,
 re-deriving 50 of 60 window coordinates itself (run strictly it fails
-closed on the other 10), and rejects $70/70$ forgeries, 36 of them
+closed on the other 10), and rejects $78/78$ forgeries, 44 of them
 post-registered after
-an external review (\S\ref{sec:eval-cert}).
+external review (\S\ref{sec:eval-cert}).
 Verifying a decision costs a median
 $17.7\times$ the answering query in time and $10.2\times$ in bytes
 (\S\ref{sec:eval-cost}). The first cross-check of the two implementations rejected 25 of 51

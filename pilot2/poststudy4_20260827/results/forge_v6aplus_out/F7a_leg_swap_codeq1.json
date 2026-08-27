@@ -1,0 +1,200 @@
+{
+ "base_qid": "CODE-Q1",
+ "expected_reject_by": "V6a+",
+ "envelope": {
+  "sql": "SELECT (SELECT COUNT(*) FROM \"posts\" t0 WHERE t0.\"PostTypeId\" = 1 AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) >= '2010-12-01' AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) < '2011-01-01') * 1.0 / NULLIF((SELECT COUNT(*) FROM \"posts\" t0 INNER JOIN \"posts\" t1 ON t0.\"Id\" = t1.\"AcceptedAnswerId\" WHERE t0.\"PostTypeId\" = 2 AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) >= '2010-12-01' AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) < '2011-01-01'), 0)",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "CODE-Q1",
+    "domain": "codebase_community",
+    "metric": "code.accepted_rate",
+    "metric_kind": "ratio",
+    "as_of": "2010-12-15"
+   },
+   "graph_pin": {
+    "domain": "codebase_community",
+    "graph_version": "v1",
+    "commit_id": "2010-09-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "numerator",
+     "anchor_id": "A-CODE-POST",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "month",
+      "lo": "2010-12-01",
+      "hi_excl": "2011-01-01"
+     }
+    },
+    {
+     "role": "denominator",
+     "anchor_id": "A-CODE-POST",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "month",
+      "lo": "2010-12-01",
+      "hi_excl": "2011-01-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-CODE-AR-N|B-CODE-AR-D",
+    "rule": "same_valid_time_window",
+    "numerator_anchor": "A-CODE-POST",
+    "denominator_anchor": "A-CODE-POST",
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [
+    {
+     "caliber_key": "code.rt1",
+     "metric": "code.accepted_rate",
+     "leg": "num",
+     "hop_seq": "0",
+     "src_node": "code.posts",
+     "dst_node": "code.posts",
+     "via_table": "posts",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "Id",
+       "AcceptedAnswerId"
+      ]
+     ]
+    },
+    {
+     "caliber_key": "code.rt2",
+     "metric": "code.accepted_rate",
+     "leg": "den",
+     "hop_seq": "0",
+     "src_node": "code.posts",
+     "dst_node": "code.posts",
+     "via_table": "posts",
+     "dst_caliber": "all",
+     "join_keys": []
+    }
+   ],
+   "disclosure": {
+    "decision": "ANSWER",
+    "policy_ids": [],
+    "policy_table_present": true,
+    "ungoverned_disclosure": false,
+    "granularity": "scope×window",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-CODE-POST",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)) FROM \"posts\" t WHERE t.\"CreaionDate\" IS NOT NULL",
+     "observed": [
+      "2009-02-02",
+      "2014-09-14"
+     ]
+    },
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-CODE-POST",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"CreaionDate\" AS VARCHAR),1,10)) FROM \"posts\" t WHERE t.\"CreaionDate\" IS NOT NULL",
+     "observed": [
+      "2009-02-02",
+      "2014-09-14"
+     ]
+    },
+    {
+     "kind": "DEN_POP",
+     "role": "denominator",
+     "period": 0,
+     "sql": "SELECT (SELECT COUNT(*) FROM \"posts\" t0 WHERE t0.\"PostTypeId\" = 1 AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) >= '2010-12-01' AND substr(CAST(t0.\"CreaionDate\" AS VARCHAR),1,10) < '2011-01-01')",
+     "observed": 235.0
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6a+",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (2 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v1' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "2 α entr(ies) exist@v1 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "PASS",
+    "detail": "rule replay passes (clause (i) ok; clause (ii) ok; clause (iii) ok; clause (iv) trivial_true)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (2 edge(s)) replayed against gov_caliber_routing@v1"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "governed disclosure (p2) replayed: Π=[]; k/lattice, mask and time-floor clauses re-established from (G_v, D)"
+   },
+   {
+    "check": "V6a",
+    "status": "PASS",
+    "detail": "SQL touches only certified objects; every time-predicate denotation lies inside its certified window; ratio form legal"
+   },
+   {
+    "check": "V6b",
+    "status": "SKIP",
+    "detail": "V6b applies to refusal certificates only"
+   },
+   {
+    "check": "V6c",
+    "status": "PASS",
+    "detail": "¬OOV ∧ ¬AM ∧ ¬MC replayed on (G_v, D)"
+   },
+   {
+    "check": "V6a+",
+    "status": "FAIL",
+    "detail": "V6P_PREDICATE: predicate of type 'COMPARE_EQUAL' is neither a registered measure predicate, a registered question-scope predicate, nor the anchor time form"
+   },
+   {
+    "check": "V6a+x",
+    "status": "PASS",
+    "detail": "executed answer shape 1 row(s) x 1 column(s) matches the certified 'ratio' arity"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "beta_v(binding row prescribes legs)"
+  }
+ }
+}

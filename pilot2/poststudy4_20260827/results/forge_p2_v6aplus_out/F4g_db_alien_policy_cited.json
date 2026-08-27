@@ -1,0 +1,205 @@
+{
+ "base_qid": "TH-Q5",
+ "expected_reject_by": "V6b",
+ "envelope": {
+  "refusal": "disclosure-blocked",
+  "certificate": {
+   "cert_version": "c5.v1",
+   "question": {
+    "qid": "TH-Q5",
+    "domain": "thrombosis_prediction",
+    "metric": "th.patient_roster",
+    "metric_kind": "roster",
+    "as_of": "1997-06-30"
+   },
+   "graph_pin": {
+    "domain": "thrombosis_prediction",
+    "graph_version": "v2",
+    "commit_id": "1998-01-01",
+    "off_diagonal": null
+   },
+   "ctx_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "anchors": [
+    {
+     "role": "atom",
+     "anchor_id": "A-TH-LAB",
+     "registered": true,
+     "coverage_mode": "hull",
+     "granule": "day",
+     "window": {
+      "kind": "year",
+      "lo": "1997-01-01",
+      "hi_excl": "1998-01-01"
+     }
+    }
+   ],
+   "binding": {
+    "binding_id": "B-TH-PRO",
+    "rule": "same_valid_time_window",
+    "adm_check_mode": "trivial_true"
+   },
+   "routing": [
+    {
+     "caliber_key": "th.rt4",
+     "metric": "th.patient_roster",
+     "leg": "entity",
+     "hop_seq": "0",
+     "src_node": "th.laboratory",
+     "dst_node": "th.patient",
+     "via_table": "Patient",
+     "dst_caliber": "scoped",
+     "join_keys": [
+      [
+       "ID",
+       "ID"
+      ]
+     ]
+    }
+   ],
+   "disclosure": {
+    "decision": "REFUSE",
+    "policy_ids": [
+     "th.pi1",
+     "th.pi3",
+     "th.pi2"
+    ],
+    "policy_table_present": true,
+    "ungoverned_disclosure": false,
+    "granularity": "patient",
+    "mask_closure": []
+   },
+   "probes": [
+    {
+     "kind": "COVERAGE",
+     "anchor_id": "A-TH-LAB",
+     "coverage_mode": "hull",
+     "sql": "SELECT MIN(substr(CAST(t.\"Date\" AS VARCHAR),1,10)), MAX(substr(CAST(t.\"Date\" AS VARCHAR),1,10)) FROM \"Laboratory\" t WHERE t.\"Date\" IS NOT NULL",
+     "observed": [
+      "1981-01-27",
+      "1999-03-04"
+     ]
+    },
+    {
+     "kind": "SUPPMIN",
+     "policy_id": "th.pi2",
+     "level": "patient",
+     "sql": "SELECT MIN(n) FROM (SELECT t1.\"ID\" AS cell, COUNT(DISTINCT t1.\"ID\") AS n FROM \"Laboratory\" t0 INNER JOIN \"Patient\" t1 ON t0.\"ID\" = t1.\"ID\" WHERE t0.\"GOT\" >= 60 AND substr(CAST(t0.\"Date\" AS VARCHAR),1,10) >= '1997-01-01' AND substr(CAST(t0.\"Date\" AS VARCHAR),1,10) < '1998-01-01' GROUP BY 1 ORDER BY 1)",
+     "observed": 1,
+     "threshold": "10"
+    }
+   ],
+   "det_order": {
+    "keys": [
+     "version_desc",
+     "binding_registration(binding_id)",
+     "ell_gamma"
+    ],
+    "ell_gamma_id": "pointwise-g0(pilot degenerate lattice)"
+   },
+   "refusal": {
+    "reason": "disclosure-blocked",
+    "witness": {
+     "type": "empty-legal-rewrite",
+     "blocked_slices": [
+      "(v2,th.patient_roster)"
+     ],
+     "blocking_policy_ids": [
+      "th.pi1",
+      "th.pi3",
+      "th.pi2",
+      "th.pi99"
+     ],
+     "probe_transcript": [
+      {
+       "kind": "SUPPMIN",
+       "policy_id": "th.pi2",
+       "level": "patient",
+       "sql": "SELECT MIN(n) FROM (SELECT t1.\"ID\" AS cell, COUNT(DISTINCT t1.\"ID\") AS n FROM \"Laboratory\" t0 INNER JOIN \"Patient\" t1 ON t0.\"ID\" = t1.\"ID\" WHERE t0.\"GOT\" >= 60 AND substr(CAST(t0.\"Date\" AS VARCHAR),1,10) >= '1997-01-01' AND substr(CAST(t0.\"Date\" AS VARCHAR),1,10) < '1998-01-01' GROUP BY 1 ORDER BY 1)",
+       "observed": 1,
+       "threshold": "10"
+      }
+     ],
+     "u_min_empty": true,
+     "assertion": "名录/原值行呈现刚性（S-M2 ⊤_M）：掩码列原值 + 实体级行呈现不可合法化，掩码/小胞条款联合封顶 U_min=∅"
+    },
+    "ct": [
+     {
+      "slice": "(v2,B-TH-PRO)",
+      "reason": "disclosure-blocked"
+     }
+    ],
+    "slices_pass": [],
+    "composition": "slice-major(≺_det slice 序取首失败 slice; slice 内守卫序 OOV→AM→MC)"
+   }
+  }
+ },
+ "report": {
+  "verdict": "REJECT",
+  "rejected_by": "V6b",
+  "checks": [
+   {
+    "check": "V0",
+    "status": "PASS",
+    "detail": "α matches the independently re-derived α_{q,v} (1 role(s), 1 period(s); windows independently derived — domain-convention:p2-window-gran; agrees with the presented ω⃗)"
+   },
+   {
+    "check": "V1",
+    "status": "PASS",
+    "detail": "ν resolves uniquely; diagonal read ν.v = ver(T) = 'v2' (timestamps commit map)"
+   },
+   {
+    "check": "V2",
+    "status": "PASS",
+    "detail": "1 α entr(ies) exist@v2 with well-typed windows"
+   },
+   {
+    "check": "V3",
+    "status": "SKIP",
+    "detail": "V3 exempt for REFUSE(disclosure-blocked); guard negation replays in V6b(0)"
+   },
+   {
+    "check": "V4",
+    "status": "PASS",
+    "detail": "ρ (1 edge(s)) replayed against gov_caliber_routing@v2"
+   },
+   {
+    "check": "V5",
+    "status": "PASS",
+    "detail": "governed disclosure (p2): Π=['th.pi1', 'th.pi2', 'th.pi3'] replayed; REFUSE clause replay delegated to the witness (V6b)"
+   },
+   {
+    "check": "V6a",
+    "status": "SKIP",
+    "detail": "V6a applies to answer certificates only"
+   },
+   {
+    "check": "V6b",
+    "status": "FAIL",
+    "detail": "DB blocking policies ['th.pi99'] not registered@v2"
+   },
+   {
+    "check": "V6c",
+    "status": "SKIP",
+    "detail": "V6c applies to answer certificates only"
+   },
+   {
+    "check": "V6a+",
+    "status": "SKIP",
+    "detail": "V6a+ applies to answer certificates only"
+   },
+   {
+    "check": "V6a+x",
+    "status": "SKIP",
+    "detail": "execution-shape check applies to answer certificates only (REFUSE carries no answer SQL)"
+   }
+  ],
+  "gv_notes": [],
+  "independence": {
+   "declared_windows_allowed": true,
+   "alpha_status": "ok",
+   "window_source": "derived",
+   "window_source_detail": "domain-convention:p2-window-gran; agrees with the presented ω⃗",
+   "arity_source": "registered-binding(atom leg)"
+  }
+ }
+}

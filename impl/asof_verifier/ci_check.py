@@ -205,6 +205,46 @@ def main():
             failures.append("A5: chk.py does not import v6aplus — the V6a+ "
                             "gate is not wired into the verdict")
 
+    # A5b (V6a+x execution-shape check, PREREG_poststudy4_20260827 fix 2): the
+    #     appended execution-shape check must exist in v6aplus.py and be wired
+    #     into chk.py's canonical check order so it cannot be silently removed.
+    v6ap_src = ""
+    if os.path.isfile(v6ap):
+        with open(v6ap, encoding="utf-8", errors="replace") as fh:
+            v6ap_src = fh.read()
+    chk_src = ""
+    chk_file = os.path.join(VERIFIER_DIR, "chk.py")
+    if os.path.isfile(chk_file):
+        with open(chk_file, encoding="utf-8", errors="replace") as fh:
+            chk_src = fh.read()
+    if "def check_exec_shape" not in v6ap_src:
+        failures.append("A5b: v6aplus.py defines no check_exec_shape — the "
+                        "V6a+x execution-shape check (V6P_ARITY) is missing")
+    if '"V6a+x"' not in chk_src or "check_V6a_plus_x" not in chk_src:
+        failures.append("A5b: chk.py does not wire V6a+x into CHECK_ORDER — "
+                        "the execution-shape gate is not in the verdict")
+
+    # A6 (F11 presence, PREREG_poststudy4_20260827 fix 3): the outer-row-filter
+    #     forgery family must be present in forge_v6aplus.py (>=6 forgeries over
+    #     >=4 distinct bases) so the round-2 exploit class stays under battery.
+    forge_file = os.path.join(VERIFIER_DIR, "forge_v6aplus.py")
+    if not os.path.isfile(forge_file):
+        failures.append("A6: forge_v6aplus.py (V6a+ forgery battery) missing")
+    else:
+        import re as _re
+        with open(forge_file, encoding="utf-8", errors="replace") as fh:
+            fsrc = fh.read()
+        f11 = _re.findall(r'\(\s*"(F11[A-Za-z0-9_]*)"\s*,\s*"([A-Z0-9-]+)"',
+                          fsrc)
+        names = sorted({n for n, _b in f11})
+        bases = sorted({b for _n, b in f11})
+        if len(names) < 6:
+            failures.append("A6: forge_v6aplus.py declares %d F11 forgeries; "
+                            "the prereg requires >=6" % len(names))
+        if len(bases) < 4:
+            failures.append("A6: F11 spans %d distinct bases; the prereg "
+                            "requires >=4" % len(bases))
+
     # A3: project-internal import roots of the two sides must be disjoint;
     #     additionally neither side may import a module whose NAME belongs to
     #     the other side (shared-module exclusion).

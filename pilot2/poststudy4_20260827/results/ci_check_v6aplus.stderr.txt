@@ -1,0 +1,2 @@
+
+CI-CHECK: PASS — import graphs disjoint (verifier ⊨ stdlib+duckdb only; zero compiler imports)
