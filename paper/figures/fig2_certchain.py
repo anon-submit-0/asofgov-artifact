@@ -114,6 +114,9 @@ W = S.COL_W / PT                       # exactly \columnwidth, in points
 PAD = 1.5
 UW = W - 2 * PAD                        # usable width
 FLOOR, TITLE = 7.5, 8.0
+VW = UW * 0.499                        # verifier box width (was 0.48): widened
+                                       # +19pt so the SAME words wrap to 3 lines,
+                                       # not 4; the width comes from rww slack.
 INKC, GREY = S.INK, S.GREY
 
 KLASS = {                              # guard-chip colour + hatch (figA semantics)
@@ -127,8 +130,8 @@ y_ar1 = 39.0                           # arrows into compile
 y_l2a, y_l2b = 39.0, 65.0             # lane 2 compile box
 y_chip_a, y_chip_b = 70.0, 83.0       # lane 3 guard-chip row
 y_exit0 = 88.0                         # lane 3 exit lines start
-EXIT_H = 8.0
-y_certa, y_certb = 121.0, 148.0       # lane 4 certificate
+EXIT_H = 7.0                           # was 8.0: reclaim leading to lift cert +4
+y_certa, y_certb = 117.0, 144.0       # lane 4 certificate (was 121/148: up 4pt)
 y_bound = 152.0                        # trust boundary
 y_l5a, y_l5b = 154.0, 184.0          # lane 5 verifier box
 y_cost_a, y_cost_b = 185.5, 194.5     # cost chip
@@ -260,26 +263,35 @@ txt(cx0 + cw_doc / 2, y_certa + 16.0, r"anchor assignment · version pin $\nu$ �
 txt(cx0 + cw_doc / 2, y_certa + 22.5, "disclosure decision · witnesses · probe records",
     fs=FLOOR, ha="center", color="#333333", zorder=5)
 
-# the one object that crosses the trust boundary
-arrow(W / 2, y_certb, W / 2, y_l5a - 0.5, lw=0.9, ms=5.0)
+# the one object that crosses the trust boundary.  Routed into the CENTRE of the
+# verifier box (left of the right-aligned boundary label, whose left edge is
+# ~x71) so the crossing arrow stays fully visible AND the label is never struck
+# through -- both defects the review flagged at x=W/2 are removed at once.
+x_cross = PAD + VW / 2
+arrow(x_cross, y_certb, x_cross, y_l5a - 0.5, lw=0.9, ms=5.0)
 
 # ===================================================== the trust boundary =========
 ax.plot([PAD, W - PAD], [y_bound, y_bound], lw=0.7, ls=(0, (3, 2)), color=INKC,
         clip_on=False, zorder=2)
-txt(W - PAD, y_bound - 3.0, "no shared module — CI import assertion (§6)", fs=FLOOR,
-    ha="right", color="#555555", style_="italic")
+# label now centred in the ~8pt clear band (cert bottom 144 .. rule 152); an
+# opaque white bbox masks the dashed rule and the crossing arrow shaft behind
+# the glyphs (rule 152 / verifier 154 fixed; no footprint growth).
+txt(W - PAD, y_bound - 4.0, "no shared module — CI import assertion (§6)", fs=FLOOR,
+    ha="right", color="#555555", style_="italic", zorder=6,
+    bbox=dict(boxstyle="square,pad=0.15", facecolor="white", edgecolor="none"))
 
 # ===================================================== lane 5: the verifier =======
-vw = UW * 0.48
-rbox(PAD, y_l5a, y_l5b, vw, "#EAF3EF")
+vw = VW                                # (defined up top so the crossing arrow
+rbox(PAD, y_l5a, y_l5b, vw, "#EAF3EF")  # can be centred on this box)
 v_title = "Chk — verifier (§6)"
-v_body = ["re-executes probes vs",
-          "(store, certificate);",
-          f"re-derives {n_derived}/60 windows,",
-          f"fails closed on {n_failclosed}"]
+# 3 lines (was 4) at 7.0pt pitch (was 5.3) so descenders/caps never touch; the
+# frozen numbers 50/60 and 10 are verbatim.
+v_body = [f"re-executes probes vs (store,",
+          f"certificate); re-derives {n_derived}/60",
+          f"windows, fails closed on {n_failclosed}"]
 txt(PAD + 5, y_l5a + 5.5, v_title, fs=TITLE, ha="left", weight="bold")
 for j, ln in enumerate(v_body):
-    txt(PAD + 5, y_l5a + 11.5 + j * 5.3, ln, fs=FLOOR, ha="left", color="#2E4A40")
+    txt(PAD + 5, y_l5a + 12.5 + j * 7.0, ln, fs=FLOOR, ha="left", color="#2E4A40")
 
 rxb = PAD + vw + 6.0
 rww = W - PAD - rxb

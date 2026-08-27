@@ -171,10 +171,15 @@ ax_a.legend([Patch(facecolor=S.INK, edgecolor=S.INK),
 
 # the one callout: Feb-2017 has no release (the T2 empty denominator).  Kept
 # left of the tall Feb bar; arrow ends at the empty denominator slot's baseline.
+# It sits in the bar-free upper third; an opaque white bbox turns it into a
+# leadered callout so the T1 band tint reads as *behind* the text (the text-over-
+# tint collision the review flagged at x=1.52 on the T1 band left edge 1.53).
 ax_a.annotate("no release Feb '17;\nneighbours 01-21, 03-17",
               (4.56, YMAX * 0.02),
               xytext=(1.52, YMAX * 0.88), fontsize=FLOOR, color=S.INK,
               va="center", ha="left", linespacing=1.05, zorder=6,
+              bbox=dict(boxstyle="round,pad=0.25", facecolor="white",
+                        edgecolor="none", alpha=0.92),
               arrowprops=dict(arrowstyle="->", lw=0.6, color=S.INK,
                               connectionstyle="arc3,rad=-0.25"))
 
@@ -183,7 +188,16 @@ ax_b.set_xlim(0, 1)
 ax_b.set_ylim(0, 1)
 ax_b.axis("off")
 XL, XA, XB = 0.010, 0.560, 0.855           # label col, T1 col, T2 col
-HDR, R1, WIT, R2 = 0.905, 0.660, 0.395, 0.150
+# REDRAW (2026-08-27, review de-crowding): rows redistributed within the fixed
+# 0..1 axis (no footprint change).  value->fraction offset raised 0.115 -> 0.135
+# so each bold value clears its fraction; the header rule is separated from the
+# green box top (was coincident at 0.820); R2 lifted so the bottom fractions
+# clear the axis edge.  Columns: R1 AND R2 values are both centred on XA/XB
+# (R2 no longer shifted -0.048), so value, fraction and header share one column.
+HDR, R1, WIT, R2 = 0.910, 0.655, 0.395, 0.185
+OFF = 0.135                                 # value -> fraction offset (was 0.115)
+RULE_Y = 0.835                              # header rule (was 0.820 = green top)
+GREEN_TOP, GREEN_BOT = 0.820, 0.330
 
 ax_b.text(0.5, 1.06, "“ruling_intensity of card_games, as of T?”",
           ha="center", va="center", fontsize=8.0, color=S.INK, style="italic")
@@ -191,34 +205,36 @@ ax_b.text(XA, HDR, f"T₁ = {T1}", ha="center", va="center",
           fontsize=8.0, color=SPAN_INK)
 ax_b.text(XB, HDR, f"T₂ = {T2}", ha="center", va="center",
           fontsize=8.0, color=SPAN_INK)
-ax_b.plot([XL, 0.990], [HDR - 0.085] * 2, lw=0.6, color=S.INK)
+ax_b.plot([XL, 0.990], [RULE_Y] * 2, lw=0.6, color=S.INK)
 
 # row 1 -- the as-of correct answers (GREEN: the semantics this paper defines)
-ax_b.add_patch(Rectangle((XL, WIT - 0.075), 0.990 - XL, R1 - WIT + 0.235,
+ax_b.add_patch(Rectangle((XL, GREEN_BOT), 0.990 - XL, GREEN_TOP - GREEN_BOT,
                          facecolor="#E6F4EF", edgecolor="none", zorder=0))
 ax_b.text(XL + 0.006, R1, "correct under\nas-of semantics", ha="left", va="center",
           fontsize=FLOOR, color=S.GREEN, linespacing=1.02)
 ax_b.text(XA, R1, f"{100 * t1_rate:.2f}%", ha="center", va="center",
           fontsize=9.5, color=S.GREEN, fontweight="bold")
-ax_b.text(XA, R1 - 0.115, f"{t1_num}/{t1_den}", ha="center", va="center",
+ax_b.text(XA, R1 - OFF, f"{t1_num}/{t1_den}", ha="center", va="center",
           fontsize=FLOOR, color="#3C6E5E")
 ax_b.text(XB, R1, "REFUSE", ha="center", va="center",
           fontsize=9.5, color=S.GREEN, fontweight="bold")
-ax_b.text(XB, R1 - 0.115, "missing-caliber", ha="center", va="center",
+ax_b.text(XB, R1 - OFF, "missing-caliber", ha="center", va="center",
           fontsize=FLOOR, color="#3C6E5E")
 ax_b.text(0.5, WIT, f"witness ({t2_num:,}, {t2_den}): same-window denominator empty",
           ha="center", va="center", fontsize=FLOOR, color="#3C6E5E")
 
-# row 2 -- what a governance-blind system returns (VERMILION: the failure mode)
+# row 2 -- what a governance-blind system returns (VERMILION: the failure mode).
+# value centred on the column (aligned with R1's value and the fraction below);
+# the ✗ marker sits at a fixed offset to the right of every column.
 ax_b.text(XL + 0.006, R2, "governance-blind\n(all-history)", ha="left", va="center",
           fontsize=FLOOR, color=S.VERMILION, linespacing=1.02)
 for xc, r, frac in ((XA, naive_t1, f"{t1_num}/{ALLTIME_DEN:,}"),
                     (XB, naive_t2, f"{t2_num:,}/{ALLTIME_DEN:,}")):
-    ax_b.text(xc - 0.048, R2, f"{100 * r:.2f}%", ha="center", va="center",
+    ax_b.text(xc, R2, f"{100 * r:.2f}%", ha="center", va="center",
               fontsize=9.5, color=S.VERMILION, fontweight="bold")
-    ax_b.text(xc + 0.092, R2, "✗", ha="center", va="center",
+    ax_b.text(xc + 0.105, R2, "✗", ha="center", va="center",
               fontsize=9.5, color=S.VERMILION)
-    ax_b.text(xc, R2 - 0.115, frac, ha="center", va="center",
+    ax_b.text(xc, R2 - OFF, frac, ha="center", va="center",
               fontsize=FLOOR, color=S.VERMILION)
 
 out = os.path.join(HERE, "fig1_asof_gap.pdf")
